@@ -14,10 +14,13 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.ufosdk.b.d;
 import com.baidu.ufosdk.b.e;
@@ -32,41 +35,47 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static void a(int i2, int i3, Handler handler) {
-        c.d("postUrl is https://ufosdk.baidu.com/?m=Index&a=getProductType");
-        c.d("getTitleAndHint (*^o^*) success!! product_type = " + i2);
-        c.d("getTitleAndHint (*^o^*) success!! appid = " + UfoSDK.appid);
-        c.d("getTitleAndHint (*^o^*) success!! extend_feedback_channel = " + i3);
-        HashMap hashMap = new HashMap();
-        hashMap.put("appid", UfoSDK.appid);
-        hashMap.put("sdkvn", "2.9.10");
-        if (i2 != 0) {
-            hashMap.put("product_type", Integer.valueOf(i2));
-        }
-        if (i3 != -1) {
-            hashMap.put("extend_feedback_channel", Integer.valueOf(i3));
-        }
-        String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
-        try {
-            String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=getProductType", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
-            if (TextUtils.isEmpty(a3)) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65536, null, i2, i3, handler) == null) {
+            c.d("postUrl is https://ufosdk.baidu.com/?m=Index&a=getProductType");
+            c.d("getTitleAndHint (*^o^*) success!! product_type = " + i2);
+            c.d("getTitleAndHint (*^o^*) success!! appid = " + UfoSDK.appid);
+            c.d("getTitleAndHint (*^o^*) success!! extend_feedback_channel = " + i3);
+            HashMap hashMap = new HashMap();
+            hashMap.put("appid", UfoSDK.appid);
+            hashMap.put("sdkvn", "2.9.10");
+            if (i2 != 0) {
+                hashMap.put("product_type", Integer.valueOf(i2));
             }
-            JSONObject jSONObject = new JSONObject(k.b(a3));
-            c.c("response is " + jSONObject.toString());
-            if (((Integer) jSONObject.get("errno")).intValue() == 0) {
-                c.d("getTitleAndHint   (*^o^*) success!! \n" + jSONObject.toString());
-                JSONArray jSONArray = (JSONArray) jSONObject.get("data");
-                JSONObject jSONObject2 = jSONArray.length() == 1 ? (JSONObject) jSONArray.get(0) : null;
-                if (jSONObject2 == null || jSONObject2.length() <= 0) {
+            if (i3 != -1) {
+                hashMap.put("extend_feedback_channel", Integer.valueOf(i3));
+            }
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
+            try {
+                String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=getProductType", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+                if (TextUtils.isEmpty(a3)) {
                     return;
                 }
-                handler.obtainMessage(18, jSONObject2).sendToTarget();
+                JSONObject jSONObject = new JSONObject(k.b(a3));
+                c.c("response is " + jSONObject.toString());
+                if (((Integer) jSONObject.get("errno")).intValue() == 0) {
+                    c.d("getTitleAndHint   (*^o^*) success!! \n" + jSONObject.toString());
+                    JSONArray jSONArray = (JSONArray) jSONObject.get("data");
+                    JSONObject jSONObject2 = jSONArray.length() == 1 ? (JSONObject) jSONArray.get(0) : null;
+                    if (jSONObject2 == null || jSONObject2.length() <= 0) {
+                        return;
+                    }
+                    handler.obtainMessage(18, jSONObject2).sendToTarget();
+                }
+            } catch (Exception e2) {
+                c.a("sendRecord fail.", e2);
             }
-        } catch (Exception e2) {
-            c.a("sendRecord fail.", e2);
         }
     }
 
@@ -74,195 +83,209 @@ public final class a {
         SharedPreferences.Editor edit;
         String str;
         String str2;
-        String b2 = d.b(context);
-        boolean contains = b2.contains(RomUtils.UNKNOWN);
-        boolean contains2 = b2.contains("NONE");
-        if (contains || contains2) {
-            SharedPreferences.Editor edit2 = context.getSharedPreferences("UfoSharePreference", 0).edit();
-            String b3 = i.b(System.currentTimeMillis());
-            UfoSDK.startStr = b3 + "-enable";
-            edit2.putString("lastStart", b3 + "-enable");
-            return;
-        }
-        com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(context);
-        String format = String.format("https://ufosdk.baidu.com/?m=hide&a=behavior&editFeedbackView=%d&editFeedbackWord=%d&editFeedbackPicture=%d&myFeedback=%d&appid=%s&editFeedbackViewUV=%d&editFeedbackViewFromRobotUV=%d&editFeedbackViewFromFaqUV=%d&robotUv=%d", Integer.valueOf(dVar.a()), Integer.valueOf(dVar.b()), Integer.valueOf(dVar.c()), Integer.valueOf(dVar.d()), UfoSDK.appid, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5));
-        StringBuilder sb = new StringBuilder("--FeedbackChatSender:1517--getURL is : ");
-        sb.append(format);
-        c.c(sb.toString());
-        try {
-            if (b.a(format)) {
-                edit = context.getSharedPreferences("UfoSharePreference", 0).edit();
-                edit.putInt("editFeedbackViewUV", 0);
-                edit.putInt("editFeedbackViewFromRobotUV", 0);
-                edit.putInt("editFeedbackViewFromFaqUV", 0);
-                edit.putInt("robotUv", 0);
-                String b4 = i.b(System.currentTimeMillis());
-                if (z) {
-                    UfoSDK.startStr = b4 + "-enable";
-                    str2 = b4 + "-enable";
-                } else {
-                    UfoSDK.startStr = b4 + "-disable";
-                    str2 = b4 + "-disable";
-                }
-                edit.putString("lastStart", str2);
-            } else {
-                edit = context.getSharedPreferences("UfoSharePreference", 0).edit();
-                edit.putInt("editFeedbackViewUV", 0);
-                edit.putInt("editFeedbackViewFromRobotUV", 0);
-                edit.putInt("editFeedbackViewFromFaqUV", 0);
-                edit.putInt("robotUv", 0);
-                String b5 = i.b(System.currentTimeMillis());
-                if (z) {
-                    UfoSDK.startStr = b5 + "-enable";
-                    str = b5 + "-enable";
-                } else {
-                    UfoSDK.startStr = b5 + "-disable";
-                    str = b5 + "-disable";
-                }
-                edit.putString("lastStart", str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)}) == null) {
+            String b2 = d.b(context);
+            boolean contains = b2.contains(RomUtils.UNKNOWN);
+            boolean contains2 = b2.contains("NONE");
+            if (contains || contains2) {
+                SharedPreferences.Editor edit2 = context.getSharedPreferences("UfoSharePreference", 0).edit();
+                String b3 = i.b(System.currentTimeMillis());
+                UfoSDK.startStr = b3 + "-enable";
+                edit2.putString("lastStart", b3 + "-enable");
+                return;
             }
-            edit.commit();
-            dVar.c(0);
-            dVar.a(0);
-            dVar.b(0);
-            dVar.d(0);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(context);
+            String format = String.format("https://ufosdk.baidu.com/?m=hide&a=behavior&editFeedbackView=%d&editFeedbackWord=%d&editFeedbackPicture=%d&myFeedback=%d&appid=%s&editFeedbackViewUV=%d&editFeedbackViewFromRobotUV=%d&editFeedbackViewFromFaqUV=%d&robotUv=%d", Integer.valueOf(dVar.a()), Integer.valueOf(dVar.b()), Integer.valueOf(dVar.c()), Integer.valueOf(dVar.d()), UfoSDK.appid, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5));
+            StringBuilder sb = new StringBuilder("--FeedbackChatSender:1517--getURL is : ");
+            sb.append(format);
+            c.c(sb.toString());
+            try {
+                if (b.a(format)) {
+                    edit = context.getSharedPreferences("UfoSharePreference", 0).edit();
+                    edit.putInt("editFeedbackViewUV", 0);
+                    edit.putInt("editFeedbackViewFromRobotUV", 0);
+                    edit.putInt("editFeedbackViewFromFaqUV", 0);
+                    edit.putInt("robotUv", 0);
+                    String b4 = i.b(System.currentTimeMillis());
+                    if (z) {
+                        UfoSDK.startStr = b4 + "-enable";
+                        str2 = b4 + "-enable";
+                    } else {
+                        UfoSDK.startStr = b4 + "-disable";
+                        str2 = b4 + "-disable";
+                    }
+                    edit.putString("lastStart", str2);
+                } else {
+                    edit = context.getSharedPreferences("UfoSharePreference", 0).edit();
+                    edit.putInt("editFeedbackViewUV", 0);
+                    edit.putInt("editFeedbackViewFromRobotUV", 0);
+                    edit.putInt("editFeedbackViewFromFaqUV", 0);
+                    edit.putInt("robotUv", 0);
+                    String b5 = i.b(System.currentTimeMillis());
+                    if (z) {
+                        UfoSDK.startStr = b5 + "-enable";
+                        str = b5 + "-enable";
+                    } else {
+                        UfoSDK.startStr = b5 + "-disable";
+                        str = b5 + "-disable";
+                    }
+                    edit.putString("lastStart", str);
+                }
+                edit.commit();
+                dVar.c(0);
+                dVar.a(0);
+                dVar.b(0);
+                dVar.d(0);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
     public static void a(Handler handler) {
-        c.c("postUrl is https://ufosdk.baidu.com/?m=Index&a=getProductType");
-        String uuid = UUID.randomUUID().toString();
-        HashMap hashMap = new HashMap();
-        hashMap.put(IAdRequestParam.OS, "android");
-        hashMap.put("clientid", UfoSDK.clientid);
-        hashMap.put("appid", UfoSDK.appid);
-        hashMap.put("devid", UfoSDK.devid);
-        hashMap.put("pkgname", e.a());
-        hashMap.put("cuid", uuid);
-        hashMap.put("appvn", e.b());
-        hashMap.put("brand", Build.MANUFACTURER);
-        hashMap.put("model", Build.MODEL);
-        hashMap.put("osvn", Build.VERSION.RELEASE);
-        hashMap.put("osvc", String.valueOf(j.a()));
-        hashMap.put("phonetime", String.valueOf(System.currentTimeMillis()));
-        hashMap.put("sdkvn", "2.9.10");
-        String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
-        try {
-            String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=getProductType", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
-            if (TextUtils.isEmpty(a3)) {
-                return;
-            }
-            JSONObject jSONObject = new JSONObject(k.b(a3));
-            c.c("response is " + jSONObject.toString());
-            if (((Integer) jSONObject.get("errno")).intValue() == 0) {
-                JSONArray jSONArray = (JSONArray) jSONObject.get("data");
-                if (jSONArray == null || jSONArray.length() <= 0) {
-                    handler.obtainMessage(10).sendToTarget();
-                } else {
-                    handler.obtainMessage(9, jSONArray).sendToTarget();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, handler) == null) {
+            c.c("postUrl is https://ufosdk.baidu.com/?m=Index&a=getProductType");
+            String uuid = UUID.randomUUID().toString();
+            HashMap hashMap = new HashMap();
+            hashMap.put(IAdRequestParam.OS, "android");
+            hashMap.put("clientid", UfoSDK.clientid);
+            hashMap.put("appid", UfoSDK.appid);
+            hashMap.put("devid", UfoSDK.devid);
+            hashMap.put("pkgname", e.a());
+            hashMap.put("cuid", uuid);
+            hashMap.put("appvn", e.b());
+            hashMap.put("brand", Build.MANUFACTURER);
+            hashMap.put("model", Build.MODEL);
+            hashMap.put("osvn", Build.VERSION.RELEASE);
+            hashMap.put("osvc", String.valueOf(j.a()));
+            hashMap.put("phonetime", String.valueOf(System.currentTimeMillis()));
+            hashMap.put("sdkvn", "2.9.10");
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
+            try {
+                String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=getProductType", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+                if (TextUtils.isEmpty(a3)) {
+                    return;
                 }
+                JSONObject jSONObject = new JSONObject(k.b(a3));
+                c.c("response is " + jSONObject.toString());
+                if (((Integer) jSONObject.get("errno")).intValue() == 0) {
+                    JSONArray jSONArray = (JSONArray) jSONObject.get("data");
+                    if (jSONArray == null || jSONArray.length() <= 0) {
+                        handler.obtainMessage(10).sendToTarget();
+                    } else {
+                        handler.obtainMessage(9, jSONArray).sendToTarget();
+                    }
+                }
+            } catch (Exception e2) {
+                c.a("sendRecord fail.", e2);
             }
-        } catch (Exception e2) {
-            c.a("sendRecord fail.", e2);
         }
     }
 
     public static boolean a(Context context) {
+        InterceptResult invokeL;
         long j;
         String str;
-        c.c("postUrl is https://ufosdk.baidu.com/?m=Index&a=postclientinfo");
-        String uuid = UUID.randomUUID().toString();
-        HashMap hashMap = new HashMap();
-        hashMap.put(IAdRequestParam.OS, "android");
-        hashMap.put("clientid", UfoSDK.clientid);
-        hashMap.put("appid", UfoSDK.appid);
-        hashMap.put("devid", UfoSDK.devid);
-        hashMap.put("pkgname", e.a());
-        hashMap.put("cuid", uuid);
-        hashMap.put("appvn", e.b());
-        hashMap.put("brand", Build.MANUFACTURER);
-        hashMap.put("model", Build.MODEL);
-        hashMap.put("osvn", Build.VERSION.RELEASE);
-        hashMap.put("osvc", String.valueOf(j.a()));
-        if (p.a("android.permission.MOUNT_UNMOUNT_FILESYSTEMS")) {
-            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-            j = statFs.getBlockCount() * statFs.getBlockSize();
-        } else {
-            j = -1;
-        }
-        hashMap.put("totalspace", String.valueOf(j));
-        hashMap.put("phonetime", String.valueOf(System.currentTimeMillis()));
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        int i2 = displayMetrics.widthPixels;
-        int i3 = displayMetrics.heightPixels;
-        if (i2 == 0 && i3 == 0) {
-            str = null;
-        } else {
-            str = String.valueOf(i2) + "*" + String.valueOf(i3);
-        }
-        hashMap.put("screensize", str);
-        hashMap.put("sdkvn", "2.9.10");
-        String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
-        try {
-            String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=postclientinfo", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
-            if (!TextUtils.isEmpty(a3)) {
-                JSONObject jSONObject = new JSONObject(k.b(a3));
-                c.a("getAPIKey response is " + jSONObject.toString());
-                if (((Integer) jSONObject.get("errno")).intValue() == 0) {
-                    String string = jSONObject.getString("clientid");
-                    String string2 = jSONObject.getString("appid");
-                    String string3 = jSONObject.getString("devid");
-                    String string4 = jSONObject.getString(Constants.KEY_PRODUCT_LINE);
-                    SharedPreferences.Editor edit = context.getSharedPreferences("UfoSharePreference", 0).edit();
-                    UfoSDK.clientid = string;
-                    UfoSDK.appid = string2;
-                    UfoSDK.devid = string3;
-                    UfoSDK.productid = string4;
-                    edit.putString("UfoClientId", string);
-                    edit.putString("UfoAppId", string2);
-                    edit.putString("UfoDevId", string3);
-                    edit.putString("UfoProductId", string4);
-                    edit.commit();
-                    context.sendBroadcast(new Intent("com.baidu.ufosdk.getappkeysuccess_getnewhistoryflag"));
-                    return true;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            c.c("postUrl is https://ufosdk.baidu.com/?m=Index&a=postclientinfo");
+            String uuid = UUID.randomUUID().toString();
+            HashMap hashMap = new HashMap();
+            hashMap.put(IAdRequestParam.OS, "android");
+            hashMap.put("clientid", UfoSDK.clientid);
+            hashMap.put("appid", UfoSDK.appid);
+            hashMap.put("devid", UfoSDK.devid);
+            hashMap.put("pkgname", e.a());
+            hashMap.put("cuid", uuid);
+            hashMap.put("appvn", e.b());
+            hashMap.put("brand", Build.MANUFACTURER);
+            hashMap.put("model", Build.MODEL);
+            hashMap.put("osvn", Build.VERSION.RELEASE);
+            hashMap.put("osvc", String.valueOf(j.a()));
+            if (p.a("android.permission.MOUNT_UNMOUNT_FILESYSTEMS")) {
+                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+                j = statFs.getBlockCount() * statFs.getBlockSize();
+            } else {
+                j = -1;
             }
-        } catch (Exception e2) {
-            c.a("sendRecord fail.", e2);
+            hashMap.put("totalspace", String.valueOf(j));
+            hashMap.put("phonetime", String.valueOf(System.currentTimeMillis()));
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            int i2 = displayMetrics.widthPixels;
+            int i3 = displayMetrics.heightPixels;
+            if (i2 == 0 && i3 == 0) {
+                str = null;
+            } else {
+                str = String.valueOf(i2) + "*" + String.valueOf(i3);
+            }
+            hashMap.put("screensize", str);
+            hashMap.put("sdkvn", "2.9.10");
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
+            try {
+                String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=postclientinfo", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+                if (!TextUtils.isEmpty(a3)) {
+                    JSONObject jSONObject = new JSONObject(k.b(a3));
+                    c.a("getAPIKey response is " + jSONObject.toString());
+                    if (((Integer) jSONObject.get("errno")).intValue() == 0) {
+                        String string = jSONObject.getString("clientid");
+                        String string2 = jSONObject.getString("appid");
+                        String string3 = jSONObject.getString("devid");
+                        String string4 = jSONObject.getString(Constants.KEY_PRODUCT_LINE);
+                        SharedPreferences.Editor edit = context.getSharedPreferences("UfoSharePreference", 0).edit();
+                        UfoSDK.clientid = string;
+                        UfoSDK.appid = string2;
+                        UfoSDK.devid = string3;
+                        UfoSDK.productid = string4;
+                        edit.putString("UfoClientId", string);
+                        edit.putString("UfoAppId", string2);
+                        edit.putString("UfoDevId", string3);
+                        edit.putString("UfoProductId", string4);
+                        edit.commit();
+                        context.sendBroadcast(new Intent("com.baidu.ufosdk.getappkeysuccess_getnewhistoryflag"));
+                        return true;
+                    }
+                }
+            } catch (Exception e2) {
+                c.a("sendRecord fail.", e2);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:135:0x0324 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:140:0x033c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:150:0x0363 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:166:0x00a2 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:173:0x00ec */
-    /* JADX WARN: Can't wrap try/catch for region: R(11:85|86|(2:88|(5:93|94|95|(2:97|98)|(1:103)(1:102))(1:92))|107|(1:90)|93|94|95|(0)|(1:100)|103) */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x01b4, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:137:0x0329 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:142:0x0341 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:152:0x0368 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:178:0x00a6 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:180:0x00f0 */
+    /* JADX WARN: Can't wrap try/catch for region: R(11:88|89|(2:91|(5:96|97|98|(2:100|101)|(1:106)(1:105))(1:95))|110|(1:93)|96|97|98|(0)|(1:103)|106) */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x01b9, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x01b5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x01ba, code lost:
         r0.printStackTrace();
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x01ad A[Catch: Exception -> 0x01b4, all -> 0x02b7, TRY_LEAVE, TryCatch #7 {Exception -> 0x01b4, blocks: (B:59:0x01a7, B:61:0x01ad), top: B:164:0x01a7 }] */
-    /* JADX WARN: Type inference failed for: r1v0 */
-    /* JADX WARN: Type inference failed for: r1v18 */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x01b2 A[Catch: Exception -> 0x01b9, all -> 0x02bc, TRY_LEAVE, TryCatch #11 {Exception -> 0x01b9, blocks: (B:61:0x01ac, B:63:0x01b2), top: B:175:0x01ac }] */
+    /* JADX WARN: Type inference failed for: r1v1 */
     /* JADX WARN: Type inference failed for: r1v19 */
+    /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v20 */
-    /* JADX WARN: Type inference failed for: r1v33 */
-    /* JADX WARN: Type inference failed for: r1v41 */
+    /* JADX WARN: Type inference failed for: r1v21 */
+    /* JADX WARN: Type inference failed for: r1v34 */
+    /* JADX WARN: Type inference failed for: r1v4 */
     /* JADX WARN: Type inference failed for: r1v42 */
-    /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v8 */
-    /* JADX WARN: Type inference failed for: r25v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v43 */
+    /* JADX WARN: Type inference failed for: r1v7 */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Type inference failed for: r25v0, types: [java.lang.Object, java.lang.String] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Intent intent;
         String a2;
         Intent intent2;
@@ -276,6 +299,10 @@ public final class a {
         String string;
         int i2;
         JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65540, null, context, str, str2)) != null) {
+            return invokeLLL.booleanValue;
+        }
         String str8 = context;
         Context context2 = str;
         String str9 = str2;
@@ -311,6 +338,8 @@ public final class a {
                     }
                 } catch (Throwable th) {
                     th = th;
+                    context2 = str8;
+                    str8 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                 }
             } catch (Exception e3) {
                 e = e3;
@@ -467,7 +496,7 @@ public final class a {
                                         th = th2;
                                         context2 = context;
                                         str8 = str5;
-                                        context2.sendBroadcast(new Intent(str8));
+                                        context2.sendBroadcast(new Intent((String) str8));
                                         throw th;
                                     }
                                 }
@@ -484,7 +513,7 @@ public final class a {
                                     } catch (Throwable th3) {
                                         th = th3;
                                         str8 = str5;
-                                        context2.sendBroadcast(new Intent(str8));
+                                        context2.sendBroadcast(new Intent((String) str8));
                                         throw th;
                                     }
                                 } catch (Exception e7) {
@@ -520,7 +549,7 @@ public final class a {
                     }
                     try {
                         JSONObject jSONObject5 = jSONObject;
-                        if (((Integer) jSONObject5.get(IMTrack.DbBuilder.ACTION_UPDATE)).intValue() == 1) {
+                        if (((Integer) jSONObject5.get("update")).intValue() == 1) {
                             com.baidu.ufosdk.b.ah = ((Integer) jSONObject5.get(str6)).intValue();
                         }
                         context2.sendBroadcast(new Intent(str5));
@@ -556,135 +585,144 @@ public final class a {
             return false;
         } catch (Throwable th5) {
             th = th5;
-            context2 = str8;
-            str8 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
         }
     }
 
     public static boolean a(String str, int i2) {
-        c.c("FeedbackChatSender --> sendSolvedResult:https://ufosdk.baidu.com/?m=Index&a=recordEvaluation");
-        HashMap hashMap = new HashMap();
-        hashMap.put("appid", UfoSDK.appid);
-        hashMap.put("id", str);
-        hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("evaluation", Integer.valueOf(i2));
-        String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
-        try {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) {
+            c.c("FeedbackChatSender --> sendSolvedResult:https://ufosdk.baidu.com/?m=Index&a=recordEvaluation");
+            HashMap hashMap = new HashMap();
+            hashMap.put("appid", UfoSDK.appid);
+            hashMap.put("id", str);
+            hashMap.put("sdkvn", "2.9.10");
+            hashMap.put("evaluation", Integer.valueOf(i2));
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
             try {
-                String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=recordEvaluation", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
-                if (!TextUtils.isEmpty(a3)) {
-                    String b2 = k.b(a3);
-                    c.c("^^ sendSolvedResult response is: \n" + b2);
-                    return ((Integer) new JSONObject(b2).get("errno")).intValue() == 0;
+                try {
+                    String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=recordEvaluation", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+                    if (!TextUtils.isEmpty(a3)) {
+                        String b2 = k.b(a3);
+                        c.c("^^ sendSolvedResult response is: \n" + b2);
+                        return ((Integer) new JSONObject(b2).get("errno")).intValue() == 0;
+                    }
+                } catch (Exception e2) {
+                    c.a("sendRecord fail.", e2);
                 }
-            } catch (Exception e2) {
-                c.a("sendRecord fail.", e2);
+                return false;
+            } finally {
+                c.d("finally");
             }
-            return false;
-        } finally {
-            c.d("finally");
         }
+        return invokeLI.booleanValue;
     }
 
     public static boolean b(Context context) {
+        InterceptResult invokeL;
         Intent intent;
         String a2;
         Intent intent2;
-        c.c("postUrl is https://ufosdk.baidu.com/?m=Index&a=getHistory");
-        HashMap hashMap = new HashMap();
-        hashMap.put("clientid", UfoSDK.clientid);
-        hashMap.put("appid", UfoSDK.appid);
-        hashMap.put("devid", UfoSDK.devid);
-        hashMap.put("uid", com.baidu.ufosdk.b.f22659d);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22659d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22657b);
-        hashMap.put(IAdRequestParam.OS, "android");
-        hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("output_style", 1);
-        String a3 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            c.c("postUrl is https://ufosdk.baidu.com/?m=Index&a=getHistory");
+            HashMap hashMap = new HashMap();
+            hashMap.put("clientid", UfoSDK.clientid);
+            hashMap.put("appid", UfoSDK.appid);
+            hashMap.put("devid", UfoSDK.devid);
+            hashMap.put("uid", com.baidu.ufosdk.b.f23175d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23175d);
+            hashMap.put("username", com.baidu.ufosdk.b.f23173b);
+            hashMap.put(IAdRequestParam.OS, "android");
+            hashMap.put("sdkvn", "2.9.10");
+            hashMap.put("output_style", 1);
+            String a3 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
             try {
-                a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getHistory", "sdk_encrypt=" + URLEncoder.encode(a3, "UTF-8"));
-            } catch (Exception e2) {
-                c.a("sendRecord fail.", e2);
-                Looper.prepare();
-                context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
-                Looper.loop();
-                intent = new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss");
-            }
-            if (!TextUtils.isEmpty(a2)) {
-                String b2 = k.b(a2);
-                c.a("decode response is " + b2);
-                JSONObject jSONObject = new JSONObject(b2);
-                int intValue = ((Integer) jSONObject.get("errno")).intValue();
-                if (intValue != 0) {
-                    if (intValue != 0) {
-                        c.b(" ################### errNo != 0");
-                        intent2 = new Intent("com.baidu.ufosdk.reload");
-                    }
+                try {
+                    a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getHistory", "sdk_encrypt=" + URLEncoder.encode(a3, "UTF-8"));
+                } catch (Exception e2) {
+                    c.a("sendRecord fail.", e2);
+                    Looper.prepare();
+                    context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+                    Looper.loop();
                     intent = new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss");
-                    context.sendBroadcast(intent);
-                    return false;
                 }
-                c.c(" ############################ errNo == 0");
-                Intent intent3 = new Intent("com.baidu.ufosdk.gethistorylist");
-                if (jSONObject.getInt("msgnum") > 0) {
-                    UfoSDK.neverFeedback = false;
-                    SharedPreferences.Editor edit = context.getSharedPreferences("UfoSharePreference", 0).edit();
-                    edit.putBoolean("UfoNeverFeedback", false);
-                    edit.commit();
-                    ArrayList arrayList = new ArrayList();
-                    JSONArray jSONArray = jSONObject.getJSONArray("msg");
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        c.c("#################### " + i2 + " msgArray.getJSONObject(i)--> " + jSONArray.getJSONObject(i2).toString());
-                        HashMap hashMap2 = new HashMap();
-                        hashMap2.put("id", jSONArray.getJSONObject(i2).getString("id"));
-                        hashMap2.put("content", jSONArray.getJSONObject(i2).getString("content"));
-                        hashMap2.put("time", jSONArray.getJSONObject(i2).getString("time"));
-                        hashMap2.put("newmsg", jSONArray.getJSONObject(i2).getString("newmsg"));
-                        hashMap2.put("replied", jSONArray.getJSONObject(i2).getString("replied"));
-                        hashMap2.put("lastmsg", jSONArray.getJSONObject(i2).getString("lastmsg"));
-                        arrayList.add(hashMap2);
+                if (!TextUtils.isEmpty(a2)) {
+                    String b2 = k.b(a2);
+                    c.a("decode response is " + b2);
+                    JSONObject jSONObject = new JSONObject(b2);
+                    int intValue = ((Integer) jSONObject.get("errno")).intValue();
+                    if (intValue != 0) {
+                        if (intValue != 0) {
+                            c.b(" ################### errNo != 0");
+                            intent2 = new Intent("com.baidu.ufosdk.reload");
+                        }
+                        intent = new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss");
+                        context.sendBroadcast(intent);
+                        return false;
                     }
-                    intent3.putExtra("msgList", arrayList);
-                } else {
-                    UfoSDK.neverFeedback = true;
-                    SharedPreferences.Editor edit2 = context.getSharedPreferences("UfoSharePreference", 0).edit();
-                    edit2.putBoolean("UfoNeverFeedback", true);
-                    edit2.commit();
-                    ArrayList<? extends Parcelable> arrayList2 = new ArrayList<>();
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelableArrayList("msgList", arrayList2);
-                    intent3.putExtras(bundle);
+                    c.c(" ############################ errNo == 0");
+                    Intent intent3 = new Intent("com.baidu.ufosdk.gethistorylist");
+                    if (jSONObject.getInt("msgnum") > 0) {
+                        UfoSDK.neverFeedback = false;
+                        SharedPreferences.Editor edit = context.getSharedPreferences("UfoSharePreference", 0).edit();
+                        edit.putBoolean("UfoNeverFeedback", false);
+                        edit.commit();
+                        ArrayList arrayList = new ArrayList();
+                        JSONArray jSONArray = jSONObject.getJSONArray("msg");
+                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                            c.c("#################### " + i2 + " msgArray.getJSONObject(i)--> " + jSONArray.getJSONObject(i2).toString());
+                            HashMap hashMap2 = new HashMap();
+                            hashMap2.put("id", jSONArray.getJSONObject(i2).getString("id"));
+                            hashMap2.put("content", jSONArray.getJSONObject(i2).getString("content"));
+                            hashMap2.put("time", jSONArray.getJSONObject(i2).getString("time"));
+                            hashMap2.put("newmsg", jSONArray.getJSONObject(i2).getString("newmsg"));
+                            hashMap2.put("replied", jSONArray.getJSONObject(i2).getString("replied"));
+                            hashMap2.put("lastmsg", jSONArray.getJSONObject(i2).getString("lastmsg"));
+                            arrayList.add(hashMap2);
+                        }
+                        intent3.putExtra("msgList", arrayList);
+                    } else {
+                        UfoSDK.neverFeedback = true;
+                        SharedPreferences.Editor edit2 = context.getSharedPreferences("UfoSharePreference", 0).edit();
+                        edit2.putBoolean("UfoNeverFeedback", true);
+                        edit2.commit();
+                        ArrayList<? extends Parcelable> arrayList2 = new ArrayList<>();
+                        Bundle bundle = new Bundle();
+                        bundle.putParcelableArrayList("msgList", arrayList2);
+                        intent3.putExtras(bundle);
+                    }
+                    context.sendBroadcast(intent3);
+                    context.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
+                    return true;
                 }
-                context.sendBroadcast(intent3);
+                c.b("getHistoryChat -> response is empty!");
+                intent2 = new Intent("com.baidu.ufosdk.reload");
+                context.sendBroadcast(intent2);
+                intent = new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss");
+                context.sendBroadcast(intent);
+                return false;
+            } catch (Throwable th) {
                 context.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
-                return true;
+                throw th;
             }
-            c.b("getHistoryChat -> response is empty!");
-            intent2 = new Intent("com.baidu.ufosdk.reload");
-            context.sendBroadcast(intent2);
-            intent = new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss");
-            context.sendBroadcast(intent);
-            return false;
-        } catch (Throwable th) {
-            context.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
-            throw th;
         }
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(11:60|61|(2:63|(5:68|69|70|(2:72|73)|(1:78)(1:77))(1:67))|82|(1:65)|68|69|70|(0)|(1:75)|78) */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x01a6, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(10:(2:58|59)|(2:61|(5:66|67|68|(2:70|71)|(1:76)(1:75))(1:65))|80|(1:63)|66|67|68|(0)|(1:73)|76) */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x01aa, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x01a7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x01ab, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x019f A[Catch: Exception -> 0x01a6, all -> 0x0271, TRY_LEAVE, TryCatch #1 {all -> 0x0271, blocks: (B:19:0x00e4, B:20:0x00f8, B:22:0x00fe, B:24:0x0117, B:26:0x0122, B:28:0x012c, B:33:0x0148, B:35:0x014e, B:37:0x0164, B:38:0x016c, B:64:0x01ee, B:40:0x0171, B:42:0x0177, B:48:0x0186, B:50:0x018c, B:51:0x0191, B:52:0x0199, B:54:0x019f, B:59:0x01ac, B:61:0x01b2, B:62:0x01c4, B:57:0x01a7, B:45:0x017f, B:63:0x01d5, B:65:0x021f, B:72:0x0246, B:76:0x0259), top: B:110:0x00e4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x01a3 A[Catch: Exception -> 0x01aa, all -> 0x0276, TRY_LEAVE, TryCatch #4 {Exception -> 0x01aa, blocks: (B:54:0x019d, B:56:0x01a3), top: B:121:0x019d }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean b(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         String str3;
         String str4;
         Intent intent;
@@ -698,6 +736,10 @@ public final class a {
         JSONObject jSONObject2;
         String string;
         JSONArray jSONArray2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65543, null, context, str, str2)) != null) {
+            return invokeLLL.booleanValue;
+        }
         String str10 = str;
         String str11 = str2;
         String str12 = "extra";
@@ -719,286 +761,280 @@ public final class a {
         String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
         try {
             try {
-                String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
-                if (TextUtils.isEmpty(a3)) {
-                    str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                } else {
-                    String b2 = k.b(a3);
-                    c.c("---------getFeedbackChat-----------response is " + b2);
-                    JSONObject jSONObject3 = new JSONObject(b2);
-                    int intValue = ((Integer) jSONObject3.get("errno")).intValue();
-                    if (intValue == 0) {
-                        try {
-                            ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
-                            Intent intent2 = new Intent("com.baidu.ufosdk.getchat");
-                            if (jSONObject3.getInt("msgnum") > 0) {
-                                str5 = "com.baidu.ufosdk.reload";
-                                try {
-                                    jSONArray = jSONObject3.getJSONArray("msg");
-                                    str6 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                                    str4 = str5;
-                                    c.a("sendRecord fail.", e);
-                                    Looper.prepare();
-                                    context.sendBroadcast(new Intent(str4));
-                                    Looper.loop();
-                                    intent = new Intent(str3);
-                                    context.sendBroadcast(intent);
-                                    return false;
-                                }
-                                try {
+                try {
+                    String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+                    if (TextUtils.isEmpty(a3)) {
+                        str4 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                    } else {
+                        String b2 = k.b(a3);
+                        c.c("---------getFeedbackChat-----------response is " + b2);
+                        JSONObject jSONObject3 = new JSONObject(b2);
+                        int intValue = ((Integer) jSONObject3.get("errno")).intValue();
+                        if (intValue == 0) {
+                            try {
+                                ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
+                                Intent intent2 = new Intent("com.baidu.ufosdk.getchat");
+                                if (jSONObject3.getInt("msgnum") > 0) {
+                                    str5 = "com.baidu.ufosdk.reload";
                                     try {
-                                        c.a("getFeedbackChat --> msgArray : \n" + jSONArray.toString());
-                                        int i2 = 0;
-                                        while (i2 < jSONArray.length()) {
-                                            String str15 = str14;
-                                            HashMap hashMap2 = new HashMap();
-                                            hashMap2.put(str13, str10);
-                                            hashMap2.put("toggle", "no");
-                                            String str16 = null;
-                                            String string2 = jSONArray.getJSONObject(i2).has(str12) ? jSONArray.getJSONObject(i2).getString(str12) : null;
-                                            if (jSONArray.getJSONObject(i2).has(str13)) {
-                                                str8 = str12;
-                                                hashMap2.put("chatId", Integer.valueOf(jSONArray.getJSONObject(i2).getInt(str13)));
-                                            } else {
-                                                str8 = str12;
-                                            }
-                                            if (string2 == null || string2.length() == 0) {
-                                                str9 = str13;
-                                                jSONObject2 = jSONObject3;
+                                        jSONArray = jSONObject3.getJSONArray("msg");
+                                        str6 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        str4 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                                        str3 = str5;
+                                        c.a("sendRecord fail.", e);
+                                        Looper.prepare();
+                                        context.sendBroadcast(new Intent(str3));
+                                        Looper.loop();
+                                        intent = new Intent(str4);
+                                        context.sendBroadcast(intent);
+                                        return false;
+                                    }
+                                    try {
+                                        try {
+                                            c.a("getFeedbackChat --> msgArray : \n" + jSONArray.toString());
+                                            int i2 = 0;
+                                            while (i2 < jSONArray.length()) {
+                                                String str15 = str14;
+                                                HashMap hashMap2 = new HashMap();
+                                                hashMap2.put(str13, str10);
                                                 hashMap2.put("toggle", "no");
-                                                hashMap2.put("flagRobot", 0);
-                                                string = jSONArray.getJSONObject(i2).getString("content");
-                                            } else {
-                                                str9 = str13;
-                                                JSONObject jSONObject4 = new JSONObject(string2);
-                                                int i3 = jSONObject4.getInt("flagRobot");
-                                                jSONObject2 = jSONObject3;
-                                                hashMap2.put("flagRobot", Integer.valueOf(i3));
-                                                if (i3 == 0) {
+                                                String str16 = null;
+                                                String string2 = jSONArray.getJSONObject(i2).has(str12) ? jSONArray.getJSONObject(i2).getString(str12) : null;
+                                                if (jSONArray.getJSONObject(i2).has(str13)) {
+                                                    str8 = str12;
+                                                    hashMap2.put("chatId", Integer.valueOf(jSONArray.getJSONObject(i2).getInt(str13)));
+                                                } else {
+                                                    str8 = str12;
+                                                }
+                                                if (string2 == null || string2.length() == 0) {
+                                                    str9 = str13;
+                                                    jSONObject2 = jSONObject3;
+                                                    hashMap2.put("toggle", "no");
+                                                    hashMap2.put("flagRobot", 0);
                                                     string = jSONArray.getJSONObject(i2).getString("content");
                                                 } else {
-                                                    try {
-                                                    } catch (Exception e3) {
-                                                        e3.printStackTrace();
-                                                    }
-                                                    if (jSONObject4.has("robot")) {
-                                                        jSONArray2 = (JSONArray) jSONObject4.get("robot");
-                                                        if (jSONArray2 != null || jSONArray2.length() == 0) {
-                                                            hashMap2.put("flagRobot", 0);
-                                                            if (jSONObject4.has("answer")) {
-                                                                str16 = jSONObject4.getString("answer");
-                                                            }
-                                                            if (str16 != null || str16.length() <= 0) {
-                                                                hashMap2.put("flagRobot", 0);
-                                                                string = jSONArray.getJSONObject(i2).getString("content");
-                                                            } else {
-                                                                hashMap2.put("toggle", "yes");
-                                                                hashMap2.put("flagRobot", 0);
-                                                                string = jSONObject4.getString("answer");
-                                                            }
-                                                        } else {
-                                                            string = jSONArray2.toString();
+                                                    str9 = str13;
+                                                    JSONObject jSONObject4 = new JSONObject(string2);
+                                                    int i3 = jSONObject4.getInt("flagRobot");
+                                                    jSONObject2 = jSONObject3;
+                                                    hashMap2.put("flagRobot", Integer.valueOf(i3));
+                                                    if (i3 == 0) {
+                                                        string = jSONArray.getJSONObject(i2).getString("content");
+                                                    } else {
+                                                        try {
+                                                        } catch (Exception e3) {
+                                                            e3.printStackTrace();
                                                         }
+                                                        if (jSONObject4.has("robot")) {
+                                                            jSONArray2 = (JSONArray) jSONObject4.get("robot");
+                                                            if (jSONArray2 != null || jSONArray2.length() == 0) {
+                                                                hashMap2.put("flagRobot", 0);
+                                                                if (jSONObject4.has("answer")) {
+                                                                    str16 = jSONObject4.getString("answer");
+                                                                }
+                                                                if (str16 != null || str16.length() <= 0) {
+                                                                    hashMap2.put("flagRobot", 0);
+                                                                    string = jSONArray.getJSONObject(i2).getString("content");
+                                                                } else {
+                                                                    hashMap2.put("toggle", "yes");
+                                                                    hashMap2.put("flagRobot", 0);
+                                                                    string = jSONObject4.getString("answer");
+                                                                }
+                                                            } else {
+                                                                string = jSONArray2.toString();
+                                                            }
+                                                        }
+                                                        jSONArray2 = null;
+                                                        if (jSONArray2 != null) {
+                                                        }
+                                                        hashMap2.put("flagRobot", 0);
+                                                        if (jSONObject4.has("answer")) {
+                                                        }
+                                                        if (str16 != null) {
+                                                        }
+                                                        hashMap2.put("flagRobot", 0);
+                                                        string = jSONArray.getJSONObject(i2).getString("content");
                                                     }
-                                                    jSONArray2 = null;
-                                                    if (jSONArray2 != null) {
-                                                    }
-                                                    hashMap2.put("flagRobot", 0);
-                                                    if (jSONObject4.has("answer")) {
-                                                    }
-                                                    if (str16 != null) {
-                                                    }
-                                                    hashMap2.put("flagRobot", 0);
-                                                    string = jSONArray.getJSONObject(i2).getString("content");
                                                 }
+                                                hashMap2.put("content", string);
+                                                hashMap2.put("time", jSONArray.getJSONObject(i2).getString("time"));
+                                                arrayList.add(hashMap2);
+                                                c.c("^^^^^^^^getFeedbackChat^^^^^^^^^" + arrayList.toString());
+                                                i2++;
+                                                str10 = str;
+                                                str14 = str15;
+                                                str12 = str8;
+                                                str13 = str9;
+                                                jSONObject3 = jSONObject2;
                                             }
-                                            hashMap2.put("content", string);
-                                            hashMap2.put("time", jSONArray.getJSONObject(i2).getString("time"));
-                                            arrayList.add(hashMap2);
-                                            c.c("^^^^^^^^getFeedbackChat^^^^^^^^^" + arrayList.toString());
-                                            i2++;
-                                            str10 = str;
-                                            str14 = str15;
-                                            str12 = str8;
-                                            str13 = str9;
-                                            jSONObject3 = jSONObject2;
+                                            jSONObject = jSONObject3;
+                                            str7 = str14;
+                                            Bundle bundle = new Bundle();
+                                            bundle.putParcelableArrayList("msgList", arrayList);
+                                            intent2.putExtras(bundle);
+                                            context.sendBroadcast(intent2);
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            str10 = str6;
+                                            context.sendBroadcast(new Intent(str10));
+                                            throw th;
                                         }
-                                        jSONObject = jSONObject3;
-                                        str7 = str14;
-                                        Bundle bundle = new Bundle();
-                                        bundle.putParcelableArrayList("msgList", arrayList);
-                                        intent2.putExtras(bundle);
-                                        context.sendBroadcast(intent2);
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        str3 = str6;
+                                    } catch (Exception e4) {
+                                        e = e4;
+                                        str3 = str5;
+                                        str4 = str6;
+                                        c.a("sendRecord fail.", e);
+                                        Looper.prepare();
                                         context.sendBroadcast(new Intent(str3));
-                                        throw th;
+                                        Looper.loop();
+                                        intent = new Intent(str4);
+                                        context.sendBroadcast(intent);
+                                        return false;
                                     }
-                                } catch (Exception e4) {
-                                    e = e4;
-                                    str4 = str5;
-                                    str3 = str6;
-                                    c.a("sendRecord fail.", e);
-                                    Looper.prepare();
-                                    context.sendBroadcast(new Intent(str4));
-                                    Looper.loop();
-                                    intent = new Intent(str3);
-                                    context.sendBroadcast(intent);
-                                    return false;
+                                } else {
+                                    str5 = "com.baidu.ufosdk.reload";
+                                    str6 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                                    jSONObject = jSONObject3;
+                                    str7 = "interval";
                                 }
-                            } else {
-                                str5 = "com.baidu.ufosdk.reload";
-                                str6 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                                jSONObject = jSONObject3;
-                                str7 = "interval";
+                            } catch (Exception e5) {
+                                e = e5;
+                                str4 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                                str3 = "com.baidu.ufosdk.reload";
                             }
-                        } catch (Exception e5) {
-                            e = e5;
-                            str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                            str4 = "com.baidu.ufosdk.reload";
-                        }
-                        try {
-                            JSONObject jSONObject5 = jSONObject;
-                            if (((Integer) jSONObject5.get(IMTrack.DbBuilder.ACTION_UPDATE)).intValue() == 1) {
-                                com.baidu.ufosdk.b.ah = ((Integer) jSONObject5.get(str7)).intValue();
-                            }
-                            context.sendBroadcast(new Intent(str6));
-                            return true;
-                        } catch (Exception e6) {
-                            e = e6;
-                            str3 = str6;
-                            str4 = str5;
-                            c.a("sendRecord fail.", e);
-                            Looper.prepare();
-                            context.sendBroadcast(new Intent(str4));
-                            Looper.loop();
-                            intent = new Intent(str3);
-                            context.sendBroadcast(intent);
-                            return false;
-                        }
-                    }
-                    str5 = "com.baidu.ufosdk.reload";
-                    str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                    if (intValue != 0) {
-                        try {
                             try {
-                                str4 = str5;
-                            } catch (Exception e7) {
-                                e = e7;
-                                str4 = str5;
+                                JSONObject jSONObject5 = jSONObject;
+                                if (((Integer) jSONObject5.get("update")).intValue() == 1) {
+                                    com.baidu.ufosdk.b.ah = ((Integer) jSONObject5.get(str7)).intValue();
+                                }
+                                context.sendBroadcast(new Intent(str6));
+                                return true;
+                            } catch (Exception e6) {
+                                e = e6;
+                                str4 = str6;
+                                str3 = str5;
                                 c.a("sendRecord fail.", e);
                                 Looper.prepare();
-                                context.sendBroadcast(new Intent(str4));
+                                context.sendBroadcast(new Intent(str3));
                                 Looper.loop();
-                                intent = new Intent(str3);
+                                intent = new Intent(str4);
+                                context.sendBroadcast(intent);
+                                return false;
+                            }
+                        }
+                        str5 = "com.baidu.ufosdk.reload";
+                        str4 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                        if (intValue != 0) {
+                            try {
+                                str3 = str5;
+                            } catch (Exception e7) {
+                                e = e7;
+                                str3 = str5;
+                                c.a("sendRecord fail.", e);
+                                Looper.prepare();
+                                context.sendBroadcast(new Intent(str3));
+                                Looper.loop();
+                                intent = new Intent(str4);
                                 context.sendBroadcast(intent);
                                 return false;
                             }
                             try {
-                                context.sendBroadcast(new Intent(str4));
+                                context.sendBroadcast(new Intent(str3));
                             } catch (Exception e8) {
                                 e = e8;
                                 c.a("sendRecord fail.", e);
                                 Looper.prepare();
-                                context.sendBroadcast(new Intent(str4));
+                                context.sendBroadcast(new Intent(str3));
                                 Looper.loop();
-                                intent = new Intent(str3);
+                                intent = new Intent(str4);
                                 context.sendBroadcast(intent);
                                 return false;
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            context.sendBroadcast(new Intent(str3));
-                            throw th;
                         }
                     }
+                    intent = new Intent(str4);
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-                intent = new Intent(str3);
             } catch (Exception e9) {
                 e = e9;
-                str4 = "com.baidu.ufosdk.reload";
-                str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                str3 = "com.baidu.ufosdk.reload";
+                str4 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
             }
             context.sendBroadcast(intent);
             return false;
         } catch (Throwable th3) {
             th = th3;
-            str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+            str10 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
         }
     }
 
     public static String c(Context context) {
-        c.c("postUrl is https://ufosdk.baidu.com/?m=Index&a=newmsgnotice");
-        HashMap hashMap = new HashMap();
-        hashMap.put("clientid", UfoSDK.clientid);
-        hashMap.put("appid", UfoSDK.appid);
-        hashMap.put("devid", UfoSDK.devid);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22659d);
-        hashMap.put("uid", com.baidu.ufosdk.b.f22659d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22657b);
-        hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("output_style", 1);
-        hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ai));
-        String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
-        try {
-            String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
-            if (TextUtils.isEmpty(a3)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            c.c("postUrl is https://ufosdk.baidu.com/?m=Index&a=newmsgnotice");
+            HashMap hashMap = new HashMap();
+            hashMap.put("clientid", UfoSDK.clientid);
+            hashMap.put("appid", UfoSDK.appid);
+            hashMap.put("devid", UfoSDK.devid);
+            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23175d);
+            hashMap.put("uid", com.baidu.ufosdk.b.f23175d);
+            hashMap.put("username", com.baidu.ufosdk.b.f23173b);
+            hashMap.put("sdkvn", "2.9.10");
+            hashMap.put("output_style", 1);
+            hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ai));
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
+            try {
+                String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+                if (TextUtils.isEmpty(a3)) {
+                    return null;
+                }
+                String b2 = k.b(a3);
+                c.a("response is " + b2);
+                JSONObject jSONObject = new JSONObject(b2);
+                c.a("response is " + jSONObject.toString());
+                if (((Integer) jSONObject.get("errno")).intValue() == 0) {
+                    if (((Integer) jSONObject.get("newmsg")).intValue() > 0) {
+                        context.sendBroadcast(new Intent("com.baidu.ufosdk.getnewhistoryflag"));
+                    }
+                    if (((Integer) jSONObject.get("update")).intValue() == 1) {
+                        com.baidu.ufosdk.b.ai = ((Integer) jSONObject.get("interval")).intValue();
+                    }
+                    return String.valueOf(jSONObject.get("newmsg"));
+                }
+                return null;
+            } catch (Exception e2) {
+                c.a("sendRecord fail.", e2);
                 return null;
             }
-            String b2 = k.b(a3);
-            c.a("response is " + b2);
-            JSONObject jSONObject = new JSONObject(b2);
-            c.a("response is " + jSONObject.toString());
-            if (((Integer) jSONObject.get("errno")).intValue() == 0) {
-                if (((Integer) jSONObject.get("newmsg")).intValue() > 0) {
-                    context.sendBroadcast(new Intent("com.baidu.ufosdk.getnewhistoryflag"));
-                }
-                if (((Integer) jSONObject.get(IMTrack.DbBuilder.ACTION_UPDATE)).intValue() == 1) {
-                    com.baidu.ufosdk.b.ai = ((Integer) jSONObject.get("interval")).intValue();
-                }
-                return String.valueOf(jSONObject.get("newmsg"));
-            }
-            return null;
-        } catch (Exception e2) {
-            c.a("sendRecord fail.", e2);
-            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:119:0x02f3 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:138:0x010c */
-    /* JADX WARN: Can't wrap try/catch for region: R(18:42|43|(2:45|46)(1:77)|47|48|(5:50|(7:59|60|61|(2:63|(1:68)(1:67))|69|(1:65)|68)(2:54|(1:58))|30|(1:41)(4:32|(1:34)|35|(2:37|38)(1:40))|39)|73|(1:52)|59|60|61|(0)|69|(0)|68|30|(0)(0)|39) */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x01e8, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(15:(3:44|45|(2:47|48)(1:79))|(2:49|50)|(5:52|(7:61|62|63|(2:65|(1:70)(1:69))|71|(1:67)|70)(2:56|(1:60))|32|(1:43)(4:34|(1:36)|37|(2:39|40)(1:42))|41)|75|(1:54)|61|62|63|(0)|71|(0)|70|32|(0)(0)|41) */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x01ed, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x01e9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x01ee, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x025e A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x01b9 A[Catch: all -> 0x028e, Exception -> 0x0292, TryCatch #4 {Exception -> 0x0292, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:124:0x0126 }] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x01e3 A[Catch: Exception -> 0x01e8, all -> 0x028e, TRY_LEAVE, TryCatch #5 {all -> 0x028e, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:31:0x0195, B:33:0x019b, B:36:0x01a4, B:38:0x01aa, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:55:0x01dd, B:57:0x01e3, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:124:0x0126 }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x01ef A[Catch: all -> 0x028e, Exception -> 0x0292, TryCatch #4 {Exception -> 0x0292, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:124:0x0126 }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x024a A[Catch: all -> 0x028e, Exception -> 0x0292, TryCatch #4 {Exception -> 0x0292, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:124:0x0126 }] */
-    /* JADX WARN: Type inference failed for: r1v0 */
-    /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v13 */
-    /* JADX WARN: Type inference failed for: r1v16 */
-    /* JADX WARN: Type inference failed for: r1v20 */
-    /* JADX WARN: Type inference failed for: r1v21 */
-    /* JADX WARN: Type inference failed for: r24v0, types: [java.lang.String] */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x0263 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x01be A[Catch: all -> 0x0293, Exception -> 0x0297, TryCatch #1 {Exception -> 0x0297, blocks: (B:16:0x012a, B:18:0x013f, B:19:0x0150, B:21:0x015a, B:26:0x0171, B:28:0x0177, B:30:0x018d, B:31:0x0195, B:70:0x023a, B:72:0x024f, B:74:0x0259, B:77:0x0260, B:78:0x0263, B:49:0x01be, B:51:0x01c4, B:53:0x01d0, B:55:0x01d6, B:56:0x01da, B:65:0x01f4, B:67:0x01fa, B:68:0x020a, B:62:0x01ee, B:46:0x01b8, B:69:0x0221, B:79:0x0277), top: B:130:0x012a }] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x01e8 A[Catch: Exception -> 0x01ed, all -> 0x0293, TRY_LEAVE, TryCatch #0 {Exception -> 0x01ed, blocks: (B:57:0x01e2, B:59:0x01e8), top: B:128:0x01e2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x01f4 A[Catch: all -> 0x0293, Exception -> 0x0297, TryCatch #1 {Exception -> 0x0297, blocks: (B:16:0x012a, B:18:0x013f, B:19:0x0150, B:21:0x015a, B:26:0x0171, B:28:0x0177, B:30:0x018d, B:31:0x0195, B:70:0x023a, B:72:0x024f, B:74:0x0259, B:77:0x0260, B:78:0x0263, B:49:0x01be, B:51:0x01c4, B:53:0x01d0, B:55:0x01d6, B:56:0x01da, B:65:0x01f4, B:67:0x01fa, B:68:0x020a, B:62:0x01ee, B:46:0x01b8, B:69:0x0221, B:79:0x0277), top: B:130:0x012a }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x024f A[Catch: all -> 0x0293, Exception -> 0x0297, TryCatch #1 {Exception -> 0x0297, blocks: (B:16:0x012a, B:18:0x013f, B:19:0x0150, B:21:0x015a, B:26:0x0171, B:28:0x0177, B:30:0x018d, B:31:0x0195, B:70:0x023a, B:72:0x024f, B:74:0x0259, B:77:0x0260, B:78:0x0263, B:49:0x01be, B:51:0x01c4, B:53:0x01d0, B:55:0x01d6, B:56:0x01da, B:65:0x01f4, B:67:0x01fa, B:68:0x020a, B:62:0x01ee, B:46:0x01b8, B:69:0x0221, B:79:0x0277), top: B:130:0x012a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean c(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Context context2;
         String str3;
         String str4;
         Intent intent;
-        String a2;
         String str5;
         ArrayList<? extends Parcelable> arrayList;
         Intent intent2;
@@ -1006,91 +1042,160 @@ public final class a {
         JSONArray jSONArray;
         String str6;
         String str7;
-        String str8 = context;
-        Context context2 = str;
-        HashMap hashMap = new HashMap();
-        hashMap.put("appid", str2);
-        hashMap.put("appvn", e.b());
-        hashMap.put("baiducuid", com.baidu.ufosdk.b.f22658c);
-        hashMap.put("clientid", UfoSDK.clientid);
-        hashMap.put("devid", UfoSDK.devid);
-        String str9 = "extra";
-        hashMap.put("extra", com.baidu.ufosdk.b.f22661f);
-        String str10 = "id";
-        hashMap.put("id", context2);
-        hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ah));
-        hashMap.put("model", Build.MODEL);
-        hashMap.put(IAdRequestParam.OS, "android");
-        hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("uid", com.baidu.ufosdk.b.f22659d);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22659d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22657b);
-        hashMap.put("output_style", 1);
-        String a3 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, context, str, str2)) == null) {
+            Context context3 = context;
+            String str8 = str;
+            HashMap hashMap = new HashMap();
+            hashMap.put("appid", str2);
+            hashMap.put("appvn", e.b());
+            hashMap.put("baiducuid", com.baidu.ufosdk.b.f23174c);
+            hashMap.put("clientid", UfoSDK.clientid);
+            hashMap.put("devid", UfoSDK.devid);
+            String str9 = "extra";
+            hashMap.put("extra", com.baidu.ufosdk.b.f23177f);
+            String str10 = "id";
+            hashMap.put("id", str8);
+            hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ah));
+            hashMap.put("model", Build.MODEL);
+            hashMap.put(IAdRequestParam.OS, "android");
+            hashMap.put("sdkvn", "2.9.10");
+            hashMap.put("uid", com.baidu.ufosdk.b.f23175d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23175d);
+            hashMap.put("username", com.baidu.ufosdk.b.f23173b);
+            hashMap.put("output_style", 1);
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
             try {
-                a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(a3, "UTF-8"));
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            context2 = str8;
-            str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-        } catch (Throwable th2) {
-            th = th2;
-            context2 = str8;
-            str8 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-        }
-        if (!TextUtils.isEmpty(a2)) {
-            String b2 = k.b(a2);
-            c.a("response is " + b2);
-            JSONObject jSONObject = new JSONObject(b2);
-            c.c("response is -- >  " + b2);
-            int intValue = ((Integer) jSONObject.get("errno")).intValue();
-            if (intValue == 0) {
-                ArrayList<? extends Parcelable> arrayList2 = new ArrayList<>();
-                Intent intent3 = new Intent("com.baidu.ufosdk.getchat");
-                if (jSONObject.getInt("msgnum") > 0) {
-                    JSONArray jSONArray2 = jSONObject.getJSONArray("msg");
-                    str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-                    try {
-                        c.a("getFeedbackAnswer2 --> msgArray : \n" + jSONArray2.toString());
-                        int i2 = 0;
-                        str8 = str8;
-                        while (i2 < jSONArray2.length()) {
+                String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+                if (TextUtils.isEmpty(a3)) {
+                    context2 = context3;
+                    str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                } else {
+                    String b2 = k.b(a3);
+                    c.a("response is " + b2);
+                    JSONObject jSONObject = new JSONObject(b2);
+                    c.c("response is -- >  " + b2);
+                    int intValue = ((Integer) jSONObject.get("errno")).intValue();
+                    if (intValue == 0) {
+                        ArrayList<? extends Parcelable> arrayList2 = new ArrayList<>();
+                        Intent intent3 = new Intent("com.baidu.ufosdk.getchat");
+                        if (jSONObject.getInt("msgnum") > 0) {
+                            JSONArray jSONArray2 = jSONObject.getJSONArray("msg");
+                            str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                             try {
-                                try {
-                                    HashMap hashMap2 = new HashMap();
-                                    hashMap2.put(str10, context2);
-                                    hashMap2.put("toggle", "no");
-                                    if (jSONArray2.getJSONObject(i2).has(str10)) {
-                                        hashMap2.put("chatId", Integer.valueOf(jSONArray2.getJSONObject(i2).getInt(str10)));
-                                    }
-                                    String string2 = jSONArray2.getJSONObject(i2).has(str9) ? jSONArray2.getJSONObject(i2).getString(str9) : null;
-                                    String str11 = str10;
-                                    String str12 = str9;
-                                    if (string2 == null || string2.length() == 0) {
-                                        arrayList = arrayList2;
-                                        intent2 = intent3;
-                                        hashMap2.put("toggle", "no");
-                                        hashMap2.put("flagRobot", 0);
-                                        string = jSONArray2.getJSONObject(i2).getString("content");
-                                    } else {
-                                        intent2 = intent3;
-                                        JSONObject jSONObject2 = new JSONObject(string2);
-                                        int i3 = jSONObject2.getInt("flagRobot");
-                                        arrayList = arrayList2;
-                                        hashMap2.put("flagRobot", Integer.valueOf(i3));
-                                        if (i3 == 0) {
-                                            string = jSONArray2.getJSONObject(i2).getString("content");
-                                        } else {
-                                            try {
-                                                jSONArray = jSONObject2.has("robot") ? (JSONArray) jSONObject2.get("robot") : null;
-                                                try {
-                                                } catch (Exception e3) {
-                                                    e = e3;
-                                                    e.printStackTrace();
+                                c.a("getFeedbackAnswer2 --> msgArray : \n" + jSONArray2.toString());
+                                int i2 = 0;
+                                while (i2 < jSONArray2.length()) {
+                                    try {
+                                        try {
+                                            HashMap hashMap2 = new HashMap();
+                                            hashMap2.put(str10, str8);
+                                            hashMap2.put("toggle", "no");
+                                            if (jSONArray2.getJSONObject(i2).has(str10)) {
+                                                hashMap2.put("chatId", Integer.valueOf(jSONArray2.getJSONObject(i2).getInt(str10)));
+                                            }
+                                            String string2 = jSONArray2.getJSONObject(i2).has(str9) ? jSONArray2.getJSONObject(i2).getString(str9) : null;
+                                            String str11 = str10;
+                                            String str12 = str9;
+                                            if (string2 == null || string2.length() == 0) {
+                                                arrayList = arrayList2;
+                                                intent2 = intent3;
+                                                hashMap2.put("toggle", "no");
+                                                hashMap2.put("flagRobot", 0);
+                                                string = jSONArray2.getJSONObject(i2).getString("content");
+                                            } else {
+                                                intent2 = intent3;
+                                                JSONObject jSONObject2 = new JSONObject(string2);
+                                                int i3 = jSONObject2.getInt("flagRobot");
+                                                arrayList = arrayList2;
+                                                hashMap2.put("flagRobot", Integer.valueOf(i3));
+                                                if (i3 == 0) {
+                                                    string = jSONArray2.getJSONObject(i2).getString("content");
+                                                } else {
+                                                    try {
+                                                        jSONArray = jSONObject2.has("robot") ? (JSONArray) jSONObject2.get("robot") : null;
+                                                    } catch (Exception e2) {
+                                                        e = e2;
+                                                        jSONArray = null;
+                                                    }
+                                                    try {
+                                                    } catch (Exception e3) {
+                                                        e = e3;
+                                                        e.printStackTrace();
+                                                        str6 = null;
+                                                        if (jSONArray != null) {
+                                                        }
+                                                        hashMap2.put("flagRobot", 0);
+                                                        if (jSONObject2.has("answer")) {
+                                                        }
+                                                        str7 = null;
+                                                        if (str7 != null) {
+                                                        }
+                                                        hashMap2.put("flagRobot", 0);
+                                                        hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
+                                                        hashMap2.put("toggle", "yes");
+                                                        hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
+                                                        if (jSONArray2.getJSONObject(i2).has("evaluation")) {
+                                                        }
+                                                        ArrayList<? extends Parcelable> arrayList3 = arrayList;
+                                                        arrayList3.add(hashMap2);
+                                                        i2++;
+                                                        context3 = context;
+                                                        arrayList2 = arrayList3;
+                                                        str10 = str11;
+                                                        str9 = str12;
+                                                        intent3 = intent2;
+                                                        str8 = str;
+                                                    }
+                                                    if (jSONObject2.has("tip")) {
+                                                        str6 = jSONObject2.getString("tip");
+                                                        if (jSONArray != null || jSONArray.length() == 0) {
+                                                            hashMap2.put("flagRobot", 0);
+                                                            if (jSONObject2.has("answer")) {
+                                                                str7 = jSONObject2.getString("answer");
+                                                                if (str7 != null || str7.length() <= 0) {
+                                                                    hashMap2.put("flagRobot", 0);
+                                                                    hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
+                                                                    hashMap2.put("toggle", "yes");
+                                                                } else {
+                                                                    hashMap2.put("toggle", "yes");
+                                                                    hashMap2.put("flagRobot", 0);
+                                                                    string = jSONObject2.getString("answer");
+                                                                }
+                                                            }
+                                                            str7 = null;
+                                                            if (str7 != null) {
+                                                            }
+                                                            hashMap2.put("flagRobot", 0);
+                                                            hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
+                                                            hashMap2.put("toggle", "yes");
+                                                        } else {
+                                                            hashMap2.put("content", jSONArray.toString());
+                                                            hashMap2.put("toggle", "no");
+                                                            if (str6 != null && str6.length() > 0) {
+                                                                hashMap2.put("tip", str6);
+                                                            }
+                                                        }
+                                                        hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
+                                                        if (jSONArray2.getJSONObject(i2).has("evaluation")) {
+                                                            int i4 = jSONArray2.getJSONObject(i2).getInt("evaluation");
+                                                            if (i4 == 0) {
+                                                                hashMap2.put("toggle", "no");
+                                                            }
+                                                            if (i4 == 10) {
+                                                                hashMap2.put("toggle", "yes");
+                                                            }
+                                                        }
+                                                        ArrayList<? extends Parcelable> arrayList32 = arrayList;
+                                                        arrayList32.add(hashMap2);
+                                                        i2++;
+                                                        context3 = context;
+                                                        arrayList2 = arrayList32;
+                                                        str10 = str11;
+                                                        str9 = str12;
+                                                        intent3 = intent2;
+                                                        str8 = str;
+                                                    }
                                                     str6 = null;
                                                     if (jSONArray != null) {
                                                     }
@@ -1106,111 +1211,60 @@ public final class a {
                                                     hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
                                                     if (jSONArray2.getJSONObject(i2).has("evaluation")) {
                                                     }
-                                                    ArrayList<? extends Parcelable> arrayList3 = arrayList;
-                                                    arrayList3.add(hashMap2);
+                                                    ArrayList<? extends Parcelable> arrayList322 = arrayList;
+                                                    arrayList322.add(hashMap2);
                                                     i2++;
-                                                    str8 = context;
-                                                    arrayList2 = arrayList3;
+                                                    context3 = context;
+                                                    arrayList2 = arrayList322;
                                                     str10 = str11;
                                                     str9 = str12;
                                                     intent3 = intent2;
-                                                    context2 = str;
+                                                    str8 = str;
                                                 }
-                                            } catch (Exception e4) {
-                                                e = e4;
-                                                jSONArray = null;
                                             }
-                                            if (jSONObject2.has("tip")) {
-                                                str6 = jSONObject2.getString("tip");
-                                                if (jSONArray != null || jSONArray.length() == 0) {
-                                                    hashMap2.put("flagRobot", 0);
-                                                    if (jSONObject2.has("answer")) {
-                                                        str7 = jSONObject2.getString("answer");
-                                                        if (str7 != null || str7.length() <= 0) {
-                                                            hashMap2.put("flagRobot", 0);
-                                                            hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
-                                                            hashMap2.put("toggle", "yes");
-                                                        } else {
-                                                            hashMap2.put("toggle", "yes");
-                                                            hashMap2.put("flagRobot", 0);
-                                                            string = jSONObject2.getString("answer");
-                                                        }
-                                                    }
-                                                    str7 = null;
-                                                    if (str7 != null) {
-                                                    }
-                                                    hashMap2.put("flagRobot", 0);
-                                                    hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
-                                                    hashMap2.put("toggle", "yes");
-                                                } else {
-                                                    hashMap2.put("content", jSONArray.toString());
-                                                    hashMap2.put("toggle", "no");
-                                                    if (str6 != null && str6.length() > 0) {
-                                                        hashMap2.put("tip", str6);
-                                                    }
-                                                }
-                                                hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
-                                                if (jSONArray2.getJSONObject(i2).has("evaluation")) {
-                                                    int i4 = jSONArray2.getJSONObject(i2).getInt("evaluation");
-                                                    if (i4 == 0) {
-                                                        hashMap2.put("toggle", "no");
-                                                    }
-                                                    if (i4 == 10) {
-                                                        hashMap2.put("toggle", "yes");
-                                                    }
-                                                }
-                                                ArrayList<? extends Parcelable> arrayList32 = arrayList;
-                                                arrayList32.add(hashMap2);
-                                                i2++;
-                                                str8 = context;
-                                                arrayList2 = arrayList32;
-                                                str10 = str11;
-                                                str9 = str12;
-                                                intent3 = intent2;
-                                                context2 = str;
-                                            }
-                                            str6 = null;
-                                            if (jSONArray != null) {
-                                            }
-                                            hashMap2.put("flagRobot", 0);
-                                            if (jSONObject2.has("answer")) {
-                                            }
-                                            str7 = null;
-                                            if (str7 != null) {
-                                            }
-                                            hashMap2.put("flagRobot", 0);
-                                            hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
-                                            hashMap2.put("toggle", "yes");
+                                            hashMap2.put("content", string);
                                             hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
                                             if (jSONArray2.getJSONObject(i2).has("evaluation")) {
                                             }
-                                            ArrayList<? extends Parcelable> arrayList322 = arrayList;
-                                            arrayList322.add(hashMap2);
+                                            ArrayList<? extends Parcelable> arrayList3222 = arrayList;
+                                            arrayList3222.add(hashMap2);
                                             i2++;
-                                            str8 = context;
-                                            arrayList2 = arrayList322;
+                                            context3 = context;
+                                            arrayList2 = arrayList3222;
                                             str10 = str11;
                                             str9 = str12;
                                             intent3 = intent2;
-                                            context2 = str;
+                                            str8 = str;
+                                        } catch (Exception e4) {
+                                            e = e4;
+                                            context2 = context;
+                                            str4 = "com.baidu.ufosdk.reload";
+                                            str3 = str5;
+                                            c.a("sendRecord fail.", e);
+                                            Looper.prepare();
+                                            context2.sendBroadcast(new Intent(str4));
+                                            Looper.loop();
+                                            intent = new Intent(str3);
+                                            context2.sendBroadcast(intent);
+                                            return false;
                                         }
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        context2 = context;
+                                        str3 = str5;
+                                        context2.sendBroadcast(new Intent(str3));
+                                        throw th;
                                     }
-                                    hashMap2.put("content", string);
-                                    hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
-                                    if (jSONArray2.getJSONObject(i2).has("evaluation")) {
-                                    }
-                                    ArrayList<? extends Parcelable> arrayList3222 = arrayList;
-                                    arrayList3222.add(hashMap2);
-                                    i2++;
-                                    str8 = context;
-                                    arrayList2 = arrayList3222;
-                                    str10 = str11;
-                                    str9 = str12;
-                                    intent3 = intent2;
-                                    context2 = str;
+                                }
+                                Intent intent4 = intent3;
+                                Bundle bundle = new Bundle();
+                                bundle.putParcelableArrayList("msgList", arrayList2);
+                                intent4.putExtras(bundle);
+                                context2 = context;
+                                try {
+                                    context2.sendBroadcast(intent4);
                                 } catch (Exception e5) {
                                     e = e5;
-                                    context2 = context;
                                     str4 = "com.baidu.ufosdk.reload";
                                     str3 = str5;
                                     c.a("sendRecord fail.", e);
@@ -1220,164 +1274,162 @@ public final class a {
                                     intent = new Intent(str3);
                                     context2.sendBroadcast(intent);
                                     return false;
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    str3 = str5;
+                                    context2.sendBroadcast(new Intent(str3));
+                                    throw th;
                                 }
+                            } catch (Exception e6) {
+                                e = e6;
+                                context2 = context3;
                             } catch (Throwable th3) {
                                 th = th3;
-                                context2 = context;
-                                str8 = str5;
-                                context2.sendBroadcast(new Intent(str8));
-                                throw th;
+                                context2 = context3;
                             }
+                        } else {
+                            context2 = context3;
+                            str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                         }
-                        Intent intent4 = intent3;
-                        Bundle bundle = new Bundle();
-                        bundle.putParcelableArrayList("msgList", arrayList2);
-                        intent4.putExtras(bundle);
-                        context2 = context;
+                        context2.sendBroadcast(new Intent(str5));
+                        return true;
+                    }
+                    context2 = context3;
+                    str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+                    if (intValue != 0) {
                         try {
-                            context2.sendBroadcast(intent4);
-                        } catch (Exception e6) {
-                            e = e6;
-                            str4 = "com.baidu.ufosdk.reload";
-                            str3 = str5;
-                            c.a("sendRecord fail.", e);
-                            Looper.prepare();
-                            context2.sendBroadcast(new Intent(str4));
-                            Looper.loop();
-                            intent = new Intent(str3);
-                            context2.sendBroadcast(intent);
-                            return false;
+                            try {
+                                str4 = "com.baidu.ufosdk.reload";
+                            } catch (Exception e7) {
+                                e = e7;
+                                str4 = "com.baidu.ufosdk.reload";
+                                c.a("sendRecord fail.", e);
+                                Looper.prepare();
+                                context2.sendBroadcast(new Intent(str4));
+                                Looper.loop();
+                                intent = new Intent(str3);
+                                context2.sendBroadcast(intent);
+                                return false;
+                            }
+                            try {
+                                context2.sendBroadcast(new Intent(str4));
+                            } catch (Exception e8) {
+                                e = e8;
+                                c.a("sendRecord fail.", e);
+                                Looper.prepare();
+                                context2.sendBroadcast(new Intent(str4));
+                                Looper.loop();
+                                intent = new Intent(str3);
+                                context2.sendBroadcast(intent);
+                                return false;
+                            }
                         } catch (Throwable th4) {
                             th = th4;
-                            str8 = str5;
-                            context2.sendBroadcast(new Intent(str8));
+                            context2.sendBroadcast(new Intent(str3));
                             throw th;
                         }
-                    } catch (Exception e7) {
-                        e = e7;
-                        context2 = str8;
-                    } catch (Throwable th5) {
-                        th = th5;
-                        context2 = str8;
                     }
-                } else {
-                    context2 = str8;
-                    str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                 }
-                context2.sendBroadcast(new Intent(str5));
-                return true;
+                intent = new Intent(str3);
+            } catch (Exception e9) {
+                e = e9;
+                context2 = context3;
+                str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
+            } catch (Throwable th5) {
+                th = th5;
+                context2 = context3;
+                str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
             }
-            context2 = str8;
-            str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-            if (intValue != 0) {
-                try {
-                    str4 = "com.baidu.ufosdk.reload";
-                    try {
-                        context2.sendBroadcast(new Intent(str4));
-                    } catch (Exception e8) {
-                        e = e8;
-                    }
-                } catch (Exception e9) {
-                    e = e9;
-                    str4 = "com.baidu.ufosdk.reload";
-                    c.a("sendRecord fail.", e);
-                    Looper.prepare();
-                    context2.sendBroadcast(new Intent(str4));
-                    Looper.loop();
-                    intent = new Intent(str3);
-                    context2.sendBroadcast(intent);
-                    return false;
-                }
-            }
-            c.a("sendRecord fail.", e);
-            Looper.prepare();
-            context2.sendBroadcast(new Intent(str4));
-            Looper.loop();
-            intent = new Intent(str3);
             context2.sendBroadcast(intent);
             return false;
         }
-        context2 = str8;
-        str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
-        intent = new Intent(str3);
-        context2.sendBroadcast(intent);
-        return false;
+        return invokeLLL.booleanValue;
     }
 
     public static String d(Context context, String str, String str2) {
-        c.c("-.-postUrl is https://ufosdk.baidu.com/?m=Index&a=getallmsgbyclientid");
-        HashMap hashMap = new HashMap();
-        hashMap.put("clientid", UfoSDK.clientid);
-        if (str2 == null || str2.length() <= 0) {
-            str2 = UfoSDK.appid;
-        }
-        hashMap.put("appid", str2);
-        hashMap.put("devid", UfoSDK.devid);
-        hashMap.put("id", str);
-        hashMap.put(IAdRequestParam.OS, "android");
-        hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("output_style", 1);
-        String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
-        try {
-            String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=getallmsgbyclientid", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
-            if (TextUtils.isEmpty(a3)) {
-                return null;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, str2)) == null) {
+            c.c("-.-postUrl is https://ufosdk.baidu.com/?m=Index&a=getallmsgbyclientid");
+            HashMap hashMap = new HashMap();
+            hashMap.put("clientid", UfoSDK.clientid);
+            if (str2 == null || str2.length() <= 0) {
+                str2 = UfoSDK.appid;
             }
-            JSONObject jSONObject = new JSONObject(k.b(a3));
-            c.a("response is " + jSONObject.toString());
-            int intValue = ((Integer) jSONObject.get("errno")).intValue();
-            if (intValue != 0 || jSONObject.getInt("msgnum") <= 0) {
-                if (intValue != 0) {
-                    context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+            hashMap.put("appid", str2);
+            hashMap.put("devid", UfoSDK.devid);
+            hashMap.put("id", str);
+            hashMap.put(IAdRequestParam.OS, "android");
+            hashMap.put("sdkvn", "2.9.10");
+            hashMap.put("output_style", 1);
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
+            try {
+                String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=getallmsgbyclientid", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+                if (TextUtils.isEmpty(a3)) {
                     return null;
                 }
+                JSONObject jSONObject = new JSONObject(k.b(a3));
+                c.a("response is " + jSONObject.toString());
+                int intValue = ((Integer) jSONObject.get("errno")).intValue();
+                if (intValue != 0 || jSONObject.getInt("msgnum") <= 0) {
+                    if (intValue != 0) {
+                        context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+                        return null;
+                    }
+                    return null;
+                }
+                return jSONObject.getJSONArray("msg").toString();
+            } catch (Exception e2) {
+                c.a("sendRecord fail.", e2);
+                Looper.prepare();
+                context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+                Looper.loop();
                 return null;
             }
-            return jSONObject.getJSONArray("msg").toString();
-        } catch (Exception e2) {
-            c.a("sendRecord fail.", e2);
-            Looper.prepare();
-            context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
-            Looper.loop();
-            return null;
         }
+        return (String) invokeLLL.objValue;
     }
 
     public static boolean e(Context context, String str, String str2) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("clientid", UfoSDK.clientid);
-        if (str2 == null || str2.length() <= 0) {
-            str2 = UfoSDK.appid;
-        }
-        hashMap.put("appid", str2);
-        hashMap.put("devid", UfoSDK.devid);
-        hashMap.put("uid", com.baidu.ufosdk.b.f22659d);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22659d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22657b);
-        hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("id", str);
-        String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
-        try {
-            String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=delmsgbyid", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
-            if (TextUtils.isEmpty(a3)) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("clientid", UfoSDK.clientid);
+            if (str2 == null || str2.length() <= 0) {
+                str2 = UfoSDK.appid;
+            }
+            hashMap.put("appid", str2);
+            hashMap.put("devid", UfoSDK.devid);
+            hashMap.put("uid", com.baidu.ufosdk.b.f23175d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23175d);
+            hashMap.put("username", com.baidu.ufosdk.b.f23173b);
+            hashMap.put("sdkvn", "2.9.10");
+            hashMap.put("id", str);
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
+            try {
+                String a3 = b.a("https://ufosdk.baidu.com/?m=Index&a=delmsgbyid", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+                if (TextUtils.isEmpty(a3)) {
+                    return false;
+                }
+                if (((Integer) new JSONObject(k.b(a3)).get("errno")).intValue() == 0) {
+                    context.sendBroadcast(new Intent("com.baidu.ufosdk.getappkeysuccess_getnewhistoryflag"));
+                    return true;
+                }
+                context.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
+                Looper.prepare();
+                Toast.makeText(context, "删除失败，请稍后重试。", 1).show();
+                Looper.loop();
+                return false;
+            } catch (Exception e2) {
+                context.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
+                c.a("sendRecord fail.", e2);
+                Looper.prepare();
+                Toast.makeText(context, "删除失败，请稍后重试。", 1).show();
+                Looper.loop();
                 return false;
             }
-            if (((Integer) new JSONObject(k.b(a3)).get("errno")).intValue() == 0) {
-                context.sendBroadcast(new Intent("com.baidu.ufosdk.getappkeysuccess_getnewhistoryflag"));
-                return true;
-            }
-            context.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
-            Looper.prepare();
-            Toast.makeText(context, "删除失败，请稍后重试。", 1).show();
-            Looper.loop();
-            return false;
-        } catch (Exception e2) {
-            context.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
-            c.a("sendRecord fail.", e2);
-            Looper.prepare();
-            Toast.makeText(context, "删除失败，请稍后重试。", 1).show();
-            Looper.loop();
-            return false;
         }
+        return invokeLLL.booleanValue;
     }
 }

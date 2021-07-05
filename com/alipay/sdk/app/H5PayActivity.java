@@ -4,117 +4,159 @@ import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import com.alipay.sdk.util.n;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
 /* loaded from: classes.dex */
 public class H5PayActivity extends Activity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.alipay.sdk.widget.g f1750a;
+    public com.alipay.sdk.widget.g f1753a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1751b;
+    public String f1754b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1752c;
+    public String f1755c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1753d;
+    public String f1756d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1754e;
+    public String f1757e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1755f;
+    public boolean f1758f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1756g;
+    public String f1759g;
+
+    public H5PayActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     private void b() {
-        try {
-            super.requestWindowFeature(1);
-        } catch (Throwable th) {
-            com.alipay.sdk.util.c.a(th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            try {
+                super.requestWindowFeature(1);
+            } catch (Throwable th) {
+                com.alipay.sdk.util.c.a(th);
+            }
         }
     }
 
     public void a() {
-        Object obj = PayTask.f1768a;
-        synchronized (obj) {
-            try {
-                obj.notify();
-            } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Object obj = PayTask.f1771a;
+            synchronized (obj) {
+                try {
+                    obj.notify();
+                } catch (Exception unused) {
+                }
             }
         }
     }
 
     @Override // android.app.Activity
     public void finish() {
-        a();
-        super.finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            super.finish();
+        }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        com.alipay.sdk.widget.g gVar = this.f1750a;
-        if (gVar instanceof com.alipay.sdk.widget.h) {
-            gVar.b();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            com.alipay.sdk.widget.g gVar = this.f1753a;
+            if (gVar instanceof com.alipay.sdk.widget.h) {
+                gVar.b();
+                return;
+            }
+            if (!gVar.b()) {
+                super.onBackPressed();
+            }
+            j.a(j.c());
+            finish();
         }
-        if (!gVar.b()) {
-            super.onBackPressed();
-        }
-        j.a(j.c());
-        finish();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+        }
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        b();
-        super.onCreate(bundle);
-        try {
-            Bundle extras = getIntent().getExtras();
-            String string = extras.getString("url", null);
-            this.f1751b = string;
-            if (!n.f(string)) {
-                finish();
-                return;
-            }
-            this.f1753d = extras.getString("cookie", null);
-            this.f1752c = extras.getString("method", null);
-            this.f1754e = extras.getString("title", null);
-            this.f1756g = extras.getString("version", "v1");
-            this.f1755f = extras.getBoolean("backisexit", false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            b();
+            super.onCreate(bundle);
             try {
-                if (DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX.equals(this.f1756g)) {
-                    com.alipay.sdk.widget.j jVar = new com.alipay.sdk.widget.j(this);
-                    setContentView(jVar);
-                    jVar.a(this.f1754e, this.f1752c, this.f1755f);
-                    jVar.a(this.f1751b);
-                    this.f1750a = jVar;
+                Bundle extras = getIntent().getExtras();
+                String string = extras.getString("url", null);
+                this.f1754b = string;
+                if (!n.f(string)) {
+                    finish();
                     return;
                 }
-                com.alipay.sdk.widget.h hVar = new com.alipay.sdk.widget.h(this);
-                this.f1750a = hVar;
-                setContentView(hVar);
-                this.f1750a.a(this.f1751b, this.f1753d);
-                this.f1750a.a(this.f1751b);
-            } catch (Throwable th) {
-                com.alipay.sdk.app.statistic.a.a("biz", "GetInstalledAppEx", th);
+                this.f1756d = extras.getString("cookie", null);
+                this.f1755c = extras.getString("method", null);
+                this.f1757e = extras.getString("title", null);
+                this.f1759g = extras.getString("version", "v1");
+                this.f1758f = extras.getBoolean("backisexit", false);
+                try {
+                    if (DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX.equals(this.f1759g)) {
+                        com.alipay.sdk.widget.j jVar = new com.alipay.sdk.widget.j(this);
+                        setContentView(jVar);
+                        jVar.a(this.f1757e, this.f1755c, this.f1758f);
+                        jVar.a(this.f1754b);
+                        this.f1753a = jVar;
+                        return;
+                    }
+                    com.alipay.sdk.widget.h hVar = new com.alipay.sdk.widget.h(this);
+                    this.f1753a = hVar;
+                    setContentView(hVar);
+                    this.f1753a.a(this.f1754b, this.f1756d);
+                    this.f1753a.a(this.f1754b);
+                } catch (Throwable th) {
+                    com.alipay.sdk.app.statistic.a.a("biz", "GetInstalledAppEx", th);
+                    finish();
+                }
+            } catch (Exception unused) {
                 finish();
             }
-        } catch (Exception unused) {
-            finish();
         }
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        this.f1750a.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDestroy();
+            this.f1753a.a();
+        }
     }
 }

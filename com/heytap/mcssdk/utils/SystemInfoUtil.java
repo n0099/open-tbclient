@@ -7,129 +7,172 @@ import android.os.SystemProperties;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SystemInfoUtil {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String MODEL_NULL = "0";
     public static final int SDK_INT_21 = 21;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public SystemInfoUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static String getAndroidVersion() {
-        return Build.VERSION.RELEASE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.RELEASE : (String) invokeV.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static String getCarrierName(Context context) {
+        InterceptResult invokeL;
         char c2;
-        String lowerCase = getOperator(context).toLowerCase();
-        switch (lowerCase.hashCode()) {
-            case -42227884:
-                if (lowerCase.equals("china net")) {
-                    c2 = 7;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String lowerCase = getOperator(context).toLowerCase();
+            switch (lowerCase.hashCode()) {
+                case -42227884:
+                    if (lowerCase.equals("china net")) {
+                        c2 = 7;
+                        break;
+                    }
+                    c2 = 65535;
                     break;
-                }
-                c2 = 65535;
-                break;
-            case 278980793:
-                if (lowerCase.equals("chinamobile")) {
-                    c2 = 2;
+                case 278980793:
+                    if (lowerCase.equals("chinamobile")) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
                     break;
-                }
-                c2 = 65535;
-                break;
-            case 394699659:
-                if (lowerCase.equals("china mobile")) {
-                    c2 = 1;
+                case 394699659:
+                    if (lowerCase.equals("china mobile")) {
+                        c2 = 1;
+                        break;
+                    }
+                    c2 = 65535;
                     break;
-                }
-                c2 = 65535;
-                break;
-            case 507293352:
-                if (lowerCase.equals("chinaunicom")) {
-                    c2 = 5;
+                case 507293352:
+                    if (lowerCase.equals("chinaunicom")) {
+                        c2 = 5;
+                        break;
+                    }
+                    c2 = 65535;
                     break;
-                }
-                c2 = 65535;
-                break;
-            case 618558396:
-                if (lowerCase.equals("中国电信")) {
-                    c2 = 6;
+                case 618558396:
+                    if (lowerCase.equals("中国电信")) {
+                        c2 = 6;
+                        break;
+                    }
+                    c2 = 65535;
                     break;
-                }
-                c2 = 65535;
-                break;
-            case 618596989:
-                if (lowerCase.equals("中国移动")) {
-                    c2 = 0;
+                case 618596989:
+                    if (lowerCase.equals("中国移动")) {
+                        c2 = 0;
+                        break;
+                    }
+                    c2 = 65535;
                     break;
-                }
-                c2 = 65535;
-                break;
-            case 618663094:
-                if (lowerCase.equals("中国联通")) {
-                    c2 = 3;
+                case 618663094:
+                    if (lowerCase.equals("中国联通")) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
                     break;
-                }
-                c2 = 65535;
-                break;
-            case 623012218:
-                if (lowerCase.equals("china unicom")) {
-                    c2 = 4;
+                case 623012218:
+                    if (lowerCase.equals("china unicom")) {
+                        c2 = 4;
+                        break;
+                    }
+                    c2 = 65535;
                     break;
-                }
-                c2 = 65535;
-                break;
-            case 1661280486:
-                if (lowerCase.equals("chinanet")) {
-                    c2 = '\b';
+                case 1661280486:
+                    if (lowerCase.equals("chinanet")) {
+                        c2 = '\b';
+                        break;
+                    }
+                    c2 = 65535;
                     break;
-                }
-                c2 = 65535;
-                break;
-            default:
-                c2 = 65535;
-                break;
+                default:
+                    c2 = 65535;
+                    break;
+            }
+            switch (c2) {
+                case 0:
+                case 1:
+                case 2:
+                    return "China Mobile";
+                case 3:
+                case 4:
+                case 5:
+                    return "China Unicom";
+                case 6:
+                case 7:
+                case '\b':
+                    return "China Net";
+                default:
+                    return "none";
+            }
         }
-        switch (c2) {
-            case 0:
-            case 1:
-            case 2:
-                return "China Mobile";
-            case 3:
-            case 4:
-            case 5:
-                return "China Unicom";
-            case 6:
-            case 7:
-            case '\b':
-                return "China Net";
-            default:
-                return "none";
-        }
+        return (String) invokeL.objValue;
     }
 
     public static String getModel() {
-        if (isEmpty(Build.MODEL)) {
-            LogUtil.w("No MODEL.");
-            return "0";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (isEmpty(Build.MODEL)) {
+                LogUtil.w("No MODEL.");
+                return "0";
+            }
+            return Build.MODEL.toUpperCase();
         }
-        return Build.MODEL.toUpperCase();
+        return (String) invokeV.objValue;
     }
 
     public static String getOperator(Context context) {
-        try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            return telephonyManager != null ? telephonyManager.getNetworkOperatorName() : "";
-        } catch (Exception e2) {
-            LogUtil.e(e2);
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            try {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                return telephonyManager != null ? telephonyManager.getNetworkOperatorName() : "";
+            } catch (Exception e2) {
+                LogUtil.e(e2);
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public static String getRomVersion() {
-        return SystemProperties.get("ro.build.display.id", "");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? SystemProperties.get("ro.build.display.id", "") : (String) invokeV.objValue;
     }
 
     public static boolean isEmpty(String str) {
-        return TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equals(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equals(str) : invokeL.booleanValue;
     }
 }

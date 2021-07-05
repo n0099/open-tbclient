@@ -1,32 +1,53 @@
 package com.bytedance.sdk.openadsdk.i;
 
-import android.graphics.Bitmap;
-import d.b.c.b.b.d;
-import d.b.c.b.d.o;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.a.y;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class b implements d.k {
-    @Override // d.b.c.b.b.d.k
-    public void a() {
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public WeakReference<y> f31243a;
+
+    public b(y yVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f31243a = new WeakReference<>(yVar);
     }
 
-    @Override // d.b.c.b.b.d.k
-    public void a(d.i iVar, boolean z) {
+    public void a(y yVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
+            this.f31243a = new WeakReference<>(yVar);
+        }
     }
 
-    @Override // d.b.c.b.d.o.a
-    public void a(o<Bitmap> oVar) {
-    }
-
-    @Override // d.b.c.b.b.d.k
-    public boolean a(byte[] bArr) {
-        return false;
-    }
-
-    @Override // d.b.c.b.b.d.k
-    public void b() {
-    }
-
-    @Override // d.b.c.b.d.o.a
-    public void b(o<Bitmap> oVar) {
+    @JavascriptInterface
+    public void invokeMethod(String str) {
+        WeakReference<y> weakReference;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (weakReference = this.f31243a) == null || weakReference.get() == null) {
+            return;
+        }
+        this.f31243a.get().invokeMethod(str);
     }
 }

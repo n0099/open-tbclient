@@ -3,138 +3,220 @@ package com.baidu.mobstat;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.bi;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class bk implements bi.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public bi f8766a;
+    public bi f8839a;
 
     @TargetApi(14)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends bk {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Activity> f8767a;
+        public WeakReference<Activity> f8840a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f8768b;
+        public b f8841b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final WeakHashMap<View, C0113a> f8769c = new WeakHashMap<>();
+        public final WeakHashMap<View, C0131a> f8842c;
 
         /* renamed from: com.baidu.mobstat.bk$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0113a extends View.AccessibilityDelegate {
+        /* loaded from: classes3.dex */
+        public class C0131a extends View.AccessibilityDelegate {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ a f8843a;
 
             /* renamed from: b  reason: collision with root package name */
-            public View.AccessibilityDelegate f8771b;
+            public View.AccessibilityDelegate f8844b;
 
             /* renamed from: c  reason: collision with root package name */
-            public View f8772c;
+            public View f8845c;
 
             /* renamed from: d  reason: collision with root package name */
-            public volatile boolean f8773d;
+            public volatile boolean f8846d;
 
-            public C0113a(WeakReference<Activity> weakReference, View view, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
-                this.f8771b = accessibilityDelegate;
-                a.this.f8767a = weakReference;
-                this.f8772c = view;
-                this.f8773d = z;
+            public C0131a(a aVar, WeakReference<Activity> weakReference, View view, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, weakReference, view, str, accessibilityDelegate, Boolean.valueOf(z)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f8843a = aVar;
+                this.f8844b = accessibilityDelegate;
+                aVar.f8840a = weakReference;
+                this.f8845c = view;
+                this.f8846d = z;
             }
 
             public void a(boolean z) {
-                this.f8773d = z;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                    this.f8846d = z;
+                }
             }
 
             @Override // android.view.View.AccessibilityDelegate
             public void sendAccessibilityEvent(View view, int i2) {
                 Activity activity;
-                if (view == this.f8772c && i2 == 1) {
-                    if (bd.c().b() && this.f8773d) {
-                        bd c2 = bd.c();
-                        c2.a("watch view  OnEvent:" + view.getClass().getName());
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
+                    if (view == this.f8845c && i2 == 1) {
+                        if (bd.c().b() && this.f8846d) {
+                            bd c2 = bd.c();
+                            c2.a("watch view  OnEvent:" + view.getClass().getName());
+                        }
+                        if (bh.c().b()) {
+                            bh c3 = bh.c();
+                            c3.a("watch view  OnEvent:" + view.getClass().getName());
+                        }
+                        if (this.f8843a.f8840a != null && (activity = (Activity) this.f8843a.f8840a.get()) != null) {
+                            this.f8843a.f8841b.a(view, this.f8846d, activity);
+                        }
                     }
-                    if (bh.c().b()) {
-                        bh c3 = bh.c();
-                        c3.a("watch view  OnEvent:" + view.getClass().getName());
+                    View.AccessibilityDelegate accessibilityDelegate = this.f8844b;
+                    if (accessibilityDelegate != null) {
+                        accessibilityDelegate.sendAccessibilityEvent(view, i2);
+                    } else {
+                        super.sendAccessibilityEvent(view, i2);
                     }
-                    if (a.this.f8767a != null && (activity = (Activity) a.this.f8767a.get()) != null) {
-                        a.this.f8768b.a(view, this.f8773d, activity);
-                    }
-                }
-                View.AccessibilityDelegate accessibilityDelegate = this.f8771b;
-                if (accessibilityDelegate != null) {
-                    accessibilityDelegate.sendAccessibilityEvent(view, i2);
-                } else {
-                    super.sendAccessibilityEvent(view, i2);
                 }
             }
 
             public View.AccessibilityDelegate a() {
-                return this.f8771b;
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8844b : (View.AccessibilityDelegate) invokeV.objValue;
             }
         }
 
         public a(int i2, WeakReference<Activity> weakReference, b bVar) {
-            this.f8767a = weakReference;
-            this.f8768b = bVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), weakReference, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f8840a = weakReference;
+            this.f8841b = bVar;
+            this.f8842c = new WeakHashMap<>();
         }
 
         public void a(WeakReference<Activity> weakReference, View view, String str, boolean z) {
-            View.AccessibilityDelegate a2 = a(view);
-            if (!(a2 instanceof C0113a)) {
-                C0113a c0113a = new C0113a(weakReference, view, str, a2, z);
-                view.setAccessibilityDelegate(c0113a);
-                this.f8769c.put(view, c0113a);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{weakReference, view, str, Boolean.valueOf(z)}) == null) {
+                View.AccessibilityDelegate a2 = a(view);
+                if (!(a2 instanceof C0131a)) {
+                    C0131a c0131a = new C0131a(this, weakReference, view, str, a2, z);
+                    view.setAccessibilityDelegate(c0131a);
+                    this.f8842c.put(view, c0131a);
+                    return;
+                }
+                ((C0131a) a2).a(z);
             }
-            ((C0113a) a2).a(z);
         }
 
         private View.AccessibilityDelegate a(View view) {
-            try {
-                return (View.AccessibilityDelegate) view.getClass().getMethod("getAccessibilityDelegate", new Class[0]).invoke(view, new Object[0]);
-            } catch (Exception unused) {
-                return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, view)) == null) {
+                try {
+                    return (View.AccessibilityDelegate) view.getClass().getMethod("getAccessibilityDelegate", new Class[0]).invoke(view, new Object[0]);
+                } catch (Exception unused) {
+                    return null;
+                }
             }
+            return (View.AccessibilityDelegate) invokeL.objValue;
         }
 
         @Override // com.baidu.mobstat.bi.a
         public void a(View view, boolean z) {
-            a(this.f8767a, view, bj.a(view), z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, z) == null) {
+                a(this.f8840a, view, bj.a(view), z);
+            }
         }
 
         @Override // com.baidu.mobstat.bk
         public void a() {
-            WeakHashMap<View, C0113a> weakHashMap = this.f8769c;
-            if (weakHashMap == null) {
+            WeakHashMap<View, C0131a> weakHashMap;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakHashMap = this.f8842c) == null) {
                 return;
             }
-            for (Map.Entry<View, C0113a> entry : weakHashMap.entrySet()) {
+            for (Map.Entry<View, C0131a> entry : weakHashMap.entrySet()) {
                 entry.getKey().setAccessibilityDelegate(entry.getValue().a());
             }
-            this.f8769c.clear();
+            this.f8842c.clear();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(View view, boolean z, Activity activity);
+    }
+
+    public bk() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public abstract void a();
 
     public void a(Activity activity, JSONObject jSONObject, boolean z) {
-        if (this.f8766a == null) {
-            bi biVar = new bi(activity, this, z);
-            this.f8766a = biVar;
-            biVar.a(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, jSONObject, z) == null) {
+            if (this.f8839a == null) {
+                bi biVar = new bi(activity, this, z);
+                this.f8839a = biVar;
+                biVar.a(jSONObject);
+            }
+            this.f8839a.a(activity);
         }
-        this.f8766a.a(activity);
     }
 }

@@ -1,76 +1,134 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 
 import android.os.Process;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class FileLock {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f30310a = new HashMap();
+    public static final Map<String, Integer> f32160a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30311b;
+    public final int f32161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f30312c;
+    public final String f32162c;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1928321007, "Lcom/bytedance/sdk/openadsdk/preload/geckox/utils/FileLock;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1928321007, "Lcom/bytedance/sdk/openadsdk/preload/geckox/utils/FileLock;");
+                return;
+            }
+        }
+        f32160a = new HashMap();
         g.a("file_lock_pg");
     }
 
     public FileLock(String str, int i2) {
-        this.f30312c = str;
-        this.f30311b = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f32162c = str;
+        this.f32161b = i2;
     }
 
     public static FileLock a(String str) {
-        try {
-            int d2 = d(str);
-            nLockFile(d2);
-            return new FileLock(str, d2);
-        } catch (Exception e2) {
-            throw new RuntimeException("lock failed, file:" + str + ", pid:" + Process.myPid() + " caused by:" + e2.getMessage());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                int d2 = d(str);
+                nLockFile(d2);
+                return new FileLock(str, d2);
+            } catch (Exception e2) {
+                throw new RuntimeException("lock failed, file:" + str + ", pid:" + Process.myPid() + " caused by:" + e2.getMessage());
+            }
         }
+        return (FileLock) invokeL.objValue;
     }
 
     public static FileLock b(String str) {
-        try {
-            int d2 = d(str);
-            if (nTryLock(d2)) {
-                return new FileLock(str, d2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            try {
+                int d2 = d(str);
+                if (nTryLock(d2)) {
+                    return new FileLock(str, d2);
+                }
+                return null;
+            } catch (Exception e2) {
+                throw new RuntimeException("try lock failed, file:" + str + " caused by:" + e2.getMessage());
             }
-            return null;
-        } catch (Exception e2) {
-            throw new RuntimeException("try lock failed, file:" + str + " caused by:" + e2.getMessage());
         }
+        return (FileLock) invokeL.objValue;
     }
 
     public static FileLock c(String str) throws Exception {
-        try {
-            int d2 = d(str);
-            if (!nTryLock(d2)) {
-                new FileLock(str, d2).b();
-                return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            try {
+                int d2 = d(str);
+                if (!nTryLock(d2)) {
+                    new FileLock(str, d2).b();
+                    return null;
+                }
+                return new FileLock(str, d2);
+            } catch (Exception e2) {
+                throw new RuntimeException("try lock failed, file:" + str + " caused by:" + e2.getMessage());
             }
-            return new FileLock(str, d2);
-        } catch (Exception e2) {
-            throw new RuntimeException("try lock failed, file:" + str + " caused by:" + e2.getMessage());
         }
+        return (FileLock) invokeL.objValue;
     }
 
     public static int d(String str) throws Exception {
+        InterceptResult invokeL;
         Integer num;
-        synchronized (f30310a) {
-            num = f30310a.get(str);
-            if (num == null) {
-                new File(str).getParentFile().mkdirs();
-                num = Integer.valueOf(nGetFD(str));
-                f30310a.put(str, num);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            synchronized (f32160a) {
+                num = f32160a.get(str);
+                if (num == null) {
+                    new File(str).getParentFile().mkdirs();
+                    num = Integer.valueOf(nGetFD(str));
+                    f32160a.put(str, num);
+                }
             }
+            return num.intValue();
         }
-        return num.intValue();
+        return invokeL.intValue;
     }
 
     public static native int nGetFD(String str) throws Exception;
@@ -86,32 +144,43 @@ public class FileLock {
     public static native void nUnlockFile(int i2) throws Exception;
 
     public static FileLock a(String str, int i2) {
-        try {
-            int d2 = d(str);
-            nLockFileSegment(d2, i2);
-            return new FileLock(str, d2);
-        } catch (Exception e2) {
-            throw new RuntimeException("lock segment failed, file:" + str + " caused by:" + e2.getMessage());
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i2)) == null) {
+            try {
+                int d2 = d(str);
+                nLockFileSegment(d2, i2);
+                return new FileLock(str, d2);
+            } catch (Exception e2) {
+                throw new RuntimeException("lock segment failed, file:" + str + " caused by:" + e2.getMessage());
+            }
         }
+        return (FileLock) invokeLI.objValue;
     }
 
     public void b() {
         Integer remove;
-        synchronized (f30310a) {
-            remove = f30310a.remove(this.f30312c);
-        }
-        try {
-            nRelease(remove.intValue());
-        } catch (Exception e2) {
-            throw new RuntimeException("release lock failed, file:" + this.f30312c + " caused by:" + e2.getMessage());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (f32160a) {
+                remove = f32160a.remove(this.f32162c);
+            }
+            try {
+                nRelease(remove.intValue());
+            } catch (Exception e2) {
+                throw new RuntimeException("release lock failed, file:" + this.f32162c + " caused by:" + e2.getMessage());
+            }
         }
     }
 
     public void a() {
-        try {
-            nUnlockFile(this.f30311b);
-        } catch (Exception unused) {
-            throw new RuntimeException("release lock failed，path:" + this.f30312c);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                nUnlockFile(this.f32161b);
+            } catch (Exception unused) {
+                throw new RuntimeException("release lock failed，path:" + this.f32162c);
+            }
         }
     }
 }

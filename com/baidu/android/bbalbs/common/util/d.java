@@ -5,30 +5,49 @@ import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.CharArrayWriter;
 import java.io.File;
 import java.io.FileReader;
 /* loaded from: classes.dex */
 public final class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static String a(Context context) {
-        return Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID) : (String) invokeL.objValue;
     }
 
     public static String a(Context context, String str) {
-        try {
-            return Settings.System.getString(context.getContentResolver(), str);
-        } catch (Exception e2) {
-            a(e2);
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
+                return Settings.System.getString(context.getContentResolver(), str);
+            } catch (Exception e2) {
+                a(e2);
+                return null;
+            }
         }
+        return (String) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x003f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(File file) {
+        InterceptResult invokeL;
         FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, file)) != null) {
+            return (String) invokeL.objValue;
+        }
         FileReader fileReader2 = null;
         try {
             fileReader = new FileReader(file);
@@ -86,29 +105,46 @@ public final class d {
     }
 
     public static void a(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
+        }
     }
 
     public static boolean a(Context context, String str, String str2) {
-        try {
-            return Settings.System.putString(context.getContentResolver(), str, str2);
-        } catch (Exception e2) {
-            a(e2);
-            return false;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, str2)) == null) {
+            try {
+                return Settings.System.putString(context.getContentResolver(), str, str2);
+            } catch (Exception e2) {
+                a(e2);
+                return false;
+            }
         }
+        return invokeLLL.booleanValue;
     }
 
     public static boolean a(String str, int i2) {
-        if (TextUtils.isEmpty(str) || i2 == 0) {
-            return false;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) {
+            if (TextUtils.isEmpty(str) || i2 == 0) {
+                return false;
+            }
+            return str.matches("^[a-zA-Z0-9]{1,5}$");
         }
-        return str.matches("^[a-zA-Z0-9]{1,5}$");
+        return invokeLI.booleanValue;
     }
 
     public static boolean b(Context context) {
-        return b(context, "android.permission.WRITE_SETTINGS");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? b(context, "android.permission.WRITE_SETTINGS") : invokeL.booleanValue;
     }
 
     public static boolean b(Context context, String str) {
-        return context != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) ? context != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeLL.booleanValue;
     }
 }

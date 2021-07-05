@@ -6,35 +6,55 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.bytedance.sdk.openadsdk.core.p;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.multipro.e;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static ContentResolver a(Context context) {
-        if (context == null) {
-            try {
-                context = p.a();
-            } catch (Throwable unused) {
-                return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                try {
+                    context = o.a();
+                } catch (Throwable unused) {
+                    return null;
+                }
             }
+            return context.getContentResolver();
         }
-        return context.getContentResolver();
+        return (ContentResolver) invokeL.objValue;
     }
 
     public static String a() {
-        return e.f29855b + "/t_db/ttopensdk.db/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            return e.f31510b + "/t_db/ttopensdk.db/";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static synchronized void a(Context context, String str, ContentValues contentValues) {
-        synchronized (a.class) {
-            if (contentValues != null) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        ContentResolver a2 = a(context);
-                        if (a2 != null) {
-                            a2.insert(Uri.parse(a() + str), contentValues);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, contentValues) == null) {
+            synchronized (a.class) {
+                if (contentValues != null) {
+                    if (!TextUtils.isEmpty(str)) {
+                        try {
+                            ContentResolver a2 = a(context);
+                            if (a2 != null) {
+                                a2.insert(Uri.parse(a() + str), contentValues);
+                            }
+                        } catch (Throwable unused) {
                         }
-                    } catch (Throwable unused) {
                     }
                 }
             }
@@ -42,66 +62,84 @@ public class a {
     }
 
     public static synchronized int a(Context context, String str, String str2, String[] strArr) {
-        synchronized (a.class) {
-            if (TextUtils.isEmpty(str)) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, str, str2, strArr)) == null) {
+            synchronized (a.class) {
+                if (TextUtils.isEmpty(str)) {
+                    return 0;
+                }
+                try {
+                    ContentResolver a2 = a(context);
+                    if (a2 != null) {
+                        return a2.delete(Uri.parse(a() + str), str2, strArr);
+                    }
+                } catch (Throwable unused) {
+                }
                 return 0;
             }
-            try {
-                ContentResolver a2 = a(context);
-                if (a2 != null) {
-                    return a2.delete(Uri.parse(a() + str), str2, strArr);
-                }
-            } catch (Throwable unused) {
-            }
-            return 0;
         }
+        return invokeLLLL.intValue;
     }
 
     public static synchronized int a(Context context, String str, ContentValues contentValues, String str2, String[] strArr) {
-        synchronized (a.class) {
-            if (contentValues != null) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        ContentResolver a2 = a(context);
-                        if (a2 != null) {
-                            return a2.update(Uri.parse(a() + str), contentValues, str2, strArr);
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, context, str, contentValues, str2, strArr)) == null) {
+            synchronized (a.class) {
+                if (contentValues != null) {
+                    if (!TextUtils.isEmpty(str)) {
+                        try {
+                            ContentResolver a2 = a(context);
+                            if (a2 != null) {
+                                return a2.update(Uri.parse(a() + str), contentValues, str2, strArr);
+                            }
+                        } catch (Throwable unused) {
                         }
-                    } catch (Throwable unused) {
+                        return 0;
                     }
-                    return 0;
                 }
+                return 0;
             }
-            return 0;
         }
+        return invokeLLLLL.intValue;
     }
 
     public static synchronized Cursor a(Context context, String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5) {
-        synchronized (a.class) {
-            if (TextUtils.isEmpty(str)) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, strArr, str2, strArr2, str3, str4, str5})) == null) {
+            synchronized (a.class) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                try {
+                    ContentResolver a2 = a(context);
+                    if (a2 != null) {
+                        return a2.query(Uri.parse(a() + str), strArr, str2, strArr2, str5);
+                    }
+                } catch (Throwable unused) {
+                }
                 return null;
             }
-            try {
-                ContentResolver a2 = a(context);
-                if (a2 != null) {
-                    return a2.query(Uri.parse(a() + str), strArr, str2, strArr2, str5);
-                }
-            } catch (Throwable unused) {
-            }
-            return null;
         }
+        return (Cursor) invokeCommon.objValue;
     }
 
     public static synchronized void a(Context context, String str) {
-        synchronized (a.class) {
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                ContentResolver a2 = a(context);
-                if (a2 != null) {
-                    a2.getType(Uri.parse(a() + "unknown/execSQL?sql=" + Uri.encode(str)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+            synchronized (a.class) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
                 }
-            } catch (Throwable unused) {
+                try {
+                    ContentResolver a2 = a(context);
+                    if (a2 != null) {
+                        a2.getType(Uri.parse(a() + "unknown/execSQL?sql=" + Uri.encode(str)));
+                    }
+                } catch (Throwable unused) {
+                }
             }
         }
     }

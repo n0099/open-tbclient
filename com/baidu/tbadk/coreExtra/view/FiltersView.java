@@ -5,68 +5,123 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class FiltersView extends HorizontalScrollView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f12782e;
+    public Runnable f12864e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12783f;
+    public View f12865f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f12784g;
+    public View f12866g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FiltersView f12867e;
+
+        public a(FiltersView filtersView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {filtersView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12867e = filtersView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int i2;
-            if (FiltersView.this.f12783f == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12867e.f12865f == null) {
                 return;
             }
-            int childCount = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildCount();
+            int childCount = ((LinearLayout) this.f12867e.getChildAt(0)).getChildCount();
             int i3 = 0;
             while (true) {
                 if (i3 >= childCount) {
                     i2 = 0;
                     break;
                 }
-                View childAt = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildAt(i3);
-                if (childAt == FiltersView.this.f12783f) {
+                View childAt = ((LinearLayout) this.f12867e.getChildAt(0)).getChildAt(i3);
+                if (childAt == this.f12867e.f12865f) {
                     i2 = childAt.getRight();
                     break;
                 }
                 i3++;
             }
-            FiltersView.this.f12783f = null;
-            int width = i2 - FiltersView.this.getWidth();
+            this.f12867e.f12865f = null;
+            int width = i2 - this.f12867e.getWidth();
             if (width > 0) {
-                FiltersView.this.scrollBy(width, 0);
+                this.f12867e.scrollBy(width, 0);
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FiltersView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12782e = new a();
-        this.f12783f = null;
-        this.f12784g = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12864e = new a(this);
+        this.f12865f = null;
+        this.f12866g = null;
     }
 
     public String getSelectedFilter() {
-        View view = this.f12784g;
-        return view != null ? (String) ((View) view.getTag()).getTag() : "normal";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            View view = this.f12866g;
+            return view != null ? (String) ((View) view.getTag()).getTag() : "normal";
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        if (this.f12783f != null) {
-            post(this.f12782e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            if (this.f12865f != null) {
+                post(this.f12864e);
+            }
         }
     }
 }

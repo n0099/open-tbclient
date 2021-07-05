@@ -1,8 +1,18 @@
 package com.baidu.mobstat;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.by;
 import com.baidu.mobstat.cd;
 import com.baidu.mobstat.cq;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
@@ -14,329 +24,432 @@ import java.util.Random;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.ws.WebSocketProtocol;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ce extends cd {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ boolean f8831f = !ce.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f8904f;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f8832g;
+    public ByteBuffer f8905g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Random f8833h = new Random();
+    public final Random f8906h;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Throwable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ce f8907a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f8835b;
+        public int f8908b;
 
-        public a(int i2) {
-            this.f8835b = i2;
+        public a(ce ceVar, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ceVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f8907a = ceVar;
+            this.f8908b = i2;
         }
 
         public int a() {
-            return this.f8835b;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8908b : invokeV.intValue;
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581658896, "Lcom/baidu/mobstat/ce;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(581658896, "Lcom/baidu/mobstat/ce;");
+                return;
+            }
+        }
+        f8904f = !ce.class.desiredAssertionStatus();
+    }
+
+    public ce() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f8906h = new Random();
     }
 
     @Override // com.baidu.mobstat.cd
     public cd.b a(cs csVar, cz czVar) throws cj {
-        if (csVar.c("Sec-WebSocket-Key") && czVar.c("Sec-WebSocket-Accept")) {
-            if (a(csVar.b("Sec-WebSocket-Key")).equals(czVar.b("Sec-WebSocket-Accept"))) {
-                return cd.b.MATCHED;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, csVar, czVar)) == null) {
+            if (csVar.c("Sec-WebSocket-Key") && czVar.c("Sec-WebSocket-Accept")) {
+                if (a(csVar.b("Sec-WebSocket-Key")).equals(czVar.b("Sec-WebSocket-Accept"))) {
+                    return cd.b.f8901a;
+                }
+                return cd.b.f8902b;
             }
-            return cd.b.NOT_MATCHED;
+            return cd.b.f8902b;
         }
-        return cd.b.NOT_MATCHED;
+        return (cd.b) invokeLL.objValue;
     }
 
     @Override // com.baidu.mobstat.cd
     public cd.a b() {
-        return cd.a.TWOWAY;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? cd.a.f8899c : (cd.a) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x009a, code lost:
-        if (r6.hasRemaining() == false) goto L20;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x009c, code lost:
-        r6.mark();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x009f, code lost:
-        r0.add(e(r6));
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00a7, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00a8, code lost:
-        r6.reset();
-        r1 = java.nio.ByteBuffer.allocate(a(r1.a()));
-        r5.f8832g = r1;
-        r1.put(r6);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00bc, code lost:
-        return r0;
-     */
     @Override // com.baidu.mobstat.cd
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public List<cq> c(ByteBuffer byteBuffer) throws ck, ch {
-        while (true) {
-            LinkedList linkedList = new LinkedList();
-            if (this.f8832g == null) {
-                break;
+        LinkedList linkedList;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) {
+            while (true) {
+                linkedList = new LinkedList();
+                if (this.f8905g == null) {
+                    break;
+                }
+                try {
+                    byteBuffer.mark();
+                    int remaining = byteBuffer.remaining();
+                    int remaining2 = this.f8905g.remaining();
+                    if (remaining2 > remaining) {
+                        this.f8905g.put(byteBuffer.array(), byteBuffer.position(), remaining);
+                        byteBuffer.position(byteBuffer.position() + remaining);
+                        return Collections.emptyList();
+                    }
+                    this.f8905g.put(byteBuffer.array(), byteBuffer.position(), remaining2);
+                    byteBuffer.position(byteBuffer.position() + remaining2);
+                    linkedList.add(e((ByteBuffer) this.f8905g.duplicate().position(0)));
+                    this.f8905g = null;
+                } catch (a e2) {
+                    this.f8905g.limit();
+                    ByteBuffer allocate = ByteBuffer.allocate(a(e2.a()));
+                    if (!f8904f && allocate.limit() <= this.f8905g.limit()) {
+                        throw new AssertionError();
+                    }
+                    this.f8905g.rewind();
+                    allocate.put(this.f8905g);
+                    this.f8905g = allocate;
+                }
             }
-            try {
+            while (byteBuffer.hasRemaining()) {
                 byteBuffer.mark();
-                int remaining = byteBuffer.remaining();
-                int remaining2 = this.f8832g.remaining();
-                if (remaining2 > remaining) {
-                    this.f8832g.put(byteBuffer.array(), byteBuffer.position(), remaining);
-                    byteBuffer.position(byteBuffer.position() + remaining);
-                    return Collections.emptyList();
+                try {
+                    linkedList.add(e(byteBuffer));
+                } catch (a e3) {
+                    byteBuffer.reset();
+                    ByteBuffer allocate2 = ByteBuffer.allocate(a(e3.a()));
+                    this.f8905g = allocate2;
+                    allocate2.put(byteBuffer);
                 }
-                this.f8832g.put(byteBuffer.array(), byteBuffer.position(), remaining2);
-                byteBuffer.position(byteBuffer.position() + remaining2);
-                linkedList.add(e((ByteBuffer) this.f8832g.duplicate().position(0)));
-                this.f8832g = null;
-            } catch (a e2) {
-                this.f8832g.limit();
-                ByteBuffer allocate = ByteBuffer.allocate(a(e2.a()));
-                if (!f8831f && allocate.limit() <= this.f8832g.limit()) {
-                    throw new AssertionError();
-                }
-                this.f8832g.rewind();
-                allocate.put(this.f8832g);
-                this.f8832g = allocate;
             }
+            return linkedList;
         }
+        return (List) invokeL.objValue;
     }
 
     public cq e(ByteBuffer byteBuffer) throws a, ch {
+        InterceptResult invokeL;
         cp crVar;
-        int remaining = byteBuffer.remaining();
-        int i2 = 2;
-        if (remaining >= 2) {
-            byte b2 = byteBuffer.get();
-            boolean z = (b2 >> 8) != 0;
-            byte b3 = (byte) ((b2 & ByteCompanionObject.MAX_VALUE) >> 4);
-            if (b3 == 0) {
-                byte b4 = byteBuffer.get();
-                boolean z2 = (b4 & ByteCompanionObject.MIN_VALUE) != 0;
-                int i3 = (byte) (b4 & ByteCompanionObject.MAX_VALUE);
-                cq.a a2 = a((byte) (b2 & 15));
-                if (z || !(a2 == cq.a.PING || a2 == cq.a.PONG || a2 == cq.a.CLOSING)) {
-                    if (i3 < 0 || i3 > 125) {
-                        if (a2 == cq.a.PING || a2 == cq.a.PONG || a2 == cq.a.CLOSING) {
-                            throw new ci("more than 125 octets");
-                        }
-                        if (i3 != 126) {
-                            i2 = 10;
-                            if (remaining >= 10) {
-                                byte[] bArr = new byte[8];
-                                for (int i4 = 0; i4 < 8; i4++) {
-                                    bArr[i4] = byteBuffer.get();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) {
+            int remaining = byteBuffer.remaining();
+            int i2 = 2;
+            if (remaining >= 2) {
+                byte b2 = byteBuffer.get();
+                boolean z = (b2 >> 8) != 0;
+                byte b3 = (byte) ((b2 & ByteCompanionObject.MAX_VALUE) >> 4);
+                if (b3 == 0) {
+                    byte b4 = byteBuffer.get();
+                    boolean z2 = (b4 & ByteCompanionObject.MIN_VALUE) != 0;
+                    int i3 = (byte) (b4 & ByteCompanionObject.MAX_VALUE);
+                    cq.a a2 = a((byte) (b2 & 15));
+                    if (z || !(a2 == cq.a.f8917d || a2 == cq.a.f8918e || a2 == cq.a.f8919f)) {
+                        if (i3 < 0 || i3 > 125) {
+                            if (a2 == cq.a.f8917d || a2 == cq.a.f8918e || a2 == cq.a.f8919f) {
+                                throw new ci("more than 125 octets");
+                            }
+                            if (i3 != 126) {
+                                i2 = 10;
+                                if (remaining >= 10) {
+                                    byte[] bArr = new byte[8];
+                                    for (int i4 = 0; i4 < 8; i4++) {
+                                        bArr[i4] = byteBuffer.get();
+                                    }
+                                    long longValue = new BigInteger(bArr).longValue();
+                                    if (longValue > 2147483647L) {
+                                        throw new ck("Payloadsize is to big...");
+                                    }
+                                    i3 = (int) longValue;
+                                } else {
+                                    throw new a(this, 10);
                                 }
-                                long longValue = new BigInteger(bArr).longValue();
-                                if (longValue > 2147483647L) {
-                                    throw new ck("Payloadsize is to big...");
-                                }
-                                i3 = (int) longValue;
+                            } else if (remaining >= 4) {
+                                i3 = new BigInteger(new byte[]{0, byteBuffer.get(), byteBuffer.get()}).intValue();
+                                i2 = 4;
                             } else {
-                                throw new a(10);
+                                throw new a(this, 4);
                             }
-                        } else if (remaining >= 4) {
-                            i3 = new BigInteger(new byte[]{0, byteBuffer.get(), byteBuffer.get()}).intValue();
-                            i2 = 4;
-                        } else {
-                            throw new a(4);
                         }
-                    }
-                    int i5 = i2 + (z2 ? 4 : 0) + i3;
-                    if (remaining >= i5) {
-                        ByteBuffer allocate = ByteBuffer.allocate(a(i3));
-                        if (z2) {
-                            byte[] bArr2 = new byte[4];
-                            byteBuffer.get(bArr2);
-                            for (int i6 = 0; i6 < i3; i6++) {
-                                allocate.put((byte) (byteBuffer.get() ^ bArr2[i6 % 4]));
+                        int i5 = i2 + (z2 ? 4 : 0) + i3;
+                        if (remaining >= i5) {
+                            ByteBuffer allocate = ByteBuffer.allocate(a(i3));
+                            if (z2) {
+                                byte[] bArr2 = new byte[4];
+                                byteBuffer.get(bArr2);
+                                for (int i6 = 0; i6 < i3; i6++) {
+                                    allocate.put((byte) (byteBuffer.get() ^ bArr2[i6 % 4]));
+                                }
+                            } else {
+                                allocate.put(byteBuffer.array(), byteBuffer.position(), allocate.limit());
+                                byteBuffer.position(byteBuffer.position() + allocate.limit());
                             }
-                        } else {
-                            allocate.put(byteBuffer.array(), byteBuffer.position(), allocate.limit());
-                            byteBuffer.position(byteBuffer.position() + allocate.limit());
+                            if (a2 == cq.a.f8919f) {
+                                crVar = new co();
+                            } else {
+                                crVar = new cr();
+                                crVar.a(z);
+                                crVar.a(a2);
+                            }
+                            allocate.flip();
+                            crVar.a(allocate);
+                            if (a2 != cq.a.f8915b || dc.b(crVar.c())) {
+                                return crVar;
+                            }
+                            throw new ch(1007);
                         }
-                        if (a2 == cq.a.CLOSING) {
-                            crVar = new co();
-                        } else {
-                            crVar = new cr();
-                            crVar.a(z);
-                            crVar.a(a2);
-                        }
-                        allocate.flip();
-                        crVar.a(allocate);
-                        if (a2 != cq.a.TEXT || dc.b(crVar.c())) {
-                            return crVar;
-                        }
-                        throw new ch(1007);
+                        throw new a(this, i5);
                     }
-                    throw new a(i5);
+                    throw new ci("control frames may no be fragmented");
                 }
-                throw new ci("control frames may no be fragmented");
+                throw new ci("bad rsv " + ((int) b3));
             }
-            throw new ci("bad rsv " + ((int) b3));
+            throw new a(this, 2);
         }
-        throw new a(2);
+        return (cq) invokeL.objValue;
     }
 
     @Override // com.baidu.mobstat.cd
     public ByteBuffer a(cq cqVar) {
-        ByteBuffer c2 = cqVar.c();
-        int i2 = 0;
-        boolean z = this.f8822d == by.b.CLIENT;
-        int i3 = c2.remaining() <= 125 ? 1 : c2.remaining() <= 65535 ? 2 : 8;
-        ByteBuffer allocate = ByteBuffer.allocate((i3 > 1 ? i3 + 1 : i3) + 1 + (z ? 4 : 0) + c2.remaining());
-        byte a2 = a(cqVar.f());
-        boolean d2 = cqVar.d();
-        byte b2 = ByteCompanionObject.MIN_VALUE;
-        allocate.put((byte) (((byte) (d2 ? com.alipay.sdk.encrypt.a.f1885g : 0)) | a2));
-        byte[] a3 = a(c2.remaining(), i3);
-        if (f8831f || a3.length == i3) {
-            if (i3 == 1) {
-                byte b3 = a3[0];
-                if (!z) {
-                    b2 = 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cqVar)) == null) {
+            ByteBuffer c2 = cqVar.c();
+            int i2 = 0;
+            boolean z = this.f8895d == by.b.f8871a;
+            int i3 = c2.remaining() <= 125 ? 1 : c2.remaining() <= 65535 ? 2 : 8;
+            ByteBuffer allocate = ByteBuffer.allocate((i3 > 1 ? i3 + 1 : i3) + 1 + (z ? 4 : 0) + c2.remaining());
+            byte a2 = a(cqVar.f());
+            boolean d2 = cqVar.d();
+            byte b2 = ByteCompanionObject.MIN_VALUE;
+            allocate.put((byte) (((byte) (d2 ? com.alipay.sdk.encrypt.a.f1888g : 0)) | a2));
+            byte[] a3 = a(c2.remaining(), i3);
+            if (f8904f || a3.length == i3) {
+                if (i3 == 1) {
+                    byte b3 = a3[0];
+                    if (!z) {
+                        b2 = 0;
+                    }
+                    allocate.put((byte) (b3 | b2));
+                } else if (i3 == 2) {
+                    if (!z) {
+                        b2 = 0;
+                    }
+                    allocate.put((byte) (b2 | 126));
+                    allocate.put(a3);
+                } else if (i3 == 8) {
+                    if (!z) {
+                        b2 = 0;
+                    }
+                    allocate.put((byte) (b2 | ByteCompanionObject.MAX_VALUE));
+                    allocate.put(a3);
+                } else {
+                    throw new RuntimeException("Size representation not supported/specified");
                 }
-                allocate.put((byte) (b3 | b2));
-            } else if (i3 == 2) {
-                if (!z) {
-                    b2 = 0;
+                if (z) {
+                    ByteBuffer allocate2 = ByteBuffer.allocate(4);
+                    allocate2.putInt(this.f8906h.nextInt());
+                    allocate.put(allocate2.array());
+                    while (c2.hasRemaining()) {
+                        allocate.put((byte) (c2.get() ^ allocate2.get(i2 % 4)));
+                        i2++;
+                    }
+                } else {
+                    allocate.put(c2);
                 }
-                allocate.put((byte) (b2 | 126));
-                allocate.put(a3);
-            } else if (i3 == 8) {
-                if (!z) {
-                    b2 = 0;
+                if (f8904f || allocate.remaining() == 0) {
+                    allocate.flip();
+                    return allocate;
                 }
-                allocate.put((byte) (b2 | ByteCompanionObject.MAX_VALUE));
-                allocate.put(a3);
-            } else {
-                throw new RuntimeException("Size representation not supported/specified");
+                throw new AssertionError(allocate.remaining());
             }
-            if (z) {
-                ByteBuffer allocate2 = ByteBuffer.allocate(4);
-                allocate2.putInt(this.f8833h.nextInt());
-                allocate.put(allocate2.array());
-                while (c2.hasRemaining()) {
-                    allocate.put((byte) (c2.get() ^ allocate2.get(i2 % 4)));
-                    i2++;
-                }
-            } else {
-                allocate.put(c2);
-            }
-            if (f8831f || allocate.remaining() == 0) {
-                allocate.flip();
-                return allocate;
-            }
-            throw new AssertionError(allocate.remaining());
+            throw new AssertionError();
         }
-        throw new AssertionError();
+        return (ByteBuffer) invokeL.objValue;
     }
 
     @Override // com.baidu.mobstat.cd
     public cd c() {
-        return new ce();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ce() : (cd) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.cd
     public List<cq> a(ByteBuffer byteBuffer, boolean z) {
-        cr crVar = new cr();
-        try {
-            crVar.a(byteBuffer);
-            crVar.a(true);
-            crVar.a(cq.a.BINARY);
-            crVar.b(z);
-            return Collections.singletonList(crVar);
-        } catch (ch e2) {
-            throw new cl(e2);
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, byteBuffer, z)) == null) {
+            cr crVar = new cr();
+            try {
+                crVar.a(byteBuffer);
+                crVar.a(true);
+                crVar.a(cq.a.f8916c);
+                crVar.b(z);
+                return Collections.singletonList(crVar);
+            } catch (ch e2) {
+                throw new cl(e2);
+            }
         }
+        return (List) invokeLZ.objValue;
     }
 
     private byte a(cq.a aVar) {
-        if (aVar == cq.a.CONTINUOUS) {
-            return (byte) 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) {
+            if (aVar == cq.a.f8914a) {
+                return (byte) 0;
+            }
+            if (aVar == cq.a.f8915b) {
+                return (byte) 1;
+            }
+            if (aVar == cq.a.f8916c) {
+                return (byte) 2;
+            }
+            if (aVar == cq.a.f8919f) {
+                return (byte) 8;
+            }
+            if (aVar == cq.a.f8917d) {
+                return (byte) 9;
+            }
+            if (aVar == cq.a.f8918e) {
+                return (byte) 10;
+            }
+            throw new RuntimeException("Don't know how to handle " + aVar.toString());
         }
-        if (aVar == cq.a.TEXT) {
-            return (byte) 1;
-        }
-        if (aVar == cq.a.BINARY) {
-            return (byte) 2;
-        }
-        if (aVar == cq.a.CLOSING) {
-            return (byte) 8;
-        }
-        if (aVar == cq.a.PING) {
-            return (byte) 9;
-        }
-        if (aVar == cq.a.PONG) {
-            return (byte) 10;
-        }
-        throw new RuntimeException("Don't know how to handle " + aVar.toString());
+        return invokeL.byteValue;
     }
 
     private String a(String str) {
-        try {
-            return db.a(MessageDigest.getInstance("SHA1").digest((str.trim() + WebSocketProtocol.ACCEPT_MAGIC).getBytes()));
-        } catch (NoSuchAlgorithmException e2) {
-            throw new RuntimeException(e2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+            String trim = str.trim();
+            try {
+                return db.a(MessageDigest.getInstance("SHA1").digest((trim + WebSocketProtocol.ACCEPT_MAGIC).getBytes()));
+            } catch (NoSuchAlgorithmException e2) {
+                throw new RuntimeException(e2);
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.mobstat.cd
     public ct a(ct ctVar) {
-        ctVar.a("Upgrade", "websocket");
-        ctVar.a(HTTP.CONN_DIRECTIVE, "Upgrade");
-        ctVar.a("Sec-WebSocket-Version", "8");
-        byte[] bArr = new byte[16];
-        this.f8833h.nextBytes(bArr);
-        ctVar.a("Sec-WebSocket-Key", db.a(bArr));
-        return ctVar;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ctVar)) == null) {
+            ctVar.a("Upgrade", "websocket");
+            ctVar.a(HTTP.CONN_DIRECTIVE, "Upgrade");
+            ctVar.a("Sec-WebSocket-Version", "8");
+            byte[] bArr = new byte[16];
+            this.f8906h.nextBytes(bArr);
+            ctVar.a("Sec-WebSocket-Key", db.a(bArr));
+            return ctVar;
+        }
+        return (ct) invokeL.objValue;
     }
 
     private byte[] a(long j, int i2) {
-        byte[] bArr = new byte[i2];
-        int i3 = (i2 * 8) - 8;
-        for (int i4 = 0; i4 < i2; i4++) {
-            bArr[i4] = (byte) (j >>> (i3 - (i4 * 8)));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+            byte[] bArr = new byte[i2];
+            int i3 = (i2 * 8) - 8;
+            for (int i4 = 0; i4 < i2; i4++) {
+                bArr[i4] = (byte) (j >>> (i3 - (i4 * 8)));
+            }
+            return bArr;
         }
-        return bArr;
+        return (byte[]) invokeCommon.objValue;
     }
 
     private cq.a a(byte b2) throws ci {
-        if (b2 != 0) {
-            if (b2 != 1) {
-                if (b2 != 2) {
-                    switch (b2) {
-                        case 8:
-                            return cq.a.CLOSING;
-                        case 9:
-                            return cq.a.PING;
-                        case 10:
-                            return cq.a.PONG;
-                        default:
-                            throw new ci("unknow optcode " + ((int) b2));
+        InterceptResult invokeB;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeB = interceptable.invokeB(65539, this, b2)) == null) {
+            if (b2 != 0) {
+                if (b2 != 1) {
+                    if (b2 != 2) {
+                        switch (b2) {
+                            case 8:
+                                return cq.a.f8919f;
+                            case 9:
+                                return cq.a.f8917d;
+                            case 10:
+                                return cq.a.f8918e;
+                            default:
+                                throw new ci("unknow optcode " + ((int) b2));
+                        }
                     }
+                    return cq.a.f8916c;
                 }
-                return cq.a.BINARY;
+                return cq.a.f8915b;
             }
-            return cq.a.TEXT;
+            return cq.a.f8914a;
         }
-        return cq.a.CONTINUOUS;
+        return (cq.a) invokeB.objValue;
     }
 
     @Override // com.baidu.mobstat.cd
     public void a() {
-        this.f8832g = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f8905g = null;
+        }
     }
 }

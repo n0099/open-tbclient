@@ -16,62 +16,128 @@ import com.baidu.tieba.tbean.message.GetBigTbeanWalletH5ResponseMessage;
 import com.baidu.tieba.tbean.message.GetYinJiHttpResponseMessage;
 import com.baidu.tieba.tbean.message.GetYinJiResponseMessage;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
-import d.a.n0.z0.n0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.p0;
 /* loaded from: classes5.dex */
 public class BuyTBeanActivityStatic {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public static class a implements UrlManager.UrlDealListener {
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            if (tbPageContext != null && strArr != null && strArr.length != 0) {
-                String str = strArr[0];
-                if (StringUtils.isNull(str)) {
-                    return 3;
-                }
-                if (str.contains("tdoudiscount:")) {
-                    CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, n0.d(str, MemberPayStatistic.REFER_PAGE), n0.d(str, MemberPayStatistic.CLICK_ZONE));
-                    return 0;
-                }
-                Bundle i2 = n0.i(str);
-                if (i2 != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && UrlSchemaHelper.PAY_TBEAN_PAGE.equalsIgnoreCase(i2.getString("path"))) {
-                    CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, n0.d(str, MemberPayStatistic.REFER_PAGE), n0.d(str, MemberPayStatistic.CLICK_ZONE));
-                    return 0;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return 3;
+        }
+
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
+                if (tbPageContext != null && strArr != null && strArr.length != 0) {
+                    String str = strArr[0];
+                    if (StringUtils.isNull(str)) {
+                        return 3;
+                    }
+                    if (str.contains("tdoudiscount:")) {
+                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, p0.d(str, MemberPayStatistic.REFER_PAGE), p0.d(str, MemberPayStatistic.CLICK_ZONE));
+                        return 0;
+                    }
+                    Bundle i2 = p0.i(str);
+                    if (i2 != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && UrlSchemaHelper.PAY_TBEAN_PAGE.equalsIgnoreCase(i2.getString("path"))) {
+                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, p0.d(str, MemberPayStatistic.REFER_PAGE), p0.d(str, MemberPayStatistic.CLICK_ZONE));
+                        return 0;
+                    }
+                }
+                return 3;
+            }
+            return invokeLL.intValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-667288537, "Lcom/baidu/tieba/tbean/BuyTBeanActivityStatic;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-667288537, "Lcom/baidu/tieba/tbean/BuyTBeanActivityStatic;");
+                return;
+            }
+        }
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
-        d.a.o0.e3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
+        d.a.s0.h3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
         c();
         a();
         b();
     }
 
+    public BuyTBeanActivityStatic() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static void a() {
-        UrlManager.getInstance().addListener(new a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            UrlManager.getInstance().addListener(new a());
+        }
     }
 
     public static void b() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_BIG_TBEAN_URL, TbConfig.SERVER_ADDRESS + BuyTBeanModel.GET_BIG_TBEAN_WALLET_H5);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setResponsedClass(GetBigTbeanWalletH5ResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_BIG_TBEAN_URL, TbConfig.SERVER_ADDRESS + BuyTBeanModel.GET_BIG_TBEAN_WALLET_H5);
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setResponsedClass(GetBigTbeanWalletH5ResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public static void c() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.a.o0.e3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
-        tbHttpMessageTask.setIsNeedLogin(false);
-        tbHttpMessageTask.setIsNeedTbs(false);
-        tbHttpMessageTask.setIsNeedAddCommenParam(false);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-        tbHttpMessageTask.setResponsedClass(GetYinJiHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.a.s0.h3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(GetYinJiHttpResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 }

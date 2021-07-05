@@ -1,168 +1,292 @@
 package d.a.c.e.d;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.d.e;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public static class a implements e.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f42276a;
+        public final int f44085a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinkedList<g<?>> f42277b;
+        public LinkedList<g<?>> f44086b;
 
         public a(int i2) {
-            this.f42276a = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44085a = i2;
         }
 
         @Override // d.a.c.e.d.e
         public boolean a() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // d.a.c.e.d.e.a
         public void b() {
-            this.f42277b.clear();
-            this.f42277b = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.f44086b.clear();
+                this.f44086b = null;
+            }
         }
 
         @Override // d.a.c.e.d.e.a
         public void c() {
-            this.f42277b = new LinkedList<>();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.f44086b = new LinkedList<>();
+            }
         }
 
         @Override // d.a.c.e.d.e
         public int getMaxSize() {
-            return this.f42276a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44085a : invokeV.intValue;
         }
 
         @Override // d.a.c.e.d.e.a
         public String h(g<?> gVar) {
-            if (gVar.f42285f < System.currentTimeMillis()) {
-                return gVar.f42280a;
-            }
-            this.f42277b.add(gVar);
-            String str = null;
-            if (this.f42277b.size() > getMaxSize()) {
-                long j = 0;
-                int i2 = -1;
-                for (int i3 = 0; i3 < this.f42277b.size(); i3++) {
-                    g<?> gVar2 = this.f42277b.get(i3);
-                    if (i2 == -1 || gVar2.f42284e < j) {
-                        str = gVar2.f42280a;
-                        j = gVar2.f42284e;
-                        i2 = i3;
-                    }
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gVar)) == null) {
+                if (gVar.f44094f < System.currentTimeMillis()) {
+                    return gVar.f44089a;
                 }
-                this.f42277b.remove(i2);
+                this.f44086b.add(gVar);
+                String str = null;
+                if (this.f44086b.size() > getMaxSize()) {
+                    long j = 0;
+                    int i2 = -1;
+                    for (int i3 = 0; i3 < this.f44086b.size(); i3++) {
+                        g<?> gVar2 = this.f44086b.get(i3);
+                        if (i2 == -1 || gVar2.f44093e < j) {
+                            str = gVar2.f44089a;
+                            j = gVar2.f44093e;
+                            i2 = i3;
+                        }
+                    }
+                    this.f44086b.remove(i2);
+                }
+                return str;
             }
-            return str;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public static class b implements e.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f42278a;
+        public final int f44087a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, Long> f42279b = new HashMap<>();
+        public HashMap<String, Long> f44088b;
 
         public b(int i2) {
-            this.f42278a = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44088b = new HashMap<>();
+            this.f44087a = i2;
         }
 
         @Override // d.a.c.e.d.e
         public boolean a() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // d.a.c.e.d.e.b
         public String d(g<?> gVar) {
-            String i2 = i(gVar.f42280a);
-            synchronized (this) {
-                this.f42279b.put(gVar.f42280a, Long.valueOf(gVar.f42284e));
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar)) == null) {
+                String i2 = i(gVar.f44089a);
+                synchronized (this) {
+                    this.f44088b.put(gVar.f44089a, Long.valueOf(gVar.f44093e));
+                }
+                return i2;
             }
-            return i2;
+            return (String) invokeL.objValue;
         }
 
         @Override // d.a.c.e.d.e.b
         public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
         }
 
         @Override // d.a.c.e.d.e.b
         public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
         }
 
         @Override // d.a.c.e.d.e.b
         public String g(g<?> gVar) {
-            if (gVar.f42285f < System.currentTimeMillis()) {
-                return gVar.f42280a;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gVar)) == null) {
+                if (gVar.f44094f < System.currentTimeMillis()) {
+                    return gVar.f44089a;
+                }
+                return d(gVar);
             }
-            return d(gVar);
+            return (String) invokeL.objValue;
         }
 
         @Override // d.a.c.e.d.e
         public int getMaxSize() {
-            return this.f42278a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f44087a : invokeV.intValue;
         }
 
         public String i(String str) {
-            String str2 = null;
-            if (!this.f42279b.containsKey(str) && this.f42279b.size() >= this.f42278a) {
-                synchronized (this) {
-                    long j = -1;
-                    for (Map.Entry<String, Long> entry : this.f42279b.entrySet()) {
-                        long longValue = entry.getValue().longValue();
-                        if (j == -1 || j > longValue) {
-                            str2 = entry.getKey();
-                            j = longValue;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                String str2 = null;
+                if (!this.f44088b.containsKey(str) && this.f44088b.size() >= this.f44087a) {
+                    synchronized (this) {
+                        long j = -1;
+                        for (Map.Entry<String, Long> entry : this.f44088b.entrySet()) {
+                            long longValue = entry.getValue().longValue();
+                            if (j == -1 || j > longValue) {
+                                str2 = entry.getKey();
+                                j = longValue;
+                            }
+                        }
+                        if (str2 != null) {
+                            this.f44088b.remove(str2);
                         }
                     }
-                    if (str2 != null) {
-                        this.f42279b.remove(str2);
-                    }
+                    return str2;
                 }
-                return str2;
+                return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
 
         @Override // d.a.c.e.d.e.b
         public void release() {
-            synchronized (this) {
-                this.f42279b.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                synchronized (this) {
+                    this.f44088b.clear();
+                }
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public static class c implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // d.a.c.e.d.e
         public boolean a() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // d.a.c.e.d.e
         public int getMaxSize() {
-            return 1;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
         }
     }
 
     public static e a(int i2, boolean z) {
-        if (z) {
-            return new b(i2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                return new b(i2);
+            }
+            return new a(i2);
         }
-        return new a(i2);
+        return (e) invokeCommon.objValue;
     }
 
     public static e b() {
-        return new c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new c() : (e) invokeV.objValue;
     }
 }

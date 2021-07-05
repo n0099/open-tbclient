@@ -5,6 +5,7 @@ import android.net.Uri;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,55 +19,98 @@ import com.baidu.tieba.hottopic.message.ResponseHttpGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 /* loaded from: classes5.dex */
 public class NewDetailTopicStatic {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public static class a implements UrlManager.UrlDealListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
+                if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null) {
+                    return 3;
+                }
+                String lowerCase = strArr[0].toLowerCase();
+                if (!lowerCase.startsWith(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL) && !lowerCase.startsWith(UrlSchemaHelper.HTTPS_JUMP_TOPIC_DETAIL)) {
+                    if (lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+                        try {
+                            Intent parseUri = Intent.parseUri(lowerCase, 1);
+                            parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                            if (tbPageContext.getPageActivity() != null) {
+                                tbPageContext.getPageActivity().startActivity(parseUri);
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                        return 1;
+                    } else if (lowerCase.contains("unidispatch/topicdetail")) {
+                        TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(tbPageContext.getPageActivity());
+                        topicDetailActivityConfig.setUri(Uri.parse(lowerCase));
+                        tbPageContext.sendMessage(new CustomMessage(2002001, topicDetailActivityConfig));
+                        return 0;
+                    } else {
+                        return 3;
+                    }
+                }
+                Uri parse = Uri.parse(lowerCase);
+                if (parse.isHierarchical()) {
+                    String queryParameter = parse.getQueryParameter("topic_id");
+                    if (StringUtils.isNull(queryParameter)) {
+                        return 3;
+                    }
+                    TopicDetailActivityConfig topicDetailActivityConfig2 = new TopicDetailActivityConfig(tbPageContext.getPageActivity(), b.f(queryParameter, 0L));
+                    topicDetailActivityConfig2.setIsFromYunPush(lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH));
+                    tbPageContext.sendMessage(new CustomMessage(2002001, topicDetailActivityConfig2));
+                    return 1;
+                }
                 return 3;
             }
-            String lowerCase = strArr[0].toLowerCase();
-            if (!lowerCase.startsWith(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL) && !lowerCase.startsWith(UrlSchemaHelper.HTTPS_JUMP_TOPIC_DETAIL)) {
-                if (lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
-                    try {
-                        Intent parseUri = Intent.parseUri(lowerCase, 1);
-                        parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                        if (tbPageContext.getPageActivity() != null) {
-                            tbPageContext.getPageActivity().startActivity(parseUri);
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                    return 1;
-                } else if (lowerCase.contains("unidispatch/topicdetail")) {
-                    TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(tbPageContext.getPageActivity());
-                    topicDetailActivityConfig.setUri(Uri.parse(lowerCase));
-                    tbPageContext.sendMessage(new CustomMessage(2002001, topicDetailActivityConfig));
-                    return 0;
-                } else {
-                    return 3;
-                }
-            }
-            Uri parse = Uri.parse(lowerCase);
-            if (parse.isHierarchical()) {
-                String queryParameter = parse.getQueryParameter("topic_id");
-                if (StringUtils.isNull(queryParameter)) {
-                    return 3;
-                }
-                TopicDetailActivityConfig topicDetailActivityConfig2 = new TopicDetailActivityConfig(tbPageContext.getPageActivity(), b.f(queryParameter, 0L));
-                topicDetailActivityConfig2.setIsFromYunPush(lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH));
-                tbPageContext.sendMessage(new CustomMessage(2002001, topicDetailActivityConfig2));
-                return 1;
-            }
-            return 3;
+            return invokeLL.intValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1806608701, "Lcom/baidu/tieba/newdetail/NewDetailTopicStatic;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1806608701, "Lcom/baidu/tieba/newdetail/NewDetailTopicStatic;");
+                return;
+            }
+        }
         TbadkCoreApplication.getInst().RegisterIntent(TopicDetailActivityConfig.class, HotTopicDetailActivity.class);
         d();
         b();
@@ -74,22 +118,48 @@ public class NewDetailTopicStatic {
         a();
     }
 
+    public NewDetailTopicStatic() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static void a() {
-        d.a.o0.e3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
-        d.a.o0.e3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            d.a.s0.h3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
+            d.a.s0.h3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+        }
     }
 
     public static void b() {
-        d.a.o0.e3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-        d.a.o0.e3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            d.a.s0.h3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+            d.a.s0.h3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+        }
     }
 
     public static void c() {
-        d.a.o0.e3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-        d.a.o0.e3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+            d.a.s0.h3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+            d.a.s0.h3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+        }
     }
 
     public static void d() {
-        UrlManager.getInstance().addListener(new a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            UrlManager.getInstance().addListener(new a());
+        }
     }
 }

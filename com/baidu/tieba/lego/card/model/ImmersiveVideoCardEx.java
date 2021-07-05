@@ -1,46 +1,86 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImmersiveVideoCardEx extends BaseCardInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final a videoInfo;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18038a;
+        public String f18164a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f18039b;
+        public int f18165b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f18040c;
+        public int f18166c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f18041d;
+        public String f18167d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18042e;
+        public int f18168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f18043f;
+        public int f18169f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f18044g;
+        public int f18170g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f18045h;
+        public boolean f18171h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f18046i;
+        public boolean f18172i;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImmersiveVideoCardEx(JSONObject jSONObject) {
         super(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         JSONObject optJSONObject = jSONObject.optJSONObject("video");
         if (optJSONObject != null) {
             optJSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
@@ -58,15 +98,15 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
             if (optInt > 0 && !TextUtils.isEmpty(optString)) {
                 a aVar = new a();
                 this.videoInfo = aVar;
-                aVar.f18038a = optString;
-                aVar.f18039b = optInt2;
-                aVar.f18040c = optInt3;
-                aVar.f18041d = optString2;
-                aVar.f18042e = optInt4;
-                aVar.f18043f = optInt5;
-                aVar.f18044g = optInt6;
-                aVar.f18045h = z;
-                aVar.f18046i = z2;
+                aVar.f18164a = optString;
+                aVar.f18165b = optInt2;
+                aVar.f18166c = optInt3;
+                aVar.f18167d = optString2;
+                aVar.f18168e = optInt4;
+                aVar.f18169f = optInt5;
+                aVar.f18170g = optInt6;
+                aVar.f18171h = z;
+                aVar.f18172i = z2;
                 return;
             }
             this.videoInfo = null;
@@ -77,15 +117,22 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
+        InterceptResult invokeV;
         int i2;
-        a aVar = this.videoInfo;
-        if (aVar != null && (i2 = aVar.f18039b) > 0) {
-            return aVar.f18040c / i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            a aVar = this.videoInfo;
+            if (aVar != null && (i2 = aVar.f18165b) > 0) {
+                return aVar.f18166c / i2;
+            }
+            return super.getRatio();
         }
-        return super.getRatio();
+        return invokeV.doubleValue;
     }
 
     public a getVideoInfo() {
-        return this.videoInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.videoInfo : (a) invokeV.objValue;
     }
 }

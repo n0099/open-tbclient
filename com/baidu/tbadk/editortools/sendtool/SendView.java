@@ -4,49 +4,115 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.view.View;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import d.a.n0.w.n;
-import d.a.o0.e3.c;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.w.n;
+import d.a.s0.h3.c;
+/* loaded from: classes4.dex */
 public class SendView extends TextView implements n {
+    public static /* synthetic */ Interceptable $ic = null;
     public static int j = 1;
     public static int k;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f12952e;
+    public EditorTools f13036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12953f;
+    public int f13037f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean[] f12954g;
+    public boolean[] f13038g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f12955h;
+    public int[] f13039h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12956i;
+    public int f13040i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ SendView f13041e;
+
+        public a(SendView sendView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sendView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13041e = sendView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            SendView.this.d(new d.a.n0.w.a(8, -1, null));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f13041e.d(new d.a.r0.w.a(8, -1, null));
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1381963171, "Lcom/baidu/tbadk/editortools/sendtool/SendView;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1381963171, "Lcom/baidu/tbadk/editortools/sendtool/SendView;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SendView(Context context) {
         super(context);
-        this.f12954g = new boolean[]{false, false, false, false, false};
-        this.f12955h = new int[]{0, 0};
-        this.f12956i = k;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f13038g = new boolean[]{false, false, false, false, false};
+        this.f13039h = new int[]{0, 0};
+        this.f13040i = k;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
         setIncludeFontPadding(false);
@@ -54,144 +120,173 @@ public class SendView extends TextView implements n {
         setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.fontsize28));
         setTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
         setText(R.string.send_post);
-        setOnClickListener(new a());
+        setOnClickListener(new a(this));
     }
 
     public void a(int i2) {
-        if (i2 == k) {
-            boolean[] zArr = this.f12954g;
-            if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
-                setEnabled(false);
-            } else {
-                setEnabled(true);
-            }
-        } else if (i2 == j) {
-            if (this.f12954g[1]) {
-                setEnabled(true);
-            } else {
-                setEnabled(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (i2 == k) {
+                boolean[] zArr = this.f13038g;
+                if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
+                    setEnabled(false);
+                } else {
+                    setEnabled(true);
+                }
+            } else if (i2 == j) {
+                if (this.f13038g[1]) {
+                    setEnabled(true);
+                } else {
+                    setEnabled(false);
+                }
             }
         }
     }
 
-    @Override // d.a.n0.w.n
+    @Override // d.a.r0.w.n
     public void b() {
-        setVisibility(0);
-    }
-
-    @Override // d.a.n0.w.n
-    public void d(d.a.n0.w.a aVar) {
-        EditorTools editorTools = this.f12952e;
-        if (editorTools != null) {
-            editorTools.A(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setVisibility(0);
         }
     }
 
-    @Override // d.a.n0.w.n
-    public int getToolId() {
-        return this.f12953f;
-    }
-
-    @Override // d.a.n0.w.n
-    public void hide() {
-        setVisibility(8);
-    }
-
-    @Override // d.a.n0.w.n
-    public void init() {
-        setClickable(false);
-    }
-
-    @Override // d.a.n0.w.b
-    public void onAction(d.a.n0.w.a aVar) {
-        if (aVar == null) {
+    @Override // d.a.r0.w.n
+    public void d(d.a.r0.w.a aVar) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || (editorTools = this.f13036e) == null) {
             return;
         }
-        int i2 = aVar.f54625a;
+        editorTools.A(aVar);
+    }
+
+    @Override // d.a.r0.w.n
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13037f : invokeV.intValue;
+    }
+
+    @Override // d.a.r0.w.n
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    @Override // d.a.r0.w.n
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setClickable(false);
+        }
+    }
+
+    @Override // d.a.r0.w.b
+    public void onAction(d.a.r0.w.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        int i2 = aVar.f56766a;
         if (i2 == 4) {
-            Object obj = aVar.f54627c;
+            Object obj = aVar.f56768c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
-                this.f12954g[0] = true;
+                this.f13038g[0] = true;
             } else {
-                this.f12954g[0] = false;
+                this.f13038g[0] = false;
             }
         } else if (i2 == 39 || i2 == 28) {
-            this.f12954g[3] = true;
+            this.f13038g[3] = true;
         } else if (i2 != 29) {
             switch (i2) {
                 case 9:
-                    boolean[] zArr = this.f12954g;
+                    boolean[] zArr = this.f13038g;
                     zArr[0] = false;
                     zArr[1] = false;
                     zArr[2] = false;
                     zArr[3] = false;
                     zArr[4] = false;
-                    int[] iArr = this.f12955h;
+                    int[] iArr = this.f13039h;
                     iArr[0] = 0;
                     iArr[1] = 0;
                     break;
                 case 10:
-                    this.f12954g[2] = true;
+                    this.f13038g[2] = true;
                     break;
                 case 11:
-                    this.f12954g[2] = false;
+                    this.f13038g[2] = false;
                     break;
                 case 12:
-                    Object obj2 = aVar.f54627c;
-                    if (obj2 instanceof d.a.n0.w.r.a) {
-                        d.a.n0.w.r.a aVar2 = (d.a.n0.w.r.a) obj2;
-                        WriteImagesInfo writeImagesInfo = aVar2.f54648a;
+                    Object obj2 = aVar.f56768c;
+                    if (obj2 instanceof d.a.r0.w.r.a) {
+                        d.a.r0.w.r.a aVar2 = (d.a.r0.w.r.a) obj2;
+                        WriteImagesInfo writeImagesInfo = aVar2.f56789a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.f12955h[0] = aVar2.f54648a.getChosedFiles().size();
+                                this.f13039h[0] = aVar2.f56789a.getChosedFiles().size();
                             } else {
-                                this.f12955h[0] = 0;
+                                this.f13039h[0] = 0;
                             }
                         }
-                        if (this.f12955h[0] > 0) {
-                            this.f12954g[1] = true;
+                        if (this.f13039h[0] > 0) {
+                            this.f13038g[1] = true;
                             break;
                         } else {
-                            this.f12954g[1] = false;
+                            this.f13038g[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr2 = this.f12955h;
+                    int[] iArr2 = this.f13039h;
                     iArr2[0] = iArr2[0] - 1;
                     if (iArr2[0] > 0) {
-                        this.f12954g[1] = true;
+                        this.f13038g[1] = true;
                         break;
                     } else {
-                        this.f12954g[1] = false;
+                        this.f13038g[1] = false;
                         break;
                     }
             }
         } else {
-            this.f12954g[3] = false;
+            this.f13038g[3] = false;
         }
-        a(this.f12956i);
+        a(this.f13040i);
     }
 
-    @Override // d.a.n0.w.n
+    @Override // d.a.r0.w.n
     public void onChangeSkinType(int i2) {
-        int color = SkinManager.getColor(i2, R.color.CAM_X0302);
-        setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            int color = SkinManager.getColor(i2, R.color.CAM_X0302);
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+        }
     }
 
-    @Override // d.a.n0.w.n
+    @Override // d.a.r0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f12952e = editorTools;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
+            this.f13036e = editorTools;
+        }
     }
 
-    @Override // d.a.n0.w.n
+    @Override // d.a.r0.w.n
     public void setToolId(int i2) {
-        this.f12953f = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.f13037f = i2;
+        }
     }
 
     public void setType(int i2) {
-        this.f12956i = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f13040i = i2;
+        }
     }
 }

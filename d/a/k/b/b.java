@@ -1,72 +1,58 @@
 package d.a.k.b;
 
-import android.text.TextUtils;
-import java.io.File;
-/* loaded from: classes2.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes8.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f44050a;
+    public Map<String, d.a.k.b.a> f45867a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public CharSequence f44051b;
+    /* loaded from: classes8.dex */
+    public interface a {
+        List<d.a.k.b.a> a();
+    }
 
-    /* renamed from: c  reason: collision with root package name */
-    public String f44052c;
-
-    /* loaded from: classes2.dex */
-    public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public CharSequence f44053a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public File f44054b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public CharSequence f44055c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f44056d;
-
-        public b a() {
-            return new b(this.f44056d, this.f44054b, this.f44055c, this.f44053a);
+    public b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-
-        public a b(File file) {
-            this.f44054b = file;
-            return this;
-        }
-
-        public a c(CharSequence charSequence) {
-            this.f44055c = charSequence;
-            return this;
-        }
-
-        public a d(String str) {
-            this.f44056d = str;
-            return this;
+        this.f45867a = new HashMap();
+        for (d.a.k.b.a aVar2 : aVar.a()) {
+            this.f45867a.put(aVar2.c(), aVar2);
         }
     }
 
-    public b(String str, File file, CharSequence charSequence, CharSequence charSequence2) {
-        this.f44052c = str;
-        this.f44050a = file;
-        this.f44051b = charSequence;
+    public d.a.k.b.a a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f45867a.get(str) : (d.a.k.b.a) invokeL.objValue;
     }
 
-    public File a() {
-        return this.f44050a;
-    }
-
-    public CharSequence b() {
-        if (TextUtils.isEmpty(this.f44051b)) {
-            this.f44051b = d.a.k.b.d.b.a(c());
-        }
-        return this.f44051b;
-    }
-
-    public String c() {
-        return this.f44052c;
+    public List<d.a.k.b.a> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.f45867a.values()) : (List) invokeV.objValue;
     }
 }

@@ -1,38 +1,128 @@
 package com.bytedance.sdk.openadsdk.a;
 
-import android.content.Context;
-import com.bytedance.sdk.openadsdk.core.i;
-import com.bytedance.sdk.openadsdk.core.k;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.ak;
-import com.bytedance.sdk.openadsdk.utils.x;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.j;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    public static String a() {
-        return "open_news";
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public long f28956a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f28957b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f28958c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f28959d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f28960e;
+
+    public a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f28956a = jSONObject.optLong(IAdRequestParam.CELL_ID);
+        this.f28957b = jSONObject.optString("url");
+        this.f28958c = jSONObject.optString("file_hash");
+        this.f28959d = jSONObject.optLong("effective_time");
+        this.f28960e = jSONObject.optLong(GameGuideConfigInfo.KEY_EXPIRATION_TIME);
     }
 
-    public static String a(Context context) {
-        return k.a(context);
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28957b : (String) invokeV.objValue;
     }
 
-    public static String b() {
-        return "1371";
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28958c : (String) invokeV.objValue;
     }
 
-    public static String c() {
-        return "3.4.5.5";
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28959d : invokeV.longValue;
     }
 
-    public static String d() {
-        return ak.g();
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? System.currentTimeMillis() >= this.f28960e : invokeV.booleanValue;
     }
 
-    public static String e() {
-        return i.d().i();
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(IAdRequestParam.CELL_ID, this.f28956a);
+                jSONObject.put("url", this.f28957b);
+                jSONObject.put("file_hash", this.f28958c);
+                jSONObject.put("effective_time", this.f28959d);
+                jSONObject.put(GameGuideConfigInfo.KEY_EXPIRATION_TIME, this.f28960e);
+            } catch (Exception e2) {
+                j.d("BrandVideo", e2.getMessage());
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static String f() {
-        return x.f(p.a());
+    public long a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            File file = new File(str, this.f28958c);
+            if (file.exists()) {
+                return file.lastModified();
+            }
+            return System.currentTimeMillis();
+        }
+        return invokeL.longValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File file = new File(str, this.f28958c);
+            if (file.exists()) {
+                try {
+                    return file.delete();
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

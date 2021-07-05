@@ -1,16 +1,45 @@
 package com.facebook.datasource;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public abstract class BaseDataSubscriber<T> implements DataSubscriber<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public BaseDataSubscriber() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.facebook.datasource.DataSubscriber
     public void onCancellation(DataSource<T> dataSource) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+        }
     }
 
     @Override // com.facebook.datasource.DataSubscriber
     public void onFailure(DataSource<T> dataSource) {
-        try {
-            onFailureImpl(dataSource);
-        } finally {
-            dataSource.close();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
+            try {
+                onFailureImpl(dataSource);
+            } finally {
+                dataSource.close();
+            }
         }
     }
 
@@ -18,12 +47,15 @@ public abstract class BaseDataSubscriber<T> implements DataSubscriber<T> {
 
     @Override // com.facebook.datasource.DataSubscriber
     public void onNewResult(DataSource<T> dataSource) {
-        boolean isFinished = dataSource.isFinished();
-        try {
-            onNewResultImpl(dataSource);
-        } finally {
-            if (isFinished) {
-                dataSource.close();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
+            boolean isFinished = dataSource.isFinished();
+            try {
+                onNewResultImpl(dataSource);
+            } finally {
+                if (isFinished) {
+                    dataSource.close();
+                }
             }
         }
     }
@@ -32,5 +64,8 @@ public abstract class BaseDataSubscriber<T> implements DataSubscriber<T> {
 
     @Override // com.facebook.datasource.DataSubscriber
     public void onProgressUpdate(DataSource<T> dataSource) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dataSource) == null) {
+        }
     }
 }

@@ -8,14 +8,35 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.util.Log;
-/* loaded from: classes2.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class b implements ServiceConnection {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocationClient f6474a;
+    public final /* synthetic */ LocationClient f6504a;
 
     public b(LocationClient locationClient) {
-        this.f6474a = locationClient;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {locationClient};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f6504a = locationClient;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,36 +44,42 @@ public class b implements ServiceConnection {
         boolean z;
         Bundle c2;
         Boolean bool;
-        this.f6474a.f6461g = new Messenger(iBinder);
-        if (this.f6474a.f6461g == null) {
-            return;
-        }
-        this.f6474a.f6459e = true;
-        Log.d("baidu_location_client", "baidu location connected ...");
-        z = this.f6474a.x;
-        if (z) {
-            this.f6474a.f6462h.obtainMessage(2).sendToTarget();
-            return;
-        }
-        try {
-            Message obtain = Message.obtain((Handler) null, 11);
-            obtain.replyTo = this.f6474a.f6463i;
-            c2 = this.f6474a.c();
-            obtain.setData(c2);
-            this.f6474a.f6461g.send(obtain);
-            this.f6474a.f6459e = true;
-            if (this.f6474a.f6457c != null) {
-                bool = this.f6474a.A;
-                bool.booleanValue();
-                this.f6474a.f6462h.obtainMessage(4).sendToTarget();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            this.f6504a.f6491g = new Messenger(iBinder);
+            if (this.f6504a.f6491g == null) {
+                return;
             }
-        } catch (Exception unused) {
+            this.f6504a.f6489e = true;
+            Log.d("baidu_location_client", "baidu location connected ...");
+            z = this.f6504a.x;
+            if (z) {
+                this.f6504a.f6492h.obtainMessage(2).sendToTarget();
+                return;
+            }
+            try {
+                Message obtain = Message.obtain((Handler) null, 11);
+                obtain.replyTo = this.f6504a.f6493i;
+                c2 = this.f6504a.c();
+                obtain.setData(c2);
+                this.f6504a.f6491g.send(obtain);
+                this.f6504a.f6489e = true;
+                if (this.f6504a.f6487c != null) {
+                    bool = this.f6504a.A;
+                    bool.booleanValue();
+                    this.f6504a.f6492h.obtainMessage(4).sendToTarget();
+                }
+            } catch (Exception unused) {
+            }
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.f6474a.f6461g = null;
-        this.f6474a.f6459e = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            this.f6504a.f6491g = null;
+            this.f6504a.f6489e = false;
+        }
     }
 }

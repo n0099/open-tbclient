@@ -9,6 +9,6 @@ import javax.annotation.meta.When;
 @TypeQualifierNickname
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public @interface CheckForNull {
 }

@@ -3,26 +3,49 @@ package com.alipay.security.mobile.module.deviceinfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class f extends PhoneStateListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f2082a;
+    public final /* synthetic */ e f2085a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ TelephonyManager f2083b;
+    public final /* synthetic */ TelephonyManager f2086b;
 
     public f(e eVar, TelephonyManager telephonyManager) {
-        this.f2082a = eVar;
-        this.f2083b = telephonyManager;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eVar, telephonyManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f2085a = eVar;
+        this.f2086b = telephonyManager;
     }
 
     @Override // android.telephony.PhoneStateListener
     public final void onSignalStrengthsChanged(SignalStrength signalStrength) {
-        super.onSignalStrengthsChanged(signalStrength);
-        if (signalStrength != null) {
-            this.f2082a.a(signalStrength.getGsmSignalStrength());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, signalStrength) == null) {
+            super.onSignalStrengthsChanged(signalStrength);
+            if (signalStrength != null) {
+                this.f2085a.a(signalStrength.getGsmSignalStrength());
+            }
+            this.f2086b.listen(this, 0);
         }
-        this.f2083b.listen(this, 0);
     }
 }

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
 import com.meizu.cloud.pushsdk.PushManager;
@@ -40,12 +39,12 @@ public class d {
         } else {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                return com.meizu.cloud.pushsdk.handler.a.b.d.a().a(jSONObject.has("task_id") ? jSONObject.getString("task_id") : null).d(jSONObject.has(Constants.KEY_DEVICE_ID) ? jSONObject.getString(Constants.KEY_DEVICE_ID) : null).c(jSONObject.has("push_timestamp") ? jSONObject.getString("push_timestamp") : null).b(jSONObject.has("seq_id") ? jSONObject.getString("seq_id") : null).a();
+                return com.meizu.cloud.pushsdk.handler.a.b.d.a().a(jSONObject.has("task_id") ? jSONObject.getString("task_id") : null).d(jSONObject.has("device_id") ? jSONObject.getString("device_id") : null).c(jSONObject.has("push_timestamp") ? jSONObject.getString("push_timestamp") : null).b(jSONObject.has("seq_id") ? jSONObject.getString("seq_id") : null).a();
             } catch (Exception unused) {
                 str2 = "the platformExtra parse error";
             }
         }
-        d.j.a.a.a.b("UxIPUtils", str2);
+        d.h.a.a.a.b("UxIPUtils", str2);
         return dVar;
     }
 
@@ -56,7 +55,7 @@ public class d {
                 MPushMessage mPushMessage = (MPushMessage) intent.getSerializableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
                 return mPushMessage != null ? mPushMessage.getTaskId() : stringExtra;
             } catch (Exception e2) {
-                d.j.a.a.a.b("UxIPUtils", "paese MessageV2 error " + e2.getMessage());
+                d.h.a.a.a.b("UxIPUtils", "paese MessageV2 error " + e2.getMessage());
                 return "no push platform task";
             }
         }
@@ -119,7 +118,7 @@ public class d {
 
     /* JADX WARN: Type inference failed for: r7v1, types: [com.meizu.cloud.pushsdk.c.c.b$a] */
     public static void a(Context context, boolean z, String str, Map<String, String> map) {
-        d.j.a.a.a.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
+        d.h.a.a.a.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
         if ("notification_service_message".equals(str)) {
             return;
         }
@@ -156,7 +155,7 @@ public class d {
         } else {
             str = null;
         }
-        d.j.a.a.a.d("UxIPUtils", "current process packageName " + str3);
+        d.h.a.a.a.d("UxIPUtils", "current process packageName " + str3);
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -167,10 +166,10 @@ public class d {
             intent.setAction(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION);
             intent.putExtra(PushConstants.EXTRA_PUSH_TRACKER_JSON_DATA, jSONObject);
             context.startService(intent);
-            d.j.a.a.a.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
+            d.h.a.a.a.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
             return true;
         } catch (Exception e2) {
-            d.j.a.a.a.b("UxIPUtils", "start RemoteService error " + e2.getMessage());
+            d.h.a.a.a.b("UxIPUtils", "start RemoteService error " + e2.getMessage());
             return false;
         }
     }

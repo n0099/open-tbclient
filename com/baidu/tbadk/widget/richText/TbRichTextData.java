@@ -1,29 +1,38 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.text.SpannableStringBuilder;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.f.a.b;
-import d.a.n0.b1.m.d;
-import d.a.n0.b1.m.i;
+import d.a.r0.b1.m.d;
+import d.a.r0.b1.m.i;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbRichTextData extends OrmObject {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13399e;
+    public int f13484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpannableStringBuilder f13400f;
+    public SpannableStringBuilder f13485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbRichTextImageInfo f13401g;
+    public TbRichTextImageInfo f13486g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<d> f13402h;
+    public ArrayList<d> f13487h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbRichTextVoiceInfo f13403i;
+    public TbRichTextVoiceInfo f13488i;
     public TbRichTextTextInfo j;
     public TbRichTextEmotionInfo k;
     public i l;
@@ -34,223 +43,342 @@ public class TbRichTextData extends OrmObject {
     public int q;
     public TbRichTextEvaluateItemInfo r;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class TbRichTextTextInfo extends OrmObject {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int charLength;
         public boolean needRecompute;
-        public int charLength = 0;
-        public int viewWidth = 0;
-        public int viewHeight = 0;
+        public int viewHeight;
+        public int viewWidth;
 
         public TbRichTextTextInfo(TbRichTextData tbRichTextData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbRichTextData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.charLength = 0;
+            this.viewWidth = 0;
+            this.viewHeight = 0;
         }
     }
 
     public TbRichTextData() {
-        this.f13399e = 0;
-        this.f13400f = null;
-        this.f13401g = null;
-        this.f13402h = null;
-        this.f13403i = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13484e = 0;
+        this.f13485f = null;
+        this.f13486g = null;
+        this.f13487h = null;
+        this.f13488i = null;
         this.j = null;
         this.p = false;
-        this.q = b.f42771a;
+        this.q = b.f44580a;
     }
 
     public int A() {
-        return this.q;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.q : invokeV.intValue;
     }
 
     public TbRichTextImageInfo B() {
-        if (this.f13399e != 8) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f13484e != 8) {
+                return null;
+            }
+            return this.f13486g;
         }
-        return this.f13401g;
+        return (TbRichTextImageInfo) invokeV.objValue;
     }
 
     public TbRichTextLinkImageInfo C() {
-        if (this.f13399e != 1280) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f13484e != 1280) {
+                return null;
+            }
+            return this.m;
         }
-        return this.m;
+        return (TbRichTextLinkImageInfo) invokeV.objValue;
     }
 
     public TbRichTextMemeInfo D() {
-        return this.n;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.n : (TbRichTextMemeInfo) invokeV.objValue;
     }
 
     public SpannableStringBuilder E() {
-        return this.f13400f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13485f : (SpannableStringBuilder) invokeV.objValue;
     }
 
     public int F() {
-        return this.o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.o : invokeV.intValue;
     }
 
     public TbRichTextTextInfo G() {
-        if (this.f13399e != 1) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.f13484e != 1) {
+                return null;
+            }
+            return this.j;
         }
-        return this.j;
+        return (TbRichTextTextInfo) invokeV.objValue;
     }
 
     public i H() {
-        if (this.f13399e != 32) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.f13484e != 32) {
+                return null;
+            }
+            return this.l;
         }
-        return this.l;
+        return (i) invokeV.objValue;
     }
 
     public TbRichTextVoiceInfo I() {
-        int i2 = this.f13399e;
-        if (i2 == 512 || i2 == 768) {
-            return this.f13403i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i2 = this.f13484e;
+            if (i2 == 512 || i2 == 768) {
+                return this.f13488i;
+            }
+            return null;
         }
-        return null;
+        return (TbRichTextVoiceInfo) invokeV.objValue;
     }
 
     public boolean J() {
-        return this.p;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.p : invokeV.booleanValue;
     }
 
     public void K(TbRichTextEmotionInfo tbRichTextEmotionInfo) {
-        if (this.f13399e != 17) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, tbRichTextEmotionInfo) == null) && this.f13484e == 17) {
+            this.k = tbRichTextEmotionInfo;
         }
-        this.k = tbRichTextEmotionInfo;
     }
 
     public void L(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
-        if (this.f13399e != 1281) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, tbRichTextEvaluateItemInfo) == null) && this.f13484e == 1281) {
+            this.r = tbRichTextEvaluateItemInfo;
         }
-        this.r = tbRichTextEvaluateItemInfo;
     }
 
     public void M(int i2, int i3) {
-        ArrayList<d> arrayList = this.f13402h;
-        if (arrayList != null) {
-            Iterator<d> it = arrayList.iterator();
-            while (it.hasNext()) {
-                it.next().setBounds(0, 0, i2, i3);
-            }
+        ArrayList<d> arrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) || (arrayList = this.f13487h) == null) {
+            return;
+        }
+        Iterator<d> it = arrayList.iterator();
+        while (it.hasNext()) {
+            it.next().setBounds(0, 0, i2, i3);
         }
     }
 
     public void N(boolean z) {
-        this.p = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.p = z;
+        }
     }
 
     public void O(TbRichTextImageInfo tbRichTextImageInfo) {
-        if (this.f13399e != 8) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, tbRichTextImageInfo) == null) && this.f13484e == 8) {
+            this.f13486g = tbRichTextImageInfo;
         }
-        this.f13401g = tbRichTextImageInfo;
     }
 
     public void P(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, tbRichTextLinkButtonInfo) == null) {
+        }
     }
 
     public void Q(TbRichTextLinkImageInfo tbRichTextLinkImageInfo) {
-        this.m = tbRichTextLinkImageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, tbRichTextLinkImageInfo) == null) {
+            this.m = tbRichTextLinkImageInfo;
+        }
     }
 
     public void R(TbRichTextMemeInfo tbRichTextMemeInfo) {
-        if (this.f13399e != 20) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, tbRichTextMemeInfo) == null) && this.f13484e == 20) {
+            this.n = tbRichTextMemeInfo;
         }
-        this.n = tbRichTextMemeInfo;
     }
 
     public void S(int i2) {
-        this.o = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            this.o = i2;
+        }
     }
 
     public void T(i iVar) {
-        if (this.f13399e != 32) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, iVar) == null) && this.f13484e == 32) {
+            this.l = iVar;
         }
-        this.l = iVar;
     }
 
     public void U(TbRichTextVoiceInfo tbRichTextVoiceInfo) {
-        int i2 = this.f13399e;
-        if (i2 == 512 || i2 == 768) {
-            this.f13403i = tbRichTextVoiceInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, tbRichTextVoiceInfo) == null) {
+            int i2 = this.f13484e;
+            if (i2 == 512 || i2 == 768) {
+                this.f13488i = tbRichTextVoiceInfo;
+            }
         }
     }
 
     public void V(CharSequence charSequence) {
-        int i2 = this.f13399e;
-        if ((i2 == 1 || i2 == 768) && charSequence != null) {
-            if (this.f13400f == null) {
-                this.f13400f = new SpannableStringBuilder("");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, charSequence) == null) {
+            int i2 = this.f13484e;
+            if ((i2 == 1 || i2 == 768) && charSequence != null) {
+                if (this.f13485f == null) {
+                    this.f13485f = new SpannableStringBuilder("");
+                }
+                this.f13485f.replace(0, 0, charSequence);
+                this.j.charLength = this.f13485f.length();
             }
-            this.f13400f.replace(0, 0, charSequence);
-            this.j.charLength = this.f13400f.length();
         }
     }
 
     public int getType() {
-        return this.f13399e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f13484e : invokeV.intValue;
     }
 
     public void setVideoUrl(String str) {
-        if (this.f13399e != 32 || str == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048599, this, str) == null) && this.f13484e == 32 && str != null) {
+            this.f13485f = new SpannableStringBuilder(str);
         }
-        this.f13400f = new SpannableStringBuilder(str);
     }
 
     public String toString() {
+        InterceptResult invokeV;
         TbRichTextEmotionInfo tbRichTextEmotionInfo;
-        int i2 = this.f13399e;
-        if (i2 == 1) {
-            SpannableStringBuilder spannableStringBuilder = this.f13400f;
-            return spannableStringBuilder != null ? spannableStringBuilder.toString() : "";
-        } else if (i2 != 8) {
-            return (i2 != 17 || (tbRichTextEmotionInfo = this.k) == null) ? "" : tbRichTextEmotionInfo.mGifInfo.mSharpText;
-        } else {
-            TbRichTextImageInfo tbRichTextImageInfo = this.f13401g;
-            return tbRichTextImageInfo != null ? tbRichTextImageInfo.y() : "";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            int i2 = this.f13484e;
+            if (i2 == 1) {
+                SpannableStringBuilder spannableStringBuilder = this.f13485f;
+                return spannableStringBuilder != null ? spannableStringBuilder.toString() : "";
+            } else if (i2 != 8) {
+                return (i2 != 17 || (tbRichTextEmotionInfo = this.k) == null) ? "" : tbRichTextEmotionInfo.mGifInfo.mSharpText;
+            } else {
+                TbRichTextImageInfo tbRichTextImageInfo = this.f13486g;
+                return tbRichTextImageInfo != null ? tbRichTextImageInfo.y() : "";
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public void w(CharSequence charSequence) {
-        int i2 = this.f13399e;
-        if ((i2 == 1 || i2 == 768) && charSequence != null) {
-            if (this.f13400f == null) {
-                this.f13400f = new SpannableStringBuilder("");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, charSequence) == null) {
+            int i2 = this.f13484e;
+            if ((i2 == 1 || i2 == 768) && charSequence != null) {
+                if (this.f13485f == null) {
+                    this.f13485f = new SpannableStringBuilder("");
+                }
+                this.f13485f.append(charSequence);
+                this.j.charLength = this.f13485f.length();
             }
-            this.f13400f.append(charSequence);
-            this.j.charLength = this.f13400f.length();
         }
     }
 
     public ArrayList<d> x() {
-        if (this.f13402h == null) {
-            this.f13402h = new ArrayList<>();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (this.f13487h == null) {
+                this.f13487h = new ArrayList<>();
+            }
+            return this.f13487h;
         }
-        return this.f13402h;
+        return (ArrayList) invokeV.objValue;
     }
 
     public TbRichTextEmotionInfo y() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.k : (TbRichTextEmotionInfo) invokeV.objValue;
     }
 
     public TbRichTextEvaluateItemInfo z() {
-        return this.r;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.r : (TbRichTextEvaluateItemInfo) invokeV.objValue;
     }
 
     public TbRichTextData(int i2) {
-        this.f13399e = 0;
-        this.f13400f = null;
-        this.f13401g = null;
-        this.f13402h = null;
-        this.f13403i = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f13484e = 0;
+        this.f13485f = null;
+        this.f13486g = null;
+        this.f13487h = null;
+        this.f13488i = null;
         this.j = null;
         this.p = false;
-        this.q = b.f42771a;
-        this.f13399e = i2;
+        this.q = b.f44580a;
+        this.f13484e = i2;
         this.j = new TbRichTextTextInfo(this);
     }
 }

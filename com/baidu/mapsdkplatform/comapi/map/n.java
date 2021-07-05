@@ -1,10 +1,30 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class n extends ag {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public n() {
-        this.f7658c = 6;
-        this.f7657b = "tile";
-        this.f7659d = 500;
-        this.f7646g = 89076;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f7688c = 6;
+        this.f7687b = "tile";
+        this.f7689d = 500;
+        this.f7676g = 89076;
     }
 }

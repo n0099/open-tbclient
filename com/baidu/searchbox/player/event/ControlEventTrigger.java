@@ -1,120 +1,197 @@
 package com.baidu.searchbox.player.event;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class ControlEventTrigger extends AbsEventTrigger {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ControlEventTrigger() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @PublicMethod
     public void goBackOrForeground(boolean z) {
-        VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_GO_BACK_OR_FOREGROUND);
-        obtainEvent.putExtra(4, Boolean.valueOf(z));
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_GO_BACK_OR_FOREGROUND);
+            obtainEvent.putExtra(4, Boolean.valueOf(z));
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void pause(boolean z) {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_PAUSE);
-        obtainEvent.putExtra(7, Boolean.valueOf(z));
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_PAUSE);
+            obtainEvent.putExtra(7, Boolean.valueOf(z));
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void prepare() {
-        triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_PREPARE));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_PREPARE));
+        }
     }
 
     @PublicMethod
     public void resume() {
-        triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_RESUME));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_RESUME));
+        }
     }
 
     @PublicMethod
     public void resumeContinuePlay() {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_CONTINUE_PLAY);
-        obtainEvent.putExtra(6, Boolean.TRUE);
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_CONTINUE_PLAY);
+            obtainEvent.putExtra(6, Boolean.TRUE);
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void seekTo(int i2) {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SEEK);
-        obtainEvent.putExtra(5, Integer.valueOf(i2));
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SEEK);
+            obtainEvent.putExtra(5, Integer.valueOf(i2));
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void seekToMs(int i2) {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SEEK_MS);
-        obtainEvent.putExtra(5, Integer.valueOf(i2));
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SEEK_MS);
+            obtainEvent.putExtra(5, Integer.valueOf(i2));
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void setDataSource() {
-        triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_SET_DATA_SOURCE));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_SET_DATA_SOURCE));
+        }
     }
 
     @PublicMethod
     public void showGaplessPlayTip() {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_CONTINUE_TIPS_SHOW);
-        obtainEvent.putExtra(9, Boolean.TRUE);
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_CONTINUE_TIPS_SHOW);
+            obtainEvent.putExtra(9, Boolean.TRUE);
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void showNetTip() {
-        triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_SHOW_TIP));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_SHOW_TIP));
+        }
     }
 
     @PublicMethod
     public void showNextVideoTip(boolean z) {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_CONTINUE_TIPS_SHOW);
-        obtainEvent.putExtra(8, Boolean.valueOf(z));
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_CONTINUE_TIPS_SHOW);
+            obtainEvent.putExtra(8, Boolean.valueOf(z));
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void start() {
-        triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_START));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_START));
+        }
     }
 
     @PublicMethod
     public void stop() {
-        triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_STOP));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_STOP));
+        }
     }
 
     @PublicMethod
     public void stopContinuePlay() {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_CONTINUE_PLAY);
-        obtainEvent.putExtra(6, Boolean.FALSE);
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_CONTINUE_PLAY);
+            obtainEvent.putExtra(6, Boolean.FALSE);
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void switchMode(boolean z) {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SWITCH_MODE);
-        obtainEvent.putExtra(4, Boolean.valueOf(z));
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SWITCH_MODE);
+            obtainEvent.putExtra(4, Boolean.valueOf(z));
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void syncPos(int i2, int i3, int i4) {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SYNC_PROGRESS);
-        obtainEvent.putExtra(1, Integer.valueOf(i2));
-        obtainEvent.putExtra(2, Integer.valueOf(i3));
-        obtainEvent.putExtra(3, Integer.valueOf(i4));
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048592, this, i2, i3, i4) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SYNC_PROGRESS);
+            obtainEvent.putExtra(1, Integer.valueOf(i2));
+            obtainEvent.putExtra(2, Integer.valueOf(i3));
+            obtainEvent.putExtra(3, Integer.valueOf(i4));
+            triggerEvent(obtainEvent);
+        }
     }
 
     @PublicMethod
     public void updateDownStatus() {
-        triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_UPDATE_DOWNLOAD));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            triggerEvent(ControlEvent.obtainEvent(ControlEvent.ACTION_UPDATE_DOWNLOAD));
+        }
     }
 
     @PublicMethod
     public void pause(int i2) {
-        VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_PAUSE);
-        obtainEvent.putExtra(11, Integer.valueOf(i2));
-        obtainEvent.putExtra(7, Boolean.valueOf(i2 == 1));
-        triggerEvent(obtainEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_PAUSE);
+            obtainEvent.putExtra(11, Integer.valueOf(i2));
+            obtainEvent.putExtra(7, Boolean.valueOf(i2 == 1));
+            triggerEvent(obtainEvent);
+        }
     }
 }

@@ -2,26 +2,48 @@ package com.xiaomi.push.service;
 
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
 import com.xiaomi.push.cw;
 import com.xiaomi.push.dt;
 import com.xiaomi.push.service.bi;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bj extends al.b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bi f41890a;
+    public final /* synthetic */ bi f43633a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f930a = false;
+    public boolean f933a;
 
     public bj(bi biVar) {
-        this.f41890a = biVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {biVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43633a = biVar;
+        this.f933a = false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0039 A[Catch: Exception -> 0x0047, TRY_LEAVE, TryCatch #0 {Exception -> 0x0047, blocks: (B:2:0x0000, B:4:0x0012, B:9:0x0024, B:11:0x0039), top: B:16:0x0000 }] */
-    /* JADX WARN: Removed duplicated region for block: B:18:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x003d A[Catch: Exception -> 0x004b, TRY_LEAVE, TryCatch #0 {Exception -> 0x004b, blocks: (B:4:0x0004, B:6:0x0016, B:11:0x0028, B:13:0x003d), top: B:21:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:? A[RETURN, SYNTHETIC] */
     @Override // com.xiaomi.push.al.b
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -29,45 +51,52 @@ public class bj extends al.b {
     public void b() {
         String str;
         dt.a a2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
         try {
-            String a3 = a.a(com.xiaomi.push.t.m622a()).a();
-            if (!TextUtils.isEmpty(a3) && !com.xiaomi.push.o.China.name().equals(a3)) {
+            String a3 = a.a(com.xiaomi.push.t.m636a()).a();
+            if (!TextUtils.isEmpty(a3) && !com.xiaomi.push.o.f43518a.name().equals(a3)) {
                 str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
-                a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m622a(), str, (List<com.xiaomi.push.bf>) null), 10));
+                a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m636a(), str, (List<com.xiaomi.push.bf>) null), 10));
                 if (a2 == null) {
-                    this.f41890a.f928a = a2;
-                    this.f930a = true;
-                    this.f41890a.e();
+                    this.f43633a.f931a = a2;
+                    this.f933a = true;
+                    this.f43633a.e();
                     return;
                 }
                 return;
             }
             str = "https://resolver.msg.xiaomi.net/psc/?t=a";
-            a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m622a(), str, (List<com.xiaomi.push.bf>) null), 10));
+            a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m636a(), str, (List<com.xiaomi.push.bf>) null), 10));
             if (a2 == null) {
             }
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("fetch config failure: " + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m70a("fetch config failure: " + e2.getMessage());
         }
     }
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo228c() {
+    public void mo242c() {
         List list;
         List list2;
         bi.a[] aVarArr;
         dt.a aVar;
-        this.f41890a.f927a = null;
-        if (this.f930a) {
-            synchronized (this.f41890a) {
-                list = this.f41890a.f929a;
-                list2 = this.f41890a.f929a;
-                aVarArr = (bi.a[]) list.toArray(new bi.a[list2.size()]);
-            }
-            for (bi.a aVar2 : aVarArr) {
-                aVar = this.f41890a.f928a;
-                aVar2.a(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f43633a.f930a = null;
+            if (this.f933a) {
+                synchronized (this.f43633a) {
+                    list = this.f43633a.f932a;
+                    list2 = this.f43633a.f932a;
+                    aVarArr = (bi.a[]) list.toArray(new bi.a[list2.size()]);
+                }
+                for (bi.a aVar2 : aVarArr) {
+                    aVar = this.f43633a.f931a;
+                    aVar2.a(aVar);
+                }
             }
         }
     }

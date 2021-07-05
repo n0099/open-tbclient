@@ -1,43 +1,78 @@
 package com.vivo.push.b;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class l extends u {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40327a;
+    public int f42070a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40328b;
+    public int f42071b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l() {
         super(12);
-        this.f40327a = -1;
-        this.f40328b = -1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42070a = -1;
+        this.f42071b = -1;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
-        super.c(aVar);
-        aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f40327a);
-        aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f40328b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            super.c(aVar);
+            aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f42070a);
+            aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f42071b);
+        }
     }
 
     public final int d() {
-        return this.f40327a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42070a : invokeV.intValue;
     }
 
     public final int e() {
-        return this.f40328b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42071b : invokeV.intValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final String toString() {
-        return "OnChangePushStatusCommand";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnChangePushStatusCommand" : (String) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
-        super.d(aVar);
-        this.f40327a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f40327a);
-        this.f40328b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f40328b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            super.d(aVar);
+            this.f42070a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f42070a);
+            this.f42071b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f42071b);
+        }
     }
 }

@@ -1,37 +1,71 @@
 package com.baidu.tieba.tbadkCore.data;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Agree;
 /* loaded from: classes5.dex */
 public class AgreeData implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public long agreeNum;
     public int agreeType;
     public BaijiahaoData baijiahaoData;
     public int cardType;
+    public long diffAgreeNum;
+    public long disAgreeNum;
+    public String forumId;
+    public boolean hasAgree;
+    public long indexOfPic;
     public boolean isFromImageViewer;
+    public boolean isInPost;
+    public boolean isInThread;
     public String keyFromHomePage;
     public String mImageViewerFromPage;
     public String nid;
     public String objSource;
+    public int objType;
+    public String postId;
     public String recomAbTag;
     public String recomExtra;
     public String recomSource;
     public String recomWeight;
-    public long diffAgreeNum = 0;
-    public long agreeNum = 0;
-    public long disAgreeNum = 0;
-    public boolean hasAgree = false;
-    public String threadId = "";
-    public String forumId = "";
-    public String postId = "";
-    public boolean isInThread = false;
-    public int objType = 0;
-    public boolean isInPost = false;
-    public long indexOfPic = 0;
+    public String threadId;
+
+    public AgreeData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.diffAgreeNum = 0L;
+        this.agreeNum = 0L;
+        this.disAgreeNum = 0L;
+        this.hasAgree = false;
+        this.threadId = "";
+        this.forumId = "";
+        this.postId = "";
+        this.isInThread = false;
+        this.objType = 0;
+        this.isInPost = false;
+        this.indexOfPic = 0L;
+    }
 
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.agreeNum = jSONObject.optInt("agree_num");
@@ -42,7 +76,8 @@ public class AgreeData implements Serializable {
     }
 
     public void parseProtobuf(Agree agree) {
-        if (agree == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, agree) == null) || agree == null) {
             return;
         }
         Long l = agree.agree_num;

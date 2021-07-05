@@ -9,169 +9,297 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.CommonUtils;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class BDSplashActionView extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f10076e;
+    public final Context f10148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f10077f;
+    public View f10149f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10078g;
+    public boolean f10150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10079h;
+    public int f10151h;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BaseActionLayout extends RelativeLayout {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public BaseActionLayout(Context context) {
             super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         @Override // android.view.View
         public boolean onTouchEvent(MotionEvent motionEvent) {
-            return true;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10080a = null;
+        public String f10152a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View.OnClickListener f10081b = null;
+        public View.OnClickListener f10153b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f10082c = -16777216;
+        public int f10154c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f10083d = 102;
+        public int f10155d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f10084e = 1000;
+        public int f10156e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f10085f = 18;
+        public int f10157f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f10086g = -1;
+        public int f10158g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Typeface f10087h = Typeface.DEFAULT;
+        public Typeface f10159h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f10088i = true;
-        public int j = 39;
+        public boolean f10160i;
+        public int j;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10152a = null;
+            this.f10153b = null;
+            this.f10154c = -16777216;
+            this.f10155d = 102;
+            this.f10156e = 1000;
+            this.f10157f = 18;
+            this.f10158g = -1;
+            this.f10159h = Typeface.DEFAULT;
+            this.f10160i = true;
+            this.j = 39;
+        }
 
         public BDSplashActionView k(Context context) {
-            return new BDSplashActionView(context, this);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new BDSplashActionView(context, this) : (BDSplashActionView) invokeL.objValue;
         }
 
         public a l(String str) {
-            this.f10080a = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.f10152a = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a m(int i2) {
-            this.j = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+                this.j = i2;
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
 
         public a n(View.OnClickListener onClickListener) {
-            this.f10081b = onClickListener;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, onClickListener)) == null) {
+                this.f10153b = onClickListener;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a o(boolean z) {
-            this.f10088i = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.f10160i = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1463862365, "Lcom/baidu/sdk/container/widget/BDSplashActionView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1463862365, "Lcom/baidu/sdk/container/widget/BDSplashActionView;");
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BDSplashActionView(Context context, a aVar) {
         super(context);
-        this.f10076e = context;
-        this.f10078g = aVar.f10088i;
-        this.f10079h = aVar.j;
-        setBackgroundDrawable(b(aVar.f10082c, aVar.f10083d, aVar.f10084e));
-        this.f10077f = d(this.f10076e, aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f10148e = context;
+        this.f10150g = aVar.f10160i;
+        this.f10151h = aVar.j;
+        setBackgroundDrawable(b(aVar.f10154c, aVar.f10155d, aVar.f10156e));
+        this.f10149f = d(this.f10148e, aVar);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        addView(this.f10077f, layoutParams);
-        setOnClickListener(aVar.f10081b);
+        addView(this.f10149f, layoutParams);
+        setOnClickListener(aVar.f10153b);
     }
 
     public void a(ViewGroup viewGroup) {
-        BaseActionLayout baseActionLayout = new BaseActionLayout(this.f10076e);
-        viewGroup.addView(baseActionLayout, new ViewGroup.LayoutParams(-1, -1));
-        int i2 = this.f10076e.getResources().getDisplayMetrics().widthPixels;
-        if (viewGroup.getMeasuredWidth() != 0) {
-            i2 = viewGroup.getMeasuredWidth();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
+            BaseActionLayout baseActionLayout = new BaseActionLayout(this.f10148e);
+            viewGroup.addView(baseActionLayout, new ViewGroup.LayoutParams(-1, -1));
+            int i2 = this.f10148e.getResources().getDisplayMetrics().widthPixels;
+            if (viewGroup.getMeasuredWidth() != 0) {
+                i2 = viewGroup.getMeasuredWidth();
+            }
+            double d2 = i2;
+            int i3 = (int) (0.7d * d2);
+            int i4 = (int) (d2 * 0.15d);
+            if (i3 == 0) {
+                i3 = -2;
+            }
+            if (i4 == 0) {
+                i4 = -2;
+            }
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i4);
+            layoutParams.addRule(12);
+            layoutParams.addRule(14);
+            if (this.f10150g) {
+                layoutParams.bottomMargin = CommonUtils.dip2px(this.f10148e, this.f10151h);
+            } else {
+                layoutParams.bottomMargin = CommonUtils.dip2px(this.f10148e, this.f10151h);
+            }
+            baseActionLayout.addView(this, layoutParams);
         }
-        double d2 = i2;
-        int i3 = (int) (0.7d * d2);
-        int i4 = (int) (d2 * 0.15d);
-        if (i3 == 0) {
-            i3 = -2;
-        }
-        if (i4 == 0) {
-            i4 = -2;
-        }
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i4);
-        layoutParams.addRule(12);
-        layoutParams.addRule(14);
-        if (this.f10078g) {
-            layoutParams.bottomMargin = CommonUtils.dip2px(this.f10076e, this.f10079h);
-        } else {
-            layoutParams.bottomMargin = CommonUtils.dip2px(this.f10076e, this.f10079h);
-        }
-        baseActionLayout.addView(this, layoutParams);
     }
 
     public final GradientDrawable b(int i2, int i3, int i4) {
-        return c(i2, i3, i4, i4, i4, i4);
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4)) == null) ? c(i2, i3, i4, i4, i4, i4) : (GradientDrawable) invokeIII.objValue;
     }
 
     public final GradientDrawable c(int i2, int i3, int i4, int i5, int i6, int i7) {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        try {
-            gradientDrawable.setAlpha(i3);
-            gradientDrawable.setColor(i2);
-            float f2 = i4;
-            float f3 = i5;
-            float f4 = i6;
-            float f5 = i7;
-            gradientDrawable.setCornerRadii(new float[]{f2, f2, f3, f3, f4, f4, f5, f5});
-        } catch (Throwable unused) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            try {
+                gradientDrawable.setAlpha(i3);
+                gradientDrawable.setColor(i2);
+                float f2 = i4;
+                float f3 = i5;
+                float f4 = i6;
+                float f5 = i7;
+                gradientDrawable.setCornerRadii(new float[]{f2, f2, f3, f3, f4, f4, f5, f5});
+            } catch (Throwable unused) {
+            }
+            return gradientDrawable;
         }
-        return gradientDrawable;
+        return (GradientDrawable) invokeCommon.objValue;
     }
 
     public final LinearLayout d(Context context, a aVar) {
-        LinearLayout linearLayout = new LinearLayout(context);
-        TextView textView = new TextView(context);
-        textView.setText(aVar.f10080a);
-        textView.setTextSize(aVar.f10085f);
-        textView.setTextColor(aVar.f10086g);
-        textView.setTypeface(aVar.f10087h);
-        textView.setIncludeFontPadding(false);
-        TextView textView2 = new TextView(context);
-        textView2.setText(">>");
-        textView2.setTextColor(aVar.f10086g);
-        textView2.setTextSize((int) (aVar.f10085f * 1.2d));
-        textView2.setIncludeFontPadding(false);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.gravity = 16;
-        linearLayout.addView(textView, layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams2.leftMargin = CommonUtils.dip2px(this.f10076e, 10.0f);
-        layoutParams2.gravity = 16;
-        linearLayout.addView(textView2, layoutParams2);
-        return linearLayout;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, aVar)) == null) {
+            LinearLayout linearLayout = new LinearLayout(context);
+            TextView textView = new TextView(context);
+            textView.setText(aVar.f10152a);
+            textView.setTextSize(aVar.f10157f);
+            textView.setTextColor(aVar.f10158g);
+            textView.setTypeface(aVar.f10159h);
+            textView.setIncludeFontPadding(false);
+            TextView textView2 = new TextView(context);
+            textView2.setText(">>");
+            textView2.setTextColor(aVar.f10158g);
+            textView2.setTextSize((int) (aVar.f10157f * 1.2d));
+            textView2.setIncludeFontPadding(false);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 16;
+            linearLayout.addView(textView, layoutParams);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams2.leftMargin = CommonUtils.dip2px(this.f10148e, 10.0f);
+            layoutParams2.gravity = 16;
+            linearLayout.addView(textView2, layoutParams2);
+            return linearLayout;
+        }
+        return (LinearLayout) invokeLL.objValue;
     }
 }

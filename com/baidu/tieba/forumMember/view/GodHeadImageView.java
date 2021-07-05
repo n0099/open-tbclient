@@ -6,58 +6,126 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class GodHeadImageView extends FrameLayout {
-    public static final int m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds6);
-    public static final int n = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1);
-    public static int o = 7;
+    public static /* synthetic */ Interceptable $ic;
+    public static final int m;
+    public static final int n;
+    public static int o;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f15145e;
+    public a f15236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f15146f;
+    public ImageView f15237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15147g;
+    public int f15238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15148h;
+    public int f15239h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15149i;
+    public int f15240i;
     public int j;
     public int k;
     public int l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HeadImageView {
-        public a(Context context) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GodHeadImageView S0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(GodHeadImageView godHeadImageView, Context context) {
             super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {godHeadImageView, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.S0 = godHeadImageView;
         }
 
         @Override // com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
         public void onMeasure(int i2, int i3) {
-            if (GodHeadImageView.this.f15148h == 1) {
-                int size = View.MeasureSpec.getSize(i2);
-                int size2 = View.MeasureSpec.getSize(i3);
-                i2 = View.MeasureSpec.makeMeasureSpec(size - GodHeadImageView.this.k, 1073741824);
-                i3 = View.MeasureSpec.makeMeasureSpec(size2 - GodHeadImageView.this.k, 1073741824);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+                if (this.S0.f15239h == 1) {
+                    int size = View.MeasureSpec.getSize(i2);
+                    int size2 = View.MeasureSpec.getSize(i3);
+                    i2 = View.MeasureSpec.makeMeasureSpec(size - this.S0.k, 1073741824);
+                    i3 = View.MeasureSpec.makeMeasureSpec(size2 - this.S0.k, 1073741824);
+                }
+                super.onMeasure(i2, i3);
             }
-            super.onMeasure(i2, i3);
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-660147729, "Lcom/baidu/tieba/forumMember/view/GodHeadImageView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-660147729, "Lcom/baidu/tieba/forumMember/view/GodHeadImageView;");
+                return;
+            }
+        }
+        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds6);
+        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1);
+        o = 7;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GodHeadImageView(Context context) {
         super(context);
-        this.f15147g = 0;
-        this.f15148h = 0;
-        this.f15149i = 1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f15238g = 0;
+        this.f15239h = 0;
+        this.f15240i = 1;
         this.j = 1;
         this.k = m;
         this.l = 7;
@@ -65,96 +133,150 @@ public class GodHeadImageView extends FrameLayout {
     }
 
     public final void c(AttributeSet attributeSet) {
-        if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.GodHeadImageView);
-            this.k = obtainStyledAttributes.getDimensionPixelSize(R$styleable.GodHeadImageView_extra_padding, m);
-            this.j = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_shape_type, this.f15149i);
-            this.f15148h = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_show_type, this.f15147g);
-            this.l = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_extra_radius, o);
-            obtainStyledAttributes.recycle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
+            if (attributeSet != null) {
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.GodHeadImageView);
+                this.k = obtainStyledAttributes.getDimensionPixelSize(R$styleable.GodHeadImageView_extra_padding, m);
+                this.j = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_shape_type, this.f15240i);
+                this.f15239h = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_show_type, this.f15238g);
+                this.l = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_extra_radius, o);
+                obtainStyledAttributes.recycle();
+            }
+            this.f15236e = new a(this, getContext());
+            this.f15237f = new ImageView(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            this.f15236e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            addView(this.f15236e, layoutParams);
+            addView(this.f15237f, new FrameLayout.LayoutParams(-1, -1));
+            d();
         }
-        this.f15145e = new a(getContext());
-        this.f15146f = new ImageView(getContext());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.f15145e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        addView(this.f15145e, layoutParams);
-        addView(this.f15146f, new FrameLayout.LayoutParams(-1, -1));
-        d();
     }
 
     public final void d() {
-        int i2 = this.f15148h;
-        if (i2 == 0) {
-            this.f15145e.setPadding(0, 0, 0, 0);
-        } else if (i2 == 1) {
-            a aVar = this.f15145e;
-            int i3 = n;
-            aVar.setPadding(i3, i3, 0, 0);
-        }
-        int i4 = this.j;
-        if (i4 == 1) {
-            this.f15145e.setIsRound(true);
-            if (this.f15148h == 0) {
-                SkinManager.setImageResource(this.f15146f, R.drawable.pic_shen_avatar_big);
-            } else {
-                SkinManager.setImageResource(this.f15146f, R.drawable.pic_shen_avatar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i2 = this.f15239h;
+            if (i2 == 0) {
+                this.f15236e.setPadding(0, 0, 0, 0);
+            } else if (i2 == 1) {
+                a aVar = this.f15236e;
+                int i3 = n;
+                aVar.setPadding(i3, i3, 0, 0);
             }
-        } else if (i4 == 2) {
-            this.f15145e.setIsRound(false);
-            this.f15145e.setRadius(this.l);
-            SkinManager.setImageResource(this.f15146f, R.drawable.pic_frs_shen_avatar);
-        } else if (i4 != 3) {
-            this.f15145e.setIsRound(false);
-            this.f15145e.setRadius(this.l);
-            SkinManager.setImageResource(this.f15146f, R.drawable.pic_shen_avatar_square);
-        } else {
-            this.f15145e.setIsRound(true);
-            SkinManager.setImageResource(this.f15146f, R.drawable.browser_null_drawable);
+            int i4 = this.j;
+            if (i4 == 1) {
+                this.f15236e.setIsRound(true);
+                if (this.f15239h == 0) {
+                    SkinManager.setImageResource(this.f15237f, R.drawable.pic_shen_avatar_big);
+                } else {
+                    SkinManager.setImageResource(this.f15237f, R.drawable.pic_shen_avatar);
+                }
+            } else if (i4 == 2) {
+                this.f15236e.setIsRound(false);
+                this.f15236e.setRadius(this.l);
+                SkinManager.setImageResource(this.f15237f, R.drawable.pic_frs_shen_avatar);
+            } else if (i4 != 3) {
+                this.f15236e.setIsRound(false);
+                this.f15236e.setRadius(this.l);
+                SkinManager.setImageResource(this.f15237f, R.drawable.pic_shen_avatar_square);
+            } else {
+                this.f15236e.setIsRound(true);
+                SkinManager.setImageResource(this.f15237f, R.drawable.browser_null_drawable);
+            }
         }
     }
 
     public void e(String str, int i2, boolean z) {
-        this.f15145e.U(str, i2, z);
-    }
-
-    public void setExtraPadding(int i2) {
-        if (this.k != i2) {
-            this.k = i2;
-            this.f15145e.invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            this.f15236e.M(str, i2, z);
         }
     }
 
+    public void setExtraPadding(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.k == i2) {
+            return;
+        }
+        this.k = i2;
+        this.f15236e.invalidate();
+    }
+
     public void setRadius(int i2) {
-        this.l = i2;
-        d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.l = i2;
+            d();
+        }
     }
 
     public void setShapeType(int i2) {
-        this.j = i2;
-        d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.j = i2;
+            d();
+        }
     }
 
     public void setShowType(int i2) {
-        this.f15148h = i2;
-        d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.f15239h = i2;
+            d();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GodHeadImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15147g = 0;
-        this.f15148h = 0;
-        this.f15149i = 1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f15238g = 0;
+        this.f15239h = 0;
+        this.f15240i = 1;
         this.j = 1;
         this.k = m;
         this.l = 7;
         c(attributeSet);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GodHeadImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f15147g = 0;
-        this.f15148h = 0;
-        this.f15149i = 1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f15238g = 0;
+        this.f15239h = 0;
+        this.f15240i = 1;
         this.j = 1;
         this.k = m;
         this.l = 7;

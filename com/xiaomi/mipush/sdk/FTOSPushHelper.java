@@ -3,64 +3,118 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FTOSPushHelper {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f40994a = 0;
+    public static long f42737a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f42a = false;
+    public static volatile boolean f45a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context) {
-        AbstractPushManager a2 = f.a(context).a(e.ASSEMBLE_PUSH_FTOS);
-        if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("ASSEMBLE_PUSH :  register fun touch os when network change!");
-            a2.register();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1127311731, "Lcom/xiaomi/mipush/sdk/FTOSPushHelper;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1127311731, "Lcom/xiaomi/mipush/sdk/FTOSPushHelper;");
         }
     }
 
+    public FTOSPushHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static void a(Context context) {
+        AbstractPushManager a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f42790d)) == null) {
+            return;
+        }
+        com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH :  register fun touch os when network change!");
+        a2.register();
+    }
+
     public static void doInNetworkChange(Context context) {
-        long elapsedRealtime = SystemClock.elapsedRealtime();
-        if (getNeedRegister()) {
-            long j = f40994a;
-            if (j <= 0 || j + 300000 <= elapsedRealtime) {
-                f40994a = elapsedRealtime;
-                a(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            if (getNeedRegister()) {
+                long j = f42737a;
+                if (j <= 0 || j + 300000 <= elapsedRealtime) {
+                    f42737a = elapsedRealtime;
+                    a(context);
+                }
             }
         }
     }
 
     public static boolean getNeedRegister() {
-        return f42a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f45a : invokeV.booleanValue;
     }
 
     public static boolean hasNetwork(Context context) {
-        return i.m118a(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? i.m132a(context) : invokeL.booleanValue;
     }
 
     public static void notifyFTOSNotificationClicked(Context context, Map<String, String> map) {
         PushMessageReceiver a2;
-        if (map == null || !map.containsKey("pushMsg")) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, map) == null) && map != null && map.containsKey("pushMsg")) {
+            String str = map.get("pushMsg");
+            if (TextUtils.isEmpty(str) || (a2 = i.a(context)) == null) {
+                return;
+            }
+            MiPushMessage a3 = i.a(str);
+            if (a3.getExtra().containsKey("notify_effect")) {
+                return;
+            }
+            a2.onNotificationMessageClicked(context, a3);
         }
-        String str = map.get("pushMsg");
-        if (TextUtils.isEmpty(str) || (a2 = i.a(context)) == null) {
-            return;
-        }
-        MiPushMessage a3 = i.a(str);
-        if (a3.getExtra().containsKey("notify_effect")) {
-            return;
-        }
-        a2.onNotificationMessageClicked(context, a3);
     }
 
     public static void setNeedRegister(boolean z) {
-        f42a = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            f45a = z;
+        }
     }
 
     public static void uploadToken(Context context, String str) {
-        i.a(context, e.ASSEMBLE_PUSH_FTOS, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
+            i.a(context, e.f42790d, str);
+        }
     }
 }

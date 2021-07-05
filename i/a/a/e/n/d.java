@@ -4,11 +4,17 @@ import android.animation.ObjectAnimator;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static void a(View view, ImageView imageView) {
-        if (view == null || imageView == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, view, imageView) == null) || view == null || imageView == null) {
             return;
         }
         view.setVisibility(8);
@@ -21,7 +27,8 @@ public class d {
     }
 
     public static void b(View view, ImageView imageView) {
-        if (view == null || imageView == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, view, imageView) == null) || view == null || imageView == null) {
             return;
         }
         ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;

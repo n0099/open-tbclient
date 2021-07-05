@@ -1,6 +1,12 @@
 package com.baidu.appsearchlib;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class Info {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String APPID = "teiba";
     public static final String IV = "BAIDUAPPSEARCHIV";
     public static final String PASSWORD = "baidutieba";
@@ -27,4 +33,19 @@ public class Info {
     public static final String kBaiduVersionKey = "c_version";
     public static final String kUrlLogStart = "&bdlog=";
     public static final String kUrlSecStart = "://c?q=";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public Info() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

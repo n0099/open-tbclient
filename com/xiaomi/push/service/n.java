@@ -3,137 +3,218 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class n {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static n f41937a;
+    public static n f43680a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f961a;
+    public Context f964a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<String> f962a = new ArrayList();
+    public List<String> f965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<String> f41938b = new ArrayList();
+    public final List<String> f43681b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<String> f41939c = new ArrayList();
+    public final List<String> f43682c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(311648642, "Lcom/xiaomi/push/service/n;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(311648642, "Lcom/xiaomi/push/service/n;");
+        }
+    }
 
     public n(Context context) {
         String[] split;
         String[] split2;
         String[] split3;
-        Context applicationContext = context.getApplicationContext();
-        this.f961a = applicationContext;
-        if (applicationContext == null) {
-            this.f961a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        SharedPreferences sharedPreferences = this.f961a.getSharedPreferences("mipush_app_info", 0);
+        this.f965a = new ArrayList();
+        this.f43681b = new ArrayList();
+        this.f43682c = new ArrayList();
+        Context applicationContext = context.getApplicationContext();
+        this.f964a = applicationContext;
+        if (applicationContext == null) {
+            this.f964a = context;
+        }
+        SharedPreferences sharedPreferences = this.f964a.getSharedPreferences("mipush_app_info", 0);
         for (String str : sharedPreferences.getString("unregistered_pkg_names", "").split(",")) {
             if (TextUtils.isEmpty(str)) {
-                this.f962a.add(str);
+                this.f965a.add(str);
             }
         }
         for (String str2 : sharedPreferences.getString("disable_push_pkg_names", "").split(",")) {
             if (!TextUtils.isEmpty(str2)) {
-                this.f41938b.add(str2);
+                this.f43681b.add(str2);
             }
         }
         for (String str3 : sharedPreferences.getString("disable_push_pkg_names_cache", "").split(",")) {
             if (!TextUtils.isEmpty(str3)) {
-                this.f41939c.add(str3);
+                this.f43682c.add(str3);
             }
         }
     }
 
     public static n a(Context context) {
-        if (f41937a == null) {
-            f41937a = new n(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (f43680a == null) {
+                f43680a = new n(context);
+            }
+            return f43680a;
         }
-        return f41937a;
+        return (n) invokeL.objValue;
     }
 
     public void a(String str) {
-        synchronized (this.f962a) {
-            if (!this.f962a.contains(str)) {
-                this.f962a.add(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("unregistered_pkg_names", com.xiaomi.push.bm.a(this.f962a, ",")).commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            synchronized (this.f965a) {
+                if (!this.f965a.contains(str)) {
+                    this.f965a.add(str);
+                    this.f964a.getSharedPreferences("mipush_app_info", 0).edit().putString("unregistered_pkg_names", com.xiaomi.push.bm.a(this.f965a, ",")).commit();
+                }
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m619a(String str) {
+    public boolean m633a(String str) {
+        InterceptResult invokeL;
         boolean contains;
-        synchronized (this.f962a) {
-            contains = this.f962a.contains(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this.f965a) {
+                contains = this.f965a.contains(str);
+            }
+            return contains;
         }
-        return contains;
+        return invokeL.booleanValue;
     }
 
     public void b(String str) {
-        synchronized (this.f41938b) {
-            if (!this.f41938b.contains(str)) {
-                this.f41938b.add(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f41938b, ",")).commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            synchronized (this.f43681b) {
+                if (!this.f43681b.contains(str)) {
+                    this.f43681b.add(str);
+                    this.f964a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f43681b, ",")).commit();
+                }
             }
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m620b(String str) {
+    public boolean m634b(String str) {
+        InterceptResult invokeL;
         boolean contains;
-        synchronized (this.f41938b) {
-            contains = this.f41938b.contains(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this.f43681b) {
+                contains = this.f43681b.contains(str);
+            }
+            return contains;
         }
-        return contains;
+        return invokeL.booleanValue;
     }
 
     public void c(String str) {
-        synchronized (this.f41939c) {
-            if (!this.f41939c.contains(str)) {
-                this.f41939c.add(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f41939c, ",")).commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            synchronized (this.f43682c) {
+                if (!this.f43682c.contains(str)) {
+                    this.f43682c.add(str);
+                    this.f964a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f43682c, ",")).commit();
+                }
             }
         }
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m621c(String str) {
+    public boolean m635c(String str) {
+        InterceptResult invokeL;
         boolean contains;
-        synchronized (this.f41939c) {
-            contains = this.f41939c.contains(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            synchronized (this.f43682c) {
+                contains = this.f43682c.contains(str);
+            }
+            return contains;
         }
-        return contains;
+        return invokeL.booleanValue;
     }
 
     public void d(String str) {
-        synchronized (this.f962a) {
-            if (this.f962a.contains(str)) {
-                this.f962a.remove(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("unregistered_pkg_names", com.xiaomi.push.bm.a(this.f962a, ",")).commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            synchronized (this.f965a) {
+                if (this.f965a.contains(str)) {
+                    this.f965a.remove(str);
+                    this.f964a.getSharedPreferences("mipush_app_info", 0).edit().putString("unregistered_pkg_names", com.xiaomi.push.bm.a(this.f965a, ",")).commit();
+                }
             }
         }
     }
 
     public void e(String str) {
-        synchronized (this.f41938b) {
-            if (this.f41938b.contains(str)) {
-                this.f41938b.remove(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f41938b, ",")).commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            synchronized (this.f43681b) {
+                if (this.f43681b.contains(str)) {
+                    this.f43681b.remove(str);
+                    this.f964a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f43681b, ",")).commit();
+                }
             }
         }
     }
 
     public void f(String str) {
-        synchronized (this.f41939c) {
-            if (this.f41939c.contains(str)) {
-                this.f41939c.remove(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f41939c, ",")).commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            synchronized (this.f43682c) {
+                if (this.f43682c.contains(str)) {
+                    this.f43682c.remove(str);
+                    this.f964a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f43682c, ",")).commit();
+                }
             }
         }
     }

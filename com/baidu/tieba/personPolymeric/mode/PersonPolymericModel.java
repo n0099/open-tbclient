@@ -1,5 +1,6 @@
 package com.baidu.tieba.personPolymeric.mode;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -7,6 +8,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -16,27 +18,35 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.a.f;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes5.dex */
 public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int RN = 20;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.o0.j2.e.a f20014e;
+    public d.a.s0.m2.e.a f20163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20015f;
+    public int f20164f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20016g;
+    public String f20165g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.o0.j2.h.b f20017h;
+    public d.a.s0.m2.h.b f20166h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.o0.j2.h.a f20018i;
+    public d.a.s0.m2.h.a f20167i;
     public boolean j;
     public d.a.c.c.g.a k;
     public CustomMessageListener l;
@@ -45,29 +55,54 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
-        public a(int i2, int i3) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonPolymericModel f20168a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(PersonPolymericModel personPolymericModel, int i2, int i3) {
             super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personPolymericModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20168a = personPolymericModel;
         }
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
                 return;
             }
             boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-            if ((z || (responsedMessage instanceof ProfileHttpResponseMessage)) && PersonPolymericModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
-                d.a.o0.g2.c cVar = z ? (ProfileSocketResponseMessage) responsedMessage : null;
+            if ((z || (responsedMessage instanceof ProfileHttpResponseMessage)) && this.f20168a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+                d.a.s0.j2.c cVar = z ? (ProfileSocketResponseMessage) responsedMessage : null;
                 if (responsedMessage instanceof ProfileHttpResponseMessage) {
                     cVar = (ProfileHttpResponseMessage) responsedMessage;
                 }
                 if (cVar.getErrorCode() == 0) {
-                    PersonPolymericModel.this.f20014e.v(cVar);
+                    this.f20168a.f20163e.v(cVar);
                 }
-                d.a.o0.j2.b.d().n(System.currentTimeMillis() - d.a.o0.j2.b.d().e());
+                d.a.s0.m2.b.d().n(System.currentTimeMillis() - d.a.s0.m2.b.d().e());
                 if (responsedMessage.getError() == 0) {
-                    PersonPolymericModel.this.f20017h.b(PersonPolymericModel.this.f20014e);
+                    this.f20168a.f20166h.b(this.f20168a.f20163e);
                 } else {
-                    PersonPolymericModel.this.f20017h.b(null);
+                    this.f20168a.f20166h.b(null);
                 }
             }
         }
@@ -75,79 +110,167 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
-        public b(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonPolymericModel f20169a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(PersonPolymericModel personPolymericModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personPolymericModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20169a = personPolymericModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof d.a.o0.p3.a) && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
-                d.a.o0.p3.a aVar = (d.a.o0.p3.a) customResponsedMessage.getData();
-                DataRes dataRes = aVar.f61976a;
-                if (aVar.f61978c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d.a.s0.s3.a) && customResponsedMessage.getOrginalMessage().getTag() == this.f20169a.unique_id) {
+                d.a.s0.s3.a aVar = (d.a.s0.s3.a) customResponsedMessage.getData();
+                DataRes dataRes = aVar.f65437a;
+                if (aVar.f65439c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
                     return;
                 }
                 if (dataRes.is_mute.equals("0")) {
-                    PersonPolymericModel.this.f20015f = 0;
-                    PersonPolymericModel.this.f20016g = dataRes.mute_confirm;
-                    if (k.isEmpty(PersonPolymericModel.this.f20016g)) {
-                        PersonPolymericModel.this.f20016g = "确定禁言？";
+                    this.f20169a.f20164f = 0;
+                    this.f20169a.f20165g = dataRes.mute_confirm;
+                    if (k.isEmpty(this.f20169a.f20165g)) {
+                        this.f20169a.f20165g = "确定禁言？";
                     }
                 } else if (dataRes.is_mute.equals("1")) {
-                    PersonPolymericModel.this.f20015f = 1;
+                    this.f20169a.f20164f = 1;
                 }
-                PersonPolymericModel.this.f20018i.a(0, PersonPolymericModel.this.f20015f, PersonPolymericModel.this.f20016g, aVar.f61978c, aVar.f61977b);
+                this.f20169a.f20167i.a(0, this.f20169a.f20164f, this.f20169a.f20165g, aVar.f65439c, aVar.f65438b);
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
-        public c(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonPolymericModel f20170a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(PersonPolymericModel personPolymericModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personPolymericModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20170a = personPolymericModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() != PersonPolymericModel.this.unique_id) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() != this.f20170a.unique_id) {
                 return;
             }
             UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
             if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                PersonPolymericModel.this.f20015f = 1;
+                this.f20170a.f20164f = 1;
             }
-            PersonPolymericModel.this.f20018i.a(1, PersonPolymericModel.this.f20015f, PersonPolymericModel.this.f20016g, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
+            this.f20170a.f20167i.a(1, this.f20170a.f20164f, this.f20170a.f20165g, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
         }
     }
 
     /* loaded from: classes5.dex */
     public class d extends CustomMessageListener {
-        public d(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonPolymericModel f20171a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(PersonPolymericModel personPolymericModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personPolymericModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20171a = personPolymericModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() != PersonPolymericModel.this.unique_id) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() != this.f20171a.unique_id) {
                 return;
             }
-            PersonPolymericModel.this.f20015f = 0;
+            this.f20171a.f20164f = 0;
             UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
-            PersonPolymericModel.this.f20018i.a(2, PersonPolymericModel.this.f20015f, PersonPolymericModel.this.f20016g, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
+            this.f20171a.f20167i.a(2, this.f20171a.f20164f, this.f20171a.f20165g, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPolymericModel(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, boolean z) {
         super(baseFragmentActivity.getPageContext());
-        this.f20015f = -1;
-        this.f20016g = "";
-        this.k = new a(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        this.l = new b(2001426);
-        this.m = new c(2001427);
-        this.n = new d(2001428);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity, bdUniqueId, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f20164f = -1;
+        this.f20165g = "";
+        this.k = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.l = new b(this, 2001426);
+        this.m = new c(this, 2001427);
+        this.n = new d(this, 2001428);
         setUniqueId(bdUniqueId);
         if (!z) {
             registerListener(this.l);
@@ -158,12 +281,15 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         registerListener(this.k);
     }
 
-    public d.a.o0.j2.e.a H() {
-        return this.f20014e;
+    public d.a.s0.m2.e.a H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20163e : (d.a.s0.m2.e.a) invokeV.objValue;
     }
 
     public void I(long j, String str) {
-        if (j.A()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) && j.A()) {
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 profileRequestMessage.set_uid(Long.valueOf(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L)));
@@ -188,7 +314,8 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void J(long j) {
-        if (j.A()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j.A()) {
             long f2 = d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
             if (j == f2 || !TbadkCoreApplication.isLogin()) {
                 return;
@@ -204,34 +331,59 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void K() {
-        this.f20014e.w();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f20163e.w();
+        }
     }
 
-    public void L(d.a.o0.j2.h.b bVar) {
-        this.f20017h = bVar;
+    public void L(d.a.s0.m2.h.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.f20166h = bVar;
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void M(d.a.o0.j2.h.a aVar) {
-        this.f20018i = aVar;
+    public void M(d.a.s0.m2.h.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.f20167i = aVar;
+        }
     }
 
-    public void N(d.a.o0.j2.e.a aVar) {
-        this.f20014e = aVar;
+    public void N(d.a.s0.m2.e.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.f20163e = aVar;
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        cancelMessage();
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            cancelMessage();
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void destroy() {
-        cancelLoadData();
-        MessageManager.getInstance().unRegisterListener(getUniqueId());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            cancelLoadData();
+            MessageManager.getInstance().unRegisterListener(getUniqueId());
+        }
     }
 }

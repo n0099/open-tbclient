@@ -1,5 +1,15 @@
 package io.reactivex.processors;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
 import io.reactivex.annotations.CheckReturnValue;
 import io.reactivex.annotations.Experimental;
@@ -16,26 +26,44 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class ReplayProcessor<T> extends FlowableProcessor<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public static final ReplaySubscription[] EMPTY;
+    public static final Object[] EMPTY_ARRAY;
+    public static final ReplaySubscription[] TERMINATED;
+    public transient /* synthetic */ FieldHolder $fh;
     public final ReplayBuffer<T> buffer;
     public boolean done;
-    public final AtomicReference<ReplaySubscription<T>[]> subscribers = new AtomicReference<>(EMPTY);
-    public static final Object[] EMPTY_ARRAY = new Object[0];
-    public static final ReplaySubscription[] EMPTY = new ReplaySubscription[0];
-    public static final ReplaySubscription[] TERMINATED = new ReplaySubscription[0];
+    public final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class Node<T> extends AtomicReference<Node<T>> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final T value;
 
         public Node(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.value = t;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public interface ReplayBuffer<T> {
         void complete();
 
@@ -58,24 +86,42 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         void trimHead();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class ReplaySubscription<T> extends AtomicInteger implements Subscription {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 466549804534799122L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
         public long emitted;
         public Object index;
-        public final AtomicLong requested = new AtomicLong();
+        public final AtomicLong requested;
         public final ReplayProcessor<T> state;
 
         public ReplaySubscription(Subscriber<? super T> subscriber, ReplayProcessor<T> replayProcessor) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, replayProcessor};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
             this.state = replayProcessor;
+            this.requested = new AtomicLong();
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            if (this.cancelled) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
                 return;
             }
             this.cancelled = true;
@@ -84,15 +130,18 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            if (SubscriptionHelper.validate(j)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
                 BackpressureHelper.add(this.requested, j);
                 this.state.buffer.replay(this);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class SizeAndTimeBoundReplayBuffer<T> implements ReplayBuffer<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
         public Throwable error;
         public volatile TimedNode<T> head;
@@ -104,6 +153,20 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         public final TimeUnit unit;
 
         public SizeAndTimeBoundReplayBuffer(int i2, long j, TimeUnit timeUnit, Scheduler scheduler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), timeUnit, scheduler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.maxSize = ObjectHelper.verifyPositive(i2, "maxSize");
             this.maxAge = ObjectHelper.verifyPositive(j, "maxAge");
             this.unit = (TimeUnit) ObjectHelper.requireNonNull(timeUnit, "unit is null");
@@ -115,169 +178,203 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void complete() {
-            trimFinal();
-            this.done = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                trimFinal();
+                this.done = true;
+            }
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void error(Throwable th) {
-            trimFinal();
-            this.error = th;
-            this.done = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                trimFinal();
+                this.error = th;
+                this.done = true;
+            }
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public Throwable getError() {
-            return this.error;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.error : (Throwable) invokeV.objValue;
         }
 
         public TimedNode<T> getHead() {
+            InterceptResult invokeV;
             TimedNode<T> timedNode;
-            TimedNode<T> timedNode2 = this.head;
-            long now = this.scheduler.now(this.unit) - this.maxAge;
-            TimedNode<T> timedNode3 = timedNode2.get();
-            while (true) {
-                TimedNode<T> timedNode4 = timedNode3;
-                timedNode = timedNode2;
-                timedNode2 = timedNode4;
-                if (timedNode2 == null || timedNode2.time > now) {
-                    break;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                TimedNode<T> timedNode2 = this.head;
+                long now = this.scheduler.now(this.unit) - this.maxAge;
+                TimedNode<T> timedNode3 = timedNode2.get();
+                while (true) {
+                    TimedNode<T> timedNode4 = timedNode3;
+                    timedNode = timedNode2;
+                    timedNode2 = timedNode4;
+                    if (timedNode2 == null || timedNode2.time > now) {
+                        break;
+                    }
+                    timedNode3 = timedNode2.get();
                 }
-                timedNode3 = timedNode2.get();
+                return timedNode;
             }
-            return timedNode;
+            return (TimedNode) invokeV.objValue;
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public T getValue() {
-            TimedNode<T> timedNode = this.head;
-            while (true) {
-                TimedNode<T> timedNode2 = timedNode.get();
-                if (timedNode2 == null) {
-                    break;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                TimedNode<T> timedNode = this.head;
+                while (true) {
+                    TimedNode<T> timedNode2 = timedNode.get();
+                    if (timedNode2 == null) {
+                        break;
+                    }
+                    timedNode = timedNode2;
                 }
-                timedNode = timedNode2;
+                if (timedNode.time < this.scheduler.now(this.unit) - this.maxAge) {
+                    return null;
+                }
+                return timedNode.value;
             }
-            if (timedNode.time < this.scheduler.now(this.unit) - this.maxAge) {
-                return null;
-            }
-            return timedNode.value;
+            return (T) invokeV.objValue;
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public T[] getValues(T[] tArr) {
-            TimedNode<T> head = getHead();
-            int size = size(head);
-            if (size == 0) {
-                if (tArr.length != 0) {
-                    tArr[0] = null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tArr)) == null) {
+                TimedNode<T> head = getHead();
+                int size = size(head);
+                if (size == 0) {
+                    if (tArr.length != 0) {
+                        tArr[0] = null;
+                    }
+                } else {
+                    if (tArr.length < size) {
+                        tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), size));
+                    }
+                    for (int i2 = 0; i2 != size; i2++) {
+                        head = head.get();
+                        tArr[i2] = head.value;
+                    }
+                    if (tArr.length > size) {
+                        tArr[size] = null;
+                    }
                 }
-            } else {
-                if (tArr.length < size) {
-                    tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), size));
-                }
-                for (int i2 = 0; i2 != size; i2++) {
-                    head = head.get();
-                    tArr[i2] = head.value;
-                }
-                if (tArr.length > size) {
-                    tArr[size] = null;
-                }
+                return tArr;
             }
-            return tArr;
+            return (T[]) ((Object[]) invokeL.objValue);
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public boolean isDone() {
-            return this.done;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.done : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void next(T t) {
-            TimedNode<T> timedNode = new TimedNode<>(t, this.scheduler.now(this.unit));
-            TimedNode<T> timedNode2 = this.tail;
-            this.tail = timedNode;
-            this.size++;
-            timedNode2.set(timedNode);
-            trim();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+                TimedNode<T> timedNode = new TimedNode<>(t, this.scheduler.now(this.unit));
+                TimedNode<T> timedNode2 = this.tail;
+                this.tail = timedNode;
+                this.size++;
+                timedNode2.set(timedNode);
+                trim();
+            }
         }
 
         /* JADX DEBUG: Type inference failed for r1v5. Raw type applied. Possible types: T, ? super T */
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void replay(ReplaySubscription<T> replaySubscription) {
             int i2;
-            if (replaySubscription.getAndIncrement() != 0) {
-                return;
-            }
-            Subscriber<? super T> subscriber = replaySubscription.actual;
-            TimedNode<T> timedNode = (TimedNode) replaySubscription.index;
-            if (timedNode == null) {
-                timedNode = getHead();
-            }
-            long j = replaySubscription.emitted;
-            int i3 = 1;
-            do {
-                long j2 = replaySubscription.requested.get();
-                while (true) {
-                    i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, replaySubscription) == null) && replaySubscription.getAndIncrement() == 0) {
+                Subscriber<? super T> subscriber = replaySubscription.actual;
+                TimedNode<T> timedNode = (TimedNode) replaySubscription.index;
+                if (timedNode == null) {
+                    timedNode = getHead();
+                }
+                long j = replaySubscription.emitted;
+                int i3 = 1;
+                do {
+                    long j2 = replaySubscription.requested.get();
+                    while (true) {
+                        i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i2 == 0) {
+                            break;
+                        } else if (replaySubscription.cancelled) {
+                            replaySubscription.index = null;
+                            return;
+                        } else {
+                            boolean z = this.done;
+                            TimedNode<T> timedNode2 = timedNode.get();
+                            boolean z2 = timedNode2 == null;
+                            if (z && z2) {
+                                replaySubscription.index = null;
+                                replaySubscription.cancelled = true;
+                                Throwable th = this.error;
+                                if (th == null) {
+                                    subscriber.onComplete();
+                                    return;
+                                } else {
+                                    subscriber.onError(th);
+                                    return;
+                                }
+                            } else if (z2) {
+                                break;
+                            } else {
+                                subscriber.onNext((T) timedNode2.value);
+                                j++;
+                                timedNode = timedNode2;
+                            }
+                        }
+                    }
                     if (i2 == 0) {
-                        break;
-                    } else if (replaySubscription.cancelled) {
-                        replaySubscription.index = null;
-                        return;
-                    } else {
-                        boolean z = this.done;
-                        TimedNode<T> timedNode2 = timedNode.get();
-                        boolean z2 = timedNode2 == null;
-                        if (z && z2) {
+                        if (replaySubscription.cancelled) {
+                            replaySubscription.index = null;
+                            return;
+                        } else if (this.done && timedNode.get() == null) {
                             replaySubscription.index = null;
                             replaySubscription.cancelled = true;
-                            Throwable th = this.error;
-                            if (th == null) {
+                            Throwable th2 = this.error;
+                            if (th2 == null) {
                                 subscriber.onComplete();
                                 return;
                             } else {
-                                subscriber.onError(th);
+                                subscriber.onError(th2);
                                 return;
                             }
-                        } else if (z2) {
-                            break;
-                        } else {
-                            subscriber.onNext((T) timedNode2.value);
-                            j++;
-                            timedNode = timedNode2;
                         }
                     }
-                }
-                if (i2 == 0) {
-                    if (replaySubscription.cancelled) {
-                        replaySubscription.index = null;
-                        return;
-                    } else if (this.done && timedNode.get() == null) {
-                        replaySubscription.index = null;
-                        replaySubscription.cancelled = true;
-                        Throwable th2 = this.error;
-                        if (th2 == null) {
-                            subscriber.onComplete();
-                            return;
-                        } else {
-                            subscriber.onError(th2);
-                            return;
-                        }
-                    }
-                }
-                replaySubscription.index = timedNode;
-                replaySubscription.emitted = j;
-                i3 = replaySubscription.addAndGet(-i3);
-            } while (i3 != 0);
+                    replaySubscription.index = timedNode;
+                    replaySubscription.emitted = j;
+                    i3 = replaySubscription.addAndGet(-i3);
+                } while (i3 != 0);
+            }
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public int size() {
-            return size(getHead());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? size(getHead()) : invokeV.intValue;
         }
 
         public void trim() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048587, this) != null) {
+                return;
+            }
             int i2 = this.size;
             if (i2 > this.maxSize) {
                 this.size = i2 - 1;
@@ -300,6 +397,10 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
 
         public void trimFinal() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048588, this) != null) {
+                return;
+            }
             long now = this.scheduler.now(this.unit) - this.maxAge;
             TimedNode<T> timedNode = this.head;
             while (true) {
@@ -329,24 +430,33 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void trimHead() {
-            if (this.head.value != null) {
-                TimedNode<T> timedNode = new TimedNode<>(null, 0L);
-                timedNode.lazySet(this.head.get());
-                this.head = timedNode;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.head.value == null) {
+                return;
             }
+            TimedNode<T> timedNode = new TimedNode<>(null, 0L);
+            timedNode.lazySet(this.head.get());
+            this.head = timedNode;
         }
 
         public int size(TimedNode<T> timedNode) {
-            int i2 = 0;
-            while (i2 != Integer.MAX_VALUE && (timedNode = timedNode.get()) != null) {
-                i2++;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, timedNode)) == null) {
+                int i2 = 0;
+                while (i2 != Integer.MAX_VALUE && (timedNode = timedNode.get()) != null) {
+                    i2++;
+                }
+                return i2;
             }
-            return i2;
+            return invokeL.intValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class SizeBoundReplayBuffer<T> implements ReplayBuffer<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
         public Throwable error;
         public volatile Node<T> head;
@@ -355,6 +465,20 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         public Node<T> tail;
 
         public SizeBoundReplayBuffer(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.maxSize = ObjectHelper.verifyPositive(i2, "maxSize");
             Node<T> node = new Node<>(null);
             this.tail = node;
@@ -363,24 +487,37 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void complete() {
-            trimHead();
-            this.done = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                trimHead();
+                this.done = true;
+            }
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void error(Throwable th) {
-            this.error = th;
-            trimHead();
-            this.done = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                this.error = th;
+                trimHead();
+                this.done = true;
+            }
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public Throwable getError() {
-            return this.error;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.error : (Throwable) invokeV.objValue;
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public T getValue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+                return (T) invokeV.objValue;
+            }
             Node<T> node = this.head;
             while (true) {
                 Node<T> node2 = node.get();
@@ -393,427 +530,558 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public T[] getValues(T[] tArr) {
-            Node<T> node = this.head;
-            Node<T> node2 = node;
-            int i2 = 0;
-            while (true) {
-                node2 = node2.get();
-                if (node2 == null) {
-                    break;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tArr)) == null) {
+                Node<T> node = this.head;
+                Node<T> node2 = node;
+                int i2 = 0;
+                while (true) {
+                    node2 = node2.get();
+                    if (node2 == null) {
+                        break;
+                    }
+                    i2++;
                 }
-                i2++;
+                if (tArr.length < i2) {
+                    tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i2));
+                }
+                for (int i3 = 0; i3 < i2; i3++) {
+                    node = node.get();
+                    tArr[i3] = node.value;
+                }
+                if (tArr.length > i2) {
+                    tArr[i2] = null;
+                }
+                return tArr;
             }
-            if (tArr.length < i2) {
-                tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i2));
-            }
-            for (int i3 = 0; i3 < i2; i3++) {
-                node = node.get();
-                tArr[i3] = node.value;
-            }
-            if (tArr.length > i2) {
-                tArr[i2] = null;
-            }
-            return tArr;
+            return (T[]) ((Object[]) invokeL.objValue);
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public boolean isDone() {
-            return this.done;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.done : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void next(T t) {
-            Node<T> node = new Node<>(t);
-            Node<T> node2 = this.tail;
-            this.tail = node;
-            this.size++;
-            node2.set(node);
-            trim();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                Node<T> node = new Node<>(t);
+                Node<T> node2 = this.tail;
+                this.tail = node;
+                this.size++;
+                node2.set(node);
+                trim();
+            }
         }
 
         /* JADX DEBUG: Type inference failed for r1v5. Raw type applied. Possible types: T, ? super T */
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void replay(ReplaySubscription<T> replaySubscription) {
             int i2;
-            if (replaySubscription.getAndIncrement() != 0) {
-                return;
-            }
-            Subscriber<? super T> subscriber = replaySubscription.actual;
-            Node<T> node = (Node) replaySubscription.index;
-            if (node == null) {
-                node = this.head;
-            }
-            long j = replaySubscription.emitted;
-            int i3 = 1;
-            do {
-                long j2 = replaySubscription.requested.get();
-                while (true) {
-                    i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, replaySubscription) == null) && replaySubscription.getAndIncrement() == 0) {
+                Subscriber<? super T> subscriber = replaySubscription.actual;
+                Node<T> node = (Node) replaySubscription.index;
+                if (node == null) {
+                    node = this.head;
+                }
+                long j = replaySubscription.emitted;
+                int i3 = 1;
+                do {
+                    long j2 = replaySubscription.requested.get();
+                    while (true) {
+                        i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i2 == 0) {
+                            break;
+                        } else if (replaySubscription.cancelled) {
+                            replaySubscription.index = null;
+                            return;
+                        } else {
+                            boolean z = this.done;
+                            Node<T> node2 = node.get();
+                            boolean z2 = node2 == null;
+                            if (z && z2) {
+                                replaySubscription.index = null;
+                                replaySubscription.cancelled = true;
+                                Throwable th = this.error;
+                                if (th == null) {
+                                    subscriber.onComplete();
+                                    return;
+                                } else {
+                                    subscriber.onError(th);
+                                    return;
+                                }
+                            } else if (z2) {
+                                break;
+                            } else {
+                                subscriber.onNext((T) node2.value);
+                                j++;
+                                node = node2;
+                            }
+                        }
+                    }
                     if (i2 == 0) {
-                        break;
-                    } else if (replaySubscription.cancelled) {
-                        replaySubscription.index = null;
-                        return;
-                    } else {
-                        boolean z = this.done;
-                        Node<T> node2 = node.get();
-                        boolean z2 = node2 == null;
-                        if (z && z2) {
+                        if (replaySubscription.cancelled) {
+                            replaySubscription.index = null;
+                            return;
+                        } else if (this.done && node.get() == null) {
                             replaySubscription.index = null;
                             replaySubscription.cancelled = true;
-                            Throwable th = this.error;
-                            if (th == null) {
+                            Throwable th2 = this.error;
+                            if (th2 == null) {
                                 subscriber.onComplete();
                                 return;
                             } else {
-                                subscriber.onError(th);
+                                subscriber.onError(th2);
                                 return;
                             }
-                        } else if (z2) {
-                            break;
-                        } else {
-                            subscriber.onNext((T) node2.value);
-                            j++;
-                            node = node2;
                         }
                     }
-                }
-                if (i2 == 0) {
-                    if (replaySubscription.cancelled) {
-                        replaySubscription.index = null;
-                        return;
-                    } else if (this.done && node.get() == null) {
-                        replaySubscription.index = null;
-                        replaySubscription.cancelled = true;
-                        Throwable th2 = this.error;
-                        if (th2 == null) {
-                            subscriber.onComplete();
-                            return;
-                        } else {
-                            subscriber.onError(th2);
-                            return;
-                        }
-                    }
-                }
-                replaySubscription.index = node;
-                replaySubscription.emitted = j;
-                i3 = replaySubscription.addAndGet(-i3);
-            } while (i3 != 0);
+                    replaySubscription.index = node;
+                    replaySubscription.emitted = j;
+                    i3 = replaySubscription.addAndGet(-i3);
+                } while (i3 != 0);
+            }
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public int size() {
-            Node<T> node = this.head;
-            int i2 = 0;
-            while (i2 != Integer.MAX_VALUE && (node = node.get()) != null) {
-                i2++;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                Node<T> node = this.head;
+                int i2 = 0;
+                while (i2 != Integer.MAX_VALUE && (node = node.get()) != null) {
+                    i2++;
+                }
+                return i2;
             }
-            return i2;
+            return invokeV.intValue;
         }
 
         public void trim() {
-            int i2 = this.size;
-            if (i2 > this.maxSize) {
-                this.size = i2 - 1;
-                this.head = this.head.get();
+            int i2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (i2 = this.size) <= this.maxSize) {
+                return;
             }
+            this.size = i2 - 1;
+            this.head = this.head.get();
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void trimHead() {
-            if (this.head.value != null) {
-                Node<T> node = new Node<>(null);
-                node.lazySet(this.head.get());
-                this.head = node;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.head.value == null) {
+                return;
             }
+            Node<T> node = new Node<>(null);
+            node.lazySet(this.head.get());
+            this.head = node;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class TimedNode<T> extends AtomicReference<TimedNode<T>> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final long time;
         public final T value;
 
         public TimedNode(T t, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.value = t;
             this.time = j;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class UnboundedReplayBuffer<T> implements ReplayBuffer<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final List<T> buffer;
         public volatile boolean done;
         public Throwable error;
         public volatile int size;
 
         public UnboundedReplayBuffer(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.buffer = new ArrayList(ObjectHelper.verifyPositive(i2, "capacityHint"));
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void complete() {
-            this.done = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.done = true;
+            }
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void error(Throwable th) {
-            this.error = th;
-            this.done = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                this.error = th;
+                this.done = true;
+            }
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public Throwable getError() {
-            return this.error;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.error : (Throwable) invokeV.objValue;
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public T getValue() {
-            int i2 = this.size;
-            if (i2 == 0) {
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                int i2 = this.size;
+                if (i2 == 0) {
+                    return null;
+                }
+                return this.buffer.get(i2 - 1);
             }
-            return this.buffer.get(i2 - 1);
+            return (T) invokeV.objValue;
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public T[] getValues(T[] tArr) {
-            int i2 = this.size;
-            if (i2 == 0) {
-                if (tArr.length != 0) {
-                    tArr[0] = null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tArr)) == null) {
+                int i2 = this.size;
+                if (i2 == 0) {
+                    if (tArr.length != 0) {
+                        tArr[0] = null;
+                    }
+                    return tArr;
+                }
+                List<T> list = this.buffer;
+                if (tArr.length < i2) {
+                    tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i2));
+                }
+                for (int i3 = 0; i3 < i2; i3++) {
+                    tArr[i3] = list.get(i3);
+                }
+                if (tArr.length > i2) {
+                    tArr[i2] = null;
                 }
                 return tArr;
             }
-            List<T> list = this.buffer;
-            if (tArr.length < i2) {
-                tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i2));
-            }
-            for (int i3 = 0; i3 < i2; i3++) {
-                tArr[i3] = list.get(i3);
-            }
-            if (tArr.length > i2) {
-                tArr[i2] = null;
-            }
-            return tArr;
+            return (T[]) ((Object[]) invokeL.objValue);
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public boolean isDone() {
-            return this.done;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.done : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void next(T t) {
-            this.buffer.add(t);
-            this.size++;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                this.buffer.add(t);
+                this.size++;
+            }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:28:0x005b, code lost:
-            if (r10 != 0) goto L43;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:30:0x005f, code lost:
-            if (r14.cancelled == false) goto L30;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:31:0x0061, code lost:
-            r14.index = null;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:32:0x0063, code lost:
-            return;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:33:0x0064, code lost:
-            r7 = r13.done;
-            r8 = r13.size;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:34:0x0068, code lost:
-            if (r7 == false) goto L43;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:35:0x006a, code lost:
-            if (r3 != r8) goto L43;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:36:0x006c, code lost:
-            r14.index = null;
-            r14.cancelled = true;
-            r14 = r13.error;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:37:0x0072, code lost:
-            if (r14 != null) goto L38;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:38:0x0074, code lost:
-            r1.onComplete();
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:39:0x0078, code lost:
-            r1.onError(r14);
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:40:0x007b, code lost:
-            return;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:41:0x007c, code lost:
-            r14.index = java.lang.Integer.valueOf(r3);
-            r14.emitted = r4;
-            r6 = r14.addAndGet(-r6);
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:52:?, code lost:
-            return;
-         */
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
         public void replay(ReplaySubscription<T> replaySubscription) {
-            if (replaySubscription.getAndIncrement() != 0) {
-                return;
-            }
-            List<T> list = this.buffer;
-            Subscriber<? super T> subscriber = replaySubscription.actual;
-            Integer num = (Integer) replaySubscription.index;
-            int i2 = 0;
-            if (num != null) {
-                i2 = num.intValue();
-            } else {
-                replaySubscription.index = 0;
-            }
-            long j = replaySubscription.emitted;
-            int i3 = 1;
-            do {
-                long j2 = replaySubscription.requested.get();
-                while (true) {
-                    int i4 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
-                    if (i4 == 0) {
-                        break;
-                    } else if (replaySubscription.cancelled) {
-                        replaySubscription.index = null;
-                        return;
-                    } else {
-                        boolean z = this.done;
-                        int i5 = this.size;
-                        if (z && i2 == i5) {
+            int i2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, replaySubscription) == null) && replaySubscription.getAndIncrement() == 0) {
+                List<T> list = this.buffer;
+                Subscriber<? super T> subscriber = replaySubscription.actual;
+                Integer num = (Integer) replaySubscription.index;
+                int i3 = 0;
+                if (num != null) {
+                    i3 = num.intValue();
+                } else {
+                    replaySubscription.index = 0;
+                }
+                long j = replaySubscription.emitted;
+                int i4 = 1;
+                do {
+                    long j2 = replaySubscription.requested.get();
+                    while (true) {
+                        i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i2 == 0) {
+                            break;
+                        } else if (replaySubscription.cancelled) {
+                            replaySubscription.index = null;
+                            return;
+                        } else {
+                            boolean z = this.done;
+                            int i5 = this.size;
+                            if (z && i3 == i5) {
+                                replaySubscription.index = null;
+                                replaySubscription.cancelled = true;
+                                Throwable th = this.error;
+                                if (th == null) {
+                                    subscriber.onComplete();
+                                    return;
+                                } else {
+                                    subscriber.onError(th);
+                                    return;
+                                }
+                            } else if (i3 == i5) {
+                                break;
+                            } else {
+                                subscriber.onNext(list.get(i3));
+                                i3++;
+                                j++;
+                            }
+                        }
+                    }
+                    if (i2 == 0) {
+                        if (replaySubscription.cancelled) {
+                            replaySubscription.index = null;
+                            return;
+                        }
+                        boolean z2 = this.done;
+                        int i6 = this.size;
+                        if (z2 && i3 == i6) {
                             replaySubscription.index = null;
                             replaySubscription.cancelled = true;
-                            Throwable th = this.error;
-                            if (th == null) {
+                            Throwable th2 = this.error;
+                            if (th2 == null) {
                                 subscriber.onComplete();
                                 return;
                             } else {
-                                subscriber.onError(th);
+                                subscriber.onError(th2);
                                 return;
                             }
-                        } else if (i2 == i5) {
-                            break;
-                        } else {
-                            subscriber.onNext(list.get(i2));
-                            i2++;
-                            j++;
                         }
                     }
-                }
-            } while (i3 != 0);
+                    replaySubscription.index = Integer.valueOf(i3);
+                    replaySubscription.emitted = j;
+                    i4 = replaySubscription.addAndGet(-i4);
+                } while (i4 != 0);
+            }
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public int size() {
-            return this.size;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.size : invokeV.intValue;
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void trimHead() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1060236337, "Lio/reactivex/processors/ReplayProcessor;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1060236337, "Lio/reactivex/processors/ReplayProcessor;");
+                return;
+            }
+        }
+        EMPTY_ARRAY = new Object[0];
+        EMPTY = new ReplaySubscription[0];
+        TERMINATED = new ReplaySubscription[0];
+    }
+
     public ReplayProcessor(ReplayBuffer<T> replayBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {replayBuffer};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.buffer = replayBuffer;
+        this.subscribers = new AtomicReference<>(EMPTY);
     }
 
     @CheckReturnValue
     public static <T> ReplayProcessor<T> create() {
-        return new ReplayProcessor<>(new UnboundedReplayBuffer(16));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new ReplayProcessor<>(new UnboundedReplayBuffer(16)) : (ReplayProcessor) invokeV.objValue;
     }
 
     public static <T> ReplayProcessor<T> createUnbounded() {
-        return new ReplayProcessor<>(new SizeBoundReplayBuffer(Integer.MAX_VALUE));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new ReplayProcessor<>(new SizeBoundReplayBuffer(Integer.MAX_VALUE)) : (ReplayProcessor) invokeV.objValue;
     }
 
     @CheckReturnValue
     public static <T> ReplayProcessor<T> createWithSize(int i2) {
-        return new ReplayProcessor<>(new SizeBoundReplayBuffer(i2));
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? new ReplayProcessor<>(new SizeBoundReplayBuffer(i2)) : (ReplayProcessor) invokeI.objValue;
     }
 
     @CheckReturnValue
     public static <T> ReplayProcessor<T> createWithTime(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        return new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j, timeUnit, scheduler));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
     }
 
     @CheckReturnValue
     public static <T> ReplayProcessor<T> createWithTimeAndSize(long j, TimeUnit timeUnit, Scheduler scheduler, int i2) {
-        return new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(i2, j, timeUnit, scheduler));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(i2, j, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
     }
 
     public boolean add(ReplaySubscription<T> replaySubscription) {
         ReplaySubscription<T>[] replaySubscriptionArr;
         ReplaySubscription<T>[] replaySubscriptionArr2;
-        do {
-            replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr == TERMINATED) {
-                return false;
-            }
-            int length = replaySubscriptionArr.length;
-            replaySubscriptionArr2 = new ReplaySubscription[length + 1];
-            System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, length);
-            replaySubscriptionArr2[length] = replaySubscription;
-        } while (!this.subscribers.compareAndSet(replaySubscriptionArr, replaySubscriptionArr2));
-        return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, replaySubscription)) == null) {
+            do {
+                replaySubscriptionArr = this.subscribers.get();
+                if (replaySubscriptionArr == TERMINATED) {
+                    return false;
+                }
+                int length = replaySubscriptionArr.length;
+                replaySubscriptionArr2 = new ReplaySubscription[length + 1];
+                System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, length);
+                replaySubscriptionArr2[length] = replaySubscription;
+            } while (!this.subscribers.compareAndSet(replaySubscriptionArr, replaySubscriptionArr2));
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @Experimental
     public void cleanupBuffer() {
-        this.buffer.trimHead();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.buffer.trimHead();
+        }
     }
 
     @Override // io.reactivex.processors.FlowableProcessor
     public Throwable getThrowable() {
-        ReplayBuffer<T> replayBuffer = this.buffer;
-        if (replayBuffer.isDone()) {
-            return replayBuffer.getError();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ReplayBuffer<T> replayBuffer = this.buffer;
+            if (replayBuffer.isDone()) {
+                return replayBuffer.getError();
+            }
+            return null;
         }
-        return null;
+        return (Throwable) invokeV.objValue;
     }
 
     public T getValue() {
-        return this.buffer.getValue();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.buffer.getValue() : (T) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: io.reactivex.processors.ReplayProcessor<T> */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: io.reactivex.processors.ReplayProcessor<T> */
     /* JADX WARN: Multi-variable type inference failed */
     public Object[] getValues() {
-        Object[] values = getValues(EMPTY_ARRAY);
-        return values == EMPTY_ARRAY ? new Object[0] : values;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Object[] values = getValues(EMPTY_ARRAY);
+            return values == EMPTY_ARRAY ? new Object[0] : values;
+        }
+        return (Object[]) invokeV.objValue;
     }
 
     @Override // io.reactivex.processors.FlowableProcessor
     public boolean hasComplete() {
-        ReplayBuffer<T> replayBuffer = this.buffer;
-        return replayBuffer.isDone() && replayBuffer.getError() == null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ReplayBuffer<T> replayBuffer = this.buffer;
+            return replayBuffer.isDone() && replayBuffer.getError() == null;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.processors.FlowableProcessor
     public boolean hasSubscribers() {
-        return this.subscribers.get().length != 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.subscribers.get().length != 0 : invokeV.booleanValue;
     }
 
     @Override // io.reactivex.processors.FlowableProcessor
     public boolean hasThrowable() {
-        ReplayBuffer<T> replayBuffer = this.buffer;
-        return replayBuffer.isDone() && replayBuffer.getError() != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ReplayBuffer<T> replayBuffer = this.buffer;
+            return replayBuffer.isDone() && replayBuffer.getError() != null;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasValue() {
-        return this.buffer.size() != 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.buffer.size() != 0 : invokeV.booleanValue;
     }
 
     @Override // org.reactivestreams.Subscriber
     public void onComplete() {
-        if (this.done) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.done) {
             return;
         }
         this.done = true;
@@ -826,38 +1094,47 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
 
     @Override // org.reactivestreams.Subscriber
     public void onError(Throwable th) {
-        ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.done) {
-            RxJavaPlugins.onError(th);
-            return;
-        }
-        this.done = true;
-        ReplayBuffer<T> replayBuffer = this.buffer;
-        replayBuffer.error(th);
-        for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(TERMINATED)) {
-            replayBuffer.replay(replaySubscription);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, th) == null) {
+            ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+            if (this.done) {
+                RxJavaPlugins.onError(th);
+                return;
+            }
+            this.done = true;
+            ReplayBuffer<T> replayBuffer = this.buffer;
+            replayBuffer.error(th);
+            for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(TERMINATED)) {
+                replayBuffer.replay(replaySubscription);
+            }
         }
     }
 
     @Override // org.reactivestreams.Subscriber
     public void onNext(T t) {
-        ObjectHelper.requireNonNull(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.done) {
-            return;
-        }
-        ReplayBuffer<T> replayBuffer = this.buffer;
-        replayBuffer.next(t);
-        for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
-            replayBuffer.replay(replaySubscription);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
+            ObjectHelper.requireNonNull(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+            if (this.done) {
+                return;
+            }
+            ReplayBuffer<T> replayBuffer = this.buffer;
+            replayBuffer.next(t);
+            for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
+                replayBuffer.replay(replaySubscription);
+            }
         }
     }
 
     @Override // org.reactivestreams.Subscriber
     public void onSubscribe(Subscription subscription) {
-        if (this.done) {
-            subscription.cancel();
-        } else {
-            subscription.request(Long.MAX_VALUE);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, subscription) == null) {
+            if (this.done) {
+                subscription.cancel();
+            } else {
+                subscription.request(Long.MAX_VALUE);
+            }
         }
     }
 
@@ -866,63 +1143,77 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
     public void remove(ReplaySubscription<T> replaySubscription) {
         ReplaySubscription<T>[] replaySubscriptionArr;
         ReplaySubscription[] replaySubscriptionArr2;
-        do {
-            replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr == TERMINATED || replaySubscriptionArr == EMPTY) {
-                return;
-            }
-            int length = replaySubscriptionArr.length;
-            int i2 = -1;
-            int i3 = 0;
-            while (true) {
-                if (i3 >= length) {
-                    break;
-                } else if (replaySubscriptionArr[i3] == replaySubscription) {
-                    i2 = i3;
-                    break;
-                } else {
-                    i3++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, replaySubscription) == null) {
+            do {
+                replaySubscriptionArr = this.subscribers.get();
+                if (replaySubscriptionArr == TERMINATED || replaySubscriptionArr == EMPTY) {
+                    return;
                 }
-            }
-            if (i2 < 0) {
-                return;
-            }
-            if (length == 1) {
-                replaySubscriptionArr2 = EMPTY;
-            } else {
-                ReplaySubscription[] replaySubscriptionArr3 = new ReplaySubscription[length - 1];
-                System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr3, 0, i2);
-                System.arraycopy(replaySubscriptionArr, i2 + 1, replaySubscriptionArr3, i2, (length - i2) - 1);
-                replaySubscriptionArr2 = replaySubscriptionArr3;
-            }
-        } while (!this.subscribers.compareAndSet(replaySubscriptionArr, replaySubscriptionArr2));
+                int length = replaySubscriptionArr.length;
+                int i2 = -1;
+                int i3 = 0;
+                while (true) {
+                    if (i3 >= length) {
+                        break;
+                    } else if (replaySubscriptionArr[i3] == replaySubscription) {
+                        i2 = i3;
+                        break;
+                    } else {
+                        i3++;
+                    }
+                }
+                if (i2 < 0) {
+                    return;
+                }
+                if (length == 1) {
+                    replaySubscriptionArr2 = EMPTY;
+                } else {
+                    ReplaySubscription[] replaySubscriptionArr3 = new ReplaySubscription[length - 1];
+                    System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr3, 0, i2);
+                    System.arraycopy(replaySubscriptionArr, i2 + 1, replaySubscriptionArr3, i2, (length - i2) - 1);
+                    replaySubscriptionArr2 = replaySubscriptionArr3;
+                }
+            } while (!this.subscribers.compareAndSet(replaySubscriptionArr, replaySubscriptionArr2));
+        }
     }
 
     public int size() {
-        return this.buffer.size();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.buffer.size() : invokeV.intValue;
     }
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super T> subscriber) {
-        ReplaySubscription<T> replaySubscription = new ReplaySubscription<>(subscriber, this);
-        subscriber.onSubscribe(replaySubscription);
-        if (add(replaySubscription) && replaySubscription.cancelled) {
-            remove(replaySubscription);
-        } else {
-            this.buffer.replay(replaySubscription);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, subscriber) == null) {
+            ReplaySubscription<T> replaySubscription = new ReplaySubscription<>(subscriber, this);
+            subscriber.onSubscribe(replaySubscription);
+            if (add(replaySubscription) && replaySubscription.cancelled) {
+                remove(replaySubscription);
+            } else {
+                this.buffer.replay(replaySubscription);
+            }
         }
     }
 
     public int subscriberCount() {
-        return this.subscribers.get().length;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.subscribers.get().length : invokeV.intValue;
     }
 
     @CheckReturnValue
     public static <T> ReplayProcessor<T> create(int i2) {
-        return new ReplayProcessor<>(new UnboundedReplayBuffer(i2));
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? new ReplayProcessor<>(new UnboundedReplayBuffer(i2)) : (ReplayProcessor) invokeI.objValue;
     }
 
     public T[] getValues(T[] tArr) {
-        return this.buffer.getValues(tArr);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tArr)) == null) ? this.buffer.getValues(tArr) : (T[]) ((Object[]) invokeL.objValue);
     }
 }

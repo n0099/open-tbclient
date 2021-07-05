@@ -1,14 +1,36 @@
 package com.baidu.webkit.sdk.system;
 
 import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
+    public static /* synthetic */ Interceptable $ic;
     public static Method cloneMethod;
+    public transient /* synthetic */ FieldHolder $fh;
     public final android.webkit.WebHistoryItem mItem;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1447637668, "Lcom/baidu/webkit/sdk/system/WebHistoryItemImpl;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1447637668, "Lcom/baidu/webkit/sdk/system/WebHistoryItemImpl;");
+                return;
+            }
+        }
         try {
             cloneMethod = android.webkit.WebHistoryItem.class.getDeclaredMethod("clone", null);
         } catch (Exception e2) {
@@ -17,46 +39,78 @@ public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneabl
     }
 
     public WebHistoryItemImpl(android.webkit.WebHistoryItem webHistoryItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webHistoryItem};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mItem = webHistoryItem;
     }
 
     public static WebHistoryItem from(android.webkit.WebHistoryItem webHistoryItem) {
-        if (webHistoryItem == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, webHistoryItem)) == null) {
+            if (webHistoryItem == null) {
+                return null;
+            }
+            return new WebHistoryItemImpl(webHistoryItem);
         }
-        return new WebHistoryItemImpl(webHistoryItem);
+        return (WebHistoryItem) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.webkit.sdk.WebHistoryItem
     public final WebHistoryItem clone() {
-        try {
-            if (cloneMethod != null && this.mItem != null) {
-                return from((android.webkit.WebHistoryItem) cloneMethod.invoke(this.mItem, null));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                if (cloneMethod != null && this.mItem != null) {
+                    return from((android.webkit.WebHistoryItem) cloneMethod.invoke(this.mItem, null));
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            return null;
         }
-        return null;
+        return (WebHistoryItem) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebHistoryItem
     public final Bitmap getFavicon() {
-        return this.mItem.getFavicon();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mItem.getFavicon() : (Bitmap) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebHistoryItem
     public final String getOriginalUrl() {
-        return this.mItem.getOriginalUrl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mItem.getOriginalUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebHistoryItem
     public final String getTitle() {
-        return this.mItem.getTitle();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mItem.getTitle() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebHistoryItem
     public final String getUrl() {
-        return this.mItem.getUrl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mItem.getUrl() : (String) invokeV.objValue;
     }
 }

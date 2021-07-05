@@ -2,8 +2,13 @@ package d.c.a;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes10.dex */
 public abstract class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public abstract boolean a(String str);
 
     public abstract Typeface b(String str, int i2, String str2);

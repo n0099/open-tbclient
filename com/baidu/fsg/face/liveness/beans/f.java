@@ -1,33 +1,42 @@
 package com.baidu.fsg.face.liveness.beans;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class f {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5889a = "https://passport.baidu.com";
+    public static String f5919a = "https://passport.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5890b = "https://passport.qatest.baidu.com";
+    public static String f5920b = "https://passport.qatest.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f5891c = "http://passport.rdtest.baidu.com";
+    public static String f5921c = "http://passport.rdtest.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f5892d = "http://wappass.baidu.com";
+    public static String f5922d = "http://wappass.baidu.com";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f5893e = "http://wappass.qatest.baidu.com";
+    public static String f5923e = "http://wappass.qatest.baidu.com";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f5894f = "http://wappass.rdtest.baidu.com";
+    public static String f5924f = "http://wappass.rdtest.baidu.com";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f5895g = "https://gss0.bdstatic.com";
+    public static String f5925g = "https://gss0.bdstatic.com";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f5896h = "https://passport.baidu.com";
+    public static String f5926h = "https://passport.baidu.com";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f5897i = "https://passport.qatest.baidu.com";
+    public static String f5927i = "https://passport.qatest.baidu.com";
     public static String j = "https://voiceprint.baidu.com/echo.fcgi";
     public static String k = "https://voiceprint.baidu.com/echo.fcgi";
     public static String l = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt";
@@ -43,4 +52,34 @@ public class f {
     public static String v = "/risk/living/sdk/faceMatch";
     public static String w = "/risk/living/sdk/AudioVideoUpload";
     public static String x = "/risk/living/info";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1577364098, "Lcom/baidu/fsg/face/liveness/beans/f;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1577364098, "Lcom/baidu/fsg/face/liveness/beans/f;");
+        }
+    }
+
+    public f() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

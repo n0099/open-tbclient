@@ -1,5 +1,12 @@
 package com.yy.gslbsdk.network;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,349 +28,579 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TlsOnlySocketFactory extends SSLSocketFactory {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TlsOnlySocketFactory";
+    public transient /* synthetic */ FieldHolder $fh;
     public final boolean compatible;
     public final SSLSocketFactory delegate;
 
-    /* loaded from: classes7.dex */
-    public class DelegateSSLSocket extends SSLSocket {
-        public final SSLSocket delegate;
+    /* renamed from: com.yy.gslbsdk.network.TlsOnlySocketFactory$1  reason: invalid class name */
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public DelegateSSLSocket(SSLSocket sSLSocket) {
+    /* loaded from: classes8.dex */
+    public class DelegateSSLSocket extends SSLSocket {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final SSLSocket delegate;
+        public final /* synthetic */ TlsOnlySocketFactory this$0;
+
+        public DelegateSSLSocket(TlsOnlySocketFactory tlsOnlySocketFactory, SSLSocket sSLSocket) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tlsOnlySocketFactory, sSLSocket};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = tlsOnlySocketFactory;
             this.delegate = sSLSocket;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public void addHandshakeCompletedListener(HandshakeCompletedListener handshakeCompletedListener) {
-            this.delegate.addHandshakeCompletedListener(handshakeCompletedListener);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, handshakeCompletedListener) == null) {
+                this.delegate.addHandshakeCompletedListener(handshakeCompletedListener);
+            }
         }
 
         @Override // java.net.Socket
         public void bind(SocketAddress socketAddress) throws IOException {
-            this.delegate.bind(socketAddress);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketAddress) == null) {
+                this.delegate.bind(socketAddress);
+            }
         }
 
         @Override // java.net.Socket, java.io.Closeable, java.lang.AutoCloseable
         public synchronized void close() throws IOException {
-            this.delegate.close();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                synchronized (this) {
+                    this.delegate.close();
+                }
+            }
         }
 
         @Override // java.net.Socket
         public void connect(SocketAddress socketAddress) throws IOException {
-            this.delegate.connect(socketAddress);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, socketAddress) == null) {
+                this.delegate.connect(socketAddress);
+            }
         }
 
         public boolean equals(Object obj) {
-            return this.delegate.equals(obj);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this.delegate.equals(obj) : invokeL.booleanValue;
         }
 
         @Override // java.net.Socket
         public SocketChannel getChannel() {
-            return this.delegate.getChannel();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.delegate.getChannel() : (SocketChannel) invokeV.objValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public boolean getEnableSessionCreation() {
-            return this.delegate.getEnableSessionCreation();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.delegate.getEnableSessionCreation() : invokeV.booleanValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public String[] getEnabledCipherSuites() {
-            return this.delegate.getEnabledCipherSuites();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.delegate.getEnabledCipherSuites() : (String[]) invokeV.objValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public String[] getEnabledProtocols() {
-            return this.delegate.getEnabledProtocols();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.delegate.getEnabledProtocols() : (String[]) invokeV.objValue;
         }
 
         @Override // java.net.Socket
         public InetAddress getInetAddress() {
-            return this.delegate.getInetAddress();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.delegate.getInetAddress() : (InetAddress) invokeV.objValue;
         }
 
         @Override // java.net.Socket
         public InputStream getInputStream() throws IOException {
-            return this.delegate.getInputStream();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.delegate.getInputStream() : (InputStream) invokeV.objValue;
         }
 
         @Override // java.net.Socket
         public boolean getKeepAlive() throws SocketException {
-            return this.delegate.getKeepAlive();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.delegate.getKeepAlive() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public InetAddress getLocalAddress() {
-            return this.delegate.getLocalAddress();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.delegate.getLocalAddress() : (InetAddress) invokeV.objValue;
         }
 
         @Override // java.net.Socket
         public int getLocalPort() {
-            return this.delegate.getLocalPort();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.delegate.getLocalPort() : invokeV.intValue;
         }
 
         @Override // java.net.Socket
         public SocketAddress getLocalSocketAddress() {
-            return this.delegate.getLocalSocketAddress();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.delegate.getLocalSocketAddress() : (SocketAddress) invokeV.objValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public boolean getNeedClientAuth() {
-            return this.delegate.getNeedClientAuth();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.delegate.getNeedClientAuth() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public boolean getOOBInline() throws SocketException {
-            return this.delegate.getOOBInline();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.delegate.getOOBInline() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public OutputStream getOutputStream() throws IOException {
-            return this.delegate.getOutputStream();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.delegate.getOutputStream() : (OutputStream) invokeV.objValue;
         }
 
         @Override // java.net.Socket
         public int getPort() {
-            return this.delegate.getPort();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.delegate.getPort() : invokeV.intValue;
         }
 
         @Override // java.net.Socket
         public synchronized int getReceiveBufferSize() throws SocketException {
-            return this.delegate.getReceiveBufferSize();
+            InterceptResult invokeV;
+            int receiveBufferSize;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                synchronized (this) {
+                    receiveBufferSize = this.delegate.getReceiveBufferSize();
+                }
+                return receiveBufferSize;
+            }
+            return invokeV.intValue;
         }
 
         @Override // java.net.Socket
         public SocketAddress getRemoteSocketAddress() {
-            return this.delegate.getRemoteSocketAddress();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.delegate.getRemoteSocketAddress() : (SocketAddress) invokeV.objValue;
         }
 
         @Override // java.net.Socket
         public boolean getReuseAddress() throws SocketException {
-            return this.delegate.getReuseAddress();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.delegate.getReuseAddress() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public synchronized int getSendBufferSize() throws SocketException {
-            return this.delegate.getSendBufferSize();
+            InterceptResult invokeV;
+            int sendBufferSize;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                synchronized (this) {
+                    sendBufferSize = this.delegate.getSendBufferSize();
+                }
+                return sendBufferSize;
+            }
+            return invokeV.intValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public SSLSession getSession() {
-            return this.delegate.getSession();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.delegate.getSession() : (SSLSession) invokeV.objValue;
         }
 
         @Override // java.net.Socket
         public int getSoLinger() throws SocketException {
-            return this.delegate.getSoLinger();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.delegate.getSoLinger() : invokeV.intValue;
         }
 
         @Override // java.net.Socket
         public synchronized int getSoTimeout() throws SocketException {
-            return this.delegate.getSoTimeout();
+            InterceptResult invokeV;
+            int soTimeout;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                synchronized (this) {
+                    soTimeout = this.delegate.getSoTimeout();
+                }
+                return soTimeout;
+            }
+            return invokeV.intValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public String[] getSupportedCipherSuites() {
-            return this.delegate.getSupportedCipherSuites();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.delegate.getSupportedCipherSuites() : (String[]) invokeV.objValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public String[] getSupportedProtocols() {
-            return this.delegate.getSupportedProtocols();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.delegate.getSupportedProtocols() : (String[]) invokeV.objValue;
         }
 
         @Override // java.net.Socket
         public boolean getTcpNoDelay() throws SocketException {
-            return this.delegate.getTcpNoDelay();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.delegate.getTcpNoDelay() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public int getTrafficClass() throws SocketException {
-            return this.delegate.getTrafficClass();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.delegate.getTrafficClass() : invokeV.intValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public boolean getUseClientMode() {
-            return this.delegate.getUseClientMode();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.delegate.getUseClientMode() : invokeV.booleanValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public boolean getWantClientAuth() {
-            return this.delegate.getWantClientAuth();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.delegate.getWantClientAuth() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public boolean isBound() {
-            return this.delegate.isBound();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.delegate.isBound() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public boolean isClosed() {
-            return this.delegate.isClosed();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.delegate.isClosed() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public boolean isConnected() {
-            return this.delegate.isConnected();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.delegate.isConnected() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public boolean isInputShutdown() {
-            return this.delegate.isInputShutdown();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.delegate.isInputShutdown() : invokeV.booleanValue;
         }
 
         @Override // java.net.Socket
         public boolean isOutputShutdown() {
-            return this.delegate.isOutputShutdown();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.delegate.isOutputShutdown() : invokeV.booleanValue;
         }
 
         @Override // javax.net.ssl.SSLSocket
         public void removeHandshakeCompletedListener(HandshakeCompletedListener handshakeCompletedListener) {
-            this.delegate.removeHandshakeCompletedListener(handshakeCompletedListener);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048614, this, handshakeCompletedListener) == null) {
+                this.delegate.removeHandshakeCompletedListener(handshakeCompletedListener);
+            }
         }
 
         @Override // java.net.Socket
         public void sendUrgentData(int i2) throws IOException {
-            this.delegate.sendUrgentData(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+                this.delegate.sendUrgentData(i2);
+            }
         }
 
         @Override // javax.net.ssl.SSLSocket
         public void setEnableSessionCreation(boolean z) {
-            this.delegate.setEnableSessionCreation(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+                this.delegate.setEnableSessionCreation(z);
+            }
         }
 
         @Override // javax.net.ssl.SSLSocket
         public void setEnabledCipherSuites(String[] strArr) {
-            this.delegate.setEnabledCipherSuites(strArr);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048617, this, strArr) == null) {
+                this.delegate.setEnabledCipherSuites(strArr);
+            }
         }
 
         @Override // javax.net.ssl.SSLSocket
         public void setEnabledProtocols(String[] strArr) {
-            this.delegate.setEnabledProtocols(strArr);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048618, this, strArr) == null) {
+                this.delegate.setEnabledProtocols(strArr);
+            }
         }
 
         @Override // java.net.Socket
         public void setKeepAlive(boolean z) throws SocketException {
-            this.delegate.setKeepAlive(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+                this.delegate.setKeepAlive(z);
+            }
         }
 
         @Override // javax.net.ssl.SSLSocket
         public void setNeedClientAuth(boolean z) {
-            this.delegate.setNeedClientAuth(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+                this.delegate.setNeedClientAuth(z);
+            }
         }
 
         @Override // java.net.Socket
         public void setOOBInline(boolean z) throws SocketException {
-            this.delegate.setOOBInline(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
+                this.delegate.setOOBInline(z);
+            }
         }
 
         @Override // java.net.Socket
         public void setPerformancePreferences(int i2, int i3, int i4) {
-            this.delegate.setPerformancePreferences(i2, i3, i4);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIII(1048622, this, i2, i3, i4) == null) {
+                this.delegate.setPerformancePreferences(i2, i3, i4);
+            }
         }
 
         @Override // java.net.Socket
         public synchronized void setReceiveBufferSize(int i2) throws SocketException {
-            this.delegate.setReceiveBufferSize(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
+                synchronized (this) {
+                    this.delegate.setReceiveBufferSize(i2);
+                }
+            }
         }
 
         @Override // java.net.Socket
         public void setReuseAddress(boolean z) throws SocketException {
-            this.delegate.setReuseAddress(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+                this.delegate.setReuseAddress(z);
+            }
         }
 
         @Override // java.net.Socket
         public synchronized void setSendBufferSize(int i2) throws SocketException {
-            this.delegate.setSendBufferSize(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
+                synchronized (this) {
+                    this.delegate.setSendBufferSize(i2);
+                }
+            }
         }
 
         @Override // java.net.Socket
         public void setSoLinger(boolean z, int i2) throws SocketException {
-            this.delegate.setSoLinger(z, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+                this.delegate.setSoLinger(z, i2);
+            }
         }
 
         @Override // java.net.Socket
         public synchronized void setSoTimeout(int i2) throws SocketException {
-            this.delegate.setSoTimeout(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
+                synchronized (this) {
+                    this.delegate.setSoTimeout(i2);
+                }
+            }
         }
 
         @Override // java.net.Socket
         public void setTcpNoDelay(boolean z) throws SocketException {
-            this.delegate.setTcpNoDelay(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048628, this, z) == null) {
+                this.delegate.setTcpNoDelay(z);
+            }
         }
 
         @Override // java.net.Socket
         public void setTrafficClass(int i2) throws SocketException {
-            this.delegate.setTrafficClass(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+                this.delegate.setTrafficClass(i2);
+            }
         }
 
         @Override // javax.net.ssl.SSLSocket
         public void setUseClientMode(boolean z) {
-            this.delegate.setUseClientMode(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
+                this.delegate.setUseClientMode(z);
+            }
         }
 
         @Override // javax.net.ssl.SSLSocket
         public void setWantClientAuth(boolean z) {
-            this.delegate.setWantClientAuth(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048631, this, z) == null) {
+                this.delegate.setWantClientAuth(z);
+            }
         }
 
         @Override // java.net.Socket
         public void shutdownInput() throws IOException {
-            this.delegate.shutdownInput();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
+                this.delegate.shutdownInput();
+            }
         }
 
         @Override // java.net.Socket
         public void shutdownOutput() throws IOException {
-            this.delegate.shutdownOutput();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
+                this.delegate.shutdownOutput();
+            }
         }
 
         @Override // javax.net.ssl.SSLSocket
         public void startHandshake() throws IOException {
-            this.delegate.startHandshake();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+                this.delegate.startHandshake();
+            }
         }
 
         @Override // javax.net.ssl.SSLSocket, java.net.Socket
         public String toString() {
-            return this.delegate.toString();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.delegate.toString() : (String) invokeV.objValue;
         }
 
         @Override // java.net.Socket
         public void connect(SocketAddress socketAddress, int i2) throws IOException {
-            this.delegate.connect(socketAddress, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048580, this, socketAddress, i2) == null) {
+                this.delegate.connect(socketAddress, i2);
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class TlsOnlySSLSocket extends DelegateSSLSocket {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final boolean compatible;
+        public final /* synthetic */ TlsOnlySocketFactory this$0;
+
+        public /* synthetic */ TlsOnlySSLSocket(TlsOnlySocketFactory tlsOnlySocketFactory, SSLSocket sSLSocket, boolean z, AnonymousClass1 anonymousClass1) {
+            this(tlsOnlySocketFactory, sSLSocket, z);
+        }
 
         @Override // com.yy.gslbsdk.network.TlsOnlySocketFactory.DelegateSSLSocket, javax.net.ssl.SSLSocket
         public void setEnabledProtocols(String[] strArr) {
             List asList;
-            if (strArr != null && strArr.length == 1 && "SSLv3".equals(strArr[0])) {
-                if (this.compatible) {
-                    asList = Arrays.asList(this.delegate.getEnabledProtocols());
-                } else {
-                    asList = Arrays.asList(this.delegate.getSupportedProtocols());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, strArr) == null) {
+                if (strArr != null && strArr.length == 1 && "SSLv3".equals(strArr[0])) {
+                    if (this.compatible) {
+                        asList = Arrays.asList(this.delegate.getEnabledProtocols());
+                    } else {
+                        asList = Arrays.asList(this.delegate.getSupportedProtocols());
+                    }
+                    ArrayList arrayList = new ArrayList(asList);
+                    if (arrayList.size() > 1) {
+                        arrayList.remove("SSLv2");
+                        arrayList.remove("SSLv3");
+                    } else {
+                        LogTools.printWarning(TlsOnlySocketFactory.TAG, String.format(Locale.US, "SSL stuck with protocol available for %s", arrayList.toString()));
+                    }
+                    strArr = (String[]) arrayList.toArray(new String[arrayList.size()]);
                 }
-                ArrayList arrayList = new ArrayList(asList);
-                if (arrayList.size() > 1) {
-                    arrayList.remove("SSLv2");
-                    arrayList.remove("SSLv3");
-                } else {
-                    LogTools.printWarning(TlsOnlySocketFactory.TAG, String.format(Locale.US, "SSL stuck with protocol available for %s", arrayList.toString()));
-                }
-                strArr = (String[]) arrayList.toArray(new String[arrayList.size()]);
+                super.setEnabledProtocols(strArr);
             }
-            super.setEnabledProtocols(strArr);
         }
 
-        public TlsOnlySSLSocket(SSLSocket sSLSocket, boolean z) {
-            super(sSLSocket);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public TlsOnlySSLSocket(TlsOnlySocketFactory tlsOnlySocketFactory, SSLSocket sSLSocket, boolean z) {
+            super(tlsOnlySocketFactory, sSLSocket);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tlsOnlySocketFactory, sSLSocket, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((TlsOnlySocketFactory) objArr2[0], (SSLSocket) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = tlsOnlySocketFactory;
             this.compatible = z;
-            int i2 = 0;
+            int i4 = 0;
             if (z) {
                 ArrayList arrayList = new ArrayList(Arrays.asList(sSLSocket.getEnabledProtocols()));
                 arrayList.remove("SSLv2");
@@ -373,12 +610,12 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
                 Pattern compile = Pattern.compile(".*(EXPORT|NULL|TLS_FALLBACK_SCSV).*");
                 String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
                 int length = enabledCipherSuites.length;
-                while (i2 < length) {
-                    String str = enabledCipherSuites[i2];
+                while (i4 < length) {
+                    String str = enabledCipherSuites[i4];
                     if (!compile.matcher(str).matches()) {
                         arrayList2.add(str);
                     }
-                    i2++;
+                    i4++;
                 }
                 super.setEnabledCipherSuites((String[]) arrayList2.toArray(new String[arrayList2.size()]));
                 return;
@@ -391,18 +628,30 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
             Pattern compile2 = Pattern.compile(".*(_DES|DH_|DSS|EXPORT|MD5|NULL|RC4|TLS_FALLBACK_SCSV).*");
             String[] supportedCipherSuites = sSLSocket.getSupportedCipherSuites();
             int length2 = supportedCipherSuites.length;
-            while (i2 < length2) {
-                String str2 = supportedCipherSuites[i2];
+            while (i4 < length2) {
+                String str2 = supportedCipherSuites[i4];
                 if (!compile2.matcher(str2).matches()) {
                     arrayList4.add(str2);
                 }
-                i2++;
+                i4++;
             }
             super.setEnabledCipherSuites((String[]) arrayList4.toArray(new String[arrayList4.size()]));
         }
     }
 
     public TlsOnlySocketFactory() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         try {
             SSLContext sSLContext = SSLContext.getInstance("TLSv1");
             sSLContext.init(null, null, null);
@@ -416,50 +665,94 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
     }
 
     private Socket makeSocketSafe(Socket socket) {
-        return socket instanceof SSLSocket ? new TlsOnlySSLSocket((SSLSocket) socket, this.compatible) : socket;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, socket)) == null) ? socket instanceof SSLSocket ? new TlsOnlySSLSocket(this, (SSLSocket) socket, this.compatible, null) : socket : (Socket) invokeL.objValue;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
-        return makeSocketSafe(this.delegate.createSocket(socket, str, i2, z));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? makeSocketSafe(this.delegate.createSocket(socket, str, i2, z)) : (Socket) invokeCommon.objValue;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getDefaultCipherSuites() {
-        return this.delegate.getDefaultCipherSuites();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.delegate.getDefaultCipherSuites() : (String[]) invokeV.objValue;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getSupportedCipherSuites() {
-        return this.delegate.getSupportedCipherSuites();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.delegate.getSupportedCipherSuites() : (String[]) invokeV.objValue;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i2) throws IOException {
-        return makeSocketSafe(this.delegate.createSocket(str, i2));
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) ? makeSocketSafe(this.delegate.createSocket(str, i2)) : (Socket) invokeLI.objValue;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i2, InetAddress inetAddress, int i3) throws IOException {
-        return makeSocketSafe(this.delegate.createSocket(str, i2, inetAddress, i3));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), inetAddress, Integer.valueOf(i3)})) == null) ? makeSocketSafe(this.delegate.createSocket(str, i2, inetAddress, i3)) : (Socket) invokeCommon.objValue;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i2) throws IOException {
-        return makeSocketSafe(this.delegate.createSocket(inetAddress, i2));
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inetAddress, i2)) == null) ? makeSocketSafe(this.delegate.createSocket(inetAddress, i2)) : (Socket) invokeLI.objValue;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i2, InetAddress inetAddress2, int i3) throws IOException {
-        return makeSocketSafe(this.delegate.createSocket(inetAddress, i2, inetAddress2, i3));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{inetAddress, Integer.valueOf(i2), inetAddress2, Integer.valueOf(i3)})) == null) ? makeSocketSafe(this.delegate.createSocket(inetAddress, i2, inetAddress2, i3)) : (Socket) invokeCommon.objValue;
     }
 
     public TlsOnlySocketFactory(SSLSocketFactory sSLSocketFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sSLSocketFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.delegate = sSLSocketFactory;
         this.compatible = false;
     }
 
     public TlsOnlySocketFactory(SSLSocketFactory sSLSocketFactory, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sSLSocketFactory, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.delegate = sSLSocketFactory;
         this.compatible = z;
     }

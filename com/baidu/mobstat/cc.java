@@ -1,6 +1,15 @@
 package com.baidu.mobstat;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -12,121 +21,203 @@ import java.nio.ByteBuffer;
 import java.nio.channels.NotYetConnectedException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class cc extends bz implements by, Runnable {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ boolean f8809c = !cc.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f8882c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ca f8810a;
+    public ca f8883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public URI f8811b;
-
-    /* renamed from: e  reason: collision with root package name */
-    public InputStream f8813e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public OutputStream f8814f;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Thread f8816h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public cd f8817i;
-    public Map<String, String> j;
-    public int m;
+    public URI f8884b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Socket f8812d = null;
+    public Socket f8885d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public InputStream f8886e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public OutputStream f8887f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Proxy f8815g = Proxy.NO_PROXY;
-    public CountDownLatch k = new CountDownLatch(1);
-    public CountDownLatch l = new CountDownLatch(1);
+    public Proxy f8888g;
 
-    /* loaded from: classes2.dex */
+    /* renamed from: h  reason: collision with root package name */
+    public Thread f8889h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public cd f8890i;
+    public Map<String, String> j;
+    public CountDownLatch k;
+    public CountDownLatch l;
+    public int m;
+
+    /* renamed from: com.baidu.mobstat.cc$1  reason: invalid class name */
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ cc f8891a;
+
+        public a(cc ccVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ccVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f8891a = ccVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Thread.currentThread().setName("WebsocketWriteThread");
-            while (!Thread.interrupted()) {
-                try {
-                    ByteBuffer take = cc.this.f8810a.f8804d.take();
-                    cc.this.f8814f.write(take.array(), 0, take.limit());
-                    cc.this.f8814f.flush();
-                } catch (IOException unused) {
-                    cc.this.f8810a.b();
-                    return;
-                } catch (InterruptedException unused2) {
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Thread.currentThread().setName("WebsocketWriteThread");
+                while (!Thread.interrupted()) {
+                    try {
+                        ByteBuffer take = this.f8891a.f8883a.f8877d.take();
+                        this.f8891a.f8887f.write(take.array(), 0, take.limit());
+                        this.f8891a.f8887f.flush();
+                    } catch (IOException unused) {
+                        this.f8891a.f8883a.b();
+                        return;
+                    } catch (InterruptedException unused2) {
+                        return;
+                    }
                 }
             }
         }
+
+        public /* synthetic */ a(cc ccVar, AnonymousClass1 anonymousClass1) {
+            this(ccVar);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581658834, "Lcom/baidu/mobstat/cc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(581658834, "Lcom/baidu/mobstat/cc;");
+                return;
+            }
+        }
+        f8882c = !cc.class.desiredAssertionStatus();
     }
 
     public cc(URI uri, cd cdVar, Map<String, String> map, int i2) {
-        this.f8811b = null;
-        this.f8810a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri, cdVar, map, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f8884b = null;
+        this.f8883a = null;
+        this.f8885d = null;
+        this.f8888g = Proxy.NO_PROXY;
+        this.k = new CountDownLatch(1);
+        this.l = new CountDownLatch(1);
         this.m = 0;
         if (uri == null) {
             throw new IllegalArgumentException();
         }
         if (cdVar != null) {
-            this.f8811b = uri;
-            this.f8817i = cdVar;
+            this.f8884b = uri;
+            this.f8890i = cdVar;
             this.j = map;
             this.m = i2;
-            this.f8810a = new ca(this, cdVar);
+            this.f8883a = new ca(this, cdVar);
             return;
         }
         throw new IllegalArgumentException("null as draft is permitted for `WebSocketServer` only!");
     }
 
     private int h() {
-        int port = this.f8811b.getPort();
-        if (port == -1) {
-            String scheme = this.f8811b.getScheme();
-            if (scheme.equals("wss")) {
-                return Constants.SOCKET_PORT_SSL;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            int port = this.f8884b.getPort();
+            if (port == -1) {
+                String scheme = this.f8884b.getScheme();
+                if (scheme.equals("wss")) {
+                    return Constants.SOCKET_PORT_SSL;
+                }
+                if (scheme.equals("ws")) {
+                    return 80;
+                }
+                throw new RuntimeException("unknown scheme: " + scheme);
             }
-            if (scheme.equals("ws")) {
-                return 80;
-            }
-            throw new RuntimeException("unknown scheme: " + scheme);
+            return port;
         }
-        return port;
+        return invokeV.intValue;
     }
 
     private void i() throws cj {
-        String rawPath = this.f8811b.getRawPath();
-        String rawQuery = this.f8811b.getRawQuery();
-        rawPath = (rawPath == null || rawPath.length() == 0) ? "/" : "/";
-        if (rawQuery != null) {
-            rawPath = rawPath + "?" + rawQuery;
-        }
-        int h2 = h();
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.f8811b.getHost());
-        sb.append(h2 != 80 ? ":" + h2 : "");
-        String sb2 = sb.toString();
-        cv cvVar = new cv();
-        cvVar.a(rawPath);
-        cvVar.a("Host", sb2);
-        Map<String, String> map = this.j;
-        if (map != null) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                cvVar.a(entry.getKey(), entry.getValue());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            String rawPath = this.f8884b.getRawPath();
+            String rawQuery = this.f8884b.getRawQuery();
+            rawPath = (rawPath == null || rawPath.length() == 0) ? "/" : "/";
+            if (rawQuery != null) {
+                rawPath = rawPath + "?" + rawQuery;
             }
+            int h2 = h();
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.f8884b.getHost());
+            sb.append(h2 != 80 ? ":" + h2 : "");
+            String sb2 = sb.toString();
+            cv cvVar = new cv();
+            cvVar.a(rawPath);
+            cvVar.a("Host", sb2);
+            Map<String, String> map = this.j;
+            if (map != null) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    cvVar.a(entry.getKey(), entry.getValue());
+                }
+            }
+            this.f8883a.a((ct) cvVar);
         }
-        this.f8810a.a((ct) cvVar);
     }
 
     public void a(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+        }
     }
 
     public abstract void a(int i2, String str, boolean z);
@@ -138,173 +229,244 @@ public abstract class cc extends bz implements by, Runnable {
     public abstract void a(String str);
 
     public void a(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, byteBuffer) == null) {
+        }
     }
 
     public void b(int i2, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
+        }
     }
 
     @Override // com.baidu.mobstat.cb
     public final void b(by byVar) {
-    }
-
-    public void b(cq cqVar) {
-    }
-
-    public boolean c() throws InterruptedException {
-        b();
-        this.k.await();
-        return this.f8810a.c();
-    }
-
-    public void d() {
-        if (this.f8816h != null) {
-            this.f8810a.a(1000);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, byVar) == null) {
         }
     }
 
+    public void b(cq cqVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, cqVar) == null) {
+        }
+    }
+
+    public boolean c() throws InterruptedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            b();
+            this.k.await();
+            return this.f8883a.c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.f8889h == null) {
+            return;
+        }
+        this.f8883a.a(1000);
+    }
+
     public boolean e() {
-        return this.f8810a.e();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f8883a.e() : invokeV.booleanValue;
     }
 
     public boolean f() {
-        return this.f8810a.f();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f8883a.f() : invokeV.booleanValue;
     }
 
     public boolean g() {
-        return this.f8810a.d();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f8883a.d() : invokeV.booleanValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         int read;
-        try {
-            if (this.f8812d == null) {
-                this.f8812d = new Socket(this.f8815g);
-            } else if (this.f8812d.isClosed()) {
-                throw new IOException();
-            }
-            if (!this.f8812d.isBound()) {
-                this.f8812d.connect(new InetSocketAddress(this.f8811b.getHost(), h()), this.m);
-            }
-            this.f8813e = this.f8812d.getInputStream();
-            this.f8814f = this.f8812d.getOutputStream();
-            i();
-            Thread thread = new Thread(new a());
-            this.f8816h = thread;
-            thread.start();
-            byte[] bArr = new byte[ca.f8801b];
-            while (!g() && !f() && (read = this.f8813e.read(bArr)) != -1) {
-                try {
-                    this.f8810a.a(ByteBuffer.wrap(bArr, 0, read));
-                } catch (IOException unused) {
-                    this.f8810a.b();
-                } catch (RuntimeException e2) {
-                    a(e2);
-                    this.f8810a.b(1006, e2.getMessage());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            try {
+                if (this.f8885d == null) {
+                    this.f8885d = new Socket(this.f8888g);
+                } else if (this.f8885d.isClosed()) {
+                    throw new IOException();
                 }
+                if (!this.f8885d.isBound()) {
+                    this.f8885d.connect(new InetSocketAddress(this.f8884b.getHost(), h()), this.m);
+                }
+                this.f8886e = this.f8885d.getInputStream();
+                this.f8887f = this.f8885d.getOutputStream();
+                i();
+                Thread thread = new Thread(new a(this, null));
+                this.f8889h = thread;
+                thread.start();
+                byte[] bArr = new byte[ca.f8874b];
+                while (!g() && !f() && (read = this.f8886e.read(bArr)) != -1) {
+                    try {
+                        this.f8883a.a(ByteBuffer.wrap(bArr, 0, read));
+                    } catch (IOException unused) {
+                        this.f8883a.b();
+                    } catch (RuntimeException e2) {
+                        a(e2);
+                        this.f8883a.b(1006, e2.getMessage());
+                    }
+                }
+                this.f8883a.b();
+                if (!f8882c && !this.f8885d.isClosed()) {
+                    throw new AssertionError();
+                }
+            } catch (Exception e3) {
+                a(this.f8883a, e3);
+                this.f8883a.b(-1, e3.getMessage());
             }
-            this.f8810a.b();
-            if (!f8809c && !this.f8812d.isClosed()) {
-                throw new AssertionError();
-            }
-        } catch (Exception e3) {
-            a(this.f8810a, e3);
-            this.f8810a.b(-1, e3.getMessage());
         }
     }
 
     public void a(byte[] bArr) throws NotYetConnectedException {
-        this.f8810a.a(bArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, bArr) == null) {
+            this.f8883a.a(bArr);
+        }
     }
 
     public void b() {
-        if (this.f8816h == null) {
-            Thread thread = new Thread(this);
-            this.f8816h = thread;
-            thread.start();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            if (this.f8889h == null) {
+                Thread thread = new Thread(this);
+                this.f8889h = thread;
+                thread.start();
+                return;
+            }
+            throw new IllegalStateException("WebSocketClient objects are not reuseable");
         }
-        throw new IllegalStateException("WebSocketClient objects are not reuseable");
     }
 
     @Override // com.baidu.mobstat.cb
     public final void a(by byVar, String str) {
-        a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byVar, str) == null) {
+            a(str);
+        }
     }
 
     @Override // com.baidu.mobstat.cb
     public final void a(by byVar, ByteBuffer byteBuffer) {
-        a(byteBuffer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, byVar, byteBuffer) == null) {
+            a(byteBuffer);
+        }
     }
 
     @Override // com.baidu.mobstat.cb
     public InetSocketAddress c(by byVar) {
-        Socket socket = this.f8812d;
-        if (socket != null) {
-            return (InetSocketAddress) socket.getLocalSocketAddress();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, byVar)) == null) {
+            Socket socket = this.f8885d;
+            if (socket != null) {
+                return (InetSocketAddress) socket.getLocalSocketAddress();
+            }
+            return null;
         }
-        return null;
+        return (InetSocketAddress) invokeL.objValue;
     }
 
     @Override // com.baidu.mobstat.bz, com.baidu.mobstat.cb
     public void a(by byVar, cq cqVar) {
-        b(cqVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, byVar, cqVar) == null) {
+            b(cqVar);
+        }
     }
 
     @Override // com.baidu.mobstat.cb
     public final void a(by byVar, cx cxVar) {
-        a((cz) cxVar);
-        this.k.countDown();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, byVar, cxVar) == null) {
+            a((cz) cxVar);
+            this.k.countDown();
+        }
     }
 
     @Override // com.baidu.mobstat.cb
     public void b(by byVar, int i2, String str, boolean z) {
-        b(i2, str, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{byVar, Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
+            b(i2, str, z);
+        }
     }
 
     @Override // com.baidu.mobstat.cb
     public final void a(by byVar, int i2, String str, boolean z) {
-        Thread thread = this.f8816h;
-        if (thread != null) {
-            thread.interrupt();
-        }
-        try {
-            if (this.f8812d != null) {
-                this.f8812d.close();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{byVar, Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
+            Thread thread = this.f8889h;
+            if (thread != null) {
+                thread.interrupt();
             }
-        } catch (IOException e2) {
-            a(this, e2);
+            try {
+                if (this.f8885d != null) {
+                    this.f8885d.close();
+                }
+            } catch (IOException e2) {
+                a(this, e2);
+            }
+            a(i2, str, z);
+            this.k.countDown();
+            this.l.countDown();
         }
-        a(i2, str, z);
-        this.k.countDown();
-        this.l.countDown();
     }
 
     @Override // com.baidu.mobstat.cb
     public final void a(by byVar, Exception exc) {
-        a(exc);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, byVar, exc) == null) {
+            a(exc);
+        }
     }
 
     @Override // com.baidu.mobstat.cb
     public void a(by byVar, int i2, String str) {
-        a(i2, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, byVar, i2, str) == null) {
+            a(i2, str);
+        }
     }
 
     public void a(Socket socket) {
-        if (this.f8812d == null) {
-            this.f8812d = socket;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, socket) == null) {
+            if (this.f8885d == null) {
+                this.f8885d = socket;
+                return;
+            }
+            throw new IllegalStateException("socket has already been set");
         }
-        throw new IllegalStateException("socket has already been set");
     }
 
     @Override // com.baidu.mobstat.by
     public void a(cq cqVar) {
-        this.f8810a.a(cqVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, cqVar) == null) {
+            this.f8883a.a(cqVar);
+        }
     }
 
     @Override // com.baidu.mobstat.by
     public InetSocketAddress a() {
-        return this.f8810a.a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8883a.a() : (InetSocketAddress) invokeV.objValue;
     }
 }

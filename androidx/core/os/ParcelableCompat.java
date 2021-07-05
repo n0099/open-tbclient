@@ -2,36 +2,82 @@ package androidx.core.os;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
 /* loaded from: classes.dex */
 public final class ParcelableCompat {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class ParcelableCompatCreatorHoneycombMR2<T> implements Parcelable.ClassLoaderCreator<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ParcelableCompatCreatorCallbacks<T> mCallbacks;
 
         public ParcelableCompatCreatorHoneycombMR2(ParcelableCompatCreatorCallbacks<T> parcelableCompatCreatorCallbacks) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcelableCompatCreatorCallbacks};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mCallbacks = parcelableCompatCreatorCallbacks;
         }
 
         @Override // android.os.Parcelable.Creator
         public T createFromParcel(Parcel parcel) {
-            return this.mCallbacks.createFromParcel(parcel, null);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? this.mCallbacks.createFromParcel(parcel, null) : (T) invokeL.objValue;
         }
 
         @Override // android.os.Parcelable.Creator
         public T[] newArray(int i2) {
-            return this.mCallbacks.newArray(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.mCallbacks.newArray(i2) : (T[]) ((Object[]) invokeI.objValue);
         }
 
         @Override // android.os.Parcelable.ClassLoaderCreator
         public T createFromParcel(Parcel parcel, ClassLoader classLoader) {
-            return this.mCallbacks.createFromParcel(parcel, classLoader);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) ? this.mCallbacks.createFromParcel(parcel, classLoader) : (T) invokeLL.objValue;
+        }
+    }
+
+    public ParcelableCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     @Deprecated
     public static <T> Parcelable.Creator<T> newCreator(ParcelableCompatCreatorCallbacks<T> parcelableCompatCreatorCallbacks) {
-        return new ParcelableCompatCreatorHoneycombMR2(parcelableCompatCreatorCallbacks);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, parcelableCompatCreatorCallbacks)) == null) ? new ParcelableCompatCreatorHoneycombMR2(parcelableCompatCreatorCallbacks) : (Parcelable.Creator) invokeL.objValue;
     }
 }

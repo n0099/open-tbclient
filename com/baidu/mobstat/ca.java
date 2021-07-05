@@ -1,8 +1,18 @@
 package com.baidu.mobstat;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.by;
 import com.baidu.mobstat.cd;
 import com.baidu.mobstat.cq;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.InetSocketAddress;
@@ -14,63 +24,101 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ca implements by {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<cd> f8800a;
+    public static final List<cd> f8873a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8801b;
+    public static int f8874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f8802c;
+    public static boolean f8875c;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ boolean f8803h = !ca.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f8876h;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BlockingQueue<ByteBuffer> f8804d;
+    public final BlockingQueue<ByteBuffer> f8877d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<ByteBuffer> f8805e;
+    public final BlockingQueue<ByteBuffer> f8878e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SelectionKey f8806f;
+    public SelectionKey f8879f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteChannel f8807g;
+    public ByteChannel f8880g;
 
     /* renamed from: i  reason: collision with root package name */
-    public final cb f8808i;
+    public final cb f8881i;
+    public volatile boolean j;
+    public by.a k;
     public cd l;
     public by.b m;
-    public volatile boolean j = false;
-    public by.a k = by.a.NOT_YET_CONNECTED;
-    public cq n = null;
-    public ByteBuffer o = ByteBuffer.allocate(0);
-    public cs p = null;
-    public String q = null;
-    public Integer r = null;
-    public Boolean s = null;
-    public String t = null;
+    public cq n;
+    public ByteBuffer o;
+    public cs p;
+    public String q;
+    public Integer r;
+    public Boolean s;
+    public String t;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581658772, "Lcom/baidu/mobstat/ca;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(581658772, "Lcom/baidu/mobstat/ca;");
+                return;
+            }
+        }
+        f8876h = !ca.class.desiredAssertionStatus();
         ArrayList arrayList = new ArrayList(4);
-        f8800a = arrayList;
-        f8801b = 16384;
-        f8802c = false;
+        f8873a = arrayList;
+        f8874b = 16384;
+        f8875c = false;
         arrayList.add(new cf());
-        f8800a.add(new ce());
+        f8873a.add(new ce());
     }
 
     public ca(cb cbVar, cd cdVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cbVar, cdVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.j = false;
+        this.k = by.a.f8865a;
         this.l = null;
+        this.n = null;
+        this.o = ByteBuffer.allocate(0);
+        this.p = null;
+        this.q = null;
+        this.r = null;
+        this.s = null;
+        this.t = null;
         if (cbVar != null && cdVar != null) {
-            this.f8804d = new LinkedBlockingQueue();
-            this.f8805e = new LinkedBlockingQueue();
-            this.f8808i = cbVar;
-            this.m = by.b.CLIENT;
+            this.f8877d = new LinkedBlockingQueue();
+            this.f8878e = new LinkedBlockingQueue();
+            this.f8881i = cbVar;
+            this.m = by.b.f8871a;
             if (cdVar != null) {
                 this.l = cdVar.c();
                 return;
@@ -80,440 +128,513 @@ public class ca implements by {
         throw new IllegalArgumentException("parameters must not be null");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00ed  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x011c  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00f1  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0120  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean c(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
         ByteBuffer byteBuffer2;
-        if (this.o.capacity() == 0) {
-            byteBuffer2 = byteBuffer;
-        } else {
-            if (this.o.remaining() < byteBuffer.remaining()) {
-                ByteBuffer allocate = ByteBuffer.allocate(this.o.capacity() + byteBuffer.remaining());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, byteBuffer)) == null) {
+            if (this.o.capacity() == 0) {
+                byteBuffer2 = byteBuffer;
+            } else {
+                if (this.o.remaining() < byteBuffer.remaining()) {
+                    ByteBuffer allocate = ByteBuffer.allocate(this.o.capacity() + byteBuffer.remaining());
+                    this.o.flip();
+                    allocate.put(this.o);
+                    this.o = allocate;
+                }
+                this.o.put(byteBuffer);
                 this.o.flip();
-                allocate.put(this.o);
-                this.o = allocate;
+                byteBuffer2 = this.o;
             }
-            this.o.put(byteBuffer);
-            this.o.flip();
-            byteBuffer2 = this.o;
-        }
-        byteBuffer2.mark();
-        try {
-        } catch (cg e2) {
-            if (this.o.capacity() != 0) {
-            }
-        }
-        if (this.l == null && e(byteBuffer2) == cd.b.MATCHED) {
+            byteBuffer2.mark();
             try {
-                f(ByteBuffer.wrap(dc.a(this.f8808i.a(this))));
-                a(-3, "");
-            } catch (ch unused) {
-                c(1006, "remote peer closed connection before flashpolicy could be transmitted", true);
+            } catch (cg e2) {
+                if (this.o.capacity() != 0) {
+                }
+            }
+            if (this.l == null && e(byteBuffer2) == cd.b.f8901a) {
+                try {
+                    f(ByteBuffer.wrap(dc.a(this.f8881i.a(this))));
+                    a(-3, "");
+                } catch (ch unused) {
+                    c(1006, "remote peer closed connection before flashpolicy could be transmitted", true);
+                }
+                return false;
+            }
+            try {
+                if (this.m == by.b.f8871a) {
+                    this.l.a(this.m);
+                    cx d2 = this.l.d(byteBuffer2);
+                    if (!(d2 instanceof cz)) {
+                        b(1002, "wrong http function", false);
+                        return false;
+                    }
+                    cz czVar = (cz) d2;
+                    if (this.l.a(this.p, czVar) == cd.b.f8901a) {
+                        try {
+                            this.f8881i.a(this, this.p, czVar);
+                            a(czVar);
+                            return true;
+                        } catch (ch e3) {
+                            b(e3.a(), e3.getMessage(), false);
+                            return false;
+                        } catch (RuntimeException e4) {
+                            this.f8881i.a(this, e4);
+                            b(-1, e4.getMessage(), false);
+                            return false;
+                        }
+                    }
+                    a(1002, "draft " + this.l + " refuses handshake");
+                }
+            } catch (cj e5) {
+                a(e5);
+            }
+            return false;
+            if (this.o.capacity() != 0) {
+                byteBuffer2.reset();
+                int a2 = e2.a();
+                if (a2 == 0) {
+                    a2 = byteBuffer2.capacity() + 16;
+                } else if (!f8876h && e2.a() < byteBuffer2.remaining()) {
+                    throw new AssertionError();
+                }
+                ByteBuffer allocate2 = ByteBuffer.allocate(a2);
+                this.o = allocate2;
+                allocate2.put(byteBuffer);
+            } else {
+                ByteBuffer byteBuffer3 = this.o;
+                byteBuffer3.position(byteBuffer3.limit());
+                ByteBuffer byteBuffer4 = this.o;
+                byteBuffer4.limit(byteBuffer4.capacity());
             }
             return false;
         }
-        try {
-            if (this.m == by.b.CLIENT) {
-                this.l.a(this.m);
-                cx d2 = this.l.d(byteBuffer2);
-                if (!(d2 instanceof cz)) {
-                    b(1002, "wrong http function", false);
-                    return false;
-                }
-                cz czVar = (cz) d2;
-                if (this.l.a(this.p, czVar) == cd.b.MATCHED) {
-                    try {
-                        this.f8808i.a(this, this.p, czVar);
-                        a(czVar);
-                        return true;
-                    } catch (ch e3) {
-                        b(e3.a(), e3.getMessage(), false);
-                        return false;
-                    } catch (RuntimeException e4) {
-                        this.f8808i.a(this, e4);
-                        b(-1, e4.getMessage(), false);
-                        return false;
-                    }
-                }
-                a(1002, "draft " + this.l + " refuses handshake");
-            }
-        } catch (cj e5) {
-            a(e5);
-        }
-        return false;
-        if (this.o.capacity() != 0) {
-            byteBuffer2.reset();
-            int a2 = e2.a();
-            if (a2 == 0) {
-                a2 = byteBuffer2.capacity() + 16;
-            } else if (!f8803h && e2.a() < byteBuffer2.remaining()) {
-                throw new AssertionError();
-            }
-            ByteBuffer allocate2 = ByteBuffer.allocate(a2);
-            this.o = allocate2;
-            allocate2.put(byteBuffer);
-        } else {
-            ByteBuffer byteBuffer3 = this.o;
-            byteBuffer3.position(byteBuffer3.limit());
-            ByteBuffer byteBuffer4 = this.o;
-            byteBuffer4.limit(byteBuffer4.capacity());
-        }
-        return false;
+        return invokeL.booleanValue;
     }
 
     private void d(ByteBuffer byteBuffer) {
-        try {
-        } catch (ch e2) {
-            this.f8808i.a(this, e2);
-            a(e2);
-            return;
-        }
-        for (cq cqVar : this.l.c(byteBuffer)) {
-            if (f8802c) {
-                PrintStream printStream = System.out;
-                printStream.println("matched frame: " + cqVar);
-            }
-            cq.a f2 = cqVar.f();
-            boolean d2 = cqVar.d();
-            if (this.k == by.a.CLOSING) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, byteBuffer) == null) {
+            try {
+            } catch (ch e2) {
+                this.f8881i.a(this, e2);
+                a(e2);
                 return;
             }
-            if (f2 == cq.a.CLOSING) {
-                int i2 = 1005;
-                String str = "";
-                if (cqVar instanceof cn) {
-                    cn cnVar = (cn) cqVar;
-                    i2 = cnVar.a();
-                    str = cnVar.b();
+            for (cq cqVar : this.l.c(byteBuffer)) {
+                if (f8875c) {
+                    PrintStream printStream = System.out;
+                    printStream.println("matched frame: " + cqVar);
                 }
-                if (this.k == by.a.CLOSING) {
-                    a(i2, str, true);
-                } else if (this.l.b() == cd.a.TWOWAY) {
-                    c(i2, str, true);
+                cq.a f2 = cqVar.f();
+                boolean d2 = cqVar.d();
+                if (this.k == by.a.f8868d) {
+                    return;
+                }
+                if (f2 == cq.a.f8919f) {
+                    int i2 = 1005;
+                    String str = "";
+                    if (cqVar instanceof cn) {
+                        cn cnVar = (cn) cqVar;
+                        i2 = cnVar.a();
+                        str = cnVar.b();
+                    }
+                    if (this.k == by.a.f8868d) {
+                        a(i2, str, true);
+                    } else if (this.l.b() == cd.a.f8899c) {
+                        c(i2, str, true);
+                    } else {
+                        b(i2, str, false);
+                    }
+                } else if (f2 == cq.a.f8917d) {
+                    this.f8881i.b(this, cqVar);
+                } else if (f2 == cq.a.f8918e) {
+                    this.f8881i.c(this, cqVar);
                 } else {
-                    b(i2, str, false);
-                }
-            } else if (f2 == cq.a.PING) {
-                this.f8808i.b(this, cqVar);
-            } else if (f2 == cq.a.PONG) {
-                this.f8808i.c(this, cqVar);
-            } else {
-                if (d2 && f2 != cq.a.CONTINUOUS) {
-                    if (this.n == null) {
-                        if (f2 == cq.a.TEXT) {
-                            try {
-                                this.f8808i.a(this, dc.a(cqVar.c()));
-                            } catch (RuntimeException e3) {
-                                this.f8808i.a(this, e3);
+                    if (d2 && f2 != cq.a.f8914a) {
+                        if (this.n == null) {
+                            if (f2 == cq.a.f8915b) {
+                                try {
+                                    this.f8881i.a(this, dc.a(cqVar.c()));
+                                } catch (RuntimeException e3) {
+                                    this.f8881i.a(this, e3);
+                                }
+                            } else if (f2 == cq.a.f8916c) {
+                                try {
+                                    this.f8881i.a(this, cqVar.c());
+                                } catch (RuntimeException e4) {
+                                    this.f8881i.a(this, e4);
+                                }
+                            } else {
+                                throw new ch(1002, "non control or continious frame expected");
                             }
-                        } else if (f2 == cq.a.BINARY) {
-                            try {
-                                this.f8808i.a(this, cqVar.c());
-                            } catch (RuntimeException e4) {
-                                this.f8808i.a(this, e4);
-                            }
+                            this.f8881i.a(this, e2);
+                            a(e2);
+                            return;
+                        }
+                        throw new ch(1002, "Continuous frame sequence not completed.");
+                    }
+                    if (f2 != cq.a.f8914a) {
+                        if (this.n == null) {
+                            this.n = cqVar;
                         } else {
-                            throw new ch(1002, "non control or continious frame expected");
+                            throw new ch(1002, "Previous continuous frame sequence not completed.");
                         }
-                        this.f8808i.a(this, e2);
-                        a(e2);
-                        return;
-                    }
-                    throw new ch(1002, "Continuous frame sequence not completed.");
-                }
-                if (f2 != cq.a.CONTINUOUS) {
-                    if (this.n == null) {
-                        this.n = cqVar;
-                    } else {
-                        throw new ch(1002, "Previous continuous frame sequence not completed.");
-                    }
-                } else if (d2) {
-                    if (this.n != null) {
-                        if (this.n.f() == cq.a.TEXT) {
-                            int max = Math.max(this.n.c().limit() - 64, 0);
-                            this.n.a(cqVar);
-                            if (!dc.a(this.n.c(), max)) {
-                                throw new ch(1007);
+                    } else if (d2) {
+                        if (this.n != null) {
+                            if (this.n.f() == cq.a.f8915b) {
+                                int max = Math.max(this.n.c().limit() - 64, 0);
+                                this.n.a(cqVar);
+                                if (!dc.a(this.n.c(), max)) {
+                                    throw new ch(1007);
+                                }
                             }
+                            this.n = null;
+                        } else {
+                            throw new ch(1002, "Continuous frame sequence was not started.");
                         }
-                        this.n = null;
-                    } else {
+                    } else if (this.n == null) {
                         throw new ch(1002, "Continuous frame sequence was not started.");
                     }
-                } else if (this.n == null) {
-                    throw new ch(1002, "Continuous frame sequence was not started.");
-                }
-                if (f2 == cq.a.TEXT && !dc.b(cqVar.c())) {
-                    throw new ch(1007);
-                }
-                if (f2 == cq.a.CONTINUOUS && this.n != null && this.n.f() == cq.a.TEXT) {
-                    int max2 = Math.max(this.n.c().limit() - 64, 0);
-                    this.n.a(cqVar);
-                    if (!dc.a(this.n.c(), max2)) {
+                    if (f2 == cq.a.f8915b && !dc.b(cqVar.c())) {
                         throw new ch(1007);
                     }
-                }
-                try {
-                    this.f8808i.a(this, cqVar);
-                } catch (RuntimeException e5) {
-                    this.f8808i.a(this, e5);
+                    if (f2 == cq.a.f8914a && this.n != null && this.n.f() == cq.a.f8915b) {
+                        int max2 = Math.max(this.n.c().limit() - 64, 0);
+                        this.n.a(cqVar);
+                        if (!dc.a(this.n.c(), max2)) {
+                            throw new ch(1007);
+                        }
+                    }
+                    try {
+                        this.f8881i.a(this, cqVar);
+                    } catch (RuntimeException e5) {
+                        this.f8881i.a(this, e5);
+                    }
                 }
             }
         }
     }
 
     private cd.b e(ByteBuffer byteBuffer) throws cg {
-        byteBuffer.mark();
-        if (byteBuffer.limit() > cd.f8821c.length) {
-            return cd.b.NOT_MATCHED;
-        }
-        if (byteBuffer.limit() >= cd.f8821c.length) {
-            int i2 = 0;
-            while (byteBuffer.hasRemaining()) {
-                if (cd.f8821c[i2] != byteBuffer.get()) {
-                    byteBuffer.reset();
-                    return cd.b.NOT_MATCHED;
-                }
-                i2++;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, byteBuffer)) == null) {
+            byteBuffer.mark();
+            if (byteBuffer.limit() > cd.f8894c.length) {
+                return cd.b.f8902b;
             }
-            return cd.b.MATCHED;
+            if (byteBuffer.limit() >= cd.f8894c.length) {
+                int i2 = 0;
+                while (byteBuffer.hasRemaining()) {
+                    if (cd.f8894c[i2] != byteBuffer.get()) {
+                        byteBuffer.reset();
+                        return cd.b.f8902b;
+                    }
+                    i2++;
+                }
+                return cd.b.f8901a;
+            }
+            throw new cg(cd.f8894c.length);
         }
-        throw new cg(cd.f8821c.length);
+        return (cd.b) invokeL.objValue;
     }
 
     private void f(ByteBuffer byteBuffer) {
-        if (f8802c) {
-            PrintStream printStream = System.out;
-            StringBuilder sb = new StringBuilder();
-            sb.append("write(");
-            sb.append(byteBuffer.remaining());
-            sb.append("): {");
-            sb.append(byteBuffer.remaining() > 1000 ? "too big to display" : new String(byteBuffer.array()));
-            sb.append("}");
-            printStream.println(sb.toString());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, byteBuffer) == null) {
+            if (f8875c) {
+                PrintStream printStream = System.out;
+                StringBuilder sb = new StringBuilder();
+                sb.append("write(");
+                sb.append(byteBuffer.remaining());
+                sb.append("): {");
+                sb.append(byteBuffer.remaining() > 1000 ? "too big to display" : new String(byteBuffer.array()));
+                sb.append("}");
+                printStream.println(sb.toString());
+            }
+            this.f8877d.add(byteBuffer);
+            this.f8881i.b(this);
         }
-        this.f8804d.add(byteBuffer);
-        this.f8808i.b(this);
     }
 
     public void a(ByteBuffer byteBuffer) {
-        if (!f8803h && !byteBuffer.hasRemaining()) {
-            throw new AssertionError();
-        }
-        if (f8802c) {
-            PrintStream printStream = System.out;
-            StringBuilder sb = new StringBuilder();
-            sb.append("process(");
-            sb.append(byteBuffer.remaining());
-            sb.append("): {");
-            sb.append(byteBuffer.remaining() > 1000 ? "too big to display" : new String(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining()));
-            sb.append("}");
-            printStream.println(sb.toString());
-        }
-        if (this.k != by.a.NOT_YET_CONNECTED) {
-            d(byteBuffer);
-        } else if (c(byteBuffer)) {
-            if (!f8803h && this.o.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer) == null) {
+            if (!f8876h && !byteBuffer.hasRemaining()) {
                 throw new AssertionError();
             }
-            if (byteBuffer.hasRemaining()) {
-                d(byteBuffer);
-            } else if (this.o.hasRemaining()) {
-                d(this.o);
+            if (f8875c) {
+                PrintStream printStream = System.out;
+                StringBuilder sb = new StringBuilder();
+                sb.append("process(");
+                sb.append(byteBuffer.remaining());
+                sb.append("): {");
+                sb.append(byteBuffer.remaining() > 1000 ? "too big to display" : new String(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining()));
+                sb.append("}");
+                printStream.println(sb.toString());
             }
-        }
-        if (!f8803h && !d() && !e() && byteBuffer.hasRemaining()) {
-            throw new AssertionError();
+            if (this.k != by.a.f8865a) {
+                d(byteBuffer);
+            } else if (c(byteBuffer)) {
+                if (!f8876h && this.o.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
+                    throw new AssertionError();
+                }
+                if (byteBuffer.hasRemaining()) {
+                    d(byteBuffer);
+                } else if (this.o.hasRemaining()) {
+                    d(this.o);
+                }
+            }
+            if (!f8876h && !d() && !e() && byteBuffer.hasRemaining()) {
+                throw new AssertionError();
+            }
         }
     }
 
     public void b(int i2, String str) {
-        a(i2, str, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048587, this, i2, str) == null) {
+            a(i2, str, false);
+        }
     }
 
     public by.a g() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.k : (by.a) invokeV.objValue;
     }
 
     public int hashCode() {
-        return super.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? super.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
-        return super.toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? super.toString() : (String) invokeV.objValue;
     }
 
     public synchronized void b(int i2, String str, boolean z) {
-        if (this.j) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                if (this.j) {
+                    return;
+                }
+                this.r = Integer.valueOf(i2);
+                this.q = str;
+                this.s = Boolean.valueOf(z);
+                this.j = true;
+                this.f8881i.b(this);
+                try {
+                    this.f8881i.b(this, i2, str, z);
+                } catch (RuntimeException e2) {
+                    this.f8881i.a(this, e2);
+                }
+                if (this.l != null) {
+                    this.l.a();
+                }
+                this.p = null;
+            }
         }
-        this.r = Integer.valueOf(i2);
-        this.q = str;
-        this.s = Boolean.valueOf(z);
-        this.j = true;
-        this.f8808i.b(this);
-        try {
-            this.f8808i.b(this, i2, str, z);
-        } catch (RuntimeException e2) {
-            this.f8808i.a(this, e2);
-        }
-        if (this.l != null) {
-            this.l.a();
-        }
-        this.p = null;
     }
 
     public boolean f() {
-        return this.k == by.a.CLOSED;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.k == by.a.f8869e : invokeV.booleanValue;
     }
 
     public boolean e() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
     public void a(int i2, String str) {
-        c(i2, str, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
+            c(i2, str, false);
+        }
     }
 
     public synchronized void a(int i2, String str, boolean z) {
-        if (this.k == by.a.CLOSED) {
-            return;
-        }
-        if (this.f8806f != null) {
-            this.f8806f.cancel();
-        }
-        if (this.f8807g != null) {
-            try {
-                this.f8807g.close();
-            } catch (IOException e2) {
-                this.f8808i.a(this, e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                if (this.k == by.a.f8869e) {
+                    return;
+                }
+                if (this.f8879f != null) {
+                    this.f8879f.cancel();
+                }
+                if (this.f8880g != null) {
+                    try {
+                        this.f8880g.close();
+                    } catch (IOException e2) {
+                        this.f8881i.a(this, e2);
+                    }
+                }
+                try {
+                    this.f8881i.a(this, i2, str, z);
+                } catch (RuntimeException e3) {
+                    this.f8881i.a(this, e3);
+                }
+                if (this.l != null) {
+                    this.l.a();
+                }
+                this.p = null;
+                this.k = by.a.f8869e;
+                this.f8877d.clear();
             }
         }
-        try {
-            this.f8808i.a(this, i2, str, z);
-        } catch (RuntimeException e3) {
-            this.f8808i.a(this, e3);
-        }
-        if (this.l != null) {
-            this.l.a();
-        }
-        this.p = null;
-        this.k = by.a.CLOSED;
-        this.f8804d.clear();
     }
 
     public void b() {
-        if (g() == by.a.NOT_YET_CONNECTED) {
-            a(-1, true);
-        } else if (this.j) {
-            a(this.r.intValue(), this.q, this.s.booleanValue());
-        } else if (this.l.b() == cd.a.NONE) {
-            a(1000, true);
-        } else if (this.l.b() == cd.a.ONEWAY) {
-            a(1000, true);
-        } else {
-            a(1006, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (g() == by.a.f8865a) {
+                a(-1, true);
+            } else if (this.j) {
+                a(this.r.intValue(), this.q, this.s.booleanValue());
+            } else if (this.l.b() == cd.a.f8897a) {
+                a(1000, true);
+            } else if (this.l.b() == cd.a.f8898b) {
+                a(1000, true);
+            } else {
+                a(1006, true);
+            }
         }
     }
 
     public void b(ByteBuffer byteBuffer) throws IllegalArgumentException, cm {
-        if (byteBuffer == null) {
-            throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, byteBuffer) == null) {
+            if (byteBuffer == null) {
+                throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
+            }
+            a(this.l.a(byteBuffer, this.m == by.b.f8871a));
         }
-        a(this.l.a(byteBuffer, this.m == by.b.CLIENT));
     }
 
     public void a(int i2, boolean z) {
-        a(i2, "", z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            a(i2, "", z);
+        }
     }
 
     public void a(int i2) {
-        c(i2, "", false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            c(i2, "", false);
+        }
     }
 
     public void a(ch chVar) {
-        c(chVar.a(), chVar.getMessage(), false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, chVar) == null) {
+            c(chVar.a(), chVar.getMessage(), false);
+        }
     }
 
     public void a(byte[] bArr) throws IllegalArgumentException, cm {
-        b(ByteBuffer.wrap(bArr));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bArr) == null) {
+            b(ByteBuffer.wrap(bArr));
+        }
     }
 
     private void a(Collection<cq> collection) {
-        if (c()) {
-            for (cq cqVar : collection) {
-                a(cqVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, collection) == null) {
+            if (c()) {
+                for (cq cqVar : collection) {
+                    a(cqVar);
+                }
+                return;
             }
-            return;
+            throw new cm();
         }
-        throw new cm();
     }
 
     @Override // com.baidu.mobstat.by
     public void a(cq cqVar) {
-        if (f8802c) {
-            PrintStream printStream = System.out;
-            printStream.println("send frame: " + cqVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cqVar) == null) {
+            if (f8875c) {
+                PrintStream printStream = System.out;
+                printStream.println("send frame: " + cqVar);
+            }
+            f(this.l.a(cqVar));
         }
-        f(this.l.a(cqVar));
     }
 
     public void a(ct ctVar) throws cj {
-        if (!f8803h && this.k == by.a.CONNECTING) {
-            throw new AssertionError("shall only be called once");
-        }
-        this.p = this.l.a(ctVar);
-        String a2 = ctVar.a();
-        this.t = a2;
-        if (!f8803h && a2 == null) {
-            throw new AssertionError();
-        }
-        try {
-            this.f8808i.a((by) this, this.p);
-            a(this.l.a(this.p, this.m));
-        } catch (ch unused) {
-            throw new cj("Handshake data rejected by client.");
-        } catch (RuntimeException e2) {
-            this.f8808i.a(this, e2);
-            throw new cj("rejected because of" + e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ctVar) == null) {
+            if (!f8876h && this.k == by.a.f8866b) {
+                throw new AssertionError("shall only be called once");
+            }
+            this.p = this.l.a(ctVar);
+            String a2 = ctVar.a();
+            this.t = a2;
+            if (!f8876h && a2 == null) {
+                throw new AssertionError();
+            }
+            try {
+                this.f8881i.a((by) this, this.p);
+                a(this.l.a(this.p, this.m));
+            } catch (ch unused) {
+                throw new cj("Handshake data rejected by client.");
+            } catch (RuntimeException e2) {
+                this.f8881i.a(this, e2);
+                throw new cj("rejected because of" + e2);
+            }
         }
     }
 
     private void c(int i2, String str, boolean z) {
-        by.a aVar = this.k;
-        if (aVar == by.a.CLOSING || aVar == by.a.CLOSED) {
+        by.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || (aVar = this.k) == by.a.f8868d || aVar == by.a.f8869e) {
             return;
         }
-        if (aVar == by.a.OPEN) {
+        if (aVar == by.a.f8867c) {
             if (i2 == 1006) {
-                if (!f8803h && z) {
+                if (!f8876h && z) {
                     throw new AssertionError();
                 }
-                this.k = by.a.CLOSING;
+                this.k = by.a.f8868d;
                 b(i2, str, false);
                 return;
             }
-            if (this.l.b() != cd.a.NONE) {
+            if (this.l.b() != cd.a.f8897a) {
                 try {
                     if (!z) {
                         try {
-                            this.f8808i.a(this, i2, str);
+                            this.f8881i.a(this, i2, str);
                         } catch (RuntimeException e2) {
-                            this.f8808i.a(this, e2);
+                            this.f8881i.a(this, e2);
                         }
                     }
                     a(new co(i2, str));
                 } catch (ch e3) {
-                    this.f8808i.a(this, e3);
+                    this.f8881i.a(this, e3);
                     b(1006, "generated frame is invalid", false);
                 }
             }
             b(i2, str, z);
         } else if (i2 == -3) {
-            if (!f8803h && !z) {
+            if (!f8876h && !z) {
                 throw new AssertionError();
             }
             b(-3, str, true);
@@ -523,42 +644,57 @@ public class ca implements by {
         if (i2 == 1002) {
             b(i2, str, z);
         }
-        this.k = by.a.CLOSING;
+        this.k = by.a.f8868d;
         this.o = null;
     }
 
     private void a(List<ByteBuffer> list) {
-        for (ByteBuffer byteBuffer : list) {
-            f(byteBuffer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, this, list) == null) {
+            for (ByteBuffer byteBuffer : list) {
+                f(byteBuffer);
+            }
         }
     }
 
     private void a(cx cxVar) {
-        if (f8802c) {
-            PrintStream printStream = System.out;
-            printStream.println("open using draft: " + this.l.getClass().getSimpleName());
-        }
-        this.k = by.a.OPEN;
-        try {
-            this.f8808i.a(this, cxVar);
-        } catch (RuntimeException e2) {
-            this.f8808i.a(this, e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, cxVar) == null) {
+            if (f8875c) {
+                PrintStream printStream = System.out;
+                printStream.println("open using draft: " + this.l.getClass().getSimpleName());
+            }
+            this.k = by.a.f8867c;
+            try {
+                this.f8881i.a(this, cxVar);
+            } catch (RuntimeException e2) {
+                this.f8881i.a(this, e2);
+            }
         }
     }
 
     @Override // com.baidu.mobstat.by
     public InetSocketAddress a() {
-        return this.f8808i.c(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8881i.c(this) : (InetSocketAddress) invokeV.objValue;
     }
 
     public boolean d() {
-        return this.k == by.a.CLOSING;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k == by.a.f8868d : invokeV.booleanValue;
     }
 
     public boolean c() {
-        if (!f8803h && this.k == by.a.OPEN && this.j) {
-            throw new AssertionError();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (!f8876h && this.k == by.a.f8867c && this.j) {
+                throw new AssertionError();
+            }
+            return this.k == by.a.f8867c;
         }
-        return this.k == by.a.OPEN;
+        return invokeV.booleanValue;
     }
 }

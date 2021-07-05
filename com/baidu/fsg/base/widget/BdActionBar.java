@@ -10,41 +10,50 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class BdActionBar extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final float FOCUS_ALPHA_VALUE = 0.5f;
     public static final float NORMAL_ALPHA_VALUE = 1.0f;
     public static final int TEXT_ALIGN_CENTER = 1;
     public static final int TEXT_ALIGN_LEFT = 0;
     public static final int TEXT_ALIGN_RIGHT = 2;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5440a;
+    public String f5470a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f5441b;
+    public View f5471b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f5442c;
+    public View f5472c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f5443d;
+    public ImageView f5473d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f5444e;
+    public TextView f5474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f5445f;
+    public TextView f5475f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f5446g;
+    public View f5476g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f5447h;
+    public View f5477h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f5448i;
+    public ImageView f5478i;
     public View j;
     public ImageView k;
     public TextView l;
@@ -54,282 +63,460 @@ public class BdActionBar extends RelativeLayout {
     public ImageView o;
     public ImageView p;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdActionBar(Context context) {
         super(context);
-        this.f5440a = "";
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f5470a = "";
         a();
     }
 
     public String getLayoutId() {
-        return "rim_base_action_bar";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rim_base_action_bar" : (String) invokeV.objValue;
     }
 
     public View getRightImgZone1ImgView() {
-        return this.f5448i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5478i : (View) invokeV.objValue;
     }
 
     public View getRightImgZone2ImgView() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (View) invokeV.objValue;
     }
 
     public View getRightImgZone2NotifyView() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l : (View) invokeV.objValue;
     }
 
     public int getRightImgZone2NotifyVisibility() {
-        return this.l.getVisibility();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l.getVisibility() : invokeV.intValue;
     }
 
     public View getRightZone1View() {
-        return this.f5447h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5477h : (View) invokeV.objValue;
     }
 
     public View getRightZoneView() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : (View) invokeV.objValue;
     }
 
     public String getTitle() {
-        return this.f5440a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f5470a : (String) invokeV.objValue;
     }
 
     public void hideLeftZone() {
-        this.f5442c.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f5472c.setVisibility(8);
+        }
     }
 
     public boolean isLeftZoneImageSelected() {
-        return this.f5442c.isSelected();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f5472c.isSelected() : invokeV.booleanValue;
     }
 
     public void setBottomSeperatorvisible(boolean z) {
-        ImageView imageView = this.p;
-        if (imageView == null) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (imageView = this.p) == null) {
             return;
         }
         imageView.setVisibility(z ? 0 : 8);
     }
 
     public void setCloseOnClickListener(View.OnClickListener onClickListener) {
-        this.f5446g.setVisibility(0);
-        this.f5446g.setOnClickListener(onClickListener);
-        this.mTitleCenterText.setMaxEms(ResUtils.getInteger(getContext(), "wallet_base_titlebar_centertext_maxems_1"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
+            this.f5476g.setVisibility(0);
+            this.f5476g.setOnClickListener(onClickListener);
+            this.mTitleCenterText.setMaxEms(ResUtils.getInteger(getContext(), "wallet_base_titlebar_centertext_maxems_1"));
+        }
     }
 
     public void setImgZoneBackgroundResource(int i2) {
-        this.f5447h.setBackgroundResource(i2);
-        this.j.setBackgroundResource(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.f5477h.setBackgroundResource(i2);
+            this.j.setBackgroundResource(i2);
+        }
     }
 
     public void setLeftImgZone2NotifyText(String str, float f2) {
-        if (!TextUtils.isEmpty(str)) {
-            this.f5444e.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048589, this, str, f2) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.f5474e.setVisibility(0);
+            }
+            if (f2 < 0.0f) {
+                return;
+            }
+            this.f5474e.setText(str);
+            this.f5474e.setTextSize(f2);
         }
-        if (f2 < 0.0f) {
-            return;
-        }
-        this.f5444e.setText(str);
-        this.f5444e.setTextSize(f2);
     }
 
     public void setLeftImgZone2NotifyTextColor(int i2) {
-        this.f5444e.setTextColor(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.f5474e.setTextColor(i2);
+        }
     }
 
     public void setLeftImgZone2NotifyTextColorStateList(ColorStateList colorStateList) {
-        this.f5444e.setTextColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, colorStateList) == null) {
+            this.f5474e.setTextColor(colorStateList);
+        }
     }
 
     public void setLeftZoneImageSelected(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        }
     }
 
     public void setLeftZoneImageSrc(int i2) {
-        Drawable drawable = i2 != 0 ? getResources().getDrawable(i2) : null;
-        if (drawable != null) {
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            Drawable drawable = i2 != 0 ? getResources().getDrawable(i2) : null;
+            if (drawable != null) {
+                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            }
+            this.f5473d.setImageDrawable(drawable);
         }
-        this.f5443d.setImageDrawable(drawable);
     }
 
     public void setLeftZoneOnClickListener(View.OnClickListener onClickListener) {
-        this.f5442c.setVisibility(0);
-        this.f5442c.setOnClickListener(onClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
+            this.f5472c.setVisibility(0);
+            this.f5472c.setOnClickListener(onClickListener);
+        }
     }
 
     public void setRightImgZone1Enable(boolean z) {
-        this.f5448i.setEnabled(z);
-        this.f5447h.setEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.f5478i.setEnabled(z);
+            this.f5477h.setEnabled(z);
+        }
     }
 
     public void setRightImgZone1OnClickListener(View.OnClickListener onClickListener) {
-        this.f5447h.setOnClickListener(onClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, onClickListener) == null) {
+            this.f5477h.setOnClickListener(onClickListener);
+        }
     }
 
     public void setRightImgZone1Src(int i2) {
-        this.f5447h.setVisibility(0);
-        this.f5448i.setVisibility(0);
-        this.f5448i.setImageResource(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+            this.f5477h.setVisibility(0);
+            this.f5478i.setVisibility(0);
+            this.f5478i.setImageResource(i2);
+        }
     }
 
     public void setRightImgZone1Visibility(int i2) {
-        this.f5447h.setVisibility(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
+            this.f5477h.setVisibility(i2);
+        }
     }
 
     public void setRightImgZone2Enable(boolean z) {
-        this.k.setEnabled(z);
-        this.j.setEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.k.setEnabled(z);
+            this.j.setEnabled(z);
+        }
     }
 
     public void setRightImgZone2NotifyClickListener(View.OnClickListener onClickListener) {
-        if (onClickListener != null) {
-            this.l.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, onClickListener) == null) {
+            if (onClickListener != null) {
+                this.l.setVisibility(0);
+            }
+            this.l.setOnClickListener(onClickListener);
         }
-        this.l.setOnClickListener(onClickListener);
     }
 
     public void setRightImgZone2NotifyText(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            setRightImgZone2NotifyVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                setRightImgZone2NotifyVisibility(0);
+            }
+            this.l.setText(str);
         }
-        this.l.setText(str);
     }
 
     public void setRightImgZone2NotifyTextBg(int i2) {
-        this.l.setBackgroundResource(i2);
-        this.l.setPadding(12, 6, 12, 6);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
+            this.l.setBackgroundResource(i2);
+            this.l.setPadding(12, 6, 12, 6);
+        }
     }
 
     public void setRightImgZone2NotifyTextColor(int i2) {
-        this.l.setTextColor(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
+            this.l.setTextColor(i2);
+        }
     }
 
     public void setRightImgZone2NotifyTextSize(float f2) {
-        this.l.setTextSize(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048606, this, f2) == null) {
+            this.l.setTextSize(f2);
+        }
     }
 
     public void setRightImgZone2NotifyTextViewPadding(int i2, int i3, int i4, int i5) {
-        this.l.setPadding(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048607, this, i2, i3, i4, i5) == null) {
+            this.l.setPadding(i2, i3, i4, i5);
+        }
     }
 
     public void setRightImgZone2NotifyVisibility(int i2) {
-        this.l.setVisibility(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
+            this.l.setVisibility(i2);
+        }
     }
 
     public void setRightImgZone2OnClickListener(View.OnClickListener onClickListener) {
-        if (onClickListener != null) {
-            this.j.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, onClickListener) == null) {
+            if (onClickListener != null) {
+                this.j.setVisibility(0);
+            }
+            this.j.setOnClickListener(onClickListener);
         }
-        this.j.setOnClickListener(onClickListener);
     }
 
     public void setRightImgZone2Src(int i2) {
-        this.k.setVisibility(0);
-        this.k.setImageResource(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
+            this.k.setVisibility(0);
+            this.k.setImageResource(i2);
+        }
     }
 
     public void setRightImgZone2Visibility(int i2) {
-        this.j.setVisibility(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            this.j.setVisibility(i2);
+        }
     }
 
     public void setSafeIconVisible(boolean z) {
-        if (z) {
-            this.o.setVisibility(0);
-        } else {
-            this.o.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
+            if (z) {
+                this.o.setVisibility(0);
+            } else {
+                this.o.setVisibility(8);
+            }
         }
     }
 
     public void setTitle(int i2) {
-        setTitle(getResources().getString(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+            setTitle(getResources().getString(i2));
+        }
     }
 
     public void setTitleCenterSafeTipColor(int i2) {
-        this.n.setTextColor(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
+            this.n.setTextColor(i2);
+        }
     }
 
     public void setTitleCenterSafeTipText(String str) {
-        if (TextUtils.isEmpty(str)) {
-            this.m.setVisibility(8);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.m.setVisibility(8);
+                return;
+            }
+            this.m.setVisibility(0);
+            this.n.setText(str);
         }
-        this.m.setVisibility(0);
-        this.n.setText(str);
     }
 
     public void setTitleColor(int i2) {
-        this.mTitleCenterText.setTextColor(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+            this.mTitleCenterText.setTextColor(i2);
+        }
     }
 
     public void setTitleShadowLayer(float f2, float f3, float f4, int i2) {
-        this.mTitleCenterText.setShadowLayer(f2, f3, f4, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i2)}) == null) {
+            this.mTitleCenterText.setShadowLayer(f2, f3, f4, i2);
+        }
     }
 
     public void setTitlebgColor(int i2) {
-        View view = this.f5441b;
-        if (view == null) {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048620, this, i2) == null) || (view = this.f5471b) == null) {
             return;
         }
         view.setBackgroundColor(i2);
     }
 
     public void setbackBg(Drawable drawable) {
-        this.f5442c.setBackgroundDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, drawable) == null) {
+            this.f5472c.setBackgroundDrawable(drawable);
+        }
     }
 
     private void a() {
-        LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), getLayoutId()), this);
-        this.f5441b = findViewById(ResUtils.id(getContext(), "title"));
-        this.f5442c = findViewById(ResUtils.id(getContext(), "title_left_imgzone2"));
-        this.f5443d = (ImageView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_img"));
-        this.f5445f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_titlebar_left_imgzone2_close"));
-        this.f5444e = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
-        this.f5442c.setOnTouchListener(new a(this));
-        View findViewById = findViewById(ResUtils.id(getContext(), "title_close"));
-        this.f5446g = findViewById;
-        findViewById.setOnTouchListener(new b(this));
-        this.mTitleCenterText = (TextView) findViewById(ResUtils.id(getContext(), "title_center_text"));
-        this.m = findViewById(ResUtils.id(getContext(), "title_center_safe_layout"));
-        this.n = (TextView) findViewById(ResUtils.id(getContext(), "title_center_safe_tip"));
-        this.o = (ImageView) findViewById(ResUtils.id(getContext(), "safe_icon"));
-        this.f5447h = findViewById(ResUtils.id(getContext(), "title_right_imgzone1"));
-        this.f5448i = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img1"));
-        this.j = findViewById(ResUtils.id(getContext(), "title_right_imgzone2"));
-        this.k = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img"));
-        this.l = (TextView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify"));
-        if (!TextUtils.isEmpty(this.f5440a)) {
-            setTitle(this.f5440a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), getLayoutId()), this);
+            this.f5471b = findViewById(ResUtils.id(getContext(), "title"));
+            this.f5472c = findViewById(ResUtils.id(getContext(), "title_left_imgzone2"));
+            this.f5473d = (ImageView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_img"));
+            this.f5475f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_titlebar_left_imgzone2_close"));
+            this.f5474e = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
+            this.f5472c.setOnTouchListener(new a(this));
+            View findViewById = findViewById(ResUtils.id(getContext(), "title_close"));
+            this.f5476g = findViewById;
+            findViewById.setOnTouchListener(new b(this));
+            this.mTitleCenterText = (TextView) findViewById(ResUtils.id(getContext(), "title_center_text"));
+            this.m = findViewById(ResUtils.id(getContext(), "title_center_safe_layout"));
+            this.n = (TextView) findViewById(ResUtils.id(getContext(), "title_center_safe_tip"));
+            this.o = (ImageView) findViewById(ResUtils.id(getContext(), "safe_icon"));
+            this.f5477h = findViewById(ResUtils.id(getContext(), "title_right_imgzone1"));
+            this.f5478i = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img1"));
+            this.j = findViewById(ResUtils.id(getContext(), "title_right_imgzone2"));
+            this.k = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img"));
+            this.l = (TextView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify"));
+            if (!TextUtils.isEmpty(this.f5470a)) {
+                setTitle(this.f5470a);
+            }
+            this.p = (ImageView) findViewById(ResUtils.id(getContext(), "title_bottom_seperator"));
         }
-        this.p = (ImageView) findViewById(ResUtils.id(getContext(), "title_bottom_seperator"));
     }
 
     public void setTitle(String str) {
-        this.f5440a = str;
-        this.mTitleCenterText.setText(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+            this.f5470a = str;
+            this.mTitleCenterText.setText(str);
+        }
     }
 
     public void setRightImgZone2Src(String str) {
-        this.k.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+            this.k.setVisibility(0);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdActionBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f5440a = "";
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f5470a = "";
         a();
     }
 
     public void setLeftZoneImageSrc(Drawable drawable) {
-        if (drawable != null) {
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, drawable) == null) {
+            if (drawable != null) {
+                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            }
+            this.f5473d.setImageDrawable(drawable);
         }
-        this.f5443d.setImageDrawable(drawable);
     }
 
     public void setRightImgZone1Src(String str) {
-        this.f5447h.setVisibility(0);
-        this.f5448i.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.f5477h.setVisibility(0);
+            this.f5478i.setVisibility(0);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdActionBar(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f5440a = "";
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f5470a = "";
         a();
     }
 }

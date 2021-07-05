@@ -12,31 +12,40 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PasswordView extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f13514e;
+    public EditText f13594e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f13515f;
+    public EditText f13595f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditText f13516g;
+    public EditText f13596g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EditText f13517h;
+    public EditText f13597h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EditText f13518i;
+    public EditText f13598i;
     public ImageView j;
     public ImageView k;
     public ImageView l;
@@ -49,316 +58,550 @@ public class PasswordView extends RelativeLayout {
     public Runnable s;
     public Runnable t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PasswordView f13599e;
+
+        public a(PasswordView passwordView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {passwordView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13599e = passwordView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (PasswordView.this.f13518i != null) {
-                l.K(PasswordView.this.getContext(), PasswordView.this.f13518i);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13599e.f13598i == null) {
+                return;
             }
+            l.K(this.f13599e.getContext(), this.f13599e.f13598i);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PasswordView f13600e;
+
+        public b(PasswordView passwordView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {passwordView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13600e = passwordView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g gVar = PasswordView.this.q;
-            if (gVar != null) {
-                gVar.onComplete();
+            g gVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f13600e.q) == null) {
+                return;
             }
+            gVar.onComplete();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PasswordView f13601e;
+
+        public c(PasswordView passwordView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {passwordView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13601e = passwordView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PasswordView.this.q();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f13601e.q();
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f13522e;
+        public final /* synthetic */ ImageView f13602e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditText f13523f;
-
-        public d(ImageView imageView, EditText editText) {
-            this.f13522e = imageView;
-            this.f13523f = editText;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            if (editable.length() > 0) {
-                this.f13522e.setVisibility(0);
-                PasswordView.this.r(this.f13523f);
-                this.f13523f.requestFocus();
-                PasswordView.this.f13518i = this.f13523f;
-                return;
-            }
-            this.f13522e.setVisibility(8);
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements TextWatcher {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f13525e;
-
-        public e(ImageView imageView) {
-            this.f13525e = imageView;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            if (editable.length() > 0) {
-                this.f13525e.setVisibility(0);
-                d.a.c.e.m.e.a().post(PasswordView.this.t);
-                return;
-            }
-            this.f13525e.setVisibility(8);
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements View.OnKeyListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditText f13527e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditText f13528f;
+        public final /* synthetic */ EditText f13603f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImageView f13529g;
+        public final /* synthetic */ PasswordView f13604g;
 
-        public f(EditText editText, EditText editText2, ImageView imageView) {
-            this.f13527e = editText;
-            this.f13528f = editText2;
-            this.f13529g = imageView;
+        public d(PasswordView passwordView, ImageView imageView, EditText editText) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {passwordView, imageView, editText};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13604g = passwordView;
+            this.f13602e = imageView;
+            this.f13603f = editText;
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+                if (editable.length() > 0) {
+                    this.f13602e.setVisibility(0);
+                    this.f13604g.r(this.f13603f);
+                    this.f13603f.requestFocus();
+                    this.f13604g.f13598i = this.f13603f;
+                    return;
+                }
+                this.f13602e.setVisibility(8);
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ImageView f13605e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ PasswordView f13606f;
+
+        public e(PasswordView passwordView, ImageView imageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {passwordView, imageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13606f = passwordView;
+            this.f13605e = imageView;
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+                if (editable.length() > 0) {
+                    this.f13605e.setVisibility(0);
+                    d.a.c.e.m.e.a().post(this.f13606f.t);
+                    return;
+                }
+                this.f13605e.setVisibility(8);
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f implements View.OnKeyListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ EditText f13607e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ EditText f13608f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ ImageView f13609g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ PasswordView f13610h;
+
+        public f(PasswordView passwordView, EditText editText, EditText editText2, ImageView imageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {passwordView, editText, editText2, imageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13610h = passwordView;
+            this.f13607e = editText;
+            this.f13608f = editText2;
+            this.f13609g = imageView;
         }
 
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i2, KeyEvent keyEvent) {
-            if (i2 == 67 && keyEvent.getAction() == 0) {
-                if (this.f13527e.getText().length() > 0) {
-                    this.f13527e.getText().clear();
-                } else {
-                    this.f13528f.getText().clear();
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
+                if (i2 == 67 && keyEvent.getAction() == 0) {
+                    if (this.f13607e.getText().length() > 0) {
+                        this.f13607e.getText().clear();
+                    } else {
+                        this.f13608f.getText().clear();
+                    }
+                    this.f13609g.setVisibility(8);
+                    this.f13610h.r(this.f13608f);
+                    this.f13608f.requestFocus();
+                    this.f13610h.f13598i = this.f13608f;
+                    return true;
                 }
-                this.f13529g.setVisibility(8);
-                PasswordView.this.r(this.f13528f);
-                this.f13528f.requestFocus();
-                PasswordView.this.f13518i = this.f13528f;
-                return true;
+                return false;
             }
-            return false;
+            return invokeLIL.booleanValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface g {
         void onComplete();
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PasswordView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private Drawable getEditBackgroundDrawable() {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setStroke(l.g(getContext(), R.dimen.tbds3), d.a.o0.e3.c.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
-        return gradientDrawable;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setStroke(l.g(getContext(), R.dimen.tbds3), d.a.s0.h3.c.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
+            return gradientDrawable;
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     private Drawable getEditDotDrawable() {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setShape(1);
-        gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0107));
-        return gradientDrawable;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setShape(1);
+            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0107));
+            return gradientDrawable;
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     private void setEditBackgroundDrawable(EditText editText) {
-        editText.setBackgroundDrawable(getEditBackgroundDrawable());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, editText) == null) {
+            editText.setBackgroundDrawable(getEditBackgroundDrawable());
+        }
     }
 
     private void setEditDotDrawable(ImageView imageView) {
-        imageView.setImageDrawable(getEditDotDrawable());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, this, imageView) == null) {
+            imageView.setImageDrawable(getEditDotDrawable());
+        }
     }
 
     public void e() {
-        for (EditText editText : this.o) {
-            editText.getText().clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (EditText editText : this.o) {
+                editText.getText().clear();
+            }
+            h();
+            i();
         }
-        h();
-        i();
     }
 
     public void f() {
-        l.x(getContext(), this.f13514e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            l.x(getContext(), this.f13594e);
+        }
     }
 
     public final void g() {
-        RelativeLayout.inflate(getContext(), R.layout.view_password, this);
-        this.f13514e = (EditText) findViewById(R.id.edit_password_a);
-        this.f13515f = (EditText) findViewById(R.id.edit_password_b);
-        this.f13516g = (EditText) findViewById(R.id.edit_password_c);
-        this.f13517h = (EditText) findViewById(R.id.edit_password_d);
-        this.o.add(this.f13514e);
-        this.o.add(this.f13515f);
-        this.o.add(this.f13516g);
-        this.o.add(this.f13517h);
-        this.j = (ImageView) findViewById(R.id.edit_dot_a);
-        this.k = (ImageView) findViewById(R.id.edit_dot_b);
-        this.l = (ImageView) findViewById(R.id.edit_dot_c);
-        this.m = (ImageView) findViewById(R.id.edit_dot_d);
-        this.p.add(this.j);
-        this.p.add(this.k);
-        this.p.add(this.l);
-        this.p.add(this.m);
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.password_click);
-        this.n = frameLayout;
-        frameLayout.setOnClickListener(new c());
-        n();
-        l();
-        i();
-        h();
-        j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            RelativeLayout.inflate(getContext(), R.layout.view_password, this);
+            this.f13594e = (EditText) findViewById(R.id.edit_password_a);
+            this.f13595f = (EditText) findViewById(R.id.edit_password_b);
+            this.f13596g = (EditText) findViewById(R.id.edit_password_c);
+            this.f13597h = (EditText) findViewById(R.id.edit_password_d);
+            this.o.add(this.f13594e);
+            this.o.add(this.f13595f);
+            this.o.add(this.f13596g);
+            this.o.add(this.f13597h);
+            this.j = (ImageView) findViewById(R.id.edit_dot_a);
+            this.k = (ImageView) findViewById(R.id.edit_dot_b);
+            this.l = (ImageView) findViewById(R.id.edit_dot_c);
+            this.m = (ImageView) findViewById(R.id.edit_dot_d);
+            this.p.add(this.j);
+            this.p.add(this.k);
+            this.p.add(this.l);
+            this.p.add(this.m);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.password_click);
+            this.n = frameLayout;
+            frameLayout.setOnClickListener(new c(this));
+            n();
+            l();
+            i();
+            h();
+            j();
+        }
     }
 
     public String getPassWord() {
-        StringBuilder sb = new StringBuilder();
-        for (EditText editText : this.o) {
-            sb.append(editText.getText().toString());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (EditText editText : this.o) {
+                sb.append(editText.getText().toString());
+            }
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 
     public final void h() {
-        r(this.f13514e);
-        this.f13514e.requestFocus();
-        this.f13518i = this.f13514e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            r(this.f13594e);
+            this.f13594e.requestFocus();
+            this.f13598i = this.f13594e;
+        }
     }
 
     public final void i() {
-        for (ImageView imageView : this.p) {
-            imageView.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            for (ImageView imageView : this.p) {
+                imageView.setVisibility(8);
+            }
         }
     }
 
     public void j() {
-        for (EditText editText : this.o) {
-            setEditBackgroundDrawable(editText);
-        }
-        for (ImageView imageView : this.p) {
-            setEditDotDrawable(imageView);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            for (EditText editText : this.o) {
+                setEditBackgroundDrawable(editText);
+            }
+            for (ImageView imageView : this.p) {
+                setEditDotDrawable(imageView);
+            }
         }
     }
 
     public final void k() {
-        for (EditText editText : this.o) {
-            for (TextWatcher textWatcher : this.r.get(editText)) {
-                editText.removeTextChangedListener(textWatcher);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            for (EditText editText : this.o) {
+                for (TextWatcher textWatcher : this.r.get(editText)) {
+                    editText.removeTextChangedListener(textWatcher);
+                }
             }
         }
     }
 
     public final void l() {
-        for (int size = this.o.size() - 1; size > 0; size--) {
-            m(this.o.get(size), this.o.get(size - 1), this.p.get(size));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            for (int size = this.o.size() - 1; size > 0; size--) {
+                m(this.o.get(size), this.o.get(size - 1), this.p.get(size));
+            }
         }
     }
 
     public final void m(EditText editText, EditText editText2, ImageView imageView) {
-        editText.setOnKeyListener(new f(editText, editText2, imageView));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, editText, editText2, imageView) == null) {
+            editText.setOnKeyListener(new f(this, editText, editText2, imageView));
+        }
     }
 
     public final void n() {
         int i2;
-        int size = this.o.size();
-        int i3 = 0;
-        while (true) {
-            i2 = size - 1;
-            if (i3 >= i2) {
-                break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            int size = this.o.size();
+            int i3 = 0;
+            while (true) {
+                i2 = size - 1;
+                if (i3 >= i2) {
+                    break;
+                }
+                int i4 = i3 + 1;
+                p(this.o.get(i3), this.o.get(i4), this.p.get(i3));
+                i3 = i4;
             }
-            int i4 = i3 + 1;
-            p(this.o.get(i3), this.o.get(i4), this.p.get(i3));
-            i3 = i4;
-        }
-        if (i2 >= 0) {
-            o(this.o.get(i2), this.p.get(i2));
+            if (i2 >= 0) {
+                o(this.o.get(i2), this.p.get(i2));
+            }
         }
     }
 
     public final void o(EditText editText, ImageView imageView) {
-        e eVar = new e(imageView);
-        editText.addTextChangedListener(eVar);
-        List<TextWatcher> list = this.r.get(editText);
-        if (ListUtils.isEmpty(list)) {
-            list = new ArrayList<>();
-            this.r.put(editText, list);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, imageView) == null) {
+            e eVar = new e(this, imageView);
+            editText.addTextChangedListener(eVar);
+            List<TextWatcher> list = this.r.get(editText);
+            if (ListUtils.isEmpty(list)) {
+                list = new ArrayList<>();
+                this.r.put(editText, list);
+            }
+            list.add(eVar);
         }
-        list.add(eVar);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        d.a.c.e.m.e.a().removeCallbacks(this.s);
-        d.a.c.e.m.e.a().removeCallbacks(this.t);
-        k();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onDetachedFromWindow();
+            d.a.c.e.m.e.a().removeCallbacks(this.s);
+            d.a.c.e.m.e.a().removeCallbacks(this.t);
+            k();
+        }
     }
 
     public final void p(EditText editText, EditText editText2, ImageView imageView) {
-        d dVar = new d(imageView, editText2);
-        editText.addTextChangedListener(dVar);
-        List<TextWatcher> list = this.r.get(editText);
-        if (ListUtils.isEmpty(list)) {
-            list = new ArrayList<>();
-            this.r.put(editText, list);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, editText, editText2, imageView) == null) {
+            d dVar = new d(this, imageView, editText2);
+            editText.addTextChangedListener(dVar);
+            List<TextWatcher> list = this.r.get(editText);
+            if (ListUtils.isEmpty(list)) {
+                list = new ArrayList<>();
+                this.r.put(editText, list);
+            }
+            list.add(dVar);
         }
-        list.add(dVar);
     }
 
     public void q() {
-        d.a.c.e.m.e.a().removeCallbacks(this.s);
-        d.a.c.e.m.e.a().postDelayed(this.s, 300L);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            d.a.c.e.m.e.a().removeCallbacks(this.s);
+            d.a.c.e.m.e.a().postDelayed(this.s, 300L);
+        }
     }
 
     public final void r(EditText editText) {
-        if (editText == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, editText) == null) || editText == null) {
             return;
         }
         for (EditText editText2 : this.o) {
@@ -368,20 +611,57 @@ public class PasswordView extends RelativeLayout {
     }
 
     public void setOnPasswordInputComplete(g gVar) {
-        this.q = gVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) {
+            this.q = gVar;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PasswordView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PasswordView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.o = new ArrayList();
         this.p = new ArrayList();
         this.r = new HashMap();
-        this.s = new a();
-        this.t = new b();
+        this.s = new a(this);
+        this.t = new b(this);
         g();
     }
 }

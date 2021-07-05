@@ -3,16 +3,36 @@ package com.baidu.ufosdk.ui;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class dp implements AdapterView.OnItemClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f22947a;
+    public final /* synthetic */ FeedbackListActivity f23463a;
 
     public dp(FeedbackListActivity feedbackListActivity) {
-        this.f22947a = feedbackListActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackListActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23463a = feedbackListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,21 +41,24 @@ public final class dp implements AdapterView.OnItemClickListener {
         du duVar;
         List list2;
         List list3;
-        list = this.f22947a.f22787e;
-        ((Map) list.get(i2)).put("newmsg", "0");
-        duVar = this.f22947a.u;
-        duVar.notifyDataSetChanged();
-        Intent intent = new Intent();
-        intent.setClass(this.f22947a, FeedbackInputActivity.class);
-        list2 = this.f22947a.f22787e;
-        intent.putExtra("msgid", (String) ((Map) list2.get(i2)).get("id"));
-        list3 = this.f22947a.f22787e;
-        intent.putExtra("appid", (String) ((Map) list3.get(i2)).get("appid"));
-        intent.putExtra("fromList", true);
-        intent.putExtra("fromEdit", false);
-        if (com.baidu.ufosdk.f.h.a()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            list = this.f23463a.f23303e;
+            ((Map) list.get(i2)).put("newmsg", "0");
+            duVar = this.f23463a.u;
+            duVar.notifyDataSetChanged();
+            Intent intent = new Intent();
+            intent.setClass(this.f23463a, FeedbackInputActivity.class);
+            list2 = this.f23463a.f23303e;
+            intent.putExtra("msgid", (String) ((Map) list2.get(i2)).get("id"));
+            list3 = this.f23463a.f23303e;
+            intent.putExtra("appid", (String) ((Map) list3.get(i2)).get("appid"));
+            intent.putExtra("fromList", true);
+            intent.putExtra("fromEdit", false);
+            if (com.baidu.ufosdk.f.h.a()) {
+                return;
+            }
+            this.f23463a.startActivity(intent);
         }
-        this.f22947a.startActivity(intent);
     }
 }

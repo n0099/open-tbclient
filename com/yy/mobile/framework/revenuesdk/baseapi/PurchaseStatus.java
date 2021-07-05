@@ -1,65 +1,143 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
 
 import androidx.annotation.Keep;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Keep
-/* loaded from: classes7.dex */
-public enum PurchaseStatus {
-    UNKNOWN(0, "未知状态"),
-    ORDER_START(100, "开始下单请求"),
-    ORDER_SUCCESS(101, "下单请求成功"),
-    ORDER_FAIL(102, "下单请求失败"),
-    PAY_START(110, "开始支付，支付页面拉起"),
-    PAY_CANCEL(111, "支付取消"),
-    PAY_SUCCESS(112, EventAlias.PayEventAlias.PAY_SUCCESS),
-    PAY_FAIL(113, EventAlias.PayEventAlias.PAY_FAIL),
-    REPORT_START(120, "上报开始"),
-    REPORT_SUCCESS(121, "上报成功"),
-    REPORT_FAIL(122, "上报失败");
-    
+/* loaded from: classes8.dex */
+public final class PurchaseStatus {
+    public static final /* synthetic */ PurchaseStatus[] $VALUES;
+    public static /* synthetic */ Interceptable $ic;
+    public static final PurchaseStatus ORDER_FAIL;
+    public static final PurchaseStatus ORDER_START;
+    public static final PurchaseStatus ORDER_SUCCESS;
+    public static final PurchaseStatus PAY_CANCEL;
+    public static final PurchaseStatus PAY_FAIL;
+    public static final PurchaseStatus PAY_START;
+    public static final PurchaseStatus PAY_SUCCESS;
+    public static final PurchaseStatus REPORT_FAIL;
+    public static final PurchaseStatus REPORT_START;
+    public static final PurchaseStatus REPORT_SUCCESS;
+    public static final PurchaseStatus UNKNOWN;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int code;
     public final String msg;
 
-    PurchaseStatus(int i2, String str) {
-        this.code = i2;
-        this.msg = str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(863336314, "Lcom/yy/mobile/framework/revenuesdk/baseapi/PurchaseStatus;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(863336314, "Lcom/yy/mobile/framework/revenuesdk/baseapi/PurchaseStatus;");
+                return;
+            }
+        }
+        UNKNOWN = new PurchaseStatus(RomUtils.UNKNOWN, 0, 0, "未知状态");
+        ORDER_START = new PurchaseStatus("ORDER_START", 1, 100, "开始下单请求");
+        ORDER_SUCCESS = new PurchaseStatus("ORDER_SUCCESS", 2, 101, "下单请求成功");
+        ORDER_FAIL = new PurchaseStatus("ORDER_FAIL", 3, 102, "下单请求失败");
+        PAY_START = new PurchaseStatus("PAY_START", 4, 110, "开始支付，支付页面拉起");
+        PAY_CANCEL = new PurchaseStatus("PAY_CANCEL", 5, 111, "支付取消");
+        PAY_SUCCESS = new PurchaseStatus("PAY_SUCCESS", 6, 112, EventAlias.PayEventAlias.PAY_SUCCESS);
+        PAY_FAIL = new PurchaseStatus("PAY_FAIL", 7, 113, EventAlias.PayEventAlias.PAY_FAIL);
+        REPORT_START = new PurchaseStatus("REPORT_START", 8, 120, "上报开始");
+        REPORT_SUCCESS = new PurchaseStatus("REPORT_SUCCESS", 9, 121, "上报成功");
+        PurchaseStatus purchaseStatus = new PurchaseStatus("REPORT_FAIL", 10, 122, "上报失败");
+        REPORT_FAIL = purchaseStatus;
+        $VALUES = new PurchaseStatus[]{UNKNOWN, ORDER_START, ORDER_SUCCESS, ORDER_FAIL, PAY_START, PAY_CANCEL, PAY_SUCCESS, PAY_FAIL, REPORT_START, REPORT_SUCCESS, purchaseStatus};
+    }
+
+    public PurchaseStatus(String str, int i2, int i3, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.code = i3;
+        this.msg = str2;
+    }
+
+    public static PurchaseStatus valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (PurchaseStatus) Enum.valueOf(PurchaseStatus.class, str) : (PurchaseStatus) invokeL.objValue;
+    }
+
+    public static PurchaseStatus[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (PurchaseStatus[]) $VALUES.clone() : (PurchaseStatus[]) invokeV.objValue;
     }
 
     public int getCode() {
-        return this.code;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : invokeV.intValue;
     }
 
     public String getMessage() {
-        return this.msg;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msg : (String) invokeV.objValue;
     }
 
     public static PurchaseStatus valueOf(int i2) {
-        if (i2 != 120) {
-            if (i2 != 121) {
-                switch (i2) {
-                    case 100:
-                        return ORDER_START;
-                    case 101:
-                        return ORDER_SUCCESS;
-                    case 102:
-                        return ORDER_FAIL;
-                    default:
-                        switch (i2) {
-                            case 110:
-                                return PAY_START;
-                            case 111:
-                                return PAY_CANCEL;
-                            case 112:
-                                return PAY_SUCCESS;
-                            case 113:
-                                return PAY_FAIL;
-                            default:
-                                return UNKNOWN;
-                        }
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (i2 != 120) {
+                if (i2 != 121) {
+                    switch (i2) {
+                        case 100:
+                            return ORDER_START;
+                        case 101:
+                            return ORDER_SUCCESS;
+                        case 102:
+                            return ORDER_FAIL;
+                        default:
+                            switch (i2) {
+                                case 110:
+                                    return PAY_START;
+                                case 111:
+                                    return PAY_CANCEL;
+                                case 112:
+                                    return PAY_SUCCESS;
+                                case 113:
+                                    return PAY_FAIL;
+                                default:
+                                    return UNKNOWN;
+                            }
+                    }
                 }
+                return REPORT_FAIL;
             }
-            return REPORT_FAIL;
+            return REPORT_SUCCESS;
         }
-        return REPORT_SUCCESS;
+        return (PurchaseStatus) invokeI.objValue;
     }
 }

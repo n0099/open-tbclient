@@ -3,28 +3,51 @@ package com.baidu.tieba.frs.brand.relationbar;
 import android.content.Context;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.OriForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f15397a;
+    public Context f15490a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<OriForumInfo> f15398b;
+    public List<OriForumInfo> f15491b;
 
     public RelationBarAdapter(Context context) {
-        this.f15397a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f15490a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: c */
+    /* renamed from: d */
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i2) {
-        OriForumInfo oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f15398b, i2);
-        if (oriForumInfo == null) {
+        OriForumInfo oriForumInfo;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, relationBarHolder, i2) == null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f15491b, i2)) == null) {
             return;
         }
         RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.a();
@@ -34,20 +57,25 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: d */
+    /* renamed from: e */
     public RelationBarHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        return new RelationBarHolder(new RelationBarCellView(this.f15397a));
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) ? new RelationBarHolder(new RelationBarCellView(this.f15490a)) : (RelationBarHolder) invokeLI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f15398b);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.f15491b) : invokeV.intValue;
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (ListUtils.isEmpty(list)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f15398b = list;
+        this.f15491b = list;
     }
 }

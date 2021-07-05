@@ -5,80 +5,148 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class ChatImageWithTailView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ChatClipImageItemView f17286e;
+    public ChatClipImageItemView f17412e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f17287f;
+    public LinearLayout f17413f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f17288g;
+    public TbImageView f17414g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17289h;
+    public TextView f17415h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChatImageWithTailView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
     public void a(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.chat_image_with_tail_item, this);
-        ChatClipImageItemView chatClipImageItemView = (ChatClipImageItemView) findViewById(R.id.img_msgitem_image_new);
-        this.f17286e = chatClipImageItemView;
-        chatClipImageItemView.setContentDescription(getContext().getString(R.string.editor_image));
-        this.f17286e.setDefaultResource(R.drawable.pic_image_h_not);
-        this.f17287f = (LinearLayout) findViewById(R.id.small_tail);
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.tail_icon);
-        this.f17288g = tbImageView;
-        tbImageView.setDefaultResource(R.drawable.tb_launcher_icon);
-        this.f17288g.setAutoChangeStyle(false);
-        this.f17289h = (TextView) findViewById(R.id.tail_game_from);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.chat_image_with_tail_item, this);
+            ChatClipImageItemView chatClipImageItemView = (ChatClipImageItemView) findViewById(R.id.img_msgitem_image_new);
+            this.f17412e = chatClipImageItemView;
+            chatClipImageItemView.setContentDescription(getContext().getString(R.string.editor_image));
+            this.f17412e.setDefaultResource(R.drawable.pic_image_h_not);
+            this.f17413f = (LinearLayout) findViewById(R.id.small_tail);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.tail_icon);
+            this.f17414g = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.tb_launcher_icon);
+            this.f17414g.setAutoChangeStyle(false);
+            this.f17415h = (TextView) findViewById(R.id.tail_game_from);
+        }
     }
 
     public TextView getFromSource() {
-        return this.f17289h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17415h : (TextView) invokeV.objValue;
     }
 
     public TbImageView getIcon() {
-        return this.f17288g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17414g : (TbImageView) invokeV.objValue;
     }
 
     public ChatClipImageItemView getImage() {
-        return this.f17286e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17412e : (ChatClipImageItemView) invokeV.objValue;
     }
 
     public LinearLayout getTail() {
-        return this.f17287f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17413f : (LinearLayout) invokeV.objValue;
     }
 
     public void setFromSource(TextView textView) {
-        this.f17289h = textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, textView) == null) {
+            this.f17415h = textView;
+        }
     }
 
     public void setIcon(TbImageView tbImageView) {
-        this.f17288g = tbImageView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tbImageView) == null) {
+            this.f17414g = tbImageView;
+        }
     }
 
     public void setImage(ChatClipImageItemView chatClipImageItemView) {
-        this.f17286e = chatClipImageItemView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, chatClipImageItemView) == null) {
+            this.f17412e = chatClipImageItemView;
+        }
     }
 
     public void setIsSupportNight(boolean z) {
-        this.f17288g.setAutoChangeStyle(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f17414g.setAutoChangeStyle(z);
+        }
     }
 
     public void setTail(LinearLayout linearLayout) {
-        this.f17287f = linearLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, linearLayout) == null) {
+            this.f17413f = linearLayout;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChatImageWithTailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 }

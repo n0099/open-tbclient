@@ -9,9 +9,18 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.AbsListView;
 import android.widget.Scroller;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BdExpandListView extends BdListView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Context K;
     public final Scroller L;
     public View M;
@@ -28,13 +37,37 @@ public class BdExpandListView extends BdListView {
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BdExpandListView f2329e;
+
+        public a(BdExpandListView bdExpandListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdExpandListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f2329e = bdExpandListView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            BdExpandListView.this.M.setLayoutParams(new AbsListView.LayoutParams(BdExpandListView.this.M.getWidth(), BdExpandListView.this.N));
-            BdExpandListView.this.invalidate();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f2329e.M.setLayoutParams(new AbsListView.LayoutParams(this.f2329e.M.getWidth(), this.f2329e.N));
+                this.f2329e.invalidate();
+            }
         }
     }
 
@@ -49,25 +82,60 @@ public class BdExpandListView extends BdListView {
 
     /* loaded from: classes.dex */
     public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2332a;
+        public int f2330a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2333b;
+        public int f2331b;
 
         public c(int i2, int i3, int i4, int i5) {
-            this.f2332a = i3;
-            this.f2333b = i5;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i6 = newInitContext.flag;
+                if ((i6 & 1) != 0) {
+                    int i7 = i6 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f2330a = i3;
+            this.f2331b = i5;
         }
 
         public int a(float f2) {
-            return (int) (this.f2332a + (f2 / 2.5f));
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f2330a + (f2 / 2.5f)) : invokeF.intValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdExpandListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.R = false;
         this.K = context;
         this.L = new Scroller(this.K);
@@ -78,119 +146,149 @@ public class BdExpandListView extends BdListView {
     }
 
     public final void I(float f2) {
-        this.W.a(360.0f - ((f2 * 360.0f) / this.V));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
+            this.W.a(360.0f - ((f2 * 360.0f) / this.V));
+        }
     }
 
     public void J() {
-        b bVar = this.W;
-        if (bVar != null) {
-            bVar.onRefresh();
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.W) == null) {
+            return;
         }
+        bVar.onRefresh();
     }
 
     public void K() {
-        if (this.Q == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.Q == null) {
             return;
         }
-        if (this.M.getHeight() >= this.Q.f2333b - (this.V / 2)) {
+        if (this.M.getHeight() >= this.Q.f2331b - (this.V / 2)) {
             J();
         } else {
             this.W.b();
         }
-        this.L.startScroll(0, this.M.getHeight(), 0, this.Q.f2332a - this.M.getHeight(), 200);
+        this.L.startScroll(0, this.M.getHeight(), 0, this.Q.f2330a - this.M.getHeight(), 200);
         invalidate();
         this.R = false;
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.L.computeScrollOffset()) {
-            this.M.setLayoutParams(new AbsListView.LayoutParams(this.M.getWidth(), this.L.getCurrY()));
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.L.computeScrollOffset()) {
+                this.M.setLayoutParams(new AbsListView.LayoutParams(this.M.getWidth(), this.L.getCurrY()));
+                return;
+            }
+            super.computeScroll();
         }
-        super.computeScroll();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x001d, code lost:
-        if (r0 != 3) goto L12;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0021, code lost:
+        if (r0 != 3) goto L14;
      */
     @Override // android.view.ViewGroup, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        int action = motionEvent.getAction();
-        if (this.L.isFinished()) {
-            float y = motionEvent.getY();
-            this.P = y;
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        float f2 = this.T;
-                        float f3 = f2 - this.S;
-                        float f4 = y - this.O;
-                        this.S = f2;
-                        if (this.M.getParent() == this && this.Q != null && this.M.isShown() && this.M.getTop() >= 0 && Math.abs(f4) >= this.U && Math.abs(f3) < this.U) {
-                            int a2 = this.Q.a(this.P - this.O);
-                            c cVar = this.Q;
-                            if (a2 > cVar.f2332a && a2 <= cVar.f2333b) {
-                                this.R = true;
-                                this.M.setLayoutParams(new AbsListView.LayoutParams(this.M.getWidth(), a2));
-                                I(a2 - this.Q.f2332a);
-                            } else {
-                                c cVar2 = this.Q;
-                                if (a2 <= cVar2.f2332a) {
-                                    this.R = false;
-                                } else if (a2 > cVar2.f2333b) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (this.L.isFinished()) {
+                float y = motionEvent.getY();
+                this.P = y;
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2) {
+                            float f2 = this.T;
+                            float f3 = f2 - this.S;
+                            float f4 = y - this.O;
+                            this.S = f2;
+                            if (this.M.getParent() == this && this.Q != null && this.M.isShown() && this.M.getTop() >= 0 && Math.abs(f4) >= this.U && Math.abs(f3) < this.U) {
+                                int a2 = this.Q.a(this.P - this.O);
+                                c cVar = this.Q;
+                                if (a2 > cVar.f2330a && a2 <= cVar.f2331b) {
                                     this.R = true;
+                                    this.M.setLayoutParams(new AbsListView.LayoutParams(this.M.getWidth(), a2));
+                                    I(a2 - this.Q.f2330a);
                                 } else {
-                                    this.R = false;
+                                    c cVar2 = this.Q;
+                                    if (a2 <= cVar2.f2330a) {
+                                        this.R = false;
+                                    } else if (a2 > cVar2.f2331b) {
+                                        this.R = true;
+                                    } else {
+                                        this.R = false;
+                                    }
                                 }
+                            } else {
+                                this.R = false;
                             }
-                        } else {
-                            this.R = false;
                         }
                     }
-                }
-                if (this.R) {
-                    K();
+                    if (this.R) {
+                        K();
+                    } else {
+                        this.W.b();
+                    }
+                    new Handler().postDelayed(new a(this), 200L);
                 } else {
-                    this.W.b();
+                    int height = this.M.getHeight();
+                    this.O = this.P;
+                    this.S = this.T;
+                    this.Q = new c(0, height, 0, this.V + height);
                 }
-                new Handler().postDelayed(new a(), 200L);
-            } else {
-                int height = this.M.getHeight();
-                this.O = this.P;
-                this.S = this.T;
-                this.Q = new c(0, height, 0, this.V + height);
+                return super.dispatchTouchEvent(motionEvent);
             }
-            return super.dispatchTouchEvent(motionEvent);
+            return true;
         }
-        return true;
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.R) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            if (this.R) {
+                return true;
+            }
+            return super.onInterceptTouchEvent(motionEvent);
         }
-        return super.onInterceptTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.R) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            if (this.R) {
+                return true;
+            }
+            return super.onTouchEvent(motionEvent);
         }
-        return super.onTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
     public void setExpandListRefreshListener(b bVar) {
-        this.W = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.W = bVar;
+        }
     }
 
     public void setExpandView(View view, int i2) {
-        this.M = view;
-        this.N = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2) == null) {
+            this.M = view;
+            this.N = i2;
+        }
     }
 }

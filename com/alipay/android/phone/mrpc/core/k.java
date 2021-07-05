@@ -1,37 +1,82 @@
 package com.alipay.android.phone.mrpc.core;
 
 import android.text.format.Time;
+import com.baidu.ar.auth.FeatureCodes;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class k {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1640a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
+    public static final Pattern f1643a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f1641b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+    public static final Pattern f1644b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1642a;
+        public int f1645a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1643b;
+        public int f1646b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f1644c;
+        public int f1647c;
 
         public a(int i2, int i3, int i4) {
-            this.f1642a = i2;
-            this.f1643b = i3;
-            this.f1644c = i4;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1645a = i2;
+            this.f1646b = i3;
+            this.f1647c = i4;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-834063211, "Lcom/alipay/android/phone/mrpc/core/k;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-834063211, "Lcom/alipay/android/phone/mrpc/core/k;");
+                return;
+            }
+        }
+        f1643a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
+        f1644b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+    }
+
     public static long a(String str) {
+        InterceptResult invokeL;
         int c2;
         int d2;
         int i2;
@@ -39,109 +84,130 @@ public final class k {
         int i3;
         int i4;
         int i5;
-        Matcher matcher = f1640a.matcher(str);
-        if (matcher.find()) {
-            i2 = b(matcher.group(1));
-            c2 = c(matcher.group(2));
-            d2 = d(matcher.group(3));
-            aVar = e(matcher.group(4));
-        } else {
-            Matcher matcher2 = f1641b.matcher(str);
-            if (!matcher2.find()) {
-                throw new IllegalArgumentException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Matcher matcher = f1643a.matcher(str);
+            if (matcher.find()) {
+                i2 = b(matcher.group(1));
+                c2 = c(matcher.group(2));
+                d2 = d(matcher.group(3));
+                aVar = e(matcher.group(4));
+            } else {
+                Matcher matcher2 = f1644b.matcher(str);
+                if (!matcher2.find()) {
+                    throw new IllegalArgumentException();
+                }
+                c2 = c(matcher2.group(1));
+                int b2 = b(matcher2.group(2));
+                a e2 = e(matcher2.group(3));
+                d2 = d(matcher2.group(4));
+                i2 = b2;
+                aVar = e2;
             }
-            c2 = c(matcher2.group(1));
-            int b2 = b(matcher2.group(2));
-            a e2 = e(matcher2.group(3));
-            d2 = d(matcher2.group(4));
-            i2 = b2;
-            aVar = e2;
+            if (d2 >= 2038) {
+                i3 = 1;
+                i4 = 0;
+                i5 = 2038;
+            } else {
+                i3 = i2;
+                i4 = c2;
+                i5 = d2;
+            }
+            Time time = new Time("UTC");
+            time.set(aVar.f1647c, aVar.f1646b, aVar.f1645a, i3, i4, i5);
+            return time.toMillis(false);
         }
-        if (d2 >= 2038) {
-            i3 = 1;
-            i4 = 0;
-            i5 = 2038;
-        } else {
-            i3 = i2;
-            i4 = c2;
-            i5 = d2;
-        }
-        Time time = new Time("UTC");
-        time.set(aVar.f1644c, aVar.f1643b, aVar.f1642a, i3, i4, i5);
-        return time.toMillis(false);
+        return invokeL.longValue;
     }
 
     public static int b(String str) {
-        return str.length() == 2 ? ((str.charAt(0) - '0') * 10) + (str.charAt(1) - '0') : str.charAt(0) - '0';
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.length() == 2 ? ((str.charAt(0) - '0') * 10) + (str.charAt(1) - '0') : str.charAt(0) - '0' : invokeL.intValue;
     }
 
     public static int c(String str) {
-        int lowerCase = ((Character.toLowerCase(str.charAt(0)) + Character.toLowerCase(str.charAt(1))) + Character.toLowerCase(str.charAt(2))) - 291;
-        if (lowerCase != 9) {
-            if (lowerCase != 10) {
-                if (lowerCase != 22) {
-                    if (lowerCase != 26) {
-                        if (lowerCase != 29) {
-                            if (lowerCase != 32) {
-                                if (lowerCase != 40) {
-                                    if (lowerCase != 42) {
-                                        if (lowerCase != 48) {
-                                            switch (lowerCase) {
-                                                case 35:
-                                                    return 9;
-                                                case 36:
-                                                    return 4;
-                                                case 37:
-                                                    return 8;
-                                                default:
-                                                    throw new IllegalArgumentException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int lowerCase = ((Character.toLowerCase(str.charAt(0)) + Character.toLowerCase(str.charAt(1))) + Character.toLowerCase(str.charAt(2))) - 291;
+            if (lowerCase != 9) {
+                if (lowerCase != 10) {
+                    if (lowerCase != 22) {
+                        if (lowerCase != 26) {
+                            if (lowerCase != 29) {
+                                if (lowerCase != 32) {
+                                    if (lowerCase != 40) {
+                                        if (lowerCase != 42) {
+                                            if (lowerCase != 48) {
+                                                switch (lowerCase) {
+                                                    case 35:
+                                                        return 9;
+                                                    case 36:
+                                                        return 4;
+                                                    case 37:
+                                                        return 8;
+                                                    default:
+                                                        throw new IllegalArgumentException();
+                                                }
                                             }
+                                            return 10;
                                         }
-                                        return 10;
+                                        return 5;
                                     }
-                                    return 5;
+                                    return 6;
                                 }
-                                return 6;
+                                return 3;
                             }
-                            return 3;
+                            return 2;
                         }
-                        return 2;
+                        return 7;
                     }
-                    return 7;
+                    return 0;
                 }
-                return 0;
+                return 1;
             }
-            return 1;
+            return 11;
         }
-        return 11;
+        return invokeL.intValue;
     }
 
     public static int d(String str) {
-        if (str.length() == 2) {
-            int charAt = ((str.charAt(0) - '0') * 10) + (str.charAt(1) - '0');
-            return charAt >= 70 ? charAt + 1900 : charAt + 2000;
-        } else if (str.length() == 3) {
-            return ((str.charAt(0) - '0') * 100) + ((str.charAt(1) - '0') * 10) + (str.charAt(2) - '0') + 1900;
-        } else {
-            if (str.length() == 4) {
-                return ((str.charAt(0) - '0') * 1000) + ((str.charAt(1) - '0') * 100) + ((str.charAt(2) - '0') * 10) + (str.charAt(3) - '0');
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            if (str.length() == 2) {
+                int charAt = ((str.charAt(0) - '0') * 10) + (str.charAt(1) - '0');
+                return charAt >= 70 ? charAt + FeatureCodes.SKY_SEG : charAt + 2000;
+            } else if (str.length() == 3) {
+                return ((str.charAt(0) - '0') * 100) + ((str.charAt(1) - '0') * 10) + (str.charAt(2) - '0') + FeatureCodes.SKY_SEG;
+            } else {
+                if (str.length() == 4) {
+                    return ((str.charAt(0) - '0') * 1000) + ((str.charAt(1) - '0') * 100) + ((str.charAt(2) - '0') * 10) + (str.charAt(3) - '0');
+                }
+                return 1970;
             }
-            return 1970;
         }
+        return invokeL.intValue;
     }
 
     public static a e(String str) {
+        InterceptResult invokeL;
         int i2;
         int i3;
         int i4;
-        int charAt = str.charAt(0) - '0';
-        if (str.charAt(1) != ':') {
-            i2 = 2;
-            charAt = (charAt * 10) + (str.charAt(1) - '0');
-        } else {
-            i2 = 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            int charAt = str.charAt(0) - '0';
+            if (str.charAt(1) != ':') {
+                i2 = 2;
+                charAt = (charAt * 10) + (str.charAt(1) - '0');
+            } else {
+                i2 = 1;
+            }
+            int i5 = i2 + 1 + 1 + 1 + 1;
+            return new a(charAt, ((str.charAt(i3) - '0') * 10) + (str.charAt(i4) - '0'), ((str.charAt(i5) - '0') * 10) + (str.charAt(i5 + 1) - '0'));
         }
-        int i5 = i2 + 1 + 1 + 1 + 1;
-        return new a(charAt, ((str.charAt(i3) - '0') * 10) + (str.charAt(i4) - '0'), ((str.charAt(i5) - '0') * 10) + (str.charAt(i5 + 1) - '0'));
+        return (a) invokeL.objValue;
     }
 }

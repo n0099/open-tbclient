@@ -1,54 +1,156 @@
 package com.bytedance.sdk.openadsdk.component.c;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.d.m;
-import com.bytedance.sdk.openadsdk.core.h;
+import com.bytedance.sdk.openadsdk.core.e.m;
+import com.bytedance.sdk.openadsdk.core.e.n;
+import com.bytedance.sdk.openadsdk.core.g;
+import com.bytedance.sdk.openadsdk.core.k;
+import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.core.q;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final q f27585a = p.f();
+    public final p f29231a;
 
-    public static a a() {
-        return new a();
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f29231a = o.f();
     }
 
-    public void a(final Context context, AdSlot adSlot, final TTAdNative.InteractionAdListener interactionAdListener) {
-        this.f27585a.a(adSlot, new m(), 2, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
-            @Override // com.bytedance.sdk.openadsdk.core.q.b
-            public void a(int i2, String str) {
-                interactionAdListener.onError(i2, str);
-            }
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (a) invokeV.objValue;
+    }
 
-            @Override // com.bytedance.sdk.openadsdk.core.q.b
-            public void a(com.bytedance.sdk.openadsdk.core.d.a aVar) {
-                if (aVar.c() != null && !aVar.c().isEmpty()) {
-                    l lVar = aVar.c().get(0);
-                    if (lVar.aH()) {
-                        final b bVar = new b(context, lVar);
-                        bVar.a(new com.bytedance.sdk.openadsdk.core.l() { // from class: com.bytedance.sdk.openadsdk.component.c.a.1.1
-                            @Override // com.bytedance.sdk.openadsdk.core.l
-                            public void a() {
-                                interactionAdListener.onInteractionAdLoad(bVar);
-                            }
+    public void a(Context context, AdSlot adSlot, TTAdNative.InteractionAdListener interactionAdListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, adSlot, interactionAdListener) == null) {
+            this.f29231a.a(adSlot, new n(), 2, new p.b(this, interactionAdListener, context) { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.bytedance.sdk.openadsdk.core.l
-                            public void b() {
-                                interactionAdListener.onError(-6, h.a(-6));
-                            }
-                        });
-                        return;
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ TTAdNative.InteractionAdListener f29232a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ Context f29233b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ a f29234c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, interactionAdListener, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                    interactionAdListener.onError(-4, h.a(-4));
-                    return;
+                    this.f29234c = this;
+                    this.f29232a = interactionAdListener;
+                    this.f29233b = context;
                 }
-                interactionAdListener.onError(-3, h.a(-3));
-            }
-        });
+
+                @Override // com.bytedance.sdk.openadsdk.core.p.b
+                public void a(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        this.f29232a.onError(i2, str);
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.core.p.b
+                public void a(com.bytedance.sdk.openadsdk.core.e.a aVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+                        if (aVar.c() != null && !aVar.c().isEmpty()) {
+                            m mVar = aVar.c().get(0);
+                            if (mVar.aK()) {
+                                b bVar = new b(this.f29233b, mVar);
+                                bVar.a(new k(this, bVar) { // from class: com.bytedance.sdk.openadsdk.component.c.a.1.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    /* renamed from: a  reason: collision with root package name */
+                                    public final /* synthetic */ b f29235a;
+
+                                    /* renamed from: b  reason: collision with root package name */
+                                    public final /* synthetic */ AnonymousClass1 f29236b;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this, bVar};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i2 = newInitContext.flag;
+                                            if ((i2 & 1) != 0) {
+                                                int i3 = i2 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.f29236b = this;
+                                        this.f29235a = bVar;
+                                    }
+
+                                    @Override // com.bytedance.sdk.openadsdk.core.k
+                                    public void a() {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                            this.f29236b.f29232a.onInteractionAdLoad(this.f29235a);
+                                        }
+                                    }
+
+                                    @Override // com.bytedance.sdk.openadsdk.core.k
+                                    public void b() {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                                            this.f29236b.f29232a.onError(-6, g.a(-6));
+                                        }
+                                    }
+                                });
+                                return;
+                            }
+                            this.f29232a.onError(-4, g.a(-4));
+                            return;
+                        }
+                        this.f29232a.onError(-3, g.a(-3));
+                    }
+                }
+            });
+        }
     }
 }

@@ -1,92 +1,164 @@
 package h.o.d.i;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class c<E> extends a<E> {
-    public static final Integer k = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    public static /* synthetic */ Interceptable $ic;
+    public static final Integer k;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f72050g;
+    public final AtomicLong f75642g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f72051h;
+    public long f75643h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final AtomicLong f72052i;
+    public final AtomicLong f75644i;
     public final int j;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(413016860, "Lh/o/d/i/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(413016860, "Lh/o/d/i/c;");
+                return;
+            }
+        }
+        k = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(int i2) {
         super(i2);
-        this.f72050g = new AtomicLong();
-        this.f72052i = new AtomicLong();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f75642g = new AtomicLong();
+        this.f75644i = new AtomicLong();
         this.j = Math.min(i2 / 4, k.intValue());
     }
 
     public final long f() {
-        return this.f72052i.get();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75644i.get() : invokeV.longValue;
     }
 
     public final long g() {
-        return this.f72050g.get();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75642g.get() : invokeV.longValue;
     }
 
     public final void h(long j) {
-        this.f72052i.lazySet(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.f75644i.lazySet(j);
+        }
     }
 
     public final void i(long j) {
-        this.f72050g.lazySet(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.f75642g.lazySet(j);
+        }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return g() == f();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? g() == f() : invokeV.booleanValue;
     }
 
     @Override // java.util.Queue
     public boolean offer(E e2) {
-        if (e2 != null) {
-            AtomicReferenceArray<E> atomicReferenceArray = this.f72046e;
-            int i2 = this.f72047f;
-            long j = this.f72050g.get();
-            int b2 = b(j, i2);
-            if (j >= this.f72051h) {
-                long j2 = this.j + j;
-                if (d(atomicReferenceArray, b(j2, i2)) == null) {
-                    this.f72051h = j2;
-                } else if (d(atomicReferenceArray, b2) != null) {
-                    return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) {
+            if (e2 != null) {
+                AtomicReferenceArray<E> atomicReferenceArray = this.f75638e;
+                int i2 = this.f75639f;
+                long j = this.f75642g.get();
+                int b2 = b(j, i2);
+                if (j >= this.f75643h) {
+                    long j2 = this.j + j;
+                    if (d(atomicReferenceArray, b(j2, i2)) == null) {
+                        this.f75643h = j2;
+                    } else if (d(atomicReferenceArray, b2) != null) {
+                        return false;
+                    }
                 }
+                e(atomicReferenceArray, b2, e2);
+                i(j + 1);
+                return true;
             }
-            e(atomicReferenceArray, b2, e2);
-            i(j + 1);
-            return true;
+            throw new NullPointerException("Null is not a valid element");
         }
-        throw new NullPointerException("Null is not a valid element");
+        return invokeL.booleanValue;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return c(a(this.f72052i.get()));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c(a(this.f75644i.get())) : (E) invokeV.objValue;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long j = this.f72052i.get();
-        int a2 = a(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.f72046e;
-        E d2 = d(atomicReferenceArray, a2);
-        if (d2 == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = this.f75644i.get();
+            int a2 = a(j);
+            AtomicReferenceArray<E> atomicReferenceArray = this.f75638e;
+            E d2 = d(atomicReferenceArray, a2);
+            if (d2 == null) {
+                return null;
+            }
+            e(atomicReferenceArray, a2, null);
+            h(j + 1);
+            return d2;
         }
-        e(atomicReferenceArray, a2, null);
-        h(j + 1);
-        return d2;
+        return (E) invokeV.objValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) != null) {
+            return invokeV.intValue;
+        }
         long f2 = f();
         while (true) {
             long g2 = g();

@@ -10,21 +10,44 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupQrCodeRequest";
+    public transient /* synthetic */ FieldHolder $fh;
     public String mGroupId;
     public String mKey;
 
     /* loaded from: classes.dex */
     public static class QrCode {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public long mExpireTime;
         public String mQrCode;
 
         public QrCode(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mQrCode = "";
             this.mExpireTime = 0L;
             this.mQrCode = str;
@@ -32,15 +55,33 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
         }
 
         public long getExpireTime() {
-            return this.mExpireTime;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mExpireTime : invokeV.longValue;
         }
 
         public String getQrCode() {
-            return this.mQrCode;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mQrCode : (String) invokeV.objValue;
         }
     }
 
     public IMQueryFansGroupQrCodeRequest(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
         this.mKey = str2;
         this.mGroupId = str;
@@ -48,29 +89,44 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
-        return "application/x-www-form-urlencoded";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.group.request.FansGroupBaseHttpRequest, com.baidu.android.imsdk.group.request.GroupBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        if (getHostUrl() == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (getHostUrl() == null) {
+                return null;
+            }
+            return getHostUrl() + "rest/3.0/im/gen_qrcode";
         }
-        return getHostUrl() + "rest/3.0/im/gen_qrcode";
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        return ("&group_id=" + this.mGroupId + getCommonParams()).getBytes();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ("&group_id=" + this.mGroupId + getCommonParams()).getBytes();
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i2, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
-        LogUtils.d(TAG, "onFailure result = " + new String(bArr));
-        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener instanceof BIMValueCallBack) {
-            ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+            LogUtils.d(TAG, "onFailure result = " + new String(bArr));
+            IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+            if (removeListener instanceof BIMValueCallBack) {
+                ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
+            }
         }
     }
 
@@ -78,34 +134,42 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public void onSuccess(int i2, byte[] bArr) {
         int i3;
         String str;
-        String str2 = "";
-        String str3 = new String(bArr);
-        LogUtils.d(TAG, "json is " + str3);
-        long j = 0;
-        try {
-            JSONObject jSONObject = new JSONObject(str3);
-            i3 = jSONObject.getInt("error_code");
-            str = jSONObject.optString("error_msg", "");
-            JSONObject optJSONObject = jSONObject.optJSONObject("response_params");
-            if (optJSONObject != null) {
-                str2 = optJSONObject.optString("qrcode_url");
-                j = optJSONObject.optLong(ContentUtil.RESULT_KEY_EXPIRE);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) {
+            String str2 = "";
+            String str3 = new String(bArr);
+            LogUtils.d(TAG, "json is " + str3);
+            long j = 0;
+            try {
+                JSONObject jSONObject = new JSONObject(str3);
+                i3 = jSONObject.getInt("error_code");
+                str = jSONObject.optString("error_msg", "");
+                JSONObject optJSONObject = jSONObject.optJSONObject("response_params");
+                if (optJSONObject != null) {
+                    str2 = optJSONObject.optString("qrcode_url");
+                    j = optJSONObject.optLong(ContentUtil.RESULT_KEY_EXPIRE);
+                }
+            } catch (JSONException e2) {
+                LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e2);
+                i3 = 1010;
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-        } catch (JSONException e2) {
-            LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e2);
-            i3 = 1010;
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-        }
-        QrCode qrCode = new QrCode(str2, j);
-        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener instanceof BIMValueCallBack) {
-            ((BIMValueCallBack) removeListener).onResult(i3, str, qrCode);
+            QrCode qrCode = new QrCode(str2, j);
+            IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+            if (removeListener instanceof BIMValueCallBack) {
+                ((BIMValueCallBack) removeListener).onResult(i3, str, qrCode);
+            }
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public boolean shouldAbort() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

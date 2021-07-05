@@ -1,40 +1,79 @@
 package com.google.common.base;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.g.c.a.g;
-import d.g.c.a.n;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.f.d.a.g;
+import d.f.d.a.n;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Functions$FunctionForMapNoDefault<K, V> implements g<K, V>, Serializable {
+    public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Map<K, V> map;
 
     public Functions$FunctionForMapNoDefault(Map<K, V> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         n.p(map);
         this.map = map;
     }
 
-    @Override // d.g.c.a.g
+    @Override // d.f.d.a.g
     public V apply(K k) {
-        V v = this.map.get(k);
-        n.k(v != null || this.map.containsKey(k), "Key '%s' not present in map", k);
-        return v;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            V v = this.map.get(k);
+            n.k(v != null || this.map.containsKey(k), "Key '%s' not present in map", k);
+            return v;
+        }
+        return (V) invokeL.objValue;
     }
 
-    @Override // d.g.c.a.g
+    @Override // d.f.d.a.g
     public boolean equals(Object obj) {
-        if (obj instanceof Functions$FunctionForMapNoDefault) {
-            return this.map.equals(((Functions$FunctionForMapNoDefault) obj).map);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj instanceof Functions$FunctionForMapNoDefault) {
+                return this.map.equals(((Functions$FunctionForMapNoDefault) obj).map);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public int hashCode() {
-        return this.map.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.map.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
-        return "Functions.forMap(" + this.map + SmallTailInfo.EMOTION_SUFFIX;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "Functions.forMap(" + this.map + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 }

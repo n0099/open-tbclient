@@ -1,11 +1,18 @@
 package com.google.common.collect;
 
-import d.g.c.a.n;
-import d.g.c.c.a0;
-import d.g.c.c.k;
-import d.g.c.c.m;
-import d.g.c.c.u;
-import d.g.c.c.v;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.f.d.a.n;
+import d.f.d.c.d0;
+import d.f.d.c.e0;
+import d.f.d.c.j0;
+import d.f.d.c.k;
+import d.f.d.c.m;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -14,282 +21,483 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
-public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Serializable {
+/* loaded from: classes7.dex */
+public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, Serializable {
+    public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
+    public transient /* synthetic */ FieldHolder $fh;
     public transient Map<K, V> delegate;
     public transient Set<Map.Entry<K, V>> entrySet;
     public transient AbstractBiMap<V, K> inverse;
     public transient Set<K> keySet;
     public transient Set<V> valueSet;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Inverse<K, V> extends AbstractBiMap<K, V> {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Inverse(Map<K, V> map, AbstractBiMap<V, K> abstractBiMap) {
             super(map, abstractBiMap, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, abstractBiMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Map) objArr2[0], (AbstractBiMap) objArr2[1], (a) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
-            objectInputStream.defaultReadObject();
-            setInverse((AbstractBiMap) objectInputStream.readObject());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65537, this, objectInputStream) == null) {
+                objectInputStream.defaultReadObject();
+                setInverse((AbstractBiMap) objectInputStream.readObject());
+            }
         }
 
         private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-            objectOutputStream.defaultWriteObject();
-            objectOutputStream.writeObject(inverse());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65538, this, objectOutputStream) == null) {
+                objectOutputStream.defaultWriteObject();
+                objectOutputStream.writeObject(inverse());
+            }
         }
 
         @Override // com.google.common.collect.AbstractBiMap
         public K checkKey(K k) {
-            return this.inverse.checkValue(k);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.inverse.checkValue(k) : (K) invokeL.objValue;
         }
 
         @Override // com.google.common.collect.AbstractBiMap
         public V checkValue(V v) {
-            return this.inverse.checkKey(v);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v)) == null) ? this.inverse.checkKey(v) : (V) invokeL.objValue;
         }
 
-        @Override // com.google.common.collect.AbstractBiMap, d.g.c.c.u, d.g.c.c.y
+        @Override // com.google.common.collect.AbstractBiMap, d.f.d.c.d0, d.f.d.c.h0
         public /* bridge */ /* synthetic */ Object delegate() {
             return super.delegate();
         }
 
         public Object readResolve() {
-            return inverse().inverse();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? inverse().inverse() : invokeV.objValue;
         }
 
-        @Override // com.google.common.collect.AbstractBiMap, d.g.c.c.u, java.util.Map, d.g.c.c.k
+        @Override // com.google.common.collect.AbstractBiMap, d.f.d.c.d0, java.util.Map, d.f.d.c.k
         public /* bridge */ /* synthetic */ Collection values() {
             return super.values();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Iterator<Map.Entry<K, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map.Entry<K, V> f31068e;
+        public Map.Entry<K, V> f32977e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterator f31069f;
+        public final /* synthetic */ Iterator f32978f;
 
-        public a(Iterator it) {
-            this.f31069f = it;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ AbstractBiMap f32979g;
+
+        public a(AbstractBiMap abstractBiMap, Iterator it) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {abstractBiMap, it};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32979g = abstractBiMap;
+            this.f32978f = it;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         /* renamed from: a */
         public Map.Entry<K, V> next() {
-            Map.Entry<K, V> entry = (Map.Entry) this.f31069f.next();
-            this.f31068e = entry;
-            return new b(entry);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Map.Entry<K, V> entry = (Map.Entry) this.f32978f.next();
+                this.f32977e = entry;
+                return new b(this.f32979g, entry);
+            }
+            return (Map.Entry) invokeV.objValue;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31069f.hasNext();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32978f.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f31068e != null);
-            V value = this.f31068e.getValue();
-            this.f31069f.remove();
-            AbstractBiMap.this.removeFromInverseMap(value);
-            this.f31068e = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                m.e(this.f32977e != null);
+                V value = this.f32977e.getValue();
+                this.f32978f.remove();
+                this.f32979g.removeFromInverseMap(value);
+                this.f32977e = null;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends v<K, V> {
+    /* loaded from: classes7.dex */
+    public class b extends e0<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map.Entry<K, V> f31071e;
+        public final Map.Entry<K, V> f32980e;
 
-        public b(Map.Entry<K, V> entry) {
-            this.f31071e = entry;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ AbstractBiMap f32981f;
+
+        public b(AbstractBiMap abstractBiMap, Map.Entry<K, V> entry) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {abstractBiMap, entry};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32981f = abstractBiMap;
+            this.f32980e = entry;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.y
-        /* renamed from: b */
+        @Override // d.f.d.c.h0
+        /* renamed from: d */
         public Map.Entry<K, V> delegate() {
-            return this.f31071e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32980e : (Map.Entry) invokeV.objValue;
         }
 
-        @Override // d.g.c.c.v, java.util.Map.Entry
+        @Override // d.f.d.c.e0, java.util.Map.Entry
         public V setValue(V v) {
-            AbstractBiMap.this.checkValue(v);
-            n.x(AbstractBiMap.this.entrySet().contains(this), "entry no longer in map");
-            if (d.g.c.a.k.a(v, getValue())) {
-                return v;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v)) == null) {
+                this.f32981f.checkValue(v);
+                n.x(this.f32981f.entrySet().contains(this), "entry no longer in map");
+                if (d.f.d.a.k.a(v, getValue())) {
+                    return v;
+                }
+                n.k(!this.f32981f.containsValue(v), "value already present: %s", v);
+                V value = this.f32980e.setValue(v);
+                n.x(d.f.d.a.k.a(v, this.f32981f.get(getKey())), "entry no longer in map");
+                this.f32981f.updateInverseMap(getKey(), true, value, v);
+                return value;
             }
-            n.k(!AbstractBiMap.this.containsValue(v), "value already present: %s", v);
-            V value = this.f31071e.setValue(v);
-            n.x(d.g.c.a.k.a(v, AbstractBiMap.this.get(getKey())), "entry no longer in map");
-            AbstractBiMap.this.updateInverseMap(getKey(), true, value, v);
-            return value;
+            return (V) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c extends a0<Map.Entry<K, V>> {
+    /* loaded from: classes7.dex */
+    public class c extends j0<Map.Entry<K, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<Map.Entry<K, V>> f31073e;
+        public final Set<Map.Entry<K, V>> f32982e;
 
-        public c() {
-            this.f31073e = AbstractBiMap.this.delegate.entrySet();
-        }
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ AbstractBiMap f32983f;
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
-        public void clear() {
-            AbstractBiMap.this.clear();
-        }
-
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
-        public boolean contains(Object obj) {
-            return Maps.f(delegate(), obj);
-        }
-
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
-        public boolean containsAll(Collection<?> collection) {
-            return standardContainsAll(collection);
-        }
-
-        @Override // d.g.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
-        public Iterator<Map.Entry<K, V>> iterator() {
-            return AbstractBiMap.this.entrySetIterator();
-        }
-
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
-        public boolean remove(Object obj) {
-            if (this.f31073e.contains(obj)) {
-                Map.Entry entry = (Map.Entry) obj;
-                AbstractBiMap.this.inverse.delegate.remove(entry.getValue());
-                this.f31073e.remove(entry);
-                return true;
+        public c(AbstractBiMap abstractBiMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {abstractBiMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.f32983f = abstractBiMap;
+            this.f32982e = this.f32983f.delegate.entrySet();
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f32983f.clear();
+            }
+        }
+
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
+        public boolean contains(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? Maps.f(delegate(), obj) : invokeL.booleanValue;
+        }
+
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
+        public boolean containsAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? standardContainsAll(collection) : invokeL.booleanValue;
+        }
+
+        @Override // d.f.d.c.y, java.util.Collection, java.lang.Iterable, java.util.Set
+        public Iterator<Map.Entry<K, V>> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32983f.entrySetIterator() : (Iterator) invokeV.objValue;
+        }
+
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
+        public boolean remove(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+                if (this.f32982e.contains(obj)) {
+                    Map.Entry entry = (Map.Entry) obj;
+                    this.f32983f.inverse.delegate.remove(entry.getValue());
+                    this.f32982e.remove(entry);
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
         public boolean removeAll(Collection<?> collection) {
-            return standardRemoveAll(collection);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, collection)) == null) ? standardRemoveAll(collection) : invokeL.booleanValue;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
         public boolean retainAll(Collection<?> collection) {
-            return standardRetainAll(collection);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, collection)) == null) ? standardRetainAll(collection) : invokeL.booleanValue;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
         public Object[] toArray() {
-            return standardToArray();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? standardToArray() : (Object[]) invokeV.objValue;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
         public <T> T[] toArray(T[] tArr) {
-            return (T[]) standardToArray(tArr);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, tArr)) == null) ? (T[]) standardToArray(tArr) : (T[]) ((Object[]) invokeL.objValue);
         }
 
         public /* synthetic */ c(AbstractBiMap abstractBiMap, a aVar) {
-            this();
+            this(abstractBiMap);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // d.f.d.c.j0, d.f.d.c.y, d.f.d.c.h0
         public Set<Map.Entry<K, V>> delegate() {
-            return this.f31073e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32982e : (Set) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d extends a0<K> {
-        public d() {
-        }
+    /* loaded from: classes7.dex */
+    public class d extends j0<K> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
-        public void clear() {
-            AbstractBiMap.this.clear();
-        }
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AbstractBiMap f32984e;
 
-        @Override // d.g.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
-        public Iterator<K> iterator() {
-            return Maps.m(AbstractBiMap.this.entrySet().iterator());
-        }
-
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
-        public boolean remove(Object obj) {
-            if (contains(obj)) {
-                AbstractBiMap.this.removeFromBothMaps(obj);
-                return true;
+        public d(AbstractBiMap abstractBiMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {abstractBiMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.f32984e = abstractBiMap;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f32984e.clear();
+            }
+        }
+
+        @Override // d.f.d.c.y, java.util.Collection, java.lang.Iterable, java.util.Set
+        public Iterator<K> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Maps.o(this.f32984e.entrySet().iterator()) : (Iterator) invokeV.objValue;
+        }
+
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
+        public boolean remove(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+                if (contains(obj)) {
+                    this.f32984e.removeFromBothMaps(obj);
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
         public boolean removeAll(Collection<?> collection) {
-            return standardRemoveAll(collection);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) ? standardRemoveAll(collection) : invokeL.booleanValue;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
         public boolean retainAll(Collection<?> collection) {
-            return standardRetainAll(collection);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, collection)) == null) ? standardRetainAll(collection) : invokeL.booleanValue;
         }
 
         public /* synthetic */ d(AbstractBiMap abstractBiMap, a aVar) {
-            this();
+            this(abstractBiMap);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // d.f.d.c.j0, d.f.d.c.y, d.f.d.c.h0
         public Set<K> delegate() {
-            return AbstractBiMap.this.delegate.keySet();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32984e.delegate.keySet() : (Set) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class e extends a0<V> {
+    /* loaded from: classes7.dex */
+    public class e extends j0<V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<V> f31076e;
+        public final Set<V> f32985e;
 
-        public e() {
-            this.f31076e = AbstractBiMap.this.inverse.keySet();
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ AbstractBiMap f32986f;
+
+        public e(AbstractBiMap abstractBiMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {abstractBiMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32986f = abstractBiMap;
+            this.f32985e = this.f32986f.inverse.keySet();
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
+        @Override // d.f.d.c.y, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<V> iterator() {
-            return Maps.L(AbstractBiMap.this.entrySet().iterator());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Maps.O(this.f32986f.entrySet().iterator()) : (Iterator) invokeV.objValue;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
         public Object[] toArray() {
-            return standardToArray();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? standardToArray() : (Object[]) invokeV.objValue;
         }
 
-        @Override // d.g.c.c.y
+        @Override // d.f.d.c.h0
         public String toString() {
-            return standardToString();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? standardToString() : (String) invokeV.objValue;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
         public <T> T[] toArray(T[] tArr) {
-            return (T[]) standardToArray(tArr);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tArr)) == null) ? (T[]) standardToArray(tArr) : (T[]) ((Object[]) invokeL.objValue);
         }
 
         public /* synthetic */ e(AbstractBiMap abstractBiMap, a aVar) {
-            this();
+            this(abstractBiMap);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // d.f.d.c.j0, d.f.d.c.y, d.f.d.c.h0
         public Set<V> delegate() {
-            return this.f31076e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32985e : (Set) invokeV.objValue;
         }
     }
 
@@ -298,158 +506,252 @@ public abstract class AbstractBiMap<K, V> extends u<K, V> implements k<K, V>, Se
     }
 
     private V putInBothMaps(K k, V v, boolean z) {
-        checkKey(k);
-        checkValue(v);
-        boolean containsKey = containsKey(k);
-        if (containsKey && d.g.c.a.k.a(v, get(k))) {
-            return v;
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, this, k, v, z)) == null) {
+            checkKey(k);
+            checkValue(v);
+            boolean containsKey = containsKey(k);
+            if (containsKey && d.f.d.a.k.a(v, get(k))) {
+                return v;
+            }
+            if (z) {
+                inverse().remove(v);
+            } else {
+                n.k(!containsValue(v), "value already present: %s", v);
+            }
+            V put = this.delegate.put(k, v);
+            updateInverseMap(k, containsKey, put, v);
+            return put;
         }
-        if (z) {
-            inverse().remove(v);
-        } else {
-            n.k(!containsValue(v), "value already present: %s", v);
-        }
-        V put = this.delegate.put(k, v);
-        updateInverseMap(k, containsKey, put, v);
-        return put;
+        return (V) invokeLLZ.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public V removeFromBothMaps(Object obj) {
-        V remove = this.delegate.remove(obj);
-        removeFromInverseMap(remove);
-        return remove;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, obj)) == null) {
+            V remove = this.delegate.remove(obj);
+            removeFromInverseMap(remove);
+            return remove;
+        }
+        return (V) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void removeFromInverseMap(V v) {
-        this.inverse.delegate.remove(v);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, v) == null) {
+            this.inverse.delegate.remove(v);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateInverseMap(K k, boolean z, V v, V v2) {
-        if (z) {
-            removeFromInverseMap(v);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{k, Boolean.valueOf(z), v, v2}) == null) {
+            if (z) {
+                removeFromInverseMap(v);
+            }
+            this.inverse.delegate.put(v2, k);
         }
-        this.inverse.delegate.put(v2, k);
     }
 
     public K checkKey(K k) {
-        return k;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? k : (K) invokeL.objValue;
     }
 
     public V checkValue(V v) {
-        return v;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v)) == null) ? v : (V) invokeL.objValue;
     }
 
-    @Override // d.g.c.c.u, java.util.Map
+    @Override // d.f.d.c.d0, java.util.Map
     public void clear() {
-        this.delegate.clear();
-        this.inverse.delegate.clear();
-    }
-
-    @Override // d.g.c.c.u, java.util.Map
-    public boolean containsValue(Object obj) {
-        return this.inverse.containsKey(obj);
-    }
-
-    @Override // d.g.c.c.u, java.util.Map
-    public Set<Map.Entry<K, V>> entrySet() {
-        Set<Map.Entry<K, V>> set = this.entrySet;
-        if (set == null) {
-            c cVar = new c(this, null);
-            this.entrySet = cVar;
-            return cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.delegate.clear();
+            this.inverse.delegate.clear();
         }
-        return set;
+    }
+
+    @Override // d.f.d.c.d0, java.util.Map
+    public boolean containsValue(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.inverse.containsKey(obj) : invokeL.booleanValue;
+    }
+
+    @Override // d.f.d.c.d0, java.util.Map
+    public Set<Map.Entry<K, V>> entrySet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Set<Map.Entry<K, V>> set = this.entrySet;
+            if (set == null) {
+                c cVar = new c(this, null);
+                this.entrySet = cVar;
+                return cVar;
+            }
+            return set;
+        }
+        return (Set) invokeV.objValue;
     }
 
     public Iterator<Map.Entry<K, V>> entrySetIterator() {
-        return new a(this.delegate.entrySet().iterator());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new a(this, this.delegate.entrySet().iterator()) : (Iterator) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.k
+    @Override // d.f.d.c.k
     public V forcePut(K k, V v) {
-        return putInBothMaps(k, v, true);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v)) == null) ? putInBothMaps(k, v, true) : (V) invokeLL.objValue;
     }
 
-    @Override // d.g.c.c.k
+    @Override // d.f.d.c.k
     public k<V, K> inverse() {
-        return this.inverse;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.inverse : (k) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.u, java.util.Map
+    @Override // d.f.d.c.d0, java.util.Map
     public Set<K> keySet() {
-        Set<K> set = this.keySet;
-        if (set == null) {
-            d dVar = new d(this, null);
-            this.keySet = dVar;
-            return dVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            Set<K> set = this.keySet;
+            if (set == null) {
+                d dVar = new d(this, null);
+                this.keySet = dVar;
+                return dVar;
+            }
+            return set;
         }
-        return set;
+        return (Set) invokeV.objValue;
     }
 
     public AbstractBiMap<V, K> makeInverse(Map<V, K> map) {
-        return new Inverse(map, this);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, map)) == null) ? new Inverse(map, this) : (AbstractBiMap) invokeL.objValue;
     }
 
-    @Override // d.g.c.c.u, java.util.Map
+    @Override // d.f.d.c.d0, java.util.Map
     public V put(K k, V v) {
-        return putInBothMaps(k, v, false);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k, v)) == null) ? putInBothMaps(k, v, false) : (V) invokeLL.objValue;
     }
 
-    @Override // d.g.c.c.u, java.util.Map
+    @Override // d.f.d.c.d0, java.util.Map
     public void putAll(Map<? extends K, ? extends V> map) {
-        for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-            put(entry.getKey(), entry.getValue());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, map) == null) {
+            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
+                put(entry.getKey(), entry.getValue());
+            }
         }
     }
 
-    @Override // d.g.c.c.u, java.util.Map
+    @Override // d.f.d.c.d0, java.util.Map
     public V remove(Object obj) {
-        if (containsKey(obj)) {
-            return removeFromBothMaps(obj);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            if (containsKey(obj)) {
+                return removeFromBothMaps(obj);
+            }
+            return null;
         }
-        return null;
+        return (V) invokeL.objValue;
     }
 
     public void setDelegates(Map<K, V> map, Map<V, K> map2) {
-        n.w(this.delegate == null);
-        n.w(this.inverse == null);
-        n.d(map.isEmpty());
-        n.d(map2.isEmpty());
-        n.d(map != map2);
-        this.delegate = map;
-        this.inverse = makeInverse(map2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, map, map2) == null) {
+            n.w(this.delegate == null);
+            n.w(this.inverse == null);
+            n.d(map.isEmpty());
+            n.d(map2.isEmpty());
+            n.d(map != map2);
+            this.delegate = map;
+            this.inverse = makeInverse(map2);
+        }
     }
 
     public void setInverse(AbstractBiMap<V, K> abstractBiMap) {
-        this.inverse = abstractBiMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, abstractBiMap) == null) {
+            this.inverse = abstractBiMap;
+        }
     }
 
     public AbstractBiMap(Map<K, V> map, Map<V, K> map2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map, map2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         setDelegates(map, map2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.u, d.g.c.c.y
+    @Override // d.f.d.c.d0, d.f.d.c.h0
     public Map<K, V> delegate() {
-        return this.delegate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.delegate : (Map) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.u, java.util.Map, d.g.c.c.k
+    @Override // d.f.d.c.d0, java.util.Map, d.f.d.c.k
     public Set<V> values() {
-        Set<V> set = this.valueSet;
-        if (set == null) {
-            e eVar = new e(this, null);
-            this.valueSet = eVar;
-            return eVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            Set<V> set = this.valueSet;
+            if (set == null) {
+                e eVar = new e(this, null);
+                this.valueSet = eVar;
+                return eVar;
+            }
+            return set;
         }
-        return set;
+        return (Set) invokeV.objValue;
     }
 
     public AbstractBiMap(Map<K, V> map, AbstractBiMap<V, K> abstractBiMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map, abstractBiMap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.delegate = map;
         this.inverse = abstractBiMap;
     }

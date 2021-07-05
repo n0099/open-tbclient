@@ -2,8 +2,14 @@ package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class PlayerEvent extends VideoEvent {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_BUFFER_UPDATE = "player_event_buffer_update";
     public static final String ACTION_EVENT_AD_SHOW = "layer_event_ad_show";
     public static final String ACTION_GO_BACK_OR_FOREGROUND = "player_event_go_back_or_foreground";
@@ -22,9 +28,26 @@ public class PlayerEvent extends VideoEvent {
     public static final int KEY_OBJECT = 3;
     public static final int KEY_WHAT = 1;
     public static final int KEY_WIDTH = 5;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public PlayerEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @PublicMethod
     public static VideoEvent obtainEvent(@NonNull String str) {
-        return VideoEvent.obtain(str, 4);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? VideoEvent.obtain(str, 4) : (VideoEvent) invokeL.objValue;
     }
 }

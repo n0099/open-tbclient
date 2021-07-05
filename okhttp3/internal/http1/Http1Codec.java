@@ -1,7 +1,14 @@
 package okhttp3.internal.http1;
 
 import android.support.v4.media.session.PlaybackStateCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -29,8 +36,9 @@ import okio.Okio;
 import okio.Sink;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class Http1Codec implements HttpCodec {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_LIMIT = 262144;
     public static final int STATE_CLOSED = 6;
     public static final int STATE_IDLE = 0;
@@ -39,151 +47,166 @@ public final class Http1Codec implements HttpCodec {
     public static final int STATE_READING_RESPONSE_BODY = 5;
     public static final int STATE_READ_RESPONSE_HEADERS = 3;
     public static final int STATE_WRITING_REQUEST_BODY = 2;
+    public transient /* synthetic */ FieldHolder $fh;
     public final OkHttpClient client;
+    public long headerLimit;
     public final BufferedSink sink;
     public final BufferedSource source;
+    public int state;
     public final StreamAllocation streamAllocation;
-    public int state = 0;
-    public long headerLimit = PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
 
-    /* loaded from: classes8.dex */
-    public abstract class AbstractSource implements Source {
-        public long bytesRead;
-        public boolean closed;
-        public final ForwardingTimeout timeout;
-
-        public AbstractSource() {
-            this.timeout = new ForwardingTimeout(Http1Codec.this.source.timeout());
-            this.bytesRead = 0L;
-        }
-
-        public final void endOfInput(boolean z, IOException iOException) throws IOException {
-            Http1Codec http1Codec = Http1Codec.this;
-            int i2 = http1Codec.state;
-            if (i2 == 6) {
-                return;
-            }
-            if (i2 == 5) {
-                http1Codec.detachTimeout(this.timeout);
-                Http1Codec http1Codec2 = Http1Codec.this;
-                http1Codec2.state = 6;
-                StreamAllocation streamAllocation = http1Codec2.streamAllocation;
-                if (streamAllocation != null) {
-                    streamAllocation.streamFinished(!z, http1Codec2, this.bytesRead, iOException);
-                    return;
-                }
-                return;
-            }
-            throw new IllegalStateException("state: " + Http1Codec.this.state);
-        }
-
-        @Override // okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
-            try {
-                long read = Http1Codec.this.source.read(buffer, j);
-                if (read > 0) {
-                    this.bytesRead += read;
-                }
-                return read;
-            } catch (IOException e2) {
-                endOfInput(false, e2);
-                throw e2;
-            }
-        }
-
-        @Override // okio.Source
-        public Timeout timeout() {
-            return this.timeout;
-        }
+    /* renamed from: okhttp3.internal.http1.Http1Codec$1  reason: invalid class name */
+    /* loaded from: classes10.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public final class ChunkedSink implements Sink {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public boolean closed;
+        public final /* synthetic */ Http1Codec this$0;
         public final ForwardingTimeout timeout;
 
-        public ChunkedSink() {
-            this.timeout = new ForwardingTimeout(Http1Codec.this.sink.timeout());
+        public ChunkedSink(Http1Codec http1Codec) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {http1Codec};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = http1Codec;
+            this.timeout = new ForwardingTimeout(this.this$0.sink.timeout());
         }
 
         @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
         public synchronized void close() throws IOException {
-            if (this.closed) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this) {
+                    if (this.closed) {
+                        return;
+                    }
+                    this.closed = true;
+                    this.this$0.sink.writeUtf8("0\r\n\r\n");
+                    this.this$0.detachTimeout(this.timeout);
+                    this.this$0.state = 3;
+                }
             }
-            this.closed = true;
-            Http1Codec.this.sink.writeUtf8("0\r\n\r\n");
-            Http1Codec.this.detachTimeout(this.timeout);
-            Http1Codec.this.state = 3;
         }
 
         @Override // okio.Sink, java.io.Flushable
         public synchronized void flush() throws IOException {
-            if (this.closed) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                synchronized (this) {
+                    if (this.closed) {
+                        return;
+                    }
+                    this.this$0.sink.flush();
+                }
             }
-            Http1Codec.this.sink.flush();
         }
 
         @Override // okio.Sink
         public Timeout timeout() {
-            return this.timeout;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeout : (Timeout) invokeV.objValue;
         }
 
         @Override // okio.Sink
         public void write(Buffer buffer, long j) throws IOException {
-            if (this.closed) {
-                throw new IllegalStateException("closed");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
+                if (this.closed) {
+                    throw new IllegalStateException("closed");
+                }
+                if (j == 0) {
+                    return;
+                }
+                this.this$0.sink.writeHexadecimalUnsignedLong(j);
+                this.this$0.sink.writeUtf8(Part.CRLF);
+                this.this$0.sink.write(buffer, j);
+                this.this$0.sink.writeUtf8(Part.CRLF);
             }
-            if (j == 0) {
-                return;
-            }
-            Http1Codec.this.sink.writeHexadecimalUnsignedLong(j);
-            Http1Codec.this.sink.writeUtf8(Part.CRLF);
-            Http1Codec.this.sink.write(buffer, j);
-            Http1Codec.this.sink.writeUtf8(Part.CRLF);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class ChunkedSource extends AbstractSource {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long NO_CHUNK_YET = -1;
+        public transient /* synthetic */ FieldHolder $fh;
         public long bytesRemainingInChunk;
         public boolean hasMoreChunks;
+        public final /* synthetic */ Http1Codec this$0;
         public final HttpUrl url;
 
-        public ChunkedSource(HttpUrl httpUrl) {
-            super();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ChunkedSource(Http1Codec http1Codec, HttpUrl httpUrl) {
+            super(http1Codec, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {http1Codec, httpUrl};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Http1Codec) objArr2[0], (AnonymousClass1) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = http1Codec;
             this.bytesRemainingInChunk = -1L;
             this.hasMoreChunks = true;
             this.url = httpUrl;
         }
 
         private void readChunkSize() throws IOException {
-            if (this.bytesRemainingInChunk != -1) {
-                Http1Codec.this.source.readUtf8LineStrict();
-            }
-            try {
-                this.bytesRemainingInChunk = Http1Codec.this.source.readHexadecimalUnsignedLong();
-                String trim = Http1Codec.this.source.readUtf8LineStrict().trim();
-                if (this.bytesRemainingInChunk >= 0 && (trim.isEmpty() || trim.startsWith(";"))) {
-                    if (this.bytesRemainingInChunk == 0) {
-                        this.hasMoreChunks = false;
-                        HttpHeaders.receiveHeaders(Http1Codec.this.client.cookieJar(), this.url, Http1Codec.this.readHeaders());
-                        endOfInput(true, null);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+                if (this.bytesRemainingInChunk != -1) {
+                    this.this$0.source.readUtf8LineStrict();
+                }
+                try {
+                    this.bytesRemainingInChunk = this.this$0.source.readHexadecimalUnsignedLong();
+                    String trim = this.this$0.source.readUtf8LineStrict().trim();
+                    if (this.bytesRemainingInChunk >= 0 && (trim.isEmpty() || trim.startsWith(";"))) {
+                        if (this.bytesRemainingInChunk == 0) {
+                            this.hasMoreChunks = false;
+                            HttpHeaders.receiveHeaders(this.this$0.client.cookieJar(), this.url, this.this$0.readHeaders());
+                            endOfInput(true, null);
+                            return;
+                        }
                         return;
                     }
-                    return;
+                    throw new ProtocolException("expected chunk size and optional extensions but was \"" + this.bytesRemainingInChunk + trim + "\"");
+                } catch (NumberFormatException e2) {
+                    throw new ProtocolException(e2.getMessage());
                 }
-                throw new ProtocolException("expected chunk size and optional extensions but was \"" + this.bytesRemainingInChunk + trim + "\"");
-            } catch (NumberFormatException e2) {
-                throw new ProtocolException(e2.getMessage());
             }
         }
 
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (this.closed) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.closed) {
                 return;
             }
             if (this.hasMoreChunks && !Util.discard(this, 100, TimeUnit.MILLISECONDS)) {
@@ -194,53 +217,77 @@ public final class Http1Codec implements HttpCodec {
 
         @Override // okhttp3.internal.http1.Http1Codec.AbstractSource, okio.Source
         public long read(Buffer buffer, long j) throws IOException {
-            if (j >= 0) {
-                if (!this.closed) {
-                    if (this.hasMoreChunks) {
-                        long j2 = this.bytesRemainingInChunk;
-                        if (j2 == 0 || j2 == -1) {
-                            readChunkSize();
-                            if (!this.hasMoreChunks) {
-                                return -1L;
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                if (j >= 0) {
+                    if (!this.closed) {
+                        if (this.hasMoreChunks) {
+                            long j2 = this.bytesRemainingInChunk;
+                            if (j2 == 0 || j2 == -1) {
+                                readChunkSize();
+                                if (!this.hasMoreChunks) {
+                                    return -1L;
+                                }
                             }
+                            long read = super.read(buffer, Math.min(j, this.bytesRemainingInChunk));
+                            if (read != -1) {
+                                this.bytesRemainingInChunk -= read;
+                                return read;
+                            }
+                            ProtocolException protocolException = new ProtocolException("unexpected end of stream");
+                            endOfInput(false, protocolException);
+                            throw protocolException;
                         }
-                        long read = super.read(buffer, Math.min(j, this.bytesRemainingInChunk));
-                        if (read != -1) {
-                            this.bytesRemainingInChunk -= read;
-                            return read;
-                        }
-                        ProtocolException protocolException = new ProtocolException("unexpected end of stream");
-                        endOfInput(false, protocolException);
-                        throw protocolException;
+                        return -1L;
                     }
-                    return -1L;
+                    throw new IllegalStateException("closed");
                 }
-                throw new IllegalStateException("closed");
+                throw new IllegalArgumentException("byteCount < 0: " + j);
             }
-            throw new IllegalArgumentException("byteCount < 0: " + j);
+            return invokeLJ.longValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public final class FixedLengthSink implements Sink {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public long bytesRemaining;
         public boolean closed;
+        public final /* synthetic */ Http1Codec this$0;
         public final ForwardingTimeout timeout;
 
-        public FixedLengthSink(long j) {
-            this.timeout = new ForwardingTimeout(Http1Codec.this.sink.timeout());
+        public FixedLengthSink(Http1Codec http1Codec, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {http1Codec, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = http1Codec;
+            this.timeout = new ForwardingTimeout(this.this$0.sink.timeout());
             this.bytesRemaining = j;
         }
 
         @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (this.closed) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.closed) {
                 return;
             }
             this.closed = true;
             if (this.bytesRemaining <= 0) {
-                Http1Codec.this.detachTimeout(this.timeout);
-                Http1Codec.this.state = 3;
+                this.this$0.detachTimeout(this.timeout);
+                this.this$0.state = 3;
                 return;
             }
             throw new ProtocolException("unexpected end of stream");
@@ -248,38 +295,65 @@ public final class Http1Codec implements HttpCodec {
 
         @Override // okio.Sink, java.io.Flushable
         public void flush() throws IOException {
-            if (this.closed) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.closed) {
                 return;
             }
-            Http1Codec.this.sink.flush();
+            this.this$0.sink.flush();
         }
 
         @Override // okio.Sink
         public Timeout timeout() {
-            return this.timeout;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeout : (Timeout) invokeV.objValue;
         }
 
         @Override // okio.Sink
         public void write(Buffer buffer, long j) throws IOException {
-            if (!this.closed) {
-                Util.checkOffsetAndCount(buffer.size(), 0L, j);
-                if (j <= this.bytesRemaining) {
-                    Http1Codec.this.sink.write(buffer, j);
-                    this.bytesRemaining -= j;
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
+                if (!this.closed) {
+                    Util.checkOffsetAndCount(buffer.size(), 0L, j);
+                    if (j <= this.bytesRemaining) {
+                        this.this$0.sink.write(buffer, j);
+                        this.bytesRemaining -= j;
+                        return;
+                    }
+                    throw new ProtocolException("expected " + this.bytesRemaining + " bytes but received " + j);
                 }
-                throw new ProtocolException("expected " + this.bytesRemaining + " bytes but received " + j);
+                throw new IllegalStateException("closed");
             }
-            throw new IllegalStateException("closed");
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class FixedLengthSource extends AbstractSource {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public long bytesRemaining;
+        public final /* synthetic */ Http1Codec this$0;
 
-        public FixedLengthSource(long j) throws IOException {
-            super();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public FixedLengthSource(Http1Codec http1Codec, long j) throws IOException {
+            super(http1Codec, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {http1Codec, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Http1Codec) objArr2[0], (AnonymousClass1) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = http1Codec;
             this.bytesRemaining = j;
             if (j == 0) {
                 endOfInput(true, null);
@@ -288,7 +362,8 @@ public final class Http1Codec implements HttpCodec {
 
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (this.closed) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.closed) {
                 return;
             }
             if (this.bytesRemaining != 0 && !Util.discard(this, 100, TimeUnit.MILLISECONDS)) {
@@ -299,42 +374,69 @@ public final class Http1Codec implements HttpCodec {
 
         @Override // okhttp3.internal.http1.Http1Codec.AbstractSource, okio.Source
         public long read(Buffer buffer, long j) throws IOException {
-            if (j >= 0) {
-                if (!this.closed) {
-                    long j2 = this.bytesRemaining;
-                    if (j2 == 0) {
-                        return -1L;
-                    }
-                    long read = super.read(buffer, Math.min(j2, j));
-                    if (read != -1) {
-                        long j3 = this.bytesRemaining - read;
-                        this.bytesRemaining = j3;
-                        if (j3 == 0) {
-                            endOfInput(true, null);
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                if (j >= 0) {
+                    if (!this.closed) {
+                        long j2 = this.bytesRemaining;
+                        if (j2 == 0) {
+                            return -1L;
                         }
-                        return read;
+                        long read = super.read(buffer, Math.min(j2, j));
+                        if (read != -1) {
+                            long j3 = this.bytesRemaining - read;
+                            this.bytesRemaining = j3;
+                            if (j3 == 0) {
+                                endOfInput(true, null);
+                            }
+                            return read;
+                        }
+                        ProtocolException protocolException = new ProtocolException("unexpected end of stream");
+                        endOfInput(false, protocolException);
+                        throw protocolException;
                     }
-                    ProtocolException protocolException = new ProtocolException("unexpected end of stream");
-                    endOfInput(false, protocolException);
-                    throw protocolException;
+                    throw new IllegalStateException("closed");
                 }
-                throw new IllegalStateException("closed");
+                throw new IllegalArgumentException("byteCount < 0: " + j);
             }
-            throw new IllegalArgumentException("byteCount < 0: " + j);
+            return invokeLJ.longValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class UnknownLengthSource extends AbstractSource {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public boolean inputExhausted;
+        public final /* synthetic */ Http1Codec this$0;
 
-        public UnknownLengthSource() {
-            super();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public UnknownLengthSource(Http1Codec http1Codec) {
+            super(http1Codec, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {http1Codec};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Http1Codec) objArr2[0], (AnonymousClass1) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = http1Codec;
         }
 
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (this.closed) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.closed) {
                 return;
             }
             if (!this.inputExhausted) {
@@ -345,26 +447,47 @@ public final class Http1Codec implements HttpCodec {
 
         @Override // okhttp3.internal.http1.Http1Codec.AbstractSource, okio.Source
         public long read(Buffer buffer, long j) throws IOException {
-            if (j >= 0) {
-                if (!this.closed) {
-                    if (this.inputExhausted) {
-                        return -1L;
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                if (j >= 0) {
+                    if (!this.closed) {
+                        if (this.inputExhausted) {
+                            return -1L;
+                        }
+                        long read = super.read(buffer, j);
+                        if (read == -1) {
+                            this.inputExhausted = true;
+                            endOfInput(true, null);
+                            return -1L;
+                        }
+                        return read;
                     }
-                    long read = super.read(buffer, j);
-                    if (read == -1) {
-                        this.inputExhausted = true;
-                        endOfInput(true, null);
-                        return -1L;
-                    }
-                    return read;
+                    throw new IllegalStateException("closed");
                 }
-                throw new IllegalStateException("closed");
+                throw new IllegalArgumentException("byteCount < 0: " + j);
             }
-            throw new IllegalArgumentException("byteCount < 0: " + j);
+            return invokeLJ.longValue;
         }
     }
 
     public Http1Codec(OkHttpClient okHttpClient, StreamAllocation streamAllocation, BufferedSource bufferedSource, BufferedSink bufferedSink) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {okHttpClient, streamAllocation, bufferedSource, bufferedSink};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.state = 0;
+        this.headerLimit = PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
         this.client = okHttpClient;
         this.streamAllocation = streamAllocation;
         this.source = bufferedSource;
@@ -372,115 +495,173 @@ public final class Http1Codec implements HttpCodec {
     }
 
     private String readHeaderLine() throws IOException {
-        String readUtf8LineStrict = this.source.readUtf8LineStrict(this.headerLimit);
-        this.headerLimit -= readUtf8LineStrict.length();
-        return readUtf8LineStrict;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            String readUtf8LineStrict = this.source.readUtf8LineStrict(this.headerLimit);
+            this.headerLimit -= readUtf8LineStrict.length();
+            return readUtf8LineStrict;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // okhttp3.internal.http.HttpCodec
     public void cancel() {
-        RealConnection connection = this.streamAllocation.connection();
-        if (connection != null) {
-            connection.cancel();
+        RealConnection connection;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (connection = this.streamAllocation.connection()) == null) {
+            return;
         }
+        connection.cancel();
     }
 
     @Override // okhttp3.internal.http.HttpCodec
     public Sink createRequestBody(Request request, long j) {
-        if ("chunked".equalsIgnoreCase(request.header("Transfer-Encoding"))) {
-            return newChunkedSink();
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, j)) == null) {
+            if ("chunked".equalsIgnoreCase(request.header("Transfer-Encoding"))) {
+                return newChunkedSink();
+            }
+            if (j != -1) {
+                return newFixedLengthSink(j);
+            }
+            throw new IllegalStateException("Cannot stream a request body without chunked encoding or a known content length!");
         }
-        if (j != -1) {
-            return newFixedLengthSink(j);
-        }
-        throw new IllegalStateException("Cannot stream a request body without chunked encoding or a known content length!");
+        return (Sink) invokeLJ.objValue;
     }
 
     public void detachTimeout(ForwardingTimeout forwardingTimeout) {
-        Timeout delegate = forwardingTimeout.delegate();
-        forwardingTimeout.setDelegate(Timeout.NONE);
-        delegate.clearDeadline();
-        delegate.clearTimeout();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forwardingTimeout) == null) {
+            Timeout delegate = forwardingTimeout.delegate();
+            forwardingTimeout.setDelegate(Timeout.NONE);
+            delegate.clearDeadline();
+            delegate.clearTimeout();
+        }
     }
 
     @Override // okhttp3.internal.http.HttpCodec
     public void finishRequest() throws IOException {
-        this.sink.flush();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.sink.flush();
+        }
     }
 
     @Override // okhttp3.internal.http.HttpCodec
     public void flushRequest() throws IOException {
-        this.sink.flush();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.sink.flush();
+        }
     }
 
     public boolean isClosed() {
-        return this.state == 6;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.state == 6 : invokeV.booleanValue;
     }
 
     public Sink newChunkedSink() {
-        if (this.state == 1) {
-            this.state = 2;
-            return new ChunkedSink();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.state == 1) {
+                this.state = 2;
+                return new ChunkedSink(this);
+            }
+            throw new IllegalStateException("state: " + this.state);
         }
-        throw new IllegalStateException("state: " + this.state);
+        return (Sink) invokeV.objValue;
     }
 
     public Source newChunkedSource(HttpUrl httpUrl) throws IOException {
-        if (this.state == 4) {
-            this.state = 5;
-            return new ChunkedSource(httpUrl);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, httpUrl)) == null) {
+            if (this.state == 4) {
+                this.state = 5;
+                return new ChunkedSource(this, httpUrl);
+            }
+            throw new IllegalStateException("state: " + this.state);
         }
-        throw new IllegalStateException("state: " + this.state);
+        return (Source) invokeL.objValue;
     }
 
     public Sink newFixedLengthSink(long j) {
-        if (this.state == 1) {
-            this.state = 2;
-            return new FixedLengthSink(j);
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+            if (this.state == 1) {
+                this.state = 2;
+                return new FixedLengthSink(this, j);
+            }
+            throw new IllegalStateException("state: " + this.state);
         }
-        throw new IllegalStateException("state: " + this.state);
+        return (Sink) invokeJ.objValue;
     }
 
     public Source newFixedLengthSource(long j) throws IOException {
-        if (this.state == 4) {
-            this.state = 5;
-            return new FixedLengthSource(j);
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            if (this.state == 4) {
+                this.state = 5;
+                return new FixedLengthSource(this, j);
+            }
+            throw new IllegalStateException("state: " + this.state);
         }
-        throw new IllegalStateException("state: " + this.state);
+        return (Source) invokeJ.objValue;
     }
 
     public Source newUnknownLengthSource() throws IOException {
-        if (this.state == 4) {
-            StreamAllocation streamAllocation = this.streamAllocation;
-            if (streamAllocation != null) {
-                this.state = 5;
-                streamAllocation.noNewStreams();
-                return new UnknownLengthSource();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.state == 4) {
+                StreamAllocation streamAllocation = this.streamAllocation;
+                if (streamAllocation != null) {
+                    this.state = 5;
+                    streamAllocation.noNewStreams();
+                    return new UnknownLengthSource(this);
+                }
+                throw new IllegalStateException("streamAllocation == null");
             }
-            throw new IllegalStateException("streamAllocation == null");
+            throw new IllegalStateException("state: " + this.state);
         }
-        throw new IllegalStateException("state: " + this.state);
+        return (Source) invokeV.objValue;
     }
 
     @Override // okhttp3.internal.http.HttpCodec
     public ResponseBody openResponseBody(Response response) throws IOException {
-        StreamAllocation streamAllocation = this.streamAllocation;
-        streamAllocation.eventListener.responseBodyStart(streamAllocation.call);
-        String header = response.header("Content-Type");
-        if (!HttpHeaders.hasBody(response)) {
-            return new RealResponseBody(header, 0L, Okio.buffer(newFixedLengthSource(0L)));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, response)) == null) {
+            StreamAllocation streamAllocation = this.streamAllocation;
+            streamAllocation.eventListener.responseBodyStart(streamAllocation.call);
+            String header = response.header("Content-Type");
+            if (!HttpHeaders.hasBody(response)) {
+                return new RealResponseBody(header, 0L, Okio.buffer(newFixedLengthSource(0L)));
+            }
+            if ("chunked".equalsIgnoreCase(response.header("Transfer-Encoding"))) {
+                return new RealResponseBody(header, -1L, Okio.buffer(newChunkedSource(response.request().url())));
+            }
+            long contentLength = HttpHeaders.contentLength(response);
+            if (contentLength != -1) {
+                return new RealResponseBody(header, contentLength, Okio.buffer(newFixedLengthSource(contentLength)));
+            }
+            return new RealResponseBody(header, -1L, Okio.buffer(newUnknownLengthSource()));
         }
-        if ("chunked".equalsIgnoreCase(response.header("Transfer-Encoding"))) {
-            return new RealResponseBody(header, -1L, Okio.buffer(newChunkedSource(response.request().url())));
-        }
-        long contentLength = HttpHeaders.contentLength(response);
-        if (contentLength != -1) {
-            return new RealResponseBody(header, contentLength, Okio.buffer(newFixedLengthSource(contentLength)));
-        }
-        return new RealResponseBody(header, -1L, Okio.buffer(newUnknownLengthSource()));
+        return (ResponseBody) invokeL.objValue;
     }
 
     public Headers readHeaders() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048588, this)) != null) {
+            return (Headers) invokeV.objValue;
+        }
         Headers.Builder builder = new Headers.Builder();
         while (true) {
             String readHeaderLine = readHeaderLine();
@@ -494,45 +675,137 @@ public final class Http1Codec implements HttpCodec {
 
     @Override // okhttp3.internal.http.HttpCodec
     public Response.Builder readResponseHeaders(boolean z) throws IOException {
-        int i2 = this.state;
-        if (i2 != 1 && i2 != 3) {
-            throw new IllegalStateException("state: " + this.state);
-        }
-        try {
-            StatusLine parse = StatusLine.parse(readHeaderLine());
-            Response.Builder headers = new Response.Builder().protocol(parse.protocol).code(parse.code).message(parse.message).headers(readHeaders());
-            if (z && parse.code == 100) {
-                return null;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
+            int i2 = this.state;
+            if (i2 != 1 && i2 != 3) {
+                throw new IllegalStateException("state: " + this.state);
             }
-            if (parse.code == 100) {
-                this.state = 3;
+            try {
+                StatusLine parse = StatusLine.parse(readHeaderLine());
+                Response.Builder headers = new Response.Builder().protocol(parse.protocol).code(parse.code).message(parse.message).headers(readHeaders());
+                if (z && parse.code == 100) {
+                    return null;
+                }
+                if (parse.code == 100) {
+                    this.state = 3;
+                    return headers;
+                }
+                this.state = 4;
                 return headers;
+            } catch (EOFException e2) {
+                IOException iOException = new IOException("unexpected end of stream on " + this.streamAllocation);
+                iOException.initCause(e2);
+                throw iOException;
             }
-            this.state = 4;
-            return headers;
-        } catch (EOFException e2) {
-            IOException iOException = new IOException("unexpected end of stream on " + this.streamAllocation);
-            iOException.initCause(e2);
-            throw iOException;
         }
+        return (Response.Builder) invokeZ.objValue;
     }
 
     public void writeRequest(Headers headers, String str) throws IOException {
-        if (this.state == 0) {
-            this.sink.writeUtf8(str).writeUtf8(Part.CRLF);
-            int size = headers.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.sink.writeUtf8(headers.name(i2)).writeUtf8(": ").writeUtf8(headers.value(i2)).writeUtf8(Part.CRLF);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, headers, str) == null) {
+            if (this.state == 0) {
+                this.sink.writeUtf8(str).writeUtf8(Part.CRLF);
+                int size = headers.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    this.sink.writeUtf8(headers.name(i2)).writeUtf8(": ").writeUtf8(headers.value(i2)).writeUtf8(Part.CRLF);
+                }
+                this.sink.writeUtf8(Part.CRLF);
+                this.state = 1;
+                return;
             }
-            this.sink.writeUtf8(Part.CRLF);
-            this.state = 1;
-            return;
+            throw new IllegalStateException("state: " + this.state);
         }
-        throw new IllegalStateException("state: " + this.state);
     }
 
     @Override // okhttp3.internal.http.HttpCodec
     public void writeRequestHeaders(Request request) throws IOException {
-        writeRequest(request.headers(), RequestLine.get(request, this.streamAllocation.connection().route().proxy().type()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, request) == null) {
+            writeRequest(request.headers(), RequestLine.get(request, this.streamAllocation.connection().route().proxy().type()));
+        }
+    }
+
+    /* loaded from: classes10.dex */
+    public abstract class AbstractSource implements Source {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long bytesRead;
+        public boolean closed;
+        public final /* synthetic */ Http1Codec this$0;
+        public final ForwardingTimeout timeout;
+
+        public AbstractSource(Http1Codec http1Codec) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {http1Codec};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = http1Codec;
+            this.timeout = new ForwardingTimeout(this.this$0.source.timeout());
+            this.bytesRead = 0L;
+        }
+
+        public final void endOfInput(boolean z, IOException iOException) throws IOException {
+            Http1Codec http1Codec;
+            int i2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, iOException) == null) || (i2 = (http1Codec = this.this$0).state) == 6) {
+                return;
+            }
+            if (i2 == 5) {
+                http1Codec.detachTimeout(this.timeout);
+                Http1Codec http1Codec2 = this.this$0;
+                http1Codec2.state = 6;
+                StreamAllocation streamAllocation = http1Codec2.streamAllocation;
+                if (streamAllocation != null) {
+                    streamAllocation.streamFinished(!z, http1Codec2, this.bytesRead, iOException);
+                    return;
+                }
+                return;
+            }
+            throw new IllegalStateException("state: " + this.this$0.state);
+        }
+
+        @Override // okio.Source
+        public long read(Buffer buffer, long j) throws IOException {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                try {
+                    long read = this.this$0.source.read(buffer, j);
+                    if (read > 0) {
+                        this.bytesRead += read;
+                    }
+                    return read;
+                } catch (IOException e2) {
+                    endOfInput(false, e2);
+                    throw e2;
+                }
+            }
+            return invokeLJ.longValue;
+        }
+
+        @Override // okio.Source
+        public Timeout timeout() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeout : (Timeout) invokeV.objValue;
+        }
+
+        public /* synthetic */ AbstractSource(Http1Codec http1Codec, AnonymousClass1 anonymousClass1) {
+            this(http1Codec);
+        }
     }
 }

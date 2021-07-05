@@ -4,8 +4,16 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import android.util.Property;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class PathProperty<T> extends Property<T, Float> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public float mCurrentFraction;
     public final float mPathLength;
     public final PathMeasure mPathMeasure;
@@ -13,8 +21,25 @@ public class PathProperty<T> extends Property<T, Float> {
     public final float[] mPosition;
     public final Property<T, PointF> mProperty;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PathProperty(Property<T, PointF> property, Path path) {
         super(Float.class, property.getName());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {property, path};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Class) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mPosition = new float[2];
         this.mPointF = new PointF();
         this.mProperty = property;
@@ -42,17 +67,22 @@ public class PathProperty<T> extends Property<T, Float> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.util.Property
     public Float get(T t) {
-        return Float.valueOf(this.mCurrentFraction);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? Float.valueOf(this.mCurrentFraction) : (Float) invokeL.objValue;
     }
 
     /* renamed from: set  reason: avoid collision after fix types in other method */
     public void set2(T t, Float f2) {
-        this.mCurrentFraction = f2.floatValue();
-        this.mPathMeasure.getPosTan(this.mPathLength * f2.floatValue(), this.mPosition, null);
-        PointF pointF = this.mPointF;
-        float[] fArr = this.mPosition;
-        pointF.x = fArr[0];
-        pointF.y = fArr[1];
-        this.mProperty.set(t, pointF);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, f2) == null) {
+            this.mCurrentFraction = f2.floatValue();
+            this.mPathMeasure.getPosTan(this.mPathLength * f2.floatValue(), this.mPosition, null);
+            PointF pointF = this.mPointF;
+            float[] fArr = this.mPosition;
+            pointF.x = fArr[0];
+            pointF.y = fArr[1];
+            this.mProperty.set(t, pointF);
+        }
     }
 }

@@ -1,5 +1,11 @@
 package io.reactivex.plugins;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.Flowable;
@@ -33,8 +39,9 @@ import io.reactivex.parallel.ParallelFlowable;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadFactory;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class RxJavaPlugins {
+    public static /* synthetic */ Interceptable $ic;
     @Nullable
     public static volatile Consumer<? super Throwable> errorHandler;
     public static volatile boolean failNonBlockingScheduler;
@@ -85,617 +92,914 @@ public final class RxJavaPlugins {
     public static volatile Function<? super Scheduler, ? extends Scheduler> onSingleHandler;
     @Nullable
     public static volatile BiFunction<? super Single, ? super SingleObserver, ? extends SingleObserver> onSingleSubscribe;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public RxJavaPlugins() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         throw new IllegalStateException("No instances!");
     }
 
     @NonNull
     public static <T, R> R apply(@NonNull Function<T, R> function, @NonNull T t) {
-        try {
-            return function.apply(t);
-        } catch (Throwable th) {
-            throw ExceptionHelper.wrapOrThrow(th);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, function, t)) == null) {
+            try {
+                return function.apply(t);
+            } catch (Throwable th) {
+                throw ExceptionHelper.wrapOrThrow(th);
+            }
         }
+        return (R) invokeLL.objValue;
     }
 
     @NonNull
     public static Scheduler applyRequireNonNull(@NonNull Function<? super Callable<Scheduler>, ? extends Scheduler> function, Callable<Scheduler> callable) {
-        return (Scheduler) ObjectHelper.requireNonNull(apply(function, callable), "Scheduler Callable result can't be null");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, function, callable)) == null) ? (Scheduler) ObjectHelper.requireNonNull(apply(function, callable), "Scheduler Callable result can't be null") : (Scheduler) invokeLL.objValue;
     }
 
     @NonNull
     public static Scheduler callRequireNonNull(@NonNull Callable<Scheduler> callable) {
-        try {
-            return (Scheduler) ObjectHelper.requireNonNull(callable.call(), "Scheduler Callable result can't be null");
-        } catch (Throwable th) {
-            throw ExceptionHelper.wrapOrThrow(th);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, callable)) == null) {
+            try {
+                return (Scheduler) ObjectHelper.requireNonNull(callable.call(), "Scheduler Callable result can't be null");
+            } catch (Throwable th) {
+                throw ExceptionHelper.wrapOrThrow(th);
+            }
         }
+        return (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler createComputationScheduler(@NonNull ThreadFactory threadFactory) {
-        return new ComputationScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null"));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, threadFactory)) == null) ? new ComputationScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null")) : (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler createIoScheduler(@NonNull ThreadFactory threadFactory) {
-        return new IoScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null"));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, threadFactory)) == null) ? new IoScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null")) : (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler createNewThreadScheduler(@NonNull ThreadFactory threadFactory) {
-        return new NewThreadScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null"));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) ? new NewThreadScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null")) : (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler createSingleScheduler(@NonNull ThreadFactory threadFactory) {
-        return new SingleScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null"));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, threadFactory)) == null) ? new SingleScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null")) : (Scheduler) invokeL.objValue;
     }
 
     @Nullable
     public static Function<? super Scheduler, ? extends Scheduler> getComputationSchedulerHandler() {
-        return onComputationHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? onComputationHandler : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Consumer<? super Throwable> getErrorHandler() {
-        return errorHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? errorHandler : (Consumer) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Callable<Scheduler>, ? extends Scheduler> getInitComputationSchedulerHandler() {
-        return onInitComputationHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? onInitComputationHandler : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Callable<Scheduler>, ? extends Scheduler> getInitIoSchedulerHandler() {
-        return onInitIoHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? onInitIoHandler : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Callable<Scheduler>, ? extends Scheduler> getInitNewThreadSchedulerHandler() {
-        return onInitNewThreadHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? onInitNewThreadHandler : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Callable<Scheduler>, ? extends Scheduler> getInitSingleSchedulerHandler() {
-        return onInitSingleHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? onInitSingleHandler : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Scheduler, ? extends Scheduler> getIoSchedulerHandler() {
-        return onIoHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? onIoHandler : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Scheduler, ? extends Scheduler> getNewThreadSchedulerHandler() {
-        return onNewThreadHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? onNewThreadHandler : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static BooleanSupplier getOnBeforeBlocking() {
-        return onBeforeBlocking;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? onBeforeBlocking : (BooleanSupplier) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Completable, ? extends Completable> getOnCompletableAssembly() {
-        return onCompletableAssembly;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? onCompletableAssembly : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static BiFunction<? super Completable, ? super CompletableObserver, ? extends CompletableObserver> getOnCompletableSubscribe() {
-        return onCompletableSubscribe;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? onCompletableSubscribe : (BiFunction) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super ConnectableFlowable, ? extends ConnectableFlowable> getOnConnectableFlowableAssembly() {
-        return onConnectableFlowableAssembly;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? onConnectableFlowableAssembly : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super ConnectableObservable, ? extends ConnectableObservable> getOnConnectableObservableAssembly() {
-        return onConnectableObservableAssembly;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? onConnectableObservableAssembly : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Flowable, ? extends Flowable> getOnFlowableAssembly() {
-        return onFlowableAssembly;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? onFlowableAssembly : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static BiFunction<? super Flowable, ? super Subscriber, ? extends Subscriber> getOnFlowableSubscribe() {
-        return onFlowableSubscribe;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? onFlowableSubscribe : (BiFunction) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Maybe, ? extends Maybe> getOnMaybeAssembly() {
-        return onMaybeAssembly;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? onMaybeAssembly : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static BiFunction<? super Maybe, ? super MaybeObserver, ? extends MaybeObserver> getOnMaybeSubscribe() {
-        return onMaybeSubscribe;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? onMaybeSubscribe : (BiFunction) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Observable, ? extends Observable> getOnObservableAssembly() {
-        return onObservableAssembly;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? onObservableAssembly : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static BiFunction<? super Observable, ? super Observer, ? extends Observer> getOnObservableSubscribe() {
-        return onObservableSubscribe;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? onObservableSubscribe : (BiFunction) invokeV.objValue;
     }
 
     @Beta
     @Nullable
     public static Function<? super ParallelFlowable, ? extends ParallelFlowable> getOnParallelAssembly() {
-        return onParallelAssembly;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? onParallelAssembly : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Single, ? extends Single> getOnSingleAssembly() {
-        return onSingleAssembly;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? onSingleAssembly : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static BiFunction<? super Single, ? super SingleObserver, ? extends SingleObserver> getOnSingleSubscribe() {
-        return onSingleSubscribe;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? onSingleSubscribe : (BiFunction) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Runnable, ? extends Runnable> getScheduleHandler() {
-        return onScheduleHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? onScheduleHandler : (Function) invokeV.objValue;
     }
 
     @Nullable
     public static Function<? super Scheduler, ? extends Scheduler> getSingleSchedulerHandler() {
-        return onSingleHandler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? onSingleHandler : (Function) invokeV.objValue;
     }
 
     @NonNull
     public static Scheduler initComputationScheduler(@NonNull Callable<Scheduler> callable) {
-        ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
-        Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitComputationHandler;
-        if (function == null) {
-            return callRequireNonNull(callable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, callable)) == null) {
+            ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
+            Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitComputationHandler;
+            if (function == null) {
+                return callRequireNonNull(callable);
+            }
+            return applyRequireNonNull(function, callable);
         }
-        return applyRequireNonNull(function, callable);
+        return (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler initIoScheduler(@NonNull Callable<Scheduler> callable) {
-        ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
-        Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitIoHandler;
-        if (function == null) {
-            return callRequireNonNull(callable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, callable)) == null) {
+            ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
+            Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitIoHandler;
+            if (function == null) {
+                return callRequireNonNull(callable);
+            }
+            return applyRequireNonNull(function, callable);
         }
-        return applyRequireNonNull(function, callable);
+        return (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler initNewThreadScheduler(@NonNull Callable<Scheduler> callable) {
-        ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
-        Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitNewThreadHandler;
-        if (function == null) {
-            return callRequireNonNull(callable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, callable)) == null) {
+            ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
+            Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitNewThreadHandler;
+            if (function == null) {
+                return callRequireNonNull(callable);
+            }
+            return applyRequireNonNull(function, callable);
         }
-        return applyRequireNonNull(function, callable);
+        return (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler initSingleScheduler(@NonNull Callable<Scheduler> callable) {
-        ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
-        Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitSingleHandler;
-        if (function == null) {
-            return callRequireNonNull(callable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, callable)) == null) {
+            ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
+            Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitSingleHandler;
+            if (function == null) {
+                return callRequireNonNull(callable);
+            }
+            return applyRequireNonNull(function, callable);
         }
-        return applyRequireNonNull(function, callable);
+        return (Scheduler) invokeL.objValue;
     }
 
     public static boolean isBug(Throwable th) {
-        return (th instanceof OnErrorNotImplementedException) || (th instanceof MissingBackpressureException) || (th instanceof IllegalStateException) || (th instanceof NullPointerException) || (th instanceof IllegalArgumentException) || (th instanceof CompositeException);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65573, null, th)) == null) ? (th instanceof OnErrorNotImplementedException) || (th instanceof MissingBackpressureException) || (th instanceof IllegalStateException) || (th instanceof NullPointerException) || (th instanceof IllegalArgumentException) || (th instanceof CompositeException) : invokeL.booleanValue;
     }
 
     public static boolean isFailOnNonBlockingScheduler() {
-        return failNonBlockingScheduler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? failNonBlockingScheduler : invokeV.booleanValue;
     }
 
     public static boolean isLockdown() {
-        return lockdown;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) ? lockdown : invokeV.booleanValue;
     }
 
     public static void lockdown() {
-        lockdown = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65576, null) == null) {
+            lockdown = true;
+        }
     }
 
     @NonNull
     public static <T> Maybe<T> onAssembly(@NonNull Maybe<T> maybe) {
-        Function<? super Maybe, ? extends Maybe> function = onMaybeAssembly;
-        return function != null ? (Maybe) apply(function, maybe) : maybe;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, maybe)) == null) {
+            Function<? super Maybe, ? extends Maybe> function = onMaybeAssembly;
+            return function != null ? (Maybe) apply(function, maybe) : maybe;
+        }
+        return (Maybe) invokeL.objValue;
     }
 
     public static boolean onBeforeBlocking() {
-        BooleanSupplier booleanSupplier = onBeforeBlocking;
-        if (booleanSupplier != null) {
-            try {
-                return booleanSupplier.getAsBoolean();
-            } catch (Throwable th) {
-                throw ExceptionHelper.wrapOrThrow(th);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
+            BooleanSupplier booleanSupplier = onBeforeBlocking;
+            if (booleanSupplier != null) {
+                try {
+                    return booleanSupplier.getAsBoolean();
+                } catch (Throwable th) {
+                    throw ExceptionHelper.wrapOrThrow(th);
+                }
             }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @NonNull
     public static Scheduler onComputationScheduler(@NonNull Scheduler scheduler) {
-        Function<? super Scheduler, ? extends Scheduler> function = onComputationHandler;
-        return function == null ? scheduler : (Scheduler) apply(function, scheduler);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, scheduler)) == null) {
+            Function<? super Scheduler, ? extends Scheduler> function = onComputationHandler;
+            return function == null ? scheduler : (Scheduler) apply(function, scheduler);
+        }
+        return (Scheduler) invokeL.objValue;
     }
 
     public static void onError(@NonNull Throwable th) {
-        Consumer<? super Throwable> consumer = errorHandler;
-        if (th == null) {
-            th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        } else if (!isBug(th)) {
-            th = new UndeliverableException(th);
-        }
-        if (consumer != null) {
-            try {
-                consumer.accept(th);
-                return;
-            } catch (Throwable th2) {
-                th2.printStackTrace();
-                uncaught(th2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65587, null, th) == null) {
+            Consumer<? super Throwable> consumer = errorHandler;
+            if (th == null) {
+                th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+            } else if (!isBug(th)) {
+                th = new UndeliverableException(th);
             }
+            if (consumer != null) {
+                try {
+                    consumer.accept(th);
+                    return;
+                } catch (Throwable th2) {
+                    th2.printStackTrace();
+                    uncaught(th2);
+                }
+            }
+            th.printStackTrace();
+            uncaught(th);
         }
-        th.printStackTrace();
-        uncaught(th);
     }
 
     @NonNull
     public static Scheduler onIoScheduler(@NonNull Scheduler scheduler) {
-        Function<? super Scheduler, ? extends Scheduler> function = onIoHandler;
-        return function == null ? scheduler : (Scheduler) apply(function, scheduler);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, scheduler)) == null) {
+            Function<? super Scheduler, ? extends Scheduler> function = onIoHandler;
+            return function == null ? scheduler : (Scheduler) apply(function, scheduler);
+        }
+        return (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler onNewThreadScheduler(@NonNull Scheduler scheduler) {
-        Function<? super Scheduler, ? extends Scheduler> function = onNewThreadHandler;
-        return function == null ? scheduler : (Scheduler) apply(function, scheduler);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, scheduler)) == null) {
+            Function<? super Scheduler, ? extends Scheduler> function = onNewThreadHandler;
+            return function == null ? scheduler : (Scheduler) apply(function, scheduler);
+        }
+        return (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Runnable onSchedule(@NonNull Runnable runnable) {
-        ObjectHelper.requireNonNull(runnable, "run is null");
-        Function<? super Runnable, ? extends Runnable> function = onScheduleHandler;
-        return function == null ? runnable : (Runnable) apply(function, runnable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, runnable)) == null) {
+            ObjectHelper.requireNonNull(runnable, "run is null");
+            Function<? super Runnable, ? extends Runnable> function = onScheduleHandler;
+            return function == null ? runnable : (Runnable) apply(function, runnable);
+        }
+        return (Runnable) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler onSingleScheduler(@NonNull Scheduler scheduler) {
-        Function<? super Scheduler, ? extends Scheduler> function = onSingleHandler;
-        return function == null ? scheduler : (Scheduler) apply(function, scheduler);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, scheduler)) == null) {
+            Function<? super Scheduler, ? extends Scheduler> function = onSingleHandler;
+            return function == null ? scheduler : (Scheduler) apply(function, scheduler);
+        }
+        return (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static <T> Subscriber<? super T> onSubscribe(@NonNull Flowable<T> flowable, @NonNull Subscriber<? super T> subscriber) {
-        BiFunction<? super Flowable, ? super Subscriber, ? extends Subscriber> biFunction = onFlowableSubscribe;
-        return biFunction != null ? (Subscriber) apply(biFunction, flowable, subscriber) : subscriber;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65596, null, flowable, subscriber)) == null) {
+            BiFunction<? super Flowable, ? super Subscriber, ? extends Subscriber> biFunction = onFlowableSubscribe;
+            return biFunction != null ? (Subscriber) apply(biFunction, flowable, subscriber) : subscriber;
+        }
+        return (Subscriber) invokeLL.objValue;
     }
 
     public static void reset() {
-        setErrorHandler(null);
-        setScheduleHandler(null);
-        setComputationSchedulerHandler(null);
-        setInitComputationSchedulerHandler(null);
-        setIoSchedulerHandler(null);
-        setInitIoSchedulerHandler(null);
-        setSingleSchedulerHandler(null);
-        setInitSingleSchedulerHandler(null);
-        setNewThreadSchedulerHandler(null);
-        setInitNewThreadSchedulerHandler(null);
-        setOnFlowableAssembly(null);
-        setOnFlowableSubscribe(null);
-        setOnObservableAssembly(null);
-        setOnObservableSubscribe(null);
-        setOnSingleAssembly(null);
-        setOnSingleSubscribe(null);
-        setOnCompletableAssembly(null);
-        setOnCompletableSubscribe(null);
-        setOnConnectableFlowableAssembly(null);
-        setOnConnectableObservableAssembly(null);
-        setOnMaybeAssembly(null);
-        setOnMaybeSubscribe(null);
-        setOnParallelAssembly(null);
-        setFailOnNonBlockingScheduler(false);
-        setOnBeforeBlocking(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65597, null) == null) {
+            setErrorHandler(null);
+            setScheduleHandler(null);
+            setComputationSchedulerHandler(null);
+            setInitComputationSchedulerHandler(null);
+            setIoSchedulerHandler(null);
+            setInitIoSchedulerHandler(null);
+            setSingleSchedulerHandler(null);
+            setInitSingleSchedulerHandler(null);
+            setNewThreadSchedulerHandler(null);
+            setInitNewThreadSchedulerHandler(null);
+            setOnFlowableAssembly(null);
+            setOnFlowableSubscribe(null);
+            setOnObservableAssembly(null);
+            setOnObservableSubscribe(null);
+            setOnSingleAssembly(null);
+            setOnSingleSubscribe(null);
+            setOnCompletableAssembly(null);
+            setOnCompletableSubscribe(null);
+            setOnConnectableFlowableAssembly(null);
+            setOnConnectableObservableAssembly(null);
+            setOnMaybeAssembly(null);
+            setOnMaybeSubscribe(null);
+            setOnParallelAssembly(null);
+            setFailOnNonBlockingScheduler(false);
+            setOnBeforeBlocking(null);
+        }
     }
 
     public static void setComputationSchedulerHandler(@Nullable Function<? super Scheduler, ? extends Scheduler> function) {
-        if (!lockdown) {
-            onComputationHandler = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65598, null, function) == null) {
+            if (!lockdown) {
+                onComputationHandler = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setErrorHandler(@Nullable Consumer<? super Throwable> consumer) {
-        if (!lockdown) {
-            errorHandler = consumer;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65599, null, consumer) == null) {
+            if (!lockdown) {
+                errorHandler = consumer;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setFailOnNonBlockingScheduler(boolean z) {
-        if (!lockdown) {
-            failNonBlockingScheduler = z;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65600, null, z) == null) {
+            if (!lockdown) {
+                failNonBlockingScheduler = z;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setInitComputationSchedulerHandler(@Nullable Function<? super Callable<Scheduler>, ? extends Scheduler> function) {
-        if (!lockdown) {
-            onInitComputationHandler = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65601, null, function) == null) {
+            if (!lockdown) {
+                onInitComputationHandler = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setInitIoSchedulerHandler(@Nullable Function<? super Callable<Scheduler>, ? extends Scheduler> function) {
-        if (!lockdown) {
-            onInitIoHandler = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65602, null, function) == null) {
+            if (!lockdown) {
+                onInitIoHandler = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setInitNewThreadSchedulerHandler(@Nullable Function<? super Callable<Scheduler>, ? extends Scheduler> function) {
-        if (!lockdown) {
-            onInitNewThreadHandler = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65603, null, function) == null) {
+            if (!lockdown) {
+                onInitNewThreadHandler = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setInitSingleSchedulerHandler(@Nullable Function<? super Callable<Scheduler>, ? extends Scheduler> function) {
-        if (!lockdown) {
-            onInitSingleHandler = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65604, null, function) == null) {
+            if (!lockdown) {
+                onInitSingleHandler = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setIoSchedulerHandler(@Nullable Function<? super Scheduler, ? extends Scheduler> function) {
-        if (!lockdown) {
-            onIoHandler = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65605, null, function) == null) {
+            if (!lockdown) {
+                onIoHandler = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setNewThreadSchedulerHandler(@Nullable Function<? super Scheduler, ? extends Scheduler> function) {
-        if (!lockdown) {
-            onNewThreadHandler = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65606, null, function) == null) {
+            if (!lockdown) {
+                onNewThreadHandler = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnBeforeBlocking(@Nullable BooleanSupplier booleanSupplier) {
-        if (!lockdown) {
-            onBeforeBlocking = booleanSupplier;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65607, null, booleanSupplier) == null) {
+            if (!lockdown) {
+                onBeforeBlocking = booleanSupplier;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnCompletableAssembly(@Nullable Function<? super Completable, ? extends Completable> function) {
-        if (!lockdown) {
-            onCompletableAssembly = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65608, null, function) == null) {
+            if (!lockdown) {
+                onCompletableAssembly = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnCompletableSubscribe(@Nullable BiFunction<? super Completable, ? super CompletableObserver, ? extends CompletableObserver> biFunction) {
-        if (!lockdown) {
-            onCompletableSubscribe = biFunction;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65609, null, biFunction) == null) {
+            if (!lockdown) {
+                onCompletableSubscribe = biFunction;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnConnectableFlowableAssembly(@Nullable Function<? super ConnectableFlowable, ? extends ConnectableFlowable> function) {
-        if (!lockdown) {
-            onConnectableFlowableAssembly = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65610, null, function) == null) {
+            if (!lockdown) {
+                onConnectableFlowableAssembly = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnConnectableObservableAssembly(@Nullable Function<? super ConnectableObservable, ? extends ConnectableObservable> function) {
-        if (!lockdown) {
-            onConnectableObservableAssembly = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65611, null, function) == null) {
+            if (!lockdown) {
+                onConnectableObservableAssembly = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnFlowableAssembly(@Nullable Function<? super Flowable, ? extends Flowable> function) {
-        if (!lockdown) {
-            onFlowableAssembly = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65612, null, function) == null) {
+            if (!lockdown) {
+                onFlowableAssembly = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnFlowableSubscribe(@Nullable BiFunction<? super Flowable, ? super Subscriber, ? extends Subscriber> biFunction) {
-        if (!lockdown) {
-            onFlowableSubscribe = biFunction;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65613, null, biFunction) == null) {
+            if (!lockdown) {
+                onFlowableSubscribe = biFunction;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnMaybeAssembly(@Nullable Function<? super Maybe, ? extends Maybe> function) {
-        if (!lockdown) {
-            onMaybeAssembly = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65614, null, function) == null) {
+            if (!lockdown) {
+                onMaybeAssembly = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnMaybeSubscribe(@Nullable BiFunction<? super Maybe, MaybeObserver, ? extends MaybeObserver> biFunction) {
-        if (!lockdown) {
-            onMaybeSubscribe = biFunction;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65615, null, biFunction) == null) {
+            if (!lockdown) {
+                onMaybeSubscribe = biFunction;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnObservableAssembly(@Nullable Function<? super Observable, ? extends Observable> function) {
-        if (!lockdown) {
-            onObservableAssembly = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65616, null, function) == null) {
+            if (!lockdown) {
+                onObservableAssembly = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnObservableSubscribe(@Nullable BiFunction<? super Observable, ? super Observer, ? extends Observer> biFunction) {
-        if (!lockdown) {
-            onObservableSubscribe = biFunction;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65617, null, biFunction) == null) {
+            if (!lockdown) {
+                onObservableSubscribe = biFunction;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     @Beta
     public static void setOnParallelAssembly(@Nullable Function<? super ParallelFlowable, ? extends ParallelFlowable> function) {
-        if (!lockdown) {
-            onParallelAssembly = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65618, null, function) == null) {
+            if (!lockdown) {
+                onParallelAssembly = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnSingleAssembly(@Nullable Function<? super Single, ? extends Single> function) {
-        if (!lockdown) {
-            onSingleAssembly = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65619, null, function) == null) {
+            if (!lockdown) {
+                onSingleAssembly = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setOnSingleSubscribe(@Nullable BiFunction<? super Single, ? super SingleObserver, ? extends SingleObserver> biFunction) {
-        if (!lockdown) {
-            onSingleSubscribe = biFunction;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65620, null, biFunction) == null) {
+            if (!lockdown) {
+                onSingleSubscribe = biFunction;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setScheduleHandler(@Nullable Function<? super Runnable, ? extends Runnable> function) {
-        if (!lockdown) {
-            onScheduleHandler = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65621, null, function) == null) {
+            if (!lockdown) {
+                onScheduleHandler = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void setSingleSchedulerHandler(@Nullable Function<? super Scheduler, ? extends Scheduler> function) {
-        if (!lockdown) {
-            onSingleHandler = function;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65622, null, function) == null) {
+            if (!lockdown) {
+                onSingleHandler = function;
+                return;
+            }
+            throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        throw new IllegalStateException("Plugins can't be changed anymore");
     }
 
     public static void uncaught(@NonNull Throwable th) {
-        Thread currentThread = Thread.currentThread();
-        currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65623, null, th) == null) {
+            Thread currentThread = Thread.currentThread();
+            currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
+        }
     }
 
     public static void unlock() {
-        lockdown = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65624, null) == null) {
+            lockdown = false;
+        }
     }
 
     @NonNull
     public static <T, U, R> R apply(@NonNull BiFunction<T, U, R> biFunction, @NonNull T t, @NonNull U u) {
-        try {
-            return biFunction.apply(t, u);
-        } catch (Throwable th) {
-            throw ExceptionHelper.wrapOrThrow(th);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, biFunction, t, u)) == null) {
+            try {
+                return biFunction.apply(t, u);
+            } catch (Throwable th) {
+                throw ExceptionHelper.wrapOrThrow(th);
+            }
         }
+        return (R) invokeLLL.objValue;
     }
 
     @NonNull
     public static <T> Flowable<T> onAssembly(@NonNull Flowable<T> flowable) {
-        Function<? super Flowable, ? extends Flowable> function = onFlowableAssembly;
-        return function != null ? (Flowable) apply(function, flowable) : flowable;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, flowable)) == null) {
+            Function<? super Flowable, ? extends Flowable> function = onFlowableAssembly;
+            return function != null ? (Flowable) apply(function, flowable) : flowable;
+        }
+        return (Flowable) invokeL.objValue;
     }
 
     @NonNull
     public static <T> Observer<? super T> onSubscribe(@NonNull Observable<T> observable, @NonNull Observer<? super T> observer) {
-        BiFunction<? super Observable, ? super Observer, ? extends Observer> biFunction = onObservableSubscribe;
-        return biFunction != null ? (Observer) apply(biFunction, observable, observer) : observer;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65594, null, observable, observer)) == null) {
+            BiFunction<? super Observable, ? super Observer, ? extends Observer> biFunction = onObservableSubscribe;
+            return biFunction != null ? (Observer) apply(biFunction, observable, observer) : observer;
+        }
+        return (Observer) invokeLL.objValue;
     }
 
     @NonNull
     public static <T> ConnectableFlowable<T> onAssembly(@NonNull ConnectableFlowable<T> connectableFlowable) {
-        Function<? super ConnectableFlowable, ? extends ConnectableFlowable> function = onConnectableFlowableAssembly;
-        return function != null ? (ConnectableFlowable) apply(function, connectableFlowable) : connectableFlowable;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, connectableFlowable)) == null) {
+            Function<? super ConnectableFlowable, ? extends ConnectableFlowable> function = onConnectableFlowableAssembly;
+            return function != null ? (ConnectableFlowable) apply(function, connectableFlowable) : connectableFlowable;
+        }
+        return (ConnectableFlowable) invokeL.objValue;
     }
 
     @NonNull
     public static <T> SingleObserver<? super T> onSubscribe(@NonNull Single<T> single, @NonNull SingleObserver<? super T> singleObserver) {
-        BiFunction<? super Single, ? super SingleObserver, ? extends SingleObserver> biFunction = onSingleSubscribe;
-        return biFunction != null ? (SingleObserver) apply(biFunction, single, singleObserver) : singleObserver;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65595, null, single, singleObserver)) == null) {
+            BiFunction<? super Single, ? super SingleObserver, ? extends SingleObserver> biFunction = onSingleSubscribe;
+            return biFunction != null ? (SingleObserver) apply(biFunction, single, singleObserver) : singleObserver;
+        }
+        return (SingleObserver) invokeLL.objValue;
     }
 
     @NonNull
     public static <T> Observable<T> onAssembly(@NonNull Observable<T> observable) {
-        Function<? super Observable, ? extends Observable> function = onObservableAssembly;
-        return function != null ? (Observable) apply(function, observable) : observable;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, observable)) == null) {
+            Function<? super Observable, ? extends Observable> function = onObservableAssembly;
+            return function != null ? (Observable) apply(function, observable) : observable;
+        }
+        return (Observable) invokeL.objValue;
     }
 
     @NonNull
     public static CompletableObserver onSubscribe(@NonNull Completable completable, @NonNull CompletableObserver completableObserver) {
-        BiFunction<? super Completable, ? super CompletableObserver, ? extends CompletableObserver> biFunction = onCompletableSubscribe;
-        return biFunction != null ? (CompletableObserver) apply(biFunction, completable, completableObserver) : completableObserver;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65592, null, completable, completableObserver)) == null) {
+            BiFunction<? super Completable, ? super CompletableObserver, ? extends CompletableObserver> biFunction = onCompletableSubscribe;
+            return biFunction != null ? (CompletableObserver) apply(biFunction, completable, completableObserver) : completableObserver;
+        }
+        return (CompletableObserver) invokeLL.objValue;
     }
 
     @NonNull
     public static <T> ConnectableObservable<T> onAssembly(@NonNull ConnectableObservable<T> connectableObservable) {
-        Function<? super ConnectableObservable, ? extends ConnectableObservable> function = onConnectableObservableAssembly;
-        return function != null ? (ConnectableObservable) apply(function, connectableObservable) : connectableObservable;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, connectableObservable)) == null) {
+            Function<? super ConnectableObservable, ? extends ConnectableObservable> function = onConnectableObservableAssembly;
+            return function != null ? (ConnectableObservable) apply(function, connectableObservable) : connectableObservable;
+        }
+        return (ConnectableObservable) invokeL.objValue;
     }
 
     @NonNull
     public static <T> MaybeObserver<? super T> onSubscribe(@NonNull Maybe<T> maybe, @NonNull MaybeObserver<? super T> maybeObserver) {
-        BiFunction<? super Maybe, ? super MaybeObserver, ? extends MaybeObserver> biFunction = onMaybeSubscribe;
-        return biFunction != null ? (MaybeObserver) apply(biFunction, maybe, maybeObserver) : maybeObserver;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65593, null, maybe, maybeObserver)) == null) {
+            BiFunction<? super Maybe, ? super MaybeObserver, ? extends MaybeObserver> biFunction = onMaybeSubscribe;
+            return biFunction != null ? (MaybeObserver) apply(biFunction, maybe, maybeObserver) : maybeObserver;
+        }
+        return (MaybeObserver) invokeLL.objValue;
     }
 
     @NonNull
     public static <T> Single<T> onAssembly(@NonNull Single<T> single) {
-        Function<? super Single, ? extends Single> function = onSingleAssembly;
-        return function != null ? (Single) apply(function, single) : single;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, single)) == null) {
+            Function<? super Single, ? extends Single> function = onSingleAssembly;
+            return function != null ? (Single) apply(function, single) : single;
+        }
+        return (Single) invokeL.objValue;
     }
 
     @NonNull
     public static Completable onAssembly(@NonNull Completable completable) {
-        Function<? super Completable, ? extends Completable> function = onCompletableAssembly;
-        return function != null ? (Completable) apply(function, completable) : completable;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, completable)) == null) {
+            Function<? super Completable, ? extends Completable> function = onCompletableAssembly;
+            return function != null ? (Completable) apply(function, completable) : completable;
+        }
+        return (Completable) invokeL.objValue;
     }
 
     @Beta
     @NonNull
     public static <T> ParallelFlowable<T> onAssembly(@NonNull ParallelFlowable<T> parallelFlowable) {
-        Function<? super ParallelFlowable, ? extends ParallelFlowable> function = onParallelAssembly;
-        return function != null ? (ParallelFlowable) apply(function, parallelFlowable) : parallelFlowable;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, parallelFlowable)) == null) {
+            Function<? super ParallelFlowable, ? extends ParallelFlowable> function = onParallelAssembly;
+            return function != null ? (ParallelFlowable) apply(function, parallelFlowable) : parallelFlowable;
+        }
+        return (ParallelFlowable) invokeL.objValue;
     }
 }

@@ -1,6 +1,12 @@
 package androidx.lifecycle;
 
 import androidx.lifecycle.Lifecycle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -16,7 +22,9 @@ import kotlinx.coroutines.Job;
 @DebugMetadata(c = "androidx.lifecycle.PausingDispatcherKt$whenStateAtLeast$2", f = "PausingDispatcher.kt", i = {0, 0, 0, 0}, l = {163}, m = "invokeSuspend", n = {"$this$withContext", "job", "dispatcher", "controller"}, s = {"L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes.dex */
 public final class PausingDispatcherKt$whenStateAtLeast$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super T>, Object> {
+    public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ Function2 $block;
+    public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Lifecycle.State $minState;
     public final /* synthetic */ Lifecycle $this_whenStateAtLeast;
     public Object L$0;
@@ -29,6 +37,22 @@ public final class PausingDispatcherKt$whenStateAtLeast$2 extends SuspendLambda 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PausingDispatcherKt$whenStateAtLeast$2(Lifecycle lifecycle, Lifecycle.State state, Function2 function2, Continuation continuation) {
         super(2, continuation);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lifecycle, state, function2, continuation};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.$this_whenStateAtLeast = lifecycle;
         this.$minState = state;
         this.$block = function2;
@@ -36,66 +60,78 @@ public final class PausingDispatcherKt$whenStateAtLeast$2 extends SuspendLambda 
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-        PausingDispatcherKt$whenStateAtLeast$2 pausingDispatcherKt$whenStateAtLeast$2 = new PausingDispatcherKt$whenStateAtLeast$2(this.$this_whenStateAtLeast, this.$minState, this.$block, continuation);
-        pausingDispatcherKt$whenStateAtLeast$2.p$ = (CoroutineScope) obj;
-        return pausingDispatcherKt$whenStateAtLeast$2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) {
+            PausingDispatcherKt$whenStateAtLeast$2 pausingDispatcherKt$whenStateAtLeast$2 = new PausingDispatcherKt$whenStateAtLeast$2(this.$this_whenStateAtLeast, this.$minState, this.$block, continuation);
+            pausingDispatcherKt$whenStateAtLeast$2.p$ = (CoroutineScope) obj;
+            return pausingDispatcherKt$whenStateAtLeast$2;
+        }
+        return (Continuation) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(CoroutineScope coroutineScope, Object obj) {
-        return ((PausingDispatcherKt$whenStateAtLeast$2) create(coroutineScope, (Continuation) obj)).invokeSuspend(Unit.INSTANCE);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coroutineScope, obj)) == null) ? ((PausingDispatcherKt$whenStateAtLeast$2) create(coroutineScope, (Continuation) obj)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
+        InterceptResult invokeL;
         LifecycleController lifecycleController;
-        Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        if (i2 == 0) {
-            ResultKt.throwOnFailure(obj);
-            CoroutineScope coroutineScope = this.p$;
-            Job job = (Job) coroutineScope.getCoroutineContext().get(Job.Key);
-            if (job != null) {
-                PausingDispatcher pausingDispatcher = new PausingDispatcher();
-                LifecycleController lifecycleController2 = new LifecycleController(this.$this_whenStateAtLeast, this.$minState, pausingDispatcher.dispatchQueue, job);
-                try {
-                    Function2 function2 = this.$block;
-                    this.L$0 = coroutineScope;
-                    this.L$1 = job;
-                    this.L$2 = pausingDispatcher;
-                    this.L$3 = lifecycleController2;
-                    this.label = 1;
-                    obj = BuildersKt.withContext(pausingDispatcher, function2, this);
-                    if (obj == coroutine_suspended) {
-                        return coroutine_suspended;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
+            int i2 = this.label;
+            if (i2 == 0) {
+                ResultKt.throwOnFailure(obj);
+                CoroutineScope coroutineScope = this.p$;
+                Job job = (Job) coroutineScope.getCoroutineContext().get(Job.Key);
+                if (job != null) {
+                    PausingDispatcher pausingDispatcher = new PausingDispatcher();
+                    LifecycleController lifecycleController2 = new LifecycleController(this.$this_whenStateAtLeast, this.$minState, pausingDispatcher.dispatchQueue, job);
+                    try {
+                        Function2 function2 = this.$block;
+                        this.L$0 = coroutineScope;
+                        this.L$1 = job;
+                        this.L$2 = pausingDispatcher;
+                        this.L$3 = lifecycleController2;
+                        this.label = 1;
+                        obj = BuildersKt.withContext(pausingDispatcher, function2, this);
+                        if (obj == coroutine_suspended) {
+                            return coroutine_suspended;
+                        }
+                        lifecycleController = lifecycleController2;
+                    } catch (Throwable th) {
+                        th = th;
+                        lifecycleController = lifecycleController2;
+                        lifecycleController.finish();
+                        throw th;
                     }
-                    lifecycleController = lifecycleController2;
-                } catch (Throwable th) {
-                    th = th;
-                    lifecycleController = lifecycleController2;
+                } else {
+                    throw new IllegalStateException("when[State] methods should have a parent job".toString());
+                }
+            } else if (i2 != 1) {
+                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+            } else {
+                lifecycleController = (LifecycleController) this.L$3;
+                PausingDispatcher pausingDispatcher2 = (PausingDispatcher) this.L$2;
+                Job job2 = (Job) this.L$1;
+                CoroutineScope coroutineScope2 = (CoroutineScope) this.L$0;
+                try {
+                    ResultKt.throwOnFailure(obj);
+                } catch (Throwable th2) {
+                    th = th2;
                     lifecycleController.finish();
                     throw th;
                 }
-            } else {
-                throw new IllegalStateException("when[State] methods should have a parent job".toString());
             }
-        } else if (i2 != 1) {
-            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-        } else {
-            lifecycleController = (LifecycleController) this.L$3;
-            PausingDispatcher pausingDispatcher2 = (PausingDispatcher) this.L$2;
-            Job job2 = (Job) this.L$1;
-            CoroutineScope coroutineScope2 = (CoroutineScope) this.L$0;
-            try {
-                ResultKt.throwOnFailure(obj);
-            } catch (Throwable th2) {
-                th = th2;
-                lifecycleController.finish();
-                throw th;
-            }
+            lifecycleController.finish();
+            return obj;
         }
-        lifecycleController.finish();
-        return obj;
+        return invokeL.objValue;
     }
 }

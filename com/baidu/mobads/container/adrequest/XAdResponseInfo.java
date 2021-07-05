@@ -1,16 +1,26 @@
 package com.baidu.mobads.container.adrequest;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.XAdInstanceInfoExt;
 import com.baidu.mobads.container.error.XAdErrorCodeTransformer;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class XAdResponseInfo implements IXAdResponseInfo {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XAdResponseInfo";
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<IXAdInstanceInfo> adInstanceList;
     public int adsNum;
     public String baiduidOfCookie;
     public String defaultFillInThemeForStaticAds;
@@ -23,25 +33,40 @@ public class XAdResponseInfo implements IXAdResponseInfo {
     public int longitude;
     public int lunpan;
     public JSONObject mOriginResponseObject;
+    public long mTimeStamp;
     public Boolean openPointModeForWall;
     public String pointUnitForWall;
     public String requestId;
-    public ArrayList<IXAdInstanceInfo> adInstanceList = new ArrayList<>();
-    public long mTimeStamp = System.currentTimeMillis();
 
     /* JADX DEBUG: Throwable added to exception handler: 'JSONException', keep only Throwable */
     public XAdResponseInfo(String str) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.adsNum = 0;
         this.openPointModeForWall = Boolean.FALSE;
         this.lunpan = -1;
         this.intIcon = -1;
+        this.adInstanceList = new ArrayList<>();
+        this.mTimeStamp = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject(str);
         this.mOriginResponseObject = jSONObject;
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("ad");
             if (optJSONArray != null) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.adInstanceList.add(new XAdInstanceInfoExt(optJSONArray.getJSONObject(i2)));
+                for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                    this.adInstanceList.add(new XAdInstanceInfoExt(optJSONArray.getJSONObject(i4)));
                 }
             }
             this.adsNum = this.mOriginResponseObject.optInt("n", 0);
@@ -64,163 +89,246 @@ public class XAdResponseInfo implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public ArrayList<IXAdInstanceInfo> getAdInstanceList() {
-        return this.adInstanceList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.adInstanceList : (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public int getAdsNum() {
-        return this.adsNum;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adsNum : invokeV.intValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public String getBaiduidOfCookie() {
-        return this.baiduidOfCookie;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.baiduidOfCookie : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public String getDefaultFillInThemeForStaticAds() {
-        return this.defaultFillInThemeForStaticAds;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.defaultFillInThemeForStaticAds : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public String getErrorCode() {
-        return XAdErrorCodeTransformer.errorCodeConvert(this.errorCode);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? XAdErrorCodeTransformer.errorCodeConvert(this.errorCode) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public String getErrorMessage() {
-        if (!TextUtils.isEmpty(this.errorMessage)) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!TextUtils.isEmpty(this.errorMessage)) {
+                return this.errorMessage;
+            }
+            String errorMsg = XAdErrorCodeTransformer.errorMsg(this.errorCode);
+            if (errorMsg != null) {
+                this.errorMessage = errorMsg;
+            } else {
+                this.errorMessage = "";
+            }
             return this.errorMessage;
         }
-        String errorMsg = XAdErrorCodeTransformer.errorMsg(this.errorCode);
-        if (errorMsg != null) {
-            this.errorMessage = errorMsg;
-        } else {
-            this.errorMessage = "";
-        }
-        return this.errorMessage;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public String getExp2() {
-        return this.exp2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.exp2 : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public String getExtentionActionExp() {
-        return this.extentionActionExp;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.extentionActionExp : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public int getIntIcon() {
-        return this.intIcon;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.intIcon : invokeV.intValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public int getLunpan() {
-        return this.lunpan;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.lunpan : invokeV.intValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public Boolean getOpenPointModeForWall() {
-        return this.openPointModeForWall;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.openPointModeForWall : (Boolean) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public String getOriginResponseStr() {
-        JSONObject jSONObject = this.mOriginResponseObject;
-        return jSONObject != null ? jSONObject.toString() : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            JSONObject jSONObject = this.mOriginResponseObject;
+            return jSONObject != null ? jSONObject.toString() : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public String getPointUnitForWall() {
-        return this.pointUnitForWall;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.pointUnitForWall : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public IXAdInstanceInfo getPrimaryAdInstanceInfo() {
-        if (this.adInstanceList.size() > 0) {
-            return this.adInstanceList.get(0);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.adInstanceList.size() > 0) {
+                return this.adInstanceList.get(0);
+            }
+            return null;
         }
-        return null;
+        return (IXAdInstanceInfo) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public String getRequestId() {
-        return this.requestId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.requestId : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public long getTimeStamp() {
-        return this.mTimeStamp;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mTimeStamp : invokeV.longValue;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setAdInstanceList(ArrayList<IXAdInstanceInfo> arrayList) {
-        this.adInstanceList = arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, arrayList) == null) {
+            this.adInstanceList = arrayList;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setAdsNum(int i2) {
-        this.adsNum = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            this.adsNum = i2;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setBaiduidOfCookie(String str) {
-        this.baiduidOfCookie = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.baiduidOfCookie = str;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setDefaultFillInThemeForStaticAds(String str) {
-        this.defaultFillInThemeForStaticAds = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.defaultFillInThemeForStaticAds = str;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setErrorCode(String str) {
-        this.errorCode = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.errorCode = str;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setErrorMessage(String str) {
-        this.errorMessage = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.errorMessage = str;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setExp2(String str) {
-        this.exp2 = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            this.exp2 = str;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setExtentionActionExp(String str) {
-        this.extentionActionExp = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.extentionActionExp = str;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setIntIcon(int i2) {
-        this.intIcon = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
+            this.intIcon = i2;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setLunpan(int i2) {
-        this.lunpan = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
+            this.lunpan = i2;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setOpenPointModeForWall(Boolean bool) {
-        this.openPointModeForWall = bool;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, bool) == null) {
+            this.openPointModeForWall = bool;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setOriginResponseStr(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setPointUnitForWall(String str) {
-        this.pointUnitForWall = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            this.pointUnitForWall = str;
+        }
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
     public void setRequestId(String str) {
-        this.requestId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            this.requestId = str;
+        }
     }
 }

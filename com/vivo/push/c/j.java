@@ -1,40 +1,63 @@
 package com.vivo.push.c;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class j implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40373a;
+    public final /* synthetic */ int f42116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f40374b;
+    public final /* synthetic */ List f42117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f40375c;
+    public final /* synthetic */ List f42118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f40376d;
+    public final /* synthetic */ String f42119d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ h f40377e;
+    public final /* synthetic */ h f42120e;
 
     public j(h hVar, int i2, List list, List list2, String str) {
-        this.f40377e = hVar;
-        this.f40373a = i2;
-        this.f40374b = list;
-        this.f40375c = list2;
-        this.f40376d = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hVar, Integer.valueOf(i2), list, list2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42120e = hVar;
+        this.f42116a = i2;
+        this.f42117b = list;
+        this.f42118c = list2;
+        this.f42119d = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        h hVar = this.f40377e;
-        PushMessageCallback pushMessageCallback = ((ab) hVar).f40352b;
-        context = hVar.f40534a;
-        pushMessageCallback.onDelAlias(context, this.f40373a, this.f40374b, this.f40375c, this.f40376d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            h hVar = this.f42120e;
+            PushMessageCallback pushMessageCallback = ((ab) hVar).f42095b;
+            context = hVar.f42277a;
+            pushMessageCallback.onDelAlias(context, this.f42116a, this.f42117b, this.f42118c, this.f42119d);
+        }
     }
 }

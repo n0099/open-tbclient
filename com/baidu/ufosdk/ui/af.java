@@ -2,24 +2,51 @@ package com.baidu.ufosdk.ui;
 
 import android.os.AsyncTask;
 import android.view.inputmethod.InputMethodManager;
-/* loaded from: classes5.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class af extends AsyncTask {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f22816a;
+    public final /* synthetic */ FeedbackEditActivity f23332a;
 
     public af(FeedbackEditActivity feedbackEditActivity) {
-        this.f22816a = feedbackEditActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackEditActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23332a = feedbackEditActivity;
     }
 
     public static Integer a() {
-        try {
-            Thread.sleep(280L);
-            return null;
-        } catch (InterruptedException e2) {
-            e2.printStackTrace();
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                Thread.sleep(280L);
+                return null;
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (Integer) invokeV.objValue;
     }
 
     @Override // android.os.AsyncTask
@@ -29,10 +56,10 @@ public final class af extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final /* synthetic */ void onPostExecute(Object obj) {
-        this.f22816a.finish();
+        this.f23332a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f22816a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f22816a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f22816a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f23332a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f23332a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f23332a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception unused) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }
@@ -40,10 +67,11 @@ public final class af extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final void onPreExecute() {
-        if (this.f22816a.getCurrentFocus() == null || this.f22816a.getCurrentFocus().getWindowToken() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f23332a.getCurrentFocus() == null || this.f23332a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.f22816a.getSystemService("input_method")).hideSoftInputFromWindow(this.f22816a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f23332a.getSystemService("input_method")).hideSoftInputFromWindow(this.f23332a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

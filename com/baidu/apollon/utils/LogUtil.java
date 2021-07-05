@@ -5,6 +5,14 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.apollon.ApollonConstants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -12,38 +20,67 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public final class LogUtil {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4074a = "apollon_rest";
+    public static final String f4072a = "apollon_rest";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f4075b;
+    public static final boolean f4073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f4076c;
+    public static final boolean f4074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f4077d;
+    public static final boolean f4075d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f4078e;
+    public static final boolean f4076e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f4079f;
+    public static final boolean f4077f;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-937048463, "Lcom/baidu/apollon/utils/LogUtil;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-937048463, "Lcom/baidu/apollon/utils/LogUtil;");
+                return;
+            }
+        }
         boolean z = ApollonConstants.DEBUG;
         DEBUG = z;
-        f4075b = z;
-        f4076c = z;
-        f4077d = z;
-        f4078e = z;
-        f4079f = z;
+        f4073b = z;
+        f4074c = z;
+        f4075d = z;
+        f4076e = z;
+        f4077f = z;
+    }
+
+    public LogUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     public static void d(String str, String str2) {
-        if (f4076c) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f4074c) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -56,7 +93,8 @@ public final class LogUtil {
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (f4079f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65540, null, str, str2, th) == null) && f4077f) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -69,27 +107,34 @@ public final class LogUtil {
     }
 
     public static void errord(String str) {
-        if (ApollonConstants.DEBUG) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && ApollonConstants.DEBUG) {
             Log.e("apollon_rest", getTAG() + "---" + str);
         }
     }
 
     public static String getTAG() {
-        try {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            StringBuilder sb = new StringBuilder();
-            if (stackTrace != null) {
-                StackTraceElement stackTraceElement = stackTrace[4];
-                sb.append(((Object) stackTraceElement.getFileName().subSequence(0, stackTraceElement.getFileName().length() - 5)) + "." + stackTraceElement.getMethodName() + "#" + stackTraceElement.getLineNumber());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            try {
+                StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+                StringBuilder sb = new StringBuilder();
+                if (stackTrace != null) {
+                    StackTraceElement stackTraceElement = stackTrace[4];
+                    sb.append(((Object) stackTraceElement.getFileName().subSequence(0, stackTraceElement.getFileName().length() - 5)) + "." + stackTraceElement.getMethodName() + "#" + stackTraceElement.getLineNumber());
+                }
+                return sb.toString();
+            } catch (NullPointerException unused) {
+                return "PROGUARDED";
             }
-            return sb.toString();
-        } catch (NullPointerException unused) {
-            return "PROGUARDED";
         }
+        return (String) invokeV.objValue;
     }
 
     public static void i(String str, String str2) {
-        if (f4077d) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && f4075d) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -102,20 +147,23 @@ public final class LogUtil {
     }
 
     public static void logd(String str) {
-        if (ApollonConstants.DEBUG) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && ApollonConstants.DEBUG) {
             Log.i("apollon_rest", getTAG() + "---" + str + "#pid=" + Process.myPid());
         }
     }
 
     public static void mark() {
-        if (ApollonConstants.DEBUG) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65547, null) == null) && ApollonConstants.DEBUG) {
             Log.w("apollon_rest", getTAG());
         }
     }
 
     public static void saveLog(Context context, String str) {
         String absolutePath;
-        if (f4076c) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) && f4074c) {
             String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS    ", Locale.ENGLISH).format(new Date()) + str + "\n";
             try {
                 File externalFilesDir = context.getExternalFilesDir(null);
@@ -134,7 +182,8 @@ public final class LogUtil {
     }
 
     public static void traces() {
-        if (ApollonConstants.DEBUG) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65550, null) == null) && ApollonConstants.DEBUG) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             StringBuilder sb = new StringBuilder();
             if (stackTrace != null) {
@@ -159,7 +208,8 @@ public final class LogUtil {
     }
 
     public static void v(String str, String str2) {
-        if (f4075b) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && f4073b) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -172,7 +222,8 @@ public final class LogUtil {
     }
 
     public static void w(String str, String str2) {
-        if (f4078e) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && f4076e) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -185,24 +236,30 @@ public final class LogUtil {
     }
 
     public static void errord(String str, String str2) {
-        if (ApollonConstants.DEBUG) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && ApollonConstants.DEBUG) {
             Log.e(str, getTAG() + "---" + str2);
         }
     }
 
     public static void logd(String str, String str2) {
-        if (ApollonConstants.DEBUG) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && ApollonConstants.DEBUG) {
             Log.i(str, getTAG() + "---" + str2);
         }
     }
 
     public static void mark(String str) {
-        if (ApollonConstants.DEBUG) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65548, null, str) == null) && ApollonConstants.DEBUG) {
             Log.w("apollon_rest", getTAG() + "---" + str);
         }
     }
 
     public static void d(String str) {
-        d("apollon_rest", str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            d("apollon_rest", str);
+        }
     }
 }

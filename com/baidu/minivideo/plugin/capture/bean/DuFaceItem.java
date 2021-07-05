@@ -1,99 +1,151 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
-import com.baidu.minivideo.arface.ARControllerProxy;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c0.a.a;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DuFaceItem extends FaceItem {
+    public static /* synthetic */ Interceptable $ic;
     public static final boolean ADJUST_ZIP = false;
-    public int arType = 10;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int arType;
+
+    public DuFaceItem() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.arType = 10;
+    }
 
     private boolean deleteFile(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            try {
+                return FileUtils.delete(new File(str));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
         }
-        try {
-            return FileUtils.delete(new File(str));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return false;
-        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem
     public String getFilePath() {
-        if (TextUtils.isEmpty(this.mResFile)) {
-            if (TextUtils.isEmpty(this.sk) && TextUtils.isEmpty(this.mResFile)) {
-                return "none";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.mResFile)) {
+                if (TextUtils.isEmpty(this.sk) && TextUtils.isEmpty(this.mResFile)) {
+                    return "none";
+                }
+                String generateResFileName = generateResFileName();
+                String folder = FaceItem.getFolder();
+                this.mResFile = folder + File.separator + generateResFileName;
             }
-            String generateResFileName = generateResFileName();
-            String folder = FaceItem.getFolder();
-            this.mResFile = folder + File.separator + generateResFileName;
+            return this.mResFile;
         }
-        return this.mResFile;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem
     public String getLoadingFile() {
-        if (TextUtils.isEmpty(this.mLoadingFile)) {
-            String filePath = getFilePath();
-            this.mLoadingFile = filePath;
-            if (!filePath.endsWith(".zip")) {
-                this.mLoadingFile += ".zip";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.mLoadingFile)) {
+                String filePath = getFilePath();
+                this.mLoadingFile = filePath;
+                if (!filePath.endsWith(".zip")) {
+                    this.mLoadingFile += ".zip";
+                }
             }
+            return this.mLoadingFile;
         }
-        return this.mLoadingFile;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem
     public boolean onResLoaded(String str) {
+        InterceptResult invokeL;
         boolean z;
-        boolean z2 = false;
-        try {
-            FileUtils.unzipFile(new File(str), getFilePath());
-            z = ARControllerProxy.verifyStickPath(getFilePath());
-            if (!z) {
-                LogUtils.d("DuFaceData", getFilePath() + " not verify");
-                FileUtils.deleteDir(new File(getFilePath()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            boolean z2 = false;
+            try {
+                FileUtils.unzipFile(new File(str), getFilePath());
+                z = a.k1(getFilePath());
+                if (!z) {
+                    LogUtils.d("DuFaceData", getFilePath() + " not verify");
+                    FileUtils.deleteDir(new File(getFilePath()));
+                }
+            } catch (Exception e2) {
+                e = e2;
             }
-        } catch (Exception e2) {
-            e = e2;
-        }
-        try {
-            deleteFile(str);
-        } catch (Exception e3) {
-            e = e3;
-            z2 = z;
-            e.printStackTrace();
-            deleteFile(getFilePath());
-            z = z2;
+            try {
+                deleteFile(str);
+            } catch (Exception e3) {
+                e = e3;
+                z2 = z;
+                e.printStackTrace();
+                deleteFile(getFilePath());
+                z = z2;
+                checkResFile();
+                return z;
+            }
             checkResFile();
             return z;
         }
-        checkResFile();
-        return z;
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem
     public void parse(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.arType = jSONObject.optInt("sub_type");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                this.arType = jSONObject.optInt("sub_type");
+            }
+            super.parse(jSONObject);
         }
-        super.parse(jSONObject);
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem, com.baidu.minivideo.plugin.capture.bean.Jsonable
     public JSONObject toJson() {
-        JSONObject json = super.toJson();
-        try {
-            json.put("sub_type", this.arType);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject json = super.toJson();
+            try {
+                json.put("sub_type", this.arType);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return json;
         }
-        return json;
+        return (JSONObject) invokeV.objValue;
     }
 }

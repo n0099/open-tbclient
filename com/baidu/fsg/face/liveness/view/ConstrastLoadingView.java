@@ -7,61 +7,119 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class ConstrastLoadingView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f6052a;
+    public ImageView f6082a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f6053b;
+    public ImageView f6083b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConstrastLoadingView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
     private void a(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
-        this.f6052a = (ImageView) findViewById(R.id.iv_recog_circle);
-        this.f6053b = (ImageView) findViewById(R.id.iv_recog_logo);
-        a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
+            this.f6082a = (ImageView) findViewById(R.id.iv_recog_circle);
+            this.f6083b = (ImageView) findViewById(R.id.iv_recog_logo);
+            a();
+        }
     }
 
     public void clearAnim() {
-        this.f6052a.clearAnimation();
-        clearAnimation();
-        setVisibility(4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f6082a.clearAnimation();
+            clearAnimation();
+            setVisibility(4);
+        }
     }
 
     public void setVisible(int i2) {
-        setVisibility(i2);
-        a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            setVisibility(i2);
+            a();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConstrastLoadingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
     private RotateAnimation a(boolean z, long j) {
+        InterceptResult invokeCommon;
         RotateAnimation rotateAnimation;
-        LinearInterpolator linearInterpolator = new LinearInterpolator();
-        if (z) {
-            rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
-        } else {
-            rotateAnimation = new RotateAnimation(0.0f, -359.0f, 1, 0.5f, 1, 0.5f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+            LinearInterpolator linearInterpolator = new LinearInterpolator();
+            if (z) {
+                rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
+            } else {
+                rotateAnimation = new RotateAnimation(0.0f, -359.0f, 1, 0.5f, 1, 0.5f);
+            }
+            rotateAnimation.setRepeatCount(-1);
+            rotateAnimation.setRepeatMode(1);
+            rotateAnimation.setDuration(j);
+            rotateAnimation.setInterpolator(linearInterpolator);
+            return rotateAnimation;
         }
-        rotateAnimation.setRepeatCount(-1);
-        rotateAnimation.setRepeatMode(1);
-        rotateAnimation.setDuration(j);
-        rotateAnimation.setInterpolator(linearInterpolator);
-        return rotateAnimation;
+        return (RotateAnimation) invokeCommon.objValue;
     }
 
     private void a() {
-        this.f6052a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.f6082a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
+        }
     }
 }

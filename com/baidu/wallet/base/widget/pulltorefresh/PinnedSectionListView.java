@@ -17,284 +17,455 @@ import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
-/* loaded from: classes5.dex */
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class PinnedSectionListView extends ListView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AbsListView.OnScrollListener f23886a;
+    public AbsListView.OnScrollListener f24429a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f23887b;
+    public a f24430b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f23888c;
+    public a f24431c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23889d;
+    public int f24432d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f23890e;
+    public final Rect f24433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PointF f23891f;
+    public final PointF f24434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23892g;
+    public int f24435g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f23893h;
+    public View f24436h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MotionEvent f23894i;
+    public MotionEvent f24437i;
     public int j;
     public final AbsListView.OnScrollListener k;
     public final DataSetObserver l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface PinnedSectionListAdapter extends ListAdapter {
         boolean isItemViewTypePinned(int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f23898a;
+        public View f24441a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f23899b;
+        public int f24442b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f23900c;
+        public long f24443c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PinnedSectionListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23890e = new Rect();
-        this.f23891f = new PointF();
-        this.k = new AbsListView.OnScrollListener() { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
-            @Override // android.widget.AbsListView.OnScrollListener
-            public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-                AbsListView.OnScrollListener onScrollListener = PinnedSectionListView.this.f23886a;
-                if (onScrollListener != null) {
-                    onScrollListener.onScroll(absListView, i2, i3, i4);
-                }
-                ListAdapter adapter = PinnedSectionListView.this.getAdapter();
-                if (adapter == null || i3 == 0) {
-                    return;
-                }
-                if (PinnedSectionListView.isItemViewTypePinned(adapter, adapter.getItemViewType(i2))) {
-                    if (PinnedSectionListView.this.getChildAt(0).getTop() == PinnedSectionListView.this.getPaddingTop()) {
-                        PinnedSectionListView.this.a();
-                        return;
-                    } else {
-                        PinnedSectionListView.this.a(i2, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24433e = new Rect();
+        this.f24434f = new PointF();
+        this.k = new AbsListView.OnScrollListener(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ PinnedSectionListView f24438a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
                     }
                 }
-                int b2 = PinnedSectionListView.this.b(i2);
-                if (b2 > -1) {
-                    PinnedSectionListView.this.a(b2, i2, i3);
-                } else {
-                    PinnedSectionListView.this.a();
+                this.f24438a = this;
+            }
+
+            @Override // android.widget.AbsListView.OnScrollListener
+            public void onScroll(AbsListView absListView, int i4, int i5, int i6) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, absListView, i4, i5, i6) == null) {
+                    AbsListView.OnScrollListener onScrollListener = this.f24438a.f24429a;
+                    if (onScrollListener != null) {
+                        onScrollListener.onScroll(absListView, i4, i5, i6);
+                    }
+                    ListAdapter adapter = this.f24438a.getAdapter();
+                    if (adapter == null || i5 == 0) {
+                        return;
+                    }
+                    if (PinnedSectionListView.isItemViewTypePinned(adapter, adapter.getItemViewType(i4))) {
+                        if (this.f24438a.getChildAt(0).getTop() == this.f24438a.getPaddingTop()) {
+                            this.f24438a.a();
+                            return;
+                        } else {
+                            this.f24438a.a(i4, i4, i5);
+                            return;
+                        }
+                    }
+                    int b2 = this.f24438a.b(i4);
+                    if (b2 > -1) {
+                        this.f24438a.a(b2, i4, i5);
+                    } else {
+                        this.f24438a.a();
+                    }
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
-            public void onScrollStateChanged(AbsListView absListView, int i2) {
-                AbsListView.OnScrollListener onScrollListener = PinnedSectionListView.this.f23886a;
-                if (onScrollListener != null) {
-                    onScrollListener.onScrollStateChanged(absListView, i2);
+            public void onScrollStateChanged(AbsListView absListView, int i4) {
+                AbsListView.OnScrollListener onScrollListener;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i4) == null) || (onScrollListener = this.f24438a.f24429a) == null) {
+                    return;
                 }
+                onScrollListener.onScrollStateChanged(absListView, i4);
             }
         };
-        this.l = new DataSetObserver() { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.2
+        this.l = new DataSetObserver(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ PinnedSectionListView f24439a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f24439a = this;
+            }
+
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                PinnedSectionListView.this.b();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f24439a.b();
+                }
             }
 
             @Override // android.database.DataSetObserver
             public void onInvalidated() {
-                PinnedSectionListView.this.b();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.f24439a.b();
+                }
             }
         };
         c();
     }
 
     private void c() {
-        setOnScrollListener(this.k);
-        this.f23892g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            setOnScrollListener(this.k);
+            this.f24435g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        }
     }
 
     private void d() {
-        this.f23893h = null;
-        MotionEvent motionEvent = this.f23894i;
-        if (motionEvent != null) {
-            motionEvent.recycle();
-            this.f23894i = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            this.f24436h = null;
+            MotionEvent motionEvent = this.f24437i;
+            if (motionEvent != null) {
+                motionEvent.recycle();
+                this.f24437i = null;
+            }
         }
     }
 
     private boolean e() {
+        InterceptResult invokeV;
         AdapterView.OnItemClickListener onItemClickListener;
-        if (this.f23888c == null || (onItemClickListener = getOnItemClickListener()) == null || !getAdapter().isEnabled(this.f23888c.f23899b)) {
-            return false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (this.f24431c == null || (onItemClickListener = getOnItemClickListener()) == null || !getAdapter().isEnabled(this.f24431c.f24442b)) {
+                return false;
+            }
+            View view = this.f24431c.f24441a;
+            playSoundEffect(0);
+            if (view != null) {
+                view.sendAccessibilityEvent(1);
+            }
+            a aVar = this.f24431c;
+            onItemClickListener.onItemClick(this, view, aVar.f24442b, aVar.f24443c);
+            return true;
         }
-        View view = this.f23888c.f23898a;
-        playSoundEffect(0);
-        if (view != null) {
-            view.sendAccessibilityEvent(1);
-        }
-        a aVar = this.f23888c;
-        onItemClickListener.onItemClick(this, view, aVar.f23899b, aVar.f23900c);
-        return true;
+        return invokeV.booleanValue;
     }
 
     public static boolean isItemViewTypePinned(ListAdapter listAdapter, int i2) {
-        if (listAdapter instanceof HeaderViewListAdapter) {
-            listAdapter = ((HeaderViewListAdapter) listAdapter).getWrappedAdapter();
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, listAdapter, i2)) == null) {
+            if (listAdapter instanceof HeaderViewListAdapter) {
+                listAdapter = ((HeaderViewListAdapter) listAdapter).getWrappedAdapter();
+            }
+            return ((PinnedSectionListAdapter) listAdapter).isItemViewTypePinned(i2);
         }
-        return ((PinnedSectionListAdapter) listAdapter).isItemViewTypePinned(i2);
+        return invokeLI.booleanValue;
     }
 
     public void a(int i2) {
-        a aVar = this.f23887b;
-        this.f23887b = null;
-        if (aVar == null) {
-            aVar = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            a aVar = this.f24430b;
+            this.f24430b = null;
+            if (aVar == null) {
+                aVar = new a();
+            }
+            View view = getAdapter().getView(i2, aVar.f24441a, this);
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = generateDefaultLayoutParams();
+                view.setLayoutParams(layoutParams);
+            }
+            int mode = View.MeasureSpec.getMode(layoutParams.height);
+            int size = View.MeasureSpec.getSize(layoutParams.height);
+            if (mode == 0) {
+                mode = 1073741824;
+            }
+            int height = (getHeight() - getListPaddingTop()) - getListPaddingBottom();
+            if (size > height) {
+                size = height;
+            }
+            view.measure(View.MeasureSpec.makeMeasureSpec((getWidth() - getListPaddingLeft()) - getListPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec(size, mode));
+            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+            this.f24432d = 0;
+            aVar.f24441a = view;
+            aVar.f24442b = i2;
+            aVar.f24443c = getAdapter().getItemId(i2);
+            this.f24431c = aVar;
         }
-        View view = getAdapter().getView(i2, aVar.f23898a, this);
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = generateDefaultLayoutParams();
-            view.setLayoutParams(layoutParams);
-        }
-        int mode = View.MeasureSpec.getMode(layoutParams.height);
-        int size = View.MeasureSpec.getSize(layoutParams.height);
-        if (mode == 0) {
-            mode = 1073741824;
-        }
-        int height = (getHeight() - getListPaddingTop()) - getListPaddingBottom();
-        if (size > height) {
-            size = height;
-        }
-        view.measure(View.MeasureSpec.makeMeasureSpec((getWidth() - getListPaddingLeft()) - getListPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec(size, mode));
-        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-        this.f23889d = 0;
-        aVar.f23898a = view;
-        aVar.f23899b = i2;
-        aVar.f23900c = getAdapter().getItemId(i2);
-        this.f23888c = aVar;
     }
 
     public int b(int i2) {
-        ListAdapter adapter = getAdapter();
-        if (i2 >= adapter.getCount()) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            ListAdapter adapter = getAdapter();
+            if (i2 >= adapter.getCount()) {
+                return -1;
+            }
+            if (adapter instanceof SectionIndexer) {
+                SectionIndexer sectionIndexer = (SectionIndexer) adapter;
+                int positionForSection = sectionIndexer.getPositionForSection(sectionIndexer.getSectionForPosition(i2));
+                if (isItemViewTypePinned(adapter, adapter.getItemViewType(positionForSection))) {
+                    return positionForSection;
+                }
+            }
+            while (i2 >= 0) {
+                if (isItemViewTypePinned(adapter, adapter.getItemViewType(i2))) {
+                    return i2;
+                }
+                i2--;
+            }
             return -1;
         }
-        if (adapter instanceof SectionIndexer) {
-            SectionIndexer sectionIndexer = (SectionIndexer) adapter;
-            int positionForSection = sectionIndexer.getPositionForSection(sectionIndexer.getSectionForPosition(i2));
-            if (isItemViewTypePinned(adapter, adapter.getItemViewType(positionForSection))) {
-                return positionForSection;
-            }
-        }
-        while (i2 >= 0) {
-            if (isItemViewTypePinned(adapter, adapter.getItemViewType(i2))) {
-                return i2;
-            }
-            i2--;
-        }
-        return -1;
+        return invokeI.intValue;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        if (this.f23888c != null) {
-            int listPaddingLeft = getListPaddingLeft();
-            int listPaddingTop = getListPaddingTop();
-            View view = this.f23888c.f23898a;
-            canvas.save();
-            canvas.clipRect(listPaddingLeft, listPaddingTop, view.getWidth() + listPaddingLeft, view.getHeight() + listPaddingTop);
-            canvas.translate(listPaddingLeft, listPaddingTop + this.f23889d);
-            drawChild(canvas, this.f23888c.f23898a, getDrawingTime());
-            canvas.restore();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
+            super.dispatchDraw(canvas);
+            if (this.f24431c != null) {
+                int listPaddingLeft = getListPaddingLeft();
+                int listPaddingTop = getListPaddingTop();
+                View view = this.f24431c.f24441a;
+                canvas.save();
+                canvas.clipRect(listPaddingLeft, listPaddingTop, view.getWidth() + listPaddingLeft, view.getHeight() + listPaddingTop);
+                canvas.translate(listPaddingLeft, listPaddingTop + this.f24432d);
+                drawChild(canvas, this.f24431c.f24441a, getDrawingTime());
+                canvas.restore();
+            }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         a aVar;
-        float x = motionEvent.getX();
-        float y = motionEvent.getY();
-        int action = motionEvent.getAction();
-        if (action == 0 && this.f23893h == null && (aVar = this.f23888c) != null && a(aVar.f23898a, x, y)) {
-            this.f23893h = this.f23888c.f23898a;
-            PointF pointF = this.f23891f;
-            pointF.x = x;
-            pointF.y = y;
-            this.f23894i = MotionEvent.obtain(motionEvent);
-        }
-        View view = this.f23893h;
-        if (view != null) {
-            if (a(view, x, y)) {
-                this.f23893h.dispatchTouchEvent(motionEvent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+            float x = motionEvent.getX();
+            float y = motionEvent.getY();
+            int action = motionEvent.getAction();
+            if (action == 0 && this.f24436h == null && (aVar = this.f24431c) != null && a(aVar.f24441a, x, y)) {
+                this.f24436h = this.f24431c.f24441a;
+                PointF pointF = this.f24434f;
+                pointF.x = x;
+                pointF.y = y;
+                this.f24437i = MotionEvent.obtain(motionEvent);
             }
-            if (action == 1) {
-                super.dispatchTouchEvent(motionEvent);
-                e();
-                d();
-            } else if (action == 3) {
-                d();
-            } else if (action == 2 && Math.abs(y - this.f23891f.y) > this.f23892g) {
-                MotionEvent obtain = MotionEvent.obtain(motionEvent);
-                obtain.setAction(3);
-                this.f23893h.dispatchTouchEvent(obtain);
-                obtain.recycle();
-                super.dispatchTouchEvent(this.f23894i);
-                super.dispatchTouchEvent(motionEvent);
-                d();
+            View view = this.f24436h;
+            if (view != null) {
+                if (a(view, x, y)) {
+                    this.f24436h.dispatchTouchEvent(motionEvent);
+                }
+                if (action == 1) {
+                    super.dispatchTouchEvent(motionEvent);
+                    e();
+                    d();
+                } else if (action == 3) {
+                    d();
+                } else if (action == 2 && Math.abs(y - this.f24434f.y) > this.f24435g) {
+                    MotionEvent obtain = MotionEvent.obtain(motionEvent);
+                    obtain.setAction(3);
+                    this.f24436h.dispatchTouchEvent(obtain);
+                    obtain.recycle();
+                    super.dispatchTouchEvent(this.f24437i);
+                    super.dispatchTouchEvent(motionEvent);
+                    d();
+                }
+                return true;
             }
-            return true;
+            return super.dispatchTouchEvent(motionEvent);
         }
-        return super.dispatchTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
     @Override // android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
-        if (this.f23888c == null || ((i4 - i2) - getPaddingLeft()) - getPaddingRight() == this.f23888c.f23898a.getWidth()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            if (this.f24431c == null || ((i4 - i2) - getPaddingLeft()) - getPaddingRight() == this.f24431c.f24441a.getWidth()) {
+                return;
+            }
+            b();
         }
-        b();
     }
 
     @Override // android.widget.AbsListView, android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
-        super.onRestoreInstanceState(parcelable);
-        post(new Runnable() { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.3
-            @Override // java.lang.Runnable
-            public void run() {
-                PinnedSectionListView.this.b();
-            }
-        });
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, parcelable) == null) {
+            super.onRestoreInstanceState(parcelable);
+            post(new Runnable(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ PinnedSectionListView f24440a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f24440a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f24440a.b();
+                    }
+                }
+            });
+        }
     }
 
     @Override // android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        if (onScrollListener == this.k) {
-            super.setOnScrollListener(onScrollListener);
-        } else {
-            this.f23886a = onScrollListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, onScrollListener) == null) {
+            if (onScrollListener == this.k) {
+                super.setOnScrollListener(onScrollListener);
+            } else {
+                this.f24429a = onScrollListener;
+            }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
-        if (listAdapter == null || !(listAdapter instanceof PinnedSectionListAdapter) || listAdapter.getViewTypeCount() < 2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, listAdapter) == null) || listAdapter == null || !(listAdapter instanceof PinnedSectionListAdapter) || listAdapter.getViewTypeCount() < 2) {
             return;
         }
         ListAdapter adapter = getAdapter();
@@ -310,55 +481,130 @@ public class PinnedSectionListView extends ListView {
         super.setAdapter(listAdapter);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PinnedSectionListView(Context context) {
         super(context);
-        this.f23890e = new Rect();
-        this.f23891f = new PointF();
-        this.k = new AbsListView.OnScrollListener() { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
-            @Override // android.widget.AbsListView.OnScrollListener
-            public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-                AbsListView.OnScrollListener onScrollListener = PinnedSectionListView.this.f23886a;
-                if (onScrollListener != null) {
-                    onScrollListener.onScroll(absListView, i2, i3, i4);
-                }
-                ListAdapter adapter = PinnedSectionListView.this.getAdapter();
-                if (adapter == null || i3 == 0) {
-                    return;
-                }
-                if (PinnedSectionListView.isItemViewTypePinned(adapter, adapter.getItemViewType(i2))) {
-                    if (PinnedSectionListView.this.getChildAt(0).getTop() == PinnedSectionListView.this.getPaddingTop()) {
-                        PinnedSectionListView.this.a();
-                        return;
-                    } else {
-                        PinnedSectionListView.this.a(i2, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24433e = new Rect();
+        this.f24434f = new PointF();
+        this.k = new AbsListView.OnScrollListener(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ PinnedSectionListView f24438a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr3;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
                     }
                 }
-                int b2 = PinnedSectionListView.this.b(i2);
-                if (b2 > -1) {
-                    PinnedSectionListView.this.a(b2, i2, i3);
-                } else {
-                    PinnedSectionListView.this.a();
+                this.f24438a = this;
+            }
+
+            @Override // android.widget.AbsListView.OnScrollListener
+            public void onScroll(AbsListView absListView, int i4, int i5, int i6) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, absListView, i4, i5, i6) == null) {
+                    AbsListView.OnScrollListener onScrollListener = this.f24438a.f24429a;
+                    if (onScrollListener != null) {
+                        onScrollListener.onScroll(absListView, i4, i5, i6);
+                    }
+                    ListAdapter adapter = this.f24438a.getAdapter();
+                    if (adapter == null || i5 == 0) {
+                        return;
+                    }
+                    if (PinnedSectionListView.isItemViewTypePinned(adapter, adapter.getItemViewType(i4))) {
+                        if (this.f24438a.getChildAt(0).getTop() == this.f24438a.getPaddingTop()) {
+                            this.f24438a.a();
+                            return;
+                        } else {
+                            this.f24438a.a(i4, i4, i5);
+                            return;
+                        }
+                    }
+                    int b2 = this.f24438a.b(i4);
+                    if (b2 > -1) {
+                        this.f24438a.a(b2, i4, i5);
+                    } else {
+                        this.f24438a.a();
+                    }
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
-            public void onScrollStateChanged(AbsListView absListView, int i2) {
-                AbsListView.OnScrollListener onScrollListener = PinnedSectionListView.this.f23886a;
-                if (onScrollListener != null) {
-                    onScrollListener.onScrollStateChanged(absListView, i2);
+            public void onScrollStateChanged(AbsListView absListView, int i4) {
+                AbsListView.OnScrollListener onScrollListener;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i4) == null) || (onScrollListener = this.f24438a.f24429a) == null) {
+                    return;
                 }
+                onScrollListener.onScrollStateChanged(absListView, i4);
             }
         };
-        this.l = new DataSetObserver() { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.2
+        this.l = new DataSetObserver(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ PinnedSectionListView f24439a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr3;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f24439a = this;
+            }
+
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                PinnedSectionListView.this.b();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f24439a.b();
+                }
             }
 
             @Override // android.database.DataSetObserver
             public void onInvalidated() {
-                PinnedSectionListView.this.b();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.f24439a.b();
+                }
             }
         };
         c();
@@ -367,134 +613,228 @@ public class PinnedSectionListView extends ListView {
     public void b() {
         int firstVisiblePosition;
         int b2;
-        a();
-        ListAdapter adapter = getAdapter();
-        if (adapter == null || adapter.getCount() <= 0 || (b2 = b((firstVisiblePosition = getFirstVisiblePosition()))) == -1) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            a();
+            ListAdapter adapter = getAdapter();
+            if (adapter == null || adapter.getCount() <= 0 || (b2 = b((firstVisiblePosition = getFirstVisiblePosition()))) == -1) {
+                return;
+            }
+            a(b2, firstVisiblePosition, getLastVisiblePosition() - firstVisiblePosition);
         }
-        a(b2, firstVisiblePosition, getLastVisiblePosition() - firstVisiblePosition);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PinnedSectionListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f23890e = new Rect();
-        this.f23891f = new PointF();
-        this.k = new AbsListView.OnScrollListener() { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
-            @Override // android.widget.AbsListView.OnScrollListener
-            public void onScroll(AbsListView absListView, int i22, int i3, int i4) {
-                AbsListView.OnScrollListener onScrollListener = PinnedSectionListView.this.f23886a;
-                if (onScrollListener != null) {
-                    onScrollListener.onScroll(absListView, i22, i3, i4);
-                }
-                ListAdapter adapter = PinnedSectionListView.this.getAdapter();
-                if (adapter == null || i3 == 0) {
-                    return;
-                }
-                if (PinnedSectionListView.isItemViewTypePinned(adapter, adapter.getItemViewType(i22))) {
-                    if (PinnedSectionListView.this.getChildAt(0).getTop() == PinnedSectionListView.this.getPaddingTop()) {
-                        PinnedSectionListView.this.a();
-                        return;
-                    } else {
-                        PinnedSectionListView.this.a(i22, i22, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f24433e = new Rect();
+        this.f24434f = new PointF();
+        this.k = new AbsListView.OnScrollListener(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ PinnedSectionListView f24438a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr3;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
                     }
                 }
-                int b2 = PinnedSectionListView.this.b(i22);
-                if (b2 > -1) {
-                    PinnedSectionListView.this.a(b2, i22, i3);
-                } else {
-                    PinnedSectionListView.this.a();
+                this.f24438a = this;
+            }
+
+            @Override // android.widget.AbsListView.OnScrollListener
+            public void onScroll(AbsListView absListView, int i42, int i5, int i6) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, absListView, i42, i5, i6) == null) {
+                    AbsListView.OnScrollListener onScrollListener = this.f24438a.f24429a;
+                    if (onScrollListener != null) {
+                        onScrollListener.onScroll(absListView, i42, i5, i6);
+                    }
+                    ListAdapter adapter = this.f24438a.getAdapter();
+                    if (adapter == null || i5 == 0) {
+                        return;
+                    }
+                    if (PinnedSectionListView.isItemViewTypePinned(adapter, adapter.getItemViewType(i42))) {
+                        if (this.f24438a.getChildAt(0).getTop() == this.f24438a.getPaddingTop()) {
+                            this.f24438a.a();
+                            return;
+                        } else {
+                            this.f24438a.a(i42, i42, i5);
+                            return;
+                        }
+                    }
+                    int b2 = this.f24438a.b(i42);
+                    if (b2 > -1) {
+                        this.f24438a.a(b2, i42, i5);
+                    } else {
+                        this.f24438a.a();
+                    }
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
-            public void onScrollStateChanged(AbsListView absListView, int i22) {
-                AbsListView.OnScrollListener onScrollListener = PinnedSectionListView.this.f23886a;
-                if (onScrollListener != null) {
-                    onScrollListener.onScrollStateChanged(absListView, i22);
+            public void onScrollStateChanged(AbsListView absListView, int i42) {
+                AbsListView.OnScrollListener onScrollListener;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i42) == null) || (onScrollListener = this.f24438a.f24429a) == null) {
+                    return;
                 }
+                onScrollListener.onScrollStateChanged(absListView, i42);
             }
         };
-        this.l = new DataSetObserver() { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.2
+        this.l = new DataSetObserver(this) { // from class: com.baidu.wallet.base.widget.pulltorefresh.PinnedSectionListView.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ PinnedSectionListView f24439a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr3;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f24439a = this;
+            }
+
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                PinnedSectionListView.this.b();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f24439a.b();
+                }
             }
 
             @Override // android.database.DataSetObserver
             public void onInvalidated() {
-                PinnedSectionListView.this.b();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.f24439a.b();
+                }
             }
         };
         c();
     }
 
     public void a() {
-        a aVar = this.f23888c;
-        if (aVar != null) {
-            this.f23887b = aVar;
-            this.f23888c = null;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f24431c) == null) {
+            return;
         }
+        this.f24430b = aVar;
+        this.f24431c = null;
     }
 
     public void a(int i2, int i3, int i4) {
-        if (i4 < 2) {
-            a();
-            return;
-        }
-        a aVar = this.f23888c;
-        if (aVar != null && aVar.f23899b != i2) {
-            a();
-        }
-        if (this.f23888c == null) {
-            a(i2);
-        }
-        int i5 = i2 + 1;
-        if (i5 < getCount()) {
-            int a2 = a(i5, i4 - (i5 - i3));
-            if (a2 > -1) {
-                int top = getChildAt(a2 - i3).getTop() - (this.f23888c.f23898a.getBottom() + getPaddingTop());
-                this.j = top;
-                if (top < 0) {
-                    this.f23889d = top;
-                    return;
-                } else {
-                    this.f23889d = 0;
-                    return;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048579, this, i2, i3, i4) == null) {
+            if (i4 < 2) {
+                a();
+                return;
             }
-            this.f23889d = 0;
-            this.j = Integer.MAX_VALUE;
+            a aVar = this.f24431c;
+            if (aVar != null && aVar.f24442b != i2) {
+                a();
+            }
+            if (this.f24431c == null) {
+                a(i2);
+            }
+            int i5 = i2 + 1;
+            if (i5 < getCount()) {
+                int a2 = a(i5, i4 - (i5 - i3));
+                if (a2 > -1) {
+                    int top = getChildAt(a2 - i3).getTop() - (this.f24431c.f24441a.getBottom() + getPaddingTop());
+                    this.j = top;
+                    if (top < 0) {
+                        this.f24432d = top;
+                        return;
+                    } else {
+                        this.f24432d = 0;
+                        return;
+                    }
+                }
+                this.f24432d = 0;
+                this.j = Integer.MAX_VALUE;
+            }
         }
     }
 
     public int a(int i2, int i3) {
-        ListAdapter adapter = getAdapter();
-        int count = adapter.getCount();
-        if (getLastVisiblePosition() >= count) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
+            ListAdapter adapter = getAdapter();
+            int count = adapter.getCount();
+            if (getLastVisiblePosition() >= count) {
+                return -1;
+            }
+            if (i2 + i3 >= count) {
+                i3 = count - i2;
+            }
+            for (int i4 = 0; i4 < i3; i4++) {
+                int i5 = i2 + i4;
+                if (isItemViewTypePinned(adapter, adapter.getItemViewType(i5))) {
+                    return i5;
+                }
+            }
             return -1;
         }
-        if (i2 + i3 >= count) {
-            i3 = count - i2;
-        }
-        for (int i4 = 0; i4 < i3; i4++) {
-            int i5 = i2 + i4;
-            if (isItemViewTypePinned(adapter, adapter.getItemViewType(i5))) {
-                return i5;
-            }
-        }
-        return -1;
+        return invokeII.intValue;
     }
 
     private boolean a(View view, float f2, float f3) {
-        view.getHitRect(this.f23890e);
-        Rect rect = this.f23890e;
-        int i2 = rect.top;
-        int i3 = this.f23889d;
-        rect.top = i2 + i3;
-        rect.bottom += i3 + getPaddingTop();
-        this.f23890e.left += getPaddingLeft();
-        this.f23890e.right -= getPaddingRight();
-        return this.f23890e.contains((int) f2, (int) f3);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            view.getHitRect(this.f24433e);
+            Rect rect = this.f24433e;
+            int i2 = rect.top;
+            int i3 = this.f24432d;
+            rect.top = i2 + i3;
+            rect.bottom += i3 + getPaddingTop();
+            this.f24433e.left += getPaddingLeft();
+            this.f24433e.right -= getPaddingRight();
+            return this.f24433e.contains((int) f2, (int) f3);
+        }
+        return invokeCommon.booleanValue;
     }
 }

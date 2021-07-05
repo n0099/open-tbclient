@@ -1,75 +1,139 @@
 package com.baidu.tieba.addresslist.model;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
-import d.a.n0.s.f.c;
-import d.a.o0.s.d.a;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.a.f;
+import d.a.r0.s.f.c;
+import d.a.s0.s.d.a;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13763e;
+    public a f13850e;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.f13763e = a.d();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13850e = a.d();
     }
 
     public void A() {
-        sendMessage(new CustomMessage(2001178));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            sendMessage(new CustomMessage(2001178));
+        }
     }
 
     public void B() {
-        super.sendMessage(new RequestGetAddressListMessage(304001));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.sendMessage(new RequestGetAddressListMessage(304001));
+        }
     }
 
-    public void C(a.InterfaceC1646a interfaceC1646a) {
-        this.f13763e.f(interfaceC1646a);
+    public void C(a.InterfaceC1663a interfaceC1663a) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1663a) == null) {
+            this.f13850e.f(interfaceC1663a);
+        }
     }
 
-    public void D(List<d.a.n0.s.f.a> list) {
-        this.f13763e.g(list);
+    public void D(List<d.a.r0.s.f.a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.f13850e.g(list);
+        }
     }
 
-    public void E(a.InterfaceC1646a interfaceC1646a) {
-        this.f13763e.h(interfaceC1646a);
+    public void E(a.InterfaceC1663a interfaceC1663a) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1663a) == null) {
+            this.f13850e.h(interfaceC1663a);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void w(d.a.n0.s.f.a aVar) {
-        this.f13763e.a(aVar);
+    public void w(d.a.r0.s.f.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.f13850e.a(aVar);
+        }
     }
 
     public int x(String str) {
-        List<d.a.n0.s.f.a> c2;
-        if (c.a(str) && (c2 = this.f13763e.c()) != null) {
-            for (d.a.n0.s.f.a aVar : c2) {
-                if (str.equals(aVar.a())) {
-                    return c2.indexOf(aVar);
+        InterceptResult invokeL;
+        List<d.a.r0.s.f.a> c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (c.a(str) && (c2 = this.f13850e.c()) != null) {
+                for (d.a.r0.s.f.a aVar : c2) {
+                    if (str.equals(aVar.a())) {
+                        return c2.indexOf(aVar);
+                    }
                 }
+                return -1;
             }
             return -1;
         }
-        return -1;
+        return invokeL.intValue;
     }
 
     public void y(long j) {
-        this.f13763e.b(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.f13850e.b(j);
+        }
     }
 
-    public List<d.a.n0.s.f.a> z() {
-        return this.f13763e.c();
+    public List<d.a.r0.s.f.a> z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f13850e.c() : (List) invokeV.objValue;
     }
 }

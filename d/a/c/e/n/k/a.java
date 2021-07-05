@@ -7,90 +7,138 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.n.m.g;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile a f42539i;
-    public static final Handler j = new HandlerC0546a();
+    public static volatile a f44348i;
+    public static final Handler j;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42540a;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Context f42543d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public c f42544e;
+    public boolean f44349a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42541b = false;
+    public boolean f44350b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42542c = null;
+    public String f44351c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f44352d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c f44353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdStatSwitchData f42545f = new BdStatSwitchData();
+    public BdStatSwitchData f44354f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.e.n.k.b f42546g = new d.a.c.e.n.k.b();
+    public d.a.c.e.n.k.b f44355g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f42547h = null;
+    public b f44356h;
 
     /* renamed from: d.a.c.e.n.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class HandlerC0546a extends Handler {
+    /* loaded from: classes8.dex */
+    public static class HandlerC0591a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public HandlerC0591a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what != 1) {
-                return;
-            }
-            Object obj = message.obj;
-            if (obj instanceof BdUploadStatMsgData) {
-                g.h().q(((BdUploadStatMsgData) obj).parentType);
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
+                Object obj = message.obj;
+                if (obj instanceof BdUploadStatMsgData) {
+                    g.h().q(((BdUploadStatMsgData) obj).parentType);
+                }
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public class c extends BroadcastReceiver {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a this$0;
+
+        public c(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = aVar;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Serializable serializableExtra;
-            if (intent == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
                 return;
             }
             String action = intent.getAction();
             if ("com.baidu.adp.stats.background".equals(action)) {
                 BdStatisticsManager.getInstance().save();
-                if (a.this.f42540a) {
+                if (this.this$0.f44349a) {
                     g.h().f();
                 }
             } else if ("com.baidu.adp.stats.switch".equals(action)) {
-                if (a.this.f42540a) {
+                if (this.this$0.f44349a) {
                     return;
                 }
-                a.this.p();
+                this.this$0.p();
                 g.h().r();
-            } else if (!"com.baidu.adp.stats.updatecmd".equals(action) || a.this.f42540a || (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) == null || !(serializableExtra instanceof BdUploadStatMsgData)) {
+            } else if (!"com.baidu.adp.stats.updatecmd".equals(action) || this.this$0.f44349a || (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) == null || !(serializableExtra instanceof BdUploadStatMsgData)) {
             } else {
                 BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) serializableExtra;
                 if (bdUploadStatMsgData.parentType == null && bdUploadStatMsgData.childType == null) {
@@ -100,228 +148,352 @@ public class a {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                a.this.f42545f.putTmpSwitchConfData(str, bdUploadStatMsgData);
-                a.this.l(bdUploadStatMsgData);
+                this.this$0.f44354f.putTmpSwitchConfData(str, bdUploadStatMsgData);
+                this.this$0.l(bdUploadStatMsgData);
             }
         }
 
-        public /* synthetic */ c(a aVar, HandlerC0546a handlerC0546a) {
-            this();
+        public /* synthetic */ c(a aVar, HandlerC0591a handlerC0591a) {
+            this(aVar);
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public class d extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f44357a;
+
+        public d(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44357a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public BdStatSwitchData doInBackground(Object... objArr) {
-            BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
-            if (a.this.f42546g.a()) {
-                bdStatSwitchData.parserJson(a.this.f42546g.f42550b);
-            }
-            a.this.f42541b = false;
-            if (a.this.f42540a) {
-                a aVar = a.this;
-                if (aVar.t(aVar.f42546g.f42550b)) {
-                    String w = a.this.w();
-                    if (!TextUtils.isEmpty(w) && !w.equals(a.this.f42546g.f42550b)) {
-                        a.this.f42541b = true;
-                        bdStatSwitchData.parserJson(w);
-                        a.this.f42546g.b(w);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
+                if (this.f44357a.f44355g.a()) {
+                    bdStatSwitchData.parserJson(this.f44357a.f44355g.f44359b);
+                }
+                this.f44357a.f44350b = false;
+                if (this.f44357a.f44349a) {
+                    a aVar = this.f44357a;
+                    if (aVar.t(aVar.f44355g.f44359b)) {
+                        String w = this.f44357a.w();
+                        if (!TextUtils.isEmpty(w) && !w.equals(this.f44357a.f44355g.f44359b)) {
+                            this.f44357a.f44350b = true;
+                            bdStatSwitchData.parserJson(w);
+                            this.f44357a.f44355g.b(w);
+                        }
                     }
                 }
+                return bdStatSwitchData;
             }
-            return bdStatSwitchData;
+            return (BdStatSwitchData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
-            super.onPostExecute(bdStatSwitchData);
-            if (bdStatSwitchData == null) {
-                return;
-            }
-            a.this.f42545f = bdStatSwitchData;
-            if (a.this.f42540a && a.this.f42541b && !BdBaseApplication.getInst().checkInterrupt()) {
-                a.this.z();
-                g.h().r();
-            }
-            b bVar = a.this.f42547h;
-            if (bVar != null) {
-                bVar.a();
-            }
-        }
-
-        public /* synthetic */ d(a aVar, HandlerC0546a handlerC0546a) {
-            this();
-        }
-    }
-
-    public static a o() {
-        if (f42539i == null) {
-            synchronized (a.class) {
-                if (f42539i == null) {
-                    f42539i = new a();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdStatSwitchData) == null) {
+                super.onPostExecute(bdStatSwitchData);
+                if (bdStatSwitchData == null) {
+                    return;
+                }
+                this.f44357a.f44354f = bdStatSwitchData;
+                if (this.f44357a.f44349a && this.f44357a.f44350b && !BdBaseApplication.getInst().checkInterrupt()) {
+                    this.f44357a.z();
+                    g.h().r();
+                }
+                b bVar = this.f44357a.f44356h;
+                if (bVar != null) {
+                    bVar.a();
                 }
             }
         }
-        return f42539i;
+
+        public /* synthetic */ d(a aVar, HandlerC0591a handlerC0591a) {
+            this(aVar);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(330331066, "Ld/a/c/e/n/k/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(330331066, "Ld/a/c/e/n/k/a;");
+                return;
+            }
+        }
+        j = new HandlerC0591a();
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f44350b = false;
+        this.f44351c = null;
+        this.f44354f = new BdStatSwitchData();
+        this.f44355g = new d.a.c.e.n.k.b();
+        this.f44356h = null;
+    }
+
+    public static a o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (f44348i == null) {
+                synchronized (a.class) {
+                    if (f44348i == null) {
+                        f44348i = new a();
+                    }
+                }
+            }
+            return f44348i;
+        }
+        return (a) invokeV.objValue;
     }
 
     public boolean A(String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return true;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return true;
+            }
+            return this.f44354f.smallFlowUpload(d.a.c.e.n.h.a.g(str), str2);
         }
-        return this.f42545f.smallFlowUpload(d.a.c.e.n.h.a.g(str), str2);
+        return invokeLL.booleanValue;
     }
 
     public boolean k(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
-        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || bdUploadStatMsgData == null) {
-            return false;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bdUploadStatMsgData)) == null) {
+            if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || bdUploadStatMsgData == null) {
+                return false;
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                str = str2;
+            }
+            if (this.f44354f.getTmpSwitchConfData(str) == null) {
+                this.f44354f.putTmpSwitchConfData(str, bdUploadStatMsgData);
+                y(bdUploadStatMsgData);
+                l(bdUploadStatMsgData);
+                return true;
+            }
+            long j2 = bdUploadStatMsgData.deadLineTime;
+            if (0 == j2) {
+                this.f44354f.rmTmpSwitchConfData(str);
+                return false;
+            } else if (0 < j2) {
+                this.f44354f.putTmpSwitchConfData(str, bdUploadStatMsgData);
+                y(bdUploadStatMsgData);
+                l(bdUploadStatMsgData);
+                return true;
+            } else {
+                return false;
+            }
         }
-        if (!TextUtils.isEmpty(str2)) {
-            str = str2;
-        }
-        if (this.f42545f.getTmpSwitchConfData(str) == null) {
-            this.f42545f.putTmpSwitchConfData(str, bdUploadStatMsgData);
-            y(bdUploadStatMsgData);
-            l(bdUploadStatMsgData);
-            return true;
-        }
-        long j2 = bdUploadStatMsgData.deadLineTime;
-        if (0 == j2) {
-            this.f42545f.rmTmpSwitchConfData(str);
-            return false;
-        } else if (0 < j2) {
-            this.f42545f.putTmpSwitchConfData(str, bdUploadStatMsgData);
-            y(bdUploadStatMsgData);
-            l(bdUploadStatMsgData);
-            return true;
-        } else {
-            return false;
-        }
+        return invokeLLL.booleanValue;
     }
 
     public final void l(BdUploadStatMsgData bdUploadStatMsgData) {
-        long currentTimeMillis = bdUploadStatMsgData.deadLineTime - System.currentTimeMillis();
-        if (currentTimeMillis < 0) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUploadStatMsgData) == null) {
+            long currentTimeMillis = bdUploadStatMsgData.deadLineTime - System.currentTimeMillis();
+            if (currentTimeMillis < 0) {
+                return;
+            }
+            long j2 = currentTimeMillis - 3000;
+            if (j2 > 0) {
+                currentTimeMillis = j2;
+            }
+            Message obtainMessage = j.obtainMessage();
+            obtainMessage.what = 1;
+            obtainMessage.obj = bdUploadStatMsgData;
+            j.removeMessages(1);
+            j.sendMessageDelayed(obtainMessage, currentTimeMillis);
         }
-        long j2 = currentTimeMillis - 3000;
-        if (j2 > 0) {
-            currentTimeMillis = j2;
-        }
-        Message obtainMessage = j.obtainMessage();
-        obtainMessage.what = 1;
-        obtainMessage.obj = bdUploadStatMsgData;
-        j.removeMessages(1);
-        j.sendMessageDelayed(obtainMessage, currentTimeMillis);
     }
 
     public int m(String str, int i2) {
-        return TextUtils.isEmpty(str) ? i2 : this.f42545f.geUploadCycle(str, i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) ? TextUtils.isEmpty(str) ? i2 : this.f44354f.geUploadCycle(str, i2) : invokeLI.intValue;
     }
 
     public ArrayList<String> n(String str) {
-        return this.f42545f.getChiledTypes(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f44354f.getChiledTypes(str) : (ArrayList) invokeL.objValue;
     }
 
     public void p() {
-        d dVar = new d(this, null);
-        dVar.setPriority(4);
-        dVar.execute(new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d dVar = new d(this, null);
+            dVar.setPriority(4);
+            dVar.execute(new Object[0]);
+        }
     }
 
     public int q(String str, int i2) {
-        return TextUtils.isEmpty(str) ? i2 : this.f42545f.getMaxAlertCount(str, i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) ? TextUtils.isEmpty(str) ? i2 : this.f44354f.getMaxAlertCount(str, i2) : invokeLI.intValue;
     }
 
     public void r(boolean z, String str, Context context, b bVar) {
-        this.f42540a = z;
-        this.f42542c = str;
-        this.f42543d = context;
-        try {
-            if (this.f42544e == null && context != null && !BdBaseApplication.getInst().checkInterrupt()) {
-                this.f42544e = new c(this, null);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("com.baidu.adp.stats.background");
-                intentFilter.addAction("com.baidu.adp.stats.switch");
-                intentFilter.addAction("com.baidu.adp.stats.updatecmd");
-                intentFilter.addAction("com.baidu.adp.stats.uploadallfile");
-                this.f42543d.registerReceiver(this.f42544e, intentFilter);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, context, bVar}) == null) {
+            this.f44349a = z;
+            this.f44351c = str;
+            this.f44352d = context;
+            try {
+                if (this.f44353e == null && context != null && !BdBaseApplication.getInst().checkInterrupt()) {
+                    this.f44353e = new c(this, null);
+                    IntentFilter intentFilter = new IntentFilter();
+                    intentFilter.addAction("com.baidu.adp.stats.background");
+                    intentFilter.addAction("com.baidu.adp.stats.switch");
+                    intentFilter.addAction("com.baidu.adp.stats.updatecmd");
+                    intentFilter.addAction("com.baidu.adp.stats.uploadallfile");
+                    this.f44352d.registerReceiver(this.f44353e, intentFilter);
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
             }
-        } catch (Exception e2) {
-            BdLog.e(e2);
+            this.f44356h = bVar;
+            p();
         }
-        this.f42547h = bVar;
-        p();
     }
 
     public boolean s(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return this.f44354f.isExactWriteFile(d.a.c.e.n.h.a.g(str));
         }
-        return this.f42545f.isExactWriteFile(d.a.c.e.n.h.a.g(str));
+        return invokeL.booleanValue;
     }
 
     public final boolean t(String str) {
-        return TextUtils.isEmpty(str) || System.currentTimeMillis() - this.f42546g.f42549a >= 86400000;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? TextUtils.isEmpty(str) || System.currentTimeMillis() - this.f44355g.f44358a >= 86400000 : invokeL.booleanValue;
     }
 
     public boolean u(String str, String str2) {
-        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
+                return false;
+            }
+            return this.f44354f.isUpload(d.a.c.e.n.h.a.g(str), str2);
         }
-        return this.f42545f.isUpload(d.a.c.e.n.h.a.g(str), str2);
+        return invokeLL.booleanValue;
     }
 
     public boolean v(String str, String str2) {
-        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
+                return false;
+            }
+            return this.f44354f.isWrite(d.a.c.e.n.h.a.g(str), str2);
         }
-        return this.f42545f.isWrite(d.a.c.e.n.h.a.g(str), str2);
+        return invokeLL.booleanValue;
     }
 
     public final String w() {
-        if (TextUtils.isEmpty(this.f42542c)) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (TextUtils.isEmpty(this.f44351c)) {
+                return null;
+            }
+            try {
+                d.a.c.e.j.a.g g2 = new d.a.c.e.j.b.a().g(this.f44351c, 3, -1, 30000, -1, null);
+                if (g2 != null) {
+                    return new String(g2.f44213h, "utf-8");
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
             return null;
         }
-        try {
-            d.a.c.e.j.a.g g2 = new d.a.c.e.j.b.a().g(this.f42542c, 3, -1, 30000, -1, null);
-            if (g2 != null) {
-                return new String(g2.f42404h, "utf-8");
-            }
-        } catch (Exception e2) {
-            BdLog.e(e2);
-        }
-        return null;
+        return (String) invokeV.objValue;
     }
 
     public boolean x(String str, String str2) {
-        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
+                return false;
+            }
+            return this.f44354f.onlyWifiUpload(d.a.c.e.n.h.a.g(str), str2);
         }
-        return this.f42545f.onlyWifiUpload(d.a.c.e.n.h.a.g(str), str2);
+        return invokeLL.booleanValue;
     }
 
     public final void y(BdUploadStatMsgData bdUploadStatMsgData) {
-        if (this.f42540a) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, bdUploadStatMsgData) == null) && this.f44349a) {
             Intent intent = new Intent("com.baidu.adp.stats.updatecmd");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.f42543d.sendBroadcast(intent);
+            this.f44352d.sendBroadcast(intent);
         }
     }
 
     public final void z() {
-        if (this.f42540a) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.f44349a) {
             Intent intent = new Intent("com.baidu.adp.stats.switch");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.f42543d.sendBroadcast(intent);
+            this.f44352d.sendBroadcast(intent);
         }
     }
 }

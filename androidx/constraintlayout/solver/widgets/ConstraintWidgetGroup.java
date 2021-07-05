@@ -1,12 +1,20 @@
 package androidx.constraintlayout.solver.widgets;
 
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class ConstraintWidgetGroup {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public List<ConstraintWidget> mConstrainedGroup;
     public final int[] mGroupDimensions;
     public int mGroupHeight;
@@ -20,6 +28,20 @@ public class ConstraintWidgetGroup {
     public List<ConstraintWidget> mWidgetsToSolve;
 
     public ConstraintWidgetGroup(List<ConstraintWidget> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mGroupWidth = -1;
         this.mGroupHeight = -1;
         this.mSkipSolver = false;
@@ -34,7 +56,8 @@ public class ConstraintWidgetGroup {
     }
 
     private void getWidgetsToSolveTraversal(ArrayList<ConstraintWidget> arrayList, ConstraintWidget constraintWidget) {
-        if (constraintWidget.mGroupsToSolver) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, arrayList, constraintWidget) == null) || constraintWidget.mGroupsToSolver) {
             return;
         }
         arrayList.add(constraintWidget);
@@ -61,10 +84,10 @@ public class ConstraintWidgetGroup {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0048  */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0050  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x006b  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0087  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x004c  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0054  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x006f  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x008b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -75,7 +98,8 @@ public class ConstraintWidgetGroup {
         ConstraintAnchor constraintAnchor2;
         ConstraintAnchor constraintAnchor3;
         int margin2;
-        if (!constraintWidget.mOptimizerMeasurable || constraintWidget.isFullyResolved()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, this, constraintWidget) != null) || !constraintWidget.mOptimizerMeasurable || constraintWidget.isFullyResolved()) {
             return;
         }
         boolean z = constraintWidget.mRight.mTarget != null;
@@ -152,58 +176,93 @@ public class ConstraintWidgetGroup {
     }
 
     public void addWidgetsToSet(ConstraintWidget constraintWidget, int i2) {
-        if (i2 == 0) {
-            this.mWidgetsToSetHorizontal.add(constraintWidget);
-        } else if (i2 == 1) {
-            this.mWidgetsToSetVertical.add(constraintWidget);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, constraintWidget, i2) == null) {
+            if (i2 == 0) {
+                this.mWidgetsToSetHorizontal.add(constraintWidget);
+            } else if (i2 == 1) {
+                this.mWidgetsToSetVertical.add(constraintWidget);
+            }
         }
     }
 
     public List<ConstraintWidget> getStartWidgets(int i2) {
-        if (i2 == 0) {
-            return this.mStartHorizontalWidgets;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            if (i2 == 0) {
+                return this.mStartHorizontalWidgets;
+            }
+            if (i2 == 1) {
+                return this.mStartVerticalWidgets;
+            }
+            return null;
         }
-        if (i2 == 1) {
-            return this.mStartVerticalWidgets;
-        }
-        return null;
+        return (List) invokeI.objValue;
     }
 
     public Set<ConstraintWidget> getWidgetsToSet(int i2) {
-        if (i2 == 0) {
-            return this.mWidgetsToSetHorizontal;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            if (i2 == 0) {
+                return this.mWidgetsToSetHorizontal;
+            }
+            if (i2 == 1) {
+                return this.mWidgetsToSetVertical;
+            }
+            return null;
         }
-        if (i2 == 1) {
-            return this.mWidgetsToSetVertical;
-        }
-        return null;
+        return (Set) invokeI.objValue;
     }
 
     public List<ConstraintWidget> getWidgetsToSolve() {
-        if (!this.mWidgetsToSolve.isEmpty()) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.mWidgetsToSolve.isEmpty()) {
+                return this.mWidgetsToSolve;
+            }
+            int size = this.mConstrainedGroup.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                ConstraintWidget constraintWidget = this.mConstrainedGroup.get(i2);
+                if (!constraintWidget.mOptimizerMeasurable) {
+                    getWidgetsToSolveTraversal((ArrayList) this.mWidgetsToSolve, constraintWidget);
+                }
+            }
+            this.mUnresolvedWidgets.clear();
+            this.mUnresolvedWidgets.addAll(this.mConstrainedGroup);
+            this.mUnresolvedWidgets.removeAll(this.mWidgetsToSolve);
             return this.mWidgetsToSolve;
         }
-        int size = this.mConstrainedGroup.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            ConstraintWidget constraintWidget = this.mConstrainedGroup.get(i2);
-            if (!constraintWidget.mOptimizerMeasurable) {
-                getWidgetsToSolveTraversal((ArrayList) this.mWidgetsToSolve, constraintWidget);
-            }
-        }
-        this.mUnresolvedWidgets.clear();
-        this.mUnresolvedWidgets.addAll(this.mConstrainedGroup);
-        this.mUnresolvedWidgets.removeAll(this.mWidgetsToSolve);
-        return this.mWidgetsToSolve;
+        return (List) invokeV.objValue;
     }
 
     public void updateUnresolvedWidgets() {
-        int size = this.mUnresolvedWidgets.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            updateResolvedDimension(this.mUnresolvedWidgets.get(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int size = this.mUnresolvedWidgets.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                updateResolvedDimension(this.mUnresolvedWidgets.get(i2));
+            }
         }
     }
 
     public ConstraintWidgetGroup(List<ConstraintWidget> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mGroupWidth = -1;
         this.mGroupHeight = -1;
         this.mSkipSolver = false;

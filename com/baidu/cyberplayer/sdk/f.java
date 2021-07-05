@@ -1,38 +1,69 @@
 package com.baidu.cyberplayer.sdk;
-/* loaded from: classes2.dex */
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4856a = 0;
+    public int f4886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4857b = 0;
+    public int f4887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4858c = 1;
+    public int f4888c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4859d = 1;
+    public int f4889d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4860e = 0;
+    public int f4890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4861f = 0;
+    public int f4891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4862g = 0;
+    public int f4892g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4863h = 0;
+    public int f4893h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f4864i = 0;
+    public int f4894i;
     public int j;
     public float[] k;
     public float[] l;
 
     public f() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f4886a = 0;
+        this.f4887b = 0;
+        this.f4888c = 1;
+        this.f4889d = 1;
+        this.f4890e = 0;
+        this.f4891f = 0;
+        this.f4892g = 0;
+        this.f4893h = 0;
+        this.f4894i = 0;
         this.j = 0;
         this.k = r3;
         float[] fArr = {1.0f, 1.0f};
@@ -42,93 +73,111 @@ public class f {
     }
 
     public void a() {
-        this.f4856a = 0;
-        this.f4857b = 0;
-        this.f4858c = 1;
-        this.f4859d = 1;
-        this.f4860e = 0;
-        this.f4861f = 0;
-        this.f4862g = 0;
-        this.f4863h = 0;
-        this.f4864i = 0;
-        float[] fArr = this.k;
-        fArr[0] = 1.0f;
-        fArr[1] = 1.0f;
-        this.j = 2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f4886a = 0;
+            this.f4887b = 0;
+            this.f4888c = 1;
+            this.f4889d = 1;
+            this.f4890e = 0;
+            this.f4891f = 0;
+            this.f4892g = 0;
+            this.f4893h = 0;
+            this.f4894i = 0;
+            float[] fArr = this.k;
+            fArr[0] = 1.0f;
+            fArr[1] = 1.0f;
+            this.j = 2;
+        }
     }
 
     public boolean a(int i2) {
-        if (this.f4861f != i2) {
-            this.f4861f = i2;
-            this.f4862g = ((this.f4860e + 360) - i2) % 360;
-            return true;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            if (this.f4891f != i2) {
+                this.f4891f = i2;
+                this.f4892g = ((this.f4890e + 360) - i2) % 360;
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeI.booleanValue;
     }
 
     public boolean a(int i2, int i3) {
-        if (this.f4856a == i2 && this.f4857b == i3) {
-            return false;
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) {
+            if (this.f4886a == i2 && this.f4887b == i3) {
+                return false;
+            }
+            this.f4886a = i2;
+            this.f4887b = i3;
+            return true;
         }
-        this.f4856a = i2;
-        this.f4857b = i3;
-        return true;
+        return invokeII.booleanValue;
     }
 
     public boolean a(int i2, int i3, int i4, int i5) {
-        if (this.f4863h == i2 && i3 == this.f4864i && this.f4858c == i4 && this.f4859d == i5) {
-            return false;
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048579, this, i2, i3, i4, i5)) == null) {
+            if (this.f4893h == i2 && i3 == this.f4894i && this.f4888c == i4 && this.f4889d == i5) {
+                return false;
+            }
+            this.f4893h = i2;
+            this.f4894i = i3;
+            if (i5 == 0 || i4 == 0) {
+                this.f4888c = 1;
+                this.f4889d = 1;
+            } else {
+                this.f4888c = i4;
+                this.f4889d = i5;
+            }
+            return true;
         }
-        this.f4863h = i2;
-        this.f4864i = i3;
-        if (i5 == 0 || i4 == 0) {
-            this.f4858c = 1;
-            this.f4859d = 1;
-        } else {
-            this.f4858c = i4;
-            this.f4859d = i5;
-        }
-        return true;
+        return invokeIIII.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00bc, code lost:
-        if (r5 > r3) goto L30;
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00c0, code lost:
+        if (r5 > r3) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0100, code lost:
-        if (0.5625f > r3) goto L49;
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0104, code lost:
+        if (0.5625f > r3) goto L51;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0107, code lost:
-        if (0.75f > r3) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x010f, code lost:
-        if (0.8f > r3) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x0111, code lost:
-        r3 = r3 / r0;
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x010b, code lost:
+        if (0.75f > r3) goto L51;
      */
     /* JADX WARN: Code restructure failed: missing block: B:61:0x0113, code lost:
+        if (0.8f > r3) goto L51;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0115, code lost:
+        r3 = r3 / r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0117, code lost:
         r5 = r0 / r3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0118, code lost:
-        if (r5 > r3) goto L30;
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x011c, code lost:
+        if (r5 > r3) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0121, code lost:
-        if (r5 > r3) goto L25;
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x0125, code lost:
+        if (r5 > r3) goto L27;
      */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00ba  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00c0  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00c9  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00d2  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00db  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00fc  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0103  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x010a  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0116  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x011b A[PHI: r4 r7 
-      PHI: (r4v1 float) = (r4v0 float), (r4v6 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]
-      PHI: (r7v2 float) = (r7v1 float), (r7v4 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x011f  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00be  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00c4  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00d6  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00df  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00e9  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0100  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0107  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x010e  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x011a  */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x011f A[PHI: r4 r7 
+      PHI: (r4v1 float) = (r4v0 float), (r4v6 float) binds: [B:33:0x00bb, B:72:0x012a] A[DONT_GENERATE, DONT_INLINE]
+      PHI: (r7v3 float) = (r7v2 float), (r7v5 float) binds: [B:33:0x00bb, B:72:0x012a] A[DONT_GENERATE, DONT_INLINE]] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0123  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -141,22 +190,23 @@ public class f {
         float f5;
         float f6;
         float f7;
-        if (this.f4856a == 0 || this.f4857b == 0 || this.f4863h == 0 || this.f4864i == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f4886a == 0 || this.f4887b == 0 || this.f4893h == 0 || this.f4894i == 0) {
             return;
         }
         int i4 = this.j;
         boolean z = i4 == 0 || i4 == 2;
         float f8 = 1.0f;
-        float f9 = (this.f4857b * 1.0f) / this.f4856a;
-        float f10 = (this.f4864i * 1.0f) / this.f4863h;
-        int i5 = this.f4862g;
-        if ((i5 != 90 && i5 != 270) || (i2 = this.f4864i) == 0) {
+        float f9 = (this.f4887b * 1.0f) / this.f4886a;
+        float f10 = (this.f4894i * 1.0f) / this.f4893h;
+        int i5 = this.f4892g;
+        if ((i5 != 90 && i5 != 270) || (i2 = this.f4894i) == 0) {
             if (z) {
-                f2 = this.f4859d * 1.0f;
-                i3 = this.f4858c;
+                f2 = this.f4889d * 1.0f;
+                i3 = this.f4888c;
                 f10 *= f2 / i3;
             }
-            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4863h + " mVideoHeight:" + this.f4864i + " mVideoSarNum:" + this.f4858c + " mVideoSarDen:" + this.f4859d + " mSurfaceWidth:" + this.f4856a + " mSurfaceHeight:" + this.f4857b + " mDisplayMode:" + this.j);
+            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4893h + " mVideoHeight:" + this.f4894i + " mVideoSarNum:" + this.f4888c + " mVideoSarDen:" + this.f4889d + " mSurfaceWidth:" + this.f4886a + " mSurfaceHeight:" + this.f4887b + " mDisplayMode:" + this.j);
             float f11 = 0.0f;
             switch (this.j) {
             }
@@ -168,13 +218,13 @@ public class f {
             fArr2[1] = f3;
             CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f8 + " sy:" + f4 + " translateX:" + f11 + " translateY:" + f3);
         }
-        f10 = (this.f4863h * 1.0f) / i2;
+        f10 = (this.f4893h * 1.0f) / i2;
         if (z) {
-            f2 = this.f4858c * 1.0f;
-            i3 = this.f4859d;
+            f2 = this.f4888c * 1.0f;
+            i3 = this.f4889d;
             f10 *= f2 / i3;
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4863h + " mVideoHeight:" + this.f4864i + " mVideoSarNum:" + this.f4858c + " mVideoSarDen:" + this.f4859d + " mSurfaceWidth:" + this.f4856a + " mSurfaceHeight:" + this.f4857b + " mDisplayMode:" + this.j);
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4893h + " mVideoHeight:" + this.f4894i + " mVideoSarNum:" + this.f4888c + " mVideoSarDen:" + this.f4889d + " mSurfaceWidth:" + this.f4886a + " mSurfaceHeight:" + this.f4887b + " mDisplayMode:" + this.j);
         float f112 = 0.0f;
         switch (this.j) {
             case 1:
@@ -191,8 +241,8 @@ public class f {
                 f5 = 0.5625f;
                 break;
             case 6:
-                float f12 = (this.f4863h * 1.0f) / this.f4856a;
-                f4 = (this.f4864i * 1.0f) / this.f4857b;
+                float f12 = (this.f4893h * 1.0f) / this.f4886a;
+                f4 = (this.f4894i * 1.0f) / this.f4887b;
                 f8 = f12;
                 f3 = 0.0f;
                 break;
@@ -255,56 +305,87 @@ public class f {
     }
 
     public boolean b(int i2) {
-        if (this.f4860e != i2) {
-            this.f4860e = i2;
-            this.f4862g = ((360 - this.f4861f) + i2) % 360;
-            return true;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            if (this.f4890e != i2) {
+                this.f4890e = i2;
+                this.f4892g = ((360 - this.f4891f) + i2) % 360;
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeI.booleanValue;
     }
 
     public boolean c(int i2) {
-        if (this.j != i2) {
-            this.j = i2;
-            return true;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            if (this.j != i2) {
+                this.j = i2;
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeI.booleanValue;
     }
 
     public float[] c() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : (float[]) invokeV.objValue;
     }
 
     public int d() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j : invokeV.intValue;
     }
 
     public float[] e() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.l : (float[]) invokeV.objValue;
     }
 
     public boolean f() {
-        int i2 = this.j;
-        return i2 == 7 || i2 == 8 || i2 == 9 || i2 == 10;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int i2 = this.j;
+            return i2 == 7 || i2 == 8 || i2 == 9 || i2 == 10;
+        }
+        return invokeV.booleanValue;
     }
 
     public int g() {
-        return this.f4862g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f4892g : invokeV.intValue;
     }
 
     public int h() {
-        return this.f4863h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f4893h : invokeV.intValue;
     }
 
     public int i() {
-        return this.f4864i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f4894i : invokeV.intValue;
     }
 
     public int j() {
-        return this.f4856a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f4886a : invokeV.intValue;
     }
 
     public int k() {
-        return this.f4857b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f4887b : invokeV.intValue;
     }
 }

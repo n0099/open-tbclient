@@ -1,93 +1,154 @@
 package com.baidu.platform.domain;
-/* loaded from: classes2.dex */
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class b implements c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.baidu.platform.domain.c
     public String a() {
-        return "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/place/v2/search";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/place/v2/search" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String b() {
-        return "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/place/v2/detail";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/place/v2/detail" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String c() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/indoor/v1/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/indoor/v1/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String d() {
-        return "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/place/v2/suggestion";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/place/v2/suggestion" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String e() {
-        return "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/geocoder/v2";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/geocoder/v2" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String f() {
-        return "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/geocoder/v2";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/geocoder/v2" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String g() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/pathplan/v2/transit";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/pathplan/v2/transit" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String h() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String i() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String j() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/pathplan/v2/riding";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/pathplan/v2/riding" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String k() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String l() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String m() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui/v1/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui/v1/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String n() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String o() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/apimap/v1/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/apimap/v1/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String p() {
-        return "https://j.map.baidu.com/";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? "https://j.map.baidu.com/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String q() {
-        return "https://client.map.baidu.com/imap/share/ps";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? "https://client.map.baidu.com/imap/share/ps" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
     public String r() {
-        return "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/apimap/v1/s";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/apimap/v1/s" : (String) invokeV.objValue;
     }
 }

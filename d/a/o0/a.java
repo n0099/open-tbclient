@@ -1,174 +1,341 @@
 package d.a.o0;
 
-import android.content.SharedPreferences;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.o0.l.k;
+/* loaded from: classes8.dex */
 public class a {
-    public static final a q = new a();
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f54902a = new AtomicBoolean(false);
+    public static volatile a f46217a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54903b;
+    public static String f46218b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54904c;
+    public static String f46219c;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f54905d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f54906e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f54907f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f54908g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f54909h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f54910i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public long o;
-    public int p;
-
-    public static a h() {
-        return q;
+    /* renamed from: d.a.o0.a$a  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0668a {
+        void onFinish(String str);
     }
 
-    public long a() {
-        return this.o;
-    }
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public int b() {
-        return this.m;
-    }
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f46220e;
 
-    public int c() {
-        return this.n;
-    }
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ a f46221f;
 
-    public int d() {
-        return this.f54907f;
-    }
-
-    public int e() {
-        return this.f54909h;
-    }
-
-    public int f() {
-        return this.f54908g;
-    }
-
-    public String g() {
-        return this.f54906e;
-    }
-
-    public int i() {
-        return this.l;
-    }
-
-    public int j() {
-        return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_cache_time", 20);
-    }
-
-    public int k() {
-        return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_first_floor", 5);
-    }
-
-    public int l() {
-        return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_floor_interval", 7);
-    }
-
-    public int m() {
-        return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_insert_mode", 1);
-    }
-
-    public int n() {
-        return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_max_ad_num", 5);
-    }
-
-    public int o() {
-        return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_pre_load_num", 5);
-    }
-
-    public int p() {
-        return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_request_num", 5);
-    }
-
-    public int q() {
-        return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_req_gap_time", 30);
-    }
-
-    public boolean r() {
-        return this.f54910i == 1;
-    }
-
-    public boolean s() {
-        return this.k == 1;
-    }
-
-    public boolean t() {
-        return this.j == 1;
-    }
-
-    public boolean u() {
-        return this.p == 1;
-    }
-
-    public boolean v() {
-        return this.f54903b == 1;
-    }
-
-    public void w(JSONObject jSONObject) {
-        boolean z = this.f54902a.get();
-        if (jSONObject == null || z) {
-            return;
+        public b(a aVar, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f46221f = aVar;
+            this.f46220e = context;
         }
-        this.f54902a.set(true);
-        jSONObject.optInt("tieba_landing_page_type_switch", -1);
-        this.f54903b = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
-        this.f54904c = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
-        this.f54905d = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
-        this.f54906e = jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
-        this.f54907f = jSONObject.optInt("tieba_follow_up_expire_time", 7);
-        this.f54908g = jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
-        this.f54909h = jSONObject.optInt("tieba_follow_up_gap_time", 5);
-        this.f54910i = jSONObject.optInt("tieba_12.4_download_path", 0);
-        this.j = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
-        this.k = jSONObject.optInt("tieba_lazy_launch_switch", 0);
-        this.l = jSONObject.optInt("tieba_lazy_launch_internal", 0);
-        SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).edit();
-        edit.putInt("pic_page_insert_mode", jSONObject.optInt("pic_page_insert_mode", 1));
-        edit.putInt("pic_page_request_num", jSONObject.optInt("pic_page_request_num", 5));
-        edit.putInt("pic_page_cache_time", jSONObject.optInt("pic_page_cache_time", 20));
-        edit.putInt("pic_page_first_floor", jSONObject.optInt("pic_page_first_floor", 5));
-        edit.putInt("pic_page_floor_interval", jSONObject.optInt("pic_page_floor_interval", 7));
-        edit.putInt("pic_page_pre_load_num", jSONObject.optInt("pic_page_pre_load_num", 5));
-        edit.putInt("pic_page_max_ad_num", jSONObject.optInt("pic_page_max_ad_num", 5));
-        edit.putInt("pic_page_req_gap_time", jSONObject.optInt("pic_page_req_gap_time", 30));
-        edit.commit();
-        this.m = jSONObject.optInt("tieba_max_fake_progress", 0);
-        this.n = jSONObject.optInt("tieba_max_fake_time", 60);
-        this.o = jSONObject.optLong("tieba_max_fake_speed", 0L);
-        this.p = jSONObject.optInt("tieba_video_load_optimize_switch", 0);
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.f46221f.e(this.f46220e);
+                    d.a.o0.e.c.j().d(this.f46220e);
+                } catch (Throwable th) {
+                    d.a.o0.l.c.d(th);
+                }
+            }
+        }
     }
 
-    public boolean x() {
-        return this.f54905d == 1;
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f46222e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ long f46223f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ InterfaceC0668a f46224g;
+
+        public c(a aVar, Context context, long j, InterfaceC0668a interfaceC0668a) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, context, Long.valueOf(j), interfaceC0668a};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f46222e = context;
+            this.f46223f = j;
+            this.f46224g = interfaceC0668a;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    d.a.o0.e.c.j().e(this.f46222e, 0, null, this.f46223f, this.f46224g);
+                } catch (Throwable th) {
+                    d.a.o0.l.c.d(th);
+                }
+            }
+        }
     }
 
-    public boolean y() {
-        return this.f54904c == 1;
+    /* loaded from: classes8.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f46225e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ long f46226f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ InterfaceC0668a f46227g;
+
+        public d(a aVar, Context context, long j, InterfaceC0668a interfaceC0668a) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, context, Long.valueOf(j), interfaceC0668a};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f46225e = context;
+            this.f46226f = j;
+            this.f46227g = interfaceC0668a;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    d.a.o0.e.c.j().f(this.f46225e, this.f46226f, this.f46227g);
+                } catch (Throwable th) {
+                    d.a.o0.l.c.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f46228e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ long f46229f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ InterfaceC0668a f46230g;
+
+        public e(a aVar, Context context, long j, InterfaceC0668a interfaceC0668a) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, context, Long.valueOf(j), interfaceC0668a};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f46228e = context;
+            this.f46229f = j;
+            this.f46230g = interfaceC0668a;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    d.a.o0.e.c.j().l(this.f46228e, this.f46229f, this.f46230g);
+                } catch (Throwable th) {
+                    d.a.o0.l.c.d(th);
+                }
+            }
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static a c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f46217a == null) {
+                synchronized (a.class) {
+                    if (f46217a == null) {
+                        f46217a = new a();
+                    }
+                }
+            }
+            return f46217a;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            int intValue = ((Integer) k.d(context).second).intValue();
+            if (intValue == 1) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE;
+            }
+            if (intValue == 3) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_TELECOM;
+            }
+            if (intValue == 2) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public synchronized void d(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
+            synchronized (this) {
+                try {
+                    f46218b = str;
+                    f46219c = str2;
+                    d.a.o0.k.b.a().post(new b(this, context));
+                } catch (Throwable th) {
+                    d.a.o0.l.c.d(th);
+                }
+            }
+        }
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            String l0 = d.a.o0.b.a.h(context).l0();
+            if (TextUtils.isEmpty(l0)) {
+                return;
+            }
+            String[] split = l0.split("_");
+            if (split.length != 2) {
+                d.a.o0.b.a.h(context).j();
+            }
+            f46218b = split[0];
+            f46219c = split[1];
+        }
+    }
+
+    public void f(Context context, long j, InterfaceC0668a interfaceC0668a) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), interfaceC0668a}) == null) {
+            try {
+                d.a.o0.k.b.a().post(new d(this, context, j, interfaceC0668a));
+            } catch (Throwable th) {
+                d.a.o0.l.c.d(th);
+            }
+        }
+    }
+
+    public void g(Context context, long j, InterfaceC0668a interfaceC0668a) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), interfaceC0668a}) == null) {
+            try {
+                d.a.o0.k.b.a().post(new c(this, context, j, interfaceC0668a));
+            } catch (Throwable th) {
+                d.a.o0.l.c.d(th);
+            }
+        }
+    }
+
+    public void h(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, context, z) == null) {
+            try {
+                d.a.o0.b.a.h(context).R(z);
+            } catch (Throwable th) {
+                d.a.o0.l.c.d(th);
+            }
+        }
+    }
+
+    public void i(Context context, long j, InterfaceC0668a interfaceC0668a) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Long.valueOf(j), interfaceC0668a}) == null) {
+            try {
+                d.a.o0.k.b.a().post(new e(this, context, j, interfaceC0668a));
+            } catch (Throwable th) {
+                d.a.o0.l.c.d(th);
+            }
+        }
     }
 }

@@ -1,6 +1,12 @@
 package com.sina.weibo.sdk.utils;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class WbAuthConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE = "8001";
     public static final String AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE = "your install weibo app is counterfeit";
     public static final String AUTH_FAILED_MSG = "auth failed!!!!!";
@@ -22,4 +28,19 @@ public class WbAuthConstants {
     public static final int REQUEST_CODE_GET_USER_INFO = 32974;
     public static final int REQUEST_CODE_SSO_AUTH = 32973;
     public static final String SHARE_RESULT_CODE = "share_result_code";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public WbAuthConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

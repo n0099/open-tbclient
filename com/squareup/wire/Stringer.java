@@ -2,174 +2,252 @@ package com.squareup.wire;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.Charset;
 /* loaded from: classes7.dex */
 public final class Stringer {
-    public static final Charset UTF_8 = Charset.forName("UTF-8");
+    public static /* synthetic */ Interceptable $ic;
+    public static final Charset UTF_8;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public static class Decoder {
-        public static final int[] DECODE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int[] DECODE;
         public static final int EQUALS = -2;
         public static final int SKIP = -1;
+        public transient /* synthetic */ FieldHolder $fh;
         public int op;
         public final byte[] output;
-        public int state = 0;
-        public int value = 0;
+        public int state;
+        public int value;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280013328, "Lcom/squareup/wire/Stringer$Decoder;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-280013328, "Lcom/squareup/wire/Stringer$Decoder;");
+                    return;
+                }
+            }
+            DECODE = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+        }
 
         public Decoder(byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bArr};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.output = bArr;
+            this.state = 0;
+            this.value = 0;
         }
 
         public boolean process(byte[] bArr, int i2, int i3, boolean z) {
-            int i4 = this.state;
-            if (i4 == 6) {
-                return false;
-            }
-            int i5 = i3 + i2;
-            int i6 = this.value;
-            byte[] bArr2 = this.output;
-            int[] iArr = DECODE;
-            int i7 = i6;
-            int i8 = 0;
-            int i9 = i4;
-            int i10 = i2;
-            while (i10 < i5) {
-                if (i9 == 0) {
-                    while (true) {
-                        int i11 = i10 + 4;
-                        if (i11 > i5) {
-                            break;
-                        }
-                        i7 = iArr[bArr[i10 + 3] & 255] | (iArr[bArr[i10 + 1] & 255] << 12) | (iArr[bArr[i10] & 255] << 18) | (iArr[bArr[i10 + 2] & 255] << 6);
-                        if (i7 < 0) {
-                            break;
-                        }
-                        bArr2[i8 + 2] = (byte) i7;
-                        bArr2[i8 + 1] = (byte) (i7 >> 8);
-                        bArr2[i8] = (byte) (i7 >> 16);
-                        i8 += 3;
-                        i10 = i11;
-                    }
-                    if (i10 >= i5) {
-                        break;
-                    }
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+                int i4 = this.state;
+                if (i4 == 6) {
+                    return false;
                 }
-                int i12 = i10 + 1;
-                int i13 = iArr[bArr[i10] & 255];
-                if (i9 != 0) {
-                    if (i9 == 1) {
-                        if (i13 < 0) {
-                            if (i13 != -1) {
-                                this.state = 6;
-                                return false;
+                int i5 = i3 + i2;
+                int i6 = this.value;
+                byte[] bArr2 = this.output;
+                int[] iArr = DECODE;
+                int i7 = i6;
+                int i8 = 0;
+                int i9 = i4;
+                int i10 = i2;
+                while (i10 < i5) {
+                    if (i9 == 0) {
+                        while (true) {
+                            int i11 = i10 + 4;
+                            if (i11 > i5 || (i7 = iArr[bArr[i10 + 3] & 255] | (iArr[bArr[i10 + 1] & 255] << 12) | (iArr[bArr[i10] & 255] << 18) | (iArr[bArr[i10 + 2] & 255] << 6)) < 0) {
+                                break;
                             }
+                            bArr2[i8 + 2] = (byte) i7;
+                            bArr2[i8 + 1] = (byte) (i7 >> 8);
+                            bArr2[i8] = (byte) (i7 >> 16);
+                            i8 += 3;
+                            i10 = i11;
                         }
-                        i7 = (i7 << 6) | i13;
-                        i9++;
-                    } else if (i9 != 2) {
-                        if (i9 != 3) {
-                            if (i9 == 4) {
-                                if (i13 != -2) {
-                                    if (i13 != -1) {
-                                        this.state = 6;
-                                        return false;
-                                    }
+                        if (i10 >= i5) {
+                            break;
+                        }
+                    }
+                    int i12 = i10 + 1;
+                    int i13 = iArr[bArr[i10] & 255];
+                    if (i9 != 0) {
+                        if (i9 == 1) {
+                            if (i13 < 0) {
+                                if (i13 != -1) {
+                                    this.state = 6;
+                                    return false;
                                 }
-                                i9++;
-                            } else if (i9 != 5) {
-                                throw new AssertionError("state = " + i9);
+                            }
+                            i7 = (i7 << 6) | i13;
+                            i9++;
+                        } else if (i9 != 2) {
+                            if (i9 != 3) {
+                                if (i9 == 4) {
+                                    if (i13 != -2) {
+                                        if (i13 != -1) {
+                                            this.state = 6;
+                                            return false;
+                                        }
+                                    }
+                                    i9++;
+                                } else if (i9 != 5) {
+                                    throw new AssertionError("state = " + i9);
+                                } else if (i13 != -1) {
+                                    this.state = 6;
+                                    return false;
+                                }
+                            } else if (i13 >= 0) {
+                                i7 = (i7 << 6) | i13;
+                                bArr2[i8 + 2] = (byte) i7;
+                                bArr2[i8 + 1] = (byte) (i7 >> 8);
+                                bArr2[i8] = (byte) (i7 >> 16);
+                                i8 += 3;
+                                i10 = i12;
+                                i9 = 0;
+                            } else if (i13 == -2) {
+                                bArr2[i8 + 1] = (byte) (i7 >> 2);
+                                bArr2[i8] = (byte) (i7 >> 10);
+                                i8 += 2;
+                                i10 = i12;
+                                i9 = 5;
                             } else if (i13 != -1) {
                                 this.state = 6;
                                 return false;
                             }
                         } else if (i13 >= 0) {
                             i7 = (i7 << 6) | i13;
-                            bArr2[i8 + 2] = (byte) i7;
-                            bArr2[i8 + 1] = (byte) (i7 >> 8);
-                            bArr2[i8] = (byte) (i7 >> 16);
-                            i8 += 3;
-                            i10 = i12;
-                            i9 = 0;
+                            i9++;
                         } else if (i13 == -2) {
-                            bArr2[i8 + 1] = (byte) (i7 >> 2);
-                            bArr2[i8] = (byte) (i7 >> 10);
-                            i8 += 2;
+                            bArr2[i8] = (byte) (i7 >> 4);
+                            i8++;
                             i10 = i12;
-                            i9 = 5;
+                            i9 = 4;
                         } else if (i13 != -1) {
                             this.state = 6;
                             return false;
                         }
                     } else if (i13 >= 0) {
-                        i7 = (i7 << 6) | i13;
                         i9++;
-                    } else if (i13 == -2) {
-                        bArr2[i8] = (byte) (i7 >> 4);
-                        i8++;
-                        i10 = i12;
-                        i9 = 4;
+                        i7 = i13;
                     } else if (i13 != -1) {
                         this.state = 6;
                         return false;
                     }
-                } else if (i13 >= 0) {
-                    i9++;
-                    i7 = i13;
-                } else if (i13 != -1) {
-                    this.state = 6;
-                    return false;
+                    i10 = i12;
                 }
-                i10 = i12;
-            }
-            if (!z) {
+                if (!z) {
+                    this.state = i9;
+                    this.value = i7;
+                    this.op = i8;
+                    return true;
+                }
+                if (i9 != 0) {
+                    if (i9 == 1) {
+                        this.state = 6;
+                        return false;
+                    } else if (i9 == 2) {
+                        bArr2[i8] = (byte) (i7 >> 4);
+                        i8++;
+                    } else if (i9 == 3) {
+                        int i14 = i8 + 1;
+                        bArr2[i8] = (byte) (i7 >> 10);
+                        i8 = i14 + 1;
+                        bArr2[i14] = (byte) (i7 >> 2);
+                    } else if (i9 == 4) {
+                        this.state = 6;
+                        return false;
+                    } else if (i9 != 5) {
+                        throw new AssertionError("state = " + i9);
+                    }
+                }
                 this.state = i9;
-                this.value = i7;
                 this.op = i8;
                 return true;
             }
-            if (i9 != 0) {
-                if (i9 == 1) {
-                    this.state = 6;
-                    return false;
-                } else if (i9 == 2) {
-                    bArr2[i8] = (byte) (i7 >> 4);
-                    i8++;
-                } else if (i9 == 3) {
-                    int i14 = i8 + 1;
-                    bArr2[i8] = (byte) (i7 >> 10);
-                    i8 = i14 + 1;
-                    bArr2[i14] = (byte) (i7 >> 2);
-                } else if (i9 == 4) {
-                    this.state = 6;
-                    return false;
-                } else if (i9 != 5) {
-                    throw new AssertionError("state = " + i9);
-                }
-            }
-            this.state = i9;
-            this.op = i8;
-            return true;
+            return invokeCommon.booleanValue;
         }
     }
 
     /* loaded from: classes7.dex */
     public static class Encoder {
-        public static final byte[] ENCODE = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        public static /* synthetic */ Interceptable $ic;
+        public static final byte[] ENCODE;
+        public transient /* synthetic */ FieldHolder $fh;
         public final byte[] output;
-        public final byte[] tail = new byte[2];
-        public int tailLen = 0;
+        public final byte[] tail;
+        public int tailLen;
 
-        public Encoder(byte[] bArr) {
-            this.output = bArr;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(860395544, "Lcom/squareup/wire/Stringer$Encoder;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(860395544, "Lcom/squareup/wire/Stringer$Encoder;");
+                    return;
+                }
+            }
+            ENCODE = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:17:0x0066  */
-        /* JADX WARN: Removed duplicated region for block: B:18:0x0087  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x008e  */
-        /* JADX WARN: Removed duplicated region for block: B:38:0x0111  */
-        /* JADX WARN: Removed duplicated region for block: B:45:0x013b A[LOOP:0: B:19:0x0088->B:45:0x013b, LOOP_END] */
-        /* JADX WARN: Removed duplicated region for block: B:46:0x008c A[EDGE_INSN: B:46:0x008c->B:21:0x008c ?: BREAK  , SYNTHETIC] */
+        public Encoder(byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bArr};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.output = bArr;
+            this.tail = new byte[2];
+            this.tailLen = 0;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:19:0x006a  */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x008b  */
+        /* JADX WARN: Removed duplicated region for block: B:24:0x0092  */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x0115  */
+        /* JADX WARN: Removed duplicated region for block: B:47:0x013f A[LOOP:0: B:21:0x008c->B:47:0x013f, LOOP_END] */
+        /* JADX WARN: Removed duplicated region for block: B:51:0x0090 A[EDGE_INSN: B:51:0x0090->B:23:0x0090 ?: BREAK  , SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -181,6 +259,10 @@ public final class Stringer {
             byte b2;
             byte b3;
             byte b4;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) != null) {
+                return;
+            }
             byte[] bArr2 = ENCODE;
             byte[] bArr3 = this.output;
             int i8 = i3 + i2;
@@ -312,27 +394,67 @@ public final class Stringer {
         }
     }
 
-    public static byte[] decode(String str) {
-        byte[] bytes = str.getBytes(UTF_8);
-        Decoder decoder = new Decoder(new byte[(bytes.length * 3) / 4]);
-        if (decoder.process(bytes, 0, bytes.length, true)) {
-            if (decoder.op == decoder.output.length) {
-                return decoder.output;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1325236624, "Lcom/squareup/wire/Stringer;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            byte[] bArr = new byte[decoder.op];
-            System.arraycopy(decoder.output, 0, bArr, 0, decoder.op);
-            return bArr;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1325236624, "Lcom/squareup/wire/Stringer;");
+                return;
+            }
         }
-        throw new IllegalArgumentException("bad base-64");
+        UTF_8 = Charset.forName("UTF-8");
+    }
+
+    public Stringer() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static byte[] decode(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            byte[] bytes = str.getBytes(UTF_8);
+            Decoder decoder = new Decoder(new byte[(bytes.length * 3) / 4]);
+            if (decoder.process(bytes, 0, bytes.length, true)) {
+                if (decoder.op == decoder.output.length) {
+                    return decoder.output;
+                }
+                byte[] bArr = new byte[decoder.op];
+                System.arraycopy(decoder.output, 0, bArr, 0, decoder.op);
+                return bArr;
+            }
+            throw new IllegalArgumentException("bad base-64");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static String encode(byte[] bArr) {
-        int length = (bArr.length / 3) * 4;
-        if (bArr.length % 3 > 0) {
-            length += 4;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            int length = (bArr.length / 3) * 4;
+            if (bArr.length % 3 > 0) {
+                length += 4;
+            }
+            Encoder encoder = new Encoder(new byte[length]);
+            encoder.process(bArr, 0, bArr.length, true);
+            return new String(encoder.output, UTF_8);
         }
-        Encoder encoder = new Encoder(new byte[length]);
-        encoder.process(bArr, 0, bArr.length, true);
-        return new String(encoder.output, UTF_8);
+        return (String) invokeL.objValue;
     }
 }

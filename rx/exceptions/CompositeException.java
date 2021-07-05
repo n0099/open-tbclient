@@ -1,6 +1,13 @@
 package rx.exceptions;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -10,75 +17,168 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class CompositeException extends RuntimeException {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3026362227162912146L;
+    public transient /* synthetic */ FieldHolder $fh;
     public Throwable cause;
     public final List<Throwable> exceptions;
     public final String message;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class CompositeExceptionCausalChain extends RuntimeException {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
         public static final long serialVersionUID = 3875212506787802066L;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public CompositeExceptionCausalChain() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         @Override // java.lang.Throwable
         public String getMessage() {
-            return "Chain of Causes for CompositeException In Order Received =>";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Chain of Causes for CompositeException In Order Received =>" : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public abstract Object a();
 
         public abstract void b(Object obj);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintStream f72469a;
+        public final PrintStream f76139a;
 
         public b(PrintStream printStream) {
-            this.f72469a = printStream;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {printStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f76139a = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
-            return this.f72469a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76139a : invokeV.objValue;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
-            this.f72469a.println(obj);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                this.f76139a.println(obj);
+            }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class c extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f72470a;
+        public final PrintWriter f76140a;
 
         public c(PrintWriter printWriter) {
-            this.f72470a = printWriter;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {printWriter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f76140a = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
-            return this.f72470a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76140a : invokeV.objValue;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
-            this.f72470a.println(obj);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                this.f76140a.println(obj);
+            }
         }
     }
 
     @Deprecated
     public CompositeException(String str, Collection<? extends Throwable> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, collection};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         ArrayList arrayList = new ArrayList();
         if (collection != null) {
@@ -101,133 +201,202 @@ public final class CompositeException extends RuntimeException {
 
     private void appendStackTrace(StringBuilder sb, Throwable th, String str) {
         StackTraceElement[] stackTrace;
-        sb.append(str);
-        sb.append(th);
-        sb.append('\n');
-        for (StackTraceElement stackTraceElement : th.getStackTrace()) {
-            sb.append("\t\tat ");
-            sb.append(stackTraceElement);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, this, sb, th, str) == null) {
+            sb.append(str);
+            sb.append(th);
             sb.append('\n');
-        }
-        if (th.getCause() != null) {
-            sb.append("\tCaused by: ");
-            appendStackTrace(sb, th.getCause(), "");
+            for (StackTraceElement stackTraceElement : th.getStackTrace()) {
+                sb.append("\t\tat ");
+                sb.append(stackTraceElement);
+                sb.append('\n');
+            }
+            if (th.getCause() != null) {
+                sb.append("\tCaused by: ");
+                appendStackTrace(sb, th.getCause(), "");
+            }
         }
     }
 
     private List<Throwable> getListOfCauses(Throwable th) {
-        ArrayList arrayList = new ArrayList();
-        Throwable cause = th.getCause();
-        if (cause != null && cause != th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, th)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Throwable cause = th.getCause();
+            if (cause != null && cause != th) {
+                while (true) {
+                    arrayList.add(cause);
+                    Throwable cause2 = cause.getCause();
+                    if (cause2 == null || cause2 == cause) {
+                        break;
+                    }
+                    cause = cause.getCause();
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    private Throwable getRootCause(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, th)) == null) {
+            Throwable cause = th.getCause();
+            if (cause == null || cause == th) {
+                return th;
+            }
             while (true) {
-                arrayList.add(cause);
                 Throwable cause2 = cause.getCause();
                 if (cause2 == null || cause2 == cause) {
                     break;
                 }
                 cause = cause.getCause();
             }
+            return cause;
         }
-        return arrayList;
-    }
-
-    private Throwable getRootCause(Throwable th) {
-        Throwable cause = th.getCause();
-        if (cause == null || cause == th) {
-            return th;
-        }
-        while (true) {
-            Throwable cause2 = cause.getCause();
-            if (cause2 == null || cause2 == cause) {
-                break;
-            }
-            cause = cause.getCause();
-        }
-        return cause;
+        return (Throwable) invokeL.objValue;
     }
 
     @Override // java.lang.Throwable
     public synchronized Throwable getCause() {
-        if (this.cause == null) {
-            CompositeExceptionCausalChain compositeExceptionCausalChain = new CompositeExceptionCausalChain();
-            HashSet hashSet = new HashSet();
-            Iterator<Throwable> it = this.exceptions.iterator();
-            CompositeExceptionCausalChain compositeExceptionCausalChain2 = compositeExceptionCausalChain;
-            while (it.hasNext()) {
-                Throwable next = it.next();
-                if (!hashSet.contains(next)) {
-                    hashSet.add(next);
-                    for (Throwable th : getListOfCauses(next)) {
-                        if (hashSet.contains(th)) {
-                            next = new RuntimeException("Duplicate found in causal chain so cropping to prevent loop ...");
-                        } else {
-                            hashSet.add(th);
+        InterceptResult invokeV;
+        Throwable th;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.cause == null) {
+                    CompositeExceptionCausalChain compositeExceptionCausalChain = new CompositeExceptionCausalChain();
+                    HashSet hashSet = new HashSet();
+                    Iterator<Throwable> it = this.exceptions.iterator();
+                    CompositeExceptionCausalChain compositeExceptionCausalChain2 = compositeExceptionCausalChain;
+                    while (it.hasNext()) {
+                        Throwable next = it.next();
+                        if (!hashSet.contains(next)) {
+                            hashSet.add(next);
+                            for (Throwable th2 : getListOfCauses(next)) {
+                                if (hashSet.contains(th2)) {
+                                    next = new RuntimeException("Duplicate found in causal chain so cropping to prevent loop ...");
+                                } else {
+                                    hashSet.add(th2);
+                                }
+                            }
+                            try {
+                                compositeExceptionCausalChain2.initCause(next);
+                            } catch (Throwable unused) {
+                            }
+                            compositeExceptionCausalChain2 = getRootCause(compositeExceptionCausalChain2);
                         }
                     }
-                    try {
-                        compositeExceptionCausalChain2.initCause(next);
-                    } catch (Throwable unused) {
-                    }
-                    compositeExceptionCausalChain2 = getRootCause(compositeExceptionCausalChain2);
+                    this.cause = compositeExceptionCausalChain;
                 }
+                th = this.cause;
             }
-            this.cause = compositeExceptionCausalChain;
+            return th;
         }
-        return this.cause;
+        return (Throwable) invokeV.objValue;
     }
 
     public List<Throwable> getExceptions() {
-        return this.exceptions;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.exceptions : (List) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable
     public String getMessage() {
-        return this.message;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.message : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
-        printStackTrace(System.err);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            printStackTrace(System.err);
+        }
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintStream printStream) {
-        printStackTrace(new b(printStream));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, printStream) == null) {
+            printStackTrace(new b(printStream));
+        }
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintWriter printWriter) {
-        printStackTrace(new c(printWriter));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, printWriter) == null) {
+            printStackTrace(new c(printWriter));
+        }
     }
 
     private void printStackTrace(a aVar) {
         StackTraceElement[] stackTrace;
-        StringBuilder sb = new StringBuilder(128);
-        sb.append(this);
-        sb.append('\n');
-        for (StackTraceElement stackTraceElement : getStackTrace()) {
-            sb.append("\tat ");
-            sb.append(stackTraceElement);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar) == null) {
+            StringBuilder sb = new StringBuilder(128);
+            sb.append(this);
             sb.append('\n');
-        }
-        int i2 = 1;
-        for (Throwable th : this.exceptions) {
-            sb.append("  ComposedException ");
-            sb.append(i2);
-            sb.append(" :\n");
-            appendStackTrace(sb, th, TrackUI.SEPERATOR);
-            i2++;
-        }
-        synchronized (aVar.a()) {
-            aVar.b(sb.toString());
+            for (StackTraceElement stackTraceElement : getStackTrace()) {
+                sb.append("\tat ");
+                sb.append(stackTraceElement);
+                sb.append('\n');
+            }
+            int i2 = 1;
+            for (Throwable th : this.exceptions) {
+                sb.append("  ComposedException ");
+                sb.append(i2);
+                sb.append(" :\n");
+                appendStackTrace(sb, th, TrackUI.SEPERATOR);
+                i2++;
+            }
+            synchronized (aVar.a()) {
+                aVar.b(sb.toString());
+            }
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CompositeException(Collection<? extends Throwable> collection) {
         this(null, collection);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {collection};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Collection) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     public CompositeException(Throwable... thArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {thArr};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         ArrayList arrayList = new ArrayList();
         if (thArr != null) {

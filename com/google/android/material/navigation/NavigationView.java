@@ -34,9 +34,19 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.internal.ContextUtils;
 import com.google.android.material.internal.NavigationMenu;
@@ -48,9 +58,14 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] CHECKED_STATE_SET;
+    public static final int DEF_STYLE_RES;
+    public static final int[] DISABLED_STATE_SET;
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public OnNavigationItemSelectedListener listener;
     public final int maxWidth;
     @NonNull
@@ -59,316 +74,599 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     public ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener;
     public final NavigationMenuPresenter presenter;
     public final int[] tmpLocation;
-    public static final int[] CHECKED_STATE_SET = {16842912};
-    public static final int[] DISABLED_STATE_SET = {-16842910};
-    public static final int DEF_STYLE_RES = R.style.Widget_Design_NavigationView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-734492557, "Lcom/google/android/material/navigation/NavigationView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-734492557, "Lcom/google/android/material/navigation/NavigationView;");
+                return;
+            }
+        }
+        CHECKED_STATE_SET = new int[]{16842912};
+        DISABLED_STATE_SET = new int[]{-16842910};
+        DEF_STYLE_RES = R.style.Widget_Design_NavigationView;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     @Nullable
     private ColorStateList createDefaultColorStateList(int i2) {
-        TypedValue typedValue = new TypedValue();
-        if (getContext().getTheme().resolveAttribute(i2, typedValue, true)) {
-            ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
-            if (getContext().getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true)) {
-                int i3 = typedValue.data;
-                int defaultColor = colorStateList.getDefaultColor();
-                return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, FrameLayout.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i3, defaultColor});
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
+            TypedValue typedValue = new TypedValue();
+            if (getContext().getTheme().resolveAttribute(i2, typedValue, true)) {
+                ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
+                if (getContext().getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true)) {
+                    int i3 = typedValue.data;
+                    int defaultColor = colorStateList.getDefaultColor();
+                    return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, FrameLayout.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i3, defaultColor});
+                }
+                return null;
             }
             return null;
         }
-        return null;
+        return (ColorStateList) invokeI.objValue;
     }
 
     @NonNull
     private final Drawable createDefaultItemBackground(@NonNull TintTypedArray tintTypedArray) {
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(ShapeAppearanceModel.builder(getContext(), tintTypedArray.getResourceId(R.styleable.NavigationView_itemShapeAppearance, 0), tintTypedArray.getResourceId(R.styleable.NavigationView_itemShapeAppearanceOverlay, 0)).build());
-        materialShapeDrawable.setFillColor(MaterialResources.getColorStateList(getContext(), tintTypedArray, R.styleable.NavigationView_itemShapeFillColor));
-        return new InsetDrawable((Drawable) materialShapeDrawable, tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetStart, 0), tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetTop, 0), tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetEnd, 0), tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetBottom, 0));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, tintTypedArray)) == null) {
+            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(ShapeAppearanceModel.builder(getContext(), tintTypedArray.getResourceId(R.styleable.NavigationView_itemShapeAppearance, 0), tintTypedArray.getResourceId(R.styleable.NavigationView_itemShapeAppearanceOverlay, 0)).build());
+            materialShapeDrawable.setFillColor(MaterialResources.getColorStateList(getContext(), tintTypedArray, R.styleable.NavigationView_itemShapeFillColor));
+            return new InsetDrawable((Drawable) materialShapeDrawable, tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetStart, 0), tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetTop, 0), tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetEnd, 0), tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetBottom, 0));
+        }
+        return (Drawable) invokeL.objValue;
     }
 
     private MenuInflater getMenuInflater() {
-        if (this.menuInflater == null) {
-            this.menuInflater = new SupportMenuInflater(getContext());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            if (this.menuInflater == null) {
+                this.menuInflater = new SupportMenuInflater(getContext());
+            }
+            return this.menuInflater;
         }
-        return this.menuInflater;
+        return (MenuInflater) invokeV.objValue;
     }
 
     private boolean hasShapeAppearance(@NonNull TintTypedArray tintTypedArray) {
-        return tintTypedArray.hasValue(R.styleable.NavigationView_itemShapeAppearance) || tintTypedArray.hasValue(R.styleable.NavigationView_itemShapeAppearanceOverlay);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, this, tintTypedArray)) == null) ? tintTypedArray.hasValue(R.styleable.NavigationView_itemShapeAppearance) || tintTypedArray.hasValue(R.styleable.NavigationView_itemShapeAppearanceOverlay) : invokeL.booleanValue;
     }
 
     private void setupInsetScrimsListener() {
-        this.onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.google.android.material.navigation.NavigationView.2
-            @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-            public void onGlobalLayout() {
-                NavigationView navigationView = NavigationView.this;
-                navigationView.getLocationOnScreen(navigationView.tmpLocation);
-                boolean z = true;
-                boolean z2 = NavigationView.this.tmpLocation[1] == 0;
-                NavigationView.this.presenter.setBehindStatusBar(z2);
-                NavigationView.this.setDrawTopInsetForeground(z2);
-                Activity activity = ContextUtils.getActivity(NavigationView.this.getContext());
-                if (activity == null || Build.VERSION.SDK_INT < 21) {
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            this.onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.google.android.material.navigation.NavigationView.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ NavigationView this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
                 }
-                NavigationView.this.setDrawBottomInsetForeground(((activity.findViewById(16908290).getHeight() == NavigationView.this.getHeight()) && (Color.alpha(activity.getWindow().getNavigationBarColor()) != 0)) ? false : false);
-            }
-        };
-        getViewTreeObserver().addOnGlobalLayoutListener(this.onGlobalLayoutListener);
+
+                @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+                public void onGlobalLayout() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        NavigationView navigationView = this.this$0;
+                        navigationView.getLocationOnScreen(navigationView.tmpLocation);
+                        boolean z = true;
+                        boolean z2 = this.this$0.tmpLocation[1] == 0;
+                        this.this$0.presenter.setBehindStatusBar(z2);
+                        this.this$0.setDrawTopInsetForeground(z2);
+                        Activity activity = ContextUtils.getActivity(this.this$0.getContext());
+                        if (activity == null || Build.VERSION.SDK_INT < 21) {
+                            return;
+                        }
+                        this.this$0.setDrawBottomInsetForeground(((activity.findViewById(16908290).getHeight() == this.this$0.getHeight()) && (Color.alpha(activity.getWindow().getNavigationBarColor()) != 0)) ? false : false);
+                    }
+                }
+            };
+            getViewTreeObserver().addOnGlobalLayoutListener(this.onGlobalLayoutListener);
+        }
     }
 
     public void addHeaderView(@NonNull View view) {
-        this.presenter.addHeaderView(view);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            this.presenter.addHeaderView(view);
+        }
     }
 
     @Nullable
     public MenuItem getCheckedItem() {
-        return this.presenter.getCheckedItem();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.presenter.getCheckedItem() : (MenuItem) invokeV.objValue;
     }
 
     public int getHeaderCount() {
-        return this.presenter.getHeaderCount();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.presenter.getHeaderCount() : invokeV.intValue;
     }
 
     public View getHeaderView(int i2) {
-        return this.presenter.getHeaderView(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.presenter.getHeaderView(i2) : (View) invokeI.objValue;
     }
 
     @Nullable
     public Drawable getItemBackground() {
-        return this.presenter.getItemBackground();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.presenter.getItemBackground() : (Drawable) invokeV.objValue;
     }
 
     @Dimension
     public int getItemHorizontalPadding() {
-        return this.presenter.getItemHorizontalPadding();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.presenter.getItemHorizontalPadding() : invokeV.intValue;
     }
 
     @Dimension
     public int getItemIconPadding() {
-        return this.presenter.getItemIconPadding();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.presenter.getItemIconPadding() : invokeV.intValue;
     }
 
     @Nullable
     public ColorStateList getItemIconTintList() {
-        return this.presenter.getItemTintList();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.presenter.getItemTintList() : (ColorStateList) invokeV.objValue;
     }
 
     public int getItemMaxLines() {
-        return this.presenter.getItemMaxLines();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.presenter.getItemMaxLines() : invokeV.intValue;
     }
 
     @Nullable
     public ColorStateList getItemTextColor() {
-        return this.presenter.getItemTextColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.presenter.getItemTextColor() : (ColorStateList) invokeV.objValue;
     }
 
     @NonNull
     public Menu getMenu() {
-        return this.menu;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.menu : (Menu) invokeV.objValue;
     }
 
     public View inflateHeaderView(@LayoutRes int i2) {
-        return this.presenter.inflateHeaderView(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? this.presenter.inflateHeaderView(i2) : (View) invokeI.objValue;
     }
 
     public void inflateMenu(int i2) {
-        this.presenter.setUpdateSuspended(true);
-        getMenuInflater().inflate(i2, this.menu);
-        this.presenter.setUpdateSuspended(false);
-        this.presenter.updateMenuView(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.presenter.setUpdateSuspended(true);
+            getMenuInflater().inflate(i2, this.menu);
+            this.presenter.setUpdateSuspended(false);
+            this.presenter.updateMenuView(false);
+        }
     }
 
     @Override // com.google.android.material.internal.ScrimInsetsFrameLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        MaterialShapeUtils.setParentAbsoluteElevation(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.onAttachedToWindow();
+            MaterialShapeUtils.setParentAbsoluteElevation(this);
+        }
     }
 
     @Override // com.google.android.material.internal.ScrimInsetsFrameLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        if (Build.VERSION.SDK_INT < 16) {
-            getViewTreeObserver().removeGlobalOnLayoutListener(this.onGlobalLayoutListener);
-        } else {
-            getViewTreeObserver().removeOnGlobalLayoutListener(this.onGlobalLayoutListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.onDetachedFromWindow();
+            if (Build.VERSION.SDK_INT < 16) {
+                getViewTreeObserver().removeGlobalOnLayoutListener(this.onGlobalLayoutListener);
+            } else {
+                getViewTreeObserver().removeOnGlobalLayoutListener(this.onGlobalLayoutListener);
+            }
         }
     }
 
     @Override // com.google.android.material.internal.ScrimInsetsFrameLayout
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void onInsetsChanged(@NonNull WindowInsetsCompat windowInsetsCompat) {
-        this.presenter.dispatchApplyWindowInsets(windowInsetsCompat);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, windowInsetsCompat) == null) {
+            this.presenter.dispatchApplyWindowInsets(windowInsetsCompat);
+        }
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        int mode = View.MeasureSpec.getMode(i2);
-        if (mode == Integer.MIN_VALUE) {
-            i2 = View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i2), this.maxWidth), 1073741824);
-        } else if (mode == 0) {
-            i2 = View.MeasureSpec.makeMeasureSpec(this.maxWidth, 1073741824);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
+            int mode = View.MeasureSpec.getMode(i2);
+            if (mode == Integer.MIN_VALUE) {
+                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i2), this.maxWidth), 1073741824);
+            } else if (mode == 0) {
+                i2 = View.MeasureSpec.makeMeasureSpec(this.maxWidth, 1073741824);
+            }
+            super.onMeasure(i2, i3);
         }
-        super.onMeasure(i2, i3);
     }
 
     @Override // android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
-        if (!(parcelable instanceof SavedState)) {
-            super.onRestoreInstanceState(parcelable);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, parcelable) == null) {
+            if (!(parcelable instanceof SavedState)) {
+                super.onRestoreInstanceState(parcelable);
+                return;
+            }
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            this.menu.restorePresenterStates(savedState.menuState);
         }
-        SavedState savedState = (SavedState) parcelable;
-        super.onRestoreInstanceState(savedState.getSuperState());
-        this.menu.restorePresenterStates(savedState.menuState);
     }
 
     @Override // android.view.View
     public Parcelable onSaveInstanceState() {
-        SavedState savedState = new SavedState(super.onSaveInstanceState());
-        Bundle bundle = new Bundle();
-        savedState.menuState = bundle;
-        this.menu.savePresenterStates(bundle);
-        return savedState;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            SavedState savedState = new SavedState(super.onSaveInstanceState());
+            Bundle bundle = new Bundle();
+            savedState.menuState = bundle;
+            this.menu.savePresenterStates(bundle);
+            return savedState;
+        }
+        return (Parcelable) invokeV.objValue;
     }
 
     public void removeHeaderView(@NonNull View view) {
-        this.presenter.removeHeaderView(view);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, view) == null) {
+            this.presenter.removeHeaderView(view);
+        }
     }
 
     public void setCheckedItem(@IdRes int i2) {
-        MenuItem findItem = this.menu.findItem(i2);
-        if (findItem != null) {
-            this.presenter.setCheckedItem((MenuItemImpl) findItem);
+        MenuItem findItem;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (findItem = this.menu.findItem(i2)) == null) {
+            return;
         }
+        this.presenter.setCheckedItem((MenuItemImpl) findItem);
     }
 
     @Override // android.view.View
     public void setElevation(float f2) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            super.setElevation(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048598, this, f2) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                super.setElevation(f2);
+            }
+            MaterialShapeUtils.setElevation(this, f2);
         }
-        MaterialShapeUtils.setElevation(this, f2);
     }
 
     public void setItemBackground(@Nullable Drawable drawable) {
-        this.presenter.setItemBackground(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, drawable) == null) {
+            this.presenter.setItemBackground(drawable);
+        }
     }
 
     public void setItemBackgroundResource(@DrawableRes int i2) {
-        setItemBackground(ContextCompat.getDrawable(getContext(), i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
+            setItemBackground(ContextCompat.getDrawable(getContext(), i2));
+        }
     }
 
     public void setItemHorizontalPadding(@Dimension int i2) {
-        this.presenter.setItemHorizontalPadding(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
+            this.presenter.setItemHorizontalPadding(i2);
+        }
     }
 
     public void setItemHorizontalPaddingResource(@DimenRes int i2) {
-        this.presenter.setItemHorizontalPadding(getResources().getDimensionPixelSize(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
+            this.presenter.setItemHorizontalPadding(getResources().getDimensionPixelSize(i2));
+        }
     }
 
     public void setItemIconPadding(@Dimension int i2) {
-        this.presenter.setItemIconPadding(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
+            this.presenter.setItemIconPadding(i2);
+        }
     }
 
     public void setItemIconPaddingResource(int i2) {
-        this.presenter.setItemIconPadding(getResources().getDimensionPixelSize(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
+            this.presenter.setItemIconPadding(getResources().getDimensionPixelSize(i2));
+        }
     }
 
     public void setItemIconSize(@Dimension int i2) {
-        this.presenter.setItemIconSize(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
+            this.presenter.setItemIconSize(i2);
+        }
     }
 
     public void setItemIconTintList(@Nullable ColorStateList colorStateList) {
-        this.presenter.setItemIconTintList(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, colorStateList) == null) {
+            this.presenter.setItemIconTintList(colorStateList);
+        }
     }
 
     public void setItemMaxLines(int i2) {
-        this.presenter.setItemMaxLines(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+            this.presenter.setItemMaxLines(i2);
+        }
     }
 
     public void setItemTextAppearance(@StyleRes int i2) {
-        this.presenter.setItemTextAppearance(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
+            this.presenter.setItemTextAppearance(i2);
+        }
     }
 
     public void setItemTextColor(@Nullable ColorStateList colorStateList) {
-        this.presenter.setItemTextColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, colorStateList) == null) {
+            this.presenter.setItemTextColor(colorStateList);
+        }
     }
 
     public void setNavigationItemSelectedListener(@Nullable OnNavigationItemSelectedListener onNavigationItemSelectedListener) {
-        this.listener = onNavigationItemSelectedListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, onNavigationItemSelectedListener) == null) {
+            this.listener = onNavigationItemSelectedListener;
+        }
     }
 
     @Override // android.view.View
     public void setOverScrollMode(int i2) {
-        super.setOverScrollMode(i2);
-        NavigationMenuPresenter navigationMenuPresenter = this.presenter;
-        if (navigationMenuPresenter != null) {
-            navigationMenuPresenter.setOverScrollMode(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
+            super.setOverScrollMode(i2);
+            NavigationMenuPresenter navigationMenuPresenter = this.presenter;
+            if (navigationMenuPresenter != null) {
+                navigationMenuPresenter.setOverScrollMode(i2);
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
-        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.navigation.NavigationView.SavedState.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            @NonNull
-            public SavedState[] newArray(int i2) {
-                return new SavedState[i2];
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.ClassLoaderCreator
-            @NonNull
-            public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
-                return new SavedState(parcel, classLoader);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            @Nullable
-            public SavedState createFromParcel(@NonNull Parcel parcel) {
-                return new SavedState(parcel, null);
-            }
-        };
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator<SavedState> CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public Bundle menuState;
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1677161781, "Lcom/google/android/material/navigation/NavigationView$SavedState;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1677161781, "Lcom/google/android/material/navigation/NavigationView$SavedState;");
+                    return;
+                }
+            }
+            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.navigation.NavigationView.SavedState.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                @NonNull
+                public SavedState[] newArray(int i2) {
+                    InterceptResult invokeI;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // android.os.Parcelable.ClassLoaderCreator
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) ? new SavedState(parcel, classLoader) : (SavedState) invokeLL.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                @Nullable
+                public SavedState createFromParcel(@NonNull Parcel parcel) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SavedState(parcel, null) : (SavedState) invokeL.objValue;
+                }
+            };
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(@NonNull Parcel parcel, @Nullable ClassLoader classLoader) {
             super(parcel, classLoader);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel, classLoader};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.menuState = parcel.readBundle(classLoader);
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(@NonNull Parcel parcel, int i2) {
-            super.writeToParcel(parcel, i2);
-            parcel.writeBundle(this.menuState);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
+                super.writeToParcel(parcel, i2);
+                parcel.writeBundle(this.menuState);
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(Parcelable parcelable) {
             super(parcelable);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcelable};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Parcelable) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.navigationViewStyle);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
         ColorStateList createDefaultColorStateList;
         int i3;
         boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.presenter = new NavigationMenuPresenter();
         this.tmpLocation = new int[2];
         Context context2 = getContext();
@@ -419,15 +717,45 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
         int dimensionPixelSize = obtainTintedStyledAttributes.getDimensionPixelSize(R.styleable.NavigationView_itemIconPadding, 0);
         setItemMaxLines(obtainTintedStyledAttributes.getInt(R.styleable.NavigationView_itemMaxLines, 1));
-        this.menu.setCallback(new MenuBuilder.Callback() { // from class: com.google.android.material.navigation.NavigationView.1
+        this.menu.setCallback(new MenuBuilder.Callback(this) { // from class: com.google.android.material.navigation.NavigationView.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ NavigationView this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i6 = newInitContext2.flag;
+                    if ((i6 & 1) != 0) {
+                        int i7 = i6 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
             public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
-                OnNavigationItemSelectedListener onNavigationItemSelectedListener = NavigationView.this.listener;
-                return onNavigationItemSelectedListener != null && onNavigationItemSelectedListener.onNavigationItemSelected(menuItem);
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, menuBuilder, menuItem)) == null) {
+                    OnNavigationItemSelectedListener onNavigationItemSelectedListener = this.this$0.listener;
+                    return onNavigationItemSelectedListener != null && onNavigationItemSelectedListener.onNavigationItemSelected(menuItem);
+                }
+                return invokeLL.booleanValue;
             }
 
             @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
             public void onMenuModeChange(MenuBuilder menuBuilder) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder) == null) {
+                }
             }
         });
         this.presenter.setId(1);
@@ -453,11 +781,14 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     public void setCheckedItem(@NonNull MenuItem menuItem) {
-        MenuItem findItem = this.menu.findItem(menuItem.getItemId());
-        if (findItem != null) {
-            this.presenter.setCheckedItem((MenuItemImpl) findItem);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, menuItem) == null) {
+            MenuItem findItem = this.menu.findItem(menuItem.getItemId());
+            if (findItem != null) {
+                this.presenter.setCheckedItem((MenuItemImpl) findItem);
+                return;
+            }
+            throw new IllegalArgumentException("Called setCheckedItem(MenuItem) with an item that is not in the current menu.");
         }
-        throw new IllegalArgumentException("Called setCheckedItem(MenuItem) with an item that is not in the current menu.");
     }
 }

@@ -1,90 +1,156 @@
 package com.baidu.sapi2.utils;
 
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class Log implements NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SAPI";
-    public static boolean enabled = false;
+    public static boolean enabled;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static String converArrayToString(String str, Object[] objArr) {
-        if (objArr != null) {
-            try {
-                if (objArr.length == 0) {
-                    return "";
-                }
-                StringBuffer stringBuffer = new StringBuffer();
-                int length = objArr.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    Object obj = objArr[i2];
-                    if (obj != null) {
-                        if (i2 != 0) {
-                            stringBuffer.append("|");
-                        }
-                        try {
-                            if (obj instanceof Throwable) {
-                                stringBuffer.append(android.util.Log.getStackTraceString((Throwable) obj));
-                            } else {
-                                stringBuffer.append(obj.toString());
-                            }
-                        } catch (Exception unused) {
-                        }
-                    }
-                }
-                str = stringBuffer.toString();
-                return str;
-            } catch (Throwable th) {
-                android.util.Log.e(str, "converArrayToString t: " + th.toString());
-                return "converArrayToString null";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1628810361, "Lcom/baidu/sapi2/utils/Log;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1628810361, "Lcom/baidu/sapi2/utils/Log;");
+        }
+    }
+
+    public Log() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return "";
+    }
+
+    public static String converArrayToString(String str, Object[] objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, objArr)) == null) {
+            if (objArr != null) {
+                try {
+                    if (objArr.length == 0) {
+                        return "";
+                    }
+                    StringBuffer stringBuffer = new StringBuffer();
+                    int length = objArr.length;
+                    for (int i2 = 0; i2 < length; i2++) {
+                        Object obj = objArr[i2];
+                        if (obj != null) {
+                            if (i2 != 0) {
+                                stringBuffer.append("|");
+                            }
+                            try {
+                                if (obj instanceof Throwable) {
+                                    stringBuffer.append(android.util.Log.getStackTraceString((Throwable) obj));
+                                } else {
+                                    stringBuffer.append(obj.toString());
+                                }
+                            } catch (Exception unused) {
+                            }
+                        }
+                    }
+                    str = stringBuffer.toString();
+                    return str;
+                } catch (Throwable th) {
+                    android.util.Log.e(str, "converArrayToString t: " + th.toString());
+                    return "converArrayToString null";
+                }
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static void d(String str, Object... objArr) {
-        if (enabled) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && enabled) {
             android.util.Log.d(str, converArrayToString(str, objArr));
         }
     }
 
     public static void e(Throwable th) {
-        e(TAG, th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, th) == null) {
+            e(TAG, th);
+        }
     }
 
     public static void enable(boolean z) {
-        enabled = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            enabled = z;
+        }
     }
 
     public static void i(String str, Object... objArr) {
-        if (enabled) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) && enabled) {
             android.util.Log.i(str, converArrayToString(str, objArr));
         }
     }
 
     public static void w(String str, Object... objArr) {
-        if (enabled) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) && enabled) {
             android.util.Log.w(str, converArrayToString(str, objArr));
         }
     }
 
     public static void e(String str, Throwable th) {
-        e(str, th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, th) == null) {
+            e(str, th);
+        }
     }
 
     public static void d(Object... objArr) {
-        d(TAG, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, objArr) == null) {
+            d(TAG, objArr);
+        }
     }
 
     public static void e(String str, Object... objArr) {
-        if (enabled) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) && enabled) {
             android.util.Log.e(str, converArrayToString(str, objArr));
         }
     }
 
     public static void i(Object... objArr) {
-        i(TAG, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, objArr) == null) {
+            i(TAG, objArr);
+        }
     }
 
     public static void w(Object... objArr) {
-        w(TAG, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, objArr) == null) {
+            w(TAG, objArr);
+        }
     }
 }

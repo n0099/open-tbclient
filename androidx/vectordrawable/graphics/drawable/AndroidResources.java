@@ -1,47 +1,65 @@
 package androidx.vectordrawable.graphics.drawable;
 
 import androidx.annotation.StyleableRes;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class AndroidResources {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int FAST_OUT_LINEAR_IN = 17563663;
     public static final int FAST_OUT_SLOW_IN = 17563661;
     public static final int LINEAR_OUT_SLOW_IN = 17563662;
+    public static final int[] STYLEABLE_ANIMATED_VECTOR_DRAWABLE;
     public static final int STYLEABLE_ANIMATED_VECTOR_DRAWABLE_DRAWABLE = 0;
+    public static final int[] STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET;
     @StyleableRes
     public static final int STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET_ANIMATION = 1;
     @StyleableRes
     public static final int STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET_NAME = 0;
+    public static final int[] STYLEABLE_ANIMATOR;
     public static final int STYLEABLE_ANIMATOR_DURATION = 1;
     public static final int STYLEABLE_ANIMATOR_INTERPOLATOR = 0;
     public static final int STYLEABLE_ANIMATOR_REPEAT_COUNT = 3;
     public static final int STYLEABLE_ANIMATOR_REPEAT_MODE = 4;
+    public static final int[] STYLEABLE_ANIMATOR_SET;
     public static final int STYLEABLE_ANIMATOR_SET_ORDERING = 0;
     public static final int STYLEABLE_ANIMATOR_START_OFFSET = 2;
     public static final int STYLEABLE_ANIMATOR_VALUE_FROM = 5;
     public static final int STYLEABLE_ANIMATOR_VALUE_TO = 6;
     public static final int STYLEABLE_ANIMATOR_VALUE_TYPE = 7;
+    public static final int[] STYLEABLE_KEYFRAME;
     public static final int STYLEABLE_KEYFRAME_FRACTION = 3;
     public static final int STYLEABLE_KEYFRAME_INTERPOLATOR = 1;
     public static final int STYLEABLE_KEYFRAME_VALUE = 0;
     public static final int STYLEABLE_KEYFRAME_VALUE_TYPE = 2;
+    public static final int[] STYLEABLE_PATH_INTERPOLATOR;
     public static final int STYLEABLE_PATH_INTERPOLATOR_CONTROL_X_1 = 0;
     public static final int STYLEABLE_PATH_INTERPOLATOR_CONTROL_X_2 = 2;
     public static final int STYLEABLE_PATH_INTERPOLATOR_CONTROL_Y_1 = 1;
     public static final int STYLEABLE_PATH_INTERPOLATOR_CONTROL_Y_2 = 3;
     public static final int STYLEABLE_PATH_INTERPOLATOR_PATH_DATA = 4;
+    public static final int[] STYLEABLE_PROPERTY_ANIMATOR;
     public static final int STYLEABLE_PROPERTY_ANIMATOR_PATH_DATA = 1;
     public static final int STYLEABLE_PROPERTY_ANIMATOR_PROPERTY_NAME = 0;
     public static final int STYLEABLE_PROPERTY_ANIMATOR_PROPERTY_X_NAME = 2;
     public static final int STYLEABLE_PROPERTY_ANIMATOR_PROPERTY_Y_NAME = 3;
+    public static final int[] STYLEABLE_PROPERTY_VALUES_HOLDER;
     public static final int STYLEABLE_PROPERTY_VALUES_HOLDER_PROPERTY_NAME = 3;
     public static final int STYLEABLE_PROPERTY_VALUES_HOLDER_VALUE_FROM = 0;
     public static final int STYLEABLE_PROPERTY_VALUES_HOLDER_VALUE_TO = 1;
     public static final int STYLEABLE_PROPERTY_VALUES_HOLDER_VALUE_TYPE = 2;
     public static final int STYLEABLE_VECTOR_DRAWABLE_ALPHA = 4;
     public static final int STYLEABLE_VECTOR_DRAWABLE_AUTO_MIRRORED = 5;
+    public static final int[] STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH;
     public static final int STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH_FILLTYPE = 2;
     public static final int STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH_NAME = 0;
     public static final int STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH_PATH_DATA = 1;
+    public static final int[] STYLEABLE_VECTOR_DRAWABLE_GROUP;
     public static final int STYLEABLE_VECTOR_DRAWABLE_GROUP_NAME = 0;
     public static final int STYLEABLE_VECTOR_DRAWABLE_GROUP_PIVOT_X = 1;
     public static final int STYLEABLE_VECTOR_DRAWABLE_GROUP_PIVOT_Y = 2;
@@ -52,6 +70,7 @@ public class AndroidResources {
     public static final int STYLEABLE_VECTOR_DRAWABLE_GROUP_TRANSLATE_Y = 7;
     public static final int STYLEABLE_VECTOR_DRAWABLE_HEIGHT = 2;
     public static final int STYLEABLE_VECTOR_DRAWABLE_NAME = 0;
+    public static final int[] STYLEABLE_VECTOR_DRAWABLE_PATH;
     public static final int STYLEABLE_VECTOR_DRAWABLE_PATH_FILL_ALPHA = 12;
     public static final int STYLEABLE_VECTOR_DRAWABLE_PATH_FILL_COLOR = 1;
     public static final int STYLEABLE_VECTOR_DRAWABLE_PATH_NAME = 0;
@@ -68,19 +87,50 @@ public class AndroidResources {
     public static final int STYLEABLE_VECTOR_DRAWABLE_PATH_TRIM_PATH_START = 5;
     public static final int STYLEABLE_VECTOR_DRAWABLE_TINT = 1;
     public static final int STYLEABLE_VECTOR_DRAWABLE_TINT_MODE = 6;
+    public static final int[] STYLEABLE_VECTOR_DRAWABLE_TYPE_ARRAY;
     public static final int STYLEABLE_VECTOR_DRAWABLE_VIEWPORT_HEIGHT = 8;
     public static final int STYLEABLE_VECTOR_DRAWABLE_VIEWPORT_WIDTH = 7;
     public static final int STYLEABLE_VECTOR_DRAWABLE_WIDTH = 3;
-    public static final int[] STYLEABLE_VECTOR_DRAWABLE_TYPE_ARRAY = {16842755, 16843041, 16843093, 16843097, 16843551, 16843754, 16843771, 16843778, 16843779};
-    public static final int[] STYLEABLE_VECTOR_DRAWABLE_GROUP = {16842755, 16843189, 16843190, 16843556, 16843557, 16843558, 16843866, 16843867};
-    public static final int[] STYLEABLE_VECTOR_DRAWABLE_PATH = {16842755, 16843780, 16843781, 16843782, 16843783, 16843784, 16843785, 16843786, 16843787, 16843788, 16843789, 16843979, 16843980, 16844062};
-    public static final int[] STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH = {16842755, 16843781, 16844062};
-    public static final int[] STYLEABLE_ANIMATED_VECTOR_DRAWABLE = {16843161};
-    public static final int[] STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET = {16842755, 16843213};
-    public static final int[] STYLEABLE_ANIMATOR = {16843073, 16843160, 16843198, 16843199, 16843200, 16843486, 16843487, 16843488};
-    public static final int[] STYLEABLE_ANIMATOR_SET = {16843490};
-    public static final int[] STYLEABLE_PROPERTY_VALUES_HOLDER = {16843486, 16843487, 16843488, 16843489};
-    public static final int[] STYLEABLE_KEYFRAME = {16842788, 16843073, 16843488, 16843992};
-    public static final int[] STYLEABLE_PROPERTY_ANIMATOR = {16843489, 16843781, 16843892, 16843893};
-    public static final int[] STYLEABLE_PATH_INTERPOLATOR = {16843772, 16843773, 16843774, 16843775, 16843781};
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1077548764, "Landroidx/vectordrawable/graphics/drawable/AndroidResources;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1077548764, "Landroidx/vectordrawable/graphics/drawable/AndroidResources;");
+                return;
+            }
+        }
+        STYLEABLE_VECTOR_DRAWABLE_TYPE_ARRAY = new int[]{16842755, 16843041, 16843093, 16843097, 16843551, 16843754, 16843771, 16843778, 16843779};
+        STYLEABLE_VECTOR_DRAWABLE_GROUP = new int[]{16842755, 16843189, 16843190, 16843556, 16843557, 16843558, 16843866, 16843867};
+        STYLEABLE_VECTOR_DRAWABLE_PATH = new int[]{16842755, 16843780, 16843781, 16843782, 16843783, 16843784, 16843785, 16843786, 16843787, 16843788, 16843789, 16843979, 16843980, 16844062};
+        STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH = new int[]{16842755, 16843781, 16844062};
+        STYLEABLE_ANIMATED_VECTOR_DRAWABLE = new int[]{16843161};
+        STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET = new int[]{16842755, 16843213};
+        STYLEABLE_ANIMATOR = new int[]{16843073, 16843160, 16843198, 16843199, 16843200, 16843486, 16843487, 16843488};
+        STYLEABLE_ANIMATOR_SET = new int[]{16843490};
+        STYLEABLE_PROPERTY_VALUES_HOLDER = new int[]{16843486, 16843487, 16843488, 16843489};
+        STYLEABLE_KEYFRAME = new int[]{16842788, 16843073, 16843488, 16843992};
+        STYLEABLE_PROPERTY_ANIMATOR = new int[]{16843489, 16843781, 16843892, 16843893};
+        STYLEABLE_PATH_INTERPOLATOR = new int[]{16843772, 16843773, 16843774, 16843775, 16843781};
+    }
+
+    public AndroidResources() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

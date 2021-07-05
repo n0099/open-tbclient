@@ -1,0 +1,202 @@
+package com.faceunity.encoder;
+
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Surface;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwai.video.player.KsMediaMeta;
+import d.a.s0.x1.a;
+import d.a.s0.x1.g;
+import d.a.s0.x1.k;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+/* loaded from: classes6.dex */
+public class VideoEncoderCore {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String MIME_TYPE = "video/avc";
+    public static final String TAG = "VideoEncoder";
+    public static final boolean VERBOSE = false;
+    public transient /* synthetic */ FieldHolder $fh;
+    public MediaCodec.BufferInfo mBufferInfo;
+    public MediaCodec mEncoder;
+    public Surface mInputSurface;
+    public long mLastFrameSyncTime;
+    public MediaMuxerWrapper mMuxer;
+    public boolean mMuxerStarted;
+    public g mPostMonitorManager;
+    public boolean mRequestStop;
+    public int mTrackIndex;
+    public Bundle params;
+
+    public VideoEncoderCore(int i2, int i3, int i4, MediaMuxerWrapper mediaMuxerWrapper) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), mediaMuxerWrapper};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.params = new Bundle();
+        this.mLastFrameSyncTime = 0L;
+        this.mRequestStop = false;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, k.class);
+        k kVar = runTask != null ? (k) runTask.getData() : null;
+        if (kVar != null) {
+            this.mPostMonitorManager = kVar.get();
+        }
+        this.mBufferInfo = new MediaCodec.BufferInfo();
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i2, i3);
+        createVideoFormat.setInteger("color-format", 2130708361);
+        createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, i4);
+        createVideoFormat.setInteger("frame-rate", 20);
+        createVideoFormat.setInteger("i-frame-interval", 1);
+        MediaCodec createEncoderByType = MediaCodec.createEncoderByType("video/avc");
+        this.mEncoder = createEncoderByType;
+        createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.mInputSurface = this.mEncoder.createInputSurface();
+        this.mEncoder.start();
+        if (Build.VERSION.SDK_INT >= 19) {
+            this.params.putInt("request-sync", 0);
+            this.mEncoder.setParameters(this.params);
+        }
+        this.mTrackIndex = -1;
+        this.mMuxerStarted = false;
+        this.mMuxer = mediaMuxerWrapper;
+    }
+
+    public void drainEncoder(boolean z) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
+            return;
+        }
+        if (z) {
+            this.mEncoder.signalEndOfInputStream();
+        }
+        ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
+        while (true) {
+            int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
+            if (dequeueOutputBuffer == -1) {
+                if (!z) {
+                    return;
+                }
+            } else if (dequeueOutputBuffer == -3) {
+                outputBuffers = this.mEncoder.getOutputBuffers();
+            } else if (dequeueOutputBuffer == -2) {
+                if (!this.mMuxerStarted) {
+                    MediaFormat outputFormat = this.mEncoder.getOutputFormat();
+                    Log.d(TAG, "encoder output format changed: " + outputFormat);
+                    this.mTrackIndex = this.mMuxer.addTrack(outputFormat);
+                    if (!this.mMuxer.start()) {
+                        synchronized (this.mMuxer) {
+                            while (!this.mMuxer.isStarted() && !this.mRequestStop) {
+                                try {
+                                    this.mMuxer.wait(100L);
+                                } catch (InterruptedException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    if (this.mRequestStop) {
+                        return;
+                    }
+                    this.mMuxerStarted = true;
+                } else {
+                    throw new RuntimeException("format changed twice");
+                }
+            } else if (dequeueOutputBuffer < 0) {
+                Log.w(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+            } else {
+                ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                if (byteBuffer != null) {
+                    MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
+                    if ((bufferInfo.flags & 2) != 0) {
+                        bufferInfo.size = 0;
+                    }
+                    MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
+                    if (bufferInfo2.size != 0) {
+                        if (this.mMuxerStarted) {
+                            byteBuffer.position(bufferInfo2.offset);
+                            MediaCodec.BufferInfo bufferInfo3 = this.mBufferInfo;
+                            byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
+                            this.mMuxer.writeSampleData(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                        } else {
+                            throw new RuntimeException("muxer hasn't started");
+                        }
+                    }
+                    this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.mLastFrameSyncTime >= 500) {
+                        this.mEncoder.setParameters(this.params);
+                        this.mLastFrameSyncTime = System.currentTimeMillis();
+                    }
+                    if ((this.mBufferInfo.flags & 4) != 0) {
+                        if (z) {
+                            return;
+                        }
+                        Log.w(TAG, "reached end of stream unexpectedly");
+                        return;
+                    }
+                } else {
+                    throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                }
+            }
+        }
+    }
+
+    public Surface getInputSurface() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mInputSurface : (Surface) invokeV.objValue;
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MediaCodec mediaCodec = this.mEncoder;
+            if (mediaCodec != null) {
+                mediaCodec.stop();
+                this.mEncoder.release();
+                this.mEncoder = null;
+            }
+            MediaMuxerWrapper mediaMuxerWrapper = this.mMuxer;
+            if (mediaMuxerWrapper != null) {
+                try {
+                    mediaMuxerWrapper.stop();
+                } catch (IllegalStateException e2) {
+                    g gVar = this.mPostMonitorManager;
+                    if (gVar != null) {
+                        gVar.b(17, a.a(e2));
+                    }
+                }
+                this.mMuxer = null;
+            }
+        }
+    }
+
+    public synchronized void requestStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.mRequestStop = true;
+            }
+        }
+    }
+}

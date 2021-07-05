@@ -6,125 +6,220 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Process;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.f;
 import com.baidu.android.pushservice.g;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class PushService extends Service {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f9459a = false;
+    public boolean f9531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f9460b = new Handler();
+    public Handler f9532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9461c = false;
+    public boolean f9533c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Runnable f9462d = new a();
+    public final Runnable f9534d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Runnable f9463e = new b();
+    public final Runnable f9535e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PushService f9536e;
+
+        public a(PushService pushService) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pushService};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9536e = pushService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g.b();
-            PushService.this.stopSelf();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g.b();
+                this.f9536e.stopSelf();
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PushService f9537e;
+
+        public b(PushService pushService) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pushService};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9537e = pushService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Process.killProcess(Process.myPid());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.killProcess(Process.myPid());
+            }
         }
+    }
+
+    public PushService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f9531a = false;
+        this.f9532b = new Handler();
+        this.f9533c = false;
+        this.f9534d = new a(this);
+        this.f9535e = new b(this);
     }
 
     private void a(boolean z, boolean z2) {
-        this.f9459a = z;
-        com.baidu.android.pushservice.g.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
-        if (z2) {
-            this.f9462d.run();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.f9531a = z;
+            com.baidu.android.pushservice.g.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
+            if (z2) {
+                this.f9534d.run();
+                return;
+            }
+            this.f9532b.removeCallbacks(this.f9534d);
+            this.f9532b.postDelayed(this.f9534d, 1000L);
         }
-        this.f9460b.removeCallbacks(this.f9462d);
-        this.f9460b.postDelayed(this.f9462d, 1000L);
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        super.onCreate();
-        com.baidu.android.pushservice.g.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
-        m.a("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
-        boolean a2 = g.a(this).a();
-        this.f9461c = a2;
-        if (a2) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+            com.baidu.android.pushservice.g.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
+            m.a("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
+            boolean a2 = g.a(this).a();
+            this.f9533c = a2;
+            if (a2) {
+                return;
+            }
+            a(true, false);
         }
-        a(true, false);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        super.onDestroy();
-        com.baidu.android.pushservice.g.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
-        m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
-        g.b();
-        if (this.f9459a) {
-            this.f9460b.removeCallbacks(this.f9463e);
-            this.f9460b.postDelayed(this.f9463e, 1000L);
-        }
-        if (this.f9461c) {
-            try {
-                sendBroadcast(f.a(this));
-            } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            com.baidu.android.pushservice.g.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
+            m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
+            g.b();
+            if (this.f9531a) {
+                this.f9532b.removeCallbacks(this.f9535e);
+                this.f9532b.postDelayed(this.f9535e, 1000L);
+            }
+            if (this.f9533c) {
+                try {
+                    sendBroadcast(f.a(this));
+                } catch (Exception unused) {
+                }
             }
         }
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i2, int i3) {
-        if (intent == null) {
-            intent = new Intent();
-            com.baidu.android.pushservice.g.a.c("PushService", "--- onStart by null intent!", getApplicationContext());
-        } else {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
+            if (intent == null) {
+                intent = new Intent();
+                com.baidu.android.pushservice.g.a.c("PushService", "--- onStart by null intent!", getApplicationContext());
+            } else {
+                try {
+                    String uri = intent.toUri(0);
+                    m.a("PushService onStartCommand from " + getPackageName() + " Intent " + uri + " at Time " + System.currentTimeMillis(), getApplicationContext());
+                } catch (Exception e2) {
+                    new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
+                }
+            }
+            this.f9532b.removeCallbacks(this.f9534d);
+            this.f9532b.removeCallbacks(this.f9535e);
             try {
-                String uri = intent.toUri(0);
-                m.a("PushService onStartCommand from " + getPackageName() + " Intent " + uri + " at Time " + System.currentTimeMillis(), getApplicationContext());
-            } catch (Exception e2) {
-                new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
+                boolean a2 = g.a(this).a(intent);
+                this.f9533c = a2;
+                if (a2) {
+                    return 1;
+                }
+                a(true, true);
+                return 2;
+            } catch (Exception e3) {
+                a(true, true);
+                new b.c(getApplicationContext()).a(Log.getStackTraceString(e3)).a();
+                return 2;
             }
         }
-        this.f9460b.removeCallbacks(this.f9462d);
-        this.f9460b.removeCallbacks(this.f9463e);
-        try {
-            boolean a2 = g.a(this).a(intent);
-            this.f9461c = a2;
-            if (a2) {
-                return 1;
-            }
-            a(true, true);
-            return 2;
-        } catch (Exception e3) {
-            a(true, true);
-            new b.c(getApplicationContext()).a(Log.getStackTraceString(e3)).a();
-            return 2;
-        }
+        return invokeLII.intValue;
     }
 }

@@ -1,8 +1,15 @@
 package com.baidu.tbadk.util;
 
 import android.util.SparseArray;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class ChatStatusManager {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int GROUP_CHAT = 2;
     public static final int OFFICIALBAR_CHAT = 1;
     public static final int OFFICIAL_MERGE = 4;
@@ -11,65 +18,122 @@ public class ChatStatusManager {
     public static final int UPDATES = 6;
     public static final int VALIDATE = 7;
     public static ChatStatusManager instance;
-    public SparseArray<a> mStatus = new SparseArray<>();
+    public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<a> mStatus;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13097a;
+        public boolean f13181a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13098b;
+        public String f13182b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public ChatStatusManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mStatus = new SparseArray<>();
     }
 
     public static synchronized ChatStatusManager getInst() {
+        InterceptResult invokeV;
         ChatStatusManager chatStatusManager;
-        synchronized (ChatStatusManager.class) {
-            if (instance == null) {
-                instance = new ChatStatusManager();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ChatStatusManager.class) {
+                if (instance == null) {
+                    instance = new ChatStatusManager();
+                }
+                chatStatusManager = instance;
             }
-            chatStatusManager = instance;
+            return chatStatusManager;
         }
-        return chatStatusManager;
+        return (ChatStatusManager) invokeV.objValue;
     }
 
     public String getCurId(int i2) {
-        a aVar = this.mStatus.get(i2);
-        return aVar != null ? aVar.f13098b : "";
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            a aVar = this.mStatus.get(i2);
+            return aVar != null ? aVar.f13182b : "";
+        }
+        return (String) invokeI.objValue;
     }
 
     public boolean getIsOpen(int i2) {
-        a aVar = this.mStatus.get(i2);
-        if (aVar != null) {
-            return aVar.f13097a;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            a aVar = this.mStatus.get(i2);
+            if (aVar != null) {
+                return aVar.f13181a;
+            }
+            return false;
         }
-        return false;
+        return invokeI.booleanValue;
     }
 
     public void remove(int i2) {
-        this.mStatus.delete(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.mStatus.delete(i2);
+        }
     }
 
     public void setCurId(int i2, String str) {
-        a aVar = this.mStatus.get(i2);
-        if (aVar != null) {
-            aVar.f13098b = str;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
+            a aVar = this.mStatus.get(i2);
+            if (aVar != null) {
+                aVar.f13182b = str;
+                return;
+            }
+            a aVar2 = new a();
+            aVar2.f13182b = str;
+            this.mStatus.put(i2, aVar2);
         }
-        a aVar2 = new a();
-        aVar2.f13098b = str;
-        this.mStatus.put(i2, aVar2);
     }
 
     public void setIsOpen(int i2, boolean z) {
-        a aVar = this.mStatus.get(i2);
-        if (aVar != null) {
-            aVar.f13097a = z;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            a aVar = this.mStatus.get(i2);
+            if (aVar != null) {
+                aVar.f13181a = z;
+                return;
+            }
+            a aVar2 = new a();
+            aVar2.f13181a = z;
+            this.mStatus.put(i2, aVar2);
         }
-        a aVar2 = new a();
-        aVar2.f13097a = z;
-        this.mStatus.put(i2, aVar2);
     }
 }

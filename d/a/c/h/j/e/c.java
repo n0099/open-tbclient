@@ -2,62 +2,101 @@ package d.a.c.h.j.e;
 
 import android.text.TextUtils;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
-/* loaded from: classes.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f42897b;
+    public static volatile c f44706b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f42898a;
+    public b f44707a;
 
-    public static c b() {
-        if (f42897b == null) {
-            synchronized (c.class) {
-                if (f42897b == null) {
-                    f42897b = new c();
-                }
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return f42897b;
+    }
+
+    public static c b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f44706b == null) {
+                synchronized (c.class) {
+                    if (f44706b == null) {
+                        f44706b = new c();
+                    }
+                }
+            }
+            return f44706b;
+        }
+        return (c) invokeV.objValue;
     }
 
     public void a(String str) {
-        b bVar = this.f42898a;
-        if (bVar != null) {
-            bVar.a(str);
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bVar = this.f44707a) == null) {
+            return;
         }
+        bVar.a(str);
     }
 
     public boolean c(String str) {
+        InterceptResult invokeL;
         b bVar;
-        if (!TextUtils.isEmpty(str) && (bVar = this.f42898a) != null) {
-            for (BdFileDownloadData bdFileDownloadData : bVar.b()) {
-                if (str.equals(bdFileDownloadData.getId())) {
-                    return true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (bVar = this.f44707a) != null) {
+                for (BdFileDownloadData bdFileDownloadData : bVar.b()) {
+                    if (str.equals(bdFileDownloadData.getId())) {
+                        return true;
+                    }
                 }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public void d(b bVar) {
-        this.f42898a = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f44707a = bVar;
+        }
     }
 
     public void e(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData == null || this.f42898a == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, bdFileDownloadData, aVar) == null) || bdFileDownloadData == null || this.f44707a == null) {
             return;
         }
         bdFileDownloadData.setCallback(aVar);
-        this.f42898a.c(bdFileDownloadData);
+        this.f44707a.c(bdFileDownloadData);
     }
 
     public void f(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData == null || this.f42898a == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, bdFileDownloadData, aVar) == null) || bdFileDownloadData == null || this.f44707a == null) {
             return;
         }
         bdFileDownloadData.setCallback(aVar);
-        this.f42898a.e(bdFileDownloadData, 1);
+        this.f44707a.e(bdFileDownloadData, 1);
     }
 }

@@ -9,14 +9,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
 import androidx.annotation.RestrictTo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes.dex */
 public final class ConnectivityManagerCompat {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int RESTRICT_BACKGROUND_STATUS_DISABLED = 1;
     public static final int RESTRICT_BACKGROUND_STATUS_ENABLED = 3;
     public static final int RESTRICT_BACKGROUND_STATUS_WHITELISTED = 2;
+    public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -24,34 +31,63 @@ public final class ConnectivityManagerCompat {
     public @interface RestrictBackgroundStatus {
     }
 
+    public ConnectivityManagerCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Nullable
     @RequiresPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)
     @SuppressLint({"ReferencesDeprecated"})
     public static NetworkInfo getNetworkInfoFromBroadcast(@NonNull ConnectivityManager connectivityManager, @NonNull Intent intent) {
-        NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra("networkInfo");
-        if (networkInfo != null) {
-            return connectivityManager.getNetworkInfo(networkInfo.getType());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, connectivityManager, intent)) == null) {
+            NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra("networkInfo");
+            if (networkInfo != null) {
+                return connectivityManager.getNetworkInfo(networkInfo.getType());
+            }
+            return null;
         }
-        return null;
+        return (NetworkInfo) invokeLL.objValue;
     }
 
     public static int getRestrictBackgroundStatus(@NonNull ConnectivityManager connectivityManager) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            return connectivityManager.getRestrictBackgroundStatus();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, connectivityManager)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return connectivityManager.getRestrictBackgroundStatus();
+            }
+            return 3;
         }
-        return 3;
+        return invokeL.intValue;
     }
 
     @RequiresPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)
     public static boolean isActiveNetworkMetered(@NonNull ConnectivityManager connectivityManager) {
-        if (Build.VERSION.SDK_INT >= 16) {
-            return connectivityManager.isActiveNetworkMetered();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, connectivityManager)) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                return connectivityManager.isActiveNetworkMetered();
+            }
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            if (activeNetworkInfo == null) {
+                return true;
+            }
+            int type = activeNetworkInfo.getType();
+            return (type == 1 || type == 7 || type == 9) ? false : true;
         }
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetworkInfo == null) {
-            return true;
-        }
-        int type = activeNetworkInfo.getType();
-        return (type == 1 || type == 7 || type == 9) ? false : true;
+        return invokeL.booleanValue;
     }
 }

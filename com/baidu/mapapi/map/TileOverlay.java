@@ -1,120 +1,208 @@
 package com.baidu.mapapi.map;
 
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.common.Logger;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TileOverlay {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f7081b = "TileOverlay";
+    public static final String f7111b = "TileOverlay";
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f7082f;
+    public static int f7112f;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaiduMap f7083a;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TileProvider f7087g;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Tile> f7085d = new HashMap<>();
-
-    /* renamed from: e  reason: collision with root package name */
-    public HashSet<String> f7086e = new HashSet<>();
+    public BaiduMap f7113a;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f7084c = Executors.newFixedThreadPool(1);
+    public ExecutorService f7114c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public HashMap<String, Tile> f7115d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public HashSet<String> f7116e;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TileProvider f7117g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(424751247, "Lcom/baidu/mapapi/map/TileOverlay;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(424751247, "Lcom/baidu/mapapi/map/TileOverlay;");
+        }
+    }
 
     public TileOverlay(BaiduMap baiduMap, TileProvider tileProvider) {
-        this.f7083a = baiduMap;
-        this.f7087g = tileProvider;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap, tileProvider};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f7113a = baiduMap;
+        this.f7117g = tileProvider;
+        this.f7115d = new HashMap<>();
+        this.f7116e = new HashSet<>();
+        this.f7114c = Executors.newFixedThreadPool(1);
     }
 
     private synchronized Tile a(String str) {
-        if (this.f7085d.containsKey(str)) {
-            Tile tile = this.f7085d.get(str);
-            this.f7085d.remove(str);
-            return tile;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            synchronized (this) {
+                if (this.f7115d.containsKey(str)) {
+                    Tile tile = this.f7115d.get(str);
+                    this.f7115d.remove(str);
+                    return tile;
+                }
+                return null;
+            }
         }
-        return null;
+        return (Tile) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(String str, Tile tile) {
-        this.f7085d.put(str, tile);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, tile) == null) {
+            synchronized (this) {
+                this.f7115d.put(str, tile);
+            }
+        }
     }
 
     private synchronized boolean b(String str) {
-        return this.f7086e.contains(str);
+        InterceptResult invokeL;
+        boolean contains;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
+            synchronized (this) {
+                contains = this.f7116e.contains(str);
+            }
+            return contains;
+        }
+        return invokeL.booleanValue;
     }
 
     private synchronized void c(String str) {
-        this.f7086e.add(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
+            synchronized (this) {
+                this.f7116e.add(str);
+            }
+        }
     }
 
     public Tile a(int i2, int i3, int i4) {
+        InterceptResult invokeIII;
         String str;
         String str2;
-        String str3 = i2 + "_" + i3 + "_" + i4;
-        Tile a2 = a(str3);
-        if (a2 != null) {
-            return a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
+            String str3 = i2 + "_" + i3 + "_" + i4;
+            Tile a2 = a(str3);
+            if (a2 != null) {
+                return a2;
+            }
+            BaiduMap baiduMap = this.f7113a;
+            if (baiduMap != null && f7112f == 0) {
+                WinRound winRound = baiduMap.getMapStatus().f6967a.j;
+                f7112f = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2);
+            }
+            if (this.f7115d.size() > f7112f) {
+                a();
+            }
+            if (b(str3) || this.f7114c.isShutdown()) {
+                return null;
+            }
+            try {
+                c(str3);
+                this.f7114c.execute(new w(this, i2, i3, i4, str3));
+                return null;
+            } catch (RejectedExecutionException unused) {
+                str = f7111b;
+                str2 = "ThreadPool excepiton";
+                Log.e(str, str2);
+                return null;
+            } catch (Exception unused2) {
+                str = f7111b;
+                str2 = "fileDir is not legal";
+                Log.e(str, str2);
+                return null;
+            }
         }
-        BaiduMap baiduMap = this.f7083a;
-        if (baiduMap != null && f7082f == 0) {
-            WinRound winRound = baiduMap.getMapStatus().f6937a.j;
-            f7082f = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2);
-        }
-        if (this.f7085d.size() > f7082f) {
-            a();
-        }
-        if (b(str3) || this.f7084c.isShutdown()) {
-            return null;
-        }
-        try {
-            c(str3);
-            this.f7084c.execute(new w(this, i2, i3, i4, str3));
-            return null;
-        } catch (RejectedExecutionException unused) {
-            str = f7081b;
-            str2 = "ThreadPool excepiton";
-            Log.e(str, str2);
-            return null;
-        } catch (Exception unused2) {
-            str = f7081b;
-            str2 = "fileDir is not legal";
-            Log.e(str, str2);
-            return null;
-        }
+        return (Tile) invokeIII.objValue;
     }
 
     public synchronized void a() {
-        Logger.logE(f7081b, "clearTaskSet");
-        this.f7086e.clear();
-        this.f7085d.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                Logger.logE(f7111b, "clearTaskSet");
+                this.f7116e.clear();
+                this.f7115d.clear();
+            }
+        }
     }
 
     public void b() {
-        this.f7084c.shutdownNow();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f7114c.shutdownNow();
+        }
     }
 
     public boolean clearTileCache() {
-        BaiduMap baiduMap = this.f7083a;
-        if (baiduMap == null) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            BaiduMap baiduMap = this.f7113a;
+            if (baiduMap == null) {
+                return false;
+            }
+            return baiduMap.b();
         }
-        return baiduMap.b();
+        return invokeV.booleanValue;
     }
 
     public void removeTileOverlay() {
-        BaiduMap baiduMap = this.f7083a;
-        if (baiduMap == null) {
+        BaiduMap baiduMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baiduMap = this.f7113a) == null) {
             return;
         }
         baiduMap.a(this);

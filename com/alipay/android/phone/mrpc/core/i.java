@@ -1,39 +1,72 @@
 package com.alipay.android.phone.mrpc.core;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class i implements g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ aa f1637a;
+    public final /* synthetic */ aa f1640a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h f1638b;
+    public final /* synthetic */ h f1641b;
 
     public i(h hVar, aa aaVar) {
-        this.f1638b = hVar;
-        this.f1637a = aaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hVar, aaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f1641b = hVar;
+        this.f1640a = aaVar;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.g
     public final String a() {
-        return this.f1637a.a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1640a.a() : (String) invokeV.objValue;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.g
     public final ab b() {
+        InterceptResult invokeV;
         Context context;
-        context = this.f1638b.f1636a;
-        return l.a(context.getApplicationContext());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            context = this.f1641b.f1639a;
+            return l.a(context.getApplicationContext());
+        }
+        return (ab) invokeV.objValue;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.g
     public final aa c() {
-        return this.f1637a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1640a : (aa) invokeV.objValue;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.g
     public final boolean d() {
-        return this.f1637a.c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1640a.c() : invokeV.booleanValue;
     }
 }

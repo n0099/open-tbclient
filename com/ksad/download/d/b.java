@@ -3,40 +3,61 @@ package com.ksad.download.d;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static boolean a(Context context) {
+        InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
+                    return false;
+                }
+                return activeNetworkInfo.isConnected();
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 return false;
             }
-            return activeNetworkInfo.isConnected();
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return false;
         }
+        return invokeL.booleanValue;
     }
 
     public static boolean b(Context context) {
+        InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
-                return 1 == activeNetworkInfo.getType();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
+                    return 1 == activeNetworkInfo.getType();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static NetworkInfo c(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return null;
+            }
+            return connectivityManager.getActiveNetworkInfo();
         }
-        return connectivityManager.getActiveNetworkInfo();
+        return (NetworkInfo) invokeL.objValue;
     }
 }

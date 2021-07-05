@@ -1,5 +1,11 @@
 package io.reactivex.internal.operators.observable;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Maybe;
 import io.reactivex.MaybeObserver;
 import io.reactivex.ObservableSource;
@@ -10,39 +16,63 @@ import io.reactivex.functions.BiFunction;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class ObservableReduceMaybe<T> extends Maybe<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final BiFunction<T, T, T> reducer;
     public final ObservableSource<T> source;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class ReduceObserver<T> implements Observer<T>, Disposable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72422d;
+        public Disposable f76014d;
         public boolean done;
         public final BiFunction<T, T, T> reducer;
         public T value;
 
         public ReduceObserver(MaybeObserver<? super T> maybeObserver, BiFunction<T, T, T> biFunction) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {maybeObserver, biFunction};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = maybeObserver;
             this.reducer = biFunction;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f72422d.dispose();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f76014d.dispose();
+            }
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f72422d.isDisposed();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76014d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
-            if (this.done) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
                 return;
             }
             this.done = true;
@@ -57,18 +87,22 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
 
         @Override // io.reactivex.Observer
         public void onError(Throwable th) {
-            if (this.done) {
-                RxJavaPlugins.onError(th);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                if (this.done) {
+                    RxJavaPlugins.onError(th);
+                    return;
+                }
+                this.done = true;
+                this.value = null;
+                this.actual.onError(th);
             }
-            this.done = true;
-            this.value = null;
-            this.actual.onError(th);
         }
 
         @Override // io.reactivex.Observer
         public void onNext(T t) {
-            if (this.done) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
                 return;
             }
             T t2 = this.value;
@@ -80,27 +114,45 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
                 this.value = (T) ObjectHelper.requireNonNull(this.reducer.apply(t2, t), "The reducer returned a null value");
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                this.f72422d.dispose();
+                this.f76014d.dispose();
                 onError(th);
             }
         }
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f72422d, disposable)) {
-                this.f72422d = disposable;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f76014d, disposable)) {
+                this.f76014d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
     }
 
     public ObservableReduceMaybe(ObservableSource<T> observableSource, BiFunction<T, T, T> biFunction) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {observableSource, biFunction};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.source = observableSource;
         this.reducer = biFunction;
     }
 
     @Override // io.reactivex.Maybe
     public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
-        this.source.subscribe(new ReduceObserver(maybeObserver, this.reducer));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
+            this.source.subscribe(new ReduceObserver(maybeObserver, this.reducer));
+        }
     }
 }

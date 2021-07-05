@@ -8,7 +8,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.Constants;
 import com.baidu.wallet.base.widget.SafeKeyBoardEditText;
 import com.baidu.wallet.base.widget.SafeScrollView;
@@ -19,13 +25,15 @@ import com.baidu.wallet.paysdk.datamodel.PwdRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumberPwdView.OnPwdChangedListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SixNumberPwdView f25981a;
+    public SixNumberPwdView f26524a;
     public String extraFromH5;
-    public boolean isOpenHalfScreenPwdVerify = false;
+    public boolean isOpenHalfScreenPwdVerify;
     public TextView mErrorTip;
     public View mForgetPasswd;
     public ImageView mLeftImageGoback;
@@ -37,8 +45,29 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     public LinearLayout mSubTipWrap;
     public TextView mTip;
 
+    public PwdBaseActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.isOpenHalfScreenPwdVerify = false;
+    }
+
     private boolean a(String str) {
+        InterceptResult invokeL;
         String optString;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, this, str)) != null) {
+            return invokeL.booleanValue;
+        }
         if (!TextUtils.isEmpty(str)) {
             try {
                 optString = new JSONObject(str).optString(Constants.HALF_SCREEN_PWD_VERIFY);
@@ -54,106 +83,145 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     }
 
     public int getMobilePwdBeanId() {
-        PwdRequest pwdRequest = this.mPwdRequest;
-        if (pwdRequest == null || pwdRequest.mRequestType != 2) {
-            PwdRequest pwdRequest2 = this.mPwdRequest;
-            return (pwdRequest2 == null || pwdRequest2.mRequestType != 3) ? 258 : 259;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PwdRequest pwdRequest = this.mPwdRequest;
+            if (pwdRequest == null || pwdRequest.mRequestType != 2) {
+                PwdRequest pwdRequest2 = this.mPwdRequest;
+                return (pwdRequest2 == null || pwdRequest2.mRequestType != 3) ? 258 : 259;
+            }
+            return 257;
         }
-        return 257;
+        return invokeV.intValue;
     }
 
     public String getPwd() {
-        return this.f25981a.getPwd();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26524a.getPwd() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
     public void handleFailure(int i2, int i3, String str) {
-        super.handleFailure(i2, i3, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) {
+            super.handleFailure(i2, i3, str);
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, obj, str) == null) {
+        }
     }
 
     public void hideErrorMsg() {
-        this.mErrorTip.setVisibility(4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.mErrorTip.setVisibility(4);
+        }
     }
 
     @Override // com.baidu.wallet.core.BaseActivity
     public boolean isWindowNightMode() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setIsShowMultiWindowTips(true);
-        if (bundle != null) {
-            this.mPwdRequest = (PwdRequest) bundle.getSerializable("mPwdRequest");
-        } else {
-            this.mPwdRequest = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            setIsShowMultiWindowTips(true);
+            if (bundle != null) {
+                this.mPwdRequest = (PwdRequest) bundle.getSerializable("mPwdRequest");
+            } else {
+                this.mPwdRequest = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+            }
+            if (this.mPwdRequest != null) {
+                PayRequestCache.getInstance().addBeanRequestToCache(this.mPwdRequest.getRequestId(), this.mPwdRequest);
+            }
+            if (getIntent() != null) {
+                String stringExtra = getIntent().getStringExtra(Constants.HALF_SCREEN_PWD_VERIFY);
+                this.extraFromH5 = stringExtra;
+                this.isOpenHalfScreenPwdVerify = a(stringExtra);
+            }
+            if (this.isOpenHalfScreenPwdVerify) {
+                setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_set_half_screen_pwd_activity"));
+                this.mLeftImageGoback = (ImageView) findViewById(ResUtils.id(getActivity(), "pwd_left_img_goback"));
+                this.mSubTipWrap = (LinearLayout) findViewById(ResUtils.id(getActivity(), "pwd_sub_tip_wrap"));
+            } else {
+                setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_set_pwd_activity"));
+            }
+            this.mTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_tip"));
+            this.mSubTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_sub_tip"));
+            this.f26524a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
+            this.mErrorTip = (TextView) findViewById(ResUtils.id(getActivity(), "error_tip"));
+            this.mForgetPasswd = findViewById(ResUtils.id(getActivity(), "forget_pwd"));
+            hideErrorMsg();
+            this.mRootView = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "root_view"));
+            this.mScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
+            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f26524a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+            this.mSafeEditText = safeKeyBoardEditText;
+            safeKeyBoardEditText.initSafeKeyBoardParams(this.mRootView, this.mScrollView, safeKeyBoardEditText, false);
+            this.mSafeEditText.setGap(20);
+            this.mSafeEditText.setDisablePast(true);
+            this.f26524a.addSixNumberPwdChangedListenter(this);
+            setSafeScrollView(this.mScrollView);
+            this.mSafeEditText.requestFocus();
         }
-        if (this.mPwdRequest != null) {
-            PayRequestCache.getInstance().addBeanRequestToCache(this.mPwdRequest.getRequestId(), this.mPwdRequest);
-        }
-        if (getIntent() != null) {
-            String stringExtra = getIntent().getStringExtra(Constants.HALF_SCREEN_PWD_VERIFY);
-            this.extraFromH5 = stringExtra;
-            this.isOpenHalfScreenPwdVerify = a(stringExtra);
-        }
-        if (this.isOpenHalfScreenPwdVerify) {
-            setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_set_half_screen_pwd_activity"));
-            this.mLeftImageGoback = (ImageView) findViewById(ResUtils.id(getActivity(), "pwd_left_img_goback"));
-            this.mSubTipWrap = (LinearLayout) findViewById(ResUtils.id(getActivity(), "pwd_sub_tip_wrap"));
-        } else {
-            setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_set_pwd_activity"));
-        }
-        this.mTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_tip"));
-        this.mSubTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_sub_tip"));
-        this.f25981a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
-        this.mErrorTip = (TextView) findViewById(ResUtils.id(getActivity(), "error_tip"));
-        this.mForgetPasswd = findViewById(ResUtils.id(getActivity(), "forget_pwd"));
-        hideErrorMsg();
-        this.mRootView = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "root_view"));
-        this.mScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-        SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f25981a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
-        this.mSafeEditText = safeKeyBoardEditText;
-        safeKeyBoardEditText.initSafeKeyBoardParams(this.mRootView, this.mScrollView, safeKeyBoardEditText, false);
-        this.mSafeEditText.setGap(20);
-        this.mSafeEditText.setDisablePast(true);
-        this.f25981a.addSixNumberPwdChangedListenter(this);
-        setSafeScrollView(this.mScrollView);
-        this.mSafeEditText.requestFocus();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        super.onPause();
-        if (Build.VERSION.SDK_INT >= 10) {
-            NFCUtil.getInstance().disableForegroundDispatch(getActivity(), false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onPause();
+            if (Build.VERSION.SDK_INT >= 10) {
+                NFCUtil.getInstance().disableForegroundDispatch(getActivity(), false);
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
-        if (Build.VERSION.SDK_INT >= 10) {
-            NFCUtil.getInstance().enableForegroundDispatch(getActivity(), false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onResume();
+            if (Build.VERSION.SDK_INT >= 10) {
+                NFCUtil.getInstance().enableForegroundDispatch(getActivity(), false);
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putSerializable("mPwdRequest", this.mPwdRequest);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putSerializable("mPwdRequest", this.mPwdRequest);
+        }
     }
 
     public void resetPwd() {
-        this.f25981a.resetPwd();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.f26524a.resetPwd();
+        }
     }
 
     public void showErrorMsg(String str) {
-        this.mErrorTip.setVisibility(0);
-        this.mErrorTip.setText(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.mErrorTip.setVisibility(0);
+            this.mErrorTip.setText(str);
+        }
     }
 }

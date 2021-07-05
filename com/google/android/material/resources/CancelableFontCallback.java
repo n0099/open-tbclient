@@ -2,41 +2,72 @@ package com.google.android.material.resources;
 
 import android.graphics.Typeface;
 import androidx.annotation.RestrictTo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class CancelableFontCallback extends TextAppearanceFontCallback {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final ApplyFont applyFont;
     public boolean cancelled;
     public final Typeface fallbackFont;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface ApplyFont {
         void apply(Typeface typeface);
     }
 
     public CancelableFontCallback(ApplyFont applyFont, Typeface typeface) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {applyFont, typeface};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.fallbackFont = typeface;
         this.applyFont = applyFont;
     }
 
     private void updateIfNotCancelled(Typeface typeface) {
-        if (this.cancelled) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, typeface) == null) || this.cancelled) {
             return;
         }
         this.applyFont.apply(typeface);
     }
 
     public void cancel() {
-        this.cancelled = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.cancelled = true;
+        }
     }
 
     @Override // com.google.android.material.resources.TextAppearanceFontCallback
     public void onFontRetrievalFailed(int i2) {
-        updateIfNotCancelled(this.fallbackFont);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            updateIfNotCancelled(this.fallbackFont);
+        }
     }
 
     @Override // com.google.android.material.resources.TextAppearanceFontCallback
     public void onFontRetrieved(Typeface typeface, boolean z) {
-        updateIfNotCancelled(typeface);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, typeface, z) == null) {
+            updateIfNotCancelled(typeface);
+        }
     }
 }

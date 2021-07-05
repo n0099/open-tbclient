@@ -3,6 +3,13 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,189 +18,233 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ds extends ai.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41229a;
+    public Context f42972a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f239a;
+    public SharedPreferences f242a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.push.service.aq f240a;
+    public com.xiaomi.push.service.aq f243a;
 
     public ds(Context context) {
-        this.f41229a = context;
-        this.f239a = context.getSharedPreferences("mipush_extra", 0);
-        this.f240a = com.xiaomi.push.service.aq.a(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42972a = context;
+        this.f242a = context.getSharedPreferences("mipush_extra", 0);
+        this.f243a = com.xiaomi.push.service.aq.a(context);
     }
 
     private List<hn> a(File file) {
+        InterceptResult invokeL;
         RandomAccessFile randomAccessFile;
         FileInputStream fileInputStream;
-        di m232a = dj.a().m232a();
-        String a2 = m232a == null ? "" : m232a.a();
-        FileLock fileLock = null;
-        if (TextUtils.isEmpty(a2)) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        byte[] bArr = new byte[4];
-        synchronized (dm.f41223a) {
-            try {
-                File file2 = new File(this.f41229a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m629a(file2);
-                randomAccessFile = new RandomAccessFile(file2, "rw");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
+            di m246a = dj.a().m246a();
+            String a2 = m246a == null ? "" : m246a.a();
+            FileLock fileLock = null;
+            if (TextUtils.isEmpty(a2)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            byte[] bArr = new byte[4];
+            synchronized (dm.f42966a) {
                 try {
-                    FileLock lock = randomAccessFile.getChannel().lock();
+                    File file2 = new File(this.f42972a.getExternalFilesDir(null), "push_cdata.lock");
+                    y.m643a(file2);
+                    randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
-                        fileInputStream = new FileInputStream(file);
-                        while (fileInputStream.read(bArr) == 4) {
-                            try {
-                                int a3 = ac.a(bArr);
-                                byte[] bArr2 = new byte[a3];
-                                if (fileInputStream.read(bArr2) != a3) {
-                                    break;
-                                }
-                                byte[] a4 = dl.a(a2, bArr2);
-                                if (a4 != null && a4.length != 0) {
-                                    hn hnVar = new hn();
-                                    ip.a(hnVar, a4);
-                                    arrayList.add(hnVar);
-                                    a(hnVar);
-                                }
-                            } catch (Exception unused) {
-                                fileLock = lock;
-                                if (fileLock != null && fileLock.isValid()) {
-                                    try {
-                                        fileLock.release();
-                                    } catch (IOException unused2) {
+                        FileLock lock = randomAccessFile.getChannel().lock();
+                        try {
+                            fileInputStream = new FileInputStream(file);
+                            while (fileInputStream.read(bArr) == 4) {
+                                try {
+                                    int a3 = ac.a(bArr);
+                                    byte[] bArr2 = new byte[a3];
+                                    if (fileInputStream.read(bArr2) != a3) {
+                                        break;
                                     }
-                                }
-                                y.a(fileInputStream);
-                                y.a(randomAccessFile);
-                                return arrayList;
-                            } catch (Throwable th) {
-                                th = th;
-                                fileLock = lock;
-                                if (fileLock != null && fileLock.isValid()) {
-                                    try {
-                                        fileLock.release();
-                                    } catch (IOException unused3) {
+                                    byte[] a4 = dl.a(a2, bArr2);
+                                    if (a4 != null && a4.length != 0) {
+                                        hn hnVar = new hn();
+                                        ip.a(hnVar, a4);
+                                        arrayList.add(hnVar);
+                                        a(hnVar);
                                     }
+                                } catch (Exception unused) {
+                                    fileLock = lock;
+                                    if (fileLock != null && fileLock.isValid()) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException unused2) {
+                                        }
+                                    }
+                                    y.a(fileInputStream);
+                                    y.a(randomAccessFile);
+                                    return arrayList;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    fileLock = lock;
+                                    if (fileLock != null && fileLock.isValid()) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException unused3) {
+                                        }
+                                    }
+                                    y.a(fileInputStream);
+                                    y.a(randomAccessFile);
+                                    throw th;
                                 }
-                                y.a(fileInputStream);
-                                y.a(randomAccessFile);
-                                throw th;
                             }
-                        }
-                        if (lock != null && lock.isValid()) {
-                            try {
-                                lock.release();
-                            } catch (IOException unused4) {
+                            if (lock != null && lock.isValid()) {
+                                try {
+                                    lock.release();
+                                } catch (IOException unused4) {
+                                }
                             }
+                            y.a(fileInputStream);
+                        } catch (Exception unused5) {
+                            fileInputStream = null;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            fileInputStream = null;
                         }
-                        y.a(fileInputStream);
-                    } catch (Exception unused5) {
+                    } catch (Exception unused6) {
                         fileInputStream = null;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th3) {
+                        th = th3;
                         fileInputStream = null;
                     }
-                } catch (Exception unused6) {
+                } catch (Exception unused7) {
+                    randomAccessFile = null;
                     fileInputStream = null;
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Throwable th4) {
+                    th = th4;
+                    randomAccessFile = null;
                     fileInputStream = null;
                 }
-            } catch (Exception unused7) {
-                randomAccessFile = null;
-                fileInputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                randomAccessFile = null;
-                fileInputStream = null;
+                y.a(randomAccessFile);
             }
-            y.a(randomAccessFile);
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeL.objValue;
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f239a.edit();
-        edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
-        edit.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            SharedPreferences.Editor edit = this.f242a.edit();
+            edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
+            edit.commit();
+        }
     }
 
     private void a(hn hnVar) {
-        if (hnVar.f497a != hh.AppInstallList || hnVar.f498a.startsWith("same_")) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, this, hnVar) == null) && hnVar.f500a == hh.f43248b && !hnVar.f501a.startsWith("same_")) {
+            SharedPreferences.Editor edit = this.f242a.edit();
+            edit.putLong("dc_job_result_time_4", hnVar.f499a);
+            edit.putString("dc_job_result_4", bm.a(hnVar.f501a));
+            edit.commit();
         }
-        SharedPreferences.Editor edit = this.f239a.edit();
-        edit.putLong("dc_job_result_time_4", hnVar.f496a);
-        edit.putString("dc_job_result_4", bm.a(hnVar.f498a));
-        edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m236a() {
-        if (bg.e(this.f41229a)) {
-            return false;
+    private boolean m250a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            if (bg.e(this.f42972a)) {
+                return false;
+            }
+            if ((bg.g(this.f42972a) || bg.f(this.f42972a)) && !c()) {
+                return true;
+            }
+            return (bg.h(this.f42972a) && !b()) || bg.i(this.f42972a);
         }
-        if ((bg.g(this.f41229a) || bg.f(this.f41229a)) && !c()) {
-            return true;
-        }
-        return (bg.h(this.f41229a) && !b()) || bg.i(this.f41229a);
+        return invokeV.booleanValue;
     }
 
     private boolean b() {
-        if (this.f240a.a(hk.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f239a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f240a.a(hk.Upload3GFrequency.a(), 432000)));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (this.f243a.a(hk.L.a(), true)) {
+                return Math.abs((System.currentTimeMillis() / 1000) - this.f242a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f243a.a(hk.M.a(), 432000)));
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     private boolean c() {
-        if (this.f240a.a(hk.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f239a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f240a.a(hk.Upload4GFrequency.a(), 259200)));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (this.f243a.a(hk.J.a(), true)) {
+                return Math.abs((System.currentTimeMillis() / 1000) - this.f242a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f243a.a(hk.K.a(), 259200)));
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo170a() {
-        return "1";
+    public String mo184a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1" : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        File file = new File(this.f41229a.getExternalFilesDir(null), "push_cdata.data");
-        if (!bg.d(this.f41229a)) {
-            if (file.length() > 1863680) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            File file = new File(this.f42972a.getExternalFilesDir(null), "push_cdata.data");
+            if (!bg.d(this.f42972a)) {
+                if (file.length() > 1863680) {
+                    file.delete();
+                }
+            } else if (!m250a() && file.exists()) {
+                List<hn> a2 = a(file);
+                if (!ad.a(a2)) {
+                    int size = a2.size();
+                    if (size > 4000) {
+                        a2 = a2.subList(size - 4000, size);
+                    }
+                    hy hyVar = new hy();
+                    hyVar.a(a2);
+                    byte[] a3 = y.a(ip.a(hyVar));
+                    ie ieVar = new ie("-1", false);
+                    ieVar.c(hp.q.f509a);
+                    ieVar.a(a3);
+                    di m246a = dj.a().m246a();
+                    if (m246a != null) {
+                        m246a.a(ieVar, hf.f43244i, null);
+                    }
+                    a();
+                }
                 file.delete();
             }
-        } else if (!m236a() && file.exists()) {
-            List<hn> a2 = a(file);
-            if (!ad.a(a2)) {
-                int size = a2.size();
-                if (size > 4000) {
-                    a2 = a2.subList(size - 4000, size);
-                }
-                hy hyVar = new hy();
-                hyVar.a(a2);
-                byte[] a3 = y.a(ip.a(hyVar));
-                ie ieVar = new ie("-1", false);
-                ieVar.c(hp.DataCollection.f506a);
-                ieVar.a(a3);
-                di m232a = dj.a().m232a();
-                if (m232a != null) {
-                    m232a.a(ieVar, hf.Notification, null);
-                }
-                a();
-            }
-            file.delete();
         }
     }
 }

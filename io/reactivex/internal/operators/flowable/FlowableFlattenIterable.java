@@ -1,5 +1,12 @@
 package io.reactivex.internal.operators.flowable;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.annotations.Nullable;
@@ -22,38 +29,59 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUpstream<T, R> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends Iterable<? extends R>> mapper;
     public final int prefetch;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class FlattenIterableSubscriber<T, R> extends BasicIntQueueSubscription<R> implements FlowableSubscriber<T> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3096000382929934955L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super R> actual;
         public volatile boolean cancelled;
         public int consumed;
         public Iterator<? extends R> current;
         public volatile boolean done;
+        public final AtomicReference<Throwable> error;
         public int fusionMode;
         public final int limit;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public final int prefetch;
         public SimpleQueue<T> queue;
+        public final AtomicLong requested;
         public Subscription s;
-        public final AtomicReference<Throwable> error = new AtomicReference<>();
-        public final AtomicLong requested = new AtomicLong();
 
         public FlattenIterableSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends Iterable<? extends R>> function, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, function, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
             this.mapper = function;
             this.prefetch = i2;
             this.limit = i2 - (i2 >> 2);
+            this.error = new AtomicReference<>();
+            this.requested = new AtomicLong();
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            if (this.cancelled) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
                 return;
             }
             this.cancelled = true;
@@ -64,36 +92,45 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
         }
 
         public boolean checkTerminated(boolean z, boolean z2, Subscriber<?> subscriber, SimpleQueue<?> simpleQueue) {
-            if (this.cancelled) {
-                this.current = null;
-                simpleQueue.clear();
-                return true;
-            } else if (z) {
-                if (this.error.get() == null) {
-                    if (z2) {
-                        subscriber.onComplete();
-                        return true;
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber, simpleQueue})) == null) {
+                if (this.cancelled) {
+                    this.current = null;
+                    simpleQueue.clear();
+                    return true;
+                } else if (z) {
+                    if (this.error.get() == null) {
+                        if (z2) {
+                            subscriber.onComplete();
+                            return true;
+                        }
+                        return false;
                     }
+                    Throwable terminate = ExceptionHelper.terminate(this.error);
+                    this.current = null;
+                    simpleQueue.clear();
+                    subscriber.onError(terminate);
+                    return true;
+                } else {
                     return false;
                 }
-                Throwable terminate = ExceptionHelper.terminate(this.error);
-                this.current = null;
-                simpleQueue.clear();
-                subscriber.onError(terminate);
-                return true;
-            } else {
-                return false;
             }
+            return invokeCommon.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public void clear() {
-            this.current = null;
-            this.queue.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.current = null;
+                this.queue.clear();
+            }
         }
 
         public void consumedOne(boolean z) {
-            if (z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && z) {
                 int i2 = this.consumed + 1;
                 if (i2 == this.limit) {
                     this.consumed = 0;
@@ -104,14 +141,15 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:67:0x0121, code lost:
-            if (r6 == null) goto L57;
+        /* JADX WARN: Code restructure failed: missing block: B:69:0x0125, code lost:
+            if (r6 == null) goto L59;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drain() {
-            if (getAndIncrement() != 0) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || getAndIncrement() != 0) {
                 return;
             }
             Subscriber<?> subscriber = this.actual;
@@ -213,12 +251,15 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public boolean isEmpty() {
-            return this.current == null && this.queue.isEmpty();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.current == null && this.queue.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            if (this.done) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.done) {
                 return;
             }
             this.done = true;
@@ -227,17 +268,21 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            if (!this.done && ExceptionHelper.addThrowable(this.error, th)) {
-                this.done = true;
-                drain();
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
+                if (!this.done && ExceptionHelper.addThrowable(this.error, th)) {
+                    this.done = true;
+                    drain();
+                    return;
+                }
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            if (this.done) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) || this.done) {
                 return;
             }
             if (this.fusionMode == 0 && !this.queue.offer(t)) {
@@ -249,7 +294,8 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            if (SubscriptionHelper.validate(this.s, subscription)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048585, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 if (subscription instanceof QueueSubscription) {
                     QueueSubscription queueSubscription = (QueueSubscription) subscription;
@@ -274,9 +320,29 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
             }
         }
 
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0028, code lost:
+            r2 = (R) io.reactivex.internal.functions.ObjectHelper.requireNonNull(r0.next(), "The iterator returned a null value");
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:14:0x0036, code lost:
+            if (r0.hasNext() != false) goto L15;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:15:0x0038, code lost:
+            r4.current = null;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:16:0x003a, code lost:
+            return r2;
+         */
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         @Nullable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public R poll() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048586, this)) != null) {
+                return (R) invokeV.objValue;
+            }
             Iterator<? extends R> it = this.current;
             while (true) {
                 if (it == null) {
@@ -295,16 +361,12 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
                     break;
                 }
             }
-            R r = (R) ObjectHelper.requireNonNull(it.next(), "The iterator returned a null value");
-            if (!it.hasNext()) {
-                this.current = null;
-            }
-            return r;
         }
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            if (SubscriptionHelper.validate(j)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && SubscriptionHelper.validate(j)) {
                 BackpressureHelper.add(this.requested, j);
                 drain();
             }
@@ -312,40 +374,61 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
         public int requestFusion(int i2) {
-            return ((i2 & 1) == 0 || this.fusionMode != 1) ? 0 : 1;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? ((i2 & 1) == 0 || this.fusionMode != 1) ? 0 : 1 : invokeI.intValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowableFlattenIterable(Flowable<T> flowable, Function<? super T, ? extends Iterable<? extends R>> function, int i2) {
         super(flowable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flowable, function, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Flowable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mapper = function;
         this.prefetch = i2;
     }
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super R> subscriber) {
-        Flowable<T> flowable = this.source;
-        if (flowable instanceof Callable) {
-            try {
-                Object call = ((Callable) flowable).call();
-                if (call == null) {
-                    EmptySubscription.complete(subscriber);
-                    return;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            Flowable<T> flowable = this.source;
+            if (flowable instanceof Callable) {
                 try {
-                    FlowableFromIterable.subscribe(subscriber, this.mapper.apply(call).iterator());
-                    return;
-                } catch (Throwable th) {
-                    Exceptions.throwIfFatal(th);
-                    EmptySubscription.error(th, subscriber);
+                    Object call = ((Callable) flowable).call();
+                    if (call == null) {
+                        EmptySubscription.complete(subscriber);
+                        return;
+                    }
+                    try {
+                        FlowableFromIterable.subscribe(subscriber, this.mapper.apply(call).iterator());
+                        return;
+                    } catch (Throwable th) {
+                        Exceptions.throwIfFatal(th);
+                        EmptySubscription.error(th, subscriber);
+                        return;
+                    }
+                } catch (Throwable th2) {
+                    Exceptions.throwIfFatal(th2);
+                    EmptySubscription.error(th2, subscriber);
                     return;
                 }
-            } catch (Throwable th2) {
-                Exceptions.throwIfFatal(th2);
-                EmptySubscription.error(th2, subscriber);
-                return;
             }
+            flowable.subscribe((FlowableSubscriber) new FlattenIterableSubscriber(subscriber, this.mapper, this.prefetch));
         }
-        flowable.subscribe((FlowableSubscriber) new FlattenIterableSubscriber(subscriber, this.mapper, this.prefetch));
     }
 }

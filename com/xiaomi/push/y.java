@@ -2,6 +2,12 @@ package com.xiaomi.push;
 
 import android.text.TextUtils;
 import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -19,16 +25,39 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class y {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f41962a = {"jpg", "png", "bmp", "gif", "webp"};
+    public static final String[] f43705a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0062: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:22:0x0062 */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1664385987, "Lcom/xiaomi/push/y;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1664385987, "Lcom/xiaomi/push/y;");
+                return;
+            }
+        }
+        f43705a = new String[]{"jpg", "png", "bmp", "gif", "webp"};
+    }
+
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0066: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:24:0x0066 */
     public static String a(File file) {
+        InterceptResult invokeL;
         InputStreamReader inputStreamReader;
         Closeable closeable;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
+            return (String) invokeL.objValue;
+        }
         StringWriter stringWriter = new StringWriter();
         Closeable closeable2 = null;
         try {
@@ -72,45 +101,57 @@ public class y {
     }
 
     public static void a(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception unused) {
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception unused) {
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m628a(File file) {
-        if (file.isDirectory()) {
-            for (File file2 : file.listFiles()) {
-                m628a(file2);
+    public static void m642a(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
+            if (file.isDirectory()) {
+                for (File file2 : file.listFiles()) {
+                    m642a(file2);
+                }
+            } else if (!file.exists()) {
+                return;
             }
-        } else if (!file.exists()) {
-            return;
+            file.delete();
         }
-        file.delete();
     }
 
     public static void a(File file, File file2) {
         ZipOutputStream zipOutputStream;
-        ZipOutputStream zipOutputStream2 = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, file, file2) == null) {
+            ZipOutputStream zipOutputStream2 = null;
             try {
-                zipOutputStream = new ZipOutputStream(new FileOutputStream(file, false));
-            } catch (Throwable th) {
-                th = th;
+                try {
+                    zipOutputStream = new ZipOutputStream(new FileOutputStream(file, false));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException unused) {
+                a(zipOutputStream2);
+            } catch (IOException e2) {
+                e = e2;
             }
             try {
                 a(zipOutputStream, file2, null, null);
                 a(zipOutputStream);
-            } catch (FileNotFoundException unused) {
+            } catch (FileNotFoundException unused2) {
                 zipOutputStream2 = zipOutputStream;
                 a(zipOutputStream2);
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e3) {
+                e = e3;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m56a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m70a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -118,147 +159,160 @@ public class y {
                 a(zipOutputStream2);
                 throw th;
             }
-        } catch (FileNotFoundException unused2) {
-            a(zipOutputStream2);
-        } catch (IOException e3) {
-            e = e3;
         }
     }
 
     public static void a(File file, String str) {
         BufferedWriter bufferedWriter;
-        if (!file.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.c("mkdir " + file.getAbsolutePath());
-            file.getParentFile().mkdirs();
-        }
-        BufferedWriter bufferedWriter2 = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, file, str) == null) {
+            if (!file.exists()) {
+                com.xiaomi.channel.commonutils.logger.b.c("mkdir " + file.getAbsolutePath());
+                file.getParentFile().mkdirs();
+            }
+            BufferedWriter bufferedWriter2 = null;
             try {
-                bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+                try {
+                    bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+                } catch (IOException e2) {
+                    e = e2;
+                }
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (IOException e2) {
-            e = e2;
-        }
-        try {
-            bufferedWriter.write(str);
-            a(bufferedWriter);
-        } catch (IOException e3) {
-            e = e3;
-            bufferedWriter2 = bufferedWriter;
-            com.xiaomi.channel.commonutils.logger.b.c("write file :" + file.getAbsolutePath() + " failure :" + e.getMessage());
-            a(bufferedWriter2);
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedWriter2 = bufferedWriter;
-            a(bufferedWriter2);
-            throw th;
+            try {
+                bufferedWriter.write(str);
+                a(bufferedWriter);
+            } catch (IOException e3) {
+                e = e3;
+                bufferedWriter2 = bufferedWriter;
+                com.xiaomi.channel.commonutils.logger.b.c("write file :" + file.getAbsolutePath() + " failure :" + e.getMessage());
+                a(bufferedWriter2);
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedWriter2 = bufferedWriter;
+                a(bufferedWriter2);
+                throw th;
+            }
         }
     }
 
     public static void a(ZipOutputStream zipOutputStream, File file, String str, FileFilter fileFilter) {
         ZipEntry zipEntry;
-        String str2 = "";
-        if (str == null) {
-            str = "";
-        }
-        FileInputStream fileInputStream = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, zipOutputStream, file, str, fileFilter) == null) {
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            FileInputStream fileInputStream = null;
             try {
-                if (file.isDirectory()) {
-                    File[] listFiles = fileFilter != null ? file.listFiles(fileFilter) : file.listFiles();
-                    zipOutputStream.putNextEntry(new ZipEntry(str + File.separator));
-                    if (!TextUtils.isEmpty(str)) {
-                        str2 = str + File.separator;
-                    }
-                    for (int i2 = 0; i2 < listFiles.length; i2++) {
-                        a(zipOutputStream, listFiles[i2], str2 + listFiles[i2].getName(), null);
-                    }
-                    File[] listFiles2 = file.listFiles(new z());
-                    if (listFiles2 != null) {
-                        for (File file2 : listFiles2) {
-                            a(zipOutputStream, file2, str2 + File.separator + file2.getName(), fileFilter);
+                try {
+                    if (file.isDirectory()) {
+                        File[] listFiles = fileFilter != null ? file.listFiles(fileFilter) : file.listFiles();
+                        zipOutputStream.putNextEntry(new ZipEntry(str + File.separator));
+                        if (!TextUtils.isEmpty(str)) {
+                            str2 = str + File.separator;
                         }
-                    }
-                } else {
-                    if (TextUtils.isEmpty(str)) {
-                        Date date = new Date();
-                        zipEntry = new ZipEntry(String.valueOf(date.getTime()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
-                    } else {
-                        zipEntry = new ZipEntry(str);
-                    }
-                    zipOutputStream.putNextEntry(zipEntry);
-                    FileInputStream fileInputStream2 = new FileInputStream(file);
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream2.read(bArr);
-                            if (read == -1) {
-                                break;
+                        for (int i2 = 0; i2 < listFiles.length; i2++) {
+                            a(zipOutputStream, listFiles[i2], str2 + listFiles[i2].getName(), null);
+                        }
+                        File[] listFiles2 = file.listFiles(new z());
+                        if (listFiles2 != null) {
+                            for (File file2 : listFiles2) {
+                                a(zipOutputStream, file2, str2 + File.separator + file2.getName(), fileFilter);
                             }
-                            zipOutputStream.write(bArr, 0, read);
                         }
-                        fileInputStream = fileInputStream2;
-                    } catch (IOException e2) {
-                        e = e2;
-                        fileInputStream = fileInputStream2;
-                        com.xiaomi.channel.commonutils.logger.b.d("zipFiction failed with exception:" + e.toString());
-                        a(fileInputStream);
-                    } catch (Throwable th) {
-                        th = th;
-                        fileInputStream = fileInputStream2;
-                        a(fileInputStream);
-                        throw th;
+                    } else {
+                        if (TextUtils.isEmpty(str)) {
+                            Date date = new Date();
+                            zipEntry = new ZipEntry(String.valueOf(date.getTime()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
+                        } else {
+                            zipEntry = new ZipEntry(str);
+                        }
+                        zipOutputStream.putNextEntry(zipEntry);
+                        FileInputStream fileInputStream2 = new FileInputStream(file);
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = fileInputStream2.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                zipOutputStream.write(bArr, 0, read);
+                            }
+                            fileInputStream = fileInputStream2;
+                        } catch (IOException e2) {
+                            e = e2;
+                            fileInputStream = fileInputStream2;
+                            com.xiaomi.channel.commonutils.logger.b.d("zipFiction failed with exception:" + e.toString());
+                            a(fileInputStream);
+                        } catch (Throwable th) {
+                            th = th;
+                            fileInputStream = fileInputStream2;
+                            a(fileInputStream);
+                            throw th;
+                        }
                     }
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             } catch (IOException e3) {
                 e = e3;
             }
             a(fileInputStream);
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m629a(File file) {
-        try {
-            if (file.isDirectory()) {
+    public static boolean m643a(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            try {
+                if (file.isDirectory()) {
+                    return false;
+                }
+                if (file.exists()) {
+                    return true;
+                }
+                File parentFile = file.getParentFile();
+                if (parentFile.exists() || parentFile.mkdirs()) {
+                    return file.createNewFile();
+                }
+                return false;
+            } catch (Throwable th) {
+                th.printStackTrace();
                 return false;
             }
-            if (file.exists()) {
-                return true;
-            }
-            File parentFile = file.getParentFile();
-            if (parentFile.exists() || parentFile.mkdirs()) {
-                return file.createNewFile();
-            }
-            return false;
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return false;
         }
+        return invokeL.booleanValue;
     }
 
     public static byte[] a(byte[] bArr) {
-        try {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-            gZIPOutputStream.write(bArr);
-            gZIPOutputStream.finish();
-            gZIPOutputStream.close();
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.close();
-            return byteArray;
-        } catch (Exception unused) {
-            return bArr;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return byteArray;
+            } catch (Exception unused) {
+                return bArr;
+            }
         }
+        return (byte[]) invokeL.objValue;
     }
 
     public static void b(File file, File file2) {
         FileOutputStream fileOutputStream;
-        if (file.getAbsolutePath().equals(file2.getAbsolutePath())) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, file, file2) == null) || file.getAbsolutePath().equals(file2.getAbsolutePath())) {
             return;
         }
         FileInputStream fileInputStream = null;

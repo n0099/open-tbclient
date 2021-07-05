@@ -1,11 +1,18 @@
 package com.baidu.tieba.enterForum.home;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.n0.r.r.a;
+import d.a.r0.r.r.a;
 import java.util.List;
 import tbclient.Error;
 import tbclient.ForumCreateInfo;
@@ -16,8 +23,10 @@ import tbclient.ForumRecommend.LikeForum;
 import tbclient.FrsTabInfo;
 import tbclient.PrivatePopInfo;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class forumRecommendSocketResponseMessage extends SocketResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ForumCreateInfo forum_create_info;
     public ForumPopupInfo forum_popup_info;
     public HotSearchInfoData hotSearchInfo;
@@ -29,58 +38,96 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     public List<FrsTabInfo> tabFeedList;
     public Integer time;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public forumRecommendSocketResponseMessage() {
         super(303011);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public List<LikeForum> GetLikeForum() {
-        return this.like_forum;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.like_forum : (List) invokeV.objValue;
     }
 
     public List<RecommendForumInfo> GetRecommendForumInfoList() {
-        return this.recommend_forum_info;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.recommend_forum_info : (List) invokeV.objValue;
     }
 
     public Integer GetTime() {
-        return this.time;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.time : (Integer) invokeV.objValue;
     }
 
     public ForumCreateInfo getForumCreateInfo() {
-        return this.forum_create_info;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.forum_create_info : (ForumCreateInfo) invokeV.objValue;
     }
 
     public ForumPopupInfo getForumPopupInfo() {
-        return this.forum_popup_info;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.forum_popup_info : (ForumPopupInfo) invokeV.objValue;
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
-        return this.hotSearchInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.hotSearchInfo : (HotSearchInfoData) invokeV.objValue;
     }
 
     public PrivatePopInfo getPrivatePopInfo() {
-        return this.private_pop_info;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.private_pop_info : (PrivatePopInfo) invokeV.objValue;
     }
 
     public List<RecommendForumInfo> getRecommendConcernForums() {
-        return this.recommend_concern_forums;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.recommend_concern_forums : (List) invokeV.objValue;
     }
 
     public Integer getSortType() {
-        return this.sortType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.sortType : (Integer) invokeV.objValue;
     }
 
     public List<FrsTabInfo> getTabFeedList() {
-        return this.tabFeedList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.tabFeedList : (List) invokeV.objValue;
     }
 
     public void setSortType(Integer num) {
-        this.sortType = num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, num) == null) {
+            this.sortType = num;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
-        if (bArr == null || bArr.length <= 0 || getError() != 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
         a.f().e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
@@ -89,11 +136,12 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        ForumRecommendResIdl forumRecommendResIdl;
         DataRes dataRes;
         String str;
         Integer num;
-        ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
-        if (forumRecommendResIdl == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) || (forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class)) == null) {
             return;
         }
         Error error = forumRecommendResIdl.error;

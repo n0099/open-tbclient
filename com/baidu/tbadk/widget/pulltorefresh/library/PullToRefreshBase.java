@@ -14,28 +14,40 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.FlipLoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.RotateLoadingLayout;
 import com.baidu.tieba.R$styleable;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public PullToRefreshBase<T>.h A;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13365e;
+    public int f13450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13366f;
+    public float f13451f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13367g;
+    public float f13452g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13368h;
+    public float f13453h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f13369i;
+    public float f13454i;
     public boolean j;
     public State k;
     public Mode l;
@@ -54,303 +66,656 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public e<T> y;
     public d<T> z;
 
-    /* loaded from: classes3.dex */
-    public enum AnimationStyle {
-        ROTATE,
-        FLIP;
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class AnimationStyle {
+        public static final /* synthetic */ AnimationStyle[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final AnimationStyle FLIP;
+        public static final AnimationStyle ROTATE;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(882356582, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$AnimationStyle;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(882356582, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$AnimationStyle;");
+                    return;
+                }
+            }
+            ROTATE = new AnimationStyle("ROTATE", 0);
+            AnimationStyle animationStyle = new AnimationStyle("FLIP", 1);
+            FLIP = animationStyle;
+            $VALUES = new AnimationStyle[]{ROTATE, animationStyle};
+        }
+
+        public AnimationStyle(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
 
         public static AnimationStyle getDefault() {
-            return ROTATE;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ROTATE : (AnimationStyle) invokeV.objValue;
         }
 
         public static AnimationStyle mapIntToValue(int i2) {
-            if (i2 != 1) {
-                return ROTATE;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+                if (i2 != 1) {
+                    return ROTATE;
+                }
+                return FLIP;
             }
-            return FLIP;
+            return (AnimationStyle) invokeI.objValue;
+        }
+
+        public static AnimationStyle valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (AnimationStyle) Enum.valueOf(AnimationStyle.class, str) : (AnimationStyle) invokeL.objValue;
+        }
+
+        public static AnimationStyle[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (AnimationStyle[]) $VALUES.clone() : (AnimationStyle[]) invokeV.objValue;
         }
 
         public LoadingLayout createLoadingLayout(Context context, Mode mode, Orientation orientation, TypedArray typedArray) {
-            if (c.f13375d[ordinal()] != 2) {
-                return new RotateLoadingLayout(context, mode, orientation, typedArray);
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, mode, orientation, typedArray)) == null) {
+                if (c.f13460d[ordinal()] != 2) {
+                    return new RotateLoadingLayout(context, mode, orientation, typedArray);
+                }
+                return new FlipLoadingLayout(context, mode, orientation, typedArray);
             }
-            return new FlipLoadingLayout(context, mode, orientation, typedArray);
+            return (LoadingLayout) invokeLLLL.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public enum Mode {
-        DISABLED(0),
-        PULL_FROM_START(1),
-        PULL_FROM_END(2),
-        BOTH(3),
-        MANUAL_REFRESH_ONLY(4);
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class Mode {
+        public static final /* synthetic */ Mode[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Mode BOTH;
+        public static final Mode DISABLED;
+        public static final Mode MANUAL_REFRESH_ONLY;
         public static Mode PULL_DOWN_TO_REFRESH;
+        public static final Mode PULL_FROM_END;
+        public static final Mode PULL_FROM_START;
         public static Mode PULL_UP_TO_REFRESH;
+        public transient /* synthetic */ FieldHolder $fh;
         public int mIntValue;
 
         static {
-            Mode mode = PULL_FROM_START;
-            Mode mode2 = PULL_FROM_END;
-            PULL_DOWN_TO_REFRESH = mode;
-            PULL_UP_TO_REFRESH = mode2;
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-747209456, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$Mode;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-747209456, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$Mode;");
+                    return;
+                }
+            }
+            DISABLED = new Mode("DISABLED", 0, 0);
+            PULL_FROM_START = new Mode("PULL_FROM_START", 1, 1);
+            PULL_FROM_END = new Mode("PULL_FROM_END", 2, 2);
+            BOTH = new Mode("BOTH", 3, 3);
+            Mode mode = new Mode("MANUAL_REFRESH_ONLY", 4, 4);
+            MANUAL_REFRESH_ONLY = mode;
+            Mode mode2 = PULL_FROM_START;
+            Mode mode3 = PULL_FROM_END;
+            $VALUES = new Mode[]{DISABLED, mode2, mode3, BOTH, mode};
+            PULL_DOWN_TO_REFRESH = mode2;
+            PULL_UP_TO_REFRESH = mode3;
         }
 
-        Mode(int i2) {
-            this.mIntValue = i2;
+        public Mode(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mIntValue = i3;
         }
 
         public static Mode getDefault() {
-            return PULL_FROM_START;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? PULL_FROM_START : (Mode) invokeV.objValue;
         }
 
         public static Mode mapIntToValue(int i2) {
+            InterceptResult invokeI;
             Mode[] values;
-            for (Mode mode : values()) {
-                if (i2 == mode.getIntValue()) {
-                    return mode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+                for (Mode mode : values()) {
+                    if (i2 == mode.getIntValue()) {
+                        return mode;
+                    }
                 }
+                return getDefault();
             }
-            return getDefault();
+            return (Mode) invokeI.objValue;
+        }
+
+        public static Mode valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (Mode) Enum.valueOf(Mode.class, str) : (Mode) invokeL.objValue;
+        }
+
+        public static Mode[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (Mode[]) $VALUES.clone() : (Mode[]) invokeV.objValue;
         }
 
         public int getIntValue() {
-            return this.mIntValue;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIntValue : invokeV.intValue;
         }
 
         public boolean permitsPullToRefresh() {
-            return (this == DISABLED || this == MANUAL_REFRESH_ONLY) ? false : true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this == DISABLED || this == MANUAL_REFRESH_ONLY) ? false : true : invokeV.booleanValue;
         }
 
         public boolean showFooterLoadingLayout() {
-            return this == PULL_FROM_END || this == BOTH || this == MANUAL_REFRESH_ONLY;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this == PULL_FROM_END || this == BOTH || this == MANUAL_REFRESH_ONLY : invokeV.booleanValue;
         }
 
         public boolean showHeaderLoadingLayout() {
-            return this == PULL_FROM_START || this == BOTH;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this == PULL_FROM_START || this == BOTH : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public enum Orientation {
-        VERTICAL,
-        HORIZONTAL
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class Orientation {
+        public static final /* synthetic */ Orientation[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Orientation HORIZONTAL;
+        public static final Orientation VERTICAL;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-695257261, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$Orientation;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-695257261, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$Orientation;");
+                    return;
+                }
+            }
+            VERTICAL = new Orientation("VERTICAL", 0);
+            Orientation orientation = new Orientation("HORIZONTAL", 1);
+            HORIZONTAL = orientation;
+            $VALUES = new Orientation[]{VERTICAL, orientation};
+        }
+
+        public Orientation(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static Orientation valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Orientation) Enum.valueOf(Orientation.class, str) : (Orientation) invokeL.objValue;
+        }
+
+        public static Orientation[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Orientation[]) $VALUES.clone() : (Orientation[]) invokeV.objValue;
+        }
     }
 
-    /* loaded from: classes3.dex */
-    public enum State {
-        RESET(0),
-        PULL_TO_REFRESH(1),
-        RELEASE_TO_REFRESH(2),
-        REFRESHING(8),
-        MANUAL_REFRESHING(9),
-        OVERSCROLLING(16);
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class State {
+        public static final /* synthetic */ State[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final State MANUAL_REFRESHING;
+        public static final State OVERSCROLLING;
+        public static final State PULL_TO_REFRESH;
+        public static final State REFRESHING;
+        public static final State RELEASE_TO_REFRESH;
+        public static final State RESET;
+        public transient /* synthetic */ FieldHolder $fh;
         public int mIntValue;
 
-        State(int i2) {
-            this.mIntValue = i2;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1512337742, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$State;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1512337742, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$State;");
+                    return;
+                }
+            }
+            RESET = new State("RESET", 0, 0);
+            PULL_TO_REFRESH = new State("PULL_TO_REFRESH", 1, 1);
+            RELEASE_TO_REFRESH = new State("RELEASE_TO_REFRESH", 2, 2);
+            REFRESHING = new State("REFRESHING", 3, 8);
+            MANUAL_REFRESHING = new State("MANUAL_REFRESHING", 4, 9);
+            State state = new State("OVERSCROLLING", 5, 16);
+            OVERSCROLLING = state;
+            $VALUES = new State[]{RESET, PULL_TO_REFRESH, RELEASE_TO_REFRESH, REFRESHING, MANUAL_REFRESHING, state};
+        }
+
+        public State(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mIntValue = i3;
         }
 
         public static State mapIntToValue(int i2) {
+            InterceptResult invokeI;
             State[] values;
-            for (State state : values()) {
-                if (i2 == state.getIntValue()) {
-                    return state;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+                for (State state : values()) {
+                    if (i2 == state.getIntValue()) {
+                        return state;
+                    }
                 }
+                return RESET;
             }
-            return RESET;
+            return (State) invokeI.objValue;
+        }
+
+        public static State valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+        }
+
+        public static State[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
         }
 
         public int getIntValue() {
-            return this.mIntValue;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIntValue : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements g {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PullToRefreshBase f13455a;
+
+        public a(PullToRefreshBase pullToRefreshBase) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pullToRefreshBase};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13455a = pullToRefreshBase;
         }
 
         @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.g
         public void a() {
-            PullToRefreshBase.this.f();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f13455a.f();
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PullToRefreshBase f13456e;
+
+        public b(PullToRefreshBase pullToRefreshBase) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pullToRefreshBase};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13456e = pullToRefreshBase;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            PullToRefreshBase.this.requestLayout();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f13456e.requestLayout();
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class c {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13372a;
+        public static final /* synthetic */ int[] f13457a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13373b;
+        public static final /* synthetic */ int[] f13458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13374c;
+        public static final /* synthetic */ int[] f13459c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13375d;
+        public static final /* synthetic */ int[] f13460d;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1935506176, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1935506176, "Lcom/baidu/tbadk/widget/pulltorefresh/library/PullToRefreshBase$c;");
+                    return;
+                }
+            }
             int[] iArr = new int[AnimationStyle.values().length];
-            f13375d = iArr;
+            f13460d = iArr;
             try {
                 iArr[AnimationStyle.ROTATE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13375d[AnimationStyle.FLIP.ordinal()] = 2;
+                f13460d[AnimationStyle.FLIP.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             int[] iArr2 = new int[Mode.values().length];
-            f13374c = iArr2;
+            f13459c = iArr2;
             try {
                 iArr2[Mode.PULL_FROM_END.ordinal()] = 1;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f13374c[Mode.PULL_FROM_START.ordinal()] = 2;
+                f13459c[Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f13374c[Mode.MANUAL_REFRESH_ONLY.ordinal()] = 3;
+                f13459c[Mode.MANUAL_REFRESH_ONLY.ordinal()] = 3;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f13374c[Mode.BOTH.ordinal()] = 4;
+                f13459c[Mode.BOTH.ordinal()] = 4;
             } catch (NoSuchFieldError unused6) {
             }
             int[] iArr3 = new int[State.values().length];
-            f13373b = iArr3;
+            f13458b = iArr3;
             try {
                 iArr3[State.RESET.ordinal()] = 1;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f13373b[State.PULL_TO_REFRESH.ordinal()] = 2;
+                f13458b[State.PULL_TO_REFRESH.ordinal()] = 2;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f13373b[State.RELEASE_TO_REFRESH.ordinal()] = 3;
+                f13458b[State.RELEASE_TO_REFRESH.ordinal()] = 3;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f13373b[State.REFRESHING.ordinal()] = 4;
+                f13458b[State.REFRESHING.ordinal()] = 4;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f13373b[State.MANUAL_REFRESHING.ordinal()] = 5;
+                f13458b[State.MANUAL_REFRESHING.ordinal()] = 5;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f13373b[State.OVERSCROLLING.ordinal()] = 6;
+                f13458b[State.OVERSCROLLING.ordinal()] = 6;
             } catch (NoSuchFieldError unused12) {
             }
             int[] iArr4 = new int[Orientation.values().length];
-            f13372a = iArr4;
+            f13457a = iArr4;
             try {
                 iArr4[Orientation.HORIZONTAL.ordinal()] = 1;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                f13372a[Orientation.VERTICAL.ordinal()] = 2;
+                f13457a[Orientation.VERTICAL.ordinal()] = 2;
             } catch (NoSuchFieldError unused14) {
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase, State state, Mode mode);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase);
 
         void b(PullToRefreshBase<V> pullToRefreshBase);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface g {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Interpolator f13376e;
+        public final Interpolator f13461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f13377f;
+        public final int f13462f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f13378g;
+        public final int f13463g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f13379h;
+        public final long f13464h;
 
         /* renamed from: i  reason: collision with root package name */
-        public g f13380i;
-        public boolean j = true;
-        public long k = -1;
-        public int l = -1;
+        public g f13465i;
+        public boolean j;
+        public long k;
+        public int l;
+        public final /* synthetic */ PullToRefreshBase m;
 
-        public h(int i2, int i3, long j, g gVar) {
-            this.f13378g = i2;
-            this.f13377f = i3;
-            this.f13376e = PullToRefreshBase.this.t;
-            this.f13379h = j;
-            this.f13380i = gVar;
+        public h(PullToRefreshBase pullToRefreshBase, int i2, int i3, long j, g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pullToRefreshBase, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.m = pullToRefreshBase;
+            this.j = true;
+            this.k = -1L;
+            this.l = -1;
+            this.f13463g = i2;
+            this.f13462f = i3;
+            this.f13461e = pullToRefreshBase.t;
+            this.f13464h = j;
+            this.f13465i = gVar;
         }
 
         public void a() {
-            this.j = false;
-            PullToRefreshBase.this.removeCallbacks(this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.j = false;
+                this.m.removeCallbacks(this);
+            }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.k == -1) {
-                this.k = System.currentTimeMillis();
-            } else {
-                int round = this.f13378g - Math.round((this.f13378g - this.f13377f) * this.f13376e.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.k) * 1000) / this.f13379h, 1000L), 0L)) / 1000.0f));
-                this.l = round;
-                PullToRefreshBase.this.setHeaderScroll(round);
-            }
-            if (this.j && this.f13377f != this.l) {
-                d.a.n0.b1.l.a.c.b.a(PullToRefreshBase.this, this);
-                return;
-            }
-            g gVar = this.f13380i;
-            if (gVar != null) {
-                gVar.a();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (this.k == -1) {
+                    this.k = System.currentTimeMillis();
+                } else {
+                    int round = this.f13463g - Math.round((this.f13463g - this.f13462f) * this.f13461e.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.k) * 1000) / this.f13464h, 1000L), 0L)) / 1000.0f));
+                    this.l = round;
+                    this.m.setHeaderScroll(round);
+                }
+                if (this.j && this.f13462f != this.l) {
+                    d.a.r0.b1.l.a.c.b.a(this.m, this);
+                    return;
+                }
+                g gVar = this.f13465i;
+                if (gVar != null) {
+                    gVar.a();
+                }
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PullToRefreshBase(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.j = false;
         this.k = State.RESET;
         this.l = Mode.getDefault();
@@ -363,600 +728,799 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     private LinearLayout.LayoutParams getLoadingLayoutLayoutParams() {
-        if (c.f13372a[getPullToRefreshScrollDirection().ordinal()] != 1) {
-            return new LinearLayout.LayoutParams(-1, -2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            if (c.f13457a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+                return new LinearLayout.LayoutParams(-1, -2);
+            }
+            return new LinearLayout.LayoutParams(-2, -1);
         }
-        return new LinearLayout.LayoutParams(-2, -1);
+        return (LinearLayout.LayoutParams) invokeV.objValue;
     }
 
     private int getMaximumPullScroll() {
-        if (c.f13372a[getPullToRefreshScrollDirection().ordinal()] != 1) {
-            return Math.round(getHeight() / 2.0f);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (c.f13457a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+                return Math.round(getHeight() / 2.0f);
+            }
+            return Math.round(getWidth() / 2.0f);
         }
-        return Math.round(getWidth() / 2.0f);
+        return invokeV.intValue;
     }
 
     public final void A(State state, boolean... zArr) {
-        this.k = state;
-        int i2 = c.f13373b[state.ordinal()];
-        if (i2 == 1) {
-            w();
-        } else if (i2 == 2) {
-            t();
-        } else if (i2 == 3) {
-            v();
-        } else if (i2 == 4 || i2 == 5) {
-            u(zArr[0]);
-        }
-        d<T> dVar = this.z;
-        if (dVar != null) {
-            dVar.a(this, this.k, this.m);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, state, zArr) == null) {
+            this.k = state;
+            int i2 = c.f13458b[state.ordinal()];
+            if (i2 == 1) {
+                w();
+            } else if (i2 == 2) {
+                t();
+            } else if (i2 == 3) {
+                v();
+            } else if (i2 == 4 || i2 == 5) {
+                u(zArr[0]);
+            }
+            d<T> dVar = this.z;
+            if (dVar != null) {
+                dVar.a(this, this.k, this.m);
+            }
         }
     }
 
     public final void B(int i2) {
-        C(i2, getPullToRefreshScrollDuration());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            C(i2, getPullToRefreshScrollDuration());
+        }
     }
 
     public final void C(int i2, long j) {
-        D(i2, j, 0L, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            D(i2, j, 0L, null);
+        }
     }
 
     public final void D(int i2, long j, long j2, g gVar) {
         int scrollX;
-        PullToRefreshBase<T>.h hVar = this.A;
-        if (hVar != null) {
-            hVar.a();
-        }
-        if (c.f13372a[getPullToRefreshScrollDirection().ordinal()] != 1) {
-            scrollX = getScrollY();
-        } else {
-            scrollX = getScrollX();
-        }
-        int i3 = scrollX;
-        if (i3 != i2) {
-            if (this.t == null) {
-                this.t = new DecelerateInterpolator();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), gVar}) == null) {
+            PullToRefreshBase<T>.h hVar = this.A;
+            if (hVar != null) {
+                hVar.a();
             }
-            PullToRefreshBase<T>.h hVar2 = new h(i3, i2, j, gVar);
-            this.A = hVar2;
-            if (j2 > 0) {
-                postDelayed(hVar2, j2);
+            if (c.f13457a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+                scrollX = getScrollY();
             } else {
-                post(hVar2);
+                scrollX = getScrollX();
+            }
+            int i3 = scrollX;
+            if (i3 != i2) {
+                if (this.t == null) {
+                    this.t = new DecelerateInterpolator();
+                }
+                PullToRefreshBase<T>.h hVar2 = new h(this, i3, i2, j, gVar);
+                this.A = hVar2;
+                if (j2 > 0) {
+                    postDelayed(hVar2, j2);
+                } else {
+                    post(hVar2);
+                }
             }
         }
     }
 
     public final void E(int i2, g gVar) {
-        D(i2, getPullToRefreshScrollDuration(), 0L, gVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, gVar) == null) {
+            D(i2, getPullToRefreshScrollDuration(), 0L, gVar);
+        }
     }
 
     public void F() {
-        LinearLayout.LayoutParams loadingLayoutLayoutParams = getLoadingLayoutLayoutParams();
-        if (this == this.v.getParent()) {
-            removeView(this.v);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LinearLayout.LayoutParams loadingLayoutLayoutParams = getLoadingLayoutLayoutParams();
+            if (this == this.v.getParent()) {
+                removeView(this.v);
+            }
+            if (this.l.showHeaderLoadingLayout()) {
+                d(this.v, 0, loadingLayoutLayoutParams);
+            }
+            if (this == this.w.getParent()) {
+                removeView(this.w);
+            }
+            if (this.l.showFooterLoadingLayout()) {
+                e(this.w, loadingLayoutLayoutParams);
+            }
+            y();
+            Mode mode = this.l;
+            if (mode == Mode.BOTH) {
+                mode = Mode.PULL_FROM_START;
+            }
+            this.m = mode;
         }
-        if (this.l.showHeaderLoadingLayout()) {
-            d(this.v, 0, loadingLayoutLayoutParams);
-        }
-        if (this == this.w.getParent()) {
-            removeView(this.w);
-        }
-        if (this.l.showFooterLoadingLayout()) {
-            e(this.w, loadingLayoutLayoutParams);
-        }
-        y();
-        Mode mode = this.l;
-        if (mode == Mode.BOTH) {
-            mode = Mode.PULL_FROM_START;
-        }
-        this.m = mode;
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
-        T refreshableView = getRefreshableView();
-        if (refreshableView instanceof ViewGroup) {
-            ((ViewGroup) refreshableView).addView(view, i2, layoutParams);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048582, this, view, i2, layoutParams) == null) {
+            T refreshableView = getRefreshableView();
+            if (refreshableView instanceof ViewGroup) {
+                ((ViewGroup) refreshableView).addView(view, i2, layoutParams);
+                return;
+            }
+            throw new UnsupportedOperationException("Refreshable View is not a ViewGroup so can't addView");
         }
-        throw new UnsupportedOperationException("Refreshable View is not a ViewGroup so can't addView");
     }
 
     public final void c(Context context, T t) {
-        FrameLayout frameLayout = new FrameLayout(context);
-        this.o = frameLayout;
-        frameLayout.addView(t, -1, -1);
-        e(this.o, new LinearLayout.LayoutParams(-1, -1));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, t) == null) {
+            FrameLayout frameLayout = new FrameLayout(context);
+            this.o = frameLayout;
+            frameLayout.addView(t, -1, -1);
+            e(this.o, new LinearLayout.LayoutParams(-1, -1));
+        }
     }
 
     public final void d(View view, int i2, ViewGroup.LayoutParams layoutParams) {
-        super.addView(view, i2, layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2, layoutParams) == null) {
+            super.addView(view, i2, layoutParams);
+        }
     }
 
     public final void e(View view, ViewGroup.LayoutParams layoutParams) {
-        super.addView(view, -1, layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, view, layoutParams) == null) {
+            super.addView(view, -1, layoutParams);
+        }
     }
 
     public final void f() {
-        f<T> fVar = this.x;
-        if (fVar != null) {
-            fVar.a(this);
-            return;
-        }
-        e<T> eVar = this.y;
-        if (eVar != null) {
-            Mode mode = this.m;
-            if (mode == Mode.PULL_FROM_START) {
-                eVar.b(this);
-            } else if (mode == Mode.PULL_FROM_END) {
-                eVar.a(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            f<T> fVar = this.x;
+            if (fVar != null) {
+                fVar.a(this);
+                return;
+            }
+            e<T> eVar = this.y;
+            if (eVar != null) {
+                Mode mode = this.m;
+                if (mode == Mode.PULL_FROM_START) {
+                    eVar.b(this);
+                } else if (mode == Mode.PULL_FROM_END) {
+                    eVar.a(this);
+                }
             }
         }
     }
 
     public LoadingLayout g(Context context, Mode mode, TypedArray typedArray) {
-        LoadingLayout createLoadingLayout = this.u.createLoadingLayout(context, mode, getPullToRefreshScrollDirection(), typedArray);
-        createLoadingLayout.setVisibility(4);
-        return createLoadingLayout;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, context, mode, typedArray)) == null) {
+            LoadingLayout createLoadingLayout = this.u.createLoadingLayout(context, mode, getPullToRefreshScrollDirection(), typedArray);
+            createLoadingLayout.setVisibility(4);
+            return createLoadingLayout;
+        }
+        return (LoadingLayout) invokeLLL.objValue;
     }
 
     public final Mode getCurrentMode() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.m : (Mode) invokeV.objValue;
     }
 
     public final boolean getFilterTouchEvents() {
-        return this.r;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.r : invokeV.booleanValue;
     }
 
     public final LoadingLayout getFooterLayout() {
-        return this.w;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.w : (LoadingLayout) invokeV.objValue;
     }
 
     public final int getFooterSize() {
-        return this.w.getContentSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.w.getContentSize() : invokeV.intValue;
     }
 
     public final LoadingLayout getHeaderLayout() {
-        return this.v;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.v : (LoadingLayout) invokeV.objValue;
     }
 
     public final int getHeaderSize() {
-        return this.v.getContentSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.v.getContentSize() : invokeV.intValue;
     }
 
-    public final d.a.n0.b1.l.a.a getLoadingLayoutProxy() {
-        return j(true, true);
+    public final d.a.r0.b1.l.a.a getLoadingLayoutProxy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? j(true, true) : (d.a.r0.b1.l.a.a) invokeV.objValue;
     }
 
     public final Mode getMode() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.l : (Mode) invokeV.objValue;
     }
 
     public abstract Orientation getPullToRefreshScrollDirection();
 
     public int getPullToRefreshScrollDuration() {
-        return 200;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return 200;
+        }
+        return invokeV.intValue;
     }
 
     public int getPullToRefreshScrollDurationLonger() {
-        return 325;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return 325;
+        }
+        return invokeV.intValue;
     }
 
     public final T getRefreshableView() {
-        return this.n;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.n : (T) invokeV.objValue;
     }
 
     public FrameLayout getRefreshableViewWrapper() {
-        return this.o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.o : (FrameLayout) invokeV.objValue;
     }
 
     public final boolean getShowViewWhileRefreshing() {
-        return this.p;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.p : invokeV.booleanValue;
     }
 
     public final State getState() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.k : (State) invokeV.objValue;
     }
 
-    public d.a.n0.b1.l.a.b h(boolean z, boolean z2) {
-        d.a.n0.b1.l.a.b bVar = new d.a.n0.b1.l.a.b();
-        if (z && this.l.showHeaderLoadingLayout()) {
-            bVar.a(this.v);
+    public d.a.r0.b1.l.a.b h(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            d.a.r0.b1.l.a.b bVar = new d.a.r0.b1.l.a.b();
+            if (z && this.l.showHeaderLoadingLayout()) {
+                bVar.a(this.v);
+            }
+            if (z2 && this.l.showFooterLoadingLayout()) {
+                bVar.a(this.w);
+            }
+            return bVar;
         }
-        if (z2 && this.l.showFooterLoadingLayout()) {
-            bVar.a(this.w);
-        }
-        return bVar;
+        return (d.a.r0.b1.l.a.b) invokeCommon.objValue;
     }
 
     public abstract T i(Context context, AttributeSet attributeSet);
 
-    public final d.a.n0.b1.l.a.a j(boolean z, boolean z2) {
-        return h(z, z2);
+    public final d.a.r0.b1.l.a.a j(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(z, z2) : (d.a.r0.b1.l.a.a) invokeCommon.objValue;
     }
 
     public void k(TypedArray typedArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, typedArray) == null) {
+        }
     }
 
     public final void l(Context context, AttributeSet attributeSet) {
-        if (c.f13372a[getPullToRefreshScrollDirection().ordinal()] != 1) {
-            setOrientation(1);
-        } else {
-            setOrientation(0);
-        }
-        setGravity(17);
-        this.f13365e = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.PullToRefresh);
-        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrMode)) {
-            this.l = Mode.mapIntToValue(obtainStyledAttributes.getInteger(R$styleable.PullToRefresh_tb_ptrMode, 0));
-        }
-        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrAnimationStyle)) {
-            this.u = AnimationStyle.mapIntToValue(obtainStyledAttributes.getInteger(R$styleable.PullToRefresh_tb_ptrAnimationStyle, 0));
-        }
-        T i2 = i(context, attributeSet);
-        this.n = i2;
-        c(context, i2);
-        this.v = g(context, Mode.PULL_FROM_START, obtainStyledAttributes);
-        this.w = g(context, Mode.PULL_FROM_END, obtainStyledAttributes);
-        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrRefreshableViewBackground)) {
-            Drawable drawable = obtainStyledAttributes.getDrawable(R$styleable.PullToRefresh_tb_ptrRefreshableViewBackground);
-            if (drawable != null) {
-                this.n.setBackgroundDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048607, this, context, attributeSet) == null) {
+            if (c.f13457a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+                setOrientation(1);
+            } else {
+                setOrientation(0);
             }
-        } else if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrAdapterViewBackground)) {
-            d.a.n0.b1.l.a.c.a.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
-            Drawable drawable2 = obtainStyledAttributes.getDrawable(R$styleable.PullToRefresh_tb_ptrAdapterViewBackground);
-            if (drawable2 != null) {
-                this.n.setBackgroundDrawable(drawable2);
+            setGravity(17);
+            this.f13450e = ViewConfiguration.get(context).getScaledTouchSlop();
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.PullToRefresh);
+            if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrMode)) {
+                this.l = Mode.mapIntToValue(obtainStyledAttributes.getInteger(R$styleable.PullToRefresh_tb_ptrMode, 0));
             }
+            if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrAnimationStyle)) {
+                this.u = AnimationStyle.mapIntToValue(obtainStyledAttributes.getInteger(R$styleable.PullToRefresh_tb_ptrAnimationStyle, 0));
+            }
+            T i2 = i(context, attributeSet);
+            this.n = i2;
+            c(context, i2);
+            this.v = g(context, Mode.PULL_FROM_START, obtainStyledAttributes);
+            this.w = g(context, Mode.PULL_FROM_END, obtainStyledAttributes);
+            if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrRefreshableViewBackground)) {
+                Drawable drawable = obtainStyledAttributes.getDrawable(R$styleable.PullToRefresh_tb_ptrRefreshableViewBackground);
+                if (drawable != null) {
+                    this.n.setBackgroundDrawable(drawable);
+                }
+            } else if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrAdapterViewBackground)) {
+                d.a.r0.b1.l.a.c.a.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
+                Drawable drawable2 = obtainStyledAttributes.getDrawable(R$styleable.PullToRefresh_tb_ptrAdapterViewBackground);
+                if (drawable2 != null) {
+                    this.n.setBackgroundDrawable(drawable2);
+                }
+            }
+            if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrOverScroll)) {
+                obtainStyledAttributes.getBoolean(R$styleable.PullToRefresh_tb_ptrOverScroll, true);
+            }
+            if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrScrollingWhileRefreshingEnabled)) {
+                this.q = obtainStyledAttributes.getBoolean(R$styleable.PullToRefresh_tb_ptrScrollingWhileRefreshingEnabled, false);
+            }
+            k(obtainStyledAttributes);
+            obtainStyledAttributes.recycle();
+            F();
         }
-        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrOverScroll)) {
-            obtainStyledAttributes.getBoolean(R$styleable.PullToRefresh_tb_ptrOverScroll, true);
-        }
-        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrScrollingWhileRefreshingEnabled)) {
-            this.q = obtainStyledAttributes.getBoolean(R$styleable.PullToRefresh_tb_ptrScrollingWhileRefreshingEnabled, false);
-        }
-        k(obtainStyledAttributes);
-        obtainStyledAttributes.recycle();
-        F();
     }
 
     public final boolean m() {
-        return this.l.permitsPullToRefresh();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.l.permitsPullToRefresh() : invokeV.booleanValue;
     }
 
     public final boolean n() {
-        int i2 = c.f13374c[this.l.ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 4) {
-                    return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            int i2 = c.f13459c[this.l.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 4) {
+                        return false;
+                    }
+                    return o() || p();
                 }
-                return o() || p();
+                return p();
             }
-            return p();
+            return o();
         }
-        return o();
+        return invokeV.booleanValue;
     }
 
     public abstract boolean o();
 
     @Override // android.view.ViewGroup
     public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         float f2;
         float f3;
-        if (m()) {
-            int action = motionEvent.getAction();
-            if (action != 3 && action != 1) {
-                if (action == 0 || !this.j) {
-                    if (action != 0) {
-                        if (action == 2) {
-                            if (!this.q && q()) {
-                                return true;
-                            }
-                            if (n()) {
-                                float y = motionEvent.getY();
-                                float x = motionEvent.getX();
-                                if (c.f13372a[getPullToRefreshScrollDirection().ordinal()] != 1) {
-                                    f2 = y - this.f13367g;
-                                    f3 = x - this.f13366f;
-                                } else {
-                                    f2 = x - this.f13366f;
-                                    f3 = y - this.f13367g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, motionEvent)) == null) {
+            if (m()) {
+                int action = motionEvent.getAction();
+                if (action != 3 && action != 1) {
+                    if (action == 0 || !this.j) {
+                        if (action != 0) {
+                            if (action == 2) {
+                                if (!this.q && q()) {
+                                    return true;
                                 }
-                                float abs = Math.abs(f2);
-                                if (abs > this.f13365e && (!this.r || abs > Math.abs(f3))) {
-                                    if (this.l.showHeaderLoadingLayout() && f2 >= 1.0f && p()) {
-                                        this.f13367g = y;
-                                        this.f13366f = x;
-                                        this.j = true;
-                                        if (this.l == Mode.BOTH) {
-                                            this.m = Mode.PULL_FROM_START;
-                                        }
-                                    } else if (this.l.showFooterLoadingLayout() && f2 <= -1.0f && o()) {
-                                        this.f13367g = y;
-                                        this.f13366f = x;
-                                        this.j = true;
-                                        if (this.l == Mode.BOTH) {
-                                            this.m = Mode.PULL_FROM_END;
+                                if (n()) {
+                                    float y = motionEvent.getY();
+                                    float x = motionEvent.getX();
+                                    if (c.f13457a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+                                        f2 = y - this.f13452g;
+                                        f3 = x - this.f13451f;
+                                    } else {
+                                        f2 = x - this.f13451f;
+                                        f3 = y - this.f13452g;
+                                    }
+                                    float abs = Math.abs(f2);
+                                    if (abs > this.f13450e && (!this.r || abs > Math.abs(f3))) {
+                                        if (this.l.showHeaderLoadingLayout() && f2 >= 1.0f && p()) {
+                                            this.f13452g = y;
+                                            this.f13451f = x;
+                                            this.j = true;
+                                            if (this.l == Mode.BOTH) {
+                                                this.m = Mode.PULL_FROM_START;
+                                            }
+                                        } else if (this.l.showFooterLoadingLayout() && f2 <= -1.0f && o()) {
+                                            this.f13452g = y;
+                                            this.f13451f = x;
+                                            this.j = true;
+                                            if (this.l == Mode.BOTH) {
+                                                this.m = Mode.PULL_FROM_END;
+                                            }
                                         }
                                     }
                                 }
                             }
+                        } else if (n()) {
+                            float y2 = motionEvent.getY();
+                            this.f13454i = y2;
+                            this.f13452g = y2;
+                            float x2 = motionEvent.getX();
+                            this.f13453h = x2;
+                            this.f13451f = x2;
+                            this.j = false;
                         }
-                    } else if (n()) {
-                        float y2 = motionEvent.getY();
-                        this.f13369i = y2;
-                        this.f13367g = y2;
-                        float x2 = motionEvent.getX();
-                        this.f13368h = x2;
-                        this.f13366f = x2;
-                        this.j = false;
+                        return this.j;
                     }
-                    return this.j;
+                    return true;
                 }
-                return true;
+                this.j = false;
+                return false;
             }
-            this.j = false;
             return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public final void onRestoreInstanceState(Parcelable parcelable) {
-        if (parcelable instanceof Bundle) {
-            Bundle bundle = (Bundle) parcelable;
-            setMode(Mode.mapIntToValue(bundle.getInt("ptr_mode", 0)));
-            this.m = Mode.mapIntToValue(bundle.getInt("ptr_current_mode", 0));
-            this.q = bundle.getBoolean("ptr_disable_scrolling", false);
-            this.p = bundle.getBoolean("ptr_show_refreshing_view", true);
-            super.onRestoreInstanceState(bundle.getParcelable("ptr_super"));
-            State mapIntToValue = State.mapIntToValue(bundle.getInt("ptr_state", 0));
-            if (mapIntToValue == State.REFRESHING || mapIntToValue == State.MANUAL_REFRESHING) {
-                A(mapIntToValue, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, parcelable) == null) {
+            if (parcelable instanceof Bundle) {
+                Bundle bundle = (Bundle) parcelable;
+                setMode(Mode.mapIntToValue(bundle.getInt("ptr_mode", 0)));
+                this.m = Mode.mapIntToValue(bundle.getInt("ptr_current_mode", 0));
+                this.q = bundle.getBoolean("ptr_disable_scrolling", false);
+                this.p = bundle.getBoolean("ptr_show_refreshing_view", true);
+                super.onRestoreInstanceState(bundle.getParcelable("ptr_super"));
+                State mapIntToValue = State.mapIntToValue(bundle.getInt("ptr_state", 0));
+                if (mapIntToValue == State.REFRESHING || mapIntToValue == State.MANUAL_REFRESHING) {
+                    A(mapIntToValue, true);
+                }
+                r(bundle);
+                return;
             }
-            r(bundle);
-            return;
+            super.onRestoreInstanceState(parcelable);
         }
-        super.onRestoreInstanceState(parcelable);
     }
 
     @Override // android.view.View
     public final Parcelable onSaveInstanceState() {
-        Bundle bundle = new Bundle();
-        s(bundle);
-        bundle.putInt("ptr_state", this.k.getIntValue());
-        bundle.putInt("ptr_mode", this.l.getIntValue());
-        bundle.putInt("ptr_current_mode", this.m.getIntValue());
-        bundle.putBoolean("ptr_disable_scrolling", this.q);
-        bundle.putBoolean("ptr_show_refreshing_view", this.p);
-        bundle.putParcelable("ptr_super", super.onSaveInstanceState());
-        return bundle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            Bundle bundle = new Bundle();
+            s(bundle);
+            bundle.putInt("ptr_state", this.k.getIntValue());
+            bundle.putInt("ptr_mode", this.l.getIntValue());
+            bundle.putInt("ptr_current_mode", this.m.getIntValue());
+            bundle.putBoolean("ptr_disable_scrolling", this.q);
+            bundle.putBoolean("ptr_show_refreshing_view", this.p);
+            bundle.putParcelable("ptr_super", super.onSaveInstanceState());
+            return bundle;
+        }
+        return (Parcelable) invokeV.objValue;
     }
 
     @Override // android.view.View
     public final void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        y();
-        z(i2, i3);
-        post(new b());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048614, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            y();
+            z(i2, i3);
+            post(new b(this));
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x002d, code lost:
-        if (r0 != 3) goto L22;
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0031, code lost:
+        if (r0 != 3) goto L24;
      */
     @Override // android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final boolean onTouchEvent(MotionEvent motionEvent) {
-        if (m()) {
-            if (this.q || !q()) {
-                if (motionEvent.getAction() != 0 || motionEvent.getEdgeFlags() == 0) {
-                    int action = motionEvent.getAction();
-                    if (action != 0) {
-                        if (action != 1) {
-                            if (action == 2) {
-                                if (this.j) {
-                                    this.f13367g = motionEvent.getY();
-                                    this.f13366f = motionEvent.getX();
-                                    x();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, motionEvent)) == null) {
+            if (m()) {
+                if (this.q || !q()) {
+                    if (motionEvent.getAction() != 0 || motionEvent.getEdgeFlags() == 0) {
+                        int action = motionEvent.getAction();
+                        if (action != 0) {
+                            if (action != 1) {
+                                if (action == 2) {
+                                    if (this.j) {
+                                        this.f13452g = motionEvent.getY();
+                                        this.f13451f = motionEvent.getX();
+                                        x();
+                                        return true;
+                                    }
+                                }
+                            }
+                            if (this.j) {
+                                this.j = false;
+                                if (this.k == State.RELEASE_TO_REFRESH && (this.x != null || this.y != null)) {
+                                    A(State.REFRESHING, true);
+                                    return true;
+                                } else if (q()) {
+                                    B(0);
+                                    return true;
+                                } else {
+                                    A(State.RESET, new boolean[0]);
                                     return true;
                                 }
                             }
+                        } else if (n()) {
+                            float y = motionEvent.getY();
+                            this.f13454i = y;
+                            this.f13452g = y;
+                            float x = motionEvent.getX();
+                            this.f13453h = x;
+                            this.f13451f = x;
+                            return true;
                         }
-                        if (this.j) {
-                            this.j = false;
-                            if (this.k == State.RELEASE_TO_REFRESH && (this.x != null || this.y != null)) {
-                                A(State.REFRESHING, true);
-                                return true;
-                            } else if (q()) {
-                                B(0);
-                                return true;
-                            } else {
-                                A(State.RESET, new boolean[0]);
-                                return true;
-                            }
-                        }
-                    } else if (n()) {
-                        float y = motionEvent.getY();
-                        this.f13369i = y;
-                        this.f13367g = y;
-                        float x = motionEvent.getX();
-                        this.f13368h = x;
-                        this.f13366f = x;
-                        return true;
+                        return false;
                     }
                     return false;
                 }
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public abstract boolean p();
 
     public final boolean q() {
-        State state = this.k;
-        return state == State.REFRESHING || state == State.MANUAL_REFRESHING;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            State state = this.k;
+            return state == State.REFRESHING || state == State.MANUAL_REFRESHING;
+        }
+        return invokeV.booleanValue;
     }
 
     public void r(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, bundle) == null) {
+        }
     }
 
     public void s(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, bundle) == null) {
+        }
     }
 
     public void setDisableScrollingWhileRefreshing(boolean z) {
-        setScrollingWhileRefreshingEnabled(!z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+            setScrollingWhileRefreshingEnabled(!z);
+        }
     }
 
     public final void setFilterTouchEvents(boolean z) {
-        this.r = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
+            this.r = z;
+        }
     }
 
     public final void setHeaderScroll(int i2) {
-        int maximumPullScroll = getMaximumPullScroll();
-        int min = Math.min(maximumPullScroll, Math.max(-maximumPullScroll, i2));
-        if (this.s) {
-            if (min < 0) {
-                this.v.setVisibility(0);
-            } else if (min > 0) {
-                this.w.setVisibility(0);
-            } else {
-                this.v.setVisibility(4);
-                this.w.setVisibility(4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+            int maximumPullScroll = getMaximumPullScroll();
+            int min = Math.min(maximumPullScroll, Math.max(-maximumPullScroll, i2));
+            if (this.s) {
+                if (min < 0) {
+                    this.v.setVisibility(0);
+                } else if (min > 0) {
+                    this.w.setVisibility(0);
+                } else {
+                    this.v.setVisibility(4);
+                    this.w.setVisibility(4);
+                }
             }
-        }
-        int i3 = c.f13372a[getPullToRefreshScrollDirection().ordinal()];
-        if (i3 == 1) {
-            scrollTo(min, 0);
-        } else if (i3 != 2) {
-        } else {
-            scrollTo(0, min);
+            int i3 = c.f13457a[getPullToRefreshScrollDirection().ordinal()];
+            if (i3 == 1) {
+                scrollTo(min, 0);
+            } else if (i3 != 2) {
+            } else {
+                scrollTo(0, min);
+            }
         }
     }
 
     public void setLastUpdatedLabel(CharSequence charSequence) {
-        getLoadingLayoutProxy().setLastUpdatedLabel(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, charSequence) == null) {
+            getLoadingLayoutProxy().setLastUpdatedLabel(charSequence);
+        }
     }
 
     public void setLoadingDrawable(Drawable drawable) {
-        getLoadingLayoutProxy().setLoadingDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, drawable) == null) {
+            getLoadingLayoutProxy().setLoadingDrawable(drawable);
+        }
     }
 
     @Override // android.view.View
     public void setLongClickable(boolean z) {
-        getRefreshableView().setLongClickable(z);
-    }
-
-    public final void setMode(Mode mode) {
-        if (mode != this.l) {
-            this.l = mode;
-            F();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
+            getRefreshableView().setLongClickable(z);
         }
     }
 
+    public final void setMode(Mode mode) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048627, this, mode) == null) || mode == this.l) {
+            return;
+        }
+        this.l = mode;
+        F();
+    }
+
     public void setOnPullEventListener(d<T> dVar) {
-        this.z = dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, dVar) == null) {
+            this.z = dVar;
+        }
     }
 
     public final void setOnRefreshListener(f<T> fVar) {
-        this.x = fVar;
-        this.y = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048630, this, fVar) == null) {
+            this.x = fVar;
+            this.y = null;
+        }
     }
 
     public void setPullLabel(CharSequence charSequence) {
-        getLoadingLayoutProxy().setPullLabel(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, charSequence) == null) {
+            getLoadingLayoutProxy().setPullLabel(charSequence);
+        }
     }
 
     public final void setPullToRefreshEnabled(boolean z) {
-        setMode(z ? Mode.getDefault() : Mode.DISABLED);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048633, this, z) == null) {
+            setMode(z ? Mode.getDefault() : Mode.DISABLED);
+        }
     }
 
     public final void setPullToRefreshOverScrollEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
+        }
     }
 
     public final void setRefreshing() {
-        setRefreshing(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+            setRefreshing(true);
+        }
     }
 
     public void setRefreshingLabel(CharSequence charSequence) {
-        getLoadingLayoutProxy().setRefreshingLabel(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048637, this, charSequence) == null) {
+            getLoadingLayoutProxy().setRefreshingLabel(charSequence);
+        }
     }
 
     public void setReleaseLabel(CharSequence charSequence) {
-        setReleaseLabel(charSequence, Mode.BOTH);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048639, this, charSequence) == null) {
+            setReleaseLabel(charSequence, Mode.BOTH);
+        }
     }
 
     public void setScrollAnimationInterpolator(Interpolator interpolator) {
-        this.t = interpolator;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048641, this, interpolator) == null) {
+            this.t = interpolator;
+        }
     }
 
     public final void setScrollingWhileRefreshingEnabled(boolean z) {
-        this.q = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+            this.q = z;
+        }
     }
 
     public final void setShowViewWhileRefreshing(boolean z) {
-        this.p = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048643, this, z) == null) {
+            this.p = z;
+        }
     }
 
     public void t() {
-        int i2 = c.f13374c[this.m.ordinal()];
-        if (i2 == 1) {
-            this.w.d();
-        } else if (i2 != 2) {
-        } else {
-            this.v.d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048644, this) == null) {
+            int i2 = c.f13459c[this.m.ordinal()];
+            if (i2 == 1) {
+                this.w.d();
+            } else if (i2 != 2) {
+            } else {
+                this.v.d();
+            }
         }
     }
 
     public void u(boolean z) {
-        if (this.l.showHeaderLoadingLayout()) {
-            this.v.f();
-        }
-        if (this.l.showFooterLoadingLayout()) {
-            this.w.f();
-        }
-        if (z) {
-            if (this.p) {
-                a aVar = new a();
-                int i2 = c.f13374c[this.m.ordinal()];
-                if (i2 != 1 && i2 != 3) {
-                    E(-getHeaderSize(), aVar);
-                    return;
-                } else {
-                    E(getFooterSize(), aVar);
-                    return;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048645, this, z) == null) {
+            if (this.l.showHeaderLoadingLayout()) {
+                this.v.f();
             }
-            B(0);
-            return;
+            if (this.l.showFooterLoadingLayout()) {
+                this.w.f();
+            }
+            if (z) {
+                if (this.p) {
+                    a aVar = new a(this);
+                    int i2 = c.f13459c[this.m.ordinal()];
+                    if (i2 != 1 && i2 != 3) {
+                        E(-getHeaderSize(), aVar);
+                        return;
+                    } else {
+                        E(getFooterSize(), aVar);
+                        return;
+                    }
+                }
+                B(0);
+                return;
+            }
+            f();
         }
-        f();
     }
 
     public void v() {
-        int i2 = c.f13374c[this.m.ordinal()];
-        if (i2 == 1) {
-            this.w.h();
-        } else if (i2 != 2) {
-        } else {
-            this.v.h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048646, this) == null) {
+            int i2 = c.f13459c[this.m.ordinal()];
+            if (i2 == 1) {
+                this.w.h();
+            } else if (i2 != 2) {
+            } else {
+                this.v.h();
+            }
         }
     }
 
     public void w() {
-        this.j = false;
-        this.s = true;
-        this.v.j();
-        this.w.j();
-        B(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
+            this.j = false;
+            this.s = true;
+            this.v.j();
+            this.w.j();
+            B(0);
+        }
     }
 
     public final void x() {
@@ -964,119 +1528,161 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         float f3;
         int round;
         int footerSize;
-        if (c.f13372a[getPullToRefreshScrollDirection().ordinal()] != 1) {
-            f2 = this.f13369i;
-            f3 = this.f13367g;
-        } else {
-            f2 = this.f13368h;
-            f3 = this.f13366f;
-        }
-        if (c.f13374c[this.m.ordinal()] != 1) {
-            round = Math.round(Math.min(f2 - f3, 0.0f) / 2.0f);
-            footerSize = getHeaderSize();
-        } else {
-            round = Math.round(Math.max(f2 - f3, 0.0f) / 2.0f);
-            footerSize = getFooterSize();
-        }
-        setHeaderScroll(round);
-        if (round == 0 || q()) {
-            return;
-        }
-        float abs = Math.abs(round) / footerSize;
-        if (c.f13374c[this.m.ordinal()] != 1) {
-            this.v.b(abs);
-        } else {
-            this.w.b(abs);
-        }
-        if (this.k != State.PULL_TO_REFRESH && footerSize >= Math.abs(round)) {
-            A(State.PULL_TO_REFRESH, new boolean[0]);
-        } else if (this.k != State.PULL_TO_REFRESH || footerSize >= Math.abs(round)) {
-        } else {
-            A(State.RELEASE_TO_REFRESH, new boolean[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
+            if (c.f13457a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+                f2 = this.f13454i;
+                f3 = this.f13452g;
+            } else {
+                f2 = this.f13453h;
+                f3 = this.f13451f;
+            }
+            if (c.f13459c[this.m.ordinal()] != 1) {
+                round = Math.round(Math.min(f2 - f3, 0.0f) / 2.0f);
+                footerSize = getHeaderSize();
+            } else {
+                round = Math.round(Math.max(f2 - f3, 0.0f) / 2.0f);
+                footerSize = getFooterSize();
+            }
+            setHeaderScroll(round);
+            if (round == 0 || q()) {
+                return;
+            }
+            float abs = Math.abs(round) / footerSize;
+            if (c.f13459c[this.m.ordinal()] != 1) {
+                this.v.b(abs);
+            } else {
+                this.w.b(abs);
+            }
+            if (this.k != State.PULL_TO_REFRESH && footerSize >= Math.abs(round)) {
+                A(State.PULL_TO_REFRESH, new boolean[0]);
+            } else if (this.k != State.PULL_TO_REFRESH || footerSize >= Math.abs(round)) {
+            } else {
+                A(State.RELEASE_TO_REFRESH, new boolean[0]);
+            }
         }
     }
 
     public final void y() {
-        int maximumPullScroll = (int) (getMaximumPullScroll() * 1.2f);
-        int paddingLeft = getPaddingLeft();
-        int paddingTop = getPaddingTop();
-        int paddingRight = getPaddingRight();
-        int paddingBottom = getPaddingBottom();
-        int i2 = c.f13372a[getPullToRefreshScrollDirection().ordinal()];
-        if (i2 == 1) {
-            if (this.l.showHeaderLoadingLayout()) {
-                this.v.setWidth(maximumPullScroll);
-                paddingLeft = -maximumPullScroll;
-            } else {
-                paddingLeft = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048649, this) == null) {
+            int maximumPullScroll = (int) (getMaximumPullScroll() * 1.2f);
+            int paddingLeft = getPaddingLeft();
+            int paddingTop = getPaddingTop();
+            int paddingRight = getPaddingRight();
+            int paddingBottom = getPaddingBottom();
+            int i2 = c.f13457a[getPullToRefreshScrollDirection().ordinal()];
+            if (i2 == 1) {
+                if (this.l.showHeaderLoadingLayout()) {
+                    this.v.setWidth(maximumPullScroll);
+                    paddingLeft = -maximumPullScroll;
+                } else {
+                    paddingLeft = 0;
+                }
+                if (this.l.showFooterLoadingLayout()) {
+                    this.w.setWidth(maximumPullScroll);
+                    paddingRight = -maximumPullScroll;
+                } else {
+                    paddingRight = 0;
+                }
+            } else if (i2 == 2) {
+                if (this.l.showHeaderLoadingLayout()) {
+                    this.v.setHeight(maximumPullScroll);
+                    paddingTop = -maximumPullScroll;
+                } else {
+                    paddingTop = 0;
+                }
+                if (this.l.showFooterLoadingLayout()) {
+                    this.w.setHeight(maximumPullScroll);
+                    paddingBottom = -maximumPullScroll;
+                } else {
+                    paddingBottom = 0;
+                }
             }
-            if (this.l.showFooterLoadingLayout()) {
-                this.w.setWidth(maximumPullScroll);
-                paddingRight = -maximumPullScroll;
-            } else {
-                paddingRight = 0;
-            }
-        } else if (i2 == 2) {
-            if (this.l.showHeaderLoadingLayout()) {
-                this.v.setHeight(maximumPullScroll);
-                paddingTop = -maximumPullScroll;
-            } else {
-                paddingTop = 0;
-            }
-            if (this.l.showFooterLoadingLayout()) {
-                this.w.setHeight(maximumPullScroll);
-                paddingBottom = -maximumPullScroll;
-            } else {
-                paddingBottom = 0;
-            }
+            setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
-        setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
     }
 
     public final void z(int i2, int i3) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
-        int i4 = c.f13372a[getPullToRefreshScrollDirection().ordinal()];
-        if (i4 != 1) {
-            if (i4 == 2 && layoutParams.height != i3) {
-                layoutParams.height = i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048650, this, i2, i3) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
+            int i4 = c.f13457a[getPullToRefreshScrollDirection().ordinal()];
+            if (i4 != 1) {
+                if (i4 == 2 && layoutParams.height != i3) {
+                    layoutParams.height = i3;
+                    this.o.requestLayout();
+                }
+            } else if (layoutParams.width != i2) {
+                layoutParams.width = i2;
                 this.o.requestLayout();
             }
-        } else if (layoutParams.width != i2) {
-            layoutParams.width = i2;
-            this.o.requestLayout();
         }
     }
 
     public void setLoadingDrawable(Drawable drawable, Mode mode) {
-        j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setLoadingDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048625, this, drawable, mode) == null) {
+            j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setLoadingDrawable(drawable);
+        }
     }
 
     public void setPullLabel(CharSequence charSequence, Mode mode) {
-        j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setPullLabel(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048632, this, charSequence, mode) == null) {
+            j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setPullLabel(charSequence);
+        }
     }
 
     public final void setRefreshing(boolean z) {
-        if (q()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048636, this, z) == null) || q()) {
             return;
         }
         A(State.MANUAL_REFRESHING, z);
     }
 
     public void setRefreshingLabel(CharSequence charSequence, Mode mode) {
-        j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setRefreshingLabel(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048638, this, charSequence, mode) == null) {
+            j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setRefreshingLabel(charSequence);
+        }
     }
 
     public void setReleaseLabel(CharSequence charSequence, Mode mode) {
-        j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setReleaseLabel(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048640, this, charSequence, mode) == null) {
+            j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setReleaseLabel(charSequence);
+        }
     }
 
     public final void setOnRefreshListener(e<T> eVar) {
-        this.y = eVar;
-        this.x = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, eVar) == null) {
+            this.y = eVar;
+            this.x = null;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PullToRefreshBase(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.j = false;
         this.k = State.RESET;
         this.l = Mode.getDefault();

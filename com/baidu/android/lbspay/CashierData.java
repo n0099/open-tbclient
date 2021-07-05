@@ -1,12 +1,21 @@
 package com.baidu.android.lbspay;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.restnet.RestNameValuePair;
-import com.baidu.wallet.api.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class CashierData implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CUSTOMER_ID = "customerId";
     public static final String DEFAULT_RES_PAGE = "defaultResPage";
     public static String DELIVERY_CASHIER_CONTENT = "delivery_cashier_content";
@@ -32,17 +41,24 @@ public class CashierData implements Serializable {
     public static final String TN = "tn";
     public static final String URL = "url";
     public static final long serialVersionUID = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public String customerId;
     public String defaultResPage;
+    public String deviceType;
+    public String extData;
     public String failUrl;
+    public String fuser;
+    public String imei;
     public String itemInfo;
     public Map<String, String> mData;
     public Map<String, String[]> mExtraData;
     public String mobile;
+    public String notifyUrl;
     public String orderCreateTime;
     public String orderId;
     public String passuid;
     public String payAmount;
+    public String returnUrl;
     public String sdk;
     public String service;
     public String sign;
@@ -50,16 +66,47 @@ public class CashierData implements Serializable {
     public String title;
     public String tn;
     public String url;
-    public String deviceType = "1";
-    public String returnUrl = "";
-    public String notifyUrl = "";
-    public String imei = "";
-    public String fuser = "";
-    public String extData = "";
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-141286588, "Lcom/baidu/android/lbspay/CashierData;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-141286588, "Lcom/baidu/android/lbspay/CashierData;");
+        }
+    }
+
+    public CashierData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.deviceType = "1";
+        this.returnUrl = "";
+        this.notifyUrl = "";
+        this.imei = "";
+        this.fuser = "";
+        this.extData = "";
+    }
 
     public void addParams(List<RestNameValuePair> list) {
-        Map<String, String> map = this.mData;
-        if (map == null) {
+        Map<String, String> map;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || (map = this.mData) == null) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -76,52 +123,95 @@ public class CashierData implements Serializable {
     }
 
     public String amount() {
-        Map<String, String> map = this.mData;
-        return map != null ? map.get("payAmount") : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Map<String, String> map = this.mData;
+            return map != null ? map.get("payAmount") : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getCustomId() {
-        Map<String, String> map = this.mData;
-        return map != null ? map.get("customerId") : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Map<String, String> map = this.mData;
+            return map != null ? map.get("customerId") : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public Map<String, String> getData() {
-        return this.mData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData : (Map) invokeV.objValue;
     }
 
     public String getGoodsName() {
-        Map<String, String> map = this.mData;
-        return map != null ? map.get("title") : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Map<String, String> map = this.mData;
+            return map != null ? map.get("title") : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String[] getOderInfoDescArray() {
-        Map<String, String[]> map = this.mExtraData;
-        if (map != null) {
-            return map.get(Constants.KEY_ORDERINFO_DESCARRAY);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Map<String, String[]> map = this.mExtraData;
+            if (map != null) {
+                return map.get(com.baidu.wallet.api.Constants.KEY_ORDERINFO_DESCARRAY);
+            }
+            return null;
         }
-        return null;
+        return (String[]) invokeV.objValue;
     }
 
     public String getOrderNo() {
-        Map<String, String> map = this.mData;
-        return map != null ? map.get("orderId") : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Map<String, String> map = this.mData;
+            return map != null ? map.get("orderId") : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUid() {
-        Map<String, String> map = this.mData;
-        return map != null ? map.get("passuid") : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Map<String, String> map = this.mData;
+            return map != null ? map.get("passuid") : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String originAmount() {
-        Map<String, String> map = this.mData;
-        return map != null ? map.get("originalAmount") : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            Map<String, String> map = this.mData;
+            return map != null ? map.get("originalAmount") : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setData(Map<String, String> map) {
-        this.mData = map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
+            this.mData = map;
+        }
     }
 
     public void setExtraData(Map<String, String[]> map) {
-        this.mExtraData = map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
+            this.mExtraData = map;
+        }
     }
 }

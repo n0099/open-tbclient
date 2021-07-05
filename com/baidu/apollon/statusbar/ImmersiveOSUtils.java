@@ -3,8 +3,15 @@ package com.baidu.apollon.statusbar;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class ImmersiveOSUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String FLYME = "flyme";
     public static final String KEY_DISPLAY = "ro.build.display.id";
     public static final String KEY_EMUI_VERSION_NAME = "ro.build.version.emui";
@@ -14,131 +21,211 @@ public class ImmersiveOSUtils {
     public static final String NUBIA = "nubia";
     public static final String ZTEC2016 = "zte c2016";
     public static final String ZUKZ1 = "zuk z1";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ImmersiveOSUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static String getEMUIVersion() {
-        return isEMUI() ? getSystemProperty("ro.build.version.emui", "") : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? isEMUI() ? getSystemProperty("ro.build.version.emui", "") : "" : (String) invokeV.objValue;
     }
 
     public static String getFlymeOSFlag() {
-        return getSystemProperty("ro.build.display.id", "");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? getSystemProperty("ro.build.display.id", "") : (String) invokeV.objValue;
     }
 
     public static String getFlymeOSVersion() {
-        return isFlymeOS() ? getSystemProperty("ro.build.display.id", "") : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? isFlymeOS() ? getSystemProperty("ro.build.display.id", "") : "" : (String) invokeV.objValue;
     }
 
     public static String getMIUIVersion() {
-        return isMIUI() ? getSystemProperty("ro.miui.ui.version.name", "") : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? isMIUI() ? getSystemProperty("ro.miui.ui.version.name", "") : "" : (String) invokeV.objValue;
     }
 
     public static String getSystemProperty(String str, String str2) {
-        try {
-            Class<?> cls = Class.forName("android.os.SystemProperties");
-            return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return str2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+            try {
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return str2;
+            }
         }
+        return (String) invokeLL.objValue;
     }
 
     public static boolean isEMUI() {
-        return !TextUtils.isEmpty(getSystemProperty("ro.build.version.emui", ""));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? !TextUtils.isEmpty(getSystemProperty("ro.build.version.emui", "")) : invokeV.booleanValue;
     }
 
     public static boolean isEMUI3_0() {
-        return getEMUIVersion().contains("EmotionUI_3.0");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? getEMUIVersion().contains("EmotionUI_3.0") : invokeV.booleanValue;
     }
 
     public static boolean isEMUI3_1() {
-        String eMUIVersion = getEMUIVersion();
-        return "EmotionUI 3".equals(eMUIVersion) || eMUIVersion.contains("EmotionUI_3.1");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String eMUIVersion = getEMUIVersion();
+            return "EmotionUI 3".equals(eMUIVersion) || eMUIVersion.contains("EmotionUI_3.1");
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isFlymeOS() {
-        return getFlymeOSFlag().toLowerCase().contains(FLYME);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getFlymeOSFlag().toLowerCase().contains(FLYME) : invokeV.booleanValue;
     }
 
     public static boolean isFlymeOS4Plus() {
+        InterceptResult invokeV;
         int intValue;
-        String flymeOSVersion = getFlymeOSVersion();
-        if (flymeOSVersion.isEmpty()) {
-            return false;
-        }
-        try {
-            if (flymeOSVersion.toLowerCase().contains(IAdRequestParam.OS)) {
-                intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
-            } else {
-                intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            String flymeOSVersion = getFlymeOSVersion();
+            if (flymeOSVersion.isEmpty()) {
+                return false;
             }
-            return ((double) intValue) > 4.4d;
-        } catch (NumberFormatException unused) {
-            return false;
+            try {
+                if (flymeOSVersion.toLowerCase().contains(IAdRequestParam.OS)) {
+                    intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
+                } else {
+                    intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();
+                }
+                return ((double) intValue) > 4.4d;
+            } catch (NumberFormatException unused) {
+                return false;
+            }
         }
+        return invokeV.booleanValue;
     }
 
     public static boolean isFlymeOS5() {
+        InterceptResult invokeV;
         int intValue;
-        String flymeOSVersion = getFlymeOSVersion();
-        if (flymeOSVersion.isEmpty()) {
-            return false;
-        }
-        try {
-            if (flymeOSVersion.toLowerCase().contains(IAdRequestParam.OS)) {
-                intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
-            } else {
-                intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            String flymeOSVersion = getFlymeOSVersion();
+            if (flymeOSVersion.isEmpty()) {
+                return false;
             }
-            return intValue == 5;
-        } catch (NumberFormatException unused) {
-            return false;
+            try {
+                if (flymeOSVersion.toLowerCase().contains(IAdRequestParam.OS)) {
+                    intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
+                } else {
+                    intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();
+                }
+                return intValue == 5;
+            } catch (NumberFormatException unused) {
+                return false;
+            }
         }
+        return invokeV.booleanValue;
     }
 
     public static boolean isLeshi() {
-        String str = Build.BRAND;
-        if (str != null) {
-            String lowerCase = str.toLowerCase();
-            return lowerCase.contains(LETV) || lowerCase.contains(LEECO);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            String str = Build.BRAND;
+            if (str != null) {
+                String lowerCase = str.toLowerCase();
+                return lowerCase.contains(LETV) || lowerCase.contains(LEECO);
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public static boolean isMIUI() {
-        return !TextUtils.isEmpty(getSystemProperty("ro.miui.ui.version.name", ""));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? !TextUtils.isEmpty(getSystemProperty("ro.miui.ui.version.name", "")) : invokeV.booleanValue;
     }
 
     public static boolean isMIUI6Plus() {
-        String mIUIVersion = getMIUIVersion();
-        if (mIUIVersion.isEmpty()) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            String mIUIVersion = getMIUIVersion();
+            if (mIUIVersion.isEmpty()) {
+                return false;
+            }
+            try {
+                return Integer.valueOf(mIUIVersion.substring(1)).intValue() >= 6;
+            } catch (NumberFormatException unused) {
+                return false;
+            }
         }
-        try {
-            return Integer.valueOf(mIUIVersion.substring(1)).intValue() >= 6;
-        } catch (NumberFormatException unused) {
-            return false;
-        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isNubia() {
-        String str = Build.MANUFACTURER;
-        return str != null && str.toLowerCase().contains("nubia");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            String str = Build.MANUFACTURER;
+            return str != null && str.toLowerCase().contains("nubia");
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isSpecialOS() {
-        return isZUKZ1() || isZTKC2016() || isNubia() || isLeshi();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? isZUKZ1() || isZTKC2016() || isNubia() || isLeshi() : invokeV.booleanValue;
     }
 
     public static boolean isSupportStatusBarDarkFont() {
-        return Build.VERSION.SDK_INT >= 27 || isMIUI6Plus() || isFlymeOS4Plus() || Build.VERSION.SDK_INT >= 23;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? Build.VERSION.SDK_INT >= 27 || isMIUI6Plus() || isFlymeOS4Plus() || Build.VERSION.SDK_INT >= 23 : invokeV.booleanValue;
     }
 
     public static boolean isZTKC2016() {
-        String str = Build.MODEL;
-        return str != null && str.toLowerCase().contains(ZTEC2016);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            String str = Build.MODEL;
+            return str != null && str.toLowerCase().contains(ZTEC2016);
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isZUKZ1() {
-        String str = Build.MODEL;
-        return str != null && str.toLowerCase().contains(ZUKZ1);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            String str = Build.MODEL;
+            return str != null && str.toLowerCase().contains(ZUKZ1);
+        }
+        return invokeV.booleanValue;
     }
 }

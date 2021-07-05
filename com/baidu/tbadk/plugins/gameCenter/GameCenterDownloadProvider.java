@@ -7,13 +7,38 @@ import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
-import d.a.n0.p0.c.a;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.p0.c.a;
+/* loaded from: classes4.dex */
 public class GameCenterDownloadProvider extends ContentProvider {
-    public boolean isPluginSetted = false;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean isPluginSetted;
+
+    public GameCenterDownloadProvider() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.isPluginSetted = false;
+    }
 
     private void setPlugin() {
-        if (this.isPluginSetted) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.isPluginSetted) {
             return;
         }
         MessageManager.getInstance().runTask(new CustomMessage<>(2016518, this), (Class) null);
@@ -25,76 +50,106 @@ public class GameCenterDownloadProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        setPlugin();
-        if (a.b() != null) {
-            try {
-                return a.b().delete(uri, str, strArr);
-            } catch (Throwable th) {
-                BdLog.e(th);
-                return 0;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
+            setPlugin();
+            if (a.b() != null) {
+                try {
+                    return a.b().delete(uri, str, strArr);
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                    return 0;
+                }
             }
+            return 0;
         }
-        return 0;
+        return invokeLLL.intValue;
     }
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        setPlugin();
-        if (a.b() != null) {
-            try {
-                return a.b().getType(uri);
-            } catch (Throwable th) {
-                BdLog.e(th);
-                return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            setPlugin();
+            if (a.b() != null) {
+                try {
+                    return a.b().getType(uri);
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                    return null;
+                }
             }
+            return null;
         }
-        return null;
+        return (String) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
-        setPlugin();
-        if (a.b() != null) {
-            try {
-                return a.b().insert(uri, contentValues);
-            } catch (Throwable th) {
-                BdLog.e(th);
-                return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, contentValues)) == null) {
+            setPlugin();
+            if (a.b() != null) {
+                try {
+                    return a.b().insert(uri, contentValues);
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                    return null;
+                }
             }
+            return null;
         }
-        return null;
+        return (Uri) invokeLL.objValue;
     }
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        setPlugin();
-        if (a.b() != null) {
-            try {
-                return a.b().query(uri, strArr, str, strArr2, str2);
-            } catch (Throwable th) {
-                BdLog.e(th);
-                return null;
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
+            setPlugin();
+            if (a.b() != null) {
+                try {
+                    return a.b().query(uri, strArr, str, strArr2, str2);
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                    return null;
+                }
             }
+            return null;
         }
-        return null;
+        return (Cursor) invokeLLLLL.objValue;
     }
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        setPlugin();
-        if (a.b() != null) {
-            try {
-                return a.b().update(uri, contentValues, str, strArr);
-            } catch (Throwable th) {
-                BdLog.e(th);
-                return 0;
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
+            setPlugin();
+            if (a.b() != null) {
+                try {
+                    return a.b().update(uri, contentValues, str, strArr);
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                    return 0;
+                }
             }
+            return 0;
         }
-        return 0;
+        return invokeLLLL.intValue;
     }
 }

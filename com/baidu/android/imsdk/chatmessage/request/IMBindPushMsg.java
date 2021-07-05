@@ -11,19 +11,41 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class IMBindPushMsg extends Message {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String mChannelId;
     public boolean mChannelIdIsEmpty;
     public Context mContext;
     public String mDeviceId;
     public String mPushAppId;
-    public int mReSendCount = 0;
+    public int mReSendCount;
     public String mUserId;
 
     public IMBindPushMsg(Context context, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mReSendCount = 0;
         this.mChannelIdIsEmpty = false;
         this.mContext = context;
         initCommonParameter(context);
@@ -42,66 +64,85 @@ public class IMBindPushMsg extends Message {
     }
 
     public static IMBindPushMsg newInstance(Context context, Intent intent) {
-        if (intent.hasExtra(Constants.EXTRA_PUSH_CHANNEL_ID) && intent.hasExtra(Constants.EXTRA_PUSH_USER_ID) && intent.hasExtra(Constants.EXTRA_PUSH_APP_ID)) {
-            return new IMBindPushMsg(context, intent.getStringExtra(Constants.EXTRA_PUSH_CHANNEL_ID), intent.getStringExtra(Constants.EXTRA_PUSH_USER_ID), intent.getStringExtra(Constants.EXTRA_PUSH_APP_ID));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
+            if (intent.hasExtra(Constants.EXTRA_PUSH_CHANNEL_ID) && intent.hasExtra(Constants.EXTRA_PUSH_USER_ID) && intent.hasExtra(Constants.EXTRA_PUSH_APP_ID)) {
+                return new IMBindPushMsg(context, intent.getStringExtra(Constants.EXTRA_PUSH_CHANNEL_ID), intent.getStringExtra(Constants.EXTRA_PUSH_USER_ID), intent.getStringExtra(Constants.EXTRA_PUSH_APP_ID));
+            }
+            return null;
         }
-        return null;
+        return (IMBindPushMsg) invokeLL.objValue;
     }
 
     public static IMBindPushMsg parseBody(Context context, String str, String str2) throws Exception {
-        JSONObject jSONObject = new JSONObject(str2);
-        IMBindPushMsg iMBindPushMsg = new IMBindPushMsg(context, jSONObject.optString("push_channelid"), jSONObject.optString("push_uid"), jSONObject.optString("push_appid"));
-        iMBindPushMsg.setUUID(str);
-        return iMBindPushMsg;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject(str2);
+            IMBindPushMsg iMBindPushMsg = new IMBindPushMsg(context, jSONObject.optString("push_channelid"), jSONObject.optString("push_uid"), jSONObject.optString("push_appid"));
+            iMBindPushMsg.setUUID(str);
+            return iMBindPushMsg;
+        }
+        return (IMBindPushMsg) invokeLLL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     public void buildBody() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("method", 90);
-            jSONObject.put("appid", this.mAppid);
-            jSONObject.put("uk", this.mUk);
-            jSONObject.put(Constants.KEY_DEVICE_ID, this.mDeviceId);
-            jSONObject.put("push_channelid", this.mChannelId);
-            jSONObject.put("push_uid", this.mUserId);
-            jSONObject.put("push_appid", this.mPushAppId);
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("rpc_retry_time", this.mReSendCount);
-            jSONObject.put("rpc", jSONObject2.toString());
-            this.mBody = jSONObject.toString();
-        } catch (JSONException e2) {
-            LogUtils.e(IMBindPushMsg.class.getSimpleName(), "Exception ", e2);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("method", 90);
+                jSONObject.put("appid", this.mAppid);
+                jSONObject.put("uk", this.mUk);
+                jSONObject.put("device_id", this.mDeviceId);
+                jSONObject.put("push_channelid", this.mChannelId);
+                jSONObject.put("push_uid", this.mUserId);
+                jSONObject.put("push_appid", this.mPushAppId);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("rpc_retry_time", this.mReSendCount);
+                jSONObject.put("rpc", jSONObject2.toString());
+                this.mBody = jSONObject.toString();
+            } catch (JSONException e2) {
+                LogUtils.e(IMBindPushMsg.class.getSimpleName(), "Exception ", e2);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            }
         }
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
-        LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i2);
-        if (i2 == 0) {
-            setNeedReSend(false);
-        } else if (i2 != 1004 && i2 != 1001) {
-            int i3 = this.mReSendCount;
-            if (i3 >= 3) {
-                String str2 = LogUtils.TAG;
-                LogUtils.e(str2, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
+            LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i2);
+            if (i2 == 0) {
                 setNeedReSend(false);
+            } else if (i2 != 1004 && i2 != 1001) {
+                int i3 = this.mReSendCount;
+                if (i3 >= 3) {
+                    String str2 = LogUtils.TAG;
+                    LogUtils.e(str2, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i2);
+                    setNeedReSend(false);
+                } else {
+                    this.mReSendCount = i3 + 1;
+                    setNeedReSend(true);
+                }
             } else {
-                this.mReSendCount = i3 + 1;
-                setNeedReSend(true);
+                setNeedReSend(false);
+                LoginManager.getInstance(context).triggleLogoutListener(i2, str);
             }
-        } else {
-            setNeedReSend(false);
-            LoginManager.getInstance(context).triggleLogoutListener(i2, str);
+            super.handleMessageResult(context, jSONObject, i2, str);
+            Utility.updateBindPushCUIDStatus(this.mContext, 1);
+            BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i2, str, this.mChannelIdIsEmpty);
         }
-        super.handleMessageResult(context, jSONObject, i2, str);
-        Utility.updateBindPushCUIDStatus(this.mContext, 1);
-        BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i2, str, this.mChannelIdIsEmpty);
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     public void onMsgSending(Context context) {
-        Utility.updateBindPushCUIDStatus(this.mContext, 2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            Utility.updateBindPushCUIDStatus(this.mContext, 2);
+        }
     }
 }

@@ -1,227 +1,395 @@
 package com.kwad.sdk.contentalliance.detail.a;
 
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsContentPage;
 import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.contentalliance.home.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.t;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends com.kwad.sdk.contentalliance.detail.b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f32630b = false;
+    public static boolean f34393b;
+    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f32631c;
+    public com.kwad.sdk.core.i.a f34394c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public KsContentPage.PageListener f32632d;
+    public KsContentPage.PageListener f34395d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public KsContentPage.VideoListener f32633e;
+    public KsContentPage.VideoListener f34396e;
 
     /* renamed from: f  reason: collision with root package name */
-    public KsContentPage.ContentItem f32634f;
+    public KsContentPage.ContentItem f34397f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32635g;
+    public int f34398g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.b f32636h;
+    public com.kwad.sdk.contentalliance.detail.video.b f34399h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f32637i = false;
-    public boolean j = false;
-    public boolean k = false;
-    public com.kwad.sdk.contentalliance.a.a l = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.c.1
-        @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
-        public void j() {
-            c.this.f32637i = false;
-            c.this.j = false;
-            c.this.k = false;
-            c.this.f32631c.a(c.this.m);
-            if (c.this.f32636h != null) {
-                c.this.f32636h.a(c.this.n);
+    public boolean f34400i;
+    public boolean j;
+    public boolean k;
+    public com.kwad.sdk.contentalliance.a.a l;
+    public com.kwad.sdk.core.i.c m;
+    public com.kwad.sdk.contentalliance.detail.video.e n;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(976751626, "Lcom/kwad/sdk/contentalliance/detail/a/c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(976751626, "Lcom/kwad/sdk/contentalliance/detail/a/c;");
+        }
+    }
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f34400i = false;
+        this.j = false;
+        this.k = false;
+        this.l = new com.kwad.sdk.contentalliance.a.b(this) { // from class: com.kwad.sdk.contentalliance.detail.a.c.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
-        public void k() {
-            if (c.this.j) {
-                c.this.h();
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ c f34401a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34401a = this;
             }
-            c.this.f();
-            c.this.f32631c.b(c.this.m);
-            if (c.this.f32636h != null) {
-                c.this.f32636h.b(c.this.n);
+
+            @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
+            public void j() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f34401a.f34400i = false;
+                    this.f34401a.j = false;
+                    this.f34401a.k = false;
+                    this.f34401a.f34394c.a(this.f34401a.m);
+                    if (this.f34401a.f34399h != null) {
+                        this.f34401a.f34399h.a(this.f34401a.n);
+                    }
+                }
             }
-        }
-    };
-    public com.kwad.sdk.core.i.c m = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.contentalliance.detail.a.c.2
-        @Override // com.kwad.sdk.core.i.c
-        public void b() {
-            c.this.h();
-        }
 
-        @Override // com.kwad.sdk.core.i.c
-        public void c_() {
-            c.this.e();
-            c.this.g();
-        }
-    };
-    public com.kwad.sdk.contentalliance.detail.video.e n = new f() { // from class: com.kwad.sdk.contentalliance.detail.a.c.3
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void a() {
-            c.this.s();
-        }
-
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void a(int i2, int i3) {
-            c.this.a(i2, i3);
-        }
-
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void b() {
-            c.this.e();
-            c.this.g();
-            c.this.p();
-        }
-
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void c() {
-            if (!c.this.f32631c.e()) {
-                c.this.h();
+            @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
+            public void k() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    if (this.f34401a.j) {
+                        this.f34401a.h();
+                    }
+                    this.f34401a.f();
+                    this.f34401a.f34394c.b(this.f34401a.m);
+                    if (this.f34401a.f34399h != null) {
+                        this.f34401a.f34399h.b(this.f34401a.n);
+                    }
+                }
             }
-            c.this.q();
-        }
+        };
+        this.m = new com.kwad.sdk.core.i.c(this) { // from class: com.kwad.sdk.contentalliance.detail.a.c.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void d() {
-            if (c.this.f32631c.e()) {
-                c.this.g();
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ c f34402a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34402a = this;
             }
-            c.this.r();
-        }
-    };
+
+            @Override // com.kwad.sdk.core.i.c
+            public void b() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f34402a.h();
+                }
+            }
+
+            @Override // com.kwad.sdk.core.i.c
+            public void c_() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.f34402a.e();
+                    this.f34402a.g();
+                }
+            }
+        };
+        this.n = new f(this) { // from class: com.kwad.sdk.contentalliance.detail.a.c.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ c f34403a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34403a = this;
+            }
+
+            @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+            public void a() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f34403a.s();
+                }
+            }
+
+            @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+            public void a(int i4, int i5) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, i5) == null) {
+                    this.f34403a.a(i4, i5);
+                }
+            }
+
+            @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+            public void b() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    this.f34403a.e();
+                    this.f34403a.g();
+                    this.f34403a.p();
+                }
+            }
+
+            @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+            public void c() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                    if (!this.f34403a.f34394c.e()) {
+                        this.f34403a.h();
+                    }
+                    this.f34403a.q();
+                }
+            }
+
+            @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+            public void d() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
+                    if (this.f34403a.f34394c.e()) {
+                        this.f34403a.g();
+                    }
+                    this.f34403a.r();
+                }
+            }
+        };
+    }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, int i3) {
-        if (f32630b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f32635g + " onVideoPlayError");
-        }
-        KsContentPage.VideoListener videoListener = this.f32633e;
-        if (videoListener != null) {
-            videoListener.onVideoPlayError(this.f32634f, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65539, this, i2, i3) == null) {
+            if (f34393b) {
+                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f34398g + " onVideoPlayError");
+            }
+            KsContentPage.VideoListener videoListener = this.f34396e;
+            if (videoListener != null) {
+                videoListener.onVideoPlayError(this.f34397f, i2, i3);
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f32637i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f34400i) {
             return;
         }
-        this.f32637i = true;
-        if (f32630b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f32635g + " onPageEnter");
+        this.f34400i = true;
+        if (f34393b) {
+            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f34398g + " onPageEnter");
         }
-        KsContentPage.PageListener pageListener = this.f32632d;
+        KsContentPage.PageListener pageListener = this.f34395d;
         if (pageListener != null) {
-            pageListener.onPageEnter(this.f32634f);
+            pageListener.onPageEnter(this.f34397f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f32637i) {
-            if (f32630b) {
-                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f32635g + " onPageLeave");
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.f34400i) {
+            if (f34393b) {
+                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f34398g + " onPageLeave");
             }
-            KsContentPage.PageListener pageListener = this.f32632d;
+            KsContentPage.PageListener pageListener = this.f34395d;
             if (pageListener != null) {
-                pageListener.onPageLeave(this.f32634f);
+                pageListener.onPageLeave(this.f34397f);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        if (!this.j) {
-            if (f32630b) {
-                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f32635g + " onPageResume");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            if (!this.j) {
+                if (f34393b) {
+                    com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f34398g + " onPageResume");
+                }
+                KsContentPage.PageListener pageListener = this.f34395d;
+                if (pageListener != null) {
+                    pageListener.onPageResume(this.f34397f);
+                }
             }
-            KsContentPage.PageListener pageListener = this.f32632d;
-            if (pageListener != null) {
-                pageListener.onPageResume(this.f32634f);
-            }
+            this.j = true;
         }
-        this.j = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.j) {
-            if (f32630b) {
-                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f32635g + " onPagePause");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            if (this.j) {
+                if (f34393b) {
+                    com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f34398g + " onPagePause");
+                }
+                KsContentPage.PageListener pageListener = this.f34395d;
+                if (pageListener != null) {
+                    pageListener.onPagePause(this.f34397f);
+                }
             }
-            KsContentPage.PageListener pageListener = this.f32632d;
-            if (pageListener != null) {
-                pageListener.onPagePause(this.f32634f);
-            }
+            this.j = false;
         }
-        this.j = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
-        if (f32630b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f32635g + " onVideoPlayStart");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+            if (f34393b) {
+                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f34398g + " onVideoPlayStart");
+            }
+            KsContentPage.VideoListener videoListener = this.f34396e;
+            if (videoListener != null) {
+                videoListener.onVideoPlayStart(this.f34397f);
+            }
+            this.k = false;
         }
-        KsContentPage.VideoListener videoListener = this.f32633e;
-        if (videoListener != null) {
-            videoListener.onVideoPlayStart(this.f32634f);
-        }
-        this.k = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        if (f32630b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f32635g + " onVideoPlayPaused");
-        }
-        this.k = true;
-        KsContentPage.VideoListener videoListener = this.f32633e;
-        if (videoListener != null) {
-            videoListener.onVideoPlayPaused(this.f32634f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
+            if (f34393b) {
+                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f34398g + " onVideoPlayPaused");
+            }
+            this.k = true;
+            KsContentPage.VideoListener videoListener = this.f34396e;
+            if (videoListener != null) {
+                videoListener.onVideoPlayPaused(this.f34397f);
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
-        if (this.k) {
-            if (f32630b) {
-                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f32635g + " onVideoPlayResume");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
+            if (this.k) {
+                if (f34393b) {
+                    com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f34398g + " onVideoPlayResume");
+                }
+                KsContentPage.VideoListener videoListener = this.f34396e;
+                if (videoListener != null) {
+                    videoListener.onVideoPlayResume(this.f34397f);
+                }
             }
-            KsContentPage.VideoListener videoListener = this.f32633e;
-            if (videoListener != null) {
-                videoListener.onVideoPlayResume(this.f32634f);
-            }
+            this.k = false;
         }
-        this.k = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
-        if (f32630b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f32635g + " onVideoPlayCompleted");
-        }
-        KsContentPage.VideoListener videoListener = this.f32633e;
-        if (videoListener != null) {
-            videoListener.onVideoPlayCompleted(this.f32634f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+            if (f34393b) {
+                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f34398g + " onVideoPlayCompleted");
+            }
+            KsContentPage.VideoListener videoListener = this.f34396e;
+            if (videoListener != null) {
+                videoListener.onVideoPlayCompleted(this.f34397f);
+            }
         }
     }
 
@@ -229,48 +397,54 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     public void a() {
         KsContentPage.ContentItem contentItem;
         int i2;
-        super.a();
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a;
-        h hVar = cVar.f32811a;
-        if (hVar == null) {
-            com.kwad.sdk.core.d.a.c("DetailOpenListener", "homePageHelper is null");
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
+            com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f34553a;
+            h hVar = cVar.f34574a;
+            if (hVar == null) {
+                com.kwad.sdk.core.d.a.c("DetailOpenListener", "homePageHelper is null");
+                return;
+            }
+            this.f34394c = hVar.f35240a;
+            this.f34395d = hVar.f35241b;
+            this.f34396e = hVar.f35242c;
+            AdTemplate adTemplate = cVar.j;
+            this.f34398g = cVar.f34582i;
+            KsContentPage.ContentItem contentItem2 = new KsContentPage.ContentItem();
+            this.f34397f = contentItem2;
+            contentItem2.id = t.a(String.valueOf(com.kwad.sdk.core.response.b.c.z(adTemplate)));
+            this.f34397f.position = this.f34398g;
+            if (com.kwad.sdk.core.response.b.c.b(adTemplate)) {
+                contentItem = this.f34397f;
+                i2 = 1;
+            } else if (com.kwad.sdk.core.response.b.c.c(adTemplate)) {
+                contentItem = this.f34397f;
+                i2 = 2;
+            } else if (!com.kwad.sdk.core.response.b.c.d(adTemplate)) {
+                this.f34397f.materialType = 0;
+                ((com.kwad.sdk.contentalliance.detail.b) this).f34553a.f34575b.add(0, this.l);
+                this.f34399h = ((com.kwad.sdk.contentalliance.detail.b) this).f34553a.m;
+            } else {
+                contentItem = this.f34397f;
+                i2 = 3;
+            }
+            contentItem.materialType = i2;
+            ((com.kwad.sdk.contentalliance.detail.b) this).f34553a.f34575b.add(0, this.l);
+            this.f34399h = ((com.kwad.sdk.contentalliance.detail.b) this).f34553a.m;
         }
-        this.f32631c = hVar.f33477a;
-        this.f32632d = hVar.f33478b;
-        this.f32633e = hVar.f33479c;
-        AdTemplate adTemplate = cVar.j;
-        this.f32635g = cVar.f32819i;
-        KsContentPage.ContentItem contentItem2 = new KsContentPage.ContentItem();
-        this.f32634f = contentItem2;
-        contentItem2.id = t.a(String.valueOf(com.kwad.sdk.core.response.b.c.z(adTemplate)));
-        this.f32634f.position = this.f32635g;
-        if (com.kwad.sdk.core.response.b.c.b(adTemplate)) {
-            contentItem = this.f32634f;
-            i2 = 1;
-        } else if (com.kwad.sdk.core.response.b.c.c(adTemplate)) {
-            contentItem = this.f32634f;
-            i2 = 2;
-        } else if (!com.kwad.sdk.core.response.b.c.d(adTemplate)) {
-            this.f32634f.materialType = 0;
-            ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.add(0, this.l);
-            this.f32636h = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.m;
-        } else {
-            contentItem = this.f32634f;
-            i2 = 3;
-        }
-        contentItem.materialType = i2;
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.add(0, this.l);
-        this.f32636h = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.m;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
-        super.b_();
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a;
-        if (cVar.f32811a == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.b_();
+            com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f34553a;
+            if (cVar.f34574a == null) {
+                return;
+            }
+            cVar.f34575b.remove(this.l);
         }
-        cVar.f32812b.remove(this.l);
     }
 }

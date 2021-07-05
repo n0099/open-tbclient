@@ -12,6 +12,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,62 +25,103 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes7.dex */
 public class ImageUtils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ImageUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static void delete(File file) {
-        if (file == null || !file.exists() || file.delete()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, file) == null) || file == null || !file.exists() || file.delete()) {
             return;
         }
         throw new RuntimeException(file.getAbsolutePath() + " doesn't be deleted!");
     }
 
     public static boolean deleteDependon(String str) {
-        boolean z = false;
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        File file = new File(str);
-        int i2 = 1;
-        while (!z && i2 <= 5 && file.isFile() && file.exists()) {
-            z = file.delete();
-            if (!z) {
-                i2++;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
+            File file = new File(str);
+            int i2 = 1;
+            while (!z && i2 <= 5 && file.isFile() && file.exists()) {
+                z = file.delete();
+                if (!z) {
+                    i2++;
+                }
+            }
+            return z;
         }
-        return z;
+        return invokeL.booleanValue;
     }
 
     @TargetApi(10)
     public static long getVideoDuring(String str) {
-        if (new File(str).exists()) {
-            try {
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                mediaMetadataRetriever.setDataSource(str);
-                return Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
-            } catch (Exception unused) {
-                return 0L;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (new File(str).exists()) {
+                try {
+                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                    mediaMetadataRetriever.setDataSource(str);
+                    return Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
+                } catch (Exception unused) {
+                    return 0L;
+                }
             }
+            return 0L;
         }
-        return 0L;
+        return invokeL.longValue;
     }
 
     public static boolean isFileExisted(String str) {
-        return !TextUtils.isEmpty(str) && new File(str).exists();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? !TextUtils.isEmpty(str) && new File(str).exists() : invokeL.booleanValue;
     }
 
     public static boolean isParentExist(File file) {
+        InterceptResult invokeL;
         File parentFile;
-        if (file == null || (parentFile = file.getParentFile()) == null || parentFile.exists()) {
-            return false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
+            if (file == null || (parentFile = file.getParentFile()) == null || parentFile.exists()) {
+                return false;
+            }
+            return file.exists() || file.mkdirs();
         }
-        return file.exists() || file.mkdirs();
+        return invokeL.booleanValue;
     }
 
     public static boolean isWifi(Context context) {
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.getType() == 1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            return activeNetworkInfo != null && activeNetworkInfo.getType() == 1;
+        }
+        return invokeL.booleanValue;
     }
 
     public static void makesureFileExist(String str) {
-        if (str == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, str) == null) || str == null) {
             return;
         }
         File file = new File(str);
@@ -92,178 +139,189 @@ public class ImageUtils {
     }
 
     public static void revitionImageSize(String str, int i2, int i3) throws IOException {
-        if (i2 > 0) {
-            if (!isFileExisted(str)) {
-                if (str == null) {
-                    str = StringUtil.NULL_STRING;
-                }
-                throw new FileNotFoundException(str);
-            } else if (BitmapHelper.verifyBitmap(str)) {
-                FileInputStream fileInputStream = new FileInputStream(str);
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeStream(fileInputStream, null, options);
-                try {
-                    fileInputStream.close();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                int i4 = 0;
-                while (true) {
-                    if ((options.outWidth >> i4) <= i2 && (options.outHeight >> i4) <= i2) {
-                        break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65544, null, str, i2, i3) == null) {
+            if (i2 > 0) {
+                if (!isFileExisted(str)) {
+                    if (str == null) {
+                        str = StringUtil.NULL_STRING;
                     }
-                    i4++;
-                }
-                options.inSampleSize = (int) Math.pow(2.0d, i4);
-                options.inJustDecodeBounds = false;
-                Bitmap safeDecodeBimtapFile = safeDecodeBimtapFile(str, options);
-                if (safeDecodeBimtapFile != null) {
-                    deleteDependon(str);
-                    makesureFileExist(str);
-                    FileOutputStream fileOutputStream = new FileOutputStream(str);
-                    String str2 = options.outMimeType;
-                    if (str2 != null && str2.contains("png")) {
-                        safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i3, fileOutputStream);
-                    } else {
-                        safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i3, fileOutputStream);
-                    }
+                    throw new FileNotFoundException(str);
+                } else if (BitmapHelper.verifyBitmap(str)) {
+                    FileInputStream fileInputStream = new FileInputStream(str);
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = true;
+                    BitmapFactory.decodeStream(fileInputStream, null, options);
                     try {
-                        fileOutputStream.close();
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                        fileInputStream.close();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                     }
-                    safeDecodeBimtapFile.recycle();
-                    return;
+                    int i4 = 0;
+                    while (true) {
+                        if ((options.outWidth >> i4) <= i2 && (options.outHeight >> i4) <= i2) {
+                            break;
+                        }
+                        i4++;
+                    }
+                    options.inSampleSize = (int) Math.pow(2.0d, i4);
+                    options.inJustDecodeBounds = false;
+                    Bitmap safeDecodeBimtapFile = safeDecodeBimtapFile(str, options);
+                    if (safeDecodeBimtapFile != null) {
+                        deleteDependon(str);
+                        makesureFileExist(str);
+                        FileOutputStream fileOutputStream = new FileOutputStream(str);
+                        String str2 = options.outMimeType;
+                        if (str2 != null && str2.contains("png")) {
+                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i3, fileOutputStream);
+                        } else {
+                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i3, fileOutputStream);
+                        }
+                        try {
+                            fileOutputStream.close();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                        safeDecodeBimtapFile.recycle();
+                        return;
+                    }
+                    throw new IOException("Bitmap decode error!");
+                } else {
+                    throw new IOException("");
                 }
-                throw new IOException("Bitmap decode error!");
-            } else {
-                throw new IOException("");
             }
+            throw new IllegalArgumentException("size must be greater than 0!");
         }
-        throw new IllegalArgumentException("size must be greater than 0!");
     }
 
     public static void revitionImageSizeHD(String str, int i2, int i3) throws IOException {
         Bitmap createBitmap;
-        if (i2 > 0) {
-            if (!isFileExisted(str)) {
-                if (str == null) {
-                    str = StringUtil.NULL_STRING;
-                }
-                throw new FileNotFoundException(str);
-            } else if (BitmapHelper.verifyBitmap(str)) {
-                int i4 = i2 * 2;
-                FileInputStream fileInputStream = new FileInputStream(str);
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeStream(fileInputStream, null, options);
-                try {
-                    fileInputStream.close();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                int i5 = 0;
-                while (true) {
-                    if ((options.outWidth >> i5) <= i4 && (options.outHeight >> i5) <= i4) {
-                        break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65545, null, str, i2, i3) == null) {
+            if (i2 > 0) {
+                if (!isFileExisted(str)) {
+                    if (str == null) {
+                        str = StringUtil.NULL_STRING;
                     }
-                    i5++;
-                }
-                options.inSampleSize = (int) Math.pow(2.0d, i5);
-                options.inJustDecodeBounds = false;
-                Bitmap safeDecodeBimtapFile = safeDecodeBimtapFile(str, options);
-                if (safeDecodeBimtapFile != null) {
-                    deleteDependon(str);
-                    makesureFileExist(str);
-                    float width = i2 / (safeDecodeBimtapFile.getWidth() > safeDecodeBimtapFile.getHeight() ? safeDecodeBimtapFile.getWidth() : safeDecodeBimtapFile.getHeight());
-                    if (width < 1.0f) {
-                        while (true) {
-                            try {
-                                createBitmap = Bitmap.createBitmap((int) (safeDecodeBimtapFile.getWidth() * width), (int) (safeDecodeBimtapFile.getHeight() * width), Bitmap.Config.ARGB_8888);
-                                break;
-                            } catch (OutOfMemoryError unused) {
-                                System.gc();
-                                width = (float) (width * 0.8d);
-                            }
-                        }
-                        if (createBitmap == null) {
-                            safeDecodeBimtapFile.recycle();
-                        }
-                        Canvas canvas = new Canvas(createBitmap);
-                        Matrix matrix = new Matrix();
-                        matrix.setScale(width, width);
-                        canvas.drawBitmap(safeDecodeBimtapFile, matrix, new Paint());
-                        safeDecodeBimtapFile.recycle();
-                        safeDecodeBimtapFile = createBitmap;
-                    }
-                    FileOutputStream fileOutputStream = new FileOutputStream(str);
-                    String str2 = options.outMimeType;
-                    if (str2 != null && str2.contains("png")) {
-                        safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i3, fileOutputStream);
-                    } else {
-                        safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i3, fileOutputStream);
-                    }
+                    throw new FileNotFoundException(str);
+                } else if (BitmapHelper.verifyBitmap(str)) {
+                    int i4 = i2 * 2;
+                    FileInputStream fileInputStream = new FileInputStream(str);
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = true;
+                    BitmapFactory.decodeStream(fileInputStream, null, options);
                     try {
-                        fileOutputStream.close();
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                        fileInputStream.close();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                     }
-                    safeDecodeBimtapFile.recycle();
-                    return;
+                    int i5 = 0;
+                    while (true) {
+                        if ((options.outWidth >> i5) <= i4 && (options.outHeight >> i5) <= i4) {
+                            break;
+                        }
+                        i5++;
+                    }
+                    options.inSampleSize = (int) Math.pow(2.0d, i5);
+                    options.inJustDecodeBounds = false;
+                    Bitmap safeDecodeBimtapFile = safeDecodeBimtapFile(str, options);
+                    if (safeDecodeBimtapFile != null) {
+                        deleteDependon(str);
+                        makesureFileExist(str);
+                        float width = i2 / (safeDecodeBimtapFile.getWidth() > safeDecodeBimtapFile.getHeight() ? safeDecodeBimtapFile.getWidth() : safeDecodeBimtapFile.getHeight());
+                        if (width < 1.0f) {
+                            while (true) {
+                                try {
+                                    createBitmap = Bitmap.createBitmap((int) (safeDecodeBimtapFile.getWidth() * width), (int) (safeDecodeBimtapFile.getHeight() * width), Bitmap.Config.ARGB_8888);
+                                    break;
+                                } catch (OutOfMemoryError unused) {
+                                    System.gc();
+                                    width = (float) (width * 0.8d);
+                                }
+                            }
+                            if (createBitmap == null) {
+                                safeDecodeBimtapFile.recycle();
+                            }
+                            Canvas canvas = new Canvas(createBitmap);
+                            Matrix matrix = new Matrix();
+                            matrix.setScale(width, width);
+                            canvas.drawBitmap(safeDecodeBimtapFile, matrix, new Paint());
+                            safeDecodeBimtapFile.recycle();
+                            safeDecodeBimtapFile = createBitmap;
+                        }
+                        FileOutputStream fileOutputStream = new FileOutputStream(str);
+                        String str2 = options.outMimeType;
+                        if (str2 != null && str2.contains("png")) {
+                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i3, fileOutputStream);
+                        } else {
+                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i3, fileOutputStream);
+                        }
+                        try {
+                            fileOutputStream.close();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                        safeDecodeBimtapFile.recycle();
+                        return;
+                    }
+                    throw new IOException("Bitmap decode error!");
+                } else {
+                    throw new IOException("");
                 }
-                throw new IOException("Bitmap decode error!");
-            } else {
-                throw new IOException("");
             }
+            throw new IllegalArgumentException("size must be greater than 0!");
         }
-        throw new IllegalArgumentException("size must be greater than 0!");
     }
 
     public static Bitmap safeDecodeBimtapFile(String str, BitmapFactory.Options options) {
+        InterceptResult invokeLL;
         BitmapFactory.Options options2;
         FileInputStream fileInputStream;
         OutOfMemoryError e2;
-        if (options == null) {
-            options2 = new BitmapFactory.Options();
-            options2.inSampleSize = 1;
-        } else {
-            options2 = options;
-        }
-        int i2 = 0;
-        Bitmap bitmap = null;
-        FileInputStream fileInputStream2 = null;
-        while (i2 < 5) {
-            try {
-                try {
-                    fileInputStream = new FileInputStream(str);
-                } catch (FileNotFoundException unused) {
-                }
-                try {
-                    bitmap = BitmapFactory.decodeStream(fileInputStream, null, options);
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                    }
-                    return bitmap;
-                } catch (OutOfMemoryError e4) {
-                    e2 = e4;
-                    e2.printStackTrace();
-                    options2.inSampleSize *= 2;
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                    i2++;
-                    fileInputStream2 = fileInputStream;
-                }
-            } catch (OutOfMemoryError e6) {
-                fileInputStream = fileInputStream2;
-                e2 = e6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, options)) == null) {
+            if (options == null) {
+                options2 = new BitmapFactory.Options();
+                options2.inSampleSize = 1;
+            } else {
+                options2 = options;
             }
+            int i2 = 0;
+            Bitmap bitmap = null;
+            FileInputStream fileInputStream2 = null;
+            while (i2 < 5) {
+                try {
+                    try {
+                        fileInputStream = new FileInputStream(str);
+                    } catch (FileNotFoundException unused) {
+                    }
+                    try {
+                        bitmap = BitmapFactory.decodeStream(fileInputStream, null, options);
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                        return bitmap;
+                    } catch (OutOfMemoryError e4) {
+                        e2 = e4;
+                        e2.printStackTrace();
+                        options2.inSampleSize *= 2;
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                        i2++;
+                        fileInputStream2 = fileInputStream;
+                    }
+                } catch (OutOfMemoryError e6) {
+                    fileInputStream = fileInputStream2;
+                    e2 = e6;
+                }
+            }
+            return bitmap;
         }
-        return bitmap;
+        return (Bitmap) invokeLL.objValue;
     }
 }

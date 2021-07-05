@@ -11,31 +11,58 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.ImageClipActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes7.dex */
 public class FileUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGE_FILE_START = "image/";
     public static final String VIDEO_FILE_START = "video/";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
-        if (r8 != null) goto L8;
+    public FileUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x002f, code lost:
+        if (r8 != null) goto L10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0035, code lost:
-        if (r8 == null) goto L6;
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0039, code lost:
+        if (r8 == null) goto L8;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0037, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x003b, code lost:
         r8.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x003a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x003e, code lost:
         return null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x003f  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0043  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String getDataColumn(Context context, Uri uri, String str, String[] strArr) {
+        InterceptResult invokeLLLL;
         Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65537, null, context, uri, str, strArr)) != null) {
+            return (String) invokeLLLL.objValue;
+        }
         Cursor cursor2 = null;
         try {
             cursor = context.getContentResolver().query(uri, new String[]{"_data"}, str, strArr, null);
@@ -74,75 +101,94 @@ public class FileUtils {
     }
 
     public static String getMIMEType(File file) {
-        String name = file.getName();
-        int lastIndexOf = name.lastIndexOf(".");
-        if (lastIndexOf < 0) {
-            return "*/*";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            String name = file.getName();
+            int lastIndexOf = name.lastIndexOf(".");
+            if (lastIndexOf < 0) {
+                return "*/*";
+            }
+            String substring = name.substring(lastIndexOf, name.length());
+            return (!TextUtils.isEmpty(substring) || substring.length() >= 2) ? MimeTypeMap.getSingleton().getMimeTypeFromExtension(substring.substring(1, substring.length()).toLowerCase()) : "*/*";
         }
-        String substring = name.substring(lastIndexOf, name.length());
-        if (!TextUtils.isEmpty(substring) || substring.length() >= 2) {
-            return MimeTypeMap.getSingleton().getMimeTypeFromExtension(substring.substring(1, substring.length()).toLowerCase());
-        }
-        return "*/*";
+        return (String) invokeL.objValue;
     }
 
     @SuppressLint({"NewApi"})
     public static String getPath(Context context, Uri uri) {
-        Uri uri2 = null;
-        if ((Build.VERSION.SDK_INT >= 19) && DocumentsContract.isDocumentUri(context, uri)) {
-            if (isExternalStorageDocument(uri)) {
-                String[] split = DocumentsContract.getDocumentId(uri).split(":");
-                if ("primary".equalsIgnoreCase(split[0])) {
-                    return Environment.getExternalStorageDirectory() + "/" + split[1];
-                }
-            } else if (isDownloadsDocument(uri)) {
-                return getDataColumn(context, ContentUris.withAppendedId(Uri.parse(ImageClipActivity.n), Long.valueOf(DocumentsContract.getDocumentId(uri)).longValue()), null, null);
-            } else {
-                if (isMediaDocument(uri)) {
-                    String[] split2 = DocumentsContract.getDocumentId(uri).split(":");
-                    String str = split2[0];
-                    if ("image".equals(str)) {
-                        uri2 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-                    } else if ("video".equals(str)) {
-                        uri2 = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                    } else if ("audio".equals(str)) {
-                        uri2 = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, uri)) == null) {
+            Uri uri2 = null;
+            if ((Build.VERSION.SDK_INT >= 19) && DocumentsContract.isDocumentUri(context, uri)) {
+                if (isExternalStorageDocument(uri)) {
+                    String[] split = DocumentsContract.getDocumentId(uri).split(":");
+                    if ("primary".equalsIgnoreCase(split[0])) {
+                        return Environment.getExternalStorageDirectory() + "/" + split[1];
                     }
-                    return getDataColumn(context, uri2, "_id=?", new String[]{split2[1]});
+                } else if (isDownloadsDocument(uri)) {
+                    return getDataColumn(context, ContentUris.withAppendedId(Uri.parse(ImageClipActivity.n), Long.valueOf(DocumentsContract.getDocumentId(uri)).longValue()), null, null);
+                } else {
+                    if (isMediaDocument(uri)) {
+                        String[] split2 = DocumentsContract.getDocumentId(uri).split(":");
+                        String str = split2[0];
+                        if ("image".equals(str)) {
+                            uri2 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                        } else if ("video".equals(str)) {
+                            uri2 = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                        } else if ("audio".equals(str)) {
+                            uri2 = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+                        }
+                        return getDataColumn(context, uri2, "_id=?", new String[]{split2[1]});
+                    }
                 }
+            } else if ("content".equalsIgnoreCase(uri.getScheme())) {
+                if (isGooglePhotosUri(uri)) {
+                    return uri.getLastPathSegment();
+                }
+                return getDataColumn(context, uri, null, null);
+            } else if ("file".equalsIgnoreCase(uri.getScheme())) {
+                return uri.getPath();
             }
-        } else if ("content".equalsIgnoreCase(uri.getScheme())) {
-            if (isGooglePhotosUri(uri)) {
-                return uri.getLastPathSegment();
-            }
-            return getDataColumn(context, uri, null, null);
-        } else if ("file".equalsIgnoreCase(uri.getScheme())) {
-            return uri.getPath();
+            return null;
         }
-        return null;
+        return (String) invokeLL.objValue;
     }
 
     public static boolean isDownloadsDocument(Uri uri) {
-        return ImageClipActivity.l.equals(uri.getAuthority());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, uri)) == null) ? ImageClipActivity.l.equals(uri.getAuthority()) : invokeL.booleanValue;
     }
 
     public static boolean isExternalStorageDocument(Uri uri) {
-        return ImageClipActivity.m.equals(uri.getAuthority());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, uri)) == null) ? ImageClipActivity.m.equals(uri.getAuthority()) : invokeL.booleanValue;
     }
 
     public static boolean isGooglePhotosUri(Uri uri) {
-        return "com.google.android.apps.photos.content".equals(uri.getAuthority());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, uri)) == null) ? "com.google.android.apps.photos.content".equals(uri.getAuthority()) : invokeL.booleanValue;
     }
 
     public static boolean isImageFile(Context context, Uri uri) {
-        return getMIMEType(new File(getPath(context, uri))).startsWith(IMAGE_FILE_START);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, uri)) == null) ? getMIMEType(new File(getPath(context, uri))).startsWith(IMAGE_FILE_START) : invokeLL.booleanValue;
     }
 
     public static boolean isMediaDocument(Uri uri) {
-        return ImageClipActivity.k.equals(uri.getAuthority());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) ? ImageClipActivity.k.equals(uri.getAuthority()) : invokeL.booleanValue;
     }
 
     public static boolean isVideoFile(Context context, Uri uri) {
-        return getMIMEType(new File(getPath(context, uri))).startsWith(VIDEO_FILE_START);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, uri)) == null) ? getMIMEType(new File(getPath(context, uri))).startsWith(VIDEO_FILE_START) : invokeLL.booleanValue;
     }
 }

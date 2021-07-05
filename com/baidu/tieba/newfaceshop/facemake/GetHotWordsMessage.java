@@ -1,41 +1,75 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class GetHotWordsMessage extends JsonHttpResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public List<String> mData;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetHotWordsMessage(int i2) {
         super(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private List<String> parseHotWordsData(JSONObject jSONObject) {
+        InterceptResult invokeL;
         String[] split;
-        if (jSONObject == null) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            String optString = jSONObject.optString("hotwords");
+            if (TextUtils.isEmpty(optString) || (split = optString.split("_")) == null) {
+                return null;
+            }
+            return Arrays.asList(split);
         }
-        String optString = jSONObject.optString("hotwords");
-        if (TextUtils.isEmpty(optString) || (split = optString.split("_")) == null) {
-            return null;
-        }
-        return Arrays.asList(split);
+        return (List) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
-        int statusCode = getStatusCode();
-        int error = getError();
-        if (statusCode != 200 || error < 0 || jSONObject == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
+            int statusCode = getStatusCode();
+            int error = getError();
+            if (statusCode != 200 || error < 0 || jSONObject == null) {
+                return;
+            }
+            this.mData = parseHotWordsData(jSONObject.optJSONObject("data"));
         }
-        this.mData = parseHotWordsData(jSONObject.optJSONObject("data"));
     }
 
     public List<String> getData() {
-        return this.mData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (List) invokeV.objValue;
     }
 }

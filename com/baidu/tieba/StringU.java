@@ -3,17 +3,38 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class StringU {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13572a;
+    public static boolean f13654a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(876253765, "Lcom/baidu/tieba/StringU;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(876253765, "Lcom/baidu/tieba/StringU;");
+                return;
+            }
+        }
         try {
             boolean j = h.f().j("stringu", 2);
-            f13572a = j;
+            f13654a = j;
             if (j) {
                 a("stringu_so_load_success", null);
             } else {
@@ -24,42 +45,64 @@ public class StringU {
         }
     }
 
-    public static void a(String str, String str2) {
-        if (TextUtils.isEmpty(str2)) {
-            BdStatisticsManager.getInstance().eventStat(null, str, null, 1, new Object[0]);
-        } else {
-            BdStatisticsManager.getInstance().eventStat(null, str, null, 1, PmsConstant.Statistic.STATISTIC_ERRMSG, str2);
+    public StringU() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x002f  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                BdStatisticsManager.getInstance().eventStat(null, str, null, 1, new Object[0]);
+            } else {
+                BdStatisticsManager.getInstance().eventStat(null, str, null, 1, PmsConstant.Statistic.STATISTIC_ERRMSG, str2);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0033  */
+    /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String b(String str) {
+        InterceptResult invokeL;
         String str2;
-        if (!f13572a || TextUtils.isEmpty(str)) {
-            str2 = "";
-        } else {
-            try {
-                str2 = toUpper(str);
-            } catch (Exception e2) {
-                e = e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!f13654a || TextUtils.isEmpty(str)) {
                 str2 = "";
-            }
-            try {
-                if (TextUtils.isEmpty(str2)) {
-                    a("stringu_m_result_null", null);
+            } else {
+                try {
+                    str2 = toUpper(str);
+                } catch (Exception e2) {
+                    e = e2;
+                    str2 = "";
                 }
-            } catch (Exception e3) {
-                e = e3;
-                a("stringu_m_call_fail", e.getMessage());
-                if (str2 != null) {
+                try {
+                    if (TextUtils.isEmpty(str2)) {
+                        a("stringu_m_result_null", null);
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    a("stringu_m_call_fail", e.getMessage());
+                    if (str2 != null) {
+                    }
                 }
             }
+            return str2 != null ? "" : str2;
         }
-        return str2 != null ? "" : str2;
+        return (String) invokeL.objValue;
     }
 
     public static native String toUpper(String str);

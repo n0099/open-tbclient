@@ -1,176 +1,275 @@
 package com.baidu.mobstat;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExtraInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8440a = "";
+    public String f8513a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8441b = "";
+    public String f8514b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8442c = "";
+    public String f8515c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8443d = "";
+    public String f8516d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8444e = "";
+    public String f8517e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8445f = "";
+    public String f8518f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8446g = "";
+    public String f8519g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8447h = "";
+    public String f8520h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f8448i = "";
-    public String j = "";
+    public String f8521i;
+    public String j;
+
+    public ExtraInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f8513a = "";
+        this.f8514b = "";
+        this.f8515c = "";
+        this.f8516d = "";
+        this.f8517e = "";
+        this.f8518f = "";
+        this.f8519g = "";
+        this.f8520h = "";
+        this.f8521i = "";
+        this.j = "";
+    }
 
     public static boolean a(String str, int i2) {
+        InterceptResult invokeLI;
         int i3;
-        if (str == null) {
-            return false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+            if (str == null) {
+                return false;
+            }
+            try {
+                i3 = str.getBytes().length;
+            } catch (Exception unused) {
+                i3 = 0;
+            }
+            return i3 > i2;
         }
-        try {
-            i3 = str.getBytes().length;
-        } catch (Exception unused) {
-            i3 = 0;
-        }
-        return i3 > i2;
+        return invokeLI.booleanValue;
     }
 
     public JSONObject dumpToJson() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            if (!TextUtils.isEmpty(this.f8440a)) {
-                jSONObject.put("v1", this.f8440a);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(this.f8513a)) {
+                    jSONObject.put("v1", this.f8513a);
+                }
+                if (!TextUtils.isEmpty(this.f8514b)) {
+                    jSONObject.put(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX, this.f8514b);
+                }
+                if (!TextUtils.isEmpty(this.f8515c)) {
+                    jSONObject.put("v3", this.f8515c);
+                }
+                if (!TextUtils.isEmpty(this.f8516d)) {
+                    jSONObject.put("v4", this.f8516d);
+                }
+                if (!TextUtils.isEmpty(this.f8517e)) {
+                    jSONObject.put("v5", this.f8517e);
+                }
+                if (!TextUtils.isEmpty(this.f8518f)) {
+                    jSONObject.put("v6", this.f8518f);
+                }
+                if (!TextUtils.isEmpty(this.f8519g)) {
+                    jSONObject.put("v7", this.f8519g);
+                }
+                if (!TextUtils.isEmpty(this.f8520h)) {
+                    jSONObject.put(V8Engine.TYPE_V8, this.f8520h);
+                }
+                if (!TextUtils.isEmpty(this.f8521i)) {
+                    jSONObject.put("v9", this.f8521i);
+                }
+                if (!TextUtils.isEmpty(this.j)) {
+                    jSONObject.put("v10", this.j);
+                }
+            } catch (JSONException unused) {
             }
-            if (!TextUtils.isEmpty(this.f8441b)) {
-                jSONObject.put(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX, this.f8441b);
-            }
-            if (!TextUtils.isEmpty(this.f8442c)) {
-                jSONObject.put("v3", this.f8442c);
-            }
-            if (!TextUtils.isEmpty(this.f8443d)) {
-                jSONObject.put("v4", this.f8443d);
-            }
-            if (!TextUtils.isEmpty(this.f8444e)) {
-                jSONObject.put("v5", this.f8444e);
-            }
-            if (!TextUtils.isEmpty(this.f8445f)) {
-                jSONObject.put("v6", this.f8445f);
-            }
-            if (!TextUtils.isEmpty(this.f8446g)) {
-                jSONObject.put("v7", this.f8446g);
-            }
-            if (!TextUtils.isEmpty(this.f8447h)) {
-                jSONObject.put(V8Engine.TYPE_V8, this.f8447h);
-            }
-            if (!TextUtils.isEmpty(this.f8448i)) {
-                jSONObject.put("v9", this.f8448i);
-            }
-            if (!TextUtils.isEmpty(this.j)) {
-                jSONObject.put("v10", this.j);
-            }
-        } catch (JSONException unused) {
+            return jSONObject;
         }
-        return jSONObject;
+        return (JSONObject) invokeV.objValue;
     }
 
     public String getV1() {
-        return this.f8440a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8513a : (String) invokeV.objValue;
     }
 
     public String getV10() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (String) invokeV.objValue;
     }
 
     public String getV2() {
-        return this.f8441b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8514b : (String) invokeV.objValue;
     }
 
     public String getV3() {
-        return this.f8442c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f8515c : (String) invokeV.objValue;
     }
 
     public String getV4() {
-        return this.f8443d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8516d : (String) invokeV.objValue;
     }
 
     public String getV5() {
-        return this.f8444e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f8517e : (String) invokeV.objValue;
     }
 
     public String getV6() {
-        return this.f8445f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f8518f : (String) invokeV.objValue;
     }
 
     public String getV7() {
-        return this.f8446g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8519g : (String) invokeV.objValue;
     }
 
     public String getV8() {
-        return this.f8447h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f8520h : (String) invokeV.objValue;
     }
 
     public String getV9() {
-        return this.f8448i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f8521i : (String) invokeV.objValue;
     }
 
     public void setV1(String str) {
-        this.f8440a = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.f8513a = a(str);
+        }
     }
 
     public void setV10(String str) {
-        this.j = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.j = a(str);
+        }
     }
 
     public void setV2(String str) {
-        this.f8441b = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.f8514b = a(str);
+        }
     }
 
     public void setV3(String str) {
-        this.f8442c = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.f8515c = a(str);
+        }
     }
 
     public void setV4(String str) {
-        this.f8443d = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.f8516d = a(str);
+        }
     }
 
     public void setV5(String str) {
-        this.f8444e = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.f8517e = a(str);
+        }
     }
 
     public void setV6(String str) {
-        this.f8445f = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.f8518f = a(str);
+        }
     }
 
     public void setV7(String str) {
-        this.f8446g = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.f8519g = a(str);
+        }
     }
 
     public void setV8(String str) {
-        this.f8447h = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.f8520h = a(str);
+        }
     }
 
     public void setV9(String str) {
-        this.f8448i = a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.f8521i = a(str);
+        }
     }
 
     public static String a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            str = "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            return a(str, 1024) ? "" : str;
         }
-        return a(str, 1024) ? "" : str;
+        return (String) invokeL.objValue;
     }
 }

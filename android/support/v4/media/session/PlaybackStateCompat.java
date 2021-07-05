@@ -9,12 +9,22 @@ import android.support.v4.media.session.PlaybackStateCompatApi21;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class PlaybackStateCompat implements Parcelable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long ACTION_FAST_FORWARD = 64;
     public static final long ACTION_PAUSE = 2;
     public static final long ACTION_PLAY = 4;
@@ -38,21 +48,7 @@ public final class PlaybackStateCompat implements Parcelable {
     public static final long ACTION_SKIP_TO_PREVIOUS = 16;
     public static final long ACTION_SKIP_TO_QUEUE_ITEM = 4096;
     public static final long ACTION_STOP = 1;
-    public static final Parcelable.Creator<PlaybackStateCompat> CREATOR = new Parcelable.Creator<PlaybackStateCompat>() { // from class: android.support.v4.media.session.PlaybackStateCompat.1
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public PlaybackStateCompat createFromParcel(Parcel parcel) {
-            return new PlaybackStateCompat(parcel);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public PlaybackStateCompat[] newArray(int i2) {
-            return new PlaybackStateCompat[i2];
-        }
-    };
+    public static final Parcelable.Creator<PlaybackStateCompat> CREATOR;
     public static final int ERROR_CODE_ACTION_ABORTED = 10;
     public static final int ERROR_CODE_APP_ERROR = 1;
     public static final int ERROR_CODE_AUTHENTICATION_EXPIRED = 3;
@@ -89,6 +85,7 @@ public final class PlaybackStateCompat implements Parcelable {
     public static final int STATE_SKIPPING_TO_PREVIOUS = 9;
     public static final int STATE_SKIPPING_TO_QUEUE_ITEM = 11;
     public static final int STATE_STOPPED = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public final long mActions;
     public final long mActiveItemId;
     public final long mBufferedPosition;
@@ -110,6 +107,8 @@ public final class PlaybackStateCompat implements Parcelable {
 
     /* loaded from: classes.dex */
     public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public long mActions;
         public long mActiveItemId;
         public long mBufferedPosition;
@@ -123,70 +122,142 @@ public final class PlaybackStateCompat implements Parcelable {
         public long mUpdateTime;
 
         public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mCustomActions = new ArrayList();
             this.mActiveItemId = -1L;
         }
 
         public Builder addCustomAction(String str, String str2, int i2) {
-            return addCustomAction(new CustomAction(str, str2, i2, null));
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i2)) == null) ? addCustomAction(new CustomAction(str, str2, i2, null)) : (Builder) invokeLLI.objValue;
         }
 
         public PlaybackStateCompat build() {
-            return new PlaybackStateCompat(this.mState, this.mPosition, this.mBufferedPosition, this.mRate, this.mActions, this.mErrorCode, this.mErrorMessage, this.mUpdateTime, this.mCustomActions, this.mActiveItemId, this.mExtras);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new PlaybackStateCompat(this.mState, this.mPosition, this.mBufferedPosition, this.mRate, this.mActions, this.mErrorCode, this.mErrorMessage, this.mUpdateTime, this.mCustomActions, this.mActiveItemId, this.mExtras) : (PlaybackStateCompat) invokeV.objValue;
         }
 
         public Builder setActions(long j) {
-            this.mActions = j;
-            return this;
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.mActions = j;
+                return this;
+            }
+            return (Builder) invokeJ.objValue;
         }
 
         public Builder setActiveQueueItemId(long j) {
-            this.mActiveItemId = j;
-            return this;
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                this.mActiveItemId = j;
+                return this;
+            }
+            return (Builder) invokeJ.objValue;
         }
 
         public Builder setBufferedPosition(long j) {
-            this.mBufferedPosition = j;
-            return this;
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+                this.mBufferedPosition = j;
+                return this;
+            }
+            return (Builder) invokeJ.objValue;
         }
 
         public Builder setErrorMessage(CharSequence charSequence) {
-            this.mErrorMessage = charSequence;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
+                this.mErrorMessage = charSequence;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setExtras(Bundle bundle) {
-            this.mExtras = bundle;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle)) == null) {
+                this.mExtras = bundle;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setState(int i2, long j, float f2) {
-            return setState(i2, j, f2, SystemClock.elapsedRealtime());
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Float.valueOf(f2)})) == null) ? setState(i2, j, f2, SystemClock.elapsedRealtime()) : (Builder) invokeCommon.objValue;
         }
 
         public Builder addCustomAction(CustomAction customAction) {
-            if (customAction != null) {
-                this.mCustomActions.add(customAction);
-                return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customAction)) == null) {
+                if (customAction != null) {
+                    this.mCustomActions.add(customAction);
+                    return this;
+                }
+                throw new IllegalArgumentException("You may not add a null CustomAction to PlaybackStateCompat.");
             }
-            throw new IllegalArgumentException("You may not add a null CustomAction to PlaybackStateCompat.");
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setErrorMessage(int i2, CharSequence charSequence) {
-            this.mErrorCode = i2;
-            this.mErrorMessage = charSequence;
-            return this;
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, charSequence)) == null) {
+                this.mErrorCode = i2;
+                this.mErrorMessage = charSequence;
+                return this;
+            }
+            return (Builder) invokeIL.objValue;
         }
 
         public Builder setState(int i2, long j, float f2, long j2) {
-            this.mState = i2;
-            this.mPosition = j;
-            this.mUpdateTime = j2;
-            this.mRate = f2;
-            return this;
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Float.valueOf(f2), Long.valueOf(j2)})) == null) {
+                this.mState = i2;
+                this.mPosition = j;
+                this.mUpdateTime = j2;
+                this.mRate = f2;
+                return this;
+            }
+            return (Builder) invokeCommon.objValue;
         }
 
         public Builder(PlaybackStateCompat playbackStateCompat) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {playbackStateCompat};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             ArrayList arrayList = new ArrayList();
             this.mCustomActions = arrayList;
             this.mActiveItemId = -1L;
@@ -237,7 +308,72 @@ public final class PlaybackStateCompat implements Parcelable {
     public @interface State {
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(832235436, "Landroid/support/v4/media/session/PlaybackStateCompat;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(832235436, "Landroid/support/v4/media/session/PlaybackStateCompat;");
+                return;
+            }
+        }
+        CREATOR = new Parcelable.Creator<PlaybackStateCompat>() { // from class: android.support.v4.media.session.PlaybackStateCompat.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public PlaybackStateCompat createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new PlaybackStateCompat(parcel) : (PlaybackStateCompat) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public PlaybackStateCompat[] newArray(int i2) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new PlaybackStateCompat[i2] : (PlaybackStateCompat[]) invokeI.objValue;
+            }
+        };
+    }
+
     public PlaybackStateCompat(int i2, long j, long j2, float f2, long j3, int i3, CharSequence charSequence, long j4, List<CustomAction> list, long j5, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Long.valueOf(j3), Integer.valueOf(i3), charSequence, Long.valueOf(j4), list, Long.valueOf(j5), bundle};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mState = i2;
         this.mPosition = j;
         this.mBufferedPosition = j2;
@@ -252,160 +388,203 @@ public final class PlaybackStateCompat implements Parcelable {
     }
 
     public static PlaybackStateCompat fromPlaybackState(Object obj) {
+        InterceptResult invokeL;
         ArrayList arrayList;
-        if (obj == null || Build.VERSION.SDK_INT < 21) {
-            return null;
-        }
-        List<Object> customActions = PlaybackStateCompatApi21.getCustomActions(obj);
-        if (customActions != null) {
-            ArrayList arrayList2 = new ArrayList(customActions.size());
-            for (Object obj2 : customActions) {
-                arrayList2.add(CustomAction.fromCustomAction(obj2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            if (obj == null || Build.VERSION.SDK_INT < 21) {
+                return null;
             }
-            arrayList = arrayList2;
-        } else {
-            arrayList = null;
+            List<Object> customActions = PlaybackStateCompatApi21.getCustomActions(obj);
+            if (customActions != null) {
+                ArrayList arrayList2 = new ArrayList(customActions.size());
+                for (Object obj2 : customActions) {
+                    arrayList2.add(CustomAction.fromCustomAction(obj2));
+                }
+                arrayList = arrayList2;
+            } else {
+                arrayList = null;
+            }
+            PlaybackStateCompat playbackStateCompat = new PlaybackStateCompat(PlaybackStateCompatApi21.getState(obj), PlaybackStateCompatApi21.getPosition(obj), PlaybackStateCompatApi21.getBufferedPosition(obj), PlaybackStateCompatApi21.getPlaybackSpeed(obj), PlaybackStateCompatApi21.getActions(obj), 0, PlaybackStateCompatApi21.getErrorMessage(obj), PlaybackStateCompatApi21.getLastPositionUpdateTime(obj), arrayList, PlaybackStateCompatApi21.getActiveQueueItemId(obj), Build.VERSION.SDK_INT >= 22 ? PlaybackStateCompatApi22.getExtras(obj) : null);
+            playbackStateCompat.mStateObj = obj;
+            return playbackStateCompat;
         }
-        PlaybackStateCompat playbackStateCompat = new PlaybackStateCompat(PlaybackStateCompatApi21.getState(obj), PlaybackStateCompatApi21.getPosition(obj), PlaybackStateCompatApi21.getBufferedPosition(obj), PlaybackStateCompatApi21.getPlaybackSpeed(obj), PlaybackStateCompatApi21.getActions(obj), 0, PlaybackStateCompatApi21.getErrorMessage(obj), PlaybackStateCompatApi21.getLastPositionUpdateTime(obj), arrayList, PlaybackStateCompatApi21.getActiveQueueItemId(obj), Build.VERSION.SDK_INT >= 22 ? PlaybackStateCompatApi22.getExtras(obj) : null);
-        playbackStateCompat.mStateObj = obj;
-        return playbackStateCompat;
+        return (PlaybackStateCompat) invokeL.objValue;
     }
 
     public static int toKeyCode(long j) {
-        if (j == 4) {
-            return 126;
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65540, null, j)) == null) {
+            if (j == 4) {
+                return 126;
+            }
+            if (j == 2) {
+                return 127;
+            }
+            if (j == 32) {
+                return 87;
+            }
+            if (j == 16) {
+                return 88;
+            }
+            if (j == 1) {
+                return 86;
+            }
+            if (j == 64) {
+                return 90;
+            }
+            if (j == 8) {
+                return 89;
+            }
+            return j == 512 ? 85 : 0;
         }
-        if (j == 2) {
-            return 127;
-        }
-        if (j == 32) {
-            return 87;
-        }
-        if (j == 16) {
-            return 88;
-        }
-        if (j == 1) {
-            return 86;
-        }
-        if (j == 64) {
-            return 90;
-        }
-        if (j == 8) {
-            return 89;
-        }
-        return j == 512 ? 85 : 0;
+        return invokeJ.intValue;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public long getActions() {
-        return this.mActions;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mActions : invokeV.longValue;
     }
 
     public long getActiveQueueItemId() {
-        return this.mActiveItemId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mActiveItemId : invokeV.longValue;
     }
 
     public long getBufferedPosition() {
-        return this.mBufferedPosition;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBufferedPosition : invokeV.longValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public long getCurrentPosition(Long l) {
-        return Math.max(0L, this.mPosition + (this.mSpeed * ((float) (l != null ? l.longValue() : SystemClock.elapsedRealtime() - this.mUpdateTime))));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, l)) == null) {
+            return Math.max(0L, this.mPosition + (this.mSpeed * ((float) (l != null ? l.longValue() : SystemClock.elapsedRealtime() - this.mUpdateTime))));
+        }
+        return invokeL.longValue;
     }
 
     public List<CustomAction> getCustomActions() {
-        return this.mCustomActions;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mCustomActions : (List) invokeV.objValue;
     }
 
     public int getErrorCode() {
-        return this.mErrorCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mErrorCode : invokeV.intValue;
     }
 
     public CharSequence getErrorMessage() {
-        return this.mErrorMessage;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mErrorMessage : (CharSequence) invokeV.objValue;
     }
 
     @Nullable
     public Bundle getExtras() {
-        return this.mExtras;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mExtras : (Bundle) invokeV.objValue;
     }
 
     public long getLastPositionUpdateTime() {
-        return this.mUpdateTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mUpdateTime : invokeV.longValue;
     }
 
     public float getPlaybackSpeed() {
-        return this.mSpeed;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mSpeed : invokeV.floatValue;
     }
 
     public Object getPlaybackState() {
-        if (this.mStateObj == null && Build.VERSION.SDK_INT >= 21) {
-            ArrayList arrayList = null;
-            if (this.mCustomActions != null) {
-                arrayList = new ArrayList(this.mCustomActions.size());
-                for (CustomAction customAction : this.mCustomActions) {
-                    arrayList.add(customAction.getCustomAction());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.mStateObj == null && Build.VERSION.SDK_INT >= 21) {
+                ArrayList arrayList = null;
+                if (this.mCustomActions != null) {
+                    arrayList = new ArrayList(this.mCustomActions.size());
+                    for (CustomAction customAction : this.mCustomActions) {
+                        arrayList.add(customAction.getCustomAction());
+                    }
+                }
+                ArrayList arrayList2 = arrayList;
+                if (Build.VERSION.SDK_INT >= 22) {
+                    this.mStateObj = PlaybackStateCompatApi22.newInstance(this.mState, this.mPosition, this.mBufferedPosition, this.mSpeed, this.mActions, this.mErrorMessage, this.mUpdateTime, arrayList2, this.mActiveItemId, this.mExtras);
+                } else {
+                    this.mStateObj = PlaybackStateCompatApi21.newInstance(this.mState, this.mPosition, this.mBufferedPosition, this.mSpeed, this.mActions, this.mErrorMessage, this.mUpdateTime, arrayList2, this.mActiveItemId);
                 }
             }
-            ArrayList arrayList2 = arrayList;
-            if (Build.VERSION.SDK_INT >= 22) {
-                this.mStateObj = PlaybackStateCompatApi22.newInstance(this.mState, this.mPosition, this.mBufferedPosition, this.mSpeed, this.mActions, this.mErrorMessage, this.mUpdateTime, arrayList2, this.mActiveItemId, this.mExtras);
-            } else {
-                this.mStateObj = PlaybackStateCompatApi21.newInstance(this.mState, this.mPosition, this.mBufferedPosition, this.mSpeed, this.mActions, this.mErrorMessage, this.mUpdateTime, arrayList2, this.mActiveItemId);
-            }
+            return this.mStateObj;
         }
-        return this.mStateObj;
+        return invokeV.objValue;
     }
 
     public long getPosition() {
-        return this.mPosition;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mPosition : invokeV.longValue;
     }
 
     public int getState() {
-        return this.mState;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mState : invokeV.intValue;
     }
 
     public String toString() {
-        return "PlaybackState {state=" + this.mState + ", position=" + this.mPosition + ", buffered position=" + this.mBufferedPosition + ", speed=" + this.mSpeed + ", updated=" + this.mUpdateTime + ", actions=" + this.mActions + ", error code=" + this.mErrorCode + ", error message=" + this.mErrorMessage + ", custom actions=" + this.mCustomActions + ", active item id=" + this.mActiveItemId + "}";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return "PlaybackState {state=" + this.mState + ", position=" + this.mPosition + ", buffered position=" + this.mBufferedPosition + ", speed=" + this.mSpeed + ", updated=" + this.mUpdateTime + ", actions=" + this.mActions + ", error code=" + this.mErrorCode + ", error message=" + this.mErrorMessage + ", custom actions=" + this.mCustomActions + ", active item id=" + this.mActiveItemId + "}";
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.mState);
-        parcel.writeLong(this.mPosition);
-        parcel.writeFloat(this.mSpeed);
-        parcel.writeLong(this.mUpdateTime);
-        parcel.writeLong(this.mBufferedPosition);
-        parcel.writeLong(this.mActions);
-        TextUtils.writeToParcel(this.mErrorMessage, parcel, i2);
-        parcel.writeTypedList(this.mCustomActions);
-        parcel.writeLong(this.mActiveItemId);
-        parcel.writeBundle(this.mExtras);
-        parcel.writeInt(this.mErrorCode);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048591, this, parcel, i2) == null) {
+            parcel.writeInt(this.mState);
+            parcel.writeLong(this.mPosition);
+            parcel.writeFloat(this.mSpeed);
+            parcel.writeLong(this.mUpdateTime);
+            parcel.writeLong(this.mBufferedPosition);
+            parcel.writeLong(this.mActions);
+            TextUtils.writeToParcel(this.mErrorMessage, parcel, i2);
+            parcel.writeTypedList(this.mCustomActions);
+            parcel.writeLong(this.mActiveItemId);
+            parcel.writeBundle(this.mExtras);
+            parcel.writeInt(this.mErrorCode);
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class CustomAction implements Parcelable {
-        public static final Parcelable.Creator<CustomAction> CREATOR = new Parcelable.Creator<CustomAction>() { // from class: android.support.v4.media.session.PlaybackStateCompat.CustomAction.1
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public CustomAction createFromParcel(Parcel parcel) {
-                return new CustomAction(parcel);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public CustomAction[] newArray(int i2) {
-                return new CustomAction[i2];
-            }
-        };
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator<CustomAction> CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
         public final String mAction;
         public Object mCustomActionObj;
         public final Bundle mExtras;
@@ -414,12 +593,28 @@ public final class PlaybackStateCompat implements Parcelable {
 
         /* loaded from: classes.dex */
         public static final class Builder {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
             public final String mAction;
             public Bundle mExtras;
             public final int mIcon;
             public final CharSequence mName;
 
             public Builder(String str, CharSequence charSequence, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, charSequence, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
                 if (!TextUtils.isEmpty(str)) {
                     if (TextUtils.isEmpty(charSequence)) {
                         throw new IllegalArgumentException("You must specify a name to build a CustomAction.");
@@ -436,16 +631,88 @@ public final class PlaybackStateCompat implements Parcelable {
             }
 
             public CustomAction build() {
-                return new CustomAction(this.mAction, this.mName, this.mIcon, this.mExtras);
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new CustomAction(this.mAction, this.mName, this.mIcon, this.mExtras) : (CustomAction) invokeV.objValue;
             }
 
             public Builder setExtras(Bundle bundle) {
-                this.mExtras = bundle;
-                return this;
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+                    this.mExtras = bundle;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
             }
         }
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1991165567, "Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1991165567, "Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;");
+                    return;
+                }
+            }
+            CREATOR = new Parcelable.Creator<CustomAction>() { // from class: android.support.v4.media.session.PlaybackStateCompat.CustomAction.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // android.os.Parcelable.Creator
+                public CustomAction createFromParcel(Parcel parcel) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new CustomAction(parcel) : (CustomAction) invokeL.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // android.os.Parcelable.Creator
+                public CustomAction[] newArray(int i2) {
+                    InterceptResult invokeI;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new CustomAction[i2] : (CustomAction[]) invokeI.objValue;
+                }
+            };
+        }
+
         public CustomAction(String str, CharSequence charSequence, int i2, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, charSequence, Integer.valueOf(i2), bundle};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
             this.mAction = str;
             this.mName = charSequence;
             this.mIcon = i2;
@@ -453,57 +720,102 @@ public final class PlaybackStateCompat implements Parcelable {
         }
 
         public static CustomAction fromCustomAction(Object obj) {
-            if (obj == null || Build.VERSION.SDK_INT < 21) {
-                return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+                if (obj == null || Build.VERSION.SDK_INT < 21) {
+                    return null;
+                }
+                CustomAction customAction = new CustomAction(PlaybackStateCompatApi21.CustomAction.getAction(obj), PlaybackStateCompatApi21.CustomAction.getName(obj), PlaybackStateCompatApi21.CustomAction.getIcon(obj), PlaybackStateCompatApi21.CustomAction.getExtras(obj));
+                customAction.mCustomActionObj = obj;
+                return customAction;
             }
-            CustomAction customAction = new CustomAction(PlaybackStateCompatApi21.CustomAction.getAction(obj), PlaybackStateCompatApi21.CustomAction.getName(obj), PlaybackStateCompatApi21.CustomAction.getIcon(obj), PlaybackStateCompatApi21.CustomAction.getExtras(obj));
-            customAction.mCustomActionObj = obj;
-            return customAction;
+            return (CustomAction) invokeL.objValue;
         }
 
         @Override // android.os.Parcelable
         public int describeContents() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         public String getAction() {
-            return this.mAction;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAction : (String) invokeV.objValue;
         }
 
         public Object getCustomAction() {
-            if (this.mCustomActionObj == null && Build.VERSION.SDK_INT >= 21) {
-                Object newInstance = PlaybackStateCompatApi21.CustomAction.newInstance(this.mAction, this.mName, this.mIcon, this.mExtras);
-                this.mCustomActionObj = newInstance;
-                return newInstance;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.mCustomActionObj == null && Build.VERSION.SDK_INT >= 21) {
+                    Object newInstance = PlaybackStateCompatApi21.CustomAction.newInstance(this.mAction, this.mName, this.mIcon, this.mExtras);
+                    this.mCustomActionObj = newInstance;
+                    return newInstance;
+                }
+                return this.mCustomActionObj;
             }
-            return this.mCustomActionObj;
+            return invokeV.objValue;
         }
 
         public Bundle getExtras() {
-            return this.mExtras;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mExtras : (Bundle) invokeV.objValue;
         }
 
         public int getIcon() {
-            return this.mIcon;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIcon : invokeV.intValue;
         }
 
         public CharSequence getName() {
-            return this.mName;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mName : (CharSequence) invokeV.objValue;
         }
 
         public String toString() {
-            return "Action:mName='" + ((Object) this.mName) + ", mIcon=" + this.mIcon + ", mExtras=" + this.mExtras;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return "Action:mName='" + ((Object) this.mName) + ", mIcon=" + this.mIcon + ", mExtras=" + this.mExtras;
+            }
+            return (String) invokeV.objValue;
         }
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
-            parcel.writeString(this.mAction);
-            TextUtils.writeToParcel(this.mName, parcel, i2);
-            parcel.writeInt(this.mIcon);
-            parcel.writeBundle(this.mExtras);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
+                parcel.writeString(this.mAction);
+                TextUtils.writeToParcel(this.mName, parcel, i2);
+                parcel.writeInt(this.mIcon);
+                parcel.writeBundle(this.mExtras);
+            }
         }
 
         public CustomAction(Parcel parcel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.mAction = parcel.readString();
             this.mName = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
             this.mIcon = parcel.readInt();
@@ -512,6 +824,20 @@ public final class PlaybackStateCompat implements Parcelable {
     }
 
     public PlaybackStateCompat(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mState = parcel.readInt();
         this.mPosition = parcel.readLong();
         this.mSpeed = parcel.readFloat();

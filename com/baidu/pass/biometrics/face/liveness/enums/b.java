@@ -1,43 +1,94 @@
 package com.baidu.pass.biometrics.face.liveness.enums;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.face.liveness.view.face.CircleProgressView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.TimerTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends TimerTask {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CircleProgressView f9174a;
+    public CircleProgressView f9248a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ b f9249a;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9249a = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int progress;
-            if (b.this.f9174a == null || (progress = b.this.f9174a.getProgress()) >= 100) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9249a.f9248a == null || (progress = this.f9249a.f9248a.getProgress()) >= 100) {
                 return;
             }
-            b.this.f9174a.setProgress(progress + 1);
+            this.f9249a.f9248a.setProgress(progress + 1);
         }
     }
 
     public b(CircleProgressView circleProgressView) {
-        this.f9174a = circleProgressView;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {circleProgressView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f9248a = circleProgressView;
     }
 
     @Override // java.util.TimerTask
     public boolean cancel() {
-        this.f9174a = null;
-        return super.cancel();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.f9248a = null;
+            return super.cancel();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        CircleProgressView circleProgressView = this.f9174a;
-        if (circleProgressView != null) {
-            circleProgressView.post(new a());
+        CircleProgressView circleProgressView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (circleProgressView = this.f9248a) == null) {
+            return;
         }
+        circleProgressView.post(new a(this));
     }
 }

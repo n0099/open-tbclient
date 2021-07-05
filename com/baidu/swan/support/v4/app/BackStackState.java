@@ -4,201 +4,279 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
-import d.a.m0.o.a.a.e;
-import d.a.m0.o.a.a.m;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.o.a.a.e;
+import d.a.q0.o.a.a.m;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class BackStackState implements Parcelable {
-    public static final Parcelable.Creator<BackStackState> CREATOR = new a();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<BackStackState> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int mBreadCrumbShortTitleRes;
+    public final CharSequence mBreadCrumbShortTitleText;
+    public final int mBreadCrumbTitleRes;
+    public final CharSequence mBreadCrumbTitleText;
+    public final int mIndex;
+    public final String mName;
+    public final int[] mOps;
+    public final ArrayList<String> mSharedElementSourceNames;
+    public final ArrayList<String> mSharedElementTargetNames;
+    public final int mTransition;
+    public final int mTransitionStyle;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final int[] f11988e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final int f11989f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final int f11990g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final String f11991h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final int f11992i;
-    public final int j;
-    public final CharSequence k;
-    public final int l;
-    public final CharSequence m;
-    public final ArrayList<String> n;
-    public final ArrayList<String> o;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<BackStackState> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
         public BackStackState createFromParcel(Parcel parcel) {
-            return new BackStackState(parcel);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new BackStackState(parcel) : (BackStackState) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
         public BackStackState[] newArray(int i2) {
-            return new BackStackState[i2];
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new BackStackState[i2] : (BackStackState[]) invokeI.objValue;
         }
     }
 
-    public BackStackState(e eVar) {
-        int i2 = 0;
-        for (e.d dVar = eVar.f51977f; dVar != null; dVar = dVar.f51992a) {
-            ArrayList<Fragment> arrayList = dVar.f52000i;
-            if (arrayList != null) {
-                i2 += arrayList.size();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1485972836, "Lcom/baidu/swan/support/v4/app/BackStackState;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1485972836, "Lcom/baidu/swan/support/v4/app/BackStackState;");
+                return;
             }
         }
-        this.f11988e = new int[(eVar.f51979h * 7) + i2];
+        CREATOR = new a();
+    }
+
+    public BackStackState(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        int i4 = 0;
+        for (e.d dVar = eVar.f54121f; dVar != null; dVar = dVar.f54136a) {
+            ArrayList<Fragment> arrayList = dVar.f54144i;
+            if (arrayList != null) {
+                i4 += arrayList.size();
+            }
+        }
+        this.mOps = new int[(eVar.f54123h * 7) + i4];
         if (eVar.o) {
-            int i3 = 0;
-            for (e.d dVar2 = eVar.f51977f; dVar2 != null; dVar2 = dVar2.f51992a) {
-                int[] iArr = this.f11988e;
-                int i4 = i3 + 1;
-                iArr[i3] = dVar2.f51994c;
-                int i5 = i4 + 1;
-                Fragment fragment = dVar2.f51995d;
-                iArr[i4] = fragment != null ? fragment.j : -1;
-                int[] iArr2 = this.f11988e;
+            int i5 = 0;
+            for (e.d dVar2 = eVar.f54121f; dVar2 != null; dVar2 = dVar2.f54136a) {
+                int[] iArr = this.mOps;
                 int i6 = i5 + 1;
-                iArr2[i5] = dVar2.f51996e;
+                iArr[i5] = dVar2.f54138c;
                 int i7 = i6 + 1;
-                iArr2[i6] = dVar2.f51997f;
+                Fragment fragment = dVar2.f54139d;
+                iArr[i6] = fragment != null ? fragment.j : -1;
+                int[] iArr2 = this.mOps;
                 int i8 = i7 + 1;
-                iArr2[i7] = dVar2.f51998g;
+                iArr2[i7] = dVar2.f54140e;
                 int i9 = i8 + 1;
-                iArr2[i8] = dVar2.f51999h;
-                ArrayList<Fragment> arrayList2 = dVar2.f52000i;
+                iArr2[i8] = dVar2.f54141f;
+                int i10 = i9 + 1;
+                iArr2[i9] = dVar2.f54142g;
+                int i11 = i10 + 1;
+                iArr2[i10] = dVar2.f54143h;
+                ArrayList<Fragment> arrayList2 = dVar2.f54144i;
                 if (arrayList2 != null) {
                     int size = arrayList2.size();
-                    int i10 = i9 + 1;
-                    this.f11988e[i9] = size;
-                    int i11 = 0;
-                    while (i11 < size) {
-                        this.f11988e[i10] = dVar2.f52000i.get(i11).j;
-                        i11++;
-                        i10++;
+                    int i12 = i11 + 1;
+                    this.mOps[i11] = size;
+                    int i13 = 0;
+                    while (i13 < size) {
+                        this.mOps[i12] = dVar2.f54144i.get(i13).j;
+                        i13++;
+                        i12++;
                     }
-                    i3 = i10;
+                    i5 = i12;
                 } else {
-                    iArr2[i9] = 0;
-                    i3 = i9 + 1;
+                    iArr2[i11] = 0;
+                    i5 = i11 + 1;
                 }
             }
-            this.f11989f = eVar.m;
-            this.f11990g = eVar.n;
-            this.f11991h = eVar.p;
-            this.f11992i = eVar.r;
-            this.j = eVar.s;
-            this.k = eVar.t;
-            this.l = eVar.u;
-            this.m = eVar.v;
-            this.n = eVar.w;
-            this.o = eVar.x;
+            this.mTransition = eVar.m;
+            this.mTransitionStyle = eVar.n;
+            this.mName = eVar.p;
+            this.mIndex = eVar.r;
+            this.mBreadCrumbTitleRes = eVar.s;
+            this.mBreadCrumbTitleText = eVar.t;
+            this.mBreadCrumbShortTitleRes = eVar.u;
+            this.mBreadCrumbShortTitleText = eVar.v;
+            this.mSharedElementSourceNames = eVar.w;
+            this.mSharedElementTargetNames = eVar.x;
             return;
         }
         throw new IllegalStateException("Not on back stack");
     }
 
-    public e a(m mVar) {
-        e eVar = new e(mVar);
-        int i2 = 0;
-        int i3 = 0;
-        while (i2 < this.f11988e.length) {
-            e.d dVar = new e.d();
-            int i4 = i2 + 1;
-            dVar.f51994c = this.f11988e[i2];
-            if (m.x) {
-                Log.v("FragmentManager", "Instantiate " + eVar + " op #" + i3 + " base fragment #" + this.f11988e[i4]);
-            }
-            int i5 = i4 + 1;
-            int i6 = this.f11988e[i4];
-            if (i6 >= 0) {
-                dVar.f51995d = mVar.f52017d.get(i6);
-            } else {
-                dVar.f51995d = null;
-            }
-            int[] iArr = this.f11988e;
-            int i7 = i5 + 1;
-            dVar.f51996e = iArr[i5];
-            int i8 = i7 + 1;
-            dVar.f51997f = iArr[i7];
-            int i9 = i8 + 1;
-            dVar.f51998g = iArr[i8];
-            int i10 = i9 + 1;
-            dVar.f51999h = iArr[i9];
-            int i11 = i10 + 1;
-            int i12 = iArr[i10];
-            if (i12 > 0) {
-                dVar.f52000i = new ArrayList<>(i12);
-                int i13 = 0;
-                while (i13 < i12) {
-                    if (m.x) {
-                        Log.v("FragmentManager", "Instantiate " + eVar + " set remove fragment #" + this.f11988e[i11]);
-                    }
-                    dVar.f52000i.add(mVar.f52017d.get(this.f11988e[i11]));
-                    i13++;
-                    i11++;
-                }
-            }
-            i2 = i11;
-            eVar.n(dVar);
-            i3++;
-        }
-        eVar.m = this.f11989f;
-        eVar.n = this.f11990g;
-        eVar.p = this.f11991h;
-        eVar.r = this.f11992i;
-        eVar.o = true;
-        eVar.s = this.j;
-        eVar.t = this.k;
-        eVar.u = this.l;
-        eVar.v = this.m;
-        eVar.w = this.n;
-        eVar.x = this.o;
-        eVar.p(1);
-        return eVar;
-    }
-
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public e instantiate(m mVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar)) == null) {
+            e eVar = new e(mVar);
+            int i2 = 0;
+            int i3 = 0;
+            while (i2 < this.mOps.length) {
+                e.d dVar = new e.d();
+                int i4 = i2 + 1;
+                dVar.f54138c = this.mOps[i2];
+                if (m.x) {
+                    Log.v("FragmentManager", "Instantiate " + eVar + " op #" + i3 + " base fragment #" + this.mOps[i4]);
+                }
+                int i5 = i4 + 1;
+                int i6 = this.mOps[i4];
+                if (i6 >= 0) {
+                    dVar.f54139d = mVar.f54161d.get(i6);
+                } else {
+                    dVar.f54139d = null;
+                }
+                int[] iArr = this.mOps;
+                int i7 = i5 + 1;
+                dVar.f54140e = iArr[i5];
+                int i8 = i7 + 1;
+                dVar.f54141f = iArr[i7];
+                int i9 = i8 + 1;
+                dVar.f54142g = iArr[i8];
+                int i10 = i9 + 1;
+                dVar.f54143h = iArr[i9];
+                int i11 = i10 + 1;
+                int i12 = iArr[i10];
+                if (i12 > 0) {
+                    dVar.f54144i = new ArrayList<>(i12);
+                    int i13 = 0;
+                    while (i13 < i12) {
+                        if (m.x) {
+                            Log.v("FragmentManager", "Instantiate " + eVar + " set remove fragment #" + this.mOps[i11]);
+                        }
+                        dVar.f54144i.add(mVar.f54161d.get(this.mOps[i11]));
+                        i13++;
+                        i11++;
+                    }
+                }
+                i2 = i11;
+                eVar.n(dVar);
+                i3++;
+            }
+            eVar.m = this.mTransition;
+            eVar.n = this.mTransitionStyle;
+            eVar.p = this.mName;
+            eVar.r = this.mIndex;
+            eVar.o = true;
+            eVar.s = this.mBreadCrumbTitleRes;
+            eVar.t = this.mBreadCrumbTitleText;
+            eVar.u = this.mBreadCrumbShortTitleRes;
+            eVar.v = this.mBreadCrumbShortTitleText;
+            eVar.w = this.mSharedElementSourceNames;
+            eVar.x = this.mSharedElementTargetNames;
+            eVar.p(1);
+            return eVar;
+        }
+        return (e) invokeL.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeIntArray(this.f11988e);
-        parcel.writeInt(this.f11989f);
-        parcel.writeInt(this.f11990g);
-        parcel.writeString(this.f11991h);
-        parcel.writeInt(this.f11992i);
-        parcel.writeInt(this.j);
-        TextUtils.writeToParcel(this.k, parcel, 0);
-        parcel.writeInt(this.l);
-        TextUtils.writeToParcel(this.m, parcel, 0);
-        parcel.writeStringList(this.n);
-        parcel.writeStringList(this.o);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+            parcel.writeIntArray(this.mOps);
+            parcel.writeInt(this.mTransition);
+            parcel.writeInt(this.mTransitionStyle);
+            parcel.writeString(this.mName);
+            parcel.writeInt(this.mIndex);
+            parcel.writeInt(this.mBreadCrumbTitleRes);
+            TextUtils.writeToParcel(this.mBreadCrumbTitleText, parcel, 0);
+            parcel.writeInt(this.mBreadCrumbShortTitleRes);
+            TextUtils.writeToParcel(this.mBreadCrumbShortTitleText, parcel, 0);
+            parcel.writeStringList(this.mSharedElementSourceNames);
+            parcel.writeStringList(this.mSharedElementTargetNames);
+        }
     }
 
     public BackStackState(Parcel parcel) {
-        this.f11988e = parcel.createIntArray();
-        this.f11989f = parcel.readInt();
-        this.f11990g = parcel.readInt();
-        this.f11991h = parcel.readString();
-        this.f11992i = parcel.readInt();
-        this.j = parcel.readInt();
-        this.k = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.l = parcel.readInt();
-        this.m = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.n = parcel.createStringArrayList();
-        this.o = parcel.createStringArrayList();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mOps = parcel.createIntArray();
+        this.mTransition = parcel.readInt();
+        this.mTransitionStyle = parcel.readInt();
+        this.mName = parcel.readString();
+        this.mIndex = parcel.readInt();
+        this.mBreadCrumbTitleRes = parcel.readInt();
+        this.mBreadCrumbTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.mBreadCrumbShortTitleRes = parcel.readInt();
+        this.mBreadCrumbShortTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.mSharedElementSourceNames = parcel.createStringArrayList();
+        this.mSharedElementTargetNames = parcel.createStringArrayList();
     }
 }

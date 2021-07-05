@@ -1,18 +1,38 @@
 package aegon.chrome.net.impl;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final /* synthetic */ class CronetUrlRequest$$Lambda$1 implements SafeNativeFunctionCaller$Supplier {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final CronetUrlRequest arg$1;
 
     public CronetUrlRequest$$Lambda$1(CronetUrlRequest cronetUrlRequest) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cronetUrlRequest};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.arg$1 = cronetUrlRequest;
-    }
-
-    public static SafeNativeFunctionCaller$Supplier lambdaFactory$(CronetUrlRequest cronetUrlRequest) {
-        return new CronetUrlRequest$$Lambda$1(cronetUrlRequest);
     }
 
     @Override // aegon.chrome.net.impl.SafeNativeFunctionCaller$Supplier
     public Object get() {
-        return CronetUrlRequest.lambda$start$0(this.arg$1);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CronetUrlRequest.lambda$start$0(this.arg$1) : invokeV.objValue;
     }
 }

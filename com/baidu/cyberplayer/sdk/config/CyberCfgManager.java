@@ -6,7 +6,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.imsdk.upload.action.IMTrack;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
@@ -16,7 +17,15 @@ import com.baidu.cyberplayer.sdk.c;
 import com.baidu.cyberplayer.sdk.d;
 import com.baidu.cyberplayer.sdk.o;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.VideoCloudSetting;
@@ -30,8 +39,9 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberCfgManager {
+    public static /* synthetic */ Interceptable $ic = null;
     @Keep
     public static final String KEY_ACCURATE_SEEK_ENABLE = "accurate_seek_enable";
     @Keep
@@ -83,47 +93,71 @@ public class CyberCfgManager {
     @Keep
     public static final String SR_REMAINING_INFO = "sr_remaining_info";
 
+    /* renamed from: a  reason: collision with root package name */
+    public static ArrayList<String> f4820a;
+
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4791b;
+    public static Context f4821b;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static CyberCfgManager f4822g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static volatile boolean f4823h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static volatile boolean f4824i;
+    public static int j;
+    public static ArrayList<String> m;
+    public static ArrayList<String> n;
+    public static ArrayList<String> o;
+    public static ArrayList<String> p;
+    public static ArrayList<String> q;
+    public static ArrayList<String> r;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f4795c = new ConcurrentHashMap();
+    public Map<String, String> f4825c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f4796d = new ConcurrentHashMap();
+    public Map<String, String> f4826d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4797e = null;
+    public String f4827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f4798f = null;
+    public String f4828f;
     public String k;
     public String l;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static CyberCfgManager f4792g = new CyberCfgManager();
-
-    /* renamed from: h  reason: collision with root package name */
-    public static volatile boolean f4793h = false;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static volatile boolean f4794i = false;
-    public static int j = 86400000;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<String> f4790a = new ArrayList<>();
-    public static ArrayList<String> m = new ArrayList<>();
-    public static ArrayList<String> n = new ArrayList<>();
-    public static ArrayList<String> o = new ArrayList<>();
-    public static ArrayList<String> p = new ArrayList<>();
-    public static ArrayList<String> q = new ArrayList<>();
-    public static ArrayList<String> r = new ArrayList<>();
-
     static {
-        f4790a.add("hwH60");
-        f4790a.add("hwp7");
-        f4790a.add("sp8830ec");
-        f4790a.add("Hisense M30T");
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2141281746, "Lcom/baidu/cyberplayer/sdk/config/CyberCfgManager;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2141281746, "Lcom/baidu/cyberplayer/sdk/config/CyberCfgManager;");
+                return;
+            }
+        }
+        f4822g = new CyberCfgManager();
+        f4823h = false;
+        f4824i = false;
+        j = 86400000;
+        f4820a = new ArrayList<>();
+        m = new ArrayList<>();
+        n = new ArrayList<>();
+        o = new ArrayList<>();
+        p = new ArrayList<>();
+        q = new ArrayList<>();
+        r = new ArrayList<>();
+        f4820a.add("hwH60");
+        f4820a.add("hwp7");
+        f4820a.add("sp8830ec");
+        f4820a.add("Hisense M30T");
         m.add("GT-I9500");
         m.add("GT-I9268");
         m.add("GT-I8268");
@@ -180,199 +214,270 @@ public class CyberCfgManager {
         r.add("PAFM00");
     }
 
-    public static int a(Map<String, String> map, String str, int i2) {
-        if (map != null) {
-            String str2 = map.get(str);
-            if (!TextUtils.isEmpty(str2)) {
-                try {
-                    return Integer.parseInt(str2);
-                } catch (Exception unused) {
-                }
+    public CyberCfgManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return i2;
+        this.f4825c = new ConcurrentHashMap();
+        this.f4826d = new ConcurrentHashMap();
+        this.f4827e = null;
+        this.f4828f = null;
+    }
+
+    public static int a(Map<String, String> map, String str, int i2) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, map, str, i2)) == null) {
+            if (map != null) {
+                String str2 = map.get(str);
+                if (!TextUtils.isEmpty(str2)) {
+                    try {
+                        return Integer.parseInt(str2);
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+            return i2;
+        }
+        return invokeLLI.intValue;
     }
 
     public static long a(Map<String, String> map, String str, long j2) {
-        if (map != null) {
-            try {
-                return Long.parseLong(map.get(str));
-            } catch (Exception unused) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{map, str, Long.valueOf(j2)})) == null) {
+            if (map != null) {
+                try {
+                    return Long.parseLong(map.get(str));
+                } catch (Exception unused) {
+                }
             }
+            return j2;
         }
-        return j2;
+        return invokeCommon.longValue;
     }
 
     public static String a(Map<String, String> map, String str, String str2) {
-        if (map != null) {
-            String str3 = map.get(str);
-            if (!TextUtils.isEmpty(str3)) {
-                return str3;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, map, str, str2)) == null) {
+            if (map != null) {
+                String str3 = map.get(str);
+                if (!TextUtils.isEmpty(str3)) {
+                    return str3;
+                }
             }
+            return str2;
         }
-        return str2;
+        return (String) invokeLLL.objValue;
     }
 
     private boolean a(Map<String, String> map) {
-        String a2 = a(map, "release_key", "");
-        return !TextUtils.isEmpty(a2) && a2.equalsIgnoreCase(this.f4797e);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, map)) == null) {
+            String a2 = a(map, "release_key", "");
+            return !TextUtils.isEmpty(a2) && a2.equalsIgnoreCase(this.f4827e);
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean a(Map<String, String> map, String str, boolean z) {
-        return a(map, str, z ? 1 : 0) == 1;
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, map, str, z)) == null) ? a(map, str, z ? 1 : 0) == 1 : invokeLLZ.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        this.f4796d.clear();
-        d();
-        c();
-        e();
-        f();
-        synchronized (this) {
-            this.f4795c.clear();
-            this.f4795c.putAll(this.f4796d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            this.f4826d.clear();
+            d();
+            c();
+            e();
+            f();
+            synchronized (this) {
+                this.f4825c.clear();
+                this.f4825c.putAll(this.f4826d);
+            }
         }
     }
 
     private void b(String str, String str2) {
-        if (o.m()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, this, str, str2) == null) && o.m()) {
             setPrefStr("update_type_black", str);
             setPrefStr("update_version_black", str2);
         }
     }
 
     private void b(Map<String, String> map) {
-        int a2 = a(map, "log_level", -1);
-        if (a2 != -1) {
-            CyberLog.a(a2);
+        int a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65547, this, map) == null) || (a2 = a(map, "log_level", -1)) == -1) {
+            return;
         }
+        CyberLog.a(a2);
     }
 
     private boolean b(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return "7.26.2".equals(str.substring(0, str.lastIndexOf(".")));
+            } catch (Exception unused) {
+                return false;
+            }
         }
-        try {
-            return "7.26.2".equals(str.substring(0, str.lastIndexOf(".")));
-        } catch (Exception unused) {
-            return false;
-        }
+        return invokeL.booleanValue;
     }
 
     private void c() {
-        this.k = o.b() + File.separator + "config";
-        Map<String, String> a2 = b.a(this.k + File.separator + "cybermedia.pro");
-        if (a2 != null) {
-            this.f4796d.putAll(a2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            this.k = o.b() + File.separator + "config";
+            Map<String, String> a2 = b.a(this.k + File.separator + "cybermedia.pro");
+            if (a2 != null) {
+                this.f4826d.putAll(a2);
+            }
         }
     }
 
     private void c(String str, String str2) {
-        if (a(this.f4796d, str, -1) == -1) {
-            String a2 = a(this.f4796d, str2, "");
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65550, this, str, str2) == null) && a(this.f4826d, str, -1) == -1) {
+            String a2 = a(this.f4826d, str2, "");
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            this.f4796d.put(str, Integer.toString(a.a(a2, SDKVersion.VERSION).booleanValue() ? 1 : 0));
+            this.f4826d.put(str, Integer.toString(a.a(a2, SDKVersion.VERSION).booleanValue() ? 1 : 0));
         }
     }
 
     @Keep
     public static int compareVersion(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (str.equals(str2)) {
-                return 0;
-            }
-            try {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                if (split != null && split2 != null) {
-                    int min = Math.min(split.length, split2.length);
-                    int i2 = 0;
-                    int i3 = 0;
-                    while (i2 < min) {
-                        i3 = Integer.parseInt(split[i2]) - Integer.parseInt(split2[i2]);
-                        if (i3 != 0) {
-                            break;
-                        }
-                        i2++;
-                    }
-                    if (i3 != 0) {
-                        return i3 > 0 ? 1 : -1;
-                    }
-                    for (int i4 = i2; i4 < split.length; i4++) {
-                        if (Integer.parseInt(split[i4]) > 0) {
-                            return 1;
-                        }
-                    }
-                    while (i2 < split2.length) {
-                        if (Integer.parseInt(split2[i2]) > 0) {
-                            return -1;
-                        }
-                        i2++;
-                    }
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (str.equals(str2)) {
                     return 0;
                 }
-                return -2;
-            } catch (Exception unused) {
-                CyberLog.e("CyberCfgManager", "compareVersion exception, version1=" + str + " version2=" + str2);
+                try {
+                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    if (split != null && split2 != null) {
+                        int min = Math.min(split.length, split2.length);
+                        int i2 = 0;
+                        int i3 = 0;
+                        while (i2 < min) {
+                            i3 = Integer.parseInt(split[i2]) - Integer.parseInt(split2[i2]);
+                            if (i3 != 0) {
+                                break;
+                            }
+                            i2++;
+                        }
+                        if (i3 != 0) {
+                            return i3 > 0 ? 1 : -1;
+                        }
+                        for (int i4 = i2; i4 < split.length; i4++) {
+                            if (Integer.parseInt(split[i4]) > 0) {
+                                return 1;
+                            }
+                        }
+                        while (i2 < split2.length) {
+                            if (Integer.parseInt(split2[i2]) > 0) {
+                                return -1;
+                            }
+                            i2++;
+                        }
+                        return 0;
+                    }
+                    return -2;
+                } catch (Exception unused) {
+                    CyberLog.e("CyberCfgManager", "compareVersion exception, version1=" + str + " version2=" + str2);
+                }
             }
+            return -2;
         }
-        return -2;
+        return invokeLL.intValue;
     }
 
     private void d() {
-        try {
-            for (Map.Entry<String, String> entry : CyberPlayerManager.getInstallOpts().entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                if (key.startsWith(CyberPlayerManager.INSTALL_OPT_ABTEST_SWITCH_START_CODE)) {
-                    CyberLog.d("CyberCfgManager", "ABTest key:" + key + " value:" + value);
-                    Map<String, String> c2 = o.c(value);
-                    if (c2 != null) {
-                        this.f4796d.putAll(c2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+            try {
+                for (Map.Entry<String, String> entry : CyberPlayerManager.getInstallOpts().entrySet()) {
+                    String key = entry.getKey();
+                    String value = entry.getValue();
+                    if (key.startsWith(CyberPlayerManager.INSTALL_OPT_ABTEST_SWITCH_START_CODE)) {
+                        CyberLog.d("CyberCfgManager", "ABTest key:" + key + " value:" + value);
+                        Map<String, String> c2 = o.c(value);
+                        if (c2 != null) {
+                            this.f4826d.putAll(c2);
+                        }
                     }
                 }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
         }
     }
 
     private void e() {
-        try {
-            if (f4791b != null) {
-                this.l = o.a(f4791b);
-            }
-            if (TextUtils.isEmpty(this.l)) {
-                return;
-            }
-            Map<String, String> a2 = b.a(this.l + File.separator + "cybermedia.pro");
-            if (a2 != null) {
-                b(a2);
-                if (a(a2)) {
-                    this.f4796d.putAll(a2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            try {
+                if (f4821b != null) {
+                    this.l = o.a(f4821b);
                 }
+                if (TextUtils.isEmpty(this.l)) {
+                    return;
+                }
+                Map<String, String> a2 = b.a(this.l + File.separator + "cybermedia.pro");
+                if (a2 != null) {
+                    b(a2);
+                    if (a(a2)) {
+                        this.f4826d.putAll(a2);
+                    }
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
         }
     }
 
     private void f() {
-        c(KEY_INT_ENABLE_PREFETCH, "pre_download_ver");
-        c(KEY_INT_ENABLE_FILE_CACHE, "file_cache_ver");
-        c("enable_update_core", "update_core_sdk_ver");
-        i();
-        j();
-        l();
-        m();
-        n();
-        k();
-        this.f4796d.put(KEY_INT_ENABLE_HW_DECODE, Integer.toString(!p()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+            c(KEY_INT_ENABLE_PREFETCH, "pre_download_ver");
+            c(KEY_INT_ENABLE_FILE_CACHE, "file_cache_ver");
+            c("enable_update_core", "update_core_sdk_ver");
+            i();
+            j();
+            l();
+            m();
+            n();
+            k();
+            this.f4826d.put(KEY_INT_ENABLE_HW_DECODE, Integer.toString(!p()));
+        }
     }
 
     private void g() {
-        if (o.m()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && o.m()) {
             removePref("install_error_count");
             removePref(SP_KEY_UPDATE_TYPE);
             removePref("update_version");
@@ -383,57 +488,90 @@ public class CyberCfgManager {
 
     @Keep
     public static CyberCfgManager getInstance() {
-        if (f4791b == null) {
-            f4791b = CyberPlayerManager.getApplicationContext();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (f4821b == null) {
+                f4821b = CyberPlayerManager.getApplicationContext();
+            }
+            return f4822g;
         }
-        return f4792g;
+        return (CyberCfgManager) invokeV.objValue;
     }
 
     private void h() {
-        if (c.a().g() && o.m()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && c.a().g() && o.m()) {
             setPrefLong("last_update_cloud_cfg_time", System.currentTimeMillis());
-            CyberTaskExcutor.getInstance().execute(new Runnable() { // from class: com.baidu.cyberplayer.sdk.config.CyberCfgManager.1
+            CyberTaskExcutor.getInstance().execute(new Runnable(this) { // from class: com.baidu.cyberplayer.sdk.config.CyberCfgManager.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ CyberCfgManager f4829a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f4829a = this;
+                }
+
                 @Override // java.lang.Runnable
                 public void run() {
-                    try {
-                        String f2 = c.a().f();
-                        Properties properties = new Properties();
-                        o.b(CyberCfgManager.this.k);
-                        File file = new File(CyberCfgManager.this.k, "cybermedia.pro");
-                        if (!file.exists() || !file.isFile()) {
-                            file.createNewFile();
-                        }
-                        File file2 = new File(CyberCfgManager.this.k, "cybermedia.pro.tmp");
-                        if (!file2.exists() || !file2.isFile()) {
-                            file2.createNewFile();
-                        }
-                        HashMap hashMap = new HashMap();
-                        hashMap.put("url", f2);
-                        byte[] a2 = com.baidu.cyberplayer.sdk.downloader.b.a(hashMap);
-                        String a3 = o.a(a2);
-                        String a4 = o.a(a2, new String(Base64.decode(WebSettingsGlobalBlink.DEFAULT_SECRECT_KEY.getBytes(), 0)));
-                        if (a4 != null) {
-                            Map<String, String> c2 = o.c(a4);
-                            if (c2 != null) {
-                                FileWriter fileWriter = new FileWriter(file2.getAbsolutePath());
-                                for (Map.Entry<String, String> entry : c2.entrySet()) {
-                                    properties.setProperty(entry.getKey(), entry.getValue());
-                                    CyberLog.d("CyberCfgManager", "update cloud cfg key:" + entry.getKey() + " value:" + entry.getValue());
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            String f2 = c.a().f();
+                            Properties properties = new Properties();
+                            o.b(this.f4829a.k);
+                            File file = new File(this.f4829a.k, "cybermedia.pro");
+                            if (!file.exists() || !file.isFile()) {
+                                file.createNewFile();
+                            }
+                            File file2 = new File(this.f4829a.k, "cybermedia.pro.tmp");
+                            if (!file2.exists() || !file2.isFile()) {
+                                file2.createNewFile();
+                            }
+                            HashMap hashMap = new HashMap();
+                            hashMap.put("url", f2);
+                            byte[] a2 = com.baidu.cyberplayer.sdk.downloader.b.a(hashMap);
+                            String a3 = o.a(a2);
+                            String a4 = o.a(a2, new String(Base64.decode(WebSettingsGlobalBlink.DEFAULT_SECRECT_KEY.getBytes(), 0)));
+                            if (a4 != null) {
+                                Map<String, String> c2 = o.c(a4);
+                                if (c2 != null) {
+                                    FileWriter fileWriter = new FileWriter(file2.getAbsolutePath());
+                                    for (Map.Entry<String, String> entry : c2.entrySet()) {
+                                        properties.setProperty(entry.getKey(), entry.getValue());
+                                        CyberLog.d("CyberCfgManager", "update cloud cfg key:" + entry.getKey() + " value:" + entry.getValue());
+                                    }
+                                    properties.store(fileWriter, "update");
+                                    fileWriter.close();
                                 }
-                                properties.store(fileWriter, IMTrack.DbBuilder.ACTION_UPDATE);
-                                fileWriter.close();
+                                if (file2.renameTo(file) && !TextUtils.isEmpty(a3) && !a3.equals(this.f4829a.getPrefStr("cloud_cfg_data_md5", ""))) {
+                                    this.f4829a.setPrefStr("cloud_cfg_data_md5", a3);
+                                    this.f4829a.b();
+                                    d.h();
+                                    CyberLog.d("CyberCfgManager", "updateCloudCfgProFile success!");
+                                }
                             }
-                            if (file2.renameTo(file) && !TextUtils.isEmpty(a3) && !a3.equals(CyberCfgManager.this.getPrefStr("cloud_cfg_data_md5", ""))) {
-                                CyberCfgManager.this.setPrefStr("cloud_cfg_data_md5", a3);
-                                CyberCfgManager.this.b();
-                                d.h();
-                                CyberLog.d("CyberCfgManager", "updateCloudCfgProFile success!");
+                            if (this.f4829a.getCfgBoolValue("delete_unuse_files", true)) {
+                                o.a(o.b() + File.separator + "cyberplayer");
                             }
+                        } catch (Exception unused) {
                         }
-                        if (CyberCfgManager.this.getCfgBoolValue("delete_unuse_files", true)) {
-                            o.a(o.b() + File.separator + "cyberplayer");
-                        }
-                    } catch (Exception unused) {
                     }
                 }
             });
@@ -443,16 +581,17 @@ public class CyberCfgManager {
     private void i() {
         Map<String, String> map;
         String num;
-        if (a(this.f4796d, "enable_upload_session_log", -1) == -1) {
-            String a2 = a(this.f4796d, "upload_session_log_ver", "");
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65558, this) == null) && a(this.f4826d, "enable_upload_session_log", -1) == -1) {
+            String a2 = a(this.f4826d, "upload_session_log_ver", "");
             if (TextUtils.isEmpty(a2) || a.a(a2, SDKVersion.VERSION).booleanValue()) {
-                if (new Random().nextInt(10000) + 1 <= a(this.f4796d, VideoCloudSetting.PREF_KEY_SESSION_LOG_COLLECT_PERCENT, 10000)) {
-                    map = this.f4796d;
+                if (new Random().nextInt(10000) + 1 <= a(this.f4826d, VideoCloudSetting.PREF_KEY_SESSION_LOG_COLLECT_PERCENT, 10000)) {
+                    map = this.f4826d;
                     num = Integer.toString(1);
                     map.put("enable_upload_session_log", num);
                 }
             }
-            map = this.f4796d;
+            map = this.f4826d;
             num = Integer.toString(0);
             map.put("enable_upload_session_log", num);
         }
@@ -460,138 +599,147 @@ public class CyberCfgManager {
 
     private void j() {
         String[] split;
-        String a2 = a(this.f4796d, "update_core_info", "");
-        if (!TextUtils.isEmpty(a2) && (split = a2.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue() && b(split[1]) && isAllowUpdate("cyber-media-dex", split[1], SDKVersion.VERSION)) {
-            this.f4796d.put("update_core_ver", keepMainProcessVersion("cyber-media-dex", split[1]));
-            this.f4796d.put("update_core_enable_downgrade", split[2]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+            String a2 = a(this.f4826d, "update_core_info", "");
+            if (!TextUtils.isEmpty(a2) && (split = a2.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue() && b(split[1]) && isAllowUpdate("cyber-media-dex", split[1], SDKVersion.VERSION)) {
+                this.f4826d.put("update_core_ver", keepMainProcessVersion("cyber-media-dex", split[1]));
+                this.f4826d.put("update_core_enable_downgrade", split[2]);
+            }
         }
     }
 
     private void k() {
         String[] split;
-        String a2 = a(this.f4796d, "update_lib_info", "");
-        if (TextUtils.isEmpty(a2)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(a2);
-            if (jSONObject.length() == 1) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    String string = jSONObject.getString(next);
-                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string) && (split = string.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue()) {
-                        this.f4796d.put(next, string);
-                    }
-                }
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    @Keep
-    public static String keepMainProcessVersion(String str, String str2) {
-        Map<String, String> installOpts;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return "";
-        }
-        if (o.m() || (installOpts = CyberPlayerManager.getInstallOpts()) == null) {
-            return str2;
-        }
-        String str3 = installOpts.get(str);
-        return (TextUtils.isEmpty(str3) || str3.equals("0.0.0.0") || str3.equals(str2)) ? str2 : str3;
-    }
-
-    private void l() {
-        String a2 = a(this.f4796d, "decode_mode_for_rom", "");
-        if (TextUtils.isEmpty(a2)) {
-            return;
-        }
-        try {
-            String[] split = a2.split(";");
-            if (split == null || split.length != 2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+            String a2 = a(this.f4826d, "update_lib_info", "");
+            if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            for (String str : split[0].split(",")) {
-                if (Integer.parseInt(str) == Build.VERSION.SDK_INT) {
-                    this.f4796d.put("decode_mode", split[1]);
-                    return;
-                }
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0036, code lost:
-        r8.f4796d.put("remote_forbidden", r0[1]);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void m() {
-        String a2 = a(this.f4796d, "remote_forbidden_by_rom", "16,17,18,19,20;1");
-        if (!TextUtils.isEmpty(a2)) {
             try {
-                String[] split = a2.split(";");
-                if (split != null && split.length == 2) {
-                    String[] split2 = split[0].split(",");
-                    int i2 = 0;
-                    while (true) {
-                        if (i2 >= split2.length) {
-                            break;
-                        } else if (Integer.parseInt(split2[i2]) == Build.VERSION.SDK_INT) {
-                            break;
-                        } else {
-                            i2++;
+                JSONObject jSONObject = new JSONObject(a2);
+                if (jSONObject.length() == 1) {
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        String string = jSONObject.getString(next);
+                        if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string) && (split = string.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue()) {
+                            this.f4826d.put(next, string);
                         }
                     }
                 }
             } catch (Exception unused) {
             }
         }
-        if (a(this.f4796d, "remote_forbidden", false) || !q()) {
-            return;
+    }
+
+    @Keep
+    public static String keepMainProcessVersion(String str, String str2) {
+        InterceptResult invokeLL;
+        Map<String, String> installOpts;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return "";
+            }
+            if (o.m() || (installOpts = CyberPlayerManager.getInstallOpts()) == null) {
+                return str2;
+            }
+            String str3 = installOpts.get(str);
+            return (TextUtils.isEmpty(str3) || str3.equals("0.0.0.0") || str3.equals(str2)) ? str2 : str3;
         }
-        this.f4796d.put("remote_forbidden", Integer.toString(1));
+        return (String) invokeLL.objValue;
+    }
+
+    private void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
+            String a2 = a(this.f4826d, "decode_mode_for_rom", "");
+            if (TextUtils.isEmpty(a2)) {
+                return;
+            }
+            try {
+                String[] split = a2.split(";");
+                if (split == null || split.length != 2) {
+                    return;
+                }
+                for (String str : split[0].split(",")) {
+                    if (Integer.parseInt(str) == Build.VERSION.SDK_INT) {
+                        this.f4826d.put("decode_mode", split[1]);
+                        return;
+                    }
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x003a, code lost:
+        r8.f4826d.put("remote_forbidden", r0[1]);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+            String a2 = a(this.f4826d, "remote_forbidden_by_rom", "16,17,18,19,20;1");
+            if (!TextUtils.isEmpty(a2)) {
+                try {
+                    String[] split = a2.split(";");
+                    if (split != null && split.length == 2) {
+                        String[] split2 = split[0].split(",");
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= split2.length) {
+                                break;
+                            } else if (Integer.parseInt(split2[i2]) == Build.VERSION.SDK_INT) {
+                                break;
+                            } else {
+                                i2++;
+                            }
+                        }
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            if (a(this.f4826d, "remote_forbidden", false) || !q()) {
+                return;
+            }
+            this.f4826d.put("remote_forbidden", Integer.toString(1));
+        }
     }
 
     private void n() {
-        String prefStr = getPrefStr(SR_REMAINING_INFO, null);
-        if (!TextUtils.isEmpty(prefStr)) {
-            String[] split = prefStr.split(";");
-            if (split.length == 2) {
-                this.f4796d.put("sr_last_run_time", split[0]);
-                this.f4796d.put("sr_remaining_nb", split[1]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
+            String prefStr = getPrefStr(SR_REMAINING_INFO, null);
+            if (!TextUtils.isEmpty(prefStr)) {
+                String[] split = prefStr.split(";");
+                if (split.length == 2) {
+                    this.f4826d.put("sr_last_run_time", split[0]);
+                    this.f4826d.put("sr_remaining_nb", split[1]);
+                }
             }
-        }
-        if (a(this.f4796d, KEY_INT_ENABLE_SR, true)) {
-            this.f4796d.put(KEY_INT_ENABLE_SR, Integer.toString(o() ? 1 : 0));
+            if (a(this.f4826d, KEY_INT_ENABLE_SR, true)) {
+                this.f4826d.put(KEY_INT_ENABLE_SR, Integer.toString(o() ? 1 : 0));
+            }
         }
     }
 
     private boolean o() {
-        if (Build.VERSION.SDK_INT < 23) {
-            return false;
-        }
-        if (a.a(q, r)) {
-            return true;
-        }
-        String a2 = a(this.f4796d, "white_devices_for_sr", "");
-        CyberLog.i("CyberCfgManager", "value : " + a2);
-        if (TextUtils.isEmpty(a2)) {
-            return false;
-        }
-        String[] split = a2.split(";");
-        ArrayList arrayList = new ArrayList();
-        for (String str : split) {
-            arrayList.add(str);
-        }
-        return a.a(arrayList, arrayList);
-    }
-
-    private boolean p() {
-        if (Build.VERSION.SDK_INT >= 16 && !a.a(f4790a, m)) {
-            String a2 = a(this.f4796d, "black_devices_for_hw", "");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                return false;
+            }
+            if (a.a(q, r)) {
+                return true;
+            }
+            String a2 = a(this.f4826d, "white_devices_for_sr", "");
+            CyberLog.i("CyberCfgManager", "value : " + a2);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
@@ -602,226 +750,367 @@ public class CyberCfgManager {
             }
             return a.a(arrayList, arrayList);
         }
-        return true;
+        return invokeV.booleanValue;
+    }
+
+    private boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 16 && !a.a(f4820a, m)) {
+                String a2 = a(this.f4826d, "black_devices_for_hw", "");
+                if (TextUtils.isEmpty(a2)) {
+                    return false;
+                }
+                String[] split = a2.split(";");
+                ArrayList arrayList = new ArrayList();
+                for (String str : split) {
+                    arrayList.add(str);
+                }
+                return a.a(arrayList, arrayList);
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     private boolean q() {
-        if (a.a(o, p)) {
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, this)) == null) {
+            if (a.a(o, p)) {
+                return true;
+            }
+            String a2 = a(this.f4826d, "remote_blacklist", "");
+            if (TextUtils.isEmpty(a2)) {
+                return false;
+            }
+            String[] split = a2.split(";");
+            ArrayList arrayList = new ArrayList();
+            for (String str : split) {
+                arrayList.add(str);
+            }
+            return a.a(arrayList, arrayList);
         }
-        String a2 = a(this.f4796d, "remote_blacklist", "");
-        if (TextUtils.isEmpty(a2)) {
-            return false;
-        }
-        String[] split = a2.split(";");
-        ArrayList arrayList = new ArrayList();
-        for (String str : split) {
-            arrayList.add(str);
-        }
-        return a.a(arrayList, arrayList);
+        return invokeV.booleanValue;
     }
 
     public String a(String str) {
-        String packageName = f4791b.getPackageName();
-        String str2 = (str + File.separator + "videoconfig") + "?cmd=1&";
-        StringBuilder sb = new StringBuilder();
-        o.a(sb, "package_name", packageName);
-        o.a(sb, "sdk_ver", SDKVersion.VERSION);
-        if (!TextUtils.isEmpty(this.f4798f)) {
-            o.a(sb, "appid", this.f4798f);
-        }
-        try {
-            PackageManager packageManager = f4791b.getPackageManager();
-            if (packageManager != null) {
-                o.a(sb, "appversion", packageManager.getPackageInfo(packageName, 0).versionName);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String packageName = f4821b.getPackageName();
+            String str2 = (str + File.separator + "videoconfig") + "?cmd=1&";
+            StringBuilder sb = new StringBuilder();
+            o.a(sb, "package_name", packageName);
+            o.a(sb, "sdk_ver", SDKVersion.VERSION);
+            if (!TextUtils.isEmpty(this.f4828f)) {
+                o.a(sb, "appid", this.f4828f);
             }
-        } catch (PackageManager.NameNotFoundException unused) {
+            try {
+                PackageManager packageManager = f4821b.getPackageManager();
+                if (packageManager != null) {
+                    o.a(sb, "appversion", packageManager.getPackageInfo(packageName, 0).versionName);
+                }
+            } catch (PackageManager.NameNotFoundException unused) {
+            }
+            o.a(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
+            o.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(f4821b));
+            try {
+                o.a(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));
+            } catch (Throwable th) {
+                CyberLog.e("CyberCfgManager", "model exception ", th);
+            }
+            return str2 + sb.toString();
         }
-        o.a(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
-        o.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(f4791b));
-        try {
-            o.a(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));
-        } catch (Throwable th) {
-            CyberLog.e("CyberCfgManager", "model exception ", th);
-        }
-        return str2 + sb.toString();
+        return (String) invokeL.objValue;
     }
 
     public String a(String str, String str2) {
-        return a(this.f4795c, str, str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? a(this.f4825c, str, str2) : (String) invokeLL.objValue;
     }
 
     public synchronized void a() {
-        if (f4793h) {
-            if (f4794i) {
-                if (System.currentTimeMillis() - getPrefLong("last_update_cloud_cfg_time", -1L) > j) {
-                    h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (f4823h) {
+                    if (f4824i) {
+                        if (System.currentTimeMillis() - getPrefLong("last_update_cloud_cfg_time", -1L) > j) {
+                            h();
+                        }
+                    } else {
+                        h();
+                        f4824i = true;
+                    }
                 }
-            } else {
-                h();
-                f4794i = true;
             }
         }
     }
 
     public boolean a(String str, boolean z) {
-        return a(this.f4795c, str, z ? 1 : 0) == 1;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) ? a(this.f4825c, str, z ? 1 : 0) == 1 : invokeLZ.booleanValue;
     }
 
     @Keep
     public synchronized boolean getCfgBoolValue(String str, boolean z) {
-        return a(this.f4795c, str, z ? 1 : 0) == 1;
+        InterceptResult invokeLZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
+            synchronized (this) {
+                z2 = a(this.f4825c, str, z ? 1 : 0) == 1;
+            }
+            return z2;
+        }
+        return invokeLZ.booleanValue;
     }
 
     @Keep
     public synchronized int getCfgIntValue(String str, int i2) {
-        return a(this.f4795c, str, i2);
+        InterceptResult invokeLI;
+        int a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
+            synchronized (this) {
+                a2 = a(this.f4825c, str, i2);
+            }
+            return a2;
+        }
+        return invokeLI.intValue;
     }
 
     @Keep
     public synchronized long getCfgLongValue(String str, long j2) {
-        return a(this.f4795c, str, j2);
+        InterceptResult invokeLJ;
+        long a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
+            synchronized (this) {
+                a2 = a(this.f4825c, str, j2);
+            }
+            return a2;
+        }
+        return invokeLJ.longValue;
     }
 
     @Keep
     public synchronized Map<String, String> getCfgMap() {
+        InterceptResult invokeV;
         HashMap hashMap;
-        HashMap hashMap2 = null;
-        try {
-            hashMap = new HashMap();
-            try {
-                hashMap.putAll(this.f4795c);
-            } catch (Exception unused) {
-                hashMap2 = hashMap;
-                hashMap = hashMap2;
-                return hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                HashMap hashMap2 = null;
+                try {
+                    hashMap = new HashMap();
+                } catch (Exception unused) {
+                }
+                try {
+                    hashMap.putAll(this.f4825c);
+                } catch (Exception unused2) {
+                    hashMap2 = hashMap;
+                    hashMap = hashMap2;
+                    return hashMap;
+                }
             }
-        } catch (Exception unused2) {
+            return hashMap;
         }
-        return hashMap;
+        return (Map) invokeV.objValue;
     }
 
     @Keep
     public synchronized String getCfgValue(String str, String str2) {
-        return a(this.f4795c, str, str2);
+        InterceptResult invokeLL;
+        String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            synchronized (this) {
+                a2 = a(this.f4825c, str, str2);
+            }
+            return a2;
+        }
+        return (String) invokeLL.objValue;
     }
 
     @Keep
     public synchronized int getPrefInt(String str, int i2) {
-        if (f4791b != null) {
-            i2 = f4791b.getSharedPreferences("video_cfg", 0).getInt(str, i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i2)) == null) {
+            synchronized (this) {
+                if (f4821b != null) {
+                    i2 = f4821b.getSharedPreferences("video_cfg", 0).getInt(str, i2);
+                }
+            }
+            return i2;
         }
-        return i2;
+        return invokeLI.intValue;
     }
 
     @Keep
     public synchronized long getPrefLong(String str, long j2) {
-        if (f4791b != null) {
-            j2 = f4791b.getSharedPreferences("video_cfg", 0).getLong(str, j2);
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j2)) == null) {
+            synchronized (this) {
+                if (f4821b != null) {
+                    j2 = f4821b.getSharedPreferences("video_cfg", 0).getLong(str, j2);
+                }
+            }
+            return j2;
         }
-        return j2;
+        return invokeLJ.longValue;
     }
 
     @Keep
     public synchronized String getPrefStr(String str, String str2) {
-        if (f4791b != null) {
-            str2 = f4791b.getSharedPreferences("video_cfg", 0).getString(str, str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            synchronized (this) {
+                if (f4821b != null) {
+                    str2 = f4821b.getSharedPreferences("video_cfg", 0).getString(str, str2);
+                }
+            }
+            return str2;
         }
-        return str2;
+        return (String) invokeLL.objValue;
     }
 
     @Keep
     public synchronized void init() {
-        if (!f4793h) {
-            this.f4797e = CyberPlayerManager.getClientID();
-            this.f4798f = CyberPlayerManager.getAppID();
-            b();
-            f4793h = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (this) {
+                if (!f4823h) {
+                    this.f4827e = CyberPlayerManager.getClientID();
+                    this.f4828f = CyberPlayerManager.getAppID();
+                    b();
+                    f4823h = true;
+                }
+            }
         }
     }
 
     @Keep
     public boolean isAllowUpdate(String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-            return false;
-        }
-        if ((str.equals(getPrefStr("update_type_black", "")) && str2.equals(getPrefStr("update_version_black", ""))) || compareVersion(str2, str3) == -1) {
-            return false;
-        }
-        int prefInt = getPrefInt("install_error_count", 1);
-        String prefStr = getPrefStr("update_version", "");
-        String prefStr2 = getPrefStr(SP_KEY_UPDATE_TYPE, "");
-        CyberLog.i("CyberCfgManager", "installErrorCount=" + prefInt + " prefUpdateVersion=" + prefStr + " prefUpdateType=" + prefStr2);
-        if (!str.equals(prefStr2)) {
-            g();
-            return true;
-        } else if (str2.equals(prefStr)) {
-            if (prefInt < 3) {
-                return prefInt < 3;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return false;
             }
-            b(str, str2);
-            return false;
-        } else if (compareVersion(prefStr, str2) == -1 || compareVersion(prefStr, str3) == -1) {
-            g();
-            return true;
-        } else {
-            return false;
+            if ((str.equals(getPrefStr("update_type_black", "")) && str2.equals(getPrefStr("update_version_black", ""))) || compareVersion(str2, str3) == -1) {
+                return false;
+            }
+            int prefInt = getPrefInt("install_error_count", 1);
+            String prefStr = getPrefStr("update_version", "");
+            String prefStr2 = getPrefStr(SP_KEY_UPDATE_TYPE, "");
+            CyberLog.i("CyberCfgManager", "installErrorCount=" + prefInt + " prefUpdateVersion=" + prefStr + " prefUpdateType=" + prefStr2);
+            if (!str.equals(prefStr2)) {
+                g();
+                return true;
+            } else if (str2.equals(prefStr)) {
+                if (prefInt < 3) {
+                    return prefInt < 3;
+                }
+                b(str, str2);
+                return false;
+            } else if (compareVersion(prefStr, str2) == -1 || compareVersion(prefStr, str3) == -1) {
+                g();
+                return true;
+            } else {
+                return false;
+            }
         }
+        return invokeLLL.booleanValue;
     }
 
     @Keep
     public synchronized boolean isBlackUrl(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return true;
+                }
+                if (a.a(str, n)) {
+                    return true;
+                }
+                String a2 = a(this.f4825c, "black_url_list_for_file_cache", "");
+                if (TextUtils.isEmpty(a2)) {
+                    return false;
+                }
+                String[] split = a2.split(";");
+                ArrayList arrayList = new ArrayList();
+                for (String str2 : split) {
+                    arrayList.add(str2);
+                }
+                return a.a(str, arrayList);
+            }
         }
-        if (a.a(str, n)) {
-            return true;
-        }
-        String a2 = a(this.f4795c, "black_url_list_for_file_cache", "");
-        if (TextUtils.isEmpty(a2)) {
-            return false;
-        }
-        String[] split = a2.split(";");
-        ArrayList arrayList = new ArrayList();
-        for (String str2 : split) {
-            arrayList.add(str2);
-        }
-        return a.a(str, arrayList);
+        return invokeL.booleanValue;
     }
 
     @Keep
     public synchronized void removePref(String str) {
-        if (f4791b != null) {
-            SharedPreferences.Editor edit = f4791b.getSharedPreferences("video_cfg", 0).edit();
-            edit.remove(str);
-            edit.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            synchronized (this) {
+                if (f4821b != null) {
+                    SharedPreferences.Editor edit = f4821b.getSharedPreferences("video_cfg", 0).edit();
+                    edit.remove(str);
+                    edit.commit();
+                }
+            }
         }
     }
 
     @Keep
     public synchronized void setPrefInt(String str, int i2) {
-        if (f4791b != null) {
-            SharedPreferences.Editor edit = f4791b.getSharedPreferences("video_cfg", 0).edit();
-            edit.putInt(str, i2);
-            edit.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048592, this, str, i2) == null) {
+            synchronized (this) {
+                if (f4821b != null) {
+                    SharedPreferences.Editor edit = f4821b.getSharedPreferences("video_cfg", 0).edit();
+                    edit.putInt(str, i2);
+                    edit.commit();
+                }
+            }
         }
     }
 
     @Keep
     public synchronized void setPrefLong(String str, long j2) {
-        if (f4791b != null) {
-            SharedPreferences.Editor edit = f4791b.getSharedPreferences("video_cfg", 0).edit();
-            edit.putLong(str, j2);
-            edit.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048593, this, str, j2) == null) {
+            synchronized (this) {
+                if (f4821b != null) {
+                    SharedPreferences.Editor edit = f4821b.getSharedPreferences("video_cfg", 0).edit();
+                    edit.putLong(str, j2);
+                    edit.commit();
+                }
+            }
         }
     }
 
     @Keep
     public synchronized void setPrefStr(String str, String str2) {
-        if (f4791b != null) {
-            SharedPreferences.Editor edit = f4791b.getSharedPreferences("video_cfg", 0).edit();
-            edit.putString(str, str2);
-            edit.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) {
+            synchronized (this) {
+                if (f4821b != null) {
+                    SharedPreferences.Editor edit = f4821b.getSharedPreferences("video_cfg", 0).edit();
+                    edit.putString(str, str2);
+                    edit.commit();
+                }
+            }
         }
     }
 }

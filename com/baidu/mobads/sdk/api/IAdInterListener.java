@@ -4,17 +4,17 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IAdInterListener {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdClickActionInt {
         public static final int ACTION_TYPE_APO = 512;
         public static final int ACTION_TYPE_DL = 2;
         public static final int ACTION_TYPE_LP = 1;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdCommandType {
         public static final String AD_CLICK = "onAdClick";
         public static final String AD_IMPRESSION = "onAdImpression";
@@ -22,7 +22,7 @@ public interface IAdInterListener {
         public static final String HANDLE_EVENT = "onHandleEvent";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdCreativeType {
         public static final int AD_CREATIVE_IMAGE = 2;
         public static final int AD_CREATIVE_RICHMEDIA = 16;
@@ -30,7 +30,7 @@ public interface IAdInterListener {
         public static final int AD_CREATIVE_VIDEO = 8;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdProdType {
         public static final String PRODUCT_BANNER = "banner";
         public static final String PRODUCT_CONTENT = "content";
@@ -48,7 +48,7 @@ public interface IAdInterListener {
         public static final String PRODUCT_VIDEO = "video";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdReqParam {
         public static final String AD_COUNT = "n";
         public static final String AD_TIME_OUT = "timeout";

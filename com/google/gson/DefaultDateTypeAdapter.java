@@ -1,6 +1,13 @@
 package com.google.gson;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.internal.JavaVersion;
 import com.google.gson.internal.PreJava9DateFormatProvider;
 import com.google.gson.internal.bind.util.ISO8601Utils;
@@ -17,13 +24,29 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String SIMPLE_NAME = "DefaultDateTypeAdapter";
+    public transient /* synthetic */ FieldHolder $fh;
     public final List<DateFormat> dateFormats;
     public final Class<? extends Date> dateType;
 
     public DefaultDateTypeAdapter(Class<? extends Date> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.dateFormats = new ArrayList();
         this.dateType = verifyDateType(cls);
         this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
@@ -36,70 +59,107 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     }
 
     private Date deserializeToDate(String str) {
-        synchronized (this.dateFormats) {
-            for (DateFormat dateFormat : this.dateFormats) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+            synchronized (this.dateFormats) {
+                for (DateFormat dateFormat : this.dateFormats) {
+                    try {
+                        return dateFormat.parse(str);
+                    } catch (ParseException unused) {
+                    }
+                }
                 try {
-                    return dateFormat.parse(str);
-                } catch (ParseException unused) {
+                    return ISO8601Utils.parse(str, new ParsePosition(0));
+                } catch (ParseException e2) {
+                    throw new JsonSyntaxException(str, e2);
                 }
             }
-            try {
-                return ISO8601Utils.parse(str, new ParsePosition(0));
-            } catch (ParseException e2) {
-                throw new JsonSyntaxException(str, e2);
-            }
         }
+        return (Date) invokeL.objValue;
     }
 
     public static Class<? extends Date> verifyDateType(Class<? extends Date> cls) {
-        if (cls == Date.class || cls == java.sql.Date.class || cls == Timestamp.class) {
-            return cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) {
+            if (cls == Date.class || cls == java.sql.Date.class || cls == Timestamp.class) {
+                return cls;
+            }
+            throw new IllegalArgumentException("Date type must be one of " + Date.class + StringUtil.ARRAY_ELEMENT_SEPARATOR + Timestamp.class + ", or " + java.sql.Date.class + " but was " + cls);
         }
-        throw new IllegalArgumentException("Date type must be one of " + Date.class + StringUtil.ARRAY_ELEMENT_SEPARATOR + Timestamp.class + ", or " + java.sql.Date.class + " but was " + cls);
+        return (Class) invokeL.objValue;
     }
 
     public String toString() {
-        DateFormat dateFormat = this.dateFormats.get(0);
-        if (dateFormat instanceof SimpleDateFormat) {
-            return "DefaultDateTypeAdapter(" + ((SimpleDateFormat) dateFormat).toPattern() + ')';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            DateFormat dateFormat = this.dateFormats.get(0);
+            if (dateFormat instanceof SimpleDateFormat) {
+                return "DefaultDateTypeAdapter(" + ((SimpleDateFormat) dateFormat).toPattern() + ')';
+            }
+            return "DefaultDateTypeAdapter(" + dateFormat.getClass().getSimpleName() + ')';
         }
-        return "DefaultDateTypeAdapter(" + dateFormat.getClass().getSimpleName() + ')';
+        return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(JsonReader jsonReader) throws IOException {
-        if (jsonReader.peek() == JsonToken.NULL) {
-            jsonReader.nextNull();
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
+            if (jsonReader.peek() == JsonToken.NULL) {
+                jsonReader.nextNull();
+                return null;
+            }
+            Date deserializeToDate = deserializeToDate(jsonReader.nextString());
+            Class<? extends Date> cls = this.dateType;
+            if (cls == Date.class) {
+                return deserializeToDate;
+            }
+            if (cls == Timestamp.class) {
+                return new Timestamp(deserializeToDate.getTime());
+            }
+            if (cls == java.sql.Date.class) {
+                return new java.sql.Date(deserializeToDate.getTime());
+            }
+            throw new AssertionError();
         }
-        Date deserializeToDate = deserializeToDate(jsonReader.nextString());
-        Class<? extends Date> cls = this.dateType;
-        if (cls == Date.class) {
-            return deserializeToDate;
-        }
-        if (cls == Timestamp.class) {
-            return new Timestamp(deserializeToDate.getTime());
-        }
-        if (cls == java.sql.Date.class) {
-            return new java.sql.Date(deserializeToDate.getTime());
-        }
-        throw new AssertionError();
+        return (Date) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public void write(JsonWriter jsonWriter, Date date) throws IOException {
-        if (date == null) {
-            jsonWriter.nullValue();
-            return;
-        }
-        synchronized (this.dateFormats) {
-            jsonWriter.value(this.dateFormats.get(0).format(date));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, jsonWriter, date) == null) {
+            if (date == null) {
+                jsonWriter.nullValue();
+                return;
+            }
+            synchronized (this.dateFormats) {
+                jsonWriter.value(this.dateFormats.get(0).format(date));
+            }
         }
     }
 
     public DefaultDateTypeAdapter(Class<? extends Date> cls, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, str};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
         this.dateFormats = new ArrayList();
         this.dateType = verifyDateType(cls);
         this.dateFormats.add(new SimpleDateFormat(str, Locale.US));
@@ -110,6 +170,20 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     }
 
     public DefaultDateTypeAdapter(Class<? extends Date> cls, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.dateFormats = new ArrayList();
         this.dateType = verifyDateType(cls);
         this.dateFormats.add(DateFormat.getDateInstance(i2, Locale.US));
@@ -121,11 +195,42 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultDateTypeAdapter(int i2, int i3) {
         this(Date.class, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Class) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public DefaultDateTypeAdapter(Class<? extends Date> cls, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.dateFormats = new ArrayList();
         this.dateType = verifyDateType(cls);
         this.dateFormats.add(DateFormat.getDateTimeInstance(i2, i3, Locale.US));

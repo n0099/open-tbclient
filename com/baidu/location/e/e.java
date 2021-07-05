@@ -5,136 +5,217 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class e {
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f6750h = null;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f6751i = 1;
-    public String j = null;
-    public Map<String, Object> k = null;
-    public String l = null;
-    public byte[] m = null;
-    public byte[] n = null;
-    public String o = null;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static int f6749g = a.f6716g;
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6747a = "10.0.0.172";
+    public static String f6777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6748b = 80;
-    public static int p = 0;
+    public static int f6778b;
 
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x00ad, code lost:
-        if ("10.0.0.200".equals(r5.trim()) != false) goto L22;
+    /* renamed from: g  reason: collision with root package name */
+    public static int f6779g;
+    public static int p;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f6780h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f6781i;
+    public String j;
+    public Map<String, Object> k;
+    public String l;
+    public byte[] m;
+    public byte[] n;
+    public String o;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1037812780, "Lcom/baidu/location/e/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1037812780, "Lcom/baidu/location/e/e;");
+                return;
+            }
+        }
+        f6779g = a.f6746g;
+        f6777a = "10.0.0.172";
+        f6778b = 80;
+        p = 0;
+    }
+
+    public e() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f6780h = null;
+        this.f6781i = 1;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00b1, code lost:
+        if ("10.0.0.200".equals(r5.trim()) != false) goto L24;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static int a(Context context, NetworkInfo networkInfo) {
+        InterceptResult invokeLL;
         String lowerCase;
-        String str = "10.0.0.200";
-        String str2 = "10.0.0.172";
-        if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
-            if (lowerCase.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
-                String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost != null && !defaultHost.equals("") && !defaultHost.equals(StringUtil.NULL_STRING)) {
-                    str2 = defaultHost;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, networkInfo)) == null) {
+            String str = "10.0.0.200";
+            String str2 = "10.0.0.172";
+            if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
+                if (lowerCase.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
+                    String defaultHost = Proxy.getDefaultHost();
+                    if (defaultHost != null && !defaultHost.equals("") && !defaultHost.equals(StringUtil.NULL_STRING)) {
+                        str2 = defaultHost;
+                    }
+                    f6777a = str2;
+                    return a.f6743d;
+                } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
+                    String defaultHost2 = Proxy.getDefaultHost();
+                    if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
+                        str = defaultHost2;
+                    }
+                    f6777a = str;
+                    return a.f6743d;
+                } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
+                    return a.f6744e;
                 }
-                f6747a = str2;
-                return a.f6713d;
-            } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                String defaultHost2 = Proxy.getDefaultHost();
-                if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
-                    str = defaultHost2;
+            }
+            String defaultHost3 = Proxy.getDefaultHost();
+            if (defaultHost3 != null && defaultHost3.length() > 0) {
+                if (!"10.0.0.172".equals(defaultHost3.trim())) {
                 }
-                f6747a = str;
-                return a.f6713d;
-            } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                return a.f6714e;
+                f6777a = str2;
+                return a.f6743d;
             }
+            return a.f6744e;
         }
-        String defaultHost3 = Proxy.getDefaultHost();
-        if (defaultHost3 != null && defaultHost3.length() > 0) {
-            if (!"10.0.0.172".equals(defaultHost3.trim())) {
-            }
-            f6747a = str2;
-            return a.f6713d;
-        }
-        return a.f6714e;
+        return invokeLL.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        f6749g = c();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            f6779g = c();
+        }
     }
 
     private int c() {
-        Context serviceContext = com.baidu.location.f.getServiceContext();
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
-            if (connectivityManager == null) {
-                return a.f6716g;
-            }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                if (activeNetworkInfo.getType() == 1) {
-                    String defaultHost = Proxy.getDefaultHost();
-                    return (defaultHost == null || defaultHost.length() <= 0) ? a.f6715f : a.f6717h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            Context serviceContext = com.baidu.location.f.getServiceContext();
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return a.f6746g;
                 }
-                return a(serviceContext, activeNetworkInfo);
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
+                    if (activeNetworkInfo.getType() == 1) {
+                        String defaultHost = Proxy.getDefaultHost();
+                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f6745f : a.f6747h;
+                    }
+                    return a(serviceContext, activeNetworkInfo);
+                }
+                return a.f6746g;
+            } catch (Exception unused) {
+                return a.f6746g;
             }
-            return a.f6716g;
-        } catch (Exception unused) {
-            return a.f6716g;
         }
+        return invokeV.intValue;
     }
 
     public abstract void a();
 
     public void a(ExecutorService executorService) {
-        try {
-            executorService.execute(new f(this));
-        } catch (Throwable unused) {
-            a(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, executorService) == null) {
+            try {
+                executorService.execute(new f(this));
+            } catch (Throwable unused) {
+                a(false);
+            }
         }
     }
 
     public void a(ExecutorService executorService, String str) {
-        try {
-            executorService.execute(new i(this, str));
-        } catch (Throwable unused) {
-            a(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, executorService, str) == null) {
+            try {
+                executorService.execute(new i(this, str));
+            } catch (Throwable unused) {
+                a(false);
+            }
         }
     }
 
     public void a(ExecutorService executorService, boolean z, String str) {
-        try {
-            executorService.execute(new g(this, str, z));
-        } catch (Throwable unused) {
-            a(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{executorService, Boolean.valueOf(z), str}) == null) {
+            try {
+                executorService.execute(new g(this, str, z));
+            } catch (Throwable unused) {
+                a(false);
+            }
         }
     }
 
     public abstract void a(boolean z);
 
     public void b(String str) {
-        try {
-            new h(this, str).start();
-        } catch (Throwable unused) {
-            a(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            try {
+                new h(this, str).start();
+            } catch (Throwable unused) {
+                a(false);
+            }
         }
     }
 
     public void b(ExecutorService executorService) {
-        a(executorService, false, "loc.map.baidu.com");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, executorService) == null) {
+            a(executorService, false, "loc.map.baidu.com");
+        }
     }
 }

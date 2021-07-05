@@ -1,33 +1,52 @@
 package com.baidu.mapsdkplatform.comapi;
 
 import com.baidu.mapsdkplatform.comapi.NativeLoader;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
 public /* synthetic */ class d {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7575a;
+    public static final /* synthetic */ int[] f7605a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-52719235, "Lcom/baidu/mapsdkplatform/comapi/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-52719235, "Lcom/baidu/mapsdkplatform/comapi/d;");
+                return;
+            }
+        }
         int[] iArr = new int[NativeLoader.a.values().length];
-        f7575a = iArr;
+        f7605a = iArr;
         try {
-            iArr[NativeLoader.a.ARM64.ordinal()] = 1;
+            iArr[NativeLoader.a.f7525c.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f7575a[NativeLoader.a.ARMV7.ordinal()] = 2;
+            f7605a[NativeLoader.a.f7524b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f7575a[NativeLoader.a.ARMEABI.ordinal()] = 3;
+            f7605a[NativeLoader.a.f7523a.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f7575a[NativeLoader.a.X86_64.ordinal()] = 4;
+            f7605a[NativeLoader.a.f7527e.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f7575a[NativeLoader.a.X86.ordinal()] = 5;
+            f7605a[NativeLoader.a.f7526d.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
     }

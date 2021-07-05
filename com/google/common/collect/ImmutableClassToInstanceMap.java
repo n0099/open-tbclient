@@ -1,88 +1,194 @@
 package com.google.common.collect;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableMap;
-import d.g.c.a.n;
-import d.g.c.c.u;
+import d.f.d.a.n;
+import d.f.d.c.d0;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes6.dex */
-public final class ImmutableClassToInstanceMap<B> extends u<Class<? extends B>, B> implements Object<B>, Serializable {
-    public static final ImmutableClassToInstanceMap<Object> EMPTY = new ImmutableClassToInstanceMap<>(ImmutableMap.of());
+/* loaded from: classes7.dex */
+public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>, B> implements Object<B>, Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public static final ImmutableClassToInstanceMap<Object> EMPTY;
+    public transient /* synthetic */ FieldHolder $fh;
     public final ImmutableMap<Class<? extends B>, B> delegate;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
     public static final class b<B> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImmutableMap.b<Class<? extends B>, B> f31200a = ImmutableMap.builder();
+        public final ImmutableMap.b<Class<? extends B>, B> f33089a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33089a = ImmutableMap.builder();
+        }
 
         public static <B, T extends B> T b(Class<T> cls, B b2) {
-            return (T) d.g.c.g.a.d(cls).cast(b2);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, b2)) == null) ? (T) d.f.d.g.a.d(cls).cast(b2) : (T) invokeLL.objValue;
         }
 
         public ImmutableClassToInstanceMap<B> a() {
-            ImmutableMap<Class<? extends B>, B> a2 = this.f31200a.a();
-            if (a2.isEmpty()) {
-                return ImmutableClassToInstanceMap.of();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ImmutableMap<Class<? extends B>, B> a2 = this.f33089a.a();
+                if (a2.isEmpty()) {
+                    return ImmutableClassToInstanceMap.of();
+                }
+                return new ImmutableClassToInstanceMap<>(a2, null);
             }
-            return new ImmutableClassToInstanceMap<>(a2);
+            return (ImmutableClassToInstanceMap) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.google.common.collect.ImmutableMap$b<java.lang.Class<? extends B>, B> */
+        /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: com.google.common.collect.ImmutableMap$b<java.lang.Class<? extends B>, B> */
         /* JADX WARN: Multi-variable type inference failed */
         public <T extends B> b<B> c(Map<? extends Class<? extends T>, ? extends T> map) {
-            for (Map.Entry<? extends Class<? extends T>, ? extends T> entry : map.entrySet()) {
-                Class<? extends T> key = entry.getKey();
-                this.f31200a.c(key, b(key, entry.getValue()));
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+                for (Map.Entry<? extends Class<? extends T>, ? extends T> entry : map.entrySet()) {
+                    Class<? extends T> key = entry.getKey();
+                    this.f33089a.c(key, b(key, entry.getValue()));
+                }
+                return this;
             }
-            return this;
+            return (b) invokeL.objValue;
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1517706830, "Lcom/google/common/collect/ImmutableClassToInstanceMap;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1517706830, "Lcom/google/common/collect/ImmutableClassToInstanceMap;");
+                return;
+            }
+        }
+        EMPTY = new ImmutableClassToInstanceMap<>(ImmutableMap.of());
+    }
+
+    public /* synthetic */ ImmutableClassToInstanceMap(ImmutableMap immutableMap, a aVar) {
+        this(immutableMap);
     }
 
     public static <B> b<B> builder() {
-        return new b<>();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new b<>() : (b) invokeV.objValue;
     }
 
     public static <B, S extends B> ImmutableClassToInstanceMap<B> copyOf(Map<? extends Class<? extends S>, ? extends S> map) {
-        if (map instanceof ImmutableClassToInstanceMap) {
-            return (ImmutableClassToInstanceMap) map;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, map)) == null) {
+            if (map instanceof ImmutableClassToInstanceMap) {
+                return (ImmutableClassToInstanceMap) map;
+            }
+            b bVar = new b();
+            bVar.c(map);
+            return bVar.a();
         }
-        b bVar = new b();
-        bVar.c(map);
-        return bVar.a();
+        return (ImmutableClassToInstanceMap) invokeL.objValue;
     }
 
     public static <B> ImmutableClassToInstanceMap<B> of() {
-        return (ImmutableClassToInstanceMap<B>) EMPTY;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ImmutableClassToInstanceMap<B>) EMPTY : (ImmutableClassToInstanceMap) invokeV.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r2v1, types: [T extends B, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r5v1, types: [T extends B, java.lang.Object] */
     public <T extends B> T getInstance(Class<T> cls) {
-        ImmutableMap<Class<? extends B>, B> immutableMap = this.delegate;
-        n.p(cls);
-        return immutableMap.get(cls);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
+            ImmutableMap<Class<? extends B>, B> immutableMap = this.delegate;
+            n.p(cls);
+            return immutableMap.get(cls);
+        }
+        return (T) invokeL.objValue;
     }
 
     @Deprecated
     public <T extends B> T putInstance(Class<T> cls, T t) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cls, t)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (T) invokeLL.objValue;
     }
 
     public Object readResolve() {
-        return isEmpty() ? of() : this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? isEmpty() ? of() : this : invokeV.objValue;
     }
 
     public ImmutableClassToInstanceMap(ImmutableMap<Class<? extends B>, B> immutableMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {immutableMap};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.delegate = immutableMap;
     }
 
     public static <B, T extends B> ImmutableClassToInstanceMap<B> of(Class<T> cls, T t) {
-        return new ImmutableClassToInstanceMap<>(ImmutableMap.of(cls, t));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, t)) == null) ? new ImmutableClassToInstanceMap<>(ImmutableMap.of(cls, t)) : (ImmutableClassToInstanceMap) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.u, d.g.c.c.y
+    @Override // d.f.d.c.d0, d.f.d.c.h0
     public Map<Class<? extends B>, B> delegate() {
-        return this.delegate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.delegate : (Map) invokeV.objValue;
     }
 }

@@ -1,36 +1,76 @@
 package com.baidu.wallet.paysdk.datamodel;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25401a;
+    public String f25944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25402b;
+    public String f25945b;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f25401a)) {
-            return this.f25401a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.f25944a)) {
+                return this.f25944a;
+            }
+            return this.f25944a;
         }
-        return this.f25401a;
+        return (String) invokeV.objValue;
     }
 
     public String b() {
-        return this.f25402b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25945b : (String) invokeV.objValue;
     }
 
     public String toString() {
-        return "CardInfoDisplayModel [content=" + this.f25401a + ", flag=" + this.f25402b + PreferencesUtil.RIGHT_MOUNT;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "CardInfoDisplayModel [content=" + this.f25944a + ", flag=" + this.f25945b + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void b(String str) {
-        this.f25402b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f25945b = str;
+        }
     }
 
     public void a(String str) {
-        this.f25401a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f25944a = str;
+        }
     }
 }

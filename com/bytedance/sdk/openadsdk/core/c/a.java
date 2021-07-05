@@ -1,270 +1,253 @@
 package com.bytedance.sdk.openadsdk.core.c;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.bytedance.sdk.openadsdk.core.d.j;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.nativeexpress.BackupView;
-import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
-import com.bytedance.sdk.openadsdk.core.nativeexpress.i;
-import com.bytedance.sdk.openadsdk.i.e;
-import com.bytedance.sdk.openadsdk.utils.ad;
-import com.bytedance.sdk.openadsdk.utils.al;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.core.j.h;
+import com.bytedance.sdk.openadsdk.core.o;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 /* loaded from: classes6.dex */
-public class a extends BackupView {
-    public static i[] k = {new i(1, 1.0f, 300, 300), new i(2, 0.6666667f, 300, 450), new i(3, 1.5f, 300, 200)};
-    public View l;
-    public NativeExpressView m;
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a n;
-    public int o;
-    public Dialog p;
+public class a {
+    public static /* synthetic */ Interceptable $ic;
 
-    public a(@NonNull Context context) {
-        super(context);
-        this.o = 1;
-        this.f28393a = context;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public static volatile a f29782a;
 
-    private void b() {
-        i a2 = a(this.m.getExpectExpressWidth(), this.m.getExpectExpressHeight());
-        if (this.m.getExpectExpressWidth() > 0 && this.m.getExpectExpressHeight() > 0) {
-            if (this.m.getExpectExpressWidth() > this.m.getExpectExpressHeight()) {
-                this.f28398f = al.c(this.f28393a, this.m.getExpectExpressHeight() * a2.f28456c);
-                this.f28399g = al.c(this.f28393a, this.m.getExpectExpressHeight());
-            } else {
-                this.f28398f = al.c(this.f28393a, this.m.getExpectExpressWidth());
-                this.f28399g = al.c(this.f28393a, this.m.getExpectExpressWidth() / a2.f28456c);
-            }
-        } else {
-            this.f28398f = al.c(this.f28393a, a2.f28457d);
-            this.f28399g = al.c(this.f28393a, a2.f28458e);
-        }
-        int i2 = this.f28398f;
-        if (i2 > 0 && i2 > al.c(this.f28393a)) {
-            float c2 = al.c(this.f28393a) / this.f28398f;
-            this.f28398f = al.c(this.f28393a);
-            this.f28399g = Float.valueOf(this.f28399g * c2).intValue();
-        }
-        ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(this.f28398f, this.f28399g);
-        }
-        layoutParams.width = this.f28398f;
-        layoutParams.height = this.f28399g;
-        setLayoutParams(layoutParams);
-        int i3 = a2.f28454a;
-        if (i3 == 1) {
-            c();
-        } else if (i3 == 2) {
-            d();
-        } else if (i3 == 3) {
-            e();
-        } else {
-            c();
-        }
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile boolean f29783b;
 
-    private void c() {
-        View inflate = LayoutInflater.from(this.f28393a).inflate(ad.f(this.f28393a, "tt_backup_insert_layout1"), (ViewGroup) this, true);
-        this.l = inflate;
-        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28393a, "tt_ad_container"));
-        ImageView imageView = (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_img"));
-        View findViewById = this.l.findViewById(ad.e(this.f28393a, "tt_bu_close"));
-        ImageView imageView2 = (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_icon"));
-        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_title"));
-        TextView textView2 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_desc"));
-        TextView textView3 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_download"));
-        TextView textView4 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_dislike"));
-        int a2 = (int) al.a(this.f28393a, 15.0f);
-        al.a(findViewById, a2, a2, a2, a2);
-        b(findViewById);
-        textView4.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.c.a.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                a.this.a();
-            }
-        });
-        if (!TextUtils.isEmpty(this.f28394b.al())) {
-            textView3.setText(this.f28394b.al());
-        }
-        if (this.f28394b.X() != null) {
-            View videoView = getVideoView();
-            if (videoView != null) {
-                frameLayout.removeAllViews();
-                int i2 = this.f28398f;
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i2, (i2 * 9) / 16);
-                layoutParams.gravity = 17;
-                frameLayout.addView(videoView, 0, layoutParams);
-            }
-            al.a((View) imageView, 8);
-            al.a((View) frameLayout, 0);
-        } else {
-            a(imageView);
-            al.a((View) imageView, 0);
-            al.a((View) frameLayout, 8);
-        }
-        e.c().a(this.f28394b.aa().a(), imageView2);
-        textView.setText(getTitle());
-        textView2.setText(getDescription());
-        a((View) this, true);
-        a((View) textView3, true);
-        a((View) textView4, true);
-        a(frameLayout);
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile long f29784c;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    private void d() {
-        View inflate = LayoutInflater.from(this.f28393a).inflate(ad.f(this.f28393a, "tt_backup_insert_layout2"), (ViewGroup) this, true);
-        this.l = inflate;
-        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28393a, "tt_ad_container"));
-        ImageView imageView = (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_img"));
-        View findViewById = this.l.findViewById(ad.e(this.f28393a, "tt_bu_close"));
-        ImageView imageView2 = (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_icon"));
-        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_title"));
-        TextView textView2 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_desc"));
-        TextView textView3 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_download"));
-        TextView textView4 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_dislike"));
-        int a2 = (int) al.a(this.f28393a, 15.0f);
-        al.a(findViewById, a2, a2, a2, a2);
-        b(findViewById);
-        textView4.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.c.a.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                a.this.a();
-            }
-        });
-        if (!TextUtils.isEmpty(this.f28394b.al())) {
-            textView3.setText(this.f28394b.al());
-        }
-        if (this.f28394b.X() != null) {
-            View videoView = getVideoView();
-            if (videoView != null) {
-                frameLayout.removeAllViews();
-                int i2 = this.f28398f;
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i2, (i2 * 9) / 16);
-                layoutParams.gravity = 17;
-                frameLayout.addView(videoView, 0, layoutParams);
-            }
-            al.a((View) imageView, 8);
-            al.a((View) frameLayout, 0);
-        } else {
-            a(imageView);
-            al.a((View) imageView, 0);
-            al.a((View) frameLayout, 8);
-        }
-        e.c().a(this.f28394b.aa().a(), imageView2);
-        textView.setText(getTitle());
-        textView2.setText(getDescription());
-        a((View) this, true);
-        a((View) textView3, true);
-        a((View) textView4, true);
-        a(frameLayout);
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public final Queue<C0336a> f29785d;
 
-    private void e() {
-        View inflate = LayoutInflater.from(this.f28393a).inflate(ad.f(this.f28393a, "tt_backup_insert_layout3"), (ViewGroup) this, true);
-        this.l = inflate;
-        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28393a, "tt_ad_container"));
-        ImageView imageView = (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_img"));
-        View findViewById = this.l.findViewById(ad.e(this.f28393a, "tt_bu_close"));
-        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_desc"));
-        TextView textView2 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_dislike"));
-        int a2 = (int) al.a(this.f28393a, 15.0f);
-        al.a(findViewById, a2, a2, a2, a2);
-        b(findViewById);
-        textView2.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.c.a.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                a.this.a();
-            }
-        });
-        if (this.f28394b.X() != null) {
-            View videoView = getVideoView();
-            if (videoView != null) {
-                frameLayout.removeAllViews();
-                int c2 = this.f28398f - al.c(this.f28393a, 12.0f);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, (c2 * 9) / 16);
-                layoutParams.gravity = 17;
-                frameLayout.addView(videoView, 0, layoutParams);
-            }
-            al.a((View) imageView, 8);
-            al.a((View) frameLayout, 0);
-        } else {
-            a(imageView);
-            al.a((View) imageView, 0);
-            al.a((View) frameLayout, 8);
-        }
-        textView.setText(getDescription());
-        a((View) this, true);
-        a(this.l, true);
-        a((View) textView2, true);
-        a(frameLayout);
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public Handler f29786e;
 
-    public void a(Dialog dialog) {
-        this.p = dialog;
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public final h f29787f;
 
-    public void a(l lVar, NativeExpressView nativeExpressView, com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
-        setBackgroundColor(-1);
-        this.f28394b = lVar;
-        this.m = nativeExpressView;
-        this.n = aVar;
-        this.f28397e = "interaction";
-        a(this.f28400h);
-        this.m.addView(this, new ViewGroup.LayoutParams(-2, -2));
-        b();
-    }
+    /* renamed from: com.bytedance.sdk.openadsdk.core.c.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static class C0336a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    private void a(ImageView imageView) {
-        e.c().a(this.f28394b.af().get(0).a(), imageView);
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public final long f29789a;
 
-    private i a(int i2, int i3) {
-        i[] iVarArr;
-        try {
-            float floatValue = Float.valueOf(i2).floatValue() / Float.valueOf(i3).floatValue();
-            i iVar = k[0];
-            float f2 = Float.MAX_VALUE;
-            for (i iVar2 : k) {
-                float abs = Math.abs(iVar2.f28456c - floatValue);
-                if (abs <= f2) {
-                    iVar = iVar2;
-                    f2 = abs;
+        /* renamed from: b  reason: collision with root package name */
+        public final String f29790b;
+
+        public C0336a(long j, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return iVar;
-        } catch (Throwable unused) {
-            return k[0];
+            this.f29789a = j;
+            this.f29790b = str;
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.BackupView
-    public void a(int i2, j jVar) {
-        NativeExpressView nativeExpressView = this.m;
-        if (nativeExpressView != null) {
-            nativeExpressView.a(i2, jVar);
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.f29785d = new LinkedList();
+        this.f29787f = o.h();
     }
 
-    private void b(View view) {
-        if (view == null) {
-            return;
+    private synchronized boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+            synchronized (this) {
+                long currentTimeMillis = System.currentTimeMillis();
+                int l = this.f29787f.l();
+                long k = this.f29787f.k();
+                if (this.f29785d.size() > 0 && this.f29785d.size() >= l) {
+                    long abs = Math.abs(currentTimeMillis - this.f29785d.peek().f29789a);
+                    if (abs <= k) {
+                        b(k - abs);
+                        return true;
+                    }
+                    this.f29785d.poll();
+                    this.f29785d.offer(new C0336a(currentTimeMillis, str));
+                } else {
+                    this.f29785d.offer(new C0336a(currentTimeMillis, str));
+                }
+                return false;
+            }
         }
-        view.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.c.a.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (a.this.p != null) {
-                    a.this.p.dismiss();
+        return invokeL.booleanValue;
+    }
+
+    public synchronized String c() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                HashMap hashMap = new HashMap();
+                for (C0336a c0336a : this.f29785d) {
+                    if (hashMap.containsKey(c0336a.f29790b)) {
+                        hashMap.put(c0336a.f29790b, Integer.valueOf(((Integer) hashMap.get(c0336a.f29790b)).intValue() + 1));
+                    } else {
+                        hashMap.put(c0336a.f29790b, 1);
+                    }
+                }
+                int i2 = Integer.MIN_VALUE;
+                str = "";
+                for (String str2 : hashMap.keySet()) {
+                    int intValue = ((Integer) hashMap.get(str2)).intValue();
+                    if (i2 < intValue) {
+                        str = str2;
+                        i2 = intValue;
+                    }
                 }
             }
-        });
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f29782a == null) {
+                synchronized (a.class) {
+                    if (f29782a == null) {
+                        f29782a = new a();
+                    }
+                }
+            }
+            return f29782a;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public synchronized boolean a(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this) {
+                if (b(str)) {
+                    a(true);
+                    a(f29784c);
+                } else {
+                    a(false);
+                }
+                z = f29783b;
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private synchronized void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
+            synchronized (this) {
+                if (this.f29786e == null) {
+                    this.f29786e = new Handler(Looper.getMainLooper());
+                }
+                this.f29786e.postDelayed(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.c.a.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ a f29788a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f29788a = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.f29788a.a(false);
+                        }
+                    }
+                }, j);
+            }
+        }
+    }
+
+    public synchronized boolean b() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                z = f29783b;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private synchronized void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) {
+            synchronized (this) {
+                f29784c = j;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65540, this, z) == null) {
+            synchronized (this) {
+                f29783b = z;
+            }
+        }
     }
 }

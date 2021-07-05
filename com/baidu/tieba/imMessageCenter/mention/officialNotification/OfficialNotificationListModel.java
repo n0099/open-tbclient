@@ -1,8 +1,10 @@
 package com.baidu.tieba.imMessageCenter.mention.officialNotification;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgPageData;
@@ -11,56 +13,124 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import d.a.n0.z0.f0;
-import d.a.n0.z0.h0;
-import d.a.o0.f1.f.c;
-import d.a.o0.f1.h.l;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.f0;
+import d.a.r0.z0.i0;
+import d.a.s0.i1.f.c;
+import d.a.s0.i1.h.l;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f17776e = new b(0);
+    public CustomMessageListener f17902e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends f0<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ChatMessage f17777a;
+        public final /* synthetic */ ChatMessage f17903a;
 
-        public a(ChatMessage chatMessage) {
-            this.f17777a = chatMessage;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ OfficialNotificationListModel f17904b;
+
+        public a(OfficialNotificationListModel officialNotificationListModel, ChatMessage chatMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {officialNotificationListModel, chatMessage};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17904b = officialNotificationListModel;
+            this.f17903a = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.a.n0.z0.f0
+        @Override // d.a.r0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(l.t().c(String.valueOf(OfficialNotificationListModel.this.mUser.getUserId()), String.valueOf(this.f17777a.getMsgId())));
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(l.t().c(String.valueOf(this.f17904b.mUser.getUserId()), String.valueOf(this.f17903a.getMsgId()))) : (Boolean) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
-        public b(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ OfficialNotificationListModel f17905a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(OfficialNotificationListModel officialNotificationListModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {officialNotificationListModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17905a = officialNotificationListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
             if (customResponsedMessage.getCmd() == 2012123) {
-                OfficialNotificationListModel.this.processServerMsg(customResponsedMessage);
+                this.f17905a.processServerMsg(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2001147) {
-                OfficialNotificationListModel.this.processHistory(customResponsedMessage);
+                this.f17905a.processHistory(customResponsedMessage);
             }
         }
     }
 
     public OfficialNotificationListModel(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f17902e = new b(this, 0);
         this.mDatas = new MsgPageData();
         registerListener();
         this.customGroupType = 4;
@@ -68,81 +138,119 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void deleteMsg(ChatMessage chatMessage) {
-        if (this.mUser == null || chatMessage == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) || this.mUser == null || chatMessage == null) {
             return;
         }
-        h0.c(new a(chatMessage), null);
+        i0.c(new a(this, chatMessage), null);
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public ChatMessage genChatMessage() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (ChatMessage) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public MsglistModel.CacheInfo getCacheInfo() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (MsglistModel.CacheInfo) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
-        return 0L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean loadDraft() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean loadFirst(c cVar) {
-        if (this.mUser == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
+            if (this.mUser == null) {
+                return false;
+            }
+            LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
+            aVar.f17562c = 20;
+            aVar.f17560a = null;
+            aVar.f17561b = null;
+            aVar.f17563d = this.mUser.getUserIdLong() + "";
+            super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
+            return true;
         }
-        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f17436c = 20;
-        aVar.f17434a = null;
-        aVar.f17435b = null;
-        aVar.f17437d = this.mUser.getUserIdLong() + "";
-        super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
-        return true;
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean loadPrepage() {
+        InterceptResult invokeV;
         long j;
-        if (this.mUser == null) {
-            return false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mUser == null) {
+                return false;
+            }
+            LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
+            aVar.f17562c = 20;
+            MsgPageData msgPageData = this.mDatas;
+            long j2 = 0;
+            if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
+                j = 0;
+            } else {
+                j2 = this.mDatas.getChatMessages().get(0).getMsgId();
+                j = this.mDatas.getChatMessages().get(0).getRecordId();
+            }
+            aVar.f17560a = String.valueOf(j2);
+            aVar.f17561b = String.valueOf(j);
+            aVar.f17563d = this.mUser.getUserIdLong() + "";
+            super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
+            return true;
         }
-        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f17436c = 20;
-        MsgPageData msgPageData = this.mDatas;
-        long j2 = 0;
-        if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
-            j = 0;
-        } else {
-            j2 = this.mDatas.getChatMessages().get(0).getMsgId();
-            j = this.mDatas.getChatMessages().get(0).getRecordId();
-        }
-        aVar.f17434a = String.valueOf(j2);
-        aVar.f17435b = String.valueOf(j);
-        aVar.f17437d = this.mUser.getUserIdLong() + "";
-        super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
-        return true;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void markDeleteMsg(ChatMessage chatMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, chatMessage) == null) {
+        }
     }
 
     @Override // com.baidu.tieba.im.model.CommonPersonalMsglistModel, com.baidu.tieba.im.model.MsglistModel
     public void onDestroy() {
-        super.onDestroy();
-        unRegisterListener();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onDestroy();
+            unRegisterListener();
+        }
     }
 
     public final void processServerMsg(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof GroupMsgData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, customResponsedMessage) == null) && (customResponsedMessage instanceof GroupMsgData)) {
             GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage;
             if (getUser() != null) {
                 LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
@@ -162,16 +270,27 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     }
 
     public final void registerListener() {
-        MessageManager.getInstance().registerListener(2012123, this.f17776e);
-        MessageManager.getInstance().registerListener(2001147, this.f17776e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            MessageManager.getInstance().registerListener(2012123, this.f17902e);
+            MessageManager.getInstance().registerListener(2001147, this.f17902e);
+        }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean saveDraftContent(String str) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public final void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.f17776e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f17902e);
+        }
     }
 }

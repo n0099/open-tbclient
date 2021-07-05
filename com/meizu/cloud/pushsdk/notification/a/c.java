@@ -20,28 +20,28 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
         AppIconSetting appIconSetting = messageV3.getmAppIconSetting();
         if (appIconSetting != null) {
             if (appIconSetting.isDefaultLargeIcon()) {
-                PushNotificationBuilder pushNotificationBuilder = this.f38735b;
+                PushNotificationBuilder pushNotificationBuilder = this.f40498b;
                 if (pushNotificationBuilder != null && pushNotificationBuilder.getmLargIcon() != 0) {
-                    a2 = BitmapFactory.decodeResource(this.f38734a.getResources(), this.f38735b.getmLargIcon());
+                    a2 = BitmapFactory.decodeResource(this.f40497a.getResources(), this.f40498b.getmLargIcon());
                     str = "set largeIcon by resource id";
-                } else if (this.f38735b.getAppLargeIcon() != null) {
-                    a2 = this.f38735b.getAppLargeIcon();
+                } else if (this.f40498b.getAppLargeIcon() != null) {
+                    a2 = this.f40498b.getAppLargeIcon();
                     str = "set largeIcon by bitmap provided by user setting";
                 } else {
-                    a2 = a(this.f38734a, messageV3.getUploadDataPackageName());
+                    a2 = a(this.f40497a, messageV3.getUploadDataPackageName());
                     str = "set largeIcon by package default large icon";
                 }
-                d.j.a.a.a.d("AbstractPushNotification", str);
-            } else if (Thread.currentThread() == this.f38734a.getMainLooper().getThread()) {
+                d.h.a.a.a.d("AbstractPushNotification", str);
+            } else if (Thread.currentThread() == this.f40497a.getMainLooper().getThread()) {
                 return;
             } else {
                 Bitmap a3 = a(appIconSetting.getLargeIconUrl());
                 if (a3 != null) {
-                    d.j.a.a.a.d("AbstractPushNotification", "On other Thread down load largeIcon image success");
+                    d.h.a.a.a.d("AbstractPushNotification", "On other Thread down load largeIcon image success");
                     builder.setLargeIcon(a3);
                     return;
                 }
-                a2 = a(this.f38734a, messageV3.getUploadDataPackageName());
+                a2 = a(this.f40497a, messageV3.getUploadDataPackageName());
             }
             builder.setLargeIcon(a2);
         }

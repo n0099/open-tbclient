@@ -1,21 +1,44 @@
 package com.kwad.sdk.core.videocache.a;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes7.dex */
 public class g extends e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f34900a;
+    public final long f36663a;
 
     public g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         if (j <= 0) {
             throw new IllegalArgumentException("Max size must be positive number!");
         }
-        this.f34900a = j;
+        this.f36663a = j;
     }
 
     @Override // com.kwad.sdk.core.videocache.a.e
     public boolean a(File file, long j, int i2) {
-        return j <= this.f34900a;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Long.valueOf(j), Integer.valueOf(i2)})) == null) ? j <= this.f36663a : invokeCommon.booleanValue;
     }
 }

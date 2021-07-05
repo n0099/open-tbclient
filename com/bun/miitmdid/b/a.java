@@ -2,19 +2,29 @@ package com.bun.miitmdid.b;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bun.miitmdid.utils.sysParamters;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f26925a;
+    public static String f27468a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
-        if (TextUtils.isEmpty(f26925a)) {
-            String str = "miitmdid(sdkv_" + sysParamters.a().c() + SmallTailInfo.EMOTION_SUFFIX;
-            f26925a = str;
-            return str;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(f27468a)) {
+                String str = "miitmdid(sdkv_" + sysParamters.a().c() + SmallTailInfo.EMOTION_SUFFIX;
+                f27468a = str;
+                return str;
+            }
+            return f27468a;
         }
-        return f26925a;
+        return (String) invokeV.objValue;
     }
 }

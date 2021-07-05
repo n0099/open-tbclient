@@ -3,79 +3,131 @@ package com.yxcorp.kuaishou.addfp.a.b.f;
 import android.content.Context;
 import android.os.IBinder;
 import android.os.IInterface;
-/* loaded from: classes7.dex */
-public final class g implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public final class g implements d.n.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41989a;
+    public Context f43732a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.q.a.a.a.a.a f41990b;
+    public d.n.a.a.a.a.a f43733b;
 
-    public g(Context context, d.q.a.a.a.a.a aVar) {
-        this.f41989a = context;
-        this.f41990b = aVar;
+    public g(Context context, d.n.a.a.a.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43732a = context;
+        this.f43733b = aVar;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
-        d.q.a.a.a.b.g.a aVar;
-        d.q.a.a.a.a.a aVar2 = this.f41990b;
-        if (aVar2 != null) {
-            aVar = d.q.a.a.a.b.g.c.f71467a;
-            aVar2.a(aVar.f(), this);
+        d.n.a.a.a.a.a aVar;
+        d.n.a.a.a.b.g.a aVar2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iInterface) == null) || (aVar = this.f43733b) == null) {
+            return;
+        }
+        aVar2 = d.n.a.a.a.b.g.c.f75093a;
+        aVar.a(aVar2.f(), this);
+    }
+
+    @Override // d.n.a.a.a.b.b
+    public final void a(d.n.a.a.a.a.a aVar) {
+        d.n.a.a.a.b.g.a aVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            aVar2 = d.n.a.a.a.b.g.c.f75093a;
+            aVar2.d(this.f43732a, this);
         }
     }
 
-    @Override // d.q.a.a.a.b.b
-    public final void a(d.q.a.a.a.a.a aVar) {
-        d.q.a.a.a.b.g.a aVar2;
-        aVar2 = d.q.a.a.a.b.g.c.f71467a;
-        aVar2.d(this.f41989a, this);
-    }
-
-    @Override // d.q.a.a.a.b.b
+    @Override // d.n.a.a.a.b.b
     public final boolean a() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return null;
-    }
-
-    @Override // d.q.a.a.a.b.b
-    public final String b() {
-        d.q.a.a.a.b.g.a aVar;
-        try {
-            aVar = d.q.a.a.a.b.g.c.f71467a;
-            String a2 = aVar.a(this.f41989a, "OUID");
-            return a2 != null ? a2 : a2;
-        } catch (Throwable th) {
-            d.q.a.a.c.b.b.c(th);
-            return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
+        return (IBinder) invokeV.objValue;
     }
 
-    @Override // d.q.a.a.a.b.b
+    @Override // d.n.a.a.a.b.b
+    public final String b() {
+        d.n.a.a.a.b.g.a aVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                aVar = d.n.a.a.a.b.g.c.f75093a;
+                String a2 = aVar.a(this.f43732a, "OUID");
+                return a2 != null ? a2 : a2;
+            } catch (Throwable th) {
+                d.n.a.a.c.b.b.c(th);
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // d.n.a.a.a.b.b
     public final boolean c() {
-        d.q.a.a.a.b.g.a aVar;
-        aVar = d.q.a.a.a.b.g.c.f71467a;
-        return aVar.f();
+        InterceptResult invokeV;
+        d.n.a.a.a.b.g.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            aVar = d.n.a.a.a.b.g.c.f75093a;
+            return aVar.f();
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // d.q.a.a.a.b.b
+    @Override // d.n.a.a.a.b.b
     public final void d() {
-        d.q.a.a.a.b.g.a aVar;
-        aVar = d.q.a.a.a.b.g.c.f71467a;
-        aVar.c(this.f41989a);
+        d.n.a.a.a.b.g.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            aVar = d.n.a.a.a.b.g.c.f75093a;
+            aVar.c(this.f43732a);
+        }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f41990b != null) {
-            d.q.a.a.c.b.b.e("failed here");
-            this.f41990b.a(false, this);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f43733b == null) {
+            return;
         }
+        d.n.a.a.c.b.b.e("failed here");
+        this.f43733b.a(false, this);
     }
 }

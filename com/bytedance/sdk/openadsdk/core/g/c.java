@@ -1,26 +1,78 @@
 package com.bytedance.sdk.openadsdk.core.g;
 
-import com.bytedance.sdk.openadsdk.utils.l;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes6.dex */
-public class c extends com.bytedance.sdk.openadsdk.b.c {
-    public c(int i2, int i3) {
-        super(i2, i3);
-    }
+public final class c {
+    public static /* synthetic */ Interceptable $ic;
 
-    @Override // com.bytedance.sdk.openadsdk.b.c, com.bytedance.sdk.openadsdk.b.b
-    public void a(List<File> list) {
-        int size = list.size();
-        if (a(0L, size)) {
-            return;
-        }
-        for (File file : list) {
-            l.c(file);
-            size--;
-            if (a(file, 0L, size)) {
+    /* renamed from: a  reason: collision with root package name */
+    public static final c f30090a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final c f30091b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final c f30092c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final /* synthetic */ c[] f30093d;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(268178267, "Lcom/bytedance/sdk/openadsdk/core/g/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(268178267, "Lcom/bytedance/sdk/openadsdk/core/g/c;");
                 return;
             }
         }
+        f30090a = new c("GRANTED", 0);
+        f30091b = new c("DENIED", 1);
+        c cVar = new c("NOT_FOUND", 2);
+        f30092c = cVar;
+        f30093d = new c[]{f30090a, f30091b, cVar};
+    }
+
+    public c(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static c valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (c) Enum.valueOf(c.class, str) : (c) invokeL.objValue;
+    }
+
+    public static c[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (c[]) f30093d.clone() : (c[]) invokeV.objValue;
     }
 }

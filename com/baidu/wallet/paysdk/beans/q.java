@@ -1,5 +1,5 @@
 package com.baidu.wallet.paysdk.beans;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface q<T, V> {
     void a(T t, V v);
 }

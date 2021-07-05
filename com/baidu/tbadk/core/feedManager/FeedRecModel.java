@@ -6,39 +6,72 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f12238e;
+    public b f12291e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12239f = 1;
+    public int f12292f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f12240g = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+    public d.a.c.c.g.a f12293g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
-        public a(int i2, int i3) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FeedRecModel f12294a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(FeedRecModel feedRecModel, int i2, int i3) {
             super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feedRecModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12294a = feedRecModel;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:21:0x003c  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x004e  */
+        /* JADX WARN: Removed duplicated region for block: B:23:0x0040  */
+        /* JADX WARN: Removed duplicated region for block: B:24:0x0052  */
         @Override // d.a.c.c.g.a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
-            if (responsedMessage == null || FeedRecModel.this.f12238e == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.f12294a.f12291e == null) {
                 return;
             }
             if (responsedMessage.getOrginalMessage() != null) {
@@ -49,7 +82,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                     z = feedRecRequest.getNeedForumlist() == 1;
                     r1 = z2;
                     if (responsedMessage.getError() == 0) {
-                        FeedRecModel.this.f12238e.a(responsedMessage.getError(), responsedMessage.getErrorString());
+                        this.f12294a.f12291e.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     DataRes dataRes = null;
@@ -59,7 +92,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                         dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                     }
                     BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
-                    FeedRecModel.this.f12238e.b(dataRes, r1, z);
+                    this.f12294a.f12291e.a(dataRes, r1, z);
                     return;
                 }
             }
@@ -69,55 +102,88 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void a(int i2, String str);
+        void a(DataRes dataRes, boolean z, boolean z2);
 
-        void b(DataRes dataRes, boolean z, boolean z2);
+        void onLoadError(int i2, String str);
     }
 
     public FeedRecModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12292f = 1;
+        this.f12293g = new a(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
         setUniqueId(BdUniqueId.gen());
         x();
         y();
-        registerListener(this.f12240g);
+        registerListener(this.f12293g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        FeedRecRequest feedRecRequest = new FeedRecRequest();
-        int i2 = this.f12239f;
-        this.f12239f = i2 + 1;
-        feedRecRequest.setRequestTime(i2);
-        feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
-        feedRecRequest.setNetType(NetMessage.NetType.HTTP);
-        sendMessage(feedRecRequest);
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            FeedRecRequest feedRecRequest = new FeedRecRequest();
+            int i2 = this.f12292f;
+            this.f12292f = i2 + 1;
+            feedRecRequest.setRequestTime(i2);
+            feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
+            feedRecRequest.setNetType(NetMessage.NetType.HTTP);
+            sendMessage(feedRecRequest);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        cancelMessage();
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            cancelMessage();
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void x() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, d.a.o0.e3.d0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
-        tbHttpMessageTask.setPriority(4);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, d.a.s0.h3.d0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
+            tbHttpMessageTask.setPriority(4);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public final void y() {
-        d.a.n0.v0.b bVar = new d.a.n0.v0.b(309264);
-        bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
-        bVar.g(true);
-        bVar.setPriority(4);
-        MessageManager.getInstance().registerTask(bVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            d.a.r0.v0.b bVar = new d.a.r0.v0.b(309264);
+            bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
+            bVar.g(true);
+            bVar.setPriority(4);
+            MessageManager.getInstance().registerTask(bVar);
+        }
     }
 
     public void z(b bVar) {
-        this.f12238e = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.f12291e = bVar;
+        }
     }
 }

@@ -1,27 +1,53 @@
 package com.baidu.wallet.qrcodescanner.a;
 
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface b {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26612a;
+        public String f27155a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f26613b;
+        public String f27156b;
 
         /* renamed from: c  reason: collision with root package name */
-        public JSONObject f26614c;
+        public JSONObject f27157c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f26615d;
+        public JSONObject f27158d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public String toString() {
-            return "ScannerResult [type=" + this.f26612a + ", linkaddr=" + this.f26613b + ", extJson=" + this.f26614c + PreferencesUtil.RIGHT_MOUNT;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "ScannerResult [type=" + this.f27155a + ", linkaddr=" + this.f27156b + ", extJson=" + this.f27157c + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
         }
     }
 

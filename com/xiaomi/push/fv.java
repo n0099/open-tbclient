@@ -1,20 +1,44 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class fv implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fs f41396a;
+    public final /* synthetic */ fs f43139a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f412a;
+    public final /* synthetic */ String f415a;
 
     public fv(fs fsVar, String str) {
-        this.f41396a = fsVar;
-        this.f412a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fsVar, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43139a = fsVar;
+        this.f415a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        cs.a().a(this.f412a, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            cs.a().a(this.f415a, true);
+        }
     }
 }

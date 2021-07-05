@@ -1,59 +1,109 @@
 package com.facebook.imagepipeline.animated.base;
 
 import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class AnimatedImageResultBuilder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public List<CloseableReference<Bitmap>> mDecodedFrames;
     public int mFrameForPreview;
     public final AnimatedImage mImage;
     public CloseableReference<Bitmap> mPreviewBitmap;
 
     public AnimatedImageResultBuilder(AnimatedImage animatedImage) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {animatedImage};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mImage = animatedImage;
     }
 
-    /* JADX WARN: Type inference failed for: r0v0, types: [java.util.List<com.facebook.common.references.CloseableReference<android.graphics.Bitmap>>, com.facebook.common.references.CloseableReference<android.graphics.Bitmap>] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [java.util.List<com.facebook.common.references.CloseableReference<android.graphics.Bitmap>>, com.facebook.common.references.CloseableReference<android.graphics.Bitmap>] */
     public AnimatedImageResult build() {
-        try {
-            return new AnimatedImageResult(this);
-        } finally {
-            CloseableReference.closeSafely(this.mPreviewBitmap);
-            this.mPreviewBitmap = null;
-            CloseableReference.closeSafely(this.mDecodedFrames);
-            this.mDecodedFrames = null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return new AnimatedImageResult(this);
+            } finally {
+                CloseableReference.closeSafely(this.mPreviewBitmap);
+                this.mPreviewBitmap = null;
+                CloseableReference.closeSafely(this.mDecodedFrames);
+                this.mDecodedFrames = null;
+            }
         }
+        return (AnimatedImageResult) invokeV.objValue;
     }
 
     public List<CloseableReference<Bitmap>> getDecodedFrames() {
-        return CloseableReference.cloneOrNull(this.mDecodedFrames);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CloseableReference.cloneOrNull(this.mDecodedFrames) : (List) invokeV.objValue;
     }
 
     public int getFrameForPreview() {
-        return this.mFrameForPreview;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFrameForPreview : invokeV.intValue;
     }
 
     public AnimatedImage getImage() {
-        return this.mImage;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mImage : (AnimatedImage) invokeV.objValue;
     }
 
     public CloseableReference<Bitmap> getPreviewBitmap() {
-        return CloseableReference.cloneOrNull(this.mPreviewBitmap);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? CloseableReference.cloneOrNull(this.mPreviewBitmap) : (CloseableReference) invokeV.objValue;
     }
 
     public AnimatedImageResultBuilder setDecodedFrames(List<CloseableReference<Bitmap>> list) {
-        this.mDecodedFrames = CloseableReference.cloneOrNull(list);
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
+            this.mDecodedFrames = CloseableReference.cloneOrNull(list);
+            return this;
+        }
+        return (AnimatedImageResultBuilder) invokeL.objValue;
     }
 
     public AnimatedImageResultBuilder setFrameForPreview(int i2) {
-        this.mFrameForPreview = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            this.mFrameForPreview = i2;
+            return this;
+        }
+        return (AnimatedImageResultBuilder) invokeI.objValue;
     }
 
     public AnimatedImageResultBuilder setPreviewBitmap(CloseableReference<Bitmap> closeableReference) {
-        this.mPreviewBitmap = CloseableReference.cloneOrNull(closeableReference);
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, closeableReference)) == null) {
+            this.mPreviewBitmap = CloseableReference.cloneOrNull(closeableReference);
+            return this;
+        }
+        return (AnimatedImageResultBuilder) invokeL.objValue;
     }
 }

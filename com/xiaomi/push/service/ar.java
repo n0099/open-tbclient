@@ -1,6 +1,10 @@
 package com.xiaomi.push.service;
 
 import android.util.Pair;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.hl;
 import com.xiaomi.push.hm;
 import com.xiaomi.push.ho;
@@ -9,52 +13,79 @@ import com.xiaomi.push.ic;
 import com.xiaomi.push.id;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ar {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static int a(aq aqVar, hl hlVar) {
-        return aqVar.f895a.getInt(a(hlVar), as.f41840a[hlVar.ordinal()] != 1 ? 0 : 1);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, aqVar, hlVar)) == null) {
+            return aqVar.f898a.getInt(a(hlVar), as.f43583a[hlVar.ordinal()] != 1 ? 0 : 1);
+        }
+        return invokeLL.intValue;
     }
 
     public static String a(hl hlVar) {
-        return "oc_version_" + hlVar.a();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hlVar)) == null) {
+            return "oc_version_" + hlVar.a();
+        }
+        return (String) invokeL.objValue;
     }
 
     public static List<Pair<Integer, Object>> a(List<hq> list, boolean z) {
-        if (com.xiaomi.push.ad.a(list)) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (hq hqVar : list) {
-            int a2 = hqVar.a();
-            hm a3 = hm.a(hqVar.b());
-            if (a3 != null) {
-                if (z && hqVar.f512a) {
-                    arrayList.add(new Pair(Integer.valueOf(a2), null));
-                } else {
-                    int i2 = as.f41841b[a3.ordinal()];
-                    arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m379a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m378a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, list, z)) == null) {
+            if (com.xiaomi.push.ad.a(list)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (hq hqVar : list) {
+                int a2 = hqVar.a();
+                hm a3 = hm.a(hqVar.b());
+                if (a3 != null) {
+                    if (z && hqVar.f515a) {
+                        arrayList.add(new Pair(Integer.valueOf(a2), null));
+                    } else {
+                        int i2 = as.f43584b[a3.ordinal()];
+                        arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m393a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m392a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
+                    }
                 }
             }
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeLZ.objValue;
     }
 
     public static void a(aq aqVar, hl hlVar, int i2) {
-        aqVar.f895a.edit().putInt(a(hlVar), i2).commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, aqVar, hlVar, i2) == null) {
+            aqVar.f898a.edit().putInt(a(hlVar), i2).commit();
+        }
     }
 
     public static void a(aq aqVar, ic icVar) {
-        aqVar.b(a(icVar.a(), true));
-        aqVar.b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, aqVar, icVar) == null) {
+            aqVar.b(a(icVar.a(), true));
+            aqVar.b();
+        }
     }
 
     public static void a(aq aqVar, id idVar) {
-        for (ho hoVar : idVar.a()) {
-            if (hoVar.a() > a(aqVar, hoVar.m374a())) {
-                a(aqVar, hoVar.m374a(), hoVar.a());
-                aqVar.a(a(hoVar.f504a, false));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, aqVar, idVar) == null) {
+            for (ho hoVar : idVar.a()) {
+                if (hoVar.a() > a(aqVar, hoVar.m388a())) {
+                    a(aqVar, hoVar.m388a(), hoVar.a());
+                    aqVar.a(a(hoVar.f507a, false));
+                }
             }
+            aqVar.b();
         }
-        aqVar.b();
     }
 }

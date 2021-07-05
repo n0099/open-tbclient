@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONAware;
 import com.alibaba.fastjson.JSONException;
@@ -17,6 +18,15 @@ import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.IdentityHashMap;
 import com.alibaba.fastjson.util.ServiceLoader;
 import com.alibaba.fastjson.util.TypeUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 import java.lang.ref.SoftReference;
@@ -62,6 +72,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import org.w3c.dom.Node;
 /* loaded from: classes.dex */
 public class SerializeConfig {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean awtError;
+    public static final SerializeConfig globalInstance;
+    public static boolean guavaError;
+    public static boolean jdk8Error;
+    public static boolean jodaError;
+    public static boolean oracleJdbcError;
+    public static boolean springfoxError;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean asm;
     public ASMSerializerFactory asmFactory;
     public long[] denyClasses;
@@ -71,19 +90,53 @@ public class SerializeConfig {
     public PropertyNamingStrategy propertyNamingStrategy;
     public final IdentityHashMap<Type, ObjectSerializer> serializers;
     public String typeKey;
-    public static final SerializeConfig globalInstance = new SerializeConfig();
-    public static boolean awtError = false;
-    public static boolean jdk8Error = false;
-    public static boolean oracleJdbcError = false;
-    public static boolean springfoxError = false;
-    public static boolean guavaError = false;
-    public static boolean jodaError = false;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-112628264, "Lcom/alibaba/fastjson/serializer/SerializeConfig;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-112628264, "Lcom/alibaba/fastjson/serializer/SerializeConfig;");
+                return;
+            }
+        }
+        globalInstance = new SerializeConfig();
+        awtError = false;
+        jdk8Error = false;
+        oracleJdbcError = false;
+        springfoxError = false;
+        guavaError = false;
+        jodaError = false;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SerializeConfig() {
         this(8192);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     private final JavaBeanSerializer createASMSerializer(SerializeBeanInfo serializeBeanInfo) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, serializeBeanInfo)) != null) {
+            return (JavaBeanSerializer) invokeL.objValue;
+        }
         JavaBeanSerializer createJavaBeanSerializer = this.asmFactory.createJavaBeanSerializer(serializeBeanInfo);
         int i2 = 0;
         while (true) {
@@ -100,208 +153,282 @@ public class SerializeConfig {
     }
 
     public static Member getEnumValueField(Class cls) {
+        InterceptResult invokeL;
         Method[] methods;
         Field[] fields;
-        Method method = null;
-        for (Method method2 : cls.getMethods()) {
-            if (method2.getReturnType() != Void.class && ((JSONField) method2.getAnnotation(JSONField.class)) != null) {
-                if (method != null) {
-                    return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) {
+            Method method = null;
+            for (Method method2 : cls.getMethods()) {
+                if (method2.getReturnType() != Void.class && ((JSONField) method2.getAnnotation(JSONField.class)) != null) {
+                    if (method != null) {
+                        return null;
+                    }
+                    method = method2;
                 }
-                method = method2;
             }
-        }
-        for (Field field : cls.getFields()) {
-            if (((JSONField) field.getAnnotation(JSONField.class)) != null) {
-                if (method != null) {
-                    return null;
+            for (Field field : cls.getFields()) {
+                if (((JSONField) field.getAnnotation(JSONField.class)) != null) {
+                    if (method != null) {
+                        return null;
+                    }
+                    method = field;
                 }
-                method = field;
             }
+            return method;
         }
-        return method;
+        return (Member) invokeL.objValue;
     }
 
     public static SerializeConfig getGlobalInstance() {
-        return globalInstance;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? globalInstance : (SerializeConfig) invokeV.objValue;
     }
 
     private void initSerializers() {
-        put(Boolean.class, (ObjectSerializer) BooleanCodec.instance);
-        put(Character.class, (ObjectSerializer) CharacterCodec.instance);
-        put(Byte.class, (ObjectSerializer) IntegerCodec.instance);
-        put(Short.class, (ObjectSerializer) IntegerCodec.instance);
-        put(Integer.class, (ObjectSerializer) IntegerCodec.instance);
-        put(Long.class, (ObjectSerializer) LongCodec.instance);
-        put(Float.class, (ObjectSerializer) FloatCodec.instance);
-        put(Double.class, (ObjectSerializer) DoubleSerializer.instance);
-        put(BigDecimal.class, (ObjectSerializer) BigDecimalCodec.instance);
-        put(BigInteger.class, (ObjectSerializer) BigIntegerCodec.instance);
-        put(String.class, (ObjectSerializer) StringCodec.instance);
-        put(byte[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
-        put(short[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
-        put(int[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
-        put(long[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
-        put(float[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
-        put(double[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
-        put(boolean[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
-        put(char[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
-        put(Object[].class, (ObjectSerializer) ObjectArrayCodec.instance);
-        put(Class.class, (ObjectSerializer) MiscCodec.instance);
-        put(SimpleDateFormat.class, (ObjectSerializer) MiscCodec.instance);
-        put(Currency.class, (ObjectSerializer) new MiscCodec());
-        put(TimeZone.class, (ObjectSerializer) MiscCodec.instance);
-        put(InetAddress.class, (ObjectSerializer) MiscCodec.instance);
-        put(Inet4Address.class, (ObjectSerializer) MiscCodec.instance);
-        put(Inet6Address.class, (ObjectSerializer) MiscCodec.instance);
-        put(InetSocketAddress.class, (ObjectSerializer) MiscCodec.instance);
-        put(File.class, (ObjectSerializer) MiscCodec.instance);
-        put(Appendable.class, (ObjectSerializer) AppendableSerializer.instance);
-        put(StringBuffer.class, (ObjectSerializer) AppendableSerializer.instance);
-        put(StringBuilder.class, (ObjectSerializer) AppendableSerializer.instance);
-        put(Charset.class, (ObjectSerializer) ToStringSerializer.instance);
-        put(Pattern.class, (ObjectSerializer) ToStringSerializer.instance);
-        put(Locale.class, (ObjectSerializer) ToStringSerializer.instance);
-        put(URI.class, (ObjectSerializer) ToStringSerializer.instance);
-        put(URL.class, (ObjectSerializer) ToStringSerializer.instance);
-        put(UUID.class, (ObjectSerializer) ToStringSerializer.instance);
-        put(AtomicBoolean.class, (ObjectSerializer) AtomicCodec.instance);
-        put(AtomicInteger.class, (ObjectSerializer) AtomicCodec.instance);
-        put(AtomicLong.class, (ObjectSerializer) AtomicCodec.instance);
-        put(AtomicReference.class, (ObjectSerializer) ReferenceCodec.instance);
-        put(AtomicIntegerArray.class, (ObjectSerializer) AtomicCodec.instance);
-        put(AtomicLongArray.class, (ObjectSerializer) AtomicCodec.instance);
-        put(WeakReference.class, (ObjectSerializer) ReferenceCodec.instance);
-        put(SoftReference.class, (ObjectSerializer) ReferenceCodec.instance);
-        put(LinkedList.class, (ObjectSerializer) CollectionCodec.instance);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            put(Boolean.class, (ObjectSerializer) BooleanCodec.instance);
+            put(Character.class, (ObjectSerializer) CharacterCodec.instance);
+            put(Byte.class, (ObjectSerializer) IntegerCodec.instance);
+            put(Short.class, (ObjectSerializer) IntegerCodec.instance);
+            put(Integer.class, (ObjectSerializer) IntegerCodec.instance);
+            put(Long.class, (ObjectSerializer) LongCodec.instance);
+            put(Float.class, (ObjectSerializer) FloatCodec.instance);
+            put(Double.class, (ObjectSerializer) DoubleSerializer.instance);
+            put(BigDecimal.class, (ObjectSerializer) BigDecimalCodec.instance);
+            put(BigInteger.class, (ObjectSerializer) BigIntegerCodec.instance);
+            put(String.class, (ObjectSerializer) StringCodec.instance);
+            put(byte[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
+            put(short[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
+            put(int[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
+            put(long[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
+            put(float[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
+            put(double[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
+            put(boolean[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
+            put(char[].class, (ObjectSerializer) PrimitiveArraySerializer.instance);
+            put(Object[].class, (ObjectSerializer) ObjectArrayCodec.instance);
+            put(Class.class, (ObjectSerializer) MiscCodec.instance);
+            put(SimpleDateFormat.class, (ObjectSerializer) MiscCodec.instance);
+            put(Currency.class, (ObjectSerializer) new MiscCodec());
+            put(TimeZone.class, (ObjectSerializer) MiscCodec.instance);
+            put(InetAddress.class, (ObjectSerializer) MiscCodec.instance);
+            put(Inet4Address.class, (ObjectSerializer) MiscCodec.instance);
+            put(Inet6Address.class, (ObjectSerializer) MiscCodec.instance);
+            put(InetSocketAddress.class, (ObjectSerializer) MiscCodec.instance);
+            put(File.class, (ObjectSerializer) MiscCodec.instance);
+            put(Appendable.class, (ObjectSerializer) AppendableSerializer.instance);
+            put(StringBuffer.class, (ObjectSerializer) AppendableSerializer.instance);
+            put(StringBuilder.class, (ObjectSerializer) AppendableSerializer.instance);
+            put(Charset.class, (ObjectSerializer) ToStringSerializer.instance);
+            put(Pattern.class, (ObjectSerializer) ToStringSerializer.instance);
+            put(Locale.class, (ObjectSerializer) ToStringSerializer.instance);
+            put(URI.class, (ObjectSerializer) ToStringSerializer.instance);
+            put(URL.class, (ObjectSerializer) ToStringSerializer.instance);
+            put(UUID.class, (ObjectSerializer) ToStringSerializer.instance);
+            put(AtomicBoolean.class, (ObjectSerializer) AtomicCodec.instance);
+            put(AtomicInteger.class, (ObjectSerializer) AtomicCodec.instance);
+            put(AtomicLong.class, (ObjectSerializer) AtomicCodec.instance);
+            put(AtomicReference.class, (ObjectSerializer) ReferenceCodec.instance);
+            put(AtomicIntegerArray.class, (ObjectSerializer) AtomicCodec.instance);
+            put(AtomicLongArray.class, (ObjectSerializer) AtomicCodec.instance);
+            put(WeakReference.class, (ObjectSerializer) ReferenceCodec.instance);
+            put(SoftReference.class, (ObjectSerializer) ReferenceCodec.instance);
+            put(LinkedList.class, (ObjectSerializer) CollectionCodec.instance);
+        }
     }
 
     public void addFilter(Class<?> cls, SerializeFilter serializeFilter) {
-        ObjectSerializer objectWriter = getObjectWriter(cls);
-        if (objectWriter instanceof SerializeFilterable) {
-            SerializeFilterable serializeFilterable = (SerializeFilterable) objectWriter;
-            if (this != globalInstance && serializeFilterable == MapSerializer.instance) {
-                MapSerializer mapSerializer = new MapSerializer();
-                put((Type) cls, (ObjectSerializer) mapSerializer);
-                mapSerializer.addFilter(serializeFilter);
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, cls, serializeFilter) == null) {
+            ObjectSerializer objectWriter = getObjectWriter(cls);
+            if (objectWriter instanceof SerializeFilterable) {
+                SerializeFilterable serializeFilterable = (SerializeFilterable) objectWriter;
+                if (this != globalInstance && serializeFilterable == MapSerializer.instance) {
+                    MapSerializer mapSerializer = new MapSerializer();
+                    put((Type) cls, (ObjectSerializer) mapSerializer);
+                    mapSerializer.addFilter(serializeFilter);
+                    return;
+                }
+                serializeFilterable.addFilter(serializeFilter);
             }
-            serializeFilterable.addFilter(serializeFilter);
         }
     }
 
     public void clearSerializers() {
-        this.serializers.clear();
-        initSerializers();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.serializers.clear();
+            initSerializers();
+        }
     }
 
     public void config(Class<?> cls, SerializerFeature serializerFeature, boolean z) {
-        ObjectSerializer objectWriter = getObjectWriter(cls, false);
-        if (objectWriter == null) {
-            SerializeBeanInfo buildBeanInfo = TypeUtils.buildBeanInfo(cls, null, this.propertyNamingStrategy);
-            if (z) {
-                buildBeanInfo.features = serializerFeature.mask | buildBeanInfo.features;
-            } else {
-                buildBeanInfo.features = (~serializerFeature.mask) & buildBeanInfo.features;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, cls, serializerFeature, z) == null) {
+            ObjectSerializer objectWriter = getObjectWriter(cls, false);
+            if (objectWriter == null) {
+                SerializeBeanInfo buildBeanInfo = TypeUtils.buildBeanInfo(cls, null, this.propertyNamingStrategy);
+                if (z) {
+                    buildBeanInfo.features = serializerFeature.mask | buildBeanInfo.features;
+                } else {
+                    buildBeanInfo.features = (~serializerFeature.mask) & buildBeanInfo.features;
+                }
+                put((Type) cls, createJavaBeanSerializer(buildBeanInfo));
+            } else if (objectWriter instanceof JavaBeanSerializer) {
+                SerializeBeanInfo serializeBeanInfo = ((JavaBeanSerializer) objectWriter).beanInfo;
+                int i2 = serializeBeanInfo.features;
+                if (z) {
+                    serializeBeanInfo.features = serializerFeature.mask | i2;
+                } else {
+                    serializeBeanInfo.features = (~serializerFeature.mask) & i2;
+                }
+                if (i2 == serializeBeanInfo.features || objectWriter.getClass() == JavaBeanSerializer.class) {
+                    return;
+                }
+                put((Type) cls, createJavaBeanSerializer(serializeBeanInfo));
             }
-            put((Type) cls, createJavaBeanSerializer(buildBeanInfo));
-        } else if (objectWriter instanceof JavaBeanSerializer) {
-            SerializeBeanInfo serializeBeanInfo = ((JavaBeanSerializer) objectWriter).beanInfo;
-            int i2 = serializeBeanInfo.features;
-            if (z) {
-                serializeBeanInfo.features = serializerFeature.mask | i2;
-            } else {
-                serializeBeanInfo.features = (~serializerFeature.mask) & i2;
-            }
-            if (i2 == serializeBeanInfo.features || objectWriter.getClass() == JavaBeanSerializer.class) {
-                return;
-            }
-            put((Type) cls, createJavaBeanSerializer(serializeBeanInfo));
         }
     }
 
     public void configEnumAsJavaBean(Class<? extends Enum>... clsArr) {
-        for (Class<? extends Enum> cls : clsArr) {
-            put((Type) cls, createJavaBeanSerializer(cls));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, clsArr) == null) {
+            for (Class<? extends Enum> cls : clsArr) {
+                put((Type) cls, createJavaBeanSerializer(cls));
+            }
         }
     }
 
     public final ObjectSerializer createJavaBeanSerializer(Class<?> cls) {
-        String name = cls.getName();
-        if (Arrays.binarySearch(this.denyClasses, TypeUtils.fnv1a_64(name)) < 0) {
-            SerializeBeanInfo buildBeanInfo = TypeUtils.buildBeanInfo(cls, null, this.propertyNamingStrategy, this.fieldBased);
-            if (buildBeanInfo.fields.length == 0 && Iterable.class.isAssignableFrom(cls)) {
-                return MiscCodec.instance;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
+            String name = cls.getName();
+            if (Arrays.binarySearch(this.denyClasses, TypeUtils.fnv1a_64(name)) < 0) {
+                SerializeBeanInfo buildBeanInfo = TypeUtils.buildBeanInfo(cls, null, this.propertyNamingStrategy, this.fieldBased);
+                if (buildBeanInfo.fields.length == 0 && Iterable.class.isAssignableFrom(cls)) {
+                    return MiscCodec.instance;
+                }
+                return createJavaBeanSerializer(buildBeanInfo);
             }
-            return createJavaBeanSerializer(buildBeanInfo);
+            throw new JSONException("not support class : " + name);
         }
-        throw new JSONException("not support class : " + name);
+        return (ObjectSerializer) invokeL.objValue;
     }
 
     public final ObjectSerializer get(Type type) {
-        Type mixInAnnotations = JSON.getMixInAnnotations(type);
-        if (mixInAnnotations == null) {
-            return this.serializers.get(type);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, type)) == null) {
+            Type mixInAnnotations = JSON.getMixInAnnotations(type);
+            if (mixInAnnotations == null) {
+                return this.serializers.get(type);
+            }
+            IdentityHashMap<Type, ObjectSerializer> identityHashMap = this.mixInSerializers.get(type);
+            if (identityHashMap == null) {
+                return null;
+            }
+            return identityHashMap.get(mixInAnnotations);
         }
-        IdentityHashMap<Type, ObjectSerializer> identityHashMap = this.mixInSerializers.get(type);
-        if (identityHashMap == null) {
-            return null;
-        }
-        return identityHashMap.get(mixInAnnotations);
+        return (ObjectSerializer) invokeL.objValue;
     }
 
     public ObjectSerializer getEnumSerializer() {
-        return EnumSerializer.instance;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? EnumSerializer.instance : (ObjectSerializer) invokeV.objValue;
     }
 
     public ObjectSerializer getObjectWriter(Class<?> cls) {
-        return getObjectWriter(cls, true);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) ? getObjectWriter(cls, true) : (ObjectSerializer) invokeL.objValue;
     }
 
     public String getTypeKey() {
-        return this.typeKey;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.typeKey : (String) invokeV.objValue;
     }
 
     public boolean isAsmEnable() {
-        return this.asm;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.asm : invokeV.booleanValue;
     }
 
     public boolean put(Object obj, Object obj2) {
-        return put((Type) obj, (ObjectSerializer) obj2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, obj, obj2)) == null) ? put((Type) obj, (ObjectSerializer) obj2) : invokeLL.booleanValue;
     }
 
     public void register(Module module) {
-        this.modules.add(module);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, module) == null) {
+            this.modules.add(module);
+        }
     }
 
     public void setAsmEnable(boolean z) {
-        if (ASMUtils.IS_ANDROID) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || ASMUtils.IS_ANDROID) {
             return;
         }
         this.asm = z;
     }
 
     public void setPropertyNamingStrategy(PropertyNamingStrategy propertyNamingStrategy) {
-        this.propertyNamingStrategy = propertyNamingStrategy;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, propertyNamingStrategy) == null) {
+            this.propertyNamingStrategy = propertyNamingStrategy;
+        }
     }
 
     public void setTypeKey(String str) {
-        this.typeKey = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.typeKey = str;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SerializeConfig(boolean z) {
         this(8192, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:275:0x04bf  */
-    /* JADX WARN: Removed duplicated region for block: B:328:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:277:0x04c3  */
+    /* JADX WARN: Removed duplicated region for block: B:334:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public ObjectSerializer getObjectWriter(Class<?> cls, boolean z) {
+        InterceptResult invokeLZ;
         ObjectSerializer objectSerializer;
         JSONType jSONType;
         ClassLoader classLoader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(1048585, this, cls, z)) != null) {
+            return (ObjectSerializer) invokeLZ.objValue;
+        }
         ObjectSerializer objectSerializer2 = get(cls);
         if (objectSerializer2 != null) {
             return objectSerializer2;
@@ -643,23 +770,59 @@ public class SerializeConfig {
     }
 
     public boolean put(Type type, ObjectSerializer objectSerializer) {
-        Type mixInAnnotations = JSON.getMixInAnnotations(type);
-        if (mixInAnnotations != null) {
-            IdentityHashMap<Type, ObjectSerializer> identityHashMap = this.mixInSerializers.get(type);
-            if (identityHashMap == null) {
-                identityHashMap = new IdentityHashMap<>(4);
-                this.mixInSerializers.put(type, identityHashMap);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, type, objectSerializer)) == null) {
+            Type mixInAnnotations = JSON.getMixInAnnotations(type);
+            if (mixInAnnotations != null) {
+                IdentityHashMap<Type, ObjectSerializer> identityHashMap = this.mixInSerializers.get(type);
+                if (identityHashMap == null) {
+                    identityHashMap = new IdentityHashMap<>(4);
+                    this.mixInSerializers.put(type, identityHashMap);
+                }
+                return identityHashMap.put(mixInAnnotations, objectSerializer);
             }
-            return identityHashMap.put(mixInAnnotations, objectSerializer);
+            return this.serializers.put(type, objectSerializer);
         }
-        return this.serializers.put(type, objectSerializer);
+        return invokeLL.booleanValue;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SerializeConfig(int i2) {
         this(i2, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     public SerializeConfig(int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.asm = !ASMUtils.IS_ANDROID;
         this.typeKey = JSON.DEFAULT_TYPE_KEY;
         this.denyClasses = new long[]{4165360493669296979L, 4446674157046724083L};
@@ -677,109 +840,114 @@ public class SerializeConfig {
         initSerializers();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:121:0x0160, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:123:0x0164, code lost:
         r0 = createASMSerializer(r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:122:0x0164, code lost:
-        if (r0 == null) goto L67;
+    /* JADX WARN: Code restructure failed: missing block: B:124:0x0168, code lost:
+        if (r0 == null) goto L69;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:123:0x0166, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x016a, code lost:
         return r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:124:0x0167, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x016b, code lost:
         r14 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:126:0x017e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:128:0x0182, code lost:
         throw new com.alibaba.fastjson.JSONException("create asm serializer error, verson 1.2.75, class " + r0, r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x017f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:129:0x0183, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:129:0x018b, code lost:
-        if (r0.getMessage().indexOf("Metaspace") != (-1)) goto L78;
+    /* JADX WARN: Code restructure failed: missing block: B:131:0x018f, code lost:
+        if (r0.getMessage().indexOf("Metaspace") != (-1)) goto L80;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:131:0x018e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:133:0x0192, code lost:
         throw r0;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public ObjectSerializer createJavaBeanSerializer(SerializeBeanInfo serializeBeanInfo) {
+        InterceptResult invokeL;
         FieldInfo[] fieldInfoArr;
         Method method;
         SerializerFeature[] serialzeFeatures;
         SerializerFeature[] serialzeFeatures2;
-        JSONType jSONType = serializeBeanInfo.jsonType;
-        boolean z = false;
-        boolean z2 = this.asm && !this.fieldBased;
-        if (jSONType != null) {
-            Class<?> serializer = jSONType.serializer();
-            if (serializer != Void.class) {
-                try {
-                    Object newInstance = serializer.newInstance();
-                    if (newInstance instanceof ObjectSerializer) {
-                        return (ObjectSerializer) newInstance;
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-            if (!jSONType.asm()) {
-                z2 = false;
-            }
-            if (z2) {
-                for (SerializerFeature serializerFeature : jSONType.serialzeFeatures()) {
-                    if (SerializerFeature.WriteNonStringValueAsString == serializerFeature || SerializerFeature.WriteEnumUsingToString == serializerFeature || SerializerFeature.NotWriteDefaultValue == serializerFeature || SerializerFeature.BrowserCompatible == serializerFeature) {
-                        z2 = false;
-                        break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, serializeBeanInfo)) == null) {
+            JSONType jSONType = serializeBeanInfo.jsonType;
+            boolean z = false;
+            boolean z2 = this.asm && !this.fieldBased;
+            if (jSONType != null) {
+                Class<?> serializer = jSONType.serializer();
+                if (serializer != Void.class) {
+                    try {
+                        Object newInstance = serializer.newInstance();
+                        if (newInstance instanceof ObjectSerializer) {
+                            return (ObjectSerializer) newInstance;
+                        }
+                    } catch (Throwable unused) {
                     }
                 }
-            }
-            if (z2 && jSONType.serialzeFilters().length != 0) {
-                z2 = false;
-            }
-        }
-        Class<?> cls = serializeBeanInfo.beanType;
-        if (!Modifier.isPublic(cls.getModifiers())) {
-            return new JavaBeanSerializer(serializeBeanInfo);
-        }
-        if ((z2 && this.asmFactory.classLoader.isExternalClass(cls)) || cls == Serializable.class || cls == Object.class) {
-            z2 = false;
-        }
-        if (z2 && !ASMUtils.checkName(cls.getSimpleName())) {
-            z2 = false;
-        }
-        if (z2 && serializeBeanInfo.beanType.isInterface()) {
-            z2 = false;
-        }
-        if (z2) {
-            for (FieldInfo fieldInfo : serializeBeanInfo.fields) {
-                Field field = fieldInfo.field;
-                if ((field != null && !field.getType().equals(fieldInfo.fieldClass)) || (((method = fieldInfo.method) != null && !method.getReturnType().equals(fieldInfo.fieldClass)) || (fieldInfo.fieldClass.isEnum() && get(fieldInfo.fieldClass) != EnumSerializer.instance))) {
-                    break;
+                if (!jSONType.asm()) {
+                    z2 = false;
                 }
-                JSONField annotation = fieldInfo.getAnnotation();
-                if (annotation != null) {
-                    String format = annotation.format();
-                    if ((format.length() != 0 && (fieldInfo.fieldClass != String.class || !"trim".equals(format))) || !ASMUtils.checkName(annotation.name()) || annotation.jsonDirect() || annotation.serializeUsing() != Void.class || annotation.unwrapped()) {
-                        break;
-                    }
-                    for (SerializerFeature serializerFeature2 : annotation.serialzeFeatures()) {
-                        if (SerializerFeature.WriteNonStringValueAsString == serializerFeature2 || SerializerFeature.WriteEnumUsingToString == serializerFeature2 || SerializerFeature.NotWriteDefaultValue == serializerFeature2 || SerializerFeature.BrowserCompatible == serializerFeature2 || SerializerFeature.WriteClassName == serializerFeature2) {
+                if (z2) {
+                    for (SerializerFeature serializerFeature : jSONType.serialzeFeatures()) {
+                        if (SerializerFeature.WriteNonStringValueAsString == serializerFeature || SerializerFeature.WriteEnumUsingToString == serializerFeature || SerializerFeature.NotWriteDefaultValue == serializerFeature || SerializerFeature.BrowserCompatible == serializerFeature) {
                             z2 = false;
                             break;
                         }
                     }
-                    if (TypeUtils.isAnnotationPresentOneToMany(method)) {
+                }
+                if (z2 && jSONType.serialzeFilters().length != 0) {
+                    z2 = false;
+                }
+            }
+            Class<?> cls = serializeBeanInfo.beanType;
+            if (!Modifier.isPublic(cls.getModifiers())) {
+                return new JavaBeanSerializer(serializeBeanInfo);
+            }
+            if ((z2 && this.asmFactory.classLoader.isExternalClass(cls)) || cls == Serializable.class || cls == Object.class) {
+                z2 = false;
+            }
+            if (z2 && !ASMUtils.checkName(cls.getSimpleName())) {
+                z2 = false;
+            }
+            if (z2 && serializeBeanInfo.beanType.isInterface()) {
+                z2 = false;
+            }
+            if (z2) {
+                for (FieldInfo fieldInfo : serializeBeanInfo.fields) {
+                    Field field = fieldInfo.field;
+                    if ((field != null && !field.getType().equals(fieldInfo.fieldClass)) || (((method = fieldInfo.method) != null && !method.getReturnType().equals(fieldInfo.fieldClass)) || (fieldInfo.fieldClass.isEnum() && get(fieldInfo.fieldClass) != EnumSerializer.instance))) {
                         break;
-                    } else if (TypeUtils.isAnnotationPresentManyToMany(method)) {
-                        break;
-                    } else if (annotation.defaultValue() != null && !"".equals(annotation.defaultValue())) {
-                        break;
+                    }
+                    JSONField annotation = fieldInfo.getAnnotation();
+                    if (annotation != null) {
+                        String format = annotation.format();
+                        if ((format.length() != 0 && (fieldInfo.fieldClass != String.class || !"trim".equals(format))) || !ASMUtils.checkName(annotation.name()) || annotation.jsonDirect() || annotation.serializeUsing() != Void.class || annotation.unwrapped()) {
+                            break;
+                        }
+                        for (SerializerFeature serializerFeature2 : annotation.serialzeFeatures()) {
+                            if (SerializerFeature.WriteNonStringValueAsString == serializerFeature2 || SerializerFeature.WriteEnumUsingToString == serializerFeature2 || SerializerFeature.NotWriteDefaultValue == serializerFeature2 || SerializerFeature.BrowserCompatible == serializerFeature2 || SerializerFeature.WriteClassName == serializerFeature2) {
+                                z2 = false;
+                                break;
+                            }
+                        }
+                        if (TypeUtils.isAnnotationPresentOneToMany(method)) {
+                            break;
+                        } else if (TypeUtils.isAnnotationPresentManyToMany(method)) {
+                            break;
+                        } else if (annotation.defaultValue() != null && !"".equals(annotation.defaultValue())) {
+                            break;
+                        }
                     }
                 }
             }
+            z = z2;
+            return new JavaBeanSerializer(serializeBeanInfo);
         }
-        z = z2;
-        return new JavaBeanSerializer(serializeBeanInfo);
+        return (ObjectSerializer) invokeL.objValue;
     }
 }

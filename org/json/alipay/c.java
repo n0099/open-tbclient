@@ -1,102 +1,158 @@
 package org.json.alipay;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72457a;
+    public int f76126a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Reader f72458b;
+    public Reader f76127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public char f72459c;
+    public char f76128c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f72460d;
+    public boolean f76129d;
 
     public c(Reader reader) {
-        this.f72458b = reader.markSupported() ? reader : new BufferedReader(reader);
-        this.f72460d = false;
-        this.f72457a = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {reader};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f76127b = reader.markSupported() ? reader : new BufferedReader(reader);
+        this.f76129d = false;
+        this.f76126a = 0;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(String str) {
         this(new StringReader(str));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((Reader) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     private String a(int i2) {
-        if (i2 == 0) {
-            return "";
-        }
-        char[] cArr = new char[i2];
-        int i3 = 0;
-        if (this.f72460d) {
-            this.f72460d = false;
-            cArr[0] = this.f72459c;
-            i3 = 1;
-        }
-        while (i3 < i2) {
-            try {
-                int read = this.f72458b.read(cArr, i3, i2 - i3);
-                if (read == -1) {
-                    break;
-                }
-                i3 += read;
-            } catch (IOException e2) {
-                throw new JSONException(e2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
+            if (i2 == 0) {
+                return "";
             }
+            char[] cArr = new char[i2];
+            int i3 = 0;
+            if (this.f76129d) {
+                this.f76129d = false;
+                cArr[0] = this.f76128c;
+                i3 = 1;
+            }
+            while (i3 < i2) {
+                try {
+                    int read = this.f76127b.read(cArr, i3, i2 - i3);
+                    if (read == -1) {
+                        break;
+                    }
+                    i3 += read;
+                } catch (IOException e2) {
+                    throw new JSONException(e2);
+                }
+            }
+            this.f76126a += i3;
+            if (i3 >= i2) {
+                this.f76128c = cArr[i2 - 1];
+                return new String(cArr);
+            }
+            throw a("Substring bounds error");
         }
-        this.f72457a += i3;
-        if (i3 >= i2) {
-            this.f72459c = cArr[i2 - 1];
-            return new String(cArr);
-        }
-        throw a("Substring bounds error");
+        return (String) invokeI.objValue;
     }
 
     public final JSONException a(String str) {
-        return new JSONException(str + toString());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new JSONException(str + toString());
+        }
+        return (JSONException) invokeL.objValue;
     }
 
     public final void a() {
         int i2;
-        if (this.f72460d || (i2 = this.f72457a) <= 0) {
-            throw new JSONException("Stepping back two steps is not supported");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.f76129d || (i2 = this.f76126a) <= 0) {
+                throw new JSONException("Stepping back two steps is not supported");
+            }
+            this.f76126a = i2 - 1;
+            this.f76129d = true;
         }
-        this.f72457a = i2 - 1;
-        this.f72460d = true;
     }
 
     public final char b() {
-        if (this.f72460d) {
-            this.f72460d = false;
-            if (this.f72459c != 0) {
-                this.f72457a++;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f76129d) {
+                this.f76129d = false;
+                if (this.f76128c != 0) {
+                    this.f76126a++;
+                }
+                return this.f76128c;
             }
-            return this.f72459c;
-        }
-        try {
-            int read = this.f72458b.read();
-            if (read <= 0) {
-                this.f72459c = (char) 0;
-                return (char) 0;
+            try {
+                int read = this.f76127b.read();
+                if (read <= 0) {
+                    this.f76128c = (char) 0;
+                    return (char) 0;
+                }
+                this.f76126a++;
+                char c2 = (char) read;
+                this.f76128c = c2;
+                return c2;
+            } catch (IOException e2) {
+                throw new JSONException(e2);
             }
-            this.f72457a++;
-            char c2 = (char) read;
-            this.f72459c = c2;
-            return c2;
-        } catch (IOException e2) {
-            throw new JSONException(e2);
         }
+        return invokeV.charValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0053, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0057, code lost:
         return r0;
      */
     /*
@@ -105,6 +161,11 @@ public final class c {
     public final char c() {
         char b2;
         char b3;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+            return invokeV.charValue;
+        }
         while (true) {
             char b4 = b();
             if (b4 == '/') {
@@ -143,14 +204,19 @@ public final class c {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:103:0x0146, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:105:0x014a, code lost:
         throw a("Unterminated string");
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final Object d() {
+        InterceptResult invokeV;
         String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048580, this)) != null) {
+            return invokeV.objValue;
+        }
         char c2 = c();
         if (c2 != '\"') {
             if (c2 != '[') {
@@ -177,7 +243,7 @@ public final class c {
                             return Boolean.FALSE;
                         }
                         if (trim.equalsIgnoreCase(StringUtil.NULL_STRING)) {
-                            return b.f72455a;
+                            return b.f76124a;
                         }
                         if ((c2 >= '0' && c2 <= '9') || c2 == '.' || c2 == '-' || c2 == '+') {
                             if (c2 == '0') {
@@ -191,13 +257,13 @@ public final class c {
                                     try {
                                         return new Integer(trim);
                                     } catch (Exception unused2) {
-                                        return new Double(trim);
+                                        return new Long(trim);
                                     }
                                 } catch (Exception unused3) {
-                                    return new Long(trim);
+                                    return trim;
                                 }
                             } catch (Exception unused4) {
-                                return trim;
+                                return new Double(trim);
                             }
                         }
                         return trim;
@@ -241,6 +307,11 @@ public final class c {
     }
 
     public final String toString() {
-        return " at character " + this.f72457a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return " at character " + this.f76126a;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,0 +1,373 @@
+package com.baidu.ugc.download;
+
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.os.IBinder;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.download.exception.DownloadException;
+import d.a.y0.k.b;
+import d.a.y0.k.c;
+import d.a.y0.k.d;
+import d.a.y0.t.e;
+/* loaded from: classes6.dex */
+public class CaptureDownloadService extends Service {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String ACTION_CANCEL = "com.baidu.ugc.download.ACTION_CANCEL";
+    public static final String ACTION_CANCEL_ALL = "com.baidu.ugc.download.ACTION_CANCEL_ALL";
+    public static final String ACTION_DOWNLOAD = "com.baidu.ugc.download.ACTION_DOWNLOAD";
+    public static final String ACTION_DOWNLOAD_BROAD_CAST = "com.baidu.ugc.download.ACTION_BROAD_CAST";
+    public static final String ACTION_PAUSE = "com.baidu.ugc.download.ACTION_PAUSE";
+    public static final String ACTION_PAUSE_ALL = "com.baidu.ugc.download.ACTION_PAUSE_ALL";
+    public static final String EXTRA_FILE_INFO = "extra_file_info";
+    public static final String EXTRA_POSITION = "extra_position";
+    public static final String EXTRA_TAG = "extra_tag";
+    public static final String TAG = "CaptureDownloadService";
+    public transient /* synthetic */ FieldHolder $fh;
+    public b mDownloadManager;
+
+    /* loaded from: classes6.dex */
+    public static class a extends d.a.y0.k.e.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f23590a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public d f23591b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public LocalBroadcastManager f23592c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public long f23593d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f23594e;
+
+        public a(int i2, d dVar, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), dVar, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f23590a = i2;
+            this.f23591b = dVar;
+            this.f23592c = LocalBroadcastManager.getInstance(context);
+        }
+
+        @Override // d.a.y0.k.e.a
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.f23591b.f(6);
+                this.f23591b.d(100);
+                this.f23591b.e(str);
+                j(this.f23591b);
+            }
+        }
+
+        @Override // d.a.y0.k.e.a
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.f23591b.f(0);
+                this.f23591b.d(0);
+                this.f23591b.c("");
+                j(this.f23591b);
+            }
+        }
+
+        @Override // d.a.y0.k.e.a
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.f23591b.f(4);
+                j(this.f23591b);
+            }
+        }
+
+        @Override // d.a.y0.k.e.a
+        public void f(DownloadException downloadException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
+                downloadException.printStackTrace();
+                this.f23591b.f(5);
+                j(this.f23591b);
+            }
+        }
+
+        @Override // d.a.y0.k.e.a
+        public void g(long j, long j2, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+                if (this.f23593d == 0) {
+                    this.f23593d = System.currentTimeMillis();
+                }
+                this.f23591b.f(3);
+                this.f23591b.d(i2);
+                this.f23591b.c(e.a(j, j2));
+                if (i(i2)) {
+                    j(this.f23591b);
+                }
+            }
+        }
+
+        public final boolean i(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.f23593d <= 300 || i2 == this.f23594e) {
+                    return false;
+                }
+                this.f23593d = currentTimeMillis;
+                this.f23594e = i2;
+                return true;
+            }
+            return invokeI.booleanValue;
+        }
+
+        public final void j(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
+                Intent intent = new Intent();
+                intent.setAction("com.baidu.ugc.download.ACTION_BROAD_CAST");
+                intent.putExtra("extra_position", this.f23590a);
+                intent.putExtra("extra_file_info", dVar.g().toString());
+                this.f23592c.sendBroadcast(intent);
+            }
+        }
+    }
+
+    public CaptureDownloadService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void cancel(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            Intent intent = new Intent(context, CaptureDownloadService.class);
+            intent.setAction("com.baidu.ugc.download.ACTION_CANCEL");
+            intent.putExtra("extra_tag", str);
+            context.startService(intent);
+        }
+    }
+
+    public static void cancelAll(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+            Intent intent = new Intent(context, CaptureDownloadService.class);
+            intent.setAction("com.baidu.ugc.download.ACTION_CANCEL_ALL");
+            context.startService(intent);
+        }
+    }
+
+    public static void destroy(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
+            context.stopService(new Intent(context, CaptureDownloadService.class));
+        }
+    }
+
+    private void download(int i2, d dVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(AdIconUtil.BAIDU_LOGO_ID, this, i2, dVar, str) == null) {
+            c.b bVar = new c.b();
+            bVar.d(dVar.a());
+            this.mDownloadManager.f(bVar.a(), str, new a(i2, dVar, getApplicationContext()));
+        }
+    }
+
+    public static void pause(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
+            Intent intent = new Intent(context, CaptureDownloadService.class);
+            intent.setAction("com.baidu.ugc.download.ACTION_PAUSE");
+            intent.putExtra("extra_tag", str);
+            context.startService(intent);
+        }
+    }
+
+    public static void pauseAll(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
+            Intent intent = new Intent(context, CaptureDownloadService.class);
+            intent.setAction("com.baidu.ugc.download.ACTION_PAUSE_ALL");
+            context.startService(intent);
+        }
+    }
+
+    public static void start(Context context, String str, d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, dVar) == null) {
+            start(context, 0, str, dVar);
+        }
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+            this.mDownloadManager = b.h();
+        }
+    }
+
+    @Override // android.app.Service
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            this.mDownloadManager.m();
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0042, code lost:
+        if (r0.equals("com.baidu.ugc.download.ACTION_DOWNLOAD") != false) goto L9;
+     */
+    @Override // android.app.Service
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int onStartCommand(Intent intent, int i2, int i3) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
+            if (intent != null) {
+                String action = intent.getAction();
+                char c2 = 0;
+                int intExtra = intent.getIntExtra("extra_position", 0);
+                d dVar = new d();
+                dVar.b(intent.getStringExtra("extra_file_info"));
+                String stringExtra = intent.getStringExtra("extra_tag");
+                switch (action.hashCode()) {
+                    case -2000112966:
+                        if (action.equals("com.baidu.ugc.download.ACTION_CANCEL")) {
+                            c2 = 2;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case -1148652932:
+                        if (action.equals("com.baidu.ugc.download.ACTION_CANCEL_ALL")) {
+                            c2 = 4;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case -929888424:
+                        if (action.equals("com.baidu.ugc.download.ACTION_PAUSE_ALL")) {
+                            c2 = 3;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case -707184440:
+                        break;
+                    case 1610061206:
+                        if (action.equals("com.baidu.ugc.download.ACTION_PAUSE")) {
+                            c2 = 1;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    default:
+                        c2 = 65535;
+                        break;
+                }
+                if (c2 == 0) {
+                    download(intExtra, dVar, stringExtra);
+                } else if (c2 == 1) {
+                    pause(stringExtra);
+                } else if (c2 == 2) {
+                    cancel(stringExtra);
+                } else if (c2 == 3) {
+                    pauseAll();
+                } else if (c2 == 4) {
+                    cancelAll();
+                }
+            }
+            return super.onStartCommand(intent, i2, i3);
+        }
+        return invokeLII.intValue;
+    }
+
+    public static void start(Context context, int i2, String str, d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65547, null, context, i2, str, dVar) == null) {
+            Intent intent = new Intent(context, CaptureDownloadService.class);
+            intent.setAction("com.baidu.ugc.download.ACTION_DOWNLOAD");
+            intent.putExtra("extra_position", i2);
+            intent.putExtra("extra_tag", str);
+            intent.putExtra("extra_file_info", dVar.g().toString());
+            context.startService(intent);
+        }
+    }
+
+    private void cancelAll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.mDownloadManager.d();
+        }
+    }
+
+    private void pauseAll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            this.mDownloadManager.m();
+        }
+    }
+
+    private void cancel(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
+            this.mDownloadManager.c(str);
+        }
+    }
+
+    private void pause(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
+            this.mDownloadManager.l(str);
+        }
+    }
+}

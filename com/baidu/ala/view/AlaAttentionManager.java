@@ -1,6 +1,7 @@
 package com.baidu.ala.view;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -8,6 +9,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.data.AlaAttentionData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,23 +21,32 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-import d.a.n0.r.d0.b;
-import d.a.n0.r.s.a;
-import d.a.n0.s.d.d;
+import d.a.r0.r.d0.b;
+import d.a.r0.r.s.a;
+import d.a.r0.s.d.d;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AlaAttentionManager {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_LIVE_PUSH_REMIND_TIME_INTERVAL = 86400000;
     public static final int ATTENTION_REQUEST_MAP_MAX_SIZE = 3;
     public static AlaAttentionManager sInstance;
-    public HashMap<String, LinkedList<AlaAttentionData>> mUserAttentionRequestMap = new HashMap<>();
-    public HashMap<String, AttentionAsyncTask> mAttentionTaskMap = new HashMap<>();
+    public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, AttentionAsyncTask> mAttentionTaskMap;
+    public HashMap<String, LinkedList<AlaAttentionData>> mUserAttentionRequestMap;
 
     /* loaded from: classes.dex */
     public class AttentionAsyncTask extends BdAsyncTask<Integer, Integer, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String forumId;
         public String from;
         public String inLive;
@@ -44,9 +56,25 @@ public class AlaAttentionManager {
         public BdUniqueId pageId;
         public String portrait;
         public boolean showToastAfterAttentionSuc;
+        public final /* synthetic */ AlaAttentionManager this$0;
         public String toUid;
 
-        public AttentionAsyncTask() {
+        public AttentionAsyncTask(AlaAttentionManager alaAttentionManager) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaAttentionManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = alaAttentionManager;
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -57,230 +85,357 @@ public class AlaAttentionManager {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            super.cancel(true);
-            NetWork netWork = this.mNetwork;
-            if (netWork != null) {
-                netWork.cancelNetConnect();
-                this.mNetwork = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.cancel(true);
+                NetWork netWork = this.mNetwork;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                    this.mNetwork = null;
+                }
             }
         }
 
         public void setAlaAttentionData(AlaAttentionData alaAttentionData) {
-            this.isAttention = alaAttentionData.isAttention();
-            this.toUid = alaAttentionData.getUserId();
-            this.portrait = alaAttentionData.getPortrait();
-            this.inLive = alaAttentionData.getInLive();
-            this.pageId = alaAttentionData.getPageId();
-            this.from = alaAttentionData.getFrom();
-            this.forumId = alaAttentionData.getForumId();
-            this.isGod = alaAttentionData.isGod();
-            if (this.forumId != null) {
-                this.showToastAfterAttentionSuc = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, alaAttentionData) == null) {
+                this.isAttention = alaAttentionData.isAttention();
+                this.toUid = alaAttentionData.getUserId();
+                this.portrait = alaAttentionData.getPortrait();
+                this.inLive = alaAttentionData.getInLive();
+                this.pageId = alaAttentionData.getPageId();
+                this.from = alaAttentionData.getFrom();
+                this.forumId = alaAttentionData.getForumId();
+                this.isGod = alaAttentionData.isGod();
+                if (this.forumId != null) {
+                    this.showToastAfterAttentionSuc = true;
+                }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Integer... numArr) {
-            try {
-                if (this.portrait != null) {
-                    NetWork netWork = new NetWork();
-                    this.mNetwork = netWork;
-                    if (this.isAttention) {
-                        netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ADDRESS);
-                        this.mNetwork.setNeedSig(true);
-                    } else {
-                        netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.UNFOLLOW_ADDRESS);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr)) == null) {
+                try {
+                    if (this.portrait != null) {
+                        NetWork netWork = new NetWork();
+                        this.mNetwork = netWork;
+                        if (this.isAttention) {
+                            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ADDRESS);
+                            this.mNetwork.setNeedSig(true);
+                        } else {
+                            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.UNFOLLOW_ADDRESS);
+                        }
+                        this.mNetwork.addPostData("portrait", this.portrait);
+                        if (!StringUtils.isNull(this.from)) {
+                            this.mNetwork.addPostData("from_type", this.from);
+                        }
+                        if (!StringUtils.isNull(this.forumId)) {
+                            this.mNetwork.addPostData("forum_id", this.forumId);
+                        }
+                        this.mNetwork.addPostData("in_live", this.inLive);
+                        this.mNetwork.getNetContext().getRequest().mIsNeedTbs = true;
+                        return this.mNetwork.postNetData();
                     }
-                    this.mNetwork.addPostData("portrait", this.portrait);
-                    if (!StringUtils.isNull(this.from)) {
-                        this.mNetwork.addPostData("from_type", this.from);
-                    }
-                    if (!StringUtils.isNull(this.forumId)) {
-                        this.mNetwork.addPostData("forum_id", this.forumId);
-                    }
-                    this.mNetwork.addPostData("in_live", this.inLive);
-                    this.mNetwork.getNetContext().getRequest().mIsNeedTbs = true;
-                    return this.mNetwork.postNetData();
+                    return null;
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                    return null;
                 }
-                return null;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                return null;
             }
+            return (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((AttentionAsyncTask) str);
-            if (this.mNetwork != null) {
-                UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.f12718a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
-                aVar.f12719b = this.mNetwork.getErrorString();
-                aVar.f12721d = this.isAttention;
-                aVar.f12720c = this.toUid;
-                aVar.f12723f = this.isGod;
-                aVar.b(str, this.showToastAfterAttentionSuc);
-                aVar.f12724g = this.mNetwork.getNetContext().getResponse();
-                UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
-                MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
-            }
-            AlaAttentionManager.this.mAttentionTaskMap.remove(this.toUid);
-            if (AlaAttentionManager.this.mUserAttentionRequestMap.containsKey(this.toUid)) {
-                AlaAttentionManager.this.removeRequestListFirstByUid(this.toUid);
-                AlaAttentionManager.this.executeAttentionTask(this.toUid);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                super.onPostExecute((AttentionAsyncTask) str);
+                if (this.mNetwork != null) {
+                    UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
+                    aVar.f12800a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
+                    aVar.f12801b = this.mNetwork.getErrorString();
+                    aVar.f12803d = this.isAttention;
+                    aVar.f12802c = this.toUid;
+                    aVar.f12805f = this.isGod;
+                    aVar.b(str, this.showToastAfterAttentionSuc);
+                    aVar.f12806g = this.mNetwork.getNetContext().getResponse();
+                    UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
+                    updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
+                    MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
+                }
+                this.this$0.mAttentionTaskMap.remove(this.toUid);
+                if (this.this$0.mUserAttentionRequestMap.containsKey(this.toUid)) {
+                    this.this$0.removeRequestListFirstByUid(this.toUid);
+                    this.this$0.executeAttentionTask(this.toUid);
+                }
             }
         }
     }
 
+    public AlaAttentionManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mUserAttentionRequestMap = new HashMap<>();
+        this.mAttentionTaskMap = new HashMap<>();
+    }
+
     private void addAttentionReqeustList(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
-        if (alaAttentionData == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65540, this, linkedList, alaAttentionData) == null) || alaAttentionData == null) {
             return;
         }
         linkedList.add(alaAttentionData.m10clone());
     }
 
     private void dealAttentionUpdateData(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
-        if (linkedList.size() < 1) {
-            addAttentionReqeustList(linkedList, alaAttentionData);
-            return;
-        }
-        AlaAttentionData last = linkedList.getLast();
-        if (last.getPortrait().equals(alaAttentionData.getPortrait()) && last.isAttention() == alaAttentionData.isAttention()) {
-            if (BdLog.isDebugMode()) {
-                throw new IllegalArgumentException("new attention data is the same as the nearest attention data");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, linkedList, alaAttentionData) == null) {
+            if (linkedList.size() < 1) {
+                addAttentionReqeustList(linkedList, alaAttentionData);
+                return;
             }
-        } else if (linkedList.size() < 3) {
-            addAttentionReqeustList(linkedList, alaAttentionData);
-        } else if (linkedList.get(1).equals(alaAttentionData)) {
-            linkedList.removeLast();
+            AlaAttentionData last = linkedList.getLast();
+            if (last.getPortrait().equals(alaAttentionData.getPortrait()) && last.isAttention() == alaAttentionData.isAttention()) {
+                if (BdLog.isDebugMode()) {
+                    throw new IllegalArgumentException("new attention data is the same as the nearest attention data");
+                }
+            } else if (linkedList.size() < 3) {
+                addAttentionReqeustList(linkedList, alaAttentionData);
+            } else if (linkedList.get(1).equals(alaAttentionData)) {
+                linkedList.removeLast();
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void executeAttentionTask(String str) {
         LinkedList<AlaAttentionData> linkedList;
-        if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
-            AttentionAsyncTask attentionAsyncTask = new AttentionAsyncTask();
-            this.mAttentionTaskMap.put(str, attentionAsyncTask);
-            attentionAsyncTask.setPriority(2);
-            attentionAsyncTask.setAlaAttentionData(linkedList.getFirst());
-            attentionAsyncTask.execute(new Integer[0]);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) || StringUtils.isNull(str) || this.mAttentionTaskMap.get(str) != null || (linkedList = this.mUserAttentionRequestMap.get(str)) == null || linkedList.size() <= 0) {
+            return;
         }
+        AttentionAsyncTask attentionAsyncTask = new AttentionAsyncTask();
+        this.mAttentionTaskMap.put(str, attentionAsyncTask);
+        attentionAsyncTask.setPriority(2);
+        attentionAsyncTask.setAlaAttentionData(linkedList.getFirst());
+        attentionAsyncTask.execute(new Integer[0]);
     }
 
     public static AlaAttentionManager getInstance() {
-        if (sInstance == null) {
-            synchronized (AlaAttentionManager.class) {
-                if (sInstance == null) {
-                    sInstance = new AlaAttentionManager();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (sInstance == null) {
+                synchronized (AlaAttentionManager.class) {
+                    if (sInstance == null) {
+                        sInstance = new AlaAttentionManager();
+                    }
                 }
             }
+            return sInstance;
         }
-        return sInstance;
+        return (AlaAttentionManager) invokeV.objValue;
     }
 
     private long getLastShowTime() {
-        b j = b.j();
-        return j.l("ala_live_push_remind_showtime" + getUserId(), 0L);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            b j = b.j();
+            return j.l("ala_live_push_remind_showtime" + getUserId(), 0L);
+        }
+        return invokeV.longValue;
     }
 
     private String getUserId() {
-        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        if (currentAccountInfo != null) {
-            String id = currentAccountInfo.getID();
-            return !TextUtils.isEmpty(id) ? id : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            if (currentAccountInfo != null) {
+                String id = currentAccountInfo.getID();
+                return !TextUtils.isEmpty(id) ? id : "";
+            }
+            return "";
         }
-        return "";
+        return (String) invokeV.objValue;
     }
 
     private void saveLastShowTime() {
-        long currentTimeMillis = System.currentTimeMillis();
-        b j = b.j();
-        j.w("ala_live_push_remind_showtime" + getUserId(), currentTimeMillis);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            b j = b.j();
+            j.w("ala_live_push_remind_showtime" + getUserId(), currentTimeMillis);
+        }
     }
 
     public void cancelAllTask() {
-        for (AttentionAsyncTask attentionAsyncTask : this.mAttentionTaskMap.values()) {
-            if (attentionAsyncTask != null) {
-                attentionAsyncTask.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (AttentionAsyncTask attentionAsyncTask : this.mAttentionTaskMap.values()) {
+                if (attentionAsyncTask != null) {
+                    attentionAsyncTask.cancel();
+                }
             }
+            this.mAttentionTaskMap.clear();
         }
-        this.mAttentionTaskMap.clear();
     }
 
     public void cancelTaskByToUid(String str) {
-        AttentionAsyncTask attentionAsyncTask = this.mAttentionTaskMap.get(str);
-        if (attentionAsyncTask != null) {
-            attentionAsyncTask.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            AttentionAsyncTask attentionAsyncTask = this.mAttentionTaskMap.get(str);
+            if (attentionAsyncTask != null) {
+                attentionAsyncTask.cancel();
+            }
+            this.mAttentionTaskMap.remove(str);
         }
-        this.mAttentionTaskMap.remove(str);
     }
 
-    public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, final f<?> fVar, boolean z) {
-        if (aVar != null && aVar.f12725h != null && aVar.f12724g != null && fVar != null && fVar.getPageActivity() != null) {
-            int i2 = aVar.f12724g.mServerErrorCode;
-            if (!(i2 == 3250001 || i2 == 3250002 || i2 == 3250003 || i2 == 3250004)) {
-                return false;
+    public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, f<?> fVar, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, aVar, fVar, z)) == null) {
+            if (aVar != null && aVar.f12807h != null && aVar.f12806g != null && fVar != null && fVar.getPageActivity() != null) {
+                int i2 = aVar.f12806g.mServerErrorCode;
+                if (!(i2 == 3250001 || i2 == 3250002 || i2 == 3250003 || i2 == 3250004)) {
+                    return false;
+                }
+                if (aVar.f12808i) {
+                    return true;
+                }
+                JSONObject optJSONObject = aVar.f12807h.optJSONObject("info");
+                if (optJSONObject == null) {
+                    return false;
+                }
+                String optString = optJSONObject.optString("block_content");
+                String optString2 = optJSONObject.optString("block_dealurl");
+                String optString3 = optJSONObject.optString("block_confirm");
+                String optString4 = optJSONObject.optString("block_cancel");
+                if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
+                    aVar.f12808i = true;
+                    a aVar2 = new a(fVar.getPageActivity());
+                    aVar2.setAutoNight(z);
+                    aVar2.setMessage(optString);
+                    aVar2.setPositiveButton(optString3, new a.e(this, fVar, optString2) { // from class: com.baidu.ala.view.AlaAttentionManager.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AlaAttentionManager this$0;
+                        public final /* synthetic */ String val$dealurl;
+                        public final /* synthetic */ f val$pageContext;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, fVar, optString2};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$pageContext = fVar;
+                            this.val$dealurl = optString2;
+                        }
+
+                        @Override // d.a.r0.r.s.a.e
+                        public void onClick(a aVar3) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) {
+                                d.a.r0.l.a.l(this.val$pageContext.getPageActivity(), this.val$dealurl);
+                                aVar3.dismiss();
+                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
+                            }
+                        }
+                    });
+                    aVar2.setNegativeButton(optString4, new a.e(this) { // from class: com.baidu.ala.view.AlaAttentionManager.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AlaAttentionManager this$0;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        @Override // d.a.r0.r.s.a.e
+                        public void onClick(a aVar3) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) {
+                                aVar3.dismiss();
+                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
+                            }
+                        }
+                    });
+                    aVar2.create(fVar).show();
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
+                    return true;
+                }
             }
-            if (aVar.f12726i) {
-                return true;
-            }
-            JSONObject optJSONObject = aVar.f12725h.optJSONObject("info");
-            if (optJSONObject == null) {
-                return false;
-            }
-            String optString = optJSONObject.optString("block_content");
-            final String optString2 = optJSONObject.optString("block_dealurl");
-            String optString3 = optJSONObject.optString("block_confirm");
-            String optString4 = optJSONObject.optString("block_cancel");
-            if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
-                aVar.f12726i = true;
-                a aVar2 = new a(fVar.getPageActivity());
-                aVar2.setAutoNight(z);
-                aVar2.setMessage(optString);
-                aVar2.setPositiveButton(optString3, new a.e() { // from class: com.baidu.ala.view.AlaAttentionManager.1
-                    @Override // d.a.n0.r.s.a.e
-                    public void onClick(a aVar3) {
-                        d.a.n0.l.a.l(fVar.getPageActivity(), optString2);
-                        aVar3.dismiss();
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                    }
-                });
-                aVar2.setNegativeButton(optString4, new a.e() { // from class: com.baidu.ala.view.AlaAttentionManager.2
-                    @Override // d.a.n0.r.s.a.e
-                    public void onClick(a aVar3) {
-                        aVar3.dismiss();
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                    }
-                });
-                aVar2.create(fVar).show();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                return true;
-            }
+            return false;
         }
-        return false;
+        return invokeLLZ.booleanValue;
     }
 
     public void removeRequestListAll() {
-        for (LinkedList<AlaAttentionData> linkedList : this.mUserAttentionRequestMap.values()) {
-            if (linkedList != null) {
-                linkedList.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (LinkedList<AlaAttentionData> linkedList : this.mUserAttentionRequestMap.values()) {
+                if (linkedList != null) {
+                    linkedList.clear();
+                }
             }
+            this.mUserAttentionRequestMap.clear();
         }
-        this.mUserAttentionRequestMap.clear();
     }
 
     public void removeRequestListByUid(String str) {
-        this.mUserAttentionRequestMap.get(str).clear();
-        this.mUserAttentionRequestMap.remove(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.mUserAttentionRequestMap.get(str).clear();
+            this.mUserAttentionRequestMap.remove(str);
+        }
     }
 
     public void removeRequestListFirstByUid(String str) {
-        LinkedList<AlaAttentionData> linkedList = this.mUserAttentionRequestMap.get(str);
-        if (linkedList == null || linkedList.size() <= 0) {
+        LinkedList<AlaAttentionData> linkedList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (linkedList = this.mUserAttentionRequestMap.get(str)) == null || linkedList.size() <= 0) {
             return;
         }
         try {
@@ -290,22 +445,27 @@ public class AlaAttentionManager {
     }
 
     public void showAttentionSucceedTip(TbPageContext<?> tbPageContext) {
-        if (tbPageContext == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) || tbPageContext == null) {
             return;
         }
         tbPageContext.showToast(R.string.ala_attention_success_toast);
     }
 
     public void showAttentionSuccessTipAndLivePushDialog(TbPageContext tbPageContext, boolean z) {
-        if (System.currentTimeMillis() - getLastShowTime() >= 86400000 && !d.d().s()) {
-            showLivePushRemindDialog(tbPageContext, z);
-        } else if (z) {
-            showAttentionSucceedTip(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, tbPageContext, z) == null) {
+            if (System.currentTimeMillis() - getLastShowTime() >= 86400000 && !d.d().s()) {
+                showLivePushRemindDialog(tbPageContext, z);
+            } else if (z) {
+                showAttentionSucceedTip(tbPageContext);
+            }
         }
     }
 
     public void showLivePushRemindDialog(TbPageContext tbPageContext, boolean z) {
-        if (d.d().s()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, z) == null) || d.d().s()) {
             return;
         }
         new AlaLivePushRemindDialog(tbPageContext).showDialog(z);
@@ -313,7 +473,8 @@ public class AlaAttentionManager {
     }
 
     public void updateAttention(String str, AlaAttentionData alaAttentionData) {
-        if (StringUtils.isNull(str) || alaAttentionData == null || alaAttentionData.getPortrait() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, alaAttentionData) == null) || StringUtils.isNull(str) || alaAttentionData == null || alaAttentionData.getPortrait() == null) {
             return;
         }
         LinkedList<AlaAttentionData> linkedList = this.mUserAttentionRequestMap.get(str);

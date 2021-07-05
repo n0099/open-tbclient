@@ -2,10 +2,17 @@ package com.qq.e.mediation.interfaces;
 
 import android.app.Activity;
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
 /* loaded from: classes7.dex */
 public abstract class BaseRewardAd {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;
     public static final int EVENT_TYPE_ON_AD_CLICK = 6;
     public static final int EVENT_TYPE_ON_AD_CLOSE = 8;
@@ -16,15 +23,36 @@ public abstract class BaseRewardAd {
     public static final int EVENT_TYPE_ON_REWARD = 5;
     public static final int EVENT_TYPE_ON_VIDEO_CACHED = 2;
     public static final int EVENT_TYPE_ON_VIDEO_COMPLETE = 7;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadAdParams f39316a = null;
+    public LoadAdParams f41072a;
 
     public BaseRewardAd(Context context, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f41072a = null;
     }
 
     public int getAdapterPriority() {
-        return -1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
     }
 
     public abstract int getECPM();
@@ -34,11 +62,18 @@ public abstract class BaseRewardAd {
     public abstract long getExpireTimestamp();
 
     public LoadAdParams getLoadAdParams() {
-        return this.f39316a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41072a : (LoadAdParams) invokeV.objValue;
     }
 
     public int getRewardAdType() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public abstract int getVideoDuration();
@@ -50,14 +85,22 @@ public abstract class BaseRewardAd {
     public abstract void setAdListener(ADListener aDListener);
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
-        this.f39316a = loadAdParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, loadAdParams) == null) {
+            this.f41072a = loadAdParams;
+        }
     }
+
+    public abstract void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
 
     public abstract void setVolumeOn(boolean z);
 
     public abstract void showAD();
 
     public void showAD(Activity activity) {
-        showAD();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, activity) == null) {
+            showAD();
+        }
     }
 }

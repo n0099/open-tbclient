@@ -1,311 +1,148 @@
 package com.bytedance.sdk.openadsdk.core;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.AbstractCursor;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public static final Object f28267c = new Object();
-
-    /* renamed from: a  reason: collision with root package name */
-    public c f28268a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f28269b;
-
-    /* loaded from: classes6.dex */
-    public class b extends AbstractCursor {
-        public b() {
-        }
-
-        @Override // android.database.AbstractCursor, android.database.Cursor
-        public String[] getColumnNames() {
-            return new String[0];
-        }
-
-        @Override // android.database.AbstractCursor, android.database.Cursor
-        public int getCount() {
-            return 0;
-        }
-
-        @Override // android.database.AbstractCursor, android.database.Cursor
-        public double getDouble(int i2) {
-            return 0.0d;
-        }
-
-        @Override // android.database.AbstractCursor, android.database.Cursor
-        public float getFloat(int i2) {
-            return 0.0f;
-        }
-
-        @Override // android.database.AbstractCursor, android.database.Cursor
-        public int getInt(int i2) {
-            return 0;
-        }
-
-        @Override // android.database.AbstractCursor, android.database.Cursor
-        public long getLong(int i2) {
-            return 0L;
-        }
-
-        @Override // android.database.AbstractCursor, android.database.Cursor
-        public short getShort(int i2) {
-            return (short) 0;
-        }
-
-        @Override // android.database.AbstractCursor, android.database.Cursor
-        public String getString(int i2) {
-            return null;
-        }
-
-        @Override // android.database.AbstractCursor, android.database.Cursor
-        public boolean isNull(int i2) {
-            return true;
-        }
-    }
-
-    public g(Context context) {
-        try {
-            this.f28269b = context == null ? p.a() : context.getApplicationContext();
-            if (this.f28268a == null) {
-                this.f28268a = new c();
-            }
-        } catch (Throwable unused) {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Context c() {
-        Context context = this.f28269b;
-        return context == null ? p.a() : context;
-    }
-
-    public c a() {
-        return this.f28268a;
-    }
-
-    /* loaded from: classes6.dex */
-    public class c {
-
-        /* renamed from: b  reason: collision with root package name */
-        public SQLiteDatabase f28298b = null;
-
-        public c() {
-        }
-
-        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, MOVE_EXCEPTION, THROW, IF, INVOKE, INVOKE, THROW, MOVE_EXCEPTION] complete} */
-        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        private synchronized void d() {
-            try {
-                synchronized (g.f28267c) {
-                    if (this.f28298b == null || !this.f28298b.isOpen()) {
-                        SQLiteDatabase writableDatabase = new a(g.this.c()).getWritableDatabase();
-                        this.f28298b = writableDatabase;
-                        writableDatabase.setLockingEnabled(false);
-                    }
-                }
-            } finally {
-            }
-        }
-
-        private synchronized boolean e() {
-            boolean z;
-            SQLiteDatabase sQLiteDatabase = this.f28298b;
-            if (sQLiteDatabase != null) {
-                z = sQLiteDatabase.inTransaction();
-            }
-            return z;
-        }
-
-        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        public synchronized void a(String str) throws SQLException {
-            try {
-                d();
-                this.f28298b.execSQL(str);
-            } catch (Throwable th) {
-                if (e()) {
-                    throw th;
-                }
-            }
-        }
-
-        public synchronized void b() {
-            d();
-            if (this.f28298b == null) {
-                return;
-            }
-            this.f28298b.setTransactionSuccessful();
-        }
-
-        public synchronized void c() {
-            d();
-            if (this.f28298b == null) {
-                return;
-            }
-            this.f28298b.endTransaction();
-        }
-
-        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        public synchronized Cursor a(String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5) {
-            Cursor cursor;
-            try {
-                d();
-                cursor = this.f28298b.query(str, strArr, str2, strArr2, str3, str4, str5);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                b bVar = new b();
-                if (e()) {
-                    throw th;
-                }
-                cursor = bVar;
-            }
-            return cursor;
-        }
-
-        public synchronized int a(String str, ContentValues contentValues, String str2, String[] strArr) {
-            int i2;
-            try {
-                d();
-                i2 = this.f28298b.update(str, contentValues, str2, strArr);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                if (e()) {
-                    throw e2;
-                }
-                i2 = 0;
-            }
-            return i2;
-        }
-
-        public synchronized long a(String str, String str2, ContentValues contentValues) {
-            long j;
-            try {
-                d();
-                j = this.f28298b.insert(str, str2, contentValues);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                if (e()) {
-                    throw e2;
-                }
-                j = -1;
-            }
-            return j;
-        }
-
-        public synchronized int a(String str, String str2, String[] strArr) {
-            int i2;
-            try {
-                d();
-                i2 = this.f28298b.delete(str, str2, strArr);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                if (e()) {
-                    throw e2;
-                }
-                i2 = 0;
-            }
-            return i2;
-        }
-
-        public synchronized void a() {
-            d();
-            if (this.f28298b == null) {
-                return;
-            }
-            this.f28298b.beginTransaction();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends SQLiteOpenHelper {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final Context f28277a;
-
-        public a(Context context) {
-            super(context, "ttopensdk.db", (SQLiteDatabase.CursorFactory) null, 7);
-            this.f28277a = context;
-        }
-
-        private void a(SQLiteDatabase sQLiteDatabase, Context context) {
-            com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "initDB........");
-            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.f.d());
-            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.n.f());
-            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.l.d());
-            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.m.g.b());
-            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c());
-        }
-
-        private ArrayList<String> b(SQLiteDatabase sQLiteDatabase) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            try {
-                Cursor rawQuery = sQLiteDatabase.rawQuery("select name from sqlite_master where type='table' order by name", null);
-                if (rawQuery != null) {
-                    while (rawQuery.moveToNext()) {
-                        String string = rawQuery.getString(0);
-                        if (!string.equals("android_metadata") && !string.equals("sqlite_sequence")) {
-                            arrayList.add(string);
+    public static String a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
+            if (i2 != 201) {
+                if (i2 != 202) {
+                    if (i2 != 20001) {
+                        if (i2 != 50001) {
+                            if (i2 != 60007) {
+                                switch (i2) {
+                                    case -14:
+                                        return "开屏视频加载失败";
+                                    case -13:
+                                        return "广告请求使用了错误代码位";
+                                    case -12:
+                                        return "缓存中没有开屏广告";
+                                    case -11:
+                                        return "缓存过期";
+                                    case -10:
+                                        return "缓存解析失败";
+                                    case -9:
+                                        return "请求实体为空";
+                                    case -8:
+                                        return "广告请求频率过高";
+                                    case -7:
+                                        return "开屏广告图片加载失败";
+                                    case -6:
+                                        return "插屏广告图片加载失败";
+                                    case -5:
+                                        return "Banner广告加载图片失败";
+                                    case -4:
+                                        return "返回数据缺少必要字段";
+                                    case -3:
+                                        return "没有解析到广告";
+                                    case -2:
+                                        return "网络请求失败";
+                                    case -1:
+                                        return "解析失败";
+                                    default:
+                                        switch (i2) {
+                                            case 101:
+                                                return "渲染结果数据解析失败";
+                                            case 102:
+                                                return "主模板无效";
+                                            case 103:
+                                                return "模板差量无效";
+                                            case 104:
+                                                return "模板物料数据异常";
+                                            case 105:
+                                                return "模板数据解析异常";
+                                            case 106:
+                                                return "渲染未知报错";
+                                            case 107:
+                                                return "渲染超时未回调";
+                                            case 108:
+                                                return "模板广告加载超时无返回";
+                                            case 109:
+                                                return "模板主引擎加载失败";
+                                            case 110:
+                                                return "模板广告请求参数不合法，如传入宽度不大于0";
+                                            default:
+                                                switch (i2) {
+                                                    case 40000:
+                                                        return "http conent_type错误";
+                                                    case 40001:
+                                                        return "http request pb错误";
+                                                    case 40002:
+                                                        return "请求app不能为空 ";
+                                                    case 40003:
+                                                        return "请求wap不能为空";
+                                                    case 40004:
+                                                        return "广告位不能为空";
+                                                    case 40005:
+                                                        return "广告位尺寸不能为空";
+                                                    case 40006:
+                                                        return "广告位ID不合法";
+                                                    case 40007:
+                                                        return "广告数量错误";
+                                                    case 40008:
+                                                        return "图片尺寸错误";
+                                                    case 40009:
+                                                        return "媒体ID不合法";
+                                                    case 40010:
+                                                        return "媒体类型不合法";
+                                                    case 40011:
+                                                        return "广告类型不合法";
+                                                    case 40012:
+                                                    case 40017:
+                                                        return "媒体接入类型不合法";
+                                                    case 40013:
+                                                        return "开屏广告类型异常";
+                                                    case 40014:
+                                                        return "redirect参数不正确";
+                                                    case 40015:
+                                                        return "媒体整改超过期限，请求非法";
+                                                    case 40016:
+                                                        return "SlotId和AppId匹配异常";
+                                                    case 40018:
+                                                        return "媒体包名异常";
+                                                    case 40019:
+                                                        return "媒体配置adtype和请求不一致";
+                                                    case 40020:
+                                                        return "开发注册新上线广告位超出日请求量限制";
+                                                    case 40021:
+                                                        return "apk签名sha1值与媒体平台录入不一致";
+                                                    case 40022:
+                                                        return "媒体请求素材是否原生与媒体平台录入不一致";
+                                                    case 40023:
+                                                        return "os字段填的不对";
+                                                    case 40024:
+                                                        return "sdk 版本过低不返回广告";
+                                                    default:
+                                                        switch (i2) {
+                                                            case IMConstants.ERROR_JOIN_GROUP_NUMBER_FULL /* 60001 */:
+                                                                return "show event处理错误";
+                                                            case IMConstants.ERROR_GROUP_NAME_NOT_VALID /* 60002 */:
+                                                                return "click event处理错误";
+                                                            default:
+                                                                return "未知报错";
+                                                        }
+                                                }
+                                        }
+                                }
+                            }
+                            return "激励视频验证服务器异常或处理失败";
                         }
+                        return "服务器错误";
                     }
-                    rawQuery.close();
+                    return "没有广告";
                 }
-            } catch (Exception unused) {
+                return "icon图标加载失败";
             }
-            return arrayList;
+            return "icon加载response错误";
         }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onCreate(SQLiteDatabase sQLiteDatabase) {
-            try {
-                a(sQLiteDatabase, this.f28277a);
-            } catch (Throwable unused) {
-            }
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
-            try {
-                com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "onUpgrade....数据库版本升级.....old:" + i2 + ",new:" + i3);
-                if (i2 <= i3) {
-                    a(sQLiteDatabase, g.this.f28269b);
-                } else {
-                    a(sQLiteDatabase);
-                    a(sQLiteDatabase, g.this.f28269b);
-                    com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "onUpgrade...逆向安装.数据库重置-创建表.....");
-                }
-                if (i2 == 1) {
-                    com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "onUpgrade.....执行表创建.....");
-                } else if (i2 == 2) {
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS 'ad_video_info';");
-                } else if (i2 == 3) {
-                    sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.n.f());
-                } else if (i2 == 4) {
-                    sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c());
-                } else if (i2 != 5) {
-                } else {
-                    sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.l.d());
-                }
-            } catch (Throwable unused) {
-            }
-        }
-
-        private void a(SQLiteDatabase sQLiteDatabase) {
-            ArrayList<String> b2 = b(sQLiteDatabase);
-            if (b2 == null || b2.size() <= 0) {
-                return;
-            }
-            Iterator<String> it = b2.iterator();
-            while (it.hasNext()) {
-                sQLiteDatabase.execSQL(String.format("DROP TABLE IF EXISTS %s ;", it.next()));
-            }
-        }
+        return (String) invokeI.objValue;
     }
 }

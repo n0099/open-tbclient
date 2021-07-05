@@ -1,30 +1,58 @@
 package com.baidu.livesdk.sdk.http.download;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.api.http.ResponseCallback;
 import com.baidu.livesdk.api.http.download.DownloadCallback;
 import com.baidu.livesdk.api.http.download.DownloadEntity;
 import com.baidu.livesdk.api.http.download.Downloader;
 import com.baidu.livesdk.sdk.http.OkHttpRequest;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Call;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OkHttpDownloader extends OkHttpRequest implements Downloader {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public OkHttpDownloader() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.baidu.livesdk.api.http.download.Downloader
     public void download(DownloadCallback downloadCallback) {
-        super.request(downloadCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadCallback) == null) {
+            super.request(downloadCallback);
+        }
     }
 
     @Override // com.baidu.livesdk.sdk.http.OkHttpRequest
     public void onFailureCallback(Call call, IOException iOException) {
-        super.onFailureCallback(call, iOException);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, iOException) == null) {
+            super.onFailureCallback(call, iOException);
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:104:0x00bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x00c7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x00bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x00cb A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // com.baidu.livesdk.sdk.http.OkHttpRequest
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -33,6 +61,10 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
         Exception exc;
         FileOutputStream fileOutputStream;
         IOException e2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, call, response) != null) {
+            return;
+        }
         if (response == null || response.body() == null) {
             if (response != null) {
                 ResponseCallback responseCallback = this.mCallback;

@@ -8,19 +8,58 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import androidx.annotation.Keep;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.samsung.android.deviceidservice.a;
 @Keep
 /* loaded from: classes6.dex */
 public class SumsungCore {
+    public static /* synthetic */ Interceptable $ic = null;
     public static boolean DBG = false;
     public static String SAMSUNGTAG = "Samsung_DeviceIdService";
     public static String TAG = "SumsungCore library";
+    public transient /* synthetic */ FieldHolder $fh;
     public com.bun.miitmdid.supplier.c.a mCallerCallBack;
     public ServiceConnection mConnection;
     public Context mContext;
     public com.samsung.android.deviceidservice.a mDeviceidInterface;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-767200358, "Lcom/bun/miitmdid/supplier/sumsung/SumsungCore;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-767200358, "Lcom/bun/miitmdid/supplier/sumsung/SumsungCore;");
+        }
+    }
+
     public SumsungCore(Context context, com.bun.miitmdid.supplier.c.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mContext = null;
         this.mCallerCallBack = null;
         if (context == null) {
@@ -28,20 +67,52 @@ public class SumsungCore {
         }
         this.mContext = context;
         this.mCallerCallBack = aVar;
-        this.mConnection = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.sumsung.SumsungCore.1
+        this.mConnection = new ServiceConnection(this) { // from class: com.bun.miitmdid.supplier.sumsung.SumsungCore.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ SumsungCore f27552a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f27552a = this;
+            }
+
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                SumsungCore.this.mDeviceidInterface = a.AbstractBinderC0476a.a(iBinder);
-                if (SumsungCore.this.mCallerCallBack != null) {
-                    SumsungCore.this.mCallerCallBack.a(true);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
+                    synchronized (this) {
+                        this.f27552a.mDeviceidInterface = a.AbstractBinderC0520a.a(iBinder);
+                        if (this.f27552a.mCallerCallBack != null) {
+                            this.f27552a.mCallerCallBack.a(true);
+                        }
+                        com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceConnected");
+                    }
                 }
-                com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceConnected");
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceDisconnected(ComponentName componentName) {
-                SumsungCore.this.mDeviceidInterface = null;
-                com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceDisconnected");
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+                    this.f27552a.mDeviceidInterface = null;
+                    com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceDisconnected");
+                }
             }
         };
         Intent intent = new Intent();
@@ -59,105 +130,130 @@ public class SumsungCore {
     }
 
     public String getAAID() {
+        InterceptResult invokeV;
         String str;
         String str2;
-        Context context = this.mContext;
-        if (context == null) {
-            com.bun.miitmdid.utils.a.a(TAG, "Context is null.");
-            throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
-        }
-        String packageName = context.getPackageName();
-        String str3 = TAG;
-        com.bun.miitmdid.utils.a.a(str3, "liufeng, getAAID package：" + packageName);
-        if (packageName == null || packageName.equals("")) {
-            str = TAG;
-            str2 = "input package is null!";
-        } else {
-            try {
-                if (this.mDeviceidInterface != null) {
-                    String str4 = SAMSUNGTAG;
-                    Log.d(str4, "getAAID Package: " + packageName);
-                    return this.mDeviceidInterface.b(packageName);
-                }
-                return null;
-            } catch (RemoteException unused) {
-                str = TAG;
-                str2 = "getAAID error, RemoteException!";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Context context = this.mContext;
+            if (context == null) {
+                com.bun.miitmdid.utils.a.a(TAG, "Context is null.");
+                throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
             }
+            String packageName = context.getPackageName();
+            String str3 = TAG;
+            com.bun.miitmdid.utils.a.a(str3, "liufeng, getAAID package：" + packageName);
+            if (packageName == null || packageName.equals("")) {
+                str = TAG;
+                str2 = "input package is null!";
+            } else {
+                try {
+                    if (this.mDeviceidInterface != null) {
+                        String str4 = SAMSUNGTAG;
+                        Log.d(str4, "getAAID Package: " + packageName);
+                        return this.mDeviceidInterface.b(packageName);
+                    }
+                    return null;
+                } catch (RemoteException unused) {
+                    str = TAG;
+                    str2 = "getAAID error, RemoteException!";
+                }
+            }
+            com.bun.miitmdid.utils.a.a(str, str2);
+            return null;
         }
-        com.bun.miitmdid.utils.a.a(str, str2);
-        return null;
+        return (String) invokeV.objValue;
     }
 
     public String getOAID() {
-        if (this.mContext == null) {
-            com.bun.miitmdid.utils.a.b(TAG, "Context is null.");
-            throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
-        }
-        try {
-            if (this.mDeviceidInterface != null) {
-                Log.d(SAMSUNGTAG, "getOAID call");
-                return this.mDeviceidInterface.a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mContext == null) {
+                com.bun.miitmdid.utils.a.b(TAG, "Context is null.");
+                throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
             }
-            return null;
-        } catch (RemoteException e2) {
-            com.bun.miitmdid.utils.a.b(TAG, "getOAID error, RemoteException!");
-            e2.printStackTrace();
-            return null;
+            try {
+                if (this.mDeviceidInterface != null) {
+                    Log.d(SAMSUNGTAG, "getOAID call");
+                    return this.mDeviceidInterface.a();
+                }
+                return null;
+            } catch (RemoteException e2) {
+                com.bun.miitmdid.utils.a.b(TAG, "getOAID error, RemoteException!");
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public String getUDID() {
-        return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     public String getVAID() {
-        Context context = this.mContext;
-        if (context == null) {
-            com.bun.miitmdid.utils.a.a(TAG, "Context is null.");
-            throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
-        }
-        String packageName = context.getPackageName();
-        String str = TAG;
-        com.bun.miitmdid.utils.a.a(str, "liufeng, getVAID package：" + packageName);
-        if (packageName == null || packageName.equals("")) {
-            com.bun.miitmdid.utils.a.a(TAG, "input package is null!");
-            return null;
-        }
-        try {
-            if (this.mDeviceidInterface != null) {
-                String str2 = SAMSUNGTAG;
-                Log.d(str2, "getVAID Package: " + packageName);
-                return this.mDeviceidInterface.a(packageName);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Context context = this.mContext;
+            if (context == null) {
+                com.bun.miitmdid.utils.a.a(TAG, "Context is null.");
+                throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
             }
-            return null;
-        } catch (RemoteException e2) {
-            com.bun.miitmdid.utils.a.a(TAG, "getVAID error, RemoteException!");
-            e2.printStackTrace();
-            return null;
+            String packageName = context.getPackageName();
+            String str = TAG;
+            com.bun.miitmdid.utils.a.a(str, "liufeng, getVAID package：" + packageName);
+            if (packageName == null || packageName.equals("")) {
+                com.bun.miitmdid.utils.a.a(TAG, "input package is null!");
+                return null;
+            }
+            try {
+                if (this.mDeviceidInterface != null) {
+                    String str2 = SAMSUNGTAG;
+                    Log.d(str2, "getVAID Package: " + packageName);
+                    return this.mDeviceidInterface.a(packageName);
+                }
+                return null;
+            } catch (RemoteException e2) {
+                com.bun.miitmdid.utils.a.a(TAG, "getVAID error, RemoteException!");
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public boolean isSupported() {
-        try {
-            if (this.mDeviceidInterface != null) {
-                com.bun.miitmdid.utils.a.a(TAG, "Device support opendeviceid");
-                return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                if (this.mDeviceidInterface != null) {
+                    com.bun.miitmdid.utils.a.a(TAG, "Device support opendeviceid");
+                    return true;
+                }
+                return false;
+            } catch (Exception unused) {
+                com.bun.miitmdid.utils.a.a(TAG, "isSupport error, RemoteException!");
+                return false;
             }
-            return false;
-        } catch (Exception unused) {
-            com.bun.miitmdid.utils.a.a(TAG, "isSupport error, RemoteException!");
-            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public void shutdown() {
-        try {
-            this.mContext.unbindService(this.mConnection);
-            com.bun.miitmdid.utils.a.a(TAG, "unBind Service successful");
-        } catch (IllegalArgumentException unused) {
-            com.bun.miitmdid.utils.a.a(TAG, "unBind Service exception");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            try {
+                this.mContext.unbindService(this.mConnection);
+                com.bun.miitmdid.utils.a.a(TAG, "unBind Service successful");
+            } catch (IllegalArgumentException unused) {
+                com.bun.miitmdid.utils.a.a(TAG, "unBind Service exception");
+            }
+            this.mDeviceidInterface = null;
         }
-        this.mDeviceidInterface = null;
     }
 }

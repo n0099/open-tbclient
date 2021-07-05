@@ -1,5 +1,12 @@
 package io.reactivex.internal.operators.flowable;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.disposables.Disposable;
@@ -17,137 +24,201 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableTimeout<T, U, V> extends AbstractFlowableWithUpstream<T, T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<U> firstTimeoutIndicator;
     public final Function<? super T, ? extends Publisher<V>> itemTimeoutIndicator;
     public final Publisher<? extends T> other;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class TimeoutConsumer extends AtomicReference<Subscription> implements FlowableSubscriber<Object>, Disposable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8708641127342403073L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final long idx;
         public final TimeoutSelectorSupport parent;
 
         public TimeoutConsumer(long j, TimeoutSelectorSupport timeoutSelectorSupport) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), timeoutSelectorSupport};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.idx = j;
             this.parent = timeoutSelectorSupport;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            SubscriptionHelper.cancel(this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SubscriptionHelper.cancel(this);
+            }
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return SubscriptionHelper.isCancelled(get());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? SubscriptionHelper.isCancelled(get()) : invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            Object obj = get();
-            SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-            if (obj != subscriptionHelper) {
-                lazySet(subscriptionHelper);
-                this.parent.onTimeout(this.idx);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                Object obj = get();
+                SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
+                if (obj != subscriptionHelper) {
+                    lazySet(subscriptionHelper);
+                    this.parent.onTimeout(this.idx);
+                }
             }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            Object obj = get();
-            SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-            if (obj != subscriptionHelper) {
-                lazySet(subscriptionHelper);
-                this.parent.onTimeoutError(this.idx, th);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                Object obj = get();
+                SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
+                if (obj != subscriptionHelper) {
+                    lazySet(subscriptionHelper);
+                    this.parent.onTimeoutError(this.idx, th);
+                    return;
+                }
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(Object obj) {
-            Subscription subscription = (Subscription) get();
-            if (subscription != SubscriptionHelper.CANCELLED) {
-                subscription.cancel();
-                lazySet(SubscriptionHelper.CANCELLED);
-                this.parent.onTimeout(this.idx);
+            Subscription subscription;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, obj) == null) || (subscription = (Subscription) get()) == SubscriptionHelper.CANCELLED) {
+                return;
             }
+            subscription.cancel();
+            lazySet(SubscriptionHelper.CANCELLED);
+            this.parent.onTimeout(this.idx);
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            SubscriptionHelper.setOnce(this, subscription, Long.MAX_VALUE);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, subscription) == null) {
+                SubscriptionHelper.setOnce(this, subscription, Long.MAX_VALUE);
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class TimeoutFallbackSubscriber<T> extends SubscriptionArbiter implements FlowableSubscriber<T>, TimeoutSelectorSupport {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3764492702657003550L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super T> actual;
         public long consumed;
         public Publisher<? extends T> fallback;
+        public final AtomicLong index;
         public final Function<? super T, ? extends Publisher<?>> itemTimeoutIndicator;
-        public final SequentialDisposable task = new SequentialDisposable();
-        public final AtomicReference<Subscription> upstream = new AtomicReference<>();
-        public final AtomicLong index = new AtomicLong();
+        public final SequentialDisposable task;
+        public final AtomicReference<Subscription> upstream;
 
         public TimeoutFallbackSubscriber(Subscriber<? super T> subscriber, Function<? super T, ? extends Publisher<?>> function, Publisher<? extends T> publisher) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, function, publisher};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
             this.itemTimeoutIndicator = function;
+            this.task = new SequentialDisposable();
+            this.upstream = new AtomicReference<>();
             this.fallback = publisher;
+            this.index = new AtomicLong();
         }
 
         @Override // io.reactivex.internal.subscriptions.SubscriptionArbiter, org.reactivestreams.Subscription
         public void cancel() {
-            super.cancel();
-            this.task.dispose();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.cancel();
+                this.task.dispose();
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            if (this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
-                this.task.dispose();
-                this.actual.onComplete();
-                this.task.dispose();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.index.getAndSet(Long.MAX_VALUE) == Long.MAX_VALUE) {
+                return;
             }
+            this.task.dispose();
+            this.actual.onComplete();
+            this.task.dispose();
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            if (this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
-                this.task.dispose();
-                this.actual.onError(th);
-                this.task.dispose();
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                if (this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                    this.task.dispose();
+                    this.actual.onError(th);
+                    this.task.dispose();
+                    return;
+                }
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            long j = this.index.get();
-            if (j != Long.MAX_VALUE) {
-                long j2 = j + 1;
-                if (this.index.compareAndSet(j, j2)) {
-                    Disposable disposable = this.task.get();
-                    if (disposable != null) {
-                        disposable.dispose();
-                    }
-                    this.consumed++;
-                    this.actual.onNext(t);
-                    try {
-                        Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
-                        TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
-                        if (this.task.replace(timeoutConsumer)) {
-                            publisher.subscribe(timeoutConsumer);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                long j = this.index.get();
+                if (j != Long.MAX_VALUE) {
+                    long j2 = j + 1;
+                    if (this.index.compareAndSet(j, j2)) {
+                        Disposable disposable = this.task.get();
+                        if (disposable != null) {
+                            disposable.dispose();
                         }
-                    } catch (Throwable th) {
-                        Exceptions.throwIfFatal(th);
-                        this.upstream.get().cancel();
-                        this.index.getAndSet(Long.MAX_VALUE);
-                        this.actual.onError(th);
+                        this.consumed++;
+                        this.actual.onNext(t);
+                        try {
+                            Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
+                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
+                            if (this.task.replace(timeoutConsumer)) {
+                                publisher.subscribe(timeoutConsumer);
+                            }
+                        } catch (Throwable th) {
+                            Exceptions.throwIfFatal(th);
+                            this.upstream.get().cancel();
+                            this.index.getAndSet(Long.MAX_VALUE);
+                            this.actual.onError(th);
+                        }
                     }
                 }
             }
@@ -155,14 +226,16 @@ public final class FlowableTimeout<T, U, V> extends AbstractFlowableWithUpstream
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            if (SubscriptionHelper.setOnce(this.upstream, subscription)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, subscription) == null) && SubscriptionHelper.setOnce(this.upstream, subscription)) {
                 setSubscription(subscription);
             }
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeoutTimed.TimeoutSupport
         public void onTimeout(long j) {
-            if (this.index.compareAndSet(j, Long.MAX_VALUE)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && this.index.compareAndSet(j, Long.MAX_VALUE)) {
                 SubscriptionHelper.cancel(this.upstream);
                 Publisher<? extends T> publisher = this.fallback;
                 this.fallback = null;
@@ -176,89 +249,124 @@ public final class FlowableTimeout<T, U, V> extends AbstractFlowableWithUpstream
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeout.TimeoutSelectorSupport
         public void onTimeoutError(long j, Throwable th) {
-            if (this.index.compareAndSet(j, Long.MAX_VALUE)) {
-                SubscriptionHelper.cancel(this.upstream);
-                this.actual.onError(th);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJL(1048582, this, j, th) == null) {
+                if (this.index.compareAndSet(j, Long.MAX_VALUE)) {
+                    SubscriptionHelper.cancel(this.upstream);
+                    this.actual.onError(th);
+                    return;
+                }
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         public void startFirstTimeout(Publisher<?> publisher) {
-            if (publisher != null) {
-                TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
-                if (this.task.replace(timeoutConsumer)) {
-                    publisher.subscribe(timeoutConsumer);
-                }
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048583, this, publisher) == null) || publisher == null) {
+                return;
+            }
+            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
+            if (this.task.replace(timeoutConsumer)) {
+                publisher.subscribe(timeoutConsumer);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public interface TimeoutSelectorSupport extends FlowableTimeoutTimed.TimeoutSupport {
         void onTimeoutError(long j, Throwable th);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class TimeoutSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription, TimeoutSelectorSupport {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3764492702657003550L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super T> actual;
         public final Function<? super T, ? extends Publisher<?>> itemTimeoutIndicator;
-        public final SequentialDisposable task = new SequentialDisposable();
-        public final AtomicReference<Subscription> upstream = new AtomicReference<>();
-        public final AtomicLong requested = new AtomicLong();
+        public final AtomicLong requested;
+        public final SequentialDisposable task;
+        public final AtomicReference<Subscription> upstream;
 
         public TimeoutSubscriber(Subscriber<? super T> subscriber, Function<? super T, ? extends Publisher<?>> function) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, function};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
             this.itemTimeoutIndicator = function;
+            this.task = new SequentialDisposable();
+            this.upstream = new AtomicReference<>();
+            this.requested = new AtomicLong();
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            SubscriptionHelper.cancel(this.upstream);
-            this.task.dispose();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SubscriptionHelper.cancel(this.upstream);
+                this.task.dispose();
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            if (getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
-                this.task.dispose();
-                this.actual.onComplete();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getAndSet(Long.MAX_VALUE) == Long.MAX_VALUE) {
+                return;
             }
+            this.task.dispose();
+            this.actual.onComplete();
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            if (getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
-                this.task.dispose();
-                this.actual.onError(th);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                if (getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                    this.task.dispose();
+                    this.actual.onError(th);
+                    return;
+                }
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            long j = get();
-            if (j != Long.MAX_VALUE) {
-                long j2 = 1 + j;
-                if (compareAndSet(j, j2)) {
-                    Disposable disposable = this.task.get();
-                    if (disposable != null) {
-                        disposable.dispose();
-                    }
-                    this.actual.onNext(t);
-                    try {
-                        Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
-                        TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
-                        if (this.task.replace(timeoutConsumer)) {
-                            publisher.subscribe(timeoutConsumer);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                long j = get();
+                if (j != Long.MAX_VALUE) {
+                    long j2 = 1 + j;
+                    if (compareAndSet(j, j2)) {
+                        Disposable disposable = this.task.get();
+                        if (disposable != null) {
+                            disposable.dispose();
                         }
-                    } catch (Throwable th) {
-                        Exceptions.throwIfFatal(th);
-                        this.upstream.get().cancel();
-                        getAndSet(Long.MAX_VALUE);
-                        this.actual.onError(th);
+                        this.actual.onNext(t);
+                        try {
+                            Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
+                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
+                            if (this.task.replace(timeoutConsumer)) {
+                                publisher.subscribe(timeoutConsumer);
+                            }
+                        } catch (Throwable th) {
+                            Exceptions.throwIfFatal(th);
+                            this.upstream.get().cancel();
+                            getAndSet(Long.MAX_VALUE);
+                            this.actual.onError(th);
+                        }
                     }
                 }
             }
@@ -266,12 +374,16 @@ public final class FlowableTimeout<T, U, V> extends AbstractFlowableWithUpstream
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            SubscriptionHelper.deferredSetOnce(this.upstream, this.requested, subscription);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, subscription) == null) {
+                SubscriptionHelper.deferredSetOnce(this.upstream, this.requested, subscription);
+            }
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeoutTimed.TimeoutSupport
         public void onTimeout(long j) {
-            if (compareAndSet(j, Long.MAX_VALUE)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && compareAndSet(j, Long.MAX_VALUE)) {
                 SubscriptionHelper.cancel(this.upstream);
                 this.actual.onError(new TimeoutException());
             }
@@ -279,31 +391,55 @@ public final class FlowableTimeout<T, U, V> extends AbstractFlowableWithUpstream
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeout.TimeoutSelectorSupport
         public void onTimeoutError(long j, Throwable th) {
-            if (compareAndSet(j, Long.MAX_VALUE)) {
-                SubscriptionHelper.cancel(this.upstream);
-                this.actual.onError(th);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJL(1048582, this, j, th) == null) {
+                if (compareAndSet(j, Long.MAX_VALUE)) {
+                    SubscriptionHelper.cancel(this.upstream);
+                    this.actual.onError(th);
+                    return;
+                }
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            SubscriptionHelper.deferredRequest(this.upstream, this.requested, j);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+                SubscriptionHelper.deferredRequest(this.upstream, this.requested, j);
+            }
         }
 
         public void startFirstTimeout(Publisher<?> publisher) {
-            if (publisher != null) {
-                TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
-                if (this.task.replace(timeoutConsumer)) {
-                    publisher.subscribe(timeoutConsumer);
-                }
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, publisher) == null) || publisher == null) {
+                return;
+            }
+            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
+            if (this.task.replace(timeoutConsumer)) {
+                publisher.subscribe(timeoutConsumer);
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowableTimeout(Flowable<T> flowable, Publisher<U> publisher, Function<? super T, ? extends Publisher<V>> function, Publisher<? extends T> publisher2) {
         super(flowable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flowable, publisher, function, publisher2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Flowable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.firstTimeoutIndicator = publisher;
         this.itemTimeoutIndicator = function;
         this.other = publisher2;
@@ -311,16 +447,19 @@ public final class FlowableTimeout<T, U, V> extends AbstractFlowableWithUpstream
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super T> subscriber) {
-        if (this.other == null) {
-            TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(subscriber, this.itemTimeoutIndicator);
-            subscriber.onSubscribe(timeoutSubscriber);
-            timeoutSubscriber.startFirstTimeout(this.firstTimeoutIndicator);
-            this.source.subscribe((FlowableSubscriber) timeoutSubscriber);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            if (this.other == null) {
+                TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(subscriber, this.itemTimeoutIndicator);
+                subscriber.onSubscribe(timeoutSubscriber);
+                timeoutSubscriber.startFirstTimeout(this.firstTimeoutIndicator);
+                this.source.subscribe((FlowableSubscriber) timeoutSubscriber);
+                return;
+            }
+            TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(subscriber, this.itemTimeoutIndicator, this.other);
+            subscriber.onSubscribe(timeoutFallbackSubscriber);
+            timeoutFallbackSubscriber.startFirstTimeout(this.firstTimeoutIndicator);
+            this.source.subscribe((FlowableSubscriber) timeoutFallbackSubscriber);
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(subscriber, this.itemTimeoutIndicator, this.other);
-        subscriber.onSubscribe(timeoutFallbackSubscriber);
-        timeoutFallbackSubscriber.startFirstTimeout(this.firstTimeoutIndicator);
-        this.source.subscribe((FlowableSubscriber) timeoutFallbackSubscriber);
     }
 }

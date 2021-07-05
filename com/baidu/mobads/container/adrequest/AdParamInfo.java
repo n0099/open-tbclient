@@ -1,8 +1,15 @@
 package com.baidu.mobads.container.adrequest;
-/* loaded from: classes2.dex */
-public class AdParamInfo {
 
-    /* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public class AdParamInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
     public interface AdClickActionInt {
         public static final int ACTION_TYPE_APO = 512;
         public static final int ACTION_TYPE_CALL = 32;
@@ -15,7 +22,7 @@ public class AdParamInfo {
         public static final int ACTION_TYPE_SMS = 8;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdClickActionString {
         public static final String AD_CLICK_ACTION_APO = "APO";
         public static final String AD_CLICK_ACTION_DL = "DL";
@@ -29,7 +36,7 @@ public class AdParamInfo {
         public static final String AD_CLICK_ACTION_VIDEO = "VIDEO";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdCreativeType {
         public static final int AD_CREATIVE_IMAGE = 2;
         public static final int AD_CREATIVE_RICHMEDIA = 16;
@@ -37,7 +44,7 @@ public class AdParamInfo {
         public static final int AD_CREATIVE_VIDEO = 8;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdMateFormat {
         public static final String GIF = "gif";
         public static final String HTML = "html";
@@ -49,7 +56,7 @@ public class AdParamInfo {
         public static final String VIDEO = "video";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdProdType {
         public static final String BANNER = "banner";
         public static final String CONTENT = "content";
@@ -66,5 +73,19 @@ public class AdParamInfo {
         public static final String SPLASH = "rsplash";
         public static final String SUG = "sug";
         public static final String VIDEO = "video";
+    }
+
+    public AdParamInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

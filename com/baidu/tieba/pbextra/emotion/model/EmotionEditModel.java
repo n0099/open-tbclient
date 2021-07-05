@@ -5,12 +5,14 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.img.ImageFileInfo;
@@ -18,6 +20,11 @@ import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pbextra.emotion.EmotionEditActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -25,134 +32,168 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class EmotionEditModel extends BdBaseModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f19746e;
+    public e f19896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.b0.f f19747f;
+    public d.a.r0.b0.f f19897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f19748g;
+    public f f19898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EmotionEditActivity f19749h;
+    public EmotionEditActivity f19899h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19750i;
+    public boolean f19900i;
     public Thread j;
-    public Handler k = new c(Looper.getMainLooper());
-    public final HttpMessageListener l = new d(CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG);
+    public Handler k;
+    public final HttpMessageListener l;
 
     /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<Void, Integer, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f19751a;
+        public final /* synthetic */ Bitmap f19901a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f19752b;
+        public final /* synthetic */ String f19902b;
 
-        public a(Bitmap bitmap, String str) {
-            this.f19751a = bitmap;
-            this.f19752b = str;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ EmotionEditModel f19903c;
+
+        public a(EmotionEditModel emotionEditModel, Bitmap bitmap, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {emotionEditModel, bitmap, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19903c = emotionEditModel;
+            this.f19901a = bitmap;
+            this.f19902b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public String doInBackground(Void[] voidArr) {
-            if (EmotionEditModel.this.f19750i) {
-                return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                if (this.f19903c.f19900i) {
+                    return null;
+                }
+                File J = this.f19903c.J(this.f19901a, this.f19902b);
+                this.f19901a.recycle();
+                return J.getAbsolutePath();
             }
-            File J = EmotionEditModel.this.J(this.f19751a, this.f19752b);
-            this.f19751a.recycle();
-            return J.getAbsolutePath();
+            return (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((a) str);
-            EmotionEditModel.this.f19746e.onSaveImageSuccess(str);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.d.b f19754e;
-
-        public b(d.a.c.d.b bVar) {
-            this.f19754e = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            try {
-                if (EmotionEditModel.this.f19750i) {
-                    return;
-                }
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                d.a.o0.f2.b.a.a aVar = new d.a.o0.f2.b.a.a();
-                aVar.i(byteArrayOutputStream);
-                aVar.g(0);
-                Bitmap createBitmap = Bitmap.createBitmap(this.f19754e.getWidth(), this.f19754e.getHeight(), Bitmap.Config.ARGB_8888);
-                String str = d.a.c.e.p.f.f42614b + "/" + TbConfig.getTempDirName() + "/emotion.gif";
-                Bitmap bitmap = null;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= this.f19754e.getFrameCount()) {
-                        break;
-                    } else if (EmotionEditModel.this.f19750i) {
-                        EmotionEditModel.this.G(createBitmap, bitmap);
-                        break;
-                    } else {
-                        this.f19754e.c(i2);
-                        this.f19754e.a(createBitmap, null);
-                        bitmap = EmotionEditModel.this.f19749h.addTextToImage(createBitmap);
-                        aVar.a(bitmap);
-                        int b2 = this.f19754e.b(i2);
-                        if (b2 == 100) {
-                            b2 = 0;
-                        }
-                        if (b2 > 0) {
-                            Thread.sleep(b2 / 10);
-                        }
-                        i2++;
-                    }
-                }
-                if (EmotionEditModel.this.f19750i) {
-                    EmotionEditModel.this.G(createBitmap, bitmap);
-                    return;
-                }
-                aVar.d();
-                File K = EmotionEditModel.this.K(byteArrayOutputStream, str);
-                EmotionEditModel.this.G(createBitmap, bitmap);
-                Message obtain = Message.obtain();
-                obtain.what = 0;
-                obtain.obj = K.getAbsolutePath();
-                EmotionEditModel.this.k.sendMessage(obtain);
-            } catch (InterruptedException e2) {
-                e2.printStackTrace();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                super.onPostExecute((a) str);
+                this.f19903c.f19896e.onSaveImageSuccess(str);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c extends Handler {
-        public c(Looper looper) {
-            super(looper);
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.a.c.d.b f19904e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ EmotionEditModel f19905f;
+
+        public b(EmotionEditModel emotionEditModel, d.a.c.d.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {emotionEditModel, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19905f = emotionEditModel;
+            this.f19904e = bVar;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            super.handleMessage(message);
-            if (message != null) {
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    EmotionEditModel.this.f19746e.onSaveImageSuccess((String) message.obj);
-                } catch (Exception e2) {
+                    if (this.f19905f.f19900i) {
+                        return;
+                    }
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    d.a.s0.i2.b.a.a aVar = new d.a.s0.i2.b.a.a();
+                    aVar.i(byteArrayOutputStream);
+                    aVar.g(0);
+                    Bitmap createBitmap = Bitmap.createBitmap(this.f19904e.getWidth(), this.f19904e.getHeight(), Bitmap.Config.ARGB_8888);
+                    String str = d.a.c.e.p.f.f44423b + "/" + TbConfig.getTempDirName() + "/emotion.gif";
+                    Bitmap bitmap = null;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 >= this.f19904e.getFrameCount()) {
+                            break;
+                        } else if (this.f19905f.f19900i) {
+                            this.f19905f.G(createBitmap, bitmap);
+                            break;
+                        } else {
+                            this.f19904e.c(i2);
+                            this.f19904e.a(createBitmap, null);
+                            bitmap = this.f19905f.f19899h.addTextToImage(createBitmap);
+                            aVar.a(bitmap);
+                            int b2 = this.f19904e.b(i2);
+                            if (b2 == 100) {
+                                b2 = 0;
+                            }
+                            if (b2 > 0) {
+                                Thread.sleep(b2 / 10);
+                            }
+                            i2++;
+                        }
+                    }
+                    if (this.f19905f.f19900i) {
+                        this.f19905f.G(createBitmap, bitmap);
+                        return;
+                    }
+                    aVar.d();
+                    File K = this.f19905f.K(byteArrayOutputStream, str);
+                    this.f19905f.G(createBitmap, bitmap);
+                    Message obtain = Message.obtain();
+                    obtain.what = 0;
+                    obtain.obj = K.getAbsolutePath();
+                    this.f19905f.k.sendMessage(obtain);
+                } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
             }
@@ -160,31 +201,100 @@ public class EmotionEditModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
+    public class c extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ EmotionEditModel f19906a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(EmotionEditModel emotionEditModel, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {emotionEditModel, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19906a = emotionEditModel;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message != null) {
+                    try {
+                        this.f19906a.f19896e.onSaveImageSuccess((String) message.obj);
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public class d extends HttpMessageListener {
-        public d(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ EmotionEditModel f19907a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(EmotionEditModel emotionEditModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {emotionEditModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19907a = emotionEditModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003348 && (httpResponsedMessage instanceof EmotionCheckUegResponseMessage)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003348 && (httpResponsedMessage instanceof EmotionCheckUegResponseMessage)) {
                 EmotionCheckUegResponseMessage emotionCheckUegResponseMessage = (EmotionCheckUegResponseMessage) httpResponsedMessage;
                 String status = emotionCheckUegResponseMessage.getStatus();
                 if (EmotionCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                    EmotionEditModel.this.f19746e.onCheckUegSuccess();
+                    this.f19907a.f19896e.onCheckUegSuccess();
                 } else if (EmotionCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = emotionCheckUegResponseMessage.getMsg();
                     if (TextUtils.isEmpty(msg)) {
-                        msg = EmotionEditModel.this.f19749h.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_ueg_fail);
+                        msg = this.f19907a.f19899h.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_ueg_fail);
                     }
-                    EmotionEditModel.this.f19746e.onCheckUegFail(msg);
+                    this.f19907a.f19896e.onCheckUegFail(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = EmotionEditModel.this.f19749h.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_fail);
+                        errorString = this.f19907a.f19899h.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_fail);
                     }
-                    EmotionEditModel.this.f19746e.onCheckUegFail(errorString);
+                    this.f19907a.f19896e.onCheckUegFail(errorString);
                 }
             }
         }
@@ -203,37 +313,81 @@ public class EmotionEditModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public class f extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageFileInfo f19758a;
+        public ImageFileInfo f19908a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f19759b;
+        public boolean f19909b;
 
-        public f(ImageFileInfo imageFileInfo, boolean z) {
-            this.f19758a = imageFileInfo;
-            this.f19759b = z;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ EmotionEditModel f19910c;
+
+        public f(EmotionEditModel emotionEditModel, ImageFileInfo imageFileInfo, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {emotionEditModel, imageFileInfo, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19910c = emotionEditModel;
+            this.f19908a = imageFileInfo;
+            this.f19909b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public ImageUploadResult doInBackground(String... strArr) {
-            EmotionEditModel.this.f19747f = new d.a.n0.b0.f(null);
-            return EmotionEditModel.this.f19747f.h(this.f19758a, this.f19759b, false);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                this.f19910c.f19897f = new d.a.r0.b0.f(null);
+                return this.f19910c.f19897f.h(this.f19908a, this.f19909b, false);
+            }
+            return (ImageUploadResult) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
-            EmotionEditModel.this.f19746e.onUploadImageSuccess(imageUploadResult);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUploadResult) == null) {
+                this.f19910c.f19896e.onUploadImageSuccess(imageUploadResult);
+            }
         }
     }
 
     public EmotionEditModel(EmotionEditActivity emotionEditActivity, e eVar) {
-        this.f19749h = emotionEditActivity;
-        this.f19746e = eVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {emotionEditActivity, eVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = new c(this, Looper.getMainLooper());
+        this.l = new d(this, CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG);
+        this.f19899h = emotionEditActivity;
+        this.f19896e = eVar;
         registerTask();
         this.l.setTag(getUniqueId());
         this.l.setSelfListener(true);
@@ -241,226 +395,243 @@ public class EmotionEditModel extends BdBaseModel {
     }
 
     public final void D() {
-        d.a.n0.b0.f fVar = this.f19747f;
-        if (fVar != null) {
-            fVar.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d.a.r0.b0.f fVar = this.f19897f;
+            if (fVar != null) {
+                fVar.a();
+            }
+            f fVar2 = this.f19898g;
+            if (fVar2 != null) {
+                fVar2.cancel();
+            }
+            Thread thread = this.j;
+            if (thread != null) {
+                thread.interrupt();
+            }
+            this.f19900i = true;
         }
-        f fVar2 = this.f19748g;
-        if (fVar2 != null) {
-            fVar2.cancel();
-        }
-        Thread thread = this.j;
-        if (thread != null) {
-            thread.interrupt();
-        }
-        this.f19750i = true;
     }
 
     public void E(String str) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG);
-        httpMessage.addParam("text", str);
-        sendMessage(httpMessage);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG);
+            httpMessage.addParam("text", str);
+            sendMessage(httpMessage);
+        }
     }
 
     public boolean F() {
-        return this.f19750i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19900i : invokeV.booleanValue;
     }
 
     public final void G(Bitmap bitmap, Bitmap bitmap2) {
-        if (bitmap != null && !bitmap.isRecycled()) {
-            bitmap.recycle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, bitmap, bitmap2) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            if (bitmap2 == null || bitmap2.isRecycled()) {
+                return;
+            }
+            bitmap2.recycle();
         }
-        if (bitmap2 == null || bitmap2.isRecycled()) {
-            return;
-        }
-        bitmap2.recycle();
     }
 
     public void H(d.a.c.d.b bVar) {
-        if (bVar == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || bVar == null) {
             return;
         }
         Thread thread = this.j;
         if (thread == null || !thread.isAlive()) {
-            Thread thread2 = new Thread(new b(bVar));
+            Thread thread2 = new Thread(new b(this, bVar));
             this.j = thread2;
             thread2.start();
         }
     }
 
     public void I(Bitmap bitmap, String str) {
-        if (bitmap == null || TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, bitmap, str) == null) || bitmap == null || TextUtils.isEmpty(str)) {
             return;
         }
-        new a(bitmap, str).execute(new Void[0]);
+        new a(this, bitmap, str).execute(new Void[0]);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0042 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0058 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:? */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0057 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0018 */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: android.graphics.Bitmap$CompressFormat */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v11, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v3, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v5, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v6, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v8, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v9, resolved type: java.io.BufferedOutputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v10 */
-    /* JADX WARN: Type inference failed for: r6v12 */
-    /* JADX WARN: Type inference failed for: r6v13 */
-    /* JADX WARN: Type inference failed for: r6v4 */
     public File J(Bitmap bitmap, String str) {
+        InterceptResult invokeLL;
+        BufferedOutputStream bufferedOutputStream;
         ByteArrayOutputStream byteArrayOutputStream;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
-        if (bitmap == null || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        File file = new File(str);
-        BufferedOutputStream exists = file.exists();
-        if (exists) {
-            file.delete();
-        }
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bitmap, str)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
+            if (bitmap == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            File file = new File(str);
+            if (file.exists()) {
+                file.delete();
+            }
             try {
-                exists = new BufferedOutputStream(new FileOutputStream(file));
                 try {
+                    bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
                     try {
-                        byteArrayOutputStream = new ByteArrayOutputStream();
+                        try {
+                            byteArrayOutputStream = new ByteArrayOutputStream();
+                        } catch (Exception e2) {
+                            e = e2;
+                        }
                     } catch (Throwable th) {
                         th = th;
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+                try {
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                    bufferedOutputStream.write(byteArrayOutputStream.toByteArray());
+                    byteArrayOutputStream.close();
+                    bufferedOutputStream.close();
+                } catch (Exception e4) {
+                    e = e4;
+                    byteArrayOutputStream2 = byteArrayOutputStream;
+                    e.printStackTrace();
+                    byteArrayOutputStream2.close();
+                    bufferedOutputStream.close();
+                    return file;
+                } catch (Throwable th2) {
+                    th = th2;
+                    byteArrayOutputStream2 = byteArrayOutputStream;
+                    try {
+                        byteArrayOutputStream2.close();
+                        bufferedOutputStream.close();
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (Exception e6) {
+                e = e6;
+                bufferedOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedOutputStream = null;
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public File K(ByteArrayOutputStream byteArrayOutputStream, String str) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, byteArrayOutputStream, str)) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            if (byteArrayOutputStream == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            File file = new File(str);
+            if (file.exists()) {
+                file.delete();
+            }
+            try {
+                try {
+                    try {
+                        fileOutputStream = new FileOutputStream(str);
+                    } catch (IOException e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th) {
+                    th = th;
                 }
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
             try {
-                Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.PNG;
-                bitmap.compress(compressFormat, 100, byteArrayOutputStream);
-                exists.write(byteArrayOutputStream.toByteArray());
+                byteArrayOutputStream.writeTo(fileOutputStream);
+                byteArrayOutputStream.flush();
+                fileOutputStream.flush();
                 byteArrayOutputStream.close();
-                exists.close();
-                byteArrayOutputStream2 = compressFormat;
-                exists = exists;
-            } catch (Exception e4) {
+                fileOutputStream.close();
+            } catch (IOException e4) {
                 e = e4;
-                byteArrayOutputStream2 = byteArrayOutputStream;
+                fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
-                byteArrayOutputStream2.close();
-                exists.close();
-                byteArrayOutputStream2 = byteArrayOutputStream2;
-                exists = exists;
+                byteArrayOutputStream.close();
+                fileOutputStream2.close();
                 return file;
             } catch (Throwable th2) {
                 th = th2;
-                byteArrayOutputStream2 = byteArrayOutputStream;
+                fileOutputStream2 = fileOutputStream;
                 try {
-                    byteArrayOutputStream2.close();
-                    exists.close();
+                    byteArrayOutputStream.close();
+                    fileOutputStream2.close();
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
                 throw th;
             }
-        } catch (Exception e6) {
-            e = e6;
-            exists = 0;
-        } catch (Throwable th3) {
-            th = th3;
-            exists = 0;
-        }
-        return file;
-    }
-
-    public File K(ByteArrayOutputStream byteArrayOutputStream, String str) {
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2 = null;
-        if (byteArrayOutputStream == null || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        File file = new File(str);
-        if (file.exists()) {
-            file.delete();
-        }
-        try {
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(str);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (IOException e3) {
-            e = e3;
-        }
-        try {
-            byteArrayOutputStream.writeTo(fileOutputStream);
-            byteArrayOutputStream.flush();
-            fileOutputStream.flush();
-            byteArrayOutputStream.close();
-            fileOutputStream.close();
-        } catch (IOException e4) {
-            e = e4;
-            fileOutputStream2 = fileOutputStream;
-            e.printStackTrace();
-            byteArrayOutputStream.close();
-            fileOutputStream2.close();
             return file;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream2 = fileOutputStream;
-            try {
-                byteArrayOutputStream.close();
-                fileOutputStream2.close();
-            } catch (Exception e5) {
-                e5.printStackTrace();
-            }
-            throw th;
         }
-        return file;
+        return (File) invokeLL.objValue;
     }
 
     public void L(boolean z) {
-        this.f19750i = z;
-        if (z) {
-            D();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f19900i = z;
+            if (z) {
+                D();
+            }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void M(String str, boolean z) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048586, this, str, z) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
-        f fVar = new f(imageFileInfo, z);
-        this.f19748g = fVar;
+        f fVar = new f(this, imageFileInfo, z);
+        this.f19898g = fVar;
         fVar.execute(new String[0]);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.l);
-        MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG);
-        D();
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.l);
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG);
+            D();
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG, TbConfig.SERVER_ADDRESS + "c/e/meme/checkUegStatus");
-        tbHttpMessageTask.setResponsedClass(EmotionCheckUegResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG, TbConfig.SERVER_ADDRESS + "c/e/meme/checkUegStatus");
+            tbHttpMessageTask.setResponsedClass(EmotionCheckUegResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 }

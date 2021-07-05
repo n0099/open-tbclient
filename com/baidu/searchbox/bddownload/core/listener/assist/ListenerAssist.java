@@ -1,5 +1,5 @@
 package com.baidu.searchbox.bddownload.core.listener.assist;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ListenerAssist {
     boolean isAlwaysRecoverAssistModel();
 

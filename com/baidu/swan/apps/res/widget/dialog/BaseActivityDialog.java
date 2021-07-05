@@ -15,24 +15,35 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bdeventbus.Action;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
-import d.a.m0.a.g;
-import d.a.m0.a.k;
-import d.a.m0.a.v2.f;
-import d.a.m0.a.v2.q0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.g;
+import d.a.q0.a.k;
+import d.a.q0.a.v2.f;
+import d.a.q0.a.v2.q0;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
-    public static final boolean DEBUG = k.f46983a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final boolean DEBUG;
     public static final String KEY_FOR_BUILDER = "BOX_ACTIVITY_DIALOG_FOR_BUILDER";
     public static final String KEY_FROM = "BOX_ACTIVITY_DIALOG_FROM";
     public static final String KEY_NIGHT_MODE = "BOX_ACTIVITY_DIALOG_NIGHT_MODE";
     public static final String TAG = "BaseActivityDialog";
+    public transient /* synthetic */ FieldHolder $fh;
     public int mBtnHeight;
     public LinearLayout mBtnPanelLayout;
     public e mBuilder;
@@ -50,91 +61,187 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public SwanAppScrollView mScrollView;
     public TextView mTitle;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Action<e.c> {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ BaseActivityDialog f11434a;
+
+        public a(BaseActivityDialog baseActivityDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {baseActivityDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11434a = baseActivityDialog;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.bdeventbus.Action
         /* renamed from: a */
         public void call(e.c cVar) {
-            BaseActivityDialog.this.mBuilder.onEvent(cVar);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+                this.f11434a.mBuilder.onEvent(cVar);
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Action<e.b> {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ BaseActivityDialog f11435a;
+
+        public b(BaseActivityDialog baseActivityDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {baseActivityDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11435a = baseActivityDialog;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.bdeventbus.Action
         /* renamed from: a */
         public void call(e.b bVar) {
-            if (bVar.f11382a == BaseActivityDialog.this.mBuilder.r) {
-                BaseActivityDialog.this.dismiss();
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.f11449a == this.f11435a.mBuilder.r) {
+                this.f11435a.dismiss();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
-        public c() {
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            BaseActivityDialog.this.onButtonClick(-1);
-            BdEventBus.Companion.getDefault().post(new e.c(BaseActivityDialog.this, -1));
-            BaseActivityDialog.this.dismiss();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements View.OnClickListener {
-        public d() {
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            BaseActivityDialog.this.onButtonClick(-2);
-            BaseActivityDialog.this.dismiss();
-            BdEventBus.Companion.getDefault().post(new e.c(BaseActivityDialog.this, -2));
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e {
-        public static volatile HashMap<String, e> t = new HashMap<>();
-        public static ArrayList u = new ArrayList();
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f11371a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public CharSequence f11372b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f11373c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f11374d;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f11375e;
+        public final /* synthetic */ BaseActivityDialog f11436e;
+
+        public c(BaseActivityDialog baseActivityDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {baseActivityDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11436e = baseActivityDialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f11436e.onButtonClick(-1);
+                BdEventBus.Companion.getDefault().post(new e.c(this.f11436e, -1));
+                this.f11436e.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BaseActivityDialog f11437e;
+
+        public d(BaseActivityDialog baseActivityDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {baseActivityDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11437e = baseActivityDialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f11437e.onButtonClick(-2);
+                this.f11437e.dismiss();
+                BdEventBus.Companion.getDefault().post(new e.c(this.f11437e, -2));
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public static volatile HashMap<String, e> t;
+        public static ArrayList u;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f11438a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public CharSequence f11439b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f11440c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f11441d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public View f11442e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Drawable f11376f;
+        public Drawable f11443f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f11377g;
+        public boolean f11444g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f11378h;
+        public int f11445h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Bundle f11379i;
+        public Bundle f11446i;
         public DialogInterface.OnClickListener j;
         public DialogInterface.OnClickListener k;
         public DialogInterface.OnCancelListener l;
@@ -146,77 +253,155 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public Object r;
         public boolean s;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f11380e;
+            public final /* synthetic */ boolean f11447e;
 
-            public a(boolean z) {
-                this.f11380e = z;
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ e f11448f;
+
+            public a(e eVar, boolean z) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar, Boolean.valueOf(z)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f11448f = eVar;
+                this.f11447e = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                Context appContext = AppRuntime.getAppContext();
-                if (e.this.o == null) {
-                    e.this.o = BaseActivityDialog.class;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    Context appContext = AppRuntime.getAppContext();
+                    if (this.f11448f.o == null) {
+                        this.f11448f.o = BaseActivityDialog.class;
+                    }
+                    Intent intent = new Intent(appContext, this.f11448f.o);
+                    intent.putExtra(BaseActivityDialog.KEY_NIGHT_MODE, this.f11447e);
+                    String valueOf = String.valueOf(intent.hashCode());
+                    intent.putExtra(BaseActivityDialog.KEY_FOR_BUILDER, valueOf);
+                    if (!TextUtils.isEmpty(this.f11448f.q)) {
+                        intent.putExtra(BaseActivityDialog.KEY_FROM, this.f11448f.q);
+                    }
+                    if (this.f11448f.f11446i != null) {
+                        intent.putExtras(this.f11448f.f11446i);
+                    }
+                    e.t(valueOf, this.f11448f);
+                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    f.g(appContext, intent);
                 }
-                Intent intent = new Intent(appContext, e.this.o);
-                intent.putExtra(BaseActivityDialog.KEY_NIGHT_MODE, this.f11380e);
-                String valueOf = String.valueOf(intent.hashCode());
-                intent.putExtra(BaseActivityDialog.KEY_FOR_BUILDER, valueOf);
-                if (!TextUtils.isEmpty(e.this.q)) {
-                    intent.putExtra(BaseActivityDialog.KEY_FROM, e.this.q);
-                }
-                if (e.this.f11379i != null) {
-                    intent.putExtras(e.this.f11379i);
-                }
-                e.t(valueOf, e.this);
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                f.g(appContext, intent);
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public Object f11382a;
+            public Object f11449a;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public DialogInterface f11383a;
+            public DialogInterface f11450a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f11384b;
+            public int f11451b;
 
             public c(DialogInterface dialogInterface, int i2) {
-                this.f11383a = dialogInterface;
-                this.f11384b = i2;
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dialogInterface, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f11450a = dialogInterface;
+                this.f11451b = i2;
             }
         }
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-381900710, "Lcom/baidu/swan/apps/res/widget/dialog/BaseActivityDialog$e;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-381900710, "Lcom/baidu/swan/apps/res/widget/dialog/BaseActivityDialog$e;");
+                    return;
+                }
+            }
+            t = new HashMap<>();
+            u = new ArrayList();
+        }
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public e() {
             this(BaseActivityDialog.class);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    this((Class) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
         }
 
         public static e r(String str) {
+            InterceptResult invokeL;
             e remove;
-            if (TextUtils.isEmpty(str)) {
-                return null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                synchronized (t) {
+                    remove = t.remove(str);
+                }
+                return remove;
             }
-            synchronized (t) {
-                remove = t.remove(str);
-            }
-            return remove;
+            return (e) invokeL.objValue;
         }
 
         public static void t(String str, e eVar) {
-            if (TextUtils.isEmpty(str) || eVar == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(65557, null, str, eVar) == null) || TextUtils.isEmpty(str) || eVar == null) {
                 return;
             }
             synchronized (t) {
@@ -225,344 +410,508 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public e A(String str, DialogInterface.OnClickListener onClickListener) {
-            this.f11373c = str;
-            this.j = onClickListener;
-            return this;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, onClickListener)) == null) {
+                this.f11440c = str;
+                this.j = onClickListener;
+                return this;
+            }
+            return (e) invokeLL.objValue;
         }
 
         public e B(int i2) {
-            C(this.n.getString(i2));
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+                C(this.n.getString(i2));
+                return this;
+            }
+            return (e) invokeI.objValue;
         }
 
         public e C(String str) {
-            this.f11371a = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.f11438a = str;
+                return this;
+            }
+            return (e) invokeL.objValue;
         }
 
         public void D() {
-            E(false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                E(false);
+            }
         }
 
         public void E(boolean z) {
-            q0.X(new a(z));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+                q0.X(new a(this, z));
+            }
         }
 
         public void onEvent(c cVar) {
-            if (cVar == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null) {
                 return;
             }
             DialogInterface.OnClickListener onClickListener = null;
-            int i2 = cVar.f11384b;
+            int i2 = cVar.f11451b;
             if (i2 == -2) {
                 onClickListener = this.k;
             } else if (i2 == -1) {
                 onClickListener = this.j;
             }
             if (onClickListener != null) {
-                onClickListener.onClick(cVar.f11383a, cVar.f11384b);
+                onClickListener.onClick(cVar.f11450a, cVar.f11451b);
             }
         }
 
         public void s() {
-            u.remove(this.r);
-            this.j = null;
-            this.k = null;
-            this.l = null;
-            this.m = null;
-            this.f11375e = null;
-            this.f11376f = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                u.remove(this.r);
+                this.j = null;
+                this.k = null;
+                this.l = null;
+                this.m = null;
+                this.f11442e = null;
+                this.f11443f = null;
+            }
         }
 
         public e u(int i2) {
-            v(this.n.getString(i2));
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+                v(this.n.getString(i2));
+                return this;
+            }
+            return (e) invokeI.objValue;
         }
 
         public e v(String str) {
-            this.f11372b = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+                this.f11439b = str;
+                return this;
+            }
+            return (e) invokeL.objValue;
         }
 
         public e w(int i2, DialogInterface.OnClickListener onClickListener) {
-            x(this.n.getString(i2), onClickListener);
-            return this;
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i2, onClickListener)) == null) {
+                x(this.n.getString(i2), onClickListener);
+                return this;
+            }
+            return (e) invokeIL.objValue;
         }
 
         public e x(String str, DialogInterface.OnClickListener onClickListener) {
-            this.f11374d = str;
-            this.k = onClickListener;
-            return this;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, onClickListener)) == null) {
+                this.f11441d = str;
+                this.k = onClickListener;
+                return this;
+            }
+            return (e) invokeLL.objValue;
         }
 
         public e y(DialogInterface.OnDismissListener onDismissListener) {
-            this.m = onDismissListener;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, onDismissListener)) == null) {
+                this.m = onDismissListener;
+                return this;
+            }
+            return (e) invokeL.objValue;
         }
 
         public e z(int i2, DialogInterface.OnClickListener onClickListener) {
-            A(this.n.getString(i2), onClickListener);
-            return this;
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i2, onClickListener)) == null) {
+                A(this.n.getString(i2), onClickListener);
+                return this;
+            }
+            return (e) invokeIL.objValue;
         }
 
         public e(Class<? extends Activity> cls) {
-            this.f11377g = true;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cls};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.f11444g = true;
             this.p = -1;
             this.n = AppRuntime.getAppContext();
             this.o = cls;
         }
     }
 
-    private void release() {
-        if (this.mBuilder != null) {
-            BdEventBus.Companion.getDefault().unregister(this.mBuilder);
-            this.mBuilder.s();
-            this.mBuilder = null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1363524357, "Lcom/baidu/swan/apps/res/widget/dialog/BaseActivityDialog;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1363524357, "Lcom/baidu/swan/apps/res/widget/dialog/BaseActivityDialog;");
+                return;
+            }
         }
-        setView(null);
+        DEBUG = k.f49133a;
+    }
+
+    public BaseActivityDialog() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    private void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            if (this.mBuilder != null) {
+                BdEventBus.Companion.getDefault().unregister(this.mBuilder);
+                this.mBuilder.s();
+                this.mBuilder = null;
+            }
+            setView(null);
+        }
     }
 
     @Override // android.content.DialogInterface
     public void cancel() {
         DialogInterface.OnCancelListener onCancelListener;
-        e eVar = this.mBuilder;
-        if (eVar != null && (onCancelListener = eVar.l) != null) {
-            onCancelListener.onCancel(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e eVar = this.mBuilder;
+            if (eVar != null && (onCancelListener = eVar.l) != null) {
+                onCancelListener.onCancel(this);
+            }
+            finish();
         }
-        finish();
     }
 
     @Override // android.content.DialogInterface
     public void dismiss() {
-        onDismiss();
-        finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            onDismiss();
+            finish();
+        }
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources b2 = d.a.m0.a.c1.a.H().b();
-        return b2 != null ? b2 : super.getResources();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Resources b2 = d.a.q0.a.c1.a.H().b();
+            return b2 != null ? b2 : super.getResources();
+        }
+        return (Resources) invokeV.objValue;
     }
 
     public TextView ifOnlyOneBtnGetIt() {
+        InterceptResult invokeV;
         int i2;
         TextView textView;
-        TextView textView2 = this.mPositiveButton;
-        if (textView2 == null || textView2.getVisibility() != 0) {
-            i2 = 0;
-            textView = null;
-        } else {
-            textView = this.mPositiveButton;
-            i2 = 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            TextView textView2 = this.mPositiveButton;
+            if (textView2 == null || textView2.getVisibility() != 0) {
+                i2 = 0;
+                textView = null;
+            } else {
+                textView = this.mPositiveButton;
+                i2 = 1;
+            }
+            TextView textView3 = this.mNegativeButton;
+            if (textView3 != null && textView3.getVisibility() == 0) {
+                i2++;
+                textView = this.mNegativeButton;
+            }
+            TextView textView4 = this.mNeutralButton;
+            if (textView4 != null && textView4.getVisibility() == 0) {
+                i2++;
+                textView = this.mNeutralButton;
+            }
+            if (i2 != 1) {
+                return null;
+            }
+            return textView;
         }
-        TextView textView3 = this.mNegativeButton;
-        if (textView3 != null && textView3.getVisibility() == 0) {
-            i2++;
-            textView = this.mNegativeButton;
-        }
-        TextView textView4 = this.mNeutralButton;
-        if (textView4 != null && textView4.getVisibility() == 0) {
-            i2++;
-            textView = this.mNeutralButton;
-        }
-        if (i2 != 1) {
-            return null;
-        }
-        return textView;
+        return (TextView) invokeV.objValue;
     }
 
     public void initViews() {
-        this.mTitle = (TextView) findViewById(d.a.m0.a.f.dialog_title);
-        this.mMessage = (TextView) findViewById(d.a.m0.a.f.dialog_message);
-        this.mMessageContent = (LinearLayout) findViewById(d.a.m0.a.f.dialog_message_content);
-        this.mPositiveButton = (TextView) findViewById(d.a.m0.a.f.positive_button);
-        this.mNegativeButton = (TextView) findViewById(d.a.m0.a.f.negative_button);
-        this.mNeutralButton = (TextView) findViewById(d.a.m0.a.f.neutral_button);
-        this.mDivider3 = findViewById(d.a.m0.a.f.divider3);
-        this.mDivider4 = findViewById(d.a.m0.a.f.divider4);
-        this.mDialogContent = (FrameLayout) findViewById(d.a.m0.a.f.dialog_custom_content);
-        this.mIcon = (ImageView) findViewById(d.a.m0.a.f.dialog_icon);
-        this.mDialogLayout = (RelativeLayout) findViewById(d.a.m0.a.f.searchbox_alert_dialog);
-        this.mDivider2 = findViewById(d.a.m0.a.f.divider2);
-        this.mScrollView = (SwanAppScrollView) findViewById(d.a.m0.a.f.message_scrollview);
-        this.mBtnPanelLayout = (LinearLayout) findViewById(d.a.m0.a.f.btn_panel);
-        this.mBtnHeight = getResources().getDimensionPixelSize(d.a.m0.a.d.aiapps_dialog_btns_height);
-        if (this.mBuilder.p > 0) {
-            this.mScrollView.getLayoutParams().height = this.mBuilder.p;
-        }
-        if (d.a.m0.a.v2.d.k() || d.a.m0.a.v2.d.l()) {
-            int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(d.a.m0.a.d.aiapps_dialog_text_padding);
-            this.mMessage.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.mTitle = (TextView) findViewById(d.a.q0.a.f.dialog_title);
+            this.mMessage = (TextView) findViewById(d.a.q0.a.f.dialog_message);
+            this.mMessageContent = (LinearLayout) findViewById(d.a.q0.a.f.dialog_message_content);
+            this.mPositiveButton = (TextView) findViewById(d.a.q0.a.f.positive_button);
+            this.mNegativeButton = (TextView) findViewById(d.a.q0.a.f.negative_button);
+            this.mNeutralButton = (TextView) findViewById(d.a.q0.a.f.neutral_button);
+            this.mDivider3 = findViewById(d.a.q0.a.f.divider3);
+            this.mDivider4 = findViewById(d.a.q0.a.f.divider4);
+            this.mDialogContent = (FrameLayout) findViewById(d.a.q0.a.f.dialog_custom_content);
+            this.mIcon = (ImageView) findViewById(d.a.q0.a.f.dialog_icon);
+            this.mDialogLayout = (RelativeLayout) findViewById(d.a.q0.a.f.searchbox_alert_dialog);
+            this.mDivider2 = findViewById(d.a.q0.a.f.divider2);
+            this.mScrollView = (SwanAppScrollView) findViewById(d.a.q0.a.f.message_scrollview);
+            this.mBtnPanelLayout = (LinearLayout) findViewById(d.a.q0.a.f.btn_panel);
+            this.mBtnHeight = getResources().getDimensionPixelSize(d.a.q0.a.d.aiapps_dialog_btns_height);
+            if (this.mBuilder.p > 0) {
+                this.mScrollView.getLayoutParams().height = this.mBuilder.p;
+            }
+            if (d.a.q0.a.v2.d.k() || d.a.q0.a.v2.d.l()) {
+                int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(d.a.q0.a.d.aiapps_dialog_text_padding);
+                this.mMessage.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+            }
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        onDismiss();
-        super.onBackPressed();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            onDismiss();
+            super.onBackPressed();
+        }
     }
 
     public void onButtonClick(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        }
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(g.aiapps_alert_dialog);
-        getWindow().setLayout(-1, -1);
-        e r = e.r(getIntent().getStringExtra(KEY_FOR_BUILDER));
-        this.mBuilder = r;
-        if (r == null) {
-            if (DEBUG) {
-                Log.e(TAG, "The builder for dialog activity can NOT be null.");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(g.aiapps_alert_dialog);
+            getWindow().setLayout(-1, -1);
+            e r = e.r(getIntent().getStringExtra(KEY_FOR_BUILDER));
+            this.mBuilder = r;
+            if (r == null) {
+                if (DEBUG) {
+                    Log.e(TAG, "The builder for dialog activity can NOT be null.");
+                }
+                finish();
+                return;
             }
-            finish();
-            return;
+            BdEventBus.Companion.getDefault().register(this.mBuilder, e.c.class, new a(this));
+            BdEventBus.Companion.getDefault().register(this.mBuilder, e.b.class, new b(this));
+            initViews();
+            setupViews();
+            show();
         }
-        BdEventBus.Companion.getDefault().register(this.mBuilder, e.c.class, new a());
-        BdEventBus.Companion.getDefault().register(this.mBuilder, e.b.class, new b());
-        initViews();
-        setupViews();
-        show();
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
-        release();
-        super.onDestroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            release();
+            super.onDestroy();
+        }
     }
 
     public void onDismiss() {
+        e eVar;
         DialogInterface.OnDismissListener onDismissListener;
-        e eVar = this.mBuilder;
-        if (eVar == null || (onDismissListener = eVar.m) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (eVar = this.mBuilder) == null || (onDismissListener = eVar.m) == null) {
             return;
         }
         onDismissListener.onDismiss(this);
     }
 
     public void post(Runnable runnable) {
-        if (runnable != null) {
-            q0.X(runnable);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, runnable) == null) || runnable == null) {
+            return;
         }
+        q0.X(runnable);
     }
 
     public void setBtnsPanlVisible(boolean z) {
-        if (z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && z) {
             this.mBtnPanelLayout.setVisibility(8);
             this.mDivider2.setVisibility(8);
         }
     }
 
     public void setIcon(Drawable drawable) {
-        this.mIcon.setImageDrawable(drawable);
-        this.mIcon.setVisibility(drawable != null ? 0 : 8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, drawable) == null) {
+            this.mIcon.setImageDrawable(drawable);
+            this.mIcon.setVisibility(drawable != null ? 0 : 8);
+        }
     }
 
     public void setMessage(CharSequence charSequence) {
-        this.mMessage.setText(charSequence);
-        this.mMessageContent.setVisibility(!TextUtils.isEmpty(charSequence) ? 0 : 8);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-        layoutParams.addRule(3, d.a.m0.a.f.dialog_message_content);
-        this.mBtnPanelLayout.setLayoutParams(layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, charSequence) == null) {
+            this.mMessage.setText(charSequence);
+            this.mMessageContent.setVisibility(!TextUtils.isEmpty(charSequence) ? 0 : 8);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
+            layoutParams.addRule(3, d.a.q0.a.f.dialog_message_content);
+            this.mBtnPanelLayout.setLayoutParams(layoutParams);
+        }
     }
 
     public void setNegativeButton(String str) {
-        this.mNegativeButton.setText(str);
-        this.mNegativeButton.setOnClickListener(new d());
-        if (TextUtils.isEmpty(str)) {
-            this.mNegativeButton.setVisibility(8);
-            if (this.mPositiveButton.getVisibility() == 0) {
-                this.mDivider3.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.mNegativeButton.setText(str);
+            this.mNegativeButton.setOnClickListener(new d(this));
+            if (TextUtils.isEmpty(str)) {
+                this.mNegativeButton.setVisibility(8);
+                if (this.mPositiveButton.getVisibility() == 0) {
+                    this.mDivider3.setVisibility(8);
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        this.mNegativeButton.setVisibility(0);
-        if (this.mPositiveButton.getVisibility() == 0) {
-            this.mDivider3.setVisibility(0);
+            this.mNegativeButton.setVisibility(0);
+            if (this.mPositiveButton.getVisibility() == 0) {
+                this.mDivider3.setVisibility(0);
+            }
         }
     }
 
     public void setPositiveButton(String str) {
-        this.mPositiveButton.setText(str);
-        this.mPositiveButton.setOnClickListener(new c());
-        if (TextUtils.isEmpty(str)) {
-            this.mPositiveButton.setVisibility(8);
-            if (this.mNegativeButton.getVisibility() == 0) {
-                this.mDivider3.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.mPositiveButton.setText(str);
+            this.mPositiveButton.setOnClickListener(new c(this));
+            if (TextUtils.isEmpty(str)) {
+                this.mPositiveButton.setVisibility(8);
+                if (this.mNegativeButton.getVisibility() == 0) {
+                    this.mDivider3.setVisibility(8);
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        this.mPositiveButton.setVisibility(0);
-        if (this.mNegativeButton.getVisibility() == 0) {
-            this.mDivider3.setVisibility(0);
+            this.mPositiveButton.setVisibility(0);
+            if (this.mNegativeButton.getVisibility() == 0) {
+                this.mDivider3.setVisibility(0);
+            }
         }
     }
 
     public void setPositiveEnable(boolean z) {
-        this.mPositiveButton.setEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.mPositiveButton.setEnabled(z);
+        }
     }
 
     public void setPositiveTextColor(int i2) {
-        this.mPositiveButton.setTextColor(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            this.mPositiveButton.setTextColor(i2);
+        }
     }
 
     public void setTitle(String str) {
-        this.mTitle.setText(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.mTitle.setText(str);
+        }
     }
 
     public void setView(View view) {
-        FrameLayout frameLayout = this.mDialogContent;
-        if (frameLayout != null) {
-            frameLayout.removeAllViews();
-            if (view != null) {
-                this.mDialogContent.addView(view);
-                this.mMessageContent.setVisibility(8);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-                layoutParams.addRule(3, d.a.m0.a.f.dialog_customPanel);
-                this.mBtnPanelLayout.setLayoutParams(layoutParams);
-            }
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, view) == null) || (frameLayout = this.mDialogContent) == null) {
+            return;
+        }
+        frameLayout.removeAllViews();
+        if (view != null) {
+            this.mDialogContent.addView(view);
+            this.mMessageContent.setVisibility(8);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
+            layoutParams.addRule(3, d.a.q0.a.f.dialog_customPanel);
+            this.mBtnPanelLayout.setLayoutParams(layoutParams);
         }
     }
 
     public void setupViews() {
-        e eVar = this.mBuilder;
-        if (eVar == null) {
+        e eVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (eVar = this.mBuilder) == null) {
             return;
         }
-        setTitle(eVar.f11371a);
-        setIcon(eVar.f11376f);
-        setMessage(eVar.f11372b);
-        setView(eVar.f11375e);
-        setPositiveEnable(eVar.f11377g);
-        setPositiveTextColor(eVar.f11378h);
-        setPositiveButton(eVar.f11373c);
-        setNegativeButton(eVar.f11374d);
+        setTitle(eVar.f11438a);
+        setIcon(eVar.f11443f);
+        setMessage(eVar.f11439b);
+        setView(eVar.f11442e);
+        setPositiveEnable(eVar.f11444g);
+        setPositiveTextColor(eVar.f11445h);
+        setPositiveButton(eVar.f11440c);
+        setNegativeButton(eVar.f11441d);
         setBtnsPanlVisible(eVar.s);
     }
 
     public void show() {
-        Resources resources = getResources();
-        int color = resources.getColor(d.a.m0.a.c.aiapps_dialog_title_text_color);
-        int color2 = resources.getColor(d.a.m0.a.c.aiapps_box_dialog_message_text_color);
-        int color3 = resources.getColor(d.a.m0.a.c.aiapps_dialog_gray);
-        this.mDialogLayout.setBackground(resources.getDrawable(d.a.m0.a.e.aiapps_dialog_bg_white));
-        this.mTitle.setTextColor(color);
-        this.mMessage.setTextColor(color2);
-        this.mPositiveButton.setTextColor(color);
-        this.mNegativeButton.setTextColor(color);
-        this.mNeutralButton.setTextColor(color);
-        this.mDivider2.setBackgroundColor(color3);
-        this.mDivider3.setBackgroundColor(color3);
-        this.mDivider4.setBackgroundColor(color3);
-        this.mPositiveButton.setBackground(resources.getDrawable(d.a.m0.a.e.aiapp_alertdialog_button_day_bg_right_selector));
-        this.mNegativeButton.setBackground(resources.getDrawable(d.a.m0.a.e.aiapp_alertdialog_button_day_bg_left_selector));
-        this.mNeutralButton.setBackground(resources.getDrawable(d.a.m0.a.e.aiapp_alertdialog_button_day_bg_selector));
-        TextView ifOnlyOneBtnGetIt = ifOnlyOneBtnGetIt();
-        if (ifOnlyOneBtnGetIt != null) {
-            ifOnlyOneBtnGetIt.setBackground(resources.getDrawable(d.a.m0.a.e.aiapp_alertdialog_button_day_bg_all_selector));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            Resources resources = getResources();
+            int color = resources.getColor(d.a.q0.a.c.aiapps_dialog_title_text_color);
+            int color2 = resources.getColor(d.a.q0.a.c.aiapps_box_dialog_message_text_color);
+            int color3 = resources.getColor(d.a.q0.a.c.aiapps_dialog_gray);
+            this.mDialogLayout.setBackground(resources.getDrawable(d.a.q0.a.e.aiapps_dialog_bg_white));
+            this.mTitle.setTextColor(color);
+            this.mMessage.setTextColor(color2);
+            this.mPositiveButton.setTextColor(color);
+            this.mNegativeButton.setTextColor(color);
+            this.mNeutralButton.setTextColor(color);
+            this.mDivider2.setBackgroundColor(color3);
+            this.mDivider3.setBackgroundColor(color3);
+            this.mDivider4.setBackgroundColor(color3);
+            this.mPositiveButton.setBackground(resources.getDrawable(d.a.q0.a.e.aiapp_alertdialog_button_day_bg_right_selector));
+            this.mNegativeButton.setBackground(resources.getDrawable(d.a.q0.a.e.aiapp_alertdialog_button_day_bg_left_selector));
+            this.mNeutralButton.setBackground(resources.getDrawable(d.a.q0.a.e.aiapp_alertdialog_button_day_bg_selector));
+            TextView ifOnlyOneBtnGetIt = ifOnlyOneBtnGetIt();
+            if (ifOnlyOneBtnGetIt != null) {
+                ifOnlyOneBtnGetIt.setBackground(resources.getDrawable(d.a.q0.a.e.aiapp_alertdialog_button_day_bg_all_selector));
+            }
         }
     }
 }

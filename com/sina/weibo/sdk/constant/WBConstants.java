@@ -1,6 +1,12 @@
 package com.sina.weibo.sdk.constant;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class WBConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_WEIBO_REGISTER = "com.sina.weibo.sdk.Intent.ACTION_WEIBO_REGISTER";
     public static final String ACTION_WEIBO_SDK_PERMISSION = "com.sina.weibo.permission.WEIBO_SDK_PERMISSION";
     public static final String ACTIVITY_REQ_SDK = "com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY";
@@ -39,6 +45,7 @@ public class WBConstants {
     public static final String TRANS_PROGRESS_ID = "progressId";
     public static final int WEIBO_FLAG_SDK = 538116905;
     public static final String WEIBO_SIGN = "18da2bf10352443a00a5e046d9fca6bd";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface Base {
@@ -78,5 +85,19 @@ public class WBConstants {
     /* loaded from: classes7.dex */
     public interface SDK {
         public static final String FLAG = "_weibo_flag";
+    }
+
+    public WBConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

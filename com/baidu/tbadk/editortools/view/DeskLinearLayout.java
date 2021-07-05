@@ -5,61 +5,116 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class DeskLinearLayout extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f12987e;
+    public View f13071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12988f;
+    public boolean f13072f;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DeskLinearLayout(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        if (this.f12988f) {
-            canvas.save();
-            canvas.translate(this.f12987e.getLeft(), this.f12987e.getTop());
-            this.f12987e.draw(canvas);
-            canvas.restore();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            super.dispatchDraw(canvas);
+            if (this.f13072f) {
+                canvas.save();
+                canvas.translate(this.f13071e.getLeft(), this.f13071e.getTop());
+                this.f13071e.draw(canvas);
+                canvas.restore();
+            }
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
-        View childAt = getChildAt(0);
-        if (this.f12987e == null || childAt == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            View childAt = getChildAt(0);
+            if (this.f13071e == null || childAt == null) {
+                return;
+            }
+            int measuredWidth = childAt.getMeasuredWidth() - this.f13071e.getMeasuredWidth();
+            View view = this.f13071e;
+            view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f13071e.getMeasuredHeight());
         }
-        int measuredWidth = childAt.getMeasuredWidth() - this.f12987e.getMeasuredWidth();
-        View view = this.f12987e;
-        view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f12987e.getMeasuredHeight());
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        View view = this.f12987e;
-        if (view != null) {
-            this.f12987e.measure(LinearLayout.getChildMeasureSpec(i2, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i3, 0, this.f12987e.getLayoutParams().height));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            View view = this.f13071e;
+            if (view != null) {
+                this.f13071e.measure(LinearLayout.getChildMeasureSpec(i2, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i3, 0, this.f13071e.getLayoutParams().height));
+            }
         }
     }
 
     public void setNewView(View view) {
-        this.f12987e = view;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+            this.f13071e = view;
+        }
     }
 
     public void setNewViewVisible(boolean z) {
-        this.f12988f = z;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f13072f = z;
+            invalidate();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DeskLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

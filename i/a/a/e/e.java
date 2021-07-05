@@ -1,6 +1,10 @@
 package i.a.a.e;
-/* loaded from: classes8.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes10.dex */
 public final class e {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int abc_action_bar_title_item = 2131492864;
     public static final int abc_action_bar_up_container = 2131492865;
     public static final int abc_action_menu_item_layout = 2131492866;
@@ -28,29 +32,30 @@ public final class e {
     public static final int abc_search_view = 2131492889;
     public static final int abc_select_dialog_material = 2131492890;
     public static final int abc_tooltip = 2131492891;
-    public static final int notification_action = 2131494314;
-    public static final int notification_action_tombstone = 2131494315;
-    public static final int notification_template_custom_big = 2131494323;
-    public static final int notification_template_icon_group = 2131494324;
-    public static final int notification_template_part_chronometer = 2131494328;
-    public static final int notification_template_part_time = 2131494329;
-    public static final int pay_ui_common_web_activity = 2131494369;
-    public static final int pay_ui_dialog_input_number = 2131494370;
-    public static final int pay_ui_dialog_pay_common = 2131494371;
-    public static final int pay_ui_dialog_pay_way = 2131494372;
-    public static final int pay_ui_item_pay_amount_choose = 2131494373;
-    public static final int pay_ui_item_pay_way_choose = 2131494374;
-    public static final int pay_ui_layout_navigation = 2131494375;
-    public static final int pay_ui_layout_pay_amount_view = 2131494376;
-    public static final int pay_ui_layout_pay_common_view = 2131494377;
-    public static final int pay_ui_layout_pay_result_view = 2131494378;
-    public static final int pay_ui_layout_pay_wallet_view = 2131494379;
-    public static final int pay_ui_layout_pay_way_view = 2131494380;
-    public static final int pay_ui_layout_plugincenter_banner_item = 2131494381;
-    public static final int pay_ui_layout_plugincenter_top_banner = 2131494382;
-    public static final int pay_ui_pay_common_loading = 2131494383;
-    public static final int select_dialog_item_material = 2131494609;
-    public static final int select_dialog_multichoice_material = 2131494610;
-    public static final int select_dialog_singlechoice_material = 2131494611;
-    public static final int support_simple_spinner_dropdown_item = 2131494697;
+    public static final int notification_action = 2131494341;
+    public static final int notification_action_tombstone = 2131494342;
+    public static final int notification_template_custom_big = 2131494350;
+    public static final int notification_template_icon_group = 2131494351;
+    public static final int notification_template_part_chronometer = 2131494355;
+    public static final int notification_template_part_time = 2131494356;
+    public static final int pay_ui_common_web_activity = 2131494396;
+    public static final int pay_ui_dialog_input_number = 2131494397;
+    public static final int pay_ui_dialog_pay_common = 2131494398;
+    public static final int pay_ui_dialog_pay_way = 2131494399;
+    public static final int pay_ui_item_pay_amount_choose = 2131494400;
+    public static final int pay_ui_item_pay_way_choose = 2131494401;
+    public static final int pay_ui_layout_navigation = 2131494402;
+    public static final int pay_ui_layout_pay_amount_view = 2131494403;
+    public static final int pay_ui_layout_pay_common_view = 2131494404;
+    public static final int pay_ui_layout_pay_result_view = 2131494405;
+    public static final int pay_ui_layout_pay_wallet_view = 2131494406;
+    public static final int pay_ui_layout_pay_way_view = 2131494407;
+    public static final int pay_ui_layout_plugincenter_banner_item = 2131494408;
+    public static final int pay_ui_layout_plugincenter_top_banner = 2131494409;
+    public static final int pay_ui_pay_common_loading = 2131494410;
+    public static final int select_dialog_item_material = 2131494639;
+    public static final int select_dialog_multichoice_material = 2131494640;
+    public static final int select_dialog_singlechoice_material = 2131494641;
+    public static final int support_simple_spinner_dropdown_item = 2131494728;
+    public transient /* synthetic */ FieldHolder $fh;
 }

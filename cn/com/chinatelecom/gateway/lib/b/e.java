@@ -2,6 +2,14 @@ package cn.com.chinatelecom.gateway.lib.b;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,88 +19,160 @@ import java.util.TimerTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1548a = "e";
+    public static final String f1551a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f1549b;
+    public static int f1552b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, b> f1550c = new HashMap();
+    public static Map<String, b> f1553c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f1551d = new ArrayList();
+    public static List<String> f1554d;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1293545119, "Lcn/com/chinatelecom/gateway/lib/b/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1293545119, "Lcn/com/chinatelecom/gateway/lib/b/e;");
+                return;
+            }
+        }
+        f1553c = new HashMap();
+        f1554d = new ArrayList();
+    }
+
+    public e() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static synchronized b a(String str) {
+        InterceptResult invokeL;
         b bVar;
-        synchronized (e.class) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (e.class) {
+                try {
+                    bVar = f1553c.containsKey(str) ? f1553c.get(str) : null;
+                    if (bVar == null) {
+                        bVar = new b(str);
+                        f1553c.put(str, bVar);
+                    }
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                    return new b(str);
+                }
+            }
+            return bVar;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public static void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, context, str) == null) {
             try {
-                bVar = f1550c.containsKey(str) ? f1550c.get(str) : null;
-                if (bVar == null) {
-                    bVar = new b(str);
-                    f1550c.put(str, bVar);
+                synchronized (e.class) {
+                    if (f1553c.containsKey(str)) {
+                        f1554d.add(f1553c.get(str).toString());
+                        f1553c.remove(str);
+                    }
+                    if (f1552b != 1 && !f1554d.isEmpty()) {
+                        f1552b = 1;
+                        new Timer().schedule(new TimerTask(context) { // from class: cn.com.chinatelecom.gateway.lib.b.e.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            /* renamed from: a  reason: collision with root package name */
+                            public final /* synthetic */ Context f1555a;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {context};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.f1555a = context;
+                            }
+
+                            @Override // java.util.TimerTask, java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    e.b(this.f1555a);
+                                }
+                            }
+                        }, 8000L);
+                    }
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
-                return new b(str);
             }
-        }
-        return bVar;
-    }
-
-    public static void a(final Context context, String str) {
-        try {
-            synchronized (e.class) {
-                if (f1550c.containsKey(str)) {
-                    f1551d.add(f1550c.get(str).toString());
-                    f1550c.remove(str);
-                }
-                if (f1549b != 1 && !f1551d.isEmpty()) {
-                    f1549b = 1;
-                    new Timer().schedule(new TimerTask() { // from class: cn.com.chinatelecom.gateway.lib.b.e.1
-                        @Override // java.util.TimerTask, java.lang.Runnable
-                        public void run() {
-                            e.b(context);
-                        }
-                    }, 8000L);
-                }
-            }
-        } catch (Throwable th) {
-            th.printStackTrace();
         }
     }
 
     public static void a(String str, String str2, String str3) {
-        String str4 = "";
-        int i2 = -1;
-        try {
-            if (!TextUtils.isEmpty(str2)) {
-                JSONObject jSONObject = new JSONObject(str2);
-                i2 = jSONObject.getInt("result");
-                str4 = jSONObject.optString("msg");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) {
+            String str4 = "";
+            int i2 = -1;
+            try {
+                if (!TextUtils.isEmpty(str2)) {
+                    JSONObject jSONObject = new JSONObject(str2);
+                    i2 = jSONObject.getInt("result");
+                    str4 = jSONObject.optString("msg");
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        b a2 = a(str).a(i2);
-        if (i2 == 0) {
-            a2.f(str4);
-        } else {
-            a2.f(str4).e(str3);
+            b a2 = a(str).a(i2);
+            if (i2 == 0) {
+                a2.f(str4);
+            } else {
+                a2.f(str4).e(str3);
+            }
         }
     }
 
     public static void b(Context context) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) || context == null) {
             return;
         }
         try {
             ArrayList arrayList = new ArrayList();
             synchronized (e.class) {
-                arrayList.addAll(f1551d);
-                f1549b = 0;
-                f1551d.clear();
+                arrayList.addAll(f1554d);
+                f1552b = 0;
+                f1554d.clear();
             }
             if (arrayList.isEmpty()) {
                 return;
@@ -104,6 +184,9 @@ public class e {
     }
 
     public static void b(Context context, String str) {
-        d.a(context, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
+            d.a(context, str);
+        }
     }
 }

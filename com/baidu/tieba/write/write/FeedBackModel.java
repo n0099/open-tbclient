@@ -3,138 +3,223 @@ package com.baidu.tieba.write.write;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.a.n0.r.q.a2;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.a.f;
+import d.a.r0.r.q.b2;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f22157e;
+    public b f22672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<a2> f22158f;
+    public ArrayList<b2> f22673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22159g;
+    public int f22674g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f22160h;
+    public TbPageContext f22675h;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<Object, FeedBackModel, FeedBackModel> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f22161a;
+        public NetWork f22676a;
 
-        public b() {
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ FeedBackModel f22677b;
+
+        public b(FeedBackModel feedBackModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feedBackModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22677b = feedBackModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public FeedBackModel doInBackground(Object... objArr) {
-            String obj = objArr[0].toString();
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/frs/toplist");
-            this.f22161a = netWork;
-            netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, obj);
-            String postNetData = this.f22161a.postNetData();
-            if (this.f22161a.getNetContext().getResponse().isRequestSuccess()) {
-                FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.f22160h);
-                feedBackModel.parserJson(postNetData);
-                return feedBackModel;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                String obj = objArr[0].toString();
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/frs/toplist");
+                this.f22676a = netWork;
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, obj);
+                String postNetData = this.f22676a.postNetData();
+                if (this.f22676a.getNetContext().getResponse().isRequestSuccess()) {
+                    FeedBackModel feedBackModel = new FeedBackModel(this.f22677b.f22675h);
+                    feedBackModel.parserJson(postNetData);
+                    return feedBackModel;
+                }
+                return null;
             }
-            return null;
+            return (FeedBackModel) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
-            super.onPostExecute(feedBackModel);
-            FeedBackModel.this.f22157e = null;
-            FeedBackModel.this.mLoadDataCallBack.c(feedBackModel);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedBackModel) == null) {
+                super.onPostExecute(feedBackModel);
+                this.f22677b.f22672e = null;
+                this.f22677b.mLoadDataCallBack.c(feedBackModel);
+            }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            super.cancel(true);
-            FeedBackModel.this.f22157e = null;
-            NetWork netWork = this.f22161a;
-            if (netWork != null) {
-                netWork.cancelNetConnect();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+                this.f22677b.f22672e = null;
+                NetWork netWork = this.f22676a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                }
             }
+        }
+
+        public /* synthetic */ b(FeedBackModel feedBackModel, a aVar) {
+            this(feedBackModel);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f22157e = null;
-        this.f22158f = null;
-        this.f22159g = 0;
-        this.f22160h = tbPageContext;
-        this.f22158f = new ArrayList<>();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f22672e = null;
+        this.f22673f = null;
+        this.f22674g = 0;
+        this.f22675h = tbPageContext;
+        this.f22673f = new ArrayList<>();
     }
 
     public int A() {
-        return this.f22159g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22674g : invokeV.intValue;
     }
 
-    public ArrayList<a2> B() {
-        return this.f22158f;
+    public ArrayList<b2> B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22673f : (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        b bVar = this.f22157e;
-        if (bVar != null) {
-            bVar.cancel();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            b bVar = this.f22672e;
+            if (bVar != null) {
+                bVar.cancel();
+                return true;
+            }
             return true;
         }
-        return true;
+        return invokeV.booleanValue;
     }
 
     public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
         }
     }
 
     public void z(String str) {
-        if (this.f22157e == null) {
-            b bVar = new b();
-            this.f22157e = bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.f22672e == null) {
+            b bVar = new b(this, null);
+            this.f22672e = bVar;
             bVar.setPriority(3);
-            this.f22157e.execute(str);
+            this.f22672e.execute(str);
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            this.f22159g = jSONObject.optInt("error_code", 0);
+            this.f22674g = jSONObject.optInt("error_code", 0);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     if (jSONObject2 != null) {
-                        a2 a2Var = new a2();
-                        a2Var.U2(jSONObject2);
-                        this.f22158f.add(a2Var);
+                        b2 b2Var = new b2();
+                        b2Var.H2(jSONObject2);
+                        this.f22673f.add(b2Var);
                     }
                 }
             }

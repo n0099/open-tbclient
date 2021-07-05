@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
@@ -21,7 +22,12 @@ import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import d.a.s.a;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.v.a;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +37,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public final class IMConnection {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_LOGIN_FAIL = 20;
     public static final int MAX_RETRY_TIMES = 10;
     public static final int MSG_ID_SEND_MSG_TIMEOUT = 1;
@@ -41,55 +48,56 @@ public final class IMConnection {
     public static final int SOCKET_TIMEOUT = 60000;
     public static final String TAG = "IMConnection";
     public static volatile IMConnection mConnectionInstance;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean mClose;
+    public AtomicInteger mConnectId;
+    public String mConnectIps;
+    public AtomicBoolean mConnected;
+    public AtomicBoolean mConnectting;
     public Context mContext;
+    public int mDelayTimes;
+    public AtomicInteger mFailedNumber;
+    public Handler mHandler;
+    public long mLastReadWriteTime;
     public IMessageHandler mMessageHandler;
+    public long mNowId;
+    public Object mOutputSync;
     public ReadThread mReadThread;
+    public Runnable mReconnectRunnable;
+    public HashMap<Long, Message> mSendMessageMap;
     public SendThread mSendThread;
+    public Map<Integer, Boolean> mSocketNeedCloseMap;
+    public Runnable mSocketTimeoutRunnable;
     public long mStartConnTime;
-    public Object mSync = new Object();
-    public long mNowId = 0;
-    public long mLastReadWriteTime = 0;
-    public Object mOutputSync = new Object();
-    public boolean mClose = false;
-    public boolean mStoped = false;
-    public int mDelayTimes = -1;
-    public String mConnectIps = "";
-    public Runnable mReconnectRunnable = new Runnable() { // from class: com.baidu.android.imsdk.internal.IMConnection.2
-        @Override // java.lang.Runnable
-        public void run() {
-            if (a.f68195e) {
-                return;
-            }
-            IMConnection.this.internalConnect(false);
-        }
-    };
-    public Runnable mSocketTimeoutRunnable = new Runnable() { // from class: com.baidu.android.imsdk.internal.IMConnection.3
-        @Override // java.lang.Runnable
-        public void run() {
-            if (System.currentTimeMillis() - IMConnection.this.mLastReadWriteTime > 60000) {
-                LogUtils.i(IMConnection.TAG, " SOCKET_TIMEOUT-- Socket heartbeat timeout !! --");
-                IMConnection.this.disconnectedByPeer();
-                return;
-            }
-            LogUtils.i(IMConnection.TAG, " SOCKET_TIMEOUT-- Socket heartbeat check ok !! --");
-        }
-    };
-    public HashMap<Long, Message> mSendMessageMap = new HashMap<>();
-    public Map<Integer, Boolean> mSocketNeedCloseMap = new TreeMap();
-    public AtomicInteger mConnectId = new AtomicInteger(0);
-    public AtomicInteger mFailedNumber = new AtomicInteger(0);
-    public AtomicBoolean mConnected = new AtomicBoolean(false);
-    public AtomicBoolean mConnectting = new AtomicBoolean(false);
-    public Handler mHandler = new MyHandler(Looper.getMainLooper());
+    public boolean mStoped;
+    public Object mSync;
 
     /* loaded from: classes.dex */
     public final class ConnectTask implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public Integer mConnectTaskId;
         public String mIp;
         public boolean mIsInternalAction;
         public int mPort;
+        public final /* synthetic */ IMConnection this$0;
 
-        public ConnectTask(boolean z, String str, int i2, Integer num) {
+        public ConnectTask(IMConnection iMConnection, boolean z, String str, int i2, Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMConnection, Boolean.valueOf(z), str, Integer.valueOf(i2), num};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = iMConnection;
             this.mIsInternalAction = z;
             this.mIp = str;
             this.mPort = i2;
@@ -98,130 +106,182 @@ public final class IMConnection {
 
         @Override // java.lang.Runnable
         public void run() {
-            try {
-                LogUtils.d(IMConnection.TAG, "ConnectTask run...id=" + this.mConnectTaskId + ", thread=" + Thread.currentThread().getName());
-                LogUtils.d(IMConnection.TAG, "ConnectTask run...mConnected.get()=" + IMConnection.this.mConnected.get() + ", mIsInternalAction=" + this.mIsInternalAction + ", logined=" + LoginManager.getInstance(IMConnection.this.mContext).getCurrentState());
-                if (!IMConnection.this.mConnected.get() || !this.mIsInternalAction) {
-                    IMConnection.this.initReadAndSendThread();
-                    ConnectTimeOutTask connectTimeOutTask = new ConnectTimeOutTask(this.mConnectTaskId);
-                    IMConnection.this.mHandler.postDelayed(connectTimeOutTask, 5000L);
-                    IMConnection.this.mStartConnTime = System.currentTimeMillis();
-                    IMConnection iMConnection = IMConnection.this;
-                    iMConnection.mConnectIps = this.mIp + ":" + this.mPort;
-                    Context context = IMConnection.this.mContext;
-                    Utility.writeLoginFlag(context, "14N", "socketConnect :" + IMConnection.this.mConnectIps);
-                    LogUtils.d(IMConnection.TAG, "ConnectTask run...socketConnect...thread=" + Thread.currentThread().getName());
-                    SocketState socketConnect = IMConnection.this.mMessageHandler.socketConnect(this.mIp, this.mPort);
-                    LogUtils.d(IMConnection.TAG, "ConnectTask run...state back...thread=" + Thread.currentThread().getName());
-                    if (socketConnect != null && socketConnect.mSocketEnvOk.booleanValue()) {
-                        synchronized (IMConnection.this.mSocketNeedCloseMap) {
-                            LogUtils.d(IMConnection.TAG, "ConnectTask run...synchronized (mSocketNeedCloseMap)...thread=" + Thread.currentThread().getName());
-                            IMConnection.this.mHandler.removeCallbacks(connectTimeOutTask);
-                            connectTimeOutTask.setStoped();
-                            if (IMConnection.this.mSocketNeedCloseMap.get(this.mConnectTaskId) == null) {
-                                LogUtils.d(IMConnection.TAG, "ConnectTask run...no timeout...thread=" + Thread.currentThread().getName());
-                                IMConnection.this.mMessageHandler.setCurrentSocketState(socketConnect);
-                            } else {
-                                LogUtils.d(IMConnection.TAG, "ConnectTask run...timeout...thread=" + Thread.currentThread().getName());
-                                if (IMConnection.this.mConnected.get()) {
-                                    LogUtils.d(IMConnection.TAG, "ConnectTask run...timeout...connected=true...thread=" + Thread.currentThread().getName());
-                                    IMConnection.this.closeSocketState(socketConnect);
-                                    if (this.mIsInternalAction) {
-                                        IMConnection.this.mMessageHandler.onSessionOpened();
-                                    }
-                                    return;
-                                } else if (!socketConnect.mSocketCreateOk.booleanValue()) {
-                                    LogUtils.d(IMConnection.TAG, "ConnectTask run...!state.mSocketCreateOk...thread=" + Thread.currentThread().getName());
-                                    IMConnection.this.closeSocketState(socketConnect);
-                                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    LogUtils.d(IMConnection.TAG, "ConnectTask run...id=" + this.mConnectTaskId + ", thread=" + Thread.currentThread().getName());
+                    LogUtils.d(IMConnection.TAG, "ConnectTask run...mConnected.get()=" + this.this$0.mConnected.get() + ", mIsInternalAction=" + this.mIsInternalAction + ", logined=" + LoginManager.getInstance(this.this$0.mContext).getCurrentState());
+                    if (!this.this$0.mConnected.get() || !this.mIsInternalAction) {
+                        this.this$0.initReadAndSendThread();
+                        ConnectTimeOutTask connectTimeOutTask = new ConnectTimeOutTask(this.this$0, this.mConnectTaskId);
+                        this.this$0.mHandler.postDelayed(connectTimeOutTask, 5000L);
+                        this.this$0.mStartConnTime = System.currentTimeMillis();
+                        IMConnection iMConnection = this.this$0;
+                        iMConnection.mConnectIps = this.mIp + ":" + this.mPort;
+                        Context context = this.this$0.mContext;
+                        Utility.writeLoginFlag(context, "14N", "socketConnect :" + this.this$0.mConnectIps);
+                        LogUtils.d(IMConnection.TAG, "ConnectTask run...socketConnect...thread=" + Thread.currentThread().getName());
+                        SocketState socketConnect = this.this$0.mMessageHandler.socketConnect(this.mIp, this.mPort);
+                        LogUtils.d(IMConnection.TAG, "ConnectTask run...state back...thread=" + Thread.currentThread().getName());
+                        if (socketConnect != null && socketConnect.mSocketEnvOk.booleanValue()) {
+                            synchronized (this.this$0.mSocketNeedCloseMap) {
+                                LogUtils.d(IMConnection.TAG, "ConnectTask run...synchronized (mSocketNeedCloseMap)...thread=" + Thread.currentThread().getName());
+                                this.this$0.mHandler.removeCallbacks(connectTimeOutTask);
+                                connectTimeOutTask.setStoped();
+                                if (this.this$0.mSocketNeedCloseMap.get(this.mConnectTaskId) == null) {
+                                    LogUtils.d(IMConnection.TAG, "ConnectTask run...no timeout...thread=" + Thread.currentThread().getName());
+                                    this.this$0.mMessageHandler.setCurrentSocketState(socketConnect);
                                 } else {
-                                    LogUtils.d(IMConnection.TAG, "ConnectTask run...state.mSocketCreateOk...thread=" + Thread.currentThread().getName());
-                                    IMConnection.this.mMessageHandler.setCurrentSocketState(socketConnect);
+                                    LogUtils.d(IMConnection.TAG, "ConnectTask run...timeout...thread=" + Thread.currentThread().getName());
+                                    if (this.this$0.mConnected.get()) {
+                                        LogUtils.d(IMConnection.TAG, "ConnectTask run...timeout...connected=true...thread=" + Thread.currentThread().getName());
+                                        this.this$0.closeSocketState(socketConnect);
+                                        if (this.mIsInternalAction) {
+                                            this.this$0.mMessageHandler.onSessionOpened();
+                                        }
+                                        return;
+                                    } else if (!socketConnect.mSocketCreateOk.booleanValue()) {
+                                        LogUtils.d(IMConnection.TAG, "ConnectTask run...!state.mSocketCreateOk...thread=" + Thread.currentThread().getName());
+                                        this.this$0.closeSocketState(socketConnect);
+                                        return;
+                                    } else {
+                                        LogUtils.d(IMConnection.TAG, "ConnectTask run...state.mSocketCreateOk...thread=" + Thread.currentThread().getName());
+                                        this.this$0.mMessageHandler.setCurrentSocketState(socketConnect);
+                                    }
                                 }
+                                this.this$0.connectTrack(IMTrack.ConnectionBuilder.CONN_TYPE_SOCKET_CONNECTION_OK, "connect ok");
+                                this.this$0.mFailedNumber.set(0);
+                                LogUtils.i(IMConnection.TAG, "ConnectTask run...create Socket ok, thread=" + Thread.currentThread().getName());
+                                Utility.writeLoginFlag(this.this$0.mContext, "16Y", "connect ok");
+                                IMSocketAddrProvider iMSocketAddrProvider = IMSocketAddrProvider.getInstance(this.this$0.mContext);
+                                iMSocketAddrProvider.onSuccessSocketAddr(this.mIp + ":" + this.mPort);
+                                this.this$0.mConnected.set(true);
+                                this.this$0.mClose = false;
+                                this.this$0.mReadThread = new ReadThread(this.this$0);
+                                this.this$0.mReadThread.start();
+                                this.this$0.mSendThread = new SendThread(this.this$0);
+                                this.this$0.mSendThread.start();
+                                if (this.mIsInternalAction) {
+                                    LogUtils.i(IMConnection.TAG, "ConnectTask run...onSessionOpened...thread=" + Thread.currentThread().getName());
+                                    this.this$0.mMessageHandler.onSessionOpened();
+                                }
+                                LogUtils.d(IMConnection.TAG, "connectImpl time:" + SystemClock.currentThreadTimeMillis());
+                                this.this$0.mConnectting.set(false);
+                                return;
                             }
-                            IMConnection.this.connectTrack(IMTrack.ConnectionBuilder.CONN_TYPE_SOCKET_CONNECTION_OK, "connect ok");
-                            IMConnection.this.mFailedNumber.set(0);
-                            LogUtils.i(IMConnection.TAG, "ConnectTask run...create Socket ok, thread=" + Thread.currentThread().getName());
-                            Utility.writeLoginFlag(IMConnection.this.mContext, "16Y", "connect ok");
-                            IMSocketAddrProvider iMSocketAddrProvider = IMSocketAddrProvider.getInstance(IMConnection.this.mContext);
-                            iMSocketAddrProvider.onSuccessSocketAddr(this.mIp + ":" + this.mPort);
-                            IMConnection.this.mConnected.set(true);
-                            IMConnection.this.mClose = false;
-                            IMConnection.this.mReadThread = new ReadThread();
-                            IMConnection.this.mReadThread.start();
-                            IMConnection.this.mSendThread = new SendThread();
-                            IMConnection.this.mSendThread.start();
-                            if (this.mIsInternalAction) {
-                                LogUtils.i(IMConnection.TAG, "ConnectTask run...onSessionOpened...thread=" + Thread.currentThread().getName());
-                                IMConnection.this.mMessageHandler.onSessionOpened();
-                            }
-                            LogUtils.d(IMConnection.TAG, "connectImpl time:" + SystemClock.currentThreadTimeMillis());
-                            IMConnection.this.mConnectting.set(false);
-                            return;
                         }
+                        LogUtils.d(IMConnection.TAG, "ConnectTask run...（state == null || !state.mSocketEnvOk）...thread=" + Thread.currentThread().getName());
+                        Utility.writeLoginFlag(this.this$0.mContext, "15N", "connect env error");
+                        this.this$0.mHandler.removeCallbacks(connectTimeOutTask);
+                        this.this$0.mConnectting.set(false);
+                        LogUtils.d(IMConnection.TAG, "!state.mSocketEnvOk..will disconnectedByPeer...");
+                        this.this$0.disconnectedByPeer();
+                        this.this$0.connectTrack(IMTrack.ConnectionBuilder.CONN_TYPE_SOCKET_CONNECTION_ENV_FAIL, "env error");
+                        return;
                     }
-                    LogUtils.d(IMConnection.TAG, "ConnectTask run...（state == null || !state.mSocketEnvOk）...thread=" + Thread.currentThread().getName());
-                    Utility.writeLoginFlag(IMConnection.this.mContext, "15N", "connect env error");
-                    IMConnection.this.mHandler.removeCallbacks(connectTimeOutTask);
-                    IMConnection.this.mConnectting.set(false);
-                    LogUtils.d(IMConnection.TAG, "!state.mSocketEnvOk..will disconnectedByPeer...");
-                    IMConnection.this.disconnectedByPeer();
-                    IMConnection.this.connectTrack(IMTrack.ConnectionBuilder.CONN_TYPE_SOCKET_CONNECTION_ENV_FAIL, "env error");
-                    return;
+                    this.this$0.mMessageHandler.onSessionOpened();
+                } catch (Exception e2) {
+                    LogUtils.e(IMConnection.TAG, "connectRunable", e2);
+                    this.this$0.mConnectting.set(false);
                 }
-                IMConnection.this.mMessageHandler.onSessionOpened();
-            } catch (Exception e2) {
-                LogUtils.e(IMConnection.TAG, "connectRunable", e2);
-                IMConnection.this.mConnectting.set(false);
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class ConnectTimeOutTask implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public Integer mConnectTaskId;
-        public boolean mTaskStoped = false;
+        public boolean mTaskStoped;
+        public final /* synthetic */ IMConnection this$0;
 
-        public ConnectTimeOutTask(Integer num) {
+        public ConnectTimeOutTask(IMConnection iMConnection, Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMConnection, num};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = iMConnection;
+            this.mTaskStoped = false;
             this.mConnectTaskId = num;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            synchronized (IMConnection.this.mSocketNeedCloseMap) {
-                if (this.mTaskStoped) {
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.this$0.mSocketNeedCloseMap) {
+                    if (this.mTaskStoped) {
+                        return;
+                    }
+                    this.this$0.mSocketNeedCloseMap.put(this.mConnectTaskId, Boolean.TRUE);
+                    this.this$0.mConnectting.set(false);
+                    LogUtils.d(IMConnection.TAG, "ConnectTimeOutTask....will disconnectedByPeer");
+                    this.this$0.disconnectedByPeer();
+                    Context context = this.this$0.mContext;
+                    Utility.writeLoginFlag(context, "14N_1", "socketConnect_timeout :" + this.this$0.mConnectIps);
+                    this.this$0.connectTrack(IMTrack.ConnectionBuilder.CONN_TYPE_SOCKET_CONNECTION_TIMEOUT, "time out");
                 }
-                IMConnection.this.mSocketNeedCloseMap.put(this.mConnectTaskId, Boolean.TRUE);
-                IMConnection.this.mConnectting.set(false);
-                LogUtils.d(IMConnection.TAG, "ConnectTimeOutTask....will disconnectedByPeer");
-                IMConnection.this.disconnectedByPeer();
-                Context context = IMConnection.this.mContext;
-                Utility.writeLoginFlag(context, "14N_1", "socketConnect_timeout :" + IMConnection.this.mConnectIps);
-                IMConnection.this.connectTrack(IMTrack.ConnectionBuilder.CONN_TYPE_SOCKET_CONNECTION_TIMEOUT, "time out");
             }
         }
 
         public void setStoped() {
-            this.mTaskStoped = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.mTaskStoped = true;
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public class MyHandler extends Handler {
-        public MyHandler(Looper looper) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IMConnection this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public MyHandler(IMConnection iMConnection, Looper looper) {
             super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMConnection, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = iMConnection;
         }
 
         @Override // android.os.Handler
         public void handleMessage(android.os.Message message) {
-            super.handleMessage(message);
-            if (message.what == 1) {
-                long j = message.arg1;
-                synchronized (IMConnection.this.mSync) {
-                    if (IMConnection.this.mSendMessageMap.containsKey(Long.valueOf(j))) {
-                        LogUtils.d(IMConnection.TAG, "send msg timeout!!! " + ((Message) IMConnection.this.mSendMessageMap.get(Long.valueOf(j))).toString());
-                        IMConnection.this.mMessageHandler.handleMessage((Message) IMConnection.this.mSendMessageMap.remove(Long.valueOf(j)), null, false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 1) {
+                    long j = message.arg1;
+                    synchronized (this.this$0.mSync) {
+                        if (this.this$0.mSendMessageMap.containsKey(Long.valueOf(j))) {
+                            LogUtils.d(IMConnection.TAG, "send msg timeout!!! " + ((Message) this.this$0.mSendMessageMap.get(Long.valueOf(j))).toString());
+                            this.this$0.mMessageHandler.handleMessage((Message) this.this$0.mSendMessageMap.remove(Long.valueOf(j)), null, false);
+                        }
                     }
                 }
             }
@@ -230,46 +290,68 @@ public final class IMConnection {
 
     /* loaded from: classes.dex */
     public class ReadThread extends Thread {
-        public ReadThread() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IMConnection this$0;
+
+        public ReadThread(IMConnection iMConnection) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMConnection};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = iMConnection;
             setName("IM-IMConnection-readThread");
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            while (!IMConnection.this.mClose) {
-                try {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                while (!this.this$0.mClose) {
                     try {
-                        Message readMessage = IMConnection.this.mMessageHandler.readMessage();
-                        IMConnection.this.mHandler.removeCallbacks(IMConnection.this.mSocketTimeoutRunnable);
-                        if (readMessage != null) {
-                            readMessage.isSending(false);
-                            LogUtils.d(IMConnection.TAG, "ReadThread receive msg :" + readMessage.toString());
-                            if (!readMessage.isHeartbeat()) {
-                                synchronized (IMConnection.this.mSync) {
-                                    LogUtils.d(IMConnection.TAG, "SOCKET_TIMEOUT read response...");
-                                    IMConnection.this.mMessageHandler.handleMessage(readMessage, (Message) IMConnection.this.mSendMessageMap.remove(Long.valueOf(readMessage.getMsgId())), true);
+                        try {
+                            Message readMessage = this.this$0.mMessageHandler.readMessage();
+                            this.this$0.mHandler.removeCallbacks(this.this$0.mSocketTimeoutRunnable);
+                            if (readMessage != null) {
+                                readMessage.isSending(false);
+                                LogUtils.d(IMConnection.TAG, "ReadThread receive msg :" + readMessage.toString());
+                                if (!readMessage.isHeartbeat()) {
+                                    synchronized (this.this$0.mSync) {
+                                        LogUtils.d(IMConnection.TAG, "SOCKET_TIMEOUT read response...");
+                                        this.this$0.mMessageHandler.handleMessage(readMessage, (Message) this.this$0.mSendMessageMap.remove(Long.valueOf(readMessage.getMsgId())), true);
+                                    }
+                                }
+                                synchronized (this.this$0.mSync) {
+                                    if (this.this$0.mSendMessageMap.size() != 0) {
+                                        this.this$0.mLastReadWriteTime = System.currentTimeMillis();
+                                        LogUtils.d(IMConnection.TAG, "SOCKET_TIMEOUT read ...");
+                                        this.this$0.mHandler.postDelayed(this.this$0.mSocketTimeoutRunnable, 60000L);
+                                    }
                                 }
                             }
-                            synchronized (IMConnection.this.mSync) {
-                                if (IMConnection.this.mSendMessageMap.size() != 0) {
-                                    IMConnection.this.mLastReadWriteTime = System.currentTimeMillis();
-                                    LogUtils.d(IMConnection.TAG, "SOCKET_TIMEOUT read ...");
-                                    IMConnection.this.mHandler.postDelayed(IMConnection.this.mSocketTimeoutRunnable, 60000L);
-                                }
-                            }
+                            ConversationStudioManImpl.getInstance(this.this$0.mContext).setMcastQuickHeartBeat();
+                        } catch (IOException e2) {
+                            LogUtils.e(IMConnection.TAG, "ReadThread exception: " + e2, e2);
+                            this.this$0.mStoped = false;
+                            this.this$0.disconnectedByPeer();
+                            return;
                         }
-                        ConversationStudioManImpl.getInstance(IMConnection.this.mContext).setMcastQuickHeartBeat();
-                    } catch (IOException e2) {
-                        LogUtils.e(IMConnection.TAG, "ReadThread exception: " + e2, e2);
-                        IMConnection.this.mStoped = false;
-                        IMConnection.this.disconnectedByPeer();
+                    } catch (Exception e3) {
+                        LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
+                        this.this$0.mStoped = false;
+                        this.this$0.disconnectedByPeer();
                         return;
                     }
-                } catch (Exception e3) {
-                    LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
-                    IMConnection.this.mStoped = false;
-                    IMConnection.this.disconnectedByPeer();
-                    return;
                 }
             }
         }
@@ -277,141 +359,260 @@ public final class IMConnection {
 
     /* loaded from: classes.dex */
     public class SendThread extends Thread {
-        public SendThread() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IMConnection this$0;
+
+        public SendThread(IMConnection iMConnection) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMConnection};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = iMConnection;
             setName("IM-IMConnection-SendThread");
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:107:0x00ec A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:125:0x0000 A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:110:0x00f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:130:0x0004 A[SYNTHETIC] */
         @Override // java.lang.Thread, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void run() {
             Message message;
-            while (!IMConnection.this.mClose) {
-                try {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                while (!this.this$0.mClose) {
                     try {
-                    } catch (InterruptedException e2) {
-                        e = e2;
-                        message = null;
+                        try {
+                        } catch (InterruptedException e2) {
+                            e = e2;
+                            message = null;
+                        }
+                    } catch (Exception e3) {
+                        LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
+                        this.this$0.disconnectedByPeer();
+                        return;
                     }
-                } catch (Exception e3) {
-                    LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
-                    IMConnection.this.disconnectedByPeer();
-                    return;
-                }
-                synchronized (IMConnection.this.mMessageHandler.getMessageQueue()) {
-                    try {
-                        if (IMConnection.this.mMessageHandler.getMessageQueue().size() == 0) {
-                            if (IMSDK.getInstance(IMConnection.this.mContext).getUk() > 0) {
-                                message = IMCmdQueueHelper.getFirstIdleCmdQueueMsg(IMConnection.this.mContext);
-                                if (message == null) {
-                                    try {
-                                        IMConnection.this.mMessageHandler.getMessageQueue().wait();
-                                    } catch (Throwable th) {
-                                        th = th;
+                    synchronized (this.this$0.mMessageHandler.getMessageQueue()) {
+                        try {
+                            if (this.this$0.mMessageHandler.getMessageQueue().size() == 0) {
+                                if (IMSDK.getInstance(this.this$0.mContext).getUk() > 0) {
+                                    message = IMCmdQueueHelper.getFirstIdleCmdQueueMsg(this.this$0.mContext);
+                                    if (message == null) {
                                         try {
-                                            throw th;
-                                            break;
-                                        } catch (InterruptedException e4) {
-                                            e = e4;
-                                            LogUtils.e(IMConnection.TAG, "SendThread wait exception: " + e);
-                                            IMConnection.this.mMessageHandler.handleMessage(message, null, false);
-                                            IMConnection.this.disconnectedByPeer();
-                                            if (message != null) {
-                                            }
-                                        }
-                                    }
-                                }
-                                if (message != null) {
-                                    try {
-                                        if (IMConnection.this.mClose) {
-                                            IMConnection.this.mMessageHandler.handleMessage(message, null, false);
-                                            return;
-                                        }
-                                        if (message.getType() != 50 && message.getUk() <= 0) {
-                                            if (IMSDK.getInstance(IMConnection.this.mContext).getUk() > 0) {
-                                                message.setUk(IMSDK.getInstance(IMConnection.this.mContext).getUk());
-                                            } else {
-                                                IMConnection.this.mMessageHandler.handleMessage(message, null, false);
-                                                return;
-                                            }
-                                        }
-                                        message.isSending(true);
-                                        message.onMsgSending(IMConnection.this.mContext);
-                                        message.setAppid(AccountManager.getAppid(IMConnection.this.mContext));
-                                        message.setMsgId(IMConnection.access$2108(IMConnection.this));
-                                        if (!message.isHeartbeat() && message.isNeedReplay()) {
-                                            synchronized (IMConnection.this.mSync) {
-                                                if (IMConnection.this.mSendMessageMap.isEmpty()) {
-                                                    IMConnection.this.mHandler.removeCallbacks(IMConnection.this.mSocketTimeoutRunnable);
-                                                    IMConnection.this.mLastReadWriteTime = System.currentTimeMillis();
-                                                    LogUtils.d(IMConnection.TAG, "SOCKET_TIMEOUT send ...");
-                                                    IMConnection.this.mHandler.postDelayed(IMConnection.this.mSocketTimeoutRunnable, 60000L);
+                                            this.this$0.mMessageHandler.getMessageQueue().wait();
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            try {
+                                                throw th;
+                                                break;
+                                            } catch (InterruptedException e4) {
+                                                e = e4;
+                                                LogUtils.e(IMConnection.TAG, "SendThread wait exception: " + e);
+                                                this.this$0.mMessageHandler.handleMessage(message, null, false);
+                                                this.this$0.disconnectedByPeer();
+                                                if (message != null) {
                                                 }
                                             }
                                         }
-                                        LogUtils.d(IMConnection.TAG, "Send Msg:" + message.toString());
-                                        if (message.getType() == 50) {
-                                            Utility.writeLoginFlag(IMConnection.this.mContext, "17N", "Send LoginMsg request");
-                                        }
-                                        synchronized (IMConnection.this.mOutputSync) {
-                                            IMConnection.this.mMessageHandler.socketWrite(message);
-                                        }
-                                        if (!message.isHeartbeat() && message.isNeedReplay()) {
-                                            synchronized (IMConnection.this.mSync) {
-                                                IMConnection.this.mSendMessageMap.put(Long.valueOf(message.getMsgId()), message);
+                                    }
+                                    if (message != null) {
+                                        try {
+                                            if (this.this$0.mClose) {
+                                                this.this$0.mMessageHandler.handleMessage(message, null, false);
+                                                return;
                                             }
-                                        } else if (!message.isHeartbeat() && !message.isNeedReplay()) {
-                                            message.handleMessageResult(IMConnection.this.mContext, null, 0, "sucess");
+                                            if (message.getType() != 50 && message.getUk() <= 0) {
+                                                if (IMSDK.getInstance(this.this$0.mContext).getUk() > 0) {
+                                                    message.setUk(IMSDK.getInstance(this.this$0.mContext).getUk());
+                                                } else {
+                                                    this.this$0.mMessageHandler.handleMessage(message, null, false);
+                                                    return;
+                                                }
+                                            }
+                                            message.isSending(true);
+                                            message.onMsgSending(this.this$0.mContext);
+                                            message.setAppid(AccountManager.getAppid(this.this$0.mContext));
+                                            message.setMsgId(IMConnection.access$2108(this.this$0));
+                                            if (!message.isHeartbeat() && message.isNeedReplay()) {
+                                                synchronized (this.this$0.mSync) {
+                                                    if (this.this$0.mSendMessageMap.isEmpty()) {
+                                                        this.this$0.mHandler.removeCallbacks(this.this$0.mSocketTimeoutRunnable);
+                                                        this.this$0.mLastReadWriteTime = System.currentTimeMillis();
+                                                        LogUtils.d(IMConnection.TAG, "SOCKET_TIMEOUT send ...");
+                                                        this.this$0.mHandler.postDelayed(this.this$0.mSocketTimeoutRunnable, 60000L);
+                                                    }
+                                                }
+                                            }
+                                            LogUtils.d(IMConnection.TAG, "Send Msg:" + message.toString());
+                                            if (message.getType() == 50) {
+                                                Utility.writeLoginFlag(this.this$0.mContext, "17N", "Send LoginMsg request");
+                                            }
+                                            synchronized (this.this$0.mOutputSync) {
+                                                this.this$0.mMessageHandler.socketWrite(message);
+                                            }
+                                            if (!message.isHeartbeat() && message.isNeedReplay()) {
+                                                synchronized (this.this$0.mSync) {
+                                                    this.this$0.mSendMessageMap.put(Long.valueOf(message.getMsgId()), message);
+                                                }
+                                            } else if (!message.isHeartbeat() && !message.isNeedReplay()) {
+                                                message.handleMessageResult(this.this$0.mContext, null, 0, "sucess");
+                                            }
+                                        } catch (Exception e5) {
+                                            LogUtils.e(LogUtils.TAG, "SendThread:", e5);
+                                            if (message.getType() == 50) {
+                                                Utility.writeLoginFlag(this.this$0.mContext, "17N_1", "Send LoginMsg exception");
+                                            }
+                                            this.this$0.mMessageHandler.handleMessage(message, null, false);
+                                            this.this$0.disconnectedByPeer();
+                                            return;
                                         }
-                                    } catch (Exception e5) {
-                                        LogUtils.e(LogUtils.TAG, "SendThread:", e5);
-                                        if (message.getType() == 50) {
-                                            Utility.writeLoginFlag(IMConnection.this.mContext, "17N_1", "Send LoginMsg exception");
-                                        }
-                                        IMConnection.this.mMessageHandler.handleMessage(message, null, false);
-                                        IMConnection.this.disconnectedByPeer();
-                                        return;
+                                    }
+                                } else {
+                                    this.this$0.mMessageHandler.getMessageQueue().wait();
+                                    message = null;
+                                    if (message != null) {
                                     }
                                 }
                             } else {
-                                IMConnection.this.mMessageHandler.getMessageQueue().wait();
+                                if (this.this$0.mMessageHandler.getMessageQueue().size() > 0) {
+                                    message = this.this$0.mMessageHandler.getMessageQueue().getFirst();
+                                    if (message == null || message.isHeartbeat() || message.getType() == 50 || message.getUk() != 0) {
+                                        message = this.this$0.mMessageHandler.getMessageQueue().removeFirst();
+                                    } else {
+                                        this.this$0.mMessageHandler.getMessageQueue().wait();
+                                    }
+                                    if (message != null) {
+                                    }
+                                }
                                 message = null;
                                 if (message != null) {
                                 }
                             }
-                        } else {
-                            if (IMConnection.this.mMessageHandler.getMessageQueue().size() > 0) {
-                                message = IMConnection.this.mMessageHandler.getMessageQueue().getFirst();
-                                if (message == null || message.isHeartbeat() || message.getType() == 50 || message.getUk() != 0) {
-                                    message = IMConnection.this.mMessageHandler.getMessageQueue().removeFirst();
-                                } else {
-                                    IMConnection.this.mMessageHandler.getMessageQueue().wait();
-                                }
-                                if (message != null) {
-                                }
-                            }
+                        } catch (Throwable th2) {
+                            th = th2;
                             message = null;
-                            if (message != null) {
-                            }
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        message = null;
+                        LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
+                        this.this$0.disconnectedByPeer();
+                        return;
                     }
-                    LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
-                    IMConnection.this.disconnectedByPeer();
-                    return;
                 }
             }
         }
     }
 
     public IMConnection(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mSync = new Object();
+        this.mNowId = 0L;
+        this.mLastReadWriteTime = 0L;
+        this.mOutputSync = new Object();
+        this.mClose = false;
+        this.mStoped = false;
+        this.mDelayTimes = -1;
+        this.mConnectIps = "";
+        this.mReconnectRunnable = new Runnable(this) { // from class: com.baidu.android.imsdk.internal.IMConnection.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ IMConnection this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f70712e) {
+                    return;
+                }
+                this.this$0.internalConnect(false);
+            }
+        };
+        this.mSocketTimeoutRunnable = new Runnable(this) { // from class: com.baidu.android.imsdk.internal.IMConnection.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ IMConnection this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    if (System.currentTimeMillis() - this.this$0.mLastReadWriteTime > 60000) {
+                        LogUtils.i(IMConnection.TAG, " SOCKET_TIMEOUT-- Socket heartbeat timeout !! --");
+                        this.this$0.disconnectedByPeer();
+                        return;
+                    }
+                    LogUtils.i(IMConnection.TAG, " SOCKET_TIMEOUT-- Socket heartbeat check ok !! --");
+                }
+            }
+        };
         this.mContext = context.getApplicationContext();
+        this.mSendMessageMap = new HashMap<>();
         this.mMessageHandler = new MessageHandler(this.mContext);
+        this.mSocketNeedCloseMap = new TreeMap();
+        this.mConnectId = new AtomicInteger(0);
+        this.mFailedNumber = new AtomicInteger(0);
+        this.mConnected = new AtomicBoolean(false);
+        this.mConnectting = new AtomicBoolean(false);
+        this.mHandler = new MyHandler(this, Looper.getMainLooper());
     }
 
     public static /* synthetic */ long access$2108(IMConnection iMConnection) {
@@ -422,35 +623,44 @@ public final class IMConnection {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void closeSocketState(SocketState socketState) {
-        Utility.writeLoginFlag(this.mContext, "15N_1", "connecting but socket close ");
-        LogUtils.d(TAG, "closeSocketState....thread=" + Thread.currentThread().getName());
-        try {
-            if (socketState.mSocket != null) {
-                socketState.mSocket.close();
-                socketState.mSocket = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65565, this, socketState) == null) {
+            Utility.writeLoginFlag(this.mContext, "15N_1", "connecting but socket close ");
+            LogUtils.d(TAG, "closeSocketState....thread=" + Thread.currentThread().getName());
+            try {
+                if (socketState.mSocket != null) {
+                    socketState.mSocket.close();
+                    socketState.mSocket = null;
+                }
+                if (socketState.mInputStream != null) {
+                    socketState.mInputStream.close();
+                    socketState.mInputStream = null;
+                }
+                if (socketState.mOutputStream != null) {
+                    socketState.mOutputStream.close();
+                    socketState.mOutputStream = null;
+                }
+            } catch (IOException e2) {
+                LogUtils.e(TAG, "destroy:" + e2.getMessage(), e2);
             }
-            if (socketState.mInputStream != null) {
-                socketState.mInputStream.close();
-                socketState.mInputStream = null;
-            }
-            if (socketState.mOutputStream != null) {
-                socketState.mOutputStream.close();
-                socketState.mOutputStream = null;
-            }
-        } catch (IOException e2) {
-            LogUtils.e(TAG, "destroy:" + e2.getMessage(), e2);
         }
     }
 
     private long computeDelayTime(int i2) {
-        if (this.mDelayTimes < 0) {
-            this.mDelayTimes = new Random().nextInt(30) % 31;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65566, this, i2)) == null) {
+            if (this.mDelayTimes < 0) {
+                this.mDelayTimes = new Random().nextInt(30) % 31;
+            }
+            return ((long) ((Math.pow(2.0d, i2) * 0.3d) + this.mDelayTimes)) * 1000;
         }
-        return ((long) ((Math.pow(2.0d, i2) * 0.3d) + this.mDelayTimes)) * 1000;
+        return invokeI.longValue;
     }
 
-    private void connectImpl(final boolean z) {
-        if (a.f68195e) {
+    private void connectImpl(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f70712e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -462,9 +672,33 @@ public final class IMConnection {
             this.mHandler.removeCallbacks(this.mReconnectRunnable);
             Utility.writeLoginFlag(this.mContext, "10Y", "connect begin");
             LogUtils.i(TAG, "will get socket address .......");
-            IMSocketAddrProvider.getInstance(this.mContext).getSocketAddr(new IMSocketAddrProvider.IGetSocketAddrListener() { // from class: com.baidu.android.imsdk.internal.IMConnection.1
-                /* JADX WARN: Removed duplicated region for block: B:19:0x00b8  */
-                /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+            IMSocketAddrProvider.getInstance(this.mContext).getSocketAddr(new IMSocketAddrProvider.IGetSocketAddrListener(this, z) { // from class: com.baidu.android.imsdk.internal.IMConnection.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ IMConnection this$0;
+                public final /* synthetic */ boolean val$isInternalAction;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$isInternalAction = z;
+                }
+
+                /* JADX WARN: Removed duplicated region for block: B:21:0x00bc  */
+                /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
                 @Override // com.baidu.android.imsdk.internal.IMSocketAddrProvider.IGetSocketAddrListener
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
@@ -476,50 +710,53 @@ public final class IMConnection {
                     int i3;
                     boolean submitForNetWork;
                     int lastIndexOf;
-                    LogUtils.i(IMConnection.TAG, "get socket address = " + str);
-                    Context context = IMConnection.this.mContext;
-                    Utility.writeLoginFlag(context, "14N_0", "socketConnect :" + str);
-                    try {
-                        lastIndexOf = str.lastIndexOf(":");
-                        i2 = Integer.valueOf(str.substring(lastIndexOf + 1)).intValue();
-                    } catch (Exception e2) {
-                        e = e2;
-                        i2 = -1;
-                    }
-                    try {
-                        str2 = str.substring(0, lastIndexOf);
-                    } catch (Exception e3) {
-                        e = e3;
-                        e.printStackTrace();
-                        new IMTrack.CrashBuilder(IMConnection.this.mContext).exception(Log.getStackTraceString(e)).build();
-                        str2 = null;
-                        if (TextUtils.isEmpty(str2)) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                        LogUtils.i(IMConnection.TAG, "get socket address = " + str);
+                        Context context = this.this$0.mContext;
+                        Utility.writeLoginFlag(context, "14N_0", "socketConnect :" + str);
+                        try {
+                            lastIndexOf = str.lastIndexOf(":");
+                            i2 = Integer.valueOf(str.substring(lastIndexOf + 1)).intValue();
+                        } catch (Exception e2) {
+                            e = e2;
+                            i2 = -1;
                         }
-                        str3 = Constants.URL_SOCKET_SERVER;
-                        i3 = Constants.SOCKET_PORT_SSL;
-                        TaskManager taskManager = TaskManager.getInstance(IMConnection.this.mContext);
-                        IMConnection iMConnection = IMConnection.this;
-                        submitForNetWork = taskManager.submitForNetWork(new ConnectTask(z, str3, i3, Integer.valueOf(iMConnection.mConnectId.incrementAndGet())));
+                        try {
+                            str2 = str.substring(0, lastIndexOf);
+                        } catch (Exception e3) {
+                            e = e3;
+                            e.printStackTrace();
+                            new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                            str2 = null;
+                            if (TextUtils.isEmpty(str2)) {
+                            }
+                            str3 = Constants.URL_SOCKET_SERVER;
+                            i3 = Constants.SOCKET_PORT_SSL;
+                            TaskManager taskManager = TaskManager.getInstance(this.this$0.mContext);
+                            IMConnection iMConnection = this.this$0;
+                            submitForNetWork = taskManager.submitForNetWork(new ConnectTask(iMConnection, this.val$isInternalAction, str3, i3, Integer.valueOf(iMConnection.mConnectId.incrementAndGet())));
+                            LogUtils.i(IMConnection.TAG, "ConnectTask add to ThreadPool = " + submitForNetWork);
+                            if (submitForNetWork) {
+                            }
+                        }
+                        if (!TextUtils.isEmpty(str2) || i2 == -1) {
+                            str3 = Constants.URL_SOCKET_SERVER;
+                            i3 = Constants.SOCKET_PORT_SSL;
+                        } else {
+                            str3 = str2;
+                            i3 = i2;
+                        }
+                        TaskManager taskManager2 = TaskManager.getInstance(this.this$0.mContext);
+                        IMConnection iMConnection2 = this.this$0;
+                        submitForNetWork = taskManager2.submitForNetWork(new ConnectTask(iMConnection2, this.val$isInternalAction, str3, i3, Integer.valueOf(iMConnection2.mConnectId.incrementAndGet())));
                         LogUtils.i(IMConnection.TAG, "ConnectTask add to ThreadPool = " + submitForNetWork);
                         if (submitForNetWork) {
+                            this.this$0.mConnectting.set(false);
+                            TaskManager.getInstance(this.this$0.mContext).clearTask();
+                            LogUtils.d(IMConnection.TAG, "getUrlAsync..will disconnectedByPeer..." + str);
+                            this.this$0.disconnectedByPeer();
                         }
-                    }
-                    if (!TextUtils.isEmpty(str2) || i2 == -1) {
-                        str3 = Constants.URL_SOCKET_SERVER;
-                        i3 = Constants.SOCKET_PORT_SSL;
-                    } else {
-                        str3 = str2;
-                        i3 = i2;
-                    }
-                    TaskManager taskManager2 = TaskManager.getInstance(IMConnection.this.mContext);
-                    IMConnection iMConnection2 = IMConnection.this;
-                    submitForNetWork = taskManager2.submitForNetWork(new ConnectTask(z, str3, i3, Integer.valueOf(iMConnection2.mConnectId.incrementAndGet())));
-                    LogUtils.i(IMConnection.TAG, "ConnectTask add to ThreadPool = " + submitForNetWork);
-                    if (submitForNetWork) {
-                        IMConnection.this.mConnectting.set(false);
-                        TaskManager.getInstance(IMConnection.this.mContext).clearTask();
-                        LogUtils.d(IMConnection.TAG, "getUrlAsync..will disconnectedByPeer..." + str);
-                        IMConnection.this.disconnectedByPeer();
                     }
                 }
             });
@@ -530,22 +767,26 @@ public final class IMConnection {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void connectTrack(int i2, String str) {
-        if (this.mConnectIps.contains(Constants.URL_SOCKET_SERVER) && !this.mMessageHandler.mSocketIp.isEmpty()) {
-            this.mConnectIps = this.mMessageHandler.mSocketIp + ":" + Constants.URL_SOCKET_PORT;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65568, this, i2, str) == null) {
+            if (this.mConnectIps.contains(Constants.URL_SOCKET_SERVER) && !this.mMessageHandler.mSocketIp.isEmpty()) {
+                this.mConnectIps = this.mMessageHandler.mSocketIp + ":" + Constants.URL_SOCKET_PORT;
+            }
+            this.mConnectIps += ":" + RequsetNetworkUtils.getNetInfo(this.mContext);
+            int i3 = this.mFailedNumber.get();
+            LogUtils.d(TAG, "connectTrack ext:" + this.mConnectIps + "， mFailedNumber ：" + i3 + "， reason ： " + str);
+            long j = (long) i3;
+            new IMTrack.ConnectionBuilder(this.mContext).startTime(this.mStartConnTime).stopTime(System.currentTimeMillis()).aliasId((long) i2).reason(str).ext(this.mConnectIps).retryCount(j).build();
+            if (this.mFailedNumber.get() >= 5 && i2 != 401201) {
+                IMTrackManager.uploadIMRealAction(this.mContext, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(this.mStartConnTime).setStopTime(System.currentTimeMillis()).setAliasId(401206L).setReason(str).setExt(this.mConnectIps).setRetryCount(j).build()).build());
+            }
+            this.mConnectIps = "";
         }
-        this.mConnectIps += ":" + RequsetNetworkUtils.getNetInfo(this.mContext);
-        int i3 = this.mFailedNumber.get();
-        LogUtils.d(TAG, "connectTrack ext:" + this.mConnectIps + "， mFailedNumber ：" + i3 + "， reason ： " + str);
-        long j = (long) i3;
-        new IMTrack.ConnectionBuilder(this.mContext).startTime(this.mStartConnTime).stopTime(System.currentTimeMillis()).aliasId((long) i2).reason(str).ext(this.mConnectIps).retryCount(j).build();
-        if (this.mFailedNumber.get() >= 5 && i2 != 401201) {
-            IMTrackManager.uploadIMRealAction(this.mContext, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(this.mStartConnTime).setStopTime(System.currentTimeMillis()).setAliasId(401206L).setReason(str).setExt(this.mConnectIps).setRetryCount(j).build()).build());
-        }
-        this.mConnectIps = "";
     }
 
     private void destroy() {
-        if (a.f68195e) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f70712e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -571,57 +812,72 @@ public final class IMConnection {
     }
 
     private void fatalAllMessage() {
-        synchronized (this.mMessageHandler.getMessageQueue()) {
-            while (this.mMessageHandler.getMessageQueue().size() > 0) {
-                this.mMessageHandler.handleMessage(this.mMessageHandler.getMessageQueue().removeFirst(), null, false);
-            }
-        }
-        synchronized (this.mSync) {
-            for (Long l : this.mSendMessageMap.keySet()) {
-                Message message = this.mSendMessageMap.get(l);
-                if (message != null) {
-                    this.mMessageHandler.handleMessage(message, null, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
+            synchronized (this.mMessageHandler.getMessageQueue()) {
+                while (this.mMessageHandler.getMessageQueue().size() > 0) {
+                    this.mMessageHandler.handleMessage(this.mMessageHandler.getMessageQueue().removeFirst(), null, false);
                 }
             }
-            this.mSendMessageMap.clear();
+            synchronized (this.mSync) {
+                for (Long l : this.mSendMessageMap.keySet()) {
+                    Message message = this.mSendMessageMap.get(l);
+                    if (message != null) {
+                        this.mMessageHandler.handleMessage(message, null, false);
+                    }
+                }
+                this.mSendMessageMap.clear();
+            }
         }
     }
 
     public static IMConnection getInstance(Context context) {
-        if (mConnectionInstance == null) {
-            synchronized (IMConnection.class) {
-                if (mConnectionInstance == null) {
-                    mConnectionInstance = new IMConnection(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) {
+            if (mConnectionInstance == null) {
+                synchronized (IMConnection.class) {
+                    if (mConnectionInstance == null) {
+                        mConnectionInstance = new IMConnection(context);
+                    }
                 }
             }
+            return mConnectionInstance;
         }
-        return mConnectionInstance;
+        return (IMConnection) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initReadAndSendThread() {
-        LogUtils.d(TAG, "initReadAndSendThread...thread=" + Thread.currentThread().getName());
-        ReadThread readThread = this.mReadThread;
-        if (readThread != null && readThread.isAlive()) {
-            this.mReadThread.interrupt();
-            LogUtils.d(TAG, "mReadThread interupt");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
+            LogUtils.d(TAG, "initReadAndSendThread...thread=" + Thread.currentThread().getName());
+            ReadThread readThread = this.mReadThread;
+            if (readThread != null && readThread.isAlive()) {
+                this.mReadThread.interrupt();
+                LogUtils.d(TAG, "mReadThread interupt");
+            }
+            SendThread sendThread = this.mSendThread;
+            if (sendThread == null || !sendThread.isAlive()) {
+                return;
+            }
+            this.mSendThread.interrupt();
+            LogUtils.d(TAG, "mSendThread interupt");
         }
-        SendThread sendThread = this.mSendThread;
-        if (sendThread == null || !sendThread.isAlive()) {
-            return;
-        }
-        this.mSendThread.interrupt();
-        LogUtils.d(TAG, "mSendThread interupt");
     }
 
     public void connect() {
-        this.mFailedNumber.set(0);
-        this.mStoped = false;
-        connectImpl(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mFailedNumber.set(0);
+            this.mStoped = false;
+            connectImpl(false);
+        }
     }
 
     public void disconnectedByPeer() {
-        if (a.f68195e) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f70712e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);
@@ -641,67 +897,85 @@ public final class IMConnection {
     }
 
     public void internalConnect(boolean z) {
-        if (z) {
-            this.mFailedNumber.set(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                this.mFailedNumber.set(0);
+            }
+            this.mStoped = false;
+            connectImpl(true);
         }
-        this.mStoped = false;
-        connectImpl(true);
     }
 
     public boolean isConnected() {
-        return this.mConnected.get();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mConnected.get() : invokeV.booleanValue;
     }
 
     public void sendEmptyMessage() {
-        synchronized (this.mMessageHandler.getMessageQueue()) {
-            this.mMessageHandler.getMessageQueue().notifyAll();
-            if (!this.mConnected.get() && !this.mConnectting.get()) {
-                internalConnect(true);
-            }
-        }
-    }
-
-    public void sendHeartbeatMessage() {
-        IMessageHandler iMessageHandler = this.mMessageHandler;
-        if (iMessageHandler != null) {
-            iMessageHandler.sendHeartbeatMessage();
-        }
-    }
-
-    public void sendMessage(Message message, boolean z) {
-        synchronized (this.mMessageHandler.getMessageQueue()) {
-            if (message instanceof IMUserLoginByTokenMsg) {
-                Utility.writeLoginFlag(this.mContext, "16Y_2", "send Logig msg");
-                z = true;
-            }
-            if (message instanceof IMFetchConfigMsg) {
-                z = true;
-            }
-            if (z) {
-                this.mMessageHandler.getMessageQueue().addFirst(message);
-            } else {
-                this.mMessageHandler.getMessageQueue().add(message);
-            }
-            this.mMessageHandler.getMessageQueue().notifyAll();
-            if (!this.mConnected.get() && !this.mConnectting.get()) {
-                if (message instanceof IMUserLoginByTokenMsg) {
-                    connect();
-                } else {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.mMessageHandler.getMessageQueue()) {
+                this.mMessageHandler.getMessageQueue().notifyAll();
+                if (!this.mConnected.get() && !this.mConnectting.get()) {
                     internalConnect(true);
                 }
             }
         }
     }
 
+    public void sendHeartbeatMessage() {
+        IMessageHandler iMessageHandler;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (iMessageHandler = this.mMessageHandler) == null) {
+            return;
+        }
+        iMessageHandler.sendHeartbeatMessage();
+    }
+
+    public void sendMessage(Message message, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, message, z) == null) {
+            synchronized (this.mMessageHandler.getMessageQueue()) {
+                if (message instanceof IMUserLoginByTokenMsg) {
+                    Utility.writeLoginFlag(this.mContext, "16Y_2", "send Logig msg");
+                    z = true;
+                }
+                if (message instanceof IMFetchConfigMsg) {
+                    z = true;
+                }
+                if (z) {
+                    this.mMessageHandler.getMessageQueue().addFirst(message);
+                } else {
+                    this.mMessageHandler.getMessageQueue().add(message);
+                }
+                this.mMessageHandler.getMessageQueue().notifyAll();
+                if (!this.mConnected.get() && !this.mConnectting.get()) {
+                    if (message instanceof IMUserLoginByTokenMsg) {
+                        connect();
+                    } else {
+                        internalConnect(true);
+                    }
+                }
+            }
+        }
+    }
+
     public boolean shouldRetryLogin() {
-        return !this.mStoped && this.mFailedNumber.get() < 10 && IMUserLoginByTokenMsg.sRetrytimes < 20;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !this.mStoped && this.mFailedNumber.get() < 10 && IMUserLoginByTokenMsg.sRetrytimes < 20 : invokeV.booleanValue;
     }
 
     public void stop() {
-        LogUtils.i(TAG, "---stop---");
-        this.mClose = true;
-        this.mStoped = true;
-        this.mHandler.removeCallbacks(this.mReconnectRunnable);
-        destroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            LogUtils.i(TAG, "---stop---");
+            this.mClose = true;
+            this.mStoped = true;
+            this.mHandler.removeCallbacks(this.mReconnectRunnable);
+            destroy();
+        }
     }
 }

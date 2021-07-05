@@ -25,11 +25,23 @@ import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
-import d.a.c0.j;
-/* loaded from: classes2.dex */
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.g0.j;
+/* loaded from: classes3.dex */
 public class SwitchButton extends CompoundButton {
-    public static int[] o0 = {16842912, 16842910, 16842919};
-    public static int[] p0 = {-16842912, 16842910, 16842919};
+    public static /* synthetic */ Interceptable $ic;
+    public static int[] o0;
+    public static int[] p0;
+    public transient /* synthetic */ FieldHolder $fh;
     public RectF A;
     public RectF B;
     public RectF C;
@@ -58,19 +70,19 @@ public class SwitchButton extends CompoundButton {
     public int c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f9369e;
+    public Drawable f9443e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f9370f;
+    public Drawable f9444f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ColorStateList f9371g;
+    public ColorStateList f9445g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ColorStateList f9372h;
+    public ColorStateList f9446h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f9373i;
+    public float f9447i;
     public int i0;
     public float j;
     public int j0;
@@ -95,54 +107,168 @@ public class SwitchButton extends CompoundButton {
     public Drawable y;
     public Drawable z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends View.BaseSavedState {
-        public static final Parcelable.Creator<a> CREATOR = new C0119a();
-
-        /* renamed from: e  reason: collision with root package name */
-        public CharSequence f9374e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public CharSequence f9375f;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator<a> CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
+        public CharSequence r;
+        public CharSequence s;
 
         /* renamed from: com.baidu.poly.widget.SwitchButton$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0119a implements Parcelable.Creator<a> {
+        /* loaded from: classes3.dex */
+        public static class C0137a implements Parcelable.Creator<a> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0137a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             /* renamed from: a */
             public a createFromParcel(Parcel parcel) {
-                return new a(parcel);
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new a(parcel, null) : (a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             /* renamed from: b */
             public a[] newArray(int i2) {
-                return new a[i2];
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new a[i2] : (a[]) invokeI.objValue;
             }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(745200066, "Lcom/baidu/poly/widget/SwitchButton$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(745200066, "Lcom/baidu/poly/widget/SwitchButton$a;");
+                    return;
+                }
+            }
+            CREATOR = new C0137a();
+        }
+
+        public /* synthetic */ a(Parcel parcel, b bVar) {
+            this(parcel);
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
-            super.writeToParcel(parcel, i2);
-            TextUtils.writeToParcel(this.f9374e, parcel, i2);
-            TextUtils.writeToParcel(this.f9375f, parcel, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
+                super.writeToParcel(parcel, i2);
+                TextUtils.writeToParcel(this.r, parcel, i2);
+                TextUtils.writeToParcel(this.s, parcel, i2);
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Parcelable parcelable) {
             super(parcelable);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcelable};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Parcelable) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Parcel parcel) {
             super(parcel);
-            this.f9374e = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-            this.f9375f = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Parcel) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.r = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+            this.s = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
         }
     }
 
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1831624737, "Lcom/baidu/poly/widget/SwitchButton;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1831624737, "Lcom/baidu/poly/widget/SwitchButton;");
+                return;
+            }
+        }
+        o0 = new int[]{16842912, 16842910, 16842919};
+        p0 = new int[]{-16842912, 16842910, 16842919};
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchButton(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.I = false;
         this.k0 = false;
         this.l0 = false;
@@ -151,39 +277,56 @@ public class SwitchButton extends CompoundButton {
     }
 
     private float getProgress() {
-        return this.K;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? this.K : invokeV.floatValue;
     }
 
     private boolean getStatusBasedOnPos() {
-        return getProgress() > 0.5f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? getProgress() > 0.5f : invokeV.booleanValue;
     }
 
     private void setDrawableState(Drawable drawable) {
-        if (drawable != null) {
-            drawable.setState(getDrawableState());
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, drawable) == null) || drawable == null) {
+            return;
+        }
+        drawable.setState(getDrawableState());
+        invalidate();
+    }
+
+    private void setProgress(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(65543, this, f2) == null) {
+            if (f2 > 1.0f) {
+                f2 = 1.0f;
+            } else if (f2 < 0.0f) {
+                f2 = 0.0f;
+            }
+            this.K = f2;
             invalidate();
         }
     }
 
-    private void setProgress(float f2) {
-        if (f2 > 1.0f) {
-            f2 = 1.0f;
-        } else if (f2 < 0.0f) {
-            f2 = 0.0f;
-        }
-        this.K = f2;
-        invalidate();
-    }
-
     public final Layout a(CharSequence charSequence) {
-        TextPaint textPaint = this.U;
-        return new StaticLayout(charSequence, textPaint, (int) Math.ceil(Layout.getDesiredWidth(charSequence, textPaint)), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
+            TextPaint textPaint = this.U;
+            return new StaticLayout(charSequence, textPaint, (int) Math.ceil(Layout.getDesiredWidth(charSequence, textPaint)), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+        }
+        return (Layout) invokeL.objValue;
     }
 
     public void b(float f2, float f3, float f4, float f5) {
-        this.k.set(f2, f3, f4, f5);
-        this.l0 = false;
-        requestLayout();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            this.k.set(f2, f3, f4, f5);
+            this.l0 = false;
+            requestLayout();
+        }
     }
 
     public final void c(AttributeSet attributeSet) {
@@ -212,210 +355,220 @@ public class SwitchButton extends CompoundButton {
         float f12;
         TypedArray obtainStyledAttributes;
         ColorStateList colorStateList3;
-        this.P = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        this.Q = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
-        this.F = new Paint(1);
-        Paint paint = new Paint(1);
-        this.R = paint;
-        paint.setStyle(Paint.Style.STROKE);
-        this.R.setStrokeWidth(getResources().getDisplayMetrics().density);
-        this.U = getPaint();
-        this.A = new RectF();
-        this.B = new RectF();
-        this.C = new RectF();
-        this.k = new RectF();
-        this.D = new RectF();
-        this.E = new RectF();
-        ObjectAnimator duration = ObjectAnimator.ofFloat(this, "progress", 0.0f, 0.0f).setDuration(250L);
-        this.J = duration;
-        duration.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.L = new RectF();
-        float f13 = getResources().getDisplayMetrics().density * 2.0f;
-        TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, j.SwitchButton);
-        if (obtainStyledAttributes2 != null) {
-            Drawable drawable3 = obtainStyledAttributes2.getDrawable(j.SwitchButton_kswThumbDrawable);
-            ColorStateList colorStateList4 = obtainStyledAttributes2.getColorStateList(j.SwitchButton_kswThumbColor);
-            float dimension = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMargin, f13);
-            float dimension2 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginLeft, dimension);
-            float dimension3 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginRight, dimension);
-            float dimension4 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginTop, dimension);
-            float dimension5 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginBottom, dimension);
-            float dimension6 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbWidth, 0.0f);
-            float dimension7 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbHeight, 0.0f);
-            float dimension8 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbRadius, -1.0f);
-            float dimension9 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswBackRadius, -1.0f);
-            Drawable drawable4 = obtainStyledAttributes2.getDrawable(j.SwitchButton_kswBackDrawable);
-            ColorStateList colorStateList5 = obtainStyledAttributes2.getColorStateList(j.SwitchButton_kswBackColor);
-            float f14 = obtainStyledAttributes2.getFloat(j.SwitchButton_kswThumbRangeRatio, 1.8f);
-            int integer = obtainStyledAttributes2.getInteger(j.SwitchButton_kswAnimationDuration, 250);
-            boolean z2 = obtainStyledAttributes2.getBoolean(j.SwitchButton_kswFadeBack, true);
-            int color = obtainStyledAttributes2.getColor(j.SwitchButton_kswTintColor, 0);
-            String string = obtainStyledAttributes2.getString(j.SwitchButton_kswTextOn);
-            String string2 = obtainStyledAttributes2.getString(j.SwitchButton_kswTextOff);
-            int dimensionPixelSize = obtainStyledAttributes2.getDimensionPixelSize(j.SwitchButton_kswTextThumbInset, 0);
-            int dimensionPixelSize2 = obtainStyledAttributes2.getDimensionPixelSize(j.SwitchButton_kswTextExtra, 0);
-            int dimensionPixelSize3 = obtainStyledAttributes2.getDimensionPixelSize(j.SwitchButton_kswTextAdjust, 0);
-            obtainStyledAttributes2.recycle();
-            colorStateList = colorStateList4;
-            i6 = integer;
-            z = z2;
-            i3 = dimensionPixelSize2;
-            f8 = f14;
-            drawable2 = drawable3;
-            drawable = drawable4;
-            f4 = dimension4;
-            f7 = dimension8;
-            str2 = string;
-            i2 = dimensionPixelSize3;
-            str = string2;
-            f10 = dimension2;
-            colorStateList2 = colorStateList5;
-            f3 = dimension6;
-            f2 = dimension3;
-            f5 = dimension7;
-            i5 = color;
-            f9 = dimension5;
-            f6 = dimension9;
-            i4 = dimensionPixelSize;
-        } else {
-            str = null;
-            colorStateList = null;
-            f2 = 0.0f;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            str2 = null;
-            i5 = 0;
-            drawable = null;
-            f3 = 0.0f;
-            f4 = 0.0f;
-            drawable2 = null;
-            colorStateList2 = null;
-            f5 = 0.0f;
-            z = true;
-            f6 = -1.0f;
-            f7 = -1.0f;
-            f8 = 1.8f;
-            f9 = 0.0f;
-            f10 = 0.0f;
-            i6 = 250;
-        }
-        if (attributeSet == null) {
-            f11 = f2;
-            f12 = f4;
-            obtainStyledAttributes = null;
-        } else {
-            f11 = f2;
-            f12 = f4;
-            obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{16842970, 16842981});
-        }
-        if (obtainStyledAttributes != null) {
-            colorStateList3 = colorStateList2;
-            boolean z3 = obtainStyledAttributes.getBoolean(0, true);
-            boolean z4 = obtainStyledAttributes.getBoolean(1, z3);
-            setFocusable(z3);
-            setClickable(z4);
-            obtainStyledAttributes.recycle();
-        } else {
-            colorStateList3 = colorStateList2;
-            setFocusable(true);
-            setClickable(true);
-        }
-        this.S = str2;
-        this.T = str;
-        this.c0 = i4;
-        this.i0 = i3;
-        this.j0 = i2;
-        this.f9369e = drawable2;
-        this.f9372h = colorStateList;
-        this.G = drawable2 != null;
-        this.o = i5;
-        if (i5 == 0) {
-            new TypedValue();
-            this.o = 3309506;
-        }
-        if (!this.G && this.f9372h == null) {
-            ColorStateList b2 = d.a.c0.p.b.b(this.o);
-            this.f9372h = b2;
-            this.t = b2.getDefaultColor();
-        }
-        this.p = f(f3);
-        this.q = f(f5);
-        this.f9370f = drawable;
-        this.f9371g = colorStateList3;
-        boolean z5 = drawable != null;
-        this.H = z5;
-        if (!z5 && this.f9371g == null) {
-            ColorStateList a2 = d.a.c0.p.b.a(this.o);
-            this.f9371g = a2;
-            int defaultColor = a2.getDefaultColor();
-            this.u = defaultColor;
-            this.v = this.f9371g.getColorForState(o0, defaultColor);
-        }
-        this.k.set(f10, f12, f11, f9);
-        float f15 = f8;
-        this.l = this.k.width() >= 0.0f ? Math.max(f15, 1.0f) : f15;
-        this.f9373i = f7;
-        this.j = f6;
-        long j = i6;
-        this.m = j;
-        this.n = z;
-        this.J.setDuration(j);
-        if (isChecked()) {
-            setProgress(1.0f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
+            this.P = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+            this.Q = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
+            this.F = new Paint(1);
+            Paint paint = new Paint(1);
+            this.R = paint;
+            paint.setStyle(Paint.Style.STROKE);
+            this.R.setStrokeWidth(getResources().getDisplayMetrics().density);
+            this.U = getPaint();
+            this.A = new RectF();
+            this.B = new RectF();
+            this.C = new RectF();
+            this.k = new RectF();
+            this.D = new RectF();
+            this.E = new RectF();
+            ObjectAnimator duration = ObjectAnimator.ofFloat(this, "progress", 0.0f, 0.0f).setDuration(250L);
+            this.J = duration;
+            duration.setInterpolator(new AccelerateDecelerateInterpolator());
+            this.L = new RectF();
+            float f13 = getResources().getDisplayMetrics().density * 2.0f;
+            TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, j.SwitchButton);
+            if (obtainStyledAttributes2 != null) {
+                Drawable drawable3 = obtainStyledAttributes2.getDrawable(j.SwitchButton_kswThumbDrawable);
+                ColorStateList colorStateList4 = obtainStyledAttributes2.getColorStateList(j.SwitchButton_kswThumbColor);
+                float dimension = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMargin, f13);
+                float dimension2 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginLeft, dimension);
+                float dimension3 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginRight, dimension);
+                float dimension4 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginTop, dimension);
+                float dimension5 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginBottom, dimension);
+                float dimension6 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbWidth, 0.0f);
+                float dimension7 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbHeight, 0.0f);
+                float dimension8 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbRadius, -1.0f);
+                float dimension9 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswBackRadius, -1.0f);
+                Drawable drawable4 = obtainStyledAttributes2.getDrawable(j.SwitchButton_kswBackDrawable);
+                ColorStateList colorStateList5 = obtainStyledAttributes2.getColorStateList(j.SwitchButton_kswBackColor);
+                float f14 = obtainStyledAttributes2.getFloat(j.SwitchButton_kswThumbRangeRatio, 1.8f);
+                int integer = obtainStyledAttributes2.getInteger(j.SwitchButton_kswAnimationDuration, 250);
+                boolean z2 = obtainStyledAttributes2.getBoolean(j.SwitchButton_kswFadeBack, true);
+                int color = obtainStyledAttributes2.getColor(j.SwitchButton_kswTintColor, 0);
+                String string = obtainStyledAttributes2.getString(j.SwitchButton_kswTextOn);
+                String string2 = obtainStyledAttributes2.getString(j.SwitchButton_kswTextOff);
+                int dimensionPixelSize = obtainStyledAttributes2.getDimensionPixelSize(j.SwitchButton_kswTextThumbInset, 0);
+                int dimensionPixelSize2 = obtainStyledAttributes2.getDimensionPixelSize(j.SwitchButton_kswTextExtra, 0);
+                int dimensionPixelSize3 = obtainStyledAttributes2.getDimensionPixelSize(j.SwitchButton_kswTextAdjust, 0);
+                obtainStyledAttributes2.recycle();
+                colorStateList = colorStateList4;
+                i6 = integer;
+                z = z2;
+                i3 = dimensionPixelSize2;
+                f8 = f14;
+                drawable2 = drawable3;
+                drawable = drawable4;
+                f4 = dimension4;
+                f7 = dimension8;
+                str2 = string;
+                i2 = dimensionPixelSize3;
+                str = string2;
+                f10 = dimension2;
+                colorStateList2 = colorStateList5;
+                f3 = dimension6;
+                f2 = dimension3;
+                f5 = dimension7;
+                i5 = color;
+                f9 = dimension5;
+                f6 = dimension9;
+                i4 = dimensionPixelSize;
+            } else {
+                str = null;
+                colorStateList = null;
+                f2 = 0.0f;
+                i2 = 0;
+                i3 = 0;
+                i4 = 0;
+                str2 = null;
+                i5 = 0;
+                drawable = null;
+                f3 = 0.0f;
+                f4 = 0.0f;
+                drawable2 = null;
+                colorStateList2 = null;
+                f5 = 0.0f;
+                z = true;
+                f6 = -1.0f;
+                f7 = -1.0f;
+                f8 = 1.8f;
+                f9 = 0.0f;
+                f10 = 0.0f;
+                i6 = 250;
+            }
+            if (attributeSet == null) {
+                f11 = f2;
+                f12 = f4;
+                obtainStyledAttributes = null;
+            } else {
+                f11 = f2;
+                f12 = f4;
+                obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{16842970, 16842981});
+            }
+            if (obtainStyledAttributes != null) {
+                colorStateList3 = colorStateList2;
+                boolean z3 = obtainStyledAttributes.getBoolean(0, true);
+                boolean z4 = obtainStyledAttributes.getBoolean(1, z3);
+                setFocusable(z3);
+                setClickable(z4);
+                obtainStyledAttributes.recycle();
+            } else {
+                colorStateList3 = colorStateList2;
+                setFocusable(true);
+                setClickable(true);
+            }
+            this.S = str2;
+            this.T = str;
+            this.c0 = i4;
+            this.i0 = i3;
+            this.j0 = i2;
+            this.f9443e = drawable2;
+            this.f9446h = colorStateList;
+            this.G = drawable2 != null;
+            this.o = i5;
+            if (i5 == 0) {
+                new TypedValue();
+                this.o = 3309506;
+            }
+            if (!this.G && this.f9446h == null) {
+                ColorStateList b2 = d.a.g0.p.b.b(this.o);
+                this.f9446h = b2;
+                this.t = b2.getDefaultColor();
+            }
+            this.p = f(f3);
+            this.q = f(f5);
+            this.f9444f = drawable;
+            this.f9445g = colorStateList3;
+            boolean z5 = drawable != null;
+            this.H = z5;
+            if (!z5 && this.f9445g == null) {
+                ColorStateList a2 = d.a.g0.p.b.a(this.o);
+                this.f9445g = a2;
+                int defaultColor = a2.getDefaultColor();
+                this.u = defaultColor;
+                this.v = this.f9445g.getColorForState(o0, defaultColor);
+            }
+            this.k.set(f10, f12, f11, f9);
+            float f15 = f8;
+            this.l = this.k.width() >= 0.0f ? Math.max(f15, 1.0f) : f15;
+            this.f9447i = f7;
+            this.j = f6;
+            long j = i6;
+            this.m = j;
+            this.n = z;
+            this.J.setDuration(j);
+            if (isChecked()) {
+                setProgress(1.0f);
+            }
         }
     }
 
     public void d(CharSequence charSequence, CharSequence charSequence2) {
-        this.S = charSequence;
-        this.T = charSequence2;
-        this.V = null;
-        this.W = null;
-        this.l0 = false;
-        requestLayout();
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, charSequence, charSequence2) == null) {
+            this.S = charSequence;
+            this.T = charSequence2;
+            this.V = null;
+            this.W = null;
+            this.l0 = false;
+            requestLayout();
+            invalidate();
+        }
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public void drawableStateChanged() {
         ColorStateList colorStateList;
         ColorStateList colorStateList2;
-        super.drawableStateChanged();
-        if (!this.G && (colorStateList2 = this.f9372h) != null) {
-            this.t = colorStateList2.getColorForState(getDrawableState(), this.t);
-        } else {
-            setDrawableState(this.f9369e);
-        }
-        int[] iArr = isChecked() ? p0 : o0;
-        ColorStateList textColors = getTextColors();
-        if (textColors != null) {
-            int defaultColor = textColors.getDefaultColor();
-            this.w = textColors.getColorForState(o0, defaultColor);
-            this.x = textColors.getColorForState(p0, defaultColor);
-        }
-        if (!this.H && (colorStateList = this.f9371g) != null) {
-            int colorForState = colorStateList.getColorForState(getDrawableState(), this.u);
-            this.u = colorForState;
-            this.v = this.f9371g.getColorForState(iArr, colorForState);
-            return;
-        }
-        Drawable drawable = this.f9370f;
-        if ((drawable instanceof StateListDrawable) && this.n) {
-            drawable.setState(iArr);
-            this.z = this.f9370f.getCurrent().mutate();
-        } else {
-            this.z = null;
-        }
-        setDrawableState(this.f9370f);
-        Drawable drawable2 = this.f9370f;
-        if (drawable2 != null) {
-            this.y = drawable2.getCurrent().mutate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.drawableStateChanged();
+            if (!this.G && (colorStateList2 = this.f9446h) != null) {
+                this.t = colorStateList2.getColorForState(getDrawableState(), this.t);
+            } else {
+                setDrawableState(this.f9443e);
+            }
+            int[] iArr = isChecked() ? p0 : o0;
+            ColorStateList textColors = getTextColors();
+            if (textColors != null) {
+                int defaultColor = textColors.getDefaultColor();
+                this.w = textColors.getColorForState(o0, defaultColor);
+                this.x = textColors.getColorForState(p0, defaultColor);
+            }
+            if (!this.H && (colorStateList = this.f9445g) != null) {
+                int colorForState = colorStateList.getColorForState(getDrawableState(), this.u);
+                this.u = colorForState;
+                this.v = this.f9445g.getColorForState(iArr, colorForState);
+                return;
+            }
+            Drawable drawable = this.f9444f;
+            if ((drawable instanceof StateListDrawable) && this.n) {
+                drawable.setState(iArr);
+                this.z = this.f9444f.getCurrent().mutate();
+            } else {
+                this.z = null;
+            }
+            setDrawableState(this.f9444f);
+            Drawable drawable2 = this.f9444f;
+            if (drawable2 != null) {
+                this.y = drawable2.getCurrent().mutate();
+            }
         }
     }
 
     public void e(boolean z) {
-        ObjectAnimator objectAnimator = this.J;
-        if (objectAnimator == null) {
+        ObjectAnimator objectAnimator;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (objectAnimator = this.J) == null) {
             return;
         }
         if (objectAnimator.isRunning()) {
@@ -431,236 +584,285 @@ public class SwitchButton extends CompoundButton {
     }
 
     public final int f(double d2) {
-        return (int) Math.ceil(d2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d2)})) == null) ? (int) Math.ceil(d2) : invokeCommon.intValue;
     }
 
     public final int g(int i2) {
+        InterceptResult invokeI;
         int i3;
         int f2;
         int f3;
-        int size = View.MeasureSpec.getSize(i2);
-        int mode = View.MeasureSpec.getMode(i2);
-        if (this.q == 0 && this.G) {
-            this.q = this.f9369e.getIntrinsicHeight();
-        }
-        if (mode == 1073741824) {
-            if (this.q != 0) {
-                RectF rectF = this.k;
-                this.s = f(i3 + rectF.top + rectF.bottom);
-                this.s = f(Math.max(f2, this.b0));
-                if ((((f3 + getPaddingTop()) + getPaddingBottom()) - Math.min(0.0f, this.k.top)) - Math.min(0.0f, this.k.bottom) > size) {
-                    this.q = 0;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+            int size = View.MeasureSpec.getSize(i2);
+            int mode = View.MeasureSpec.getMode(i2);
+            if (this.q == 0 && this.G) {
+                this.q = this.f9443e.getIntrinsicHeight();
             }
-            if (this.q == 0) {
-                int f4 = f(((size - getPaddingTop()) - getPaddingBottom()) + Math.min(0.0f, this.k.top) + Math.min(0.0f, this.k.bottom));
-                this.s = f4;
-                if (f4 < 0) {
+            if (mode == 1073741824) {
+                if (this.q != 0) {
+                    RectF rectF = this.k;
+                    this.s = f(i3 + rectF.top + rectF.bottom);
+                    this.s = f(Math.max(f2, this.b0));
+                    if ((((f3 + getPaddingTop()) + getPaddingBottom()) - Math.min(0.0f, this.k.top)) - Math.min(0.0f, this.k.bottom) > size) {
+                        this.q = 0;
+                    }
+                }
+                if (this.q == 0) {
+                    int f4 = f(((size - getPaddingTop()) - getPaddingBottom()) + Math.min(0.0f, this.k.top) + Math.min(0.0f, this.k.bottom));
+                    this.s = f4;
+                    if (f4 < 0) {
+                        this.s = 0;
+                        this.q = 0;
+                        return size;
+                    }
+                    RectF rectF2 = this.k;
+                    this.q = f((f4 - rectF2.top) - rectF2.bottom);
+                }
+                if (this.q < 0) {
                     this.s = 0;
                     this.q = 0;
                     return size;
                 }
-                RectF rectF2 = this.k;
-                this.q = f((f4 - rectF2.top) - rectF2.bottom);
+                return size;
             }
-            if (this.q < 0) {
+            if (this.q == 0) {
+                this.q = f(getResources().getDisplayMetrics().density * 20.0f);
+            }
+            RectF rectF3 = this.k;
+            int f5 = f(this.q + rectF3.top + rectF3.bottom);
+            this.s = f5;
+            if (f5 < 0) {
                 this.s = 0;
                 this.q = 0;
                 return size;
             }
-            return size;
+            int f6 = f(this.b0 - f5);
+            if (f6 > 0) {
+                this.s += f6;
+                this.q += f6;
+            }
+            int max = Math.max(this.q, this.s);
+            return Math.max(Math.max(max, getPaddingTop() + max + getPaddingBottom()), getSuggestedMinimumHeight());
         }
-        if (this.q == 0) {
-            this.q = f(getResources().getDisplayMetrics().density * 20.0f);
-        }
-        RectF rectF3 = this.k;
-        int f5 = f(this.q + rectF3.top + rectF3.bottom);
-        this.s = f5;
-        if (f5 < 0) {
-            this.s = 0;
-            this.q = 0;
-            return size;
-        }
-        int f6 = f(this.b0 - f5);
-        if (f6 > 0) {
-            this.s += f6;
-            this.q += f6;
-        }
-        int max = Math.max(this.q, this.s);
-        return Math.max(Math.max(max, getPaddingTop() + max + getPaddingBottom()), getSuggestedMinimumHeight());
+        return invokeI.intValue;
     }
 
     public long getAnimationDuration() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.m : invokeV.longValue;
     }
 
     public ColorStateList getBackColor() {
-        return this.f9371g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f9445g : (ColorStateList) invokeV.objValue;
     }
 
     public Drawable getBackDrawable() {
-        return this.f9370f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f9444f : (Drawable) invokeV.objValue;
     }
 
     public float getBackRadius() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j : invokeV.floatValue;
     }
 
     public PointF getBackSizeF() {
-        return new PointF(this.B.width(), this.B.height());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new PointF(this.B.width(), this.B.height()) : (PointF) invokeV.objValue;
     }
 
     public CharSequence getTextOff() {
-        return this.T;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.T : (CharSequence) invokeV.objValue;
     }
 
     public CharSequence getTextOn() {
-        return this.S;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.S : (CharSequence) invokeV.objValue;
     }
 
     public ColorStateList getThumbColor() {
-        return this.f9372h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f9446h : (ColorStateList) invokeV.objValue;
     }
 
     public Drawable getThumbDrawable() {
-        return this.f9369e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f9443e : (Drawable) invokeV.objValue;
     }
 
     public float getThumbHeight() {
-        return this.q;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.q : invokeV.floatValue;
     }
 
     public RectF getThumbMargin() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.k : (RectF) invokeV.objValue;
     }
 
     public float getThumbRadius() {
-        return this.f9373i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f9447i : invokeV.floatValue;
     }
 
     public float getThumbRangeRatio() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.l : invokeV.floatValue;
     }
 
     public float getThumbWidth() {
-        return this.p;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.p : invokeV.floatValue;
     }
 
     public int getTintColor() {
-        return this.o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.o : invokeV.intValue;
     }
 
     public final int h(int i2) {
+        InterceptResult invokeI;
         int i3;
-        int size = View.MeasureSpec.getSize(i2);
-        int mode = View.MeasureSpec.getMode(i2);
-        if (this.p == 0 && this.G) {
-            this.p = this.f9369e.getIntrinsicWidth();
-        }
-        int f2 = f(this.a0);
-        if (this.l == 0.0f) {
-            this.l = 1.8f;
-        }
-        if (mode == 1073741824) {
-            int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
-            if (this.p != 0) {
-                int f3 = f(i3 * this.l);
-                RectF rectF = this.k;
-                int f4 = (this.i0 + f2) - ((f3 - this.p) + f(Math.max(rectF.left, rectF.right)));
-                float f5 = f3;
-                RectF rectF2 = this.k;
-                int f6 = f(rectF2.left + f5 + rectF2.right + Math.max(f4, 0));
-                this.r = f6;
-                if (f6 < 0) {
-                    this.p = 0;
-                }
-                if (f5 + Math.max(this.k.left, 0.0f) + Math.max(this.k.right, 0.0f) + Math.max(f4, 0) > paddingLeft) {
-                    this.p = 0;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
+            int size = View.MeasureSpec.getSize(i2);
+            int mode = View.MeasureSpec.getMode(i2);
+            if (this.p == 0 && this.G) {
+                this.p = this.f9443e.getIntrinsicWidth();
             }
-            if (this.p == 0) {
-                int f7 = f((((size - getPaddingLeft()) - getPaddingRight()) - Math.max(this.k.left, 0.0f)) - Math.max(this.k.right, 0.0f));
-                if (f7 < 0) {
-                    this.p = 0;
-                    this.r = 0;
-                    return size;
+            int f2 = f(this.a0);
+            if (this.l == 0.0f) {
+                this.l = 1.8f;
+            }
+            if (mode == 1073741824) {
+                int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
+                if (this.p != 0) {
+                    int f3 = f(i3 * this.l);
+                    RectF rectF = this.k;
+                    int f4 = (this.i0 + f2) - ((f3 - this.p) + f(Math.max(rectF.left, rectF.right)));
+                    float f5 = f3;
+                    RectF rectF2 = this.k;
+                    int f6 = f(rectF2.left + f5 + rectF2.right + Math.max(f4, 0));
+                    this.r = f6;
+                    if (f6 < 0) {
+                        this.p = 0;
+                    }
+                    if (f5 + Math.max(this.k.left, 0.0f) + Math.max(this.k.right, 0.0f) + Math.max(f4, 0) > paddingLeft) {
+                        this.p = 0;
+                    }
                 }
-                float f8 = f7;
-                this.p = f(f8 / this.l);
-                RectF rectF3 = this.k;
-                int f9 = f(f8 + rectF3.left + rectF3.right);
-                this.r = f9;
-                if (f9 < 0) {
-                    this.p = 0;
-                    this.r = 0;
-                    return size;
-                }
-                int i4 = f2 + this.i0;
-                int i5 = f7 - this.p;
-                RectF rectF4 = this.k;
-                int f10 = i4 - (i5 + f(Math.max(rectF4.left, rectF4.right)));
-                if (f10 > 0) {
-                    this.p -= f10;
-                }
-                if (this.p < 0) {
-                    this.p = 0;
-                    this.r = 0;
+                if (this.p == 0) {
+                    int f7 = f((((size - getPaddingLeft()) - getPaddingRight()) - Math.max(this.k.left, 0.0f)) - Math.max(this.k.right, 0.0f));
+                    if (f7 < 0) {
+                        this.p = 0;
+                        this.r = 0;
+                        return size;
+                    }
+                    float f8 = f7;
+                    this.p = f(f8 / this.l);
+                    RectF rectF3 = this.k;
+                    int f9 = f(f8 + rectF3.left + rectF3.right);
+                    this.r = f9;
+                    if (f9 < 0) {
+                        this.p = 0;
+                        this.r = 0;
+                        return size;
+                    }
+                    int i4 = f2 + this.i0;
+                    int i5 = f7 - this.p;
+                    RectF rectF4 = this.k;
+                    int f10 = i4 - (i5 + f(Math.max(rectF4.left, rectF4.right)));
+                    if (f10 > 0) {
+                        this.p -= f10;
+                    }
+                    if (this.p < 0) {
+                        this.p = 0;
+                        this.r = 0;
+                        return size;
+                    }
                     return size;
                 }
                 return size;
             }
-            return size;
+            if (this.p == 0) {
+                this.p = f(getResources().getDisplayMetrics().density * 20.0f);
+            }
+            if (this.l == 0.0f) {
+                this.l = 1.8f;
+            }
+            int f11 = f(this.p * this.l);
+            RectF rectF5 = this.k;
+            int f12 = f((f2 + this.i0) - (((f11 - this.p) + Math.max(rectF5.left, rectF5.right)) + this.c0));
+            float f13 = f11;
+            RectF rectF6 = this.k;
+            int f14 = f(rectF6.left + f13 + rectF6.right + Math.max(0, f12));
+            this.r = f14;
+            if (f14 < 0) {
+                this.p = 0;
+                this.r = 0;
+                return size;
+            }
+            int f15 = f(f13 + Math.max(0.0f, this.k.left) + Math.max(0.0f, this.k.right) + Math.max(0, f12));
+            return Math.max(f15, getPaddingLeft() + f15 + getPaddingRight());
         }
-        if (this.p == 0) {
-            this.p = f(getResources().getDisplayMetrics().density * 20.0f);
-        }
-        if (this.l == 0.0f) {
-            this.l = 1.8f;
-        }
-        int f11 = f(this.p * this.l);
-        RectF rectF5 = this.k;
-        int f12 = f((f2 + this.i0) - (((f11 - this.p) + Math.max(rectF5.left, rectF5.right)) + this.c0));
-        float f13 = f11;
-        RectF rectF6 = this.k;
-        int f14 = f(rectF6.left + f13 + rectF6.right + Math.max(0, f12));
-        this.r = f14;
-        if (f14 < 0) {
-            this.p = 0;
-            this.r = 0;
-            return size;
-        }
-        int f15 = f(f13 + Math.max(0.0f, this.k.left) + Math.max(0.0f, this.k.right) + Math.max(0, f12));
-        return Math.max(f15, getPaddingLeft() + f15 + getPaddingRight());
+        return invokeI.intValue;
     }
 
     public final void i() {
-        ViewParent parent = getParent();
-        if (parent != null) {
-            parent.requestDisallowInterceptTouchEvent(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            ViewParent parent = getParent();
+            if (parent != null) {
+                parent.requestDisallowInterceptTouchEvent(true);
+            }
+            this.m0 = true;
         }
-        this.m0 = true;
     }
 
     public void j() {
-        if (this.n0 == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            if (this.n0 == null) {
+                toggle();
+                return;
+            }
+            super.setOnCheckedChangeListener(null);
             toggle();
-            return;
+            super.setOnCheckedChangeListener(this.n0);
         }
-        super.setOnCheckedChangeListener(null);
-        toggle();
-        super.setOnCheckedChangeListener(this.n0);
     }
 
     public final void k() {
         int i2;
+        int i3;
         float paddingTop;
         float paddingLeft;
-        int i3 = this.p;
-        if (i3 == 0 || (i2 = this.q) == 0 || this.r == 0 || this.s == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (i2 = this.p) == 0 || (i3 = this.q) == 0 || this.r == 0 || this.s == 0) {
             return;
         }
-        if (this.f9373i == -1.0f) {
-            this.f9373i = Math.min(i3, i2) / 2;
+        if (this.f9447i == -1.0f) {
+            this.f9447i = Math.min(i2, i3) / 2;
         }
         if (this.j == -1.0f) {
             this.j = Math.min(this.r, this.s) / 2;
@@ -691,7 +893,7 @@ public class SwitchButton extends CompoundButton {
         RectF rectF5 = this.A;
         rectF4.set(rectF5.left, 0.0f, (this.B.right - this.k.right) - rectF5.width(), 0.0f);
         this.j = Math.min(Math.min(this.B.width(), this.B.height()) / 2.0f, this.j);
-        Drawable drawable = this.f9370f;
+        Drawable drawable = this.f9444f;
         if (drawable != null) {
             RectF rectF6 = this.B;
             drawable.setBounds((int) rectF6.left, (int) rectF6.top, f(rectF6.right), f(this.B.bottom));
@@ -716,376 +918,489 @@ public class SwitchButton extends CompoundButton {
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         float progress;
-        super.onDraw(canvas);
-        if (!this.l0) {
-            k();
-        }
-        if (this.l0) {
-            if (this.H) {
-                if (this.n && this.y != null && this.z != null) {
-                    Drawable drawable = isChecked() ? this.y : this.z;
-                    Drawable drawable2 = isChecked() ? this.z : this.y;
-                    int progress2 = (int) (getProgress() * 255.0f);
-                    drawable.setAlpha(progress2);
-                    drawable.draw(canvas);
-                    drawable2.setAlpha(255 - progress2);
-                    drawable2.draw(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (!this.l0) {
+                k();
+            }
+            if (this.l0) {
+                if (this.H) {
+                    if (this.n && this.y != null && this.z != null) {
+                        Drawable drawable = isChecked() ? this.y : this.z;
+                        Drawable drawable2 = isChecked() ? this.z : this.y;
+                        int progress2 = (int) (getProgress() * 255.0f);
+                        drawable.setAlpha(progress2);
+                        drawable.draw(canvas);
+                        drawable2.setAlpha(255 - progress2);
+                        drawable2.draw(canvas);
+                    } else {
+                        this.f9444f.setAlpha(255);
+                        this.f9444f.draw(canvas);
+                    }
+                } else if (this.n) {
+                    int i2 = isChecked() ? this.u : this.v;
+                    int i3 = isChecked() ? this.v : this.u;
+                    int progress3 = (int) (getProgress() * 255.0f);
+                    this.F.setARGB((Color.alpha(i2) * progress3) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
+                    RectF rectF = this.B;
+                    float f2 = this.j;
+                    canvas.drawRoundRect(rectF, f2, f2, this.F);
+                    this.F.setARGB((Color.alpha(i3) * (255 - progress3)) / 255, Color.red(i3), Color.green(i3), Color.blue(i3));
+                    RectF rectF2 = this.B;
+                    float f3 = this.j;
+                    canvas.drawRoundRect(rectF2, f3, f3, this.F);
+                    this.F.setAlpha(255);
                 } else {
-                    this.f9370f.setAlpha(255);
-                    this.f9370f.draw(canvas);
+                    this.F.setColor(this.u);
+                    RectF rectF3 = this.B;
+                    float f4 = this.j;
+                    canvas.drawRoundRect(rectF3, f4, f4, this.F);
                 }
-            } else if (this.n) {
-                int i2 = isChecked() ? this.u : this.v;
-                int i3 = isChecked() ? this.v : this.u;
-                int progress3 = (int) (getProgress() * 255.0f);
-                this.F.setARGB((Color.alpha(i2) * progress3) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
-                RectF rectF = this.B;
-                float f2 = this.j;
-                canvas.drawRoundRect(rectF, f2, f2, this.F);
-                this.F.setARGB((Color.alpha(i3) * (255 - progress3)) / 255, Color.red(i3), Color.green(i3), Color.blue(i3));
-                RectF rectF2 = this.B;
-                float f3 = this.j;
-                canvas.drawRoundRect(rectF2, f3, f3, this.F);
-                this.F.setAlpha(255);
-            } else {
-                this.F.setColor(this.u);
-                RectF rectF3 = this.B;
-                float f4 = this.j;
-                canvas.drawRoundRect(rectF3, f4, f4, this.F);
-            }
-            Layout layout = ((double) getProgress()) > 0.5d ? this.V : this.W;
-            RectF rectF4 = ((double) getProgress()) > 0.5d ? this.D : this.E;
-            if (layout != null && rectF4 != null) {
-                if (getProgress() >= 0.75d) {
-                    progress = (getProgress() * 4.0f) - 3.0f;
+                Layout layout = ((double) getProgress()) > 0.5d ? this.V : this.W;
+                RectF rectF4 = ((double) getProgress()) > 0.5d ? this.D : this.E;
+                if (layout != null && rectF4 != null) {
+                    if (getProgress() >= 0.75d) {
+                        progress = (getProgress() * 4.0f) - 3.0f;
+                    } else {
+                        progress = ((double) getProgress()) < 0.25d ? 1.0f - (getProgress() * 4.0f) : 0.0f;
+                    }
+                    int i4 = (int) (progress * 255.0f);
+                    int i5 = ((double) getProgress()) > 0.5d ? this.w : this.x;
+                    layout.getPaint().setARGB((Color.alpha(i5) * i4) / 255, Color.red(i5), Color.green(i5), Color.blue(i5));
+                    canvas.save();
+                    canvas.translate(rectF4.left, rectF4.top);
+                    layout.draw(canvas);
+                    canvas.restore();
+                }
+                this.L.set(this.A);
+                this.L.offset(this.K * this.C.width(), 0.0f);
+                if (this.G) {
+                    Drawable drawable3 = this.f9443e;
+                    RectF rectF5 = this.L;
+                    drawable3.setBounds((int) rectF5.left, (int) rectF5.top, f(rectF5.right), f(this.L.bottom));
+                    this.f9443e.draw(canvas);
                 } else {
-                    progress = ((double) getProgress()) < 0.25d ? 1.0f - (getProgress() * 4.0f) : 0.0f;
+                    this.F.setColor(this.t);
+                    RectF rectF6 = this.L;
+                    float f5 = this.f9447i;
+                    canvas.drawRoundRect(rectF6, f5, f5, this.F);
                 }
-                int i4 = (int) (progress * 255.0f);
-                int i5 = ((double) getProgress()) > 0.5d ? this.w : this.x;
-                layout.getPaint().setARGB((Color.alpha(i5) * i4) / 255, Color.red(i5), Color.green(i5), Color.blue(i5));
-                canvas.save();
-                canvas.translate(rectF4.left, rectF4.top);
-                layout.draw(canvas);
-                canvas.restore();
-            }
-            this.L.set(this.A);
-            this.L.offset(this.K * this.C.width(), 0.0f);
-            if (this.G) {
-                Drawable drawable3 = this.f9369e;
-                RectF rectF5 = this.L;
-                drawable3.setBounds((int) rectF5.left, (int) rectF5.top, f(rectF5.right), f(this.L.bottom));
-                this.f9369e.draw(canvas);
-            } else {
-                this.F.setColor(this.t);
-                RectF rectF6 = this.L;
-                float f5 = this.f9373i;
-                canvas.drawRoundRect(rectF6, f5, f5, this.F);
-            }
-            if (this.I) {
-                this.R.setColor(Color.parseColor("#AA0000"));
-                canvas.drawRect(this.B, this.R);
-                this.R.setColor(Color.parseColor("#0000FF"));
-                canvas.drawRect(this.L, this.R);
-                this.R.setColor(Color.parseColor("#000000"));
-                RectF rectF7 = this.C;
-                float f6 = rectF7.left;
-                float f7 = this.A.top;
-                canvas.drawLine(f6, f7, rectF7.right, f7, this.R);
-                this.R.setColor(Color.parseColor("#00CC00"));
-                canvas.drawRect(((double) getProgress()) > 0.5d ? this.D : this.E, this.R);
+                if (this.I) {
+                    this.R.setColor(Color.parseColor("#AA0000"));
+                    canvas.drawRect(this.B, this.R);
+                    this.R.setColor(Color.parseColor("#0000FF"));
+                    canvas.drawRect(this.L, this.R);
+                    this.R.setColor(Color.parseColor("#000000"));
+                    RectF rectF7 = this.C;
+                    float f6 = rectF7.left;
+                    float f7 = this.A.top;
+                    canvas.drawLine(f6, f7, rectF7.right, f7, this.R);
+                    this.R.setColor(Color.parseColor("#00CC00"));
+                    canvas.drawRect(((double) getProgress()) > 0.5d ? this.D : this.E, this.R);
+                }
             }
         }
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onMeasure(int i2, int i3) {
-        if (this.V == null && !TextUtils.isEmpty(this.S)) {
-            this.V = a(this.S);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048604, this, i2, i3) == null) {
+            if (this.V == null && !TextUtils.isEmpty(this.S)) {
+                this.V = a(this.S);
+            }
+            if (this.W == null && !TextUtils.isEmpty(this.T)) {
+                this.W = a(this.T);
+            }
+            Layout layout = this.V;
+            float width = layout != null ? layout.getWidth() : 0.0f;
+            Layout layout2 = this.W;
+            float width2 = layout2 != null ? layout2.getWidth() : 0.0f;
+            if (width == 0.0f && width2 == 0.0f) {
+                this.a0 = 0.0f;
+            } else {
+                this.a0 = Math.max(width, width2);
+            }
+            Layout layout3 = this.V;
+            float height = layout3 != null ? layout3.getHeight() : 0.0f;
+            Layout layout4 = this.W;
+            float height2 = layout4 != null ? layout4.getHeight() : 0.0f;
+            if (height == 0.0f && height2 == 0.0f) {
+                this.b0 = 0.0f;
+            } else {
+                this.b0 = Math.max(height, height2);
+            }
+            setMeasuredDimension(h(i2), g(i3));
         }
-        if (this.W == null && !TextUtils.isEmpty(this.T)) {
-            this.W = a(this.T);
-        }
-        Layout layout = this.V;
-        float width = layout != null ? layout.getWidth() : 0.0f;
-        Layout layout2 = this.W;
-        float width2 = layout2 != null ? layout2.getWidth() : 0.0f;
-        if (width == 0.0f && width2 == 0.0f) {
-            this.a0 = 0.0f;
-        } else {
-            this.a0 = Math.max(width, width2);
-        }
-        Layout layout3 = this.V;
-        float height = layout3 != null ? layout3.getHeight() : 0.0f;
-        Layout layout4 = this.W;
-        float height2 = layout4 != null ? layout4.getHeight() : 0.0f;
-        if (height == 0.0f && height2 == 0.0f) {
-            this.b0 = 0.0f;
-        } else {
-            this.b0 = Math.max(height, height2);
-        }
-        setMeasuredDimension(h(i2), g(i3));
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
-        a aVar = (a) parcelable;
-        d(aVar.f9374e, aVar.f9375f);
-        this.k0 = true;
-        super.onRestoreInstanceState(aVar.getSuperState());
-        this.k0 = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, parcelable) == null) {
+            a aVar = (a) parcelable;
+            d(aVar.r, aVar.s);
+            this.k0 = true;
+            super.onRestoreInstanceState(aVar.getSuperState());
+            this.k0 = false;
+        }
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public Parcelable onSaveInstanceState() {
-        a aVar = new a(super.onSaveInstanceState());
-        aVar.f9374e = this.S;
-        aVar.f9375f = this.T;
-        return aVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            a aVar = new a(super.onSaveInstanceState());
+            aVar.r = this.S;
+            aVar.s = this.T;
+            return aVar;
+        }
+        return (Parcelable) invokeV.objValue;
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        if (i2 == i4 && i3 == i5) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048607, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            if (i2 == i4 && i3 == i5) {
+                return;
+            }
+            k();
         }
-        k();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0034, code lost:
-        if (r0 != 3) goto L16;
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0038, code lost:
+        if (r0 != 3) goto L18;
      */
     @Override // android.widget.TextView, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (isEnabled() && isClickable() && isFocusable() && this.l0) {
-            int action = motionEvent.getAction();
-            float x = motionEvent.getX() - this.M;
-            float y = motionEvent.getY() - this.N;
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        float x2 = motionEvent.getX();
-                        setProgress(getProgress() + ((x2 - this.O) / this.C.width()));
-                        if (!this.m0 && (Math.abs(x) > this.P / 2 || Math.abs(y) > this.P / 2)) {
-                            if (y != 0.0f && Math.abs(x) <= Math.abs(y)) {
-                                if (Math.abs(y) > Math.abs(x)) {
-                                    return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, motionEvent)) == null) {
+            if (isEnabled() && isClickable() && isFocusable() && this.l0) {
+                int action = motionEvent.getAction();
+                float x = motionEvent.getX() - this.M;
+                float y = motionEvent.getY() - this.N;
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2) {
+                            float x2 = motionEvent.getX();
+                            setProgress(getProgress() + ((x2 - this.O) / this.C.width()));
+                            if (!this.m0 && (Math.abs(x) > this.P / 2 || Math.abs(y) > this.P / 2)) {
+                                if (y != 0.0f && Math.abs(x) <= Math.abs(y)) {
+                                    if (Math.abs(y) > Math.abs(x)) {
+                                        return false;
+                                    }
+                                } else {
+                                    i();
                                 }
-                            } else {
-                                i();
                             }
+                            this.O = x2;
                         }
-                        this.O = x2;
                     }
-                }
-                this.m0 = false;
-                setPressed(false);
-                float eventTime = (float) (motionEvent.getEventTime() - motionEvent.getDownTime());
-                if (Math.abs(x) < this.P && Math.abs(y) < this.P && eventTime < this.Q) {
-                    performClick();
-                } else {
-                    boolean statusBasedOnPos = getStatusBasedOnPos();
-                    if (statusBasedOnPos != isChecked()) {
-                        playSoundEffect(0);
-                        setChecked(statusBasedOnPos);
+                    this.m0 = false;
+                    setPressed(false);
+                    float eventTime = (float) (motionEvent.getEventTime() - motionEvent.getDownTime());
+                    if (Math.abs(x) < this.P && Math.abs(y) < this.P && eventTime < this.Q) {
+                        performClick();
                     } else {
-                        e(statusBasedOnPos);
+                        boolean statusBasedOnPos = getStatusBasedOnPos();
+                        if (statusBasedOnPos != isChecked()) {
+                            playSoundEffect(0);
+                            setChecked(statusBasedOnPos);
+                        } else {
+                            e(statusBasedOnPos);
+                        }
                     }
+                } else {
+                    this.M = motionEvent.getX();
+                    this.N = motionEvent.getY();
+                    this.O = this.M;
+                    setPressed(true);
                 }
-            } else {
-                this.M = motionEvent.getX();
-                this.N = motionEvent.getY();
-                this.O = this.M;
-                setPressed(true);
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Override // android.widget.CompoundButton, android.view.View
     public boolean performClick() {
-        return super.performClick();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? super.performClick() : invokeV.booleanValue;
     }
 
     public void setAnimationDuration(long j) {
-        this.m = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048610, this, j) == null) {
+            this.m = j;
+        }
     }
 
     public void setBackColor(ColorStateList colorStateList) {
-        this.f9371g = colorStateList;
-        if (colorStateList != null) {
-            setBackDrawable(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, colorStateList) == null) {
+            this.f9445g = colorStateList;
+            if (colorStateList != null) {
+                setBackDrawable(null);
+            }
+            invalidate();
         }
-        invalidate();
     }
 
     public void setBackColorRes(int i2) {
-        setBackColor(getResources().getColorStateList(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            setBackColor(getResources().getColorStateList(i2));
+        }
     }
 
     public void setBackDrawable(Drawable drawable) {
-        this.f9370f = drawable;
-        this.H = drawable != null;
-        refreshDrawableState();
-        this.l0 = false;
-        requestLayout();
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, drawable) == null) {
+            this.f9444f = drawable;
+            this.H = drawable != null;
+            refreshDrawableState();
+            this.l0 = false;
+            requestLayout();
+            invalidate();
+        }
     }
 
     public void setBackDrawableRes(int i2) {
-        setBackDrawable(getResources().getDrawable(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+            setBackDrawable(getResources().getDrawable(i2));
+        }
     }
 
     public void setBackRadius(float f2) {
-        this.j = f2;
-        if (this.H) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048615, this, f2) == null) {
+            this.j = f2;
+            if (this.H) {
+                return;
+            }
+            invalidate();
         }
-        invalidate();
     }
 
     @Override // android.widget.CompoundButton, android.widget.Checkable
     public void setChecked(boolean z) {
-        if (isChecked() != z) {
-            e(z);
-        }
-        if (this.k0) {
-            setCheckedImmediatelyNoEvent(z);
-        } else {
-            super.setChecked(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+            if (isChecked() != z) {
+                e(z);
+            }
+            if (this.k0) {
+                setCheckedImmediatelyNoEvent(z);
+            } else {
+                super.setChecked(z);
+            }
         }
     }
 
     public void setCheckedImmediately(boolean z) {
-        super.setChecked(z);
-        ObjectAnimator objectAnimator = this.J;
-        if (objectAnimator != null && objectAnimator.isRunning()) {
-            this.J.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
+            super.setChecked(z);
+            ObjectAnimator objectAnimator = this.J;
+            if (objectAnimator != null && objectAnimator.isRunning()) {
+                this.J.cancel();
+            }
+            setProgress(z ? 1.0f : 0.0f);
+            invalidate();
         }
-        setProgress(z ? 1.0f : 0.0f);
-        invalidate();
     }
 
     public void setCheckedImmediatelyNoEvent(boolean z) {
-        if (this.n0 == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+            if (this.n0 == null) {
+                setCheckedImmediately(z);
+                return;
+            }
+            super.setOnCheckedChangeListener(null);
             setCheckedImmediately(z);
-            return;
+            super.setOnCheckedChangeListener(this.n0);
         }
-        super.setOnCheckedChangeListener(null);
-        setCheckedImmediately(z);
-        super.setOnCheckedChangeListener(this.n0);
     }
 
     public void setCheckedNoEvent(boolean z) {
-        if (this.n0 == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+            if (this.n0 == null) {
+                setChecked(z);
+                return;
+            }
+            super.setOnCheckedChangeListener(null);
             setChecked(z);
-            return;
+            super.setOnCheckedChangeListener(this.n0);
         }
-        super.setOnCheckedChangeListener(null);
-        setChecked(z);
-        super.setOnCheckedChangeListener(this.n0);
     }
 
     public void setDrawDebugRect(boolean z) {
-        this.I = z;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+            this.I = z;
+            invalidate();
+        }
     }
 
     public void setFadeBack(boolean z) {
-        this.n = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
+            this.n = z;
+        }
     }
 
     @Override // android.widget.CompoundButton
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        super.setOnCheckedChangeListener(onCheckedChangeListener);
-        this.n0 = onCheckedChangeListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, onCheckedChangeListener) == null) {
+            super.setOnCheckedChangeListener(onCheckedChangeListener);
+            this.n0 = onCheckedChangeListener;
+        }
     }
 
     public void setTextAdjust(int i2) {
-        this.j0 = i2;
-        this.l0 = false;
-        requestLayout();
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
+            this.j0 = i2;
+            this.l0 = false;
+            requestLayout();
+            invalidate();
+        }
     }
 
     public void setTextExtra(int i2) {
-        this.i0 = i2;
-        this.l0 = false;
-        requestLayout();
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
+            this.i0 = i2;
+            this.l0 = false;
+            requestLayout();
+            invalidate();
+        }
     }
 
     public void setTextThumbInset(int i2) {
-        this.c0 = i2;
-        this.l0 = false;
-        requestLayout();
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
+            this.c0 = i2;
+            this.l0 = false;
+            requestLayout();
+            invalidate();
+        }
     }
 
     public void setThumbColor(ColorStateList colorStateList) {
-        this.f9372h = colorStateList;
-        if (colorStateList != null) {
-            setThumbDrawable(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048626, this, colorStateList) == null) {
+            this.f9446h = colorStateList;
+            if (colorStateList != null) {
+                setThumbDrawable(null);
+            }
+            invalidate();
         }
-        invalidate();
     }
 
     public void setThumbColorRes(int i2) {
-        setThumbColor(getResources().getColorStateList(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
+            setThumbColor(getResources().getColorStateList(i2));
+        }
     }
 
     public void setThumbDrawable(Drawable drawable) {
-        this.f9369e = drawable;
-        this.G = drawable != null;
-        refreshDrawableState();
-        this.l0 = false;
-        requestLayout();
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, drawable) == null) {
+            this.f9443e = drawable;
+            this.G = drawable != null;
+            refreshDrawableState();
+            this.l0 = false;
+            requestLayout();
+            invalidate();
+        }
     }
 
     public void setThumbDrawableRes(int i2) {
-        setThumbDrawable(getResources().getDrawable(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+            setThumbDrawable(getResources().getDrawable(i2));
+        }
     }
 
     public void setThumbMargin(RectF rectF) {
-        if (rectF == null) {
-            b(0.0f, 0.0f, 0.0f, 0.0f);
-        } else {
-            b(rectF.left, rectF.top, rectF.right, rectF.bottom);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048630, this, rectF) == null) {
+            if (rectF == null) {
+                b(0.0f, 0.0f, 0.0f, 0.0f);
+            } else {
+                b(rectF.left, rectF.top, rectF.right, rectF.bottom);
+            }
         }
     }
 
     public void setThumbRadius(float f2) {
-        this.f9373i = f2;
-        if (this.G) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048631, this, f2) == null) {
+            this.f9447i = f2;
+            if (this.G) {
+                return;
+            }
+            invalidate();
         }
-        invalidate();
     }
 
     public void setThumbRangeRatio(float f2) {
-        this.l = f2;
-        this.l0 = false;
-        requestLayout();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048632, this, f2) == null) {
+            this.l = f2;
+            this.l0 = false;
+            requestLayout();
+        }
     }
 
     public void setTintColor(int i2) {
-        this.o = i2;
-        this.f9372h = d.a.c0.p.b.b(i2);
-        this.f9371g = d.a.c0.p.b.a(this.o);
-        this.H = false;
-        this.G = false;
-        refreshDrawableState();
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
+            this.o = i2;
+            this.f9446h = d.a.g0.p.b.b(i2);
+            this.f9445g = d.a.g0.p.b.a(this.o);
+            this.H = false;
+            this.G = false;
+            refreshDrawableState();
+            invalidate();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.I = false;
         this.k0 = false;
         this.l0 = false;
@@ -1093,8 +1408,24 @@ public class SwitchButton extends CompoundButton {
         c(attributeSet);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchButton(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.I = false;
         this.k0 = false;
         this.l0 = false;

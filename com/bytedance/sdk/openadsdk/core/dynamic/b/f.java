@@ -1,99 +1,159 @@
 package com.bytedance.sdk.openadsdk.core.dynamic.b;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28190a;
+    public String f29853a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f28191b;
+    public float f29854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f28192c;
+    public float f29855c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28193d;
+    public float f29856d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28194e;
+    public float f29857e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f28195f;
+    public float f29858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f28196g;
+    public c f29859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<f> f28197h;
+    public List<f> f29860h;
+
+    public f() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public void a(String str) {
-        this.f28190a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f29853a = str;
+        }
     }
 
     public float b() {
-        return this.f28192c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29855c : invokeV.floatValue;
     }
 
     public float c() {
-        return this.f28193d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29856d : invokeV.floatValue;
     }
 
     public float d() {
-        return this.f28194e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29857e : invokeV.floatValue;
     }
 
     public void e(float f2) {
-        this.f28195f = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
+            this.f29858f = f2;
+        }
     }
 
     public List<f> f() {
-        return this.f28197h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f29860h : (List) invokeV.objValue;
     }
 
     public float a() {
-        return this.f28191b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29854b : invokeV.floatValue;
     }
 
     public void b(float f2) {
-        this.f28192c = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
+            this.f29855c = f2;
+        }
     }
 
     public void c(float f2) {
-        this.f28193d = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
+            this.f29856d = f2;
+        }
     }
 
     public void d(float f2) {
-        this.f28194e = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
+            this.f29857e = f2;
+        }
     }
 
     public c e() {
-        return this.f28196g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29859g : (c) invokeV.objValue;
     }
 
     public void a(float f2) {
-        this.f28191b = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
+            this.f29854b = f2;
+        }
     }
 
     public void a(c cVar) {
-        this.f28196g = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.f29859g = cVar;
+        }
     }
 
     public void a(f fVar) {
-        if (this.f28197h == null) {
-            this.f28197h = new ArrayList();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
+            if (this.f29860h == null) {
+                this.f29860h = new ArrayList();
+            }
+            this.f29860h.add(fVar);
         }
-        this.f28197h.add(fVar);
     }
 
     public static void a(JSONObject jSONObject, f fVar) {
-        if (jSONObject == null || fVar == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, jSONObject, fVar) == null) || jSONObject == null || fVar == null) {
             return;
         }
         fVar.a(jSONObject.optString("id", PrefetchEvent.EVENT_DATA_ROOT_PATH));

@@ -13,148 +13,251 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.fsg.base.activity.BaseActivity;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RimGlobalUtils {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5380a;
+    public static String f5410a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public RimGlobalUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static String getMsg() {
-        return f5380a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f5410a : (String) invokeV.objValue;
     }
 
     public static String getZid(Context context) {
-        try {
-            Object invoke = Class.forName("com.baidu.sofire.ac.FH").getDeclaredMethod("gz", Context.class).invoke(null, context);
-            if (invoke != null) {
-                return invoke.toString();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Object invoke = Class.forName("com.baidu.sofire.ac.FH").getDeclaredMethod("gz", Context.class).invoke(null, context);
+                if (invoke != null) {
+                    return invoke.toString();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            return null;
         }
-        return null;
+        return (String) invokeL.objValue;
     }
 
     public static String getZid2() {
-        try {
-            Class<?> cls = Class.forName("com.fsg.soter.Soter");
-            Object invoke = cls.getDeclaredMethod("getLid", new Class[0]).invoke(cls.getDeclaredMethod("getInstance", new Class[0]).invoke(null, new Object[0]), new Object[0]);
-            if (invoke != null) {
-                return invoke.toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.fsg.soter.Soter");
+                Object invoke = cls.getDeclaredMethod("getLid", new Class[0]).invoke(cls.getDeclaredMethod("getInstance", new Class[0]).invoke(null, new Object[0]), new Object[0]);
+                if (invoke != null) {
+                    return invoke.toString();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            return null;
         }
-        return null;
+        return (String) invokeV.objValue;
     }
 
     public static boolean hideInputMethod(Context context, View view) {
+        InterceptResult invokeLL;
         InputMethodManager inputMethodManager;
-        if (context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
-            return false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, view)) == null) {
+            if (context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+                return false;
+            }
+            return inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
-        return inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        return invokeLL.booleanValue;
     }
 
     public static void hideKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager;
         View currentFocus;
-        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService("input_method");
-        if (inputMethodManager == null || (currentFocus = activity.getCurrentFocus()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, activity) == null) || (inputMethodManager = (InputMethodManager) activity.getSystemService("input_method")) == null || (currentFocus = activity.getCurrentFocus()) == null) {
             return;
         }
         inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 2);
     }
 
     public static void safeDismissDialog(BaseActivity baseActivity, int i2) {
-        try {
-            Activity activity = baseActivity.getActivity();
-            if (activity == null || activity.isFinishing()) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, baseActivity, i2) == null) {
+            try {
+                Activity activity = baseActivity.getActivity();
+                if (activity == null || activity.isFinishing()) {
+                    return;
+                }
+                baseActivity.getActivity().removeDialog(i2);
+            } catch (Throwable th) {
+                LogUtil.e("globalUtils", "dialog Exception", th);
             }
-            baseActivity.getActivity().removeDialog(i2);
-        } catch (Throwable th) {
-            LogUtil.e("globalUtils", "dialog Exception", th);
         }
     }
 
     public static void safeShowDialog(BaseActivity baseActivity, int i2) {
-        try {
-            baseActivity.getActivity().showDialog(i2);
-        } catch (Exception e2) {
-            if (LogUtil.DEBUG) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65543, null, baseActivity, i2) == null) {
+            try {
+                baseActivity.getActivity().showDialog(i2);
+            } catch (Exception e2) {
+                if (LogUtil.DEBUG) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
     public static void setMsg(String str) {
-        f5380a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            f5410a = str;
+        }
     }
 
-    public static boolean showInputMethod(final Context context, final View view) {
-        if (context == null || view == null) {
-            return false;
-        }
-        view.requestFocusFromTouch();
-        view.postDelayed(new Runnable() { // from class: com.baidu.fsg.base.utils.RimGlobalUtils.1
-            @Override // java.lang.Runnable
-            public void run() {
-                ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view, 0);
+    public static boolean showInputMethod(Context context, View view) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, view)) == null) {
+            if (context == null || view == null) {
+                return false;
             }
-        }, 100L);
-        return true;
+            view.requestFocusFromTouch();
+            view.postDelayed(new Runnable(context, view) { // from class: com.baidu.fsg.base.utils.RimGlobalUtils.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ Context f5411a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ View f5412b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {context, view};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f5411a = context;
+                    this.f5412b = view;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ((InputMethodManager) this.f5411a.getSystemService("input_method")).showSoftInput(this.f5412b, 0);
+                    }
+                }
+            }, 100L);
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static void toast(Context context, CharSequence charSequence, int i2, int i3) {
         View inflate;
         TextView textView;
-        if (context.getApplicationContext() != null) {
-            context = context.getApplicationContext();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65547, null, context, charSequence, i2, i3) == null) {
+            if (context.getApplicationContext() != null) {
+                context = context.getApplicationContext();
+            }
+            if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(ResUtils.layout(context, "rim_base_toast_tips"), (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(ResUtils.id(context, "rim_base_toast_message"))) == null) {
+                return;
+            }
+            textView.setText(charSequence);
+            ImageView imageView = (ImageView) inflate.findViewById(ResUtils.id(context, "rim_base_toast_icon"));
+            if (imageView != null && i2 > 0) {
+                imageView.setImageResource(i2);
+                imageView.setVisibility(0);
+            }
+            Toast toast = new Toast(context);
+            toast.setGravity(17, 0, 0);
+            toast.setDuration(i3);
+            toast.setView(inflate);
+            toast.show();
         }
-        if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(ResUtils.layout(context, "rim_base_toast_tips"), (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(ResUtils.id(context, "rim_base_toast_message"))) == null) {
-            return;
-        }
-        textView.setText(charSequence);
-        ImageView imageView = (ImageView) inflate.findViewById(ResUtils.id(context, "rim_base_toast_icon"));
-        if (imageView != null && i2 > 0) {
-            imageView.setImageResource(i2);
-            imageView.setVisibility(0);
-        }
-        Toast toast = new Toast(context);
-        toast.setGravity(17, 0, 0);
-        toast.setDuration(i3);
-        toast.setView(inflate);
-        toast.show();
     }
 
     public static void toastWithText(Context context, CharSequence charSequence) {
-        toast(context, charSequence, -1, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, charSequence) == null) {
+            toast(context, charSequence, -1, 0);
+        }
     }
 
     public static void toastWithTextId(Context context, int i2) {
-        toastWithTextId(context, i2, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65550, null, context, i2) == null) {
+            toastWithTextId(context, i2, 0);
+        }
     }
 
     public static void toastWithText(Context context, CharSequence charSequence, int i2) {
-        toast(context, charSequence, -1, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65549, null, context, charSequence, i2) == null) {
+            toast(context, charSequence, -1, i2);
+        }
     }
 
     public static void toastWithTextId(Context context, int i2, int i3) {
-        try {
-            toastWithText(context, context.getResources().getString(i2), i3);
-        } catch (Resources.NotFoundException e2) {
-            e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65551, null, context, i2, i3) == null) {
+            try {
+                toastWithText(context, context.getResources().getString(i2), i3);
+            } catch (Resources.NotFoundException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
     public static void safeShowDialog(BaseActivity baseActivity, int i2, String str) {
-        f5380a = str;
-        try {
-            baseActivity.getActivity().showDialog(i2);
-        } catch (Exception e2) {
-            if (LogUtil.DEBUG) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65544, null, baseActivity, i2, str) == null) {
+            f5410a = str;
+            try {
+                baseActivity.getActivity().showDialog(i2);
+            } catch (Exception e2) {
+                if (LogUtil.DEBUG) {
+                    e2.printStackTrace();
+                }
             }
         }
     }

@@ -1,77 +1,190 @@
 package com.baidu.swan.games.network.websocket;
 
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.searchbox.websocket.IWebSocketListener;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.a.m0.a.k;
-import d.a.m0.h.y.h.e;
-import d.a.m0.h.y.h.f;
-import d.a.m0.h.y.h.h;
-import d.a.m0.h.y.h.i;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.k;
+import d.a.q0.h.y.h.e;
+import d.a.q0.h.y.h.f;
+import d.a.q0.h.y.h.h;
+import d.a.q0.h.y.h.i;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11816f = k.f46983a;
+    public static final boolean f11883f;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SocketTaskState f11817e;
+    public SocketTaskState f11884e;
 
-    /* loaded from: classes3.dex */
-    public enum SocketTaskState {
-        IDLE,
-        OPEN,
-        CLOSE
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class SocketTaskState {
+        public static final /* synthetic */ SocketTaskState[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final SocketTaskState CLOSE;
+        public static final SocketTaskState IDLE;
+        public static final SocketTaskState OPEN;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1837085147, "Lcom/baidu/swan/games/network/websocket/WebSocketEventTarget$SocketTaskState;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1837085147, "Lcom/baidu/swan/games/network/websocket/WebSocketEventTarget$SocketTaskState;");
+                    return;
+                }
+            }
+            IDLE = new SocketTaskState("IDLE", 0);
+            OPEN = new SocketTaskState("OPEN", 1);
+            SocketTaskState socketTaskState = new SocketTaskState("CLOSE", 2);
+            CLOSE = socketTaskState;
+            $VALUES = new SocketTaskState[]{IDLE, OPEN, socketTaskState};
+        }
+
+        public SocketTaskState(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static SocketTaskState valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SocketTaskState) Enum.valueOf(SocketTaskState.class, str) : (SocketTaskState) invokeL.objValue;
+        }
+
+        public static SocketTaskState[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SocketTaskState[]) $VALUES.clone() : (SocketTaskState[]) invokeV.objValue;
+        }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1533247568, "Lcom/baidu/swan/games/network/websocket/WebSocketEventTarget;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1533247568, "Lcom/baidu/swan/games/network/websocket/WebSocketEventTarget;");
+                return;
+            }
+        }
+        f11883f = k.f49133a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebSocketEventTarget(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.f11817e = SocketTaskState.IDLE;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSRuntime};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f11884e = SocketTaskState.IDLE;
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
-        this.f11817e = SocketTaskState.CLOSE;
-        z(IntentConfig.CLOSE, new e(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.f11884e = SocketTaskState.CLOSE;
+            y(IntentConfig.CLOSE, new e(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
+        }
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
-        if (this.f11817e == SocketTaskState.IDLE) {
-            z("error", new f(th.getMessage()));
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.f11884e == SocketTaskState.IDLE) {
+            y("error", new f(th.getMessage()));
         }
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onMessage(String str) {
-        z("message", new h(str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            y("message", new h(str));
+        }
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
-        this.f11817e = SocketTaskState.OPEN;
-        z("open", new i(new JSONObject(map)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
+            this.f11884e = SocketTaskState.OPEN;
+            y("open", new i(new JSONObject(map)));
+        }
     }
 
-    public final void z(String str, Object obj) {
-        if (f11816f) {
-            Log.i("WebSocket", "dispatchEvent:" + str);
+    public final void y(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
+            if (f11883f) {
+                Log.i("WebSocket", "dispatchEvent:" + str);
+            }
+            dispatchEvent(new JSEvent(str, obj));
         }
-        dispatchEvent(new JSEvent(str, obj));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onMessage(ByteBuffer byteBuffer) {
-        int remaining = byteBuffer.remaining();
-        byte[] bArr = new byte[remaining];
-        byteBuffer.get(bArr);
-        z("message", new h(new JsArrayBuffer(bArr, remaining)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
+            int remaining = byteBuffer.remaining();
+            byte[] bArr = new byte[remaining];
+            byteBuffer.get(bArr);
+            y("message", new h(new JsArrayBuffer(bArr, remaining)));
+        }
     }
 }

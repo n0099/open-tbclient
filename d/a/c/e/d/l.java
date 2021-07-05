@@ -1,26 +1,47 @@
 package d.a.c.e.d;
-/* loaded from: classes.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public interface l<T> {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public interface a<T> {
         void a(String str, T t);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public static class b<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42297a;
+        public String f44106a;
 
         /* renamed from: b  reason: collision with root package name */
-        public T f42298b;
+        public T f44107b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f42299c;
+        public long f44108c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public interface c<T> extends l<T> {
         void b();
 

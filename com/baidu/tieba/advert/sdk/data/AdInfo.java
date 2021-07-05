@@ -2,26 +2,34 @@ package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
-import d.a.o0.t.a.f.b;
-import d.a.o0.t.a.j.a;
+import d.a.s0.t.a.f.b;
+import d.a.s0.t.a.j.a;
 import java.io.Serializable;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AdInfo implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public int adHeight;
     public String adImgUrl;
     public CreativeType adShowType;
     public String adVideoUrl;
     public int adWidth;
     public String adpUserId;
-    public int advisible = -1;
+    public int advisible;
     public String apkFilePath;
     public Integer chargingMode;
     public ArrayList<String> dcu;
@@ -60,37 +68,65 @@ public class AdInfo implements Serializable {
     public String videoMd5;
     public int videoWidth;
 
-    public static ArrayList<String> convertStrToList(String str) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(str)) {
-            for (String str2 : str.split(",")) {
-                try {
-                    arrayList.add(URLDecoder.decode(str2, "utf-8"));
-                } catch (Exception e2) {
-                    BdLog.e("decode 监测地址失败" + e2);
-                }
+    public AdInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return arrayList;
+        this.advisible = -1;
+    }
+
+    public static ArrayList<String> convertStrToList(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (!TextUtils.isEmpty(str)) {
+                for (String str2 : str.split(",")) {
+                    try {
+                        arrayList.add(URLDecoder.decode(str2, "utf-8"));
+                    } catch (Exception e2) {
+                        BdLog.e("decode 监测地址失败" + e2);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
     }
 
     public static AdInfo jsonToObject(String str) {
-        AdInfo adInfo = new AdInfo();
-        if (TextUtils.isEmpty(str)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            AdInfo adInfo = new AdInfo();
+            if (TextUtils.isEmpty(str)) {
+                return adInfo;
+            }
+            JSONObject jSONObject = null;
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            adInfo.parseFromJson(jSONObject);
             return adInfo;
         }
-        JSONObject jSONObject = null;
-        try {
-            jSONObject = new JSONObject(str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        adInfo.parseFromJson(jSONObject);
-        return adInfo;
+        return (AdInfo) invokeL.objValue;
     }
 
     public boolean isVideoUrlValide() {
-        return !TextUtils.isEmpty(this.adVideoUrl);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.adVideoUrl) : invokeV.booleanValue;
     }
 
     public void parseFromJson(JSONObject jSONObject) {
@@ -101,7 +137,8 @@ public class AdInfo implements Serializable {
         JSONObject jSONObject4;
         JSONObject jSONObject5;
         JSONObject jSONObject6;
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -145,10 +182,15 @@ public class AdInfo implements Serializable {
     }
 
     public boolean shouldDownloadVideo() {
-        b b2 = b.b(a.d());
-        if (TextUtils.isEmpty(b2.f64621d)) {
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            b b2 = b.b(a.d());
+            if (TextUtils.isEmpty(b2.f65483d)) {
+                return true;
+            }
+            return TextUtils.isEmpty(b2.f65482c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f65482c.equals(this.adVideoUrl);
         }
-        return TextUtils.isEmpty(b2.f64620c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f64620c.equals(this.adVideoUrl);
+        return invokeV.booleanValue;
     }
 }

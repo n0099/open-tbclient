@@ -11,32 +11,90 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.lbspay.view.TitleBar;
 import com.baidu.apollon.beans.IBeanResponseCallback;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.SDKBaseActivity;
 import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
 /* loaded from: classes.dex */
 public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBeanResponseCallback, NoProguard {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public BroadcastReceiver mExitReceiver;
+    public Handler mHandler;
     public TitleBar titleBar;
-    public Handler mHandler = null;
-    public BroadcastReceiver mExitReceiver = new BroadcastReceiver() { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.1
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            if (LBSPayResult.ACTION_EXIT.equals(intent.getAction())) {
-                LBSBaseActivity.this.finish();
+
+    public LBSBaseActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    };
+        this.mHandler = null;
+        this.mExitReceiver = new BroadcastReceiver(this) { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ LBSBaseActivity f2612a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f2612a = this;
+            }
+
+            @Override // android.content.BroadcastReceiver
+            public void onReceive(Context context, Intent intent) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, intent) == null) {
+                    if (LBSPayResult.ACTION_EXIT.equals(intent.getAction())) {
+                        this.f2612a.finish();
+                    }
+                }
+            }
+        };
+    }
 
     private Handler getHandler() {
-        if (this.mHandler == null) {
-            this.mHandler = new Handler(getMainLooper());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (this.mHandler == null) {
+                this.mHandler = new Handler(getMainLooper());
+            }
+            return this.mHandler;
         }
-        return this.mHandler;
+        return (Handler) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.core.SDKBaseActivity
     public SDKBaseActivity.BottomBarType getBottomBarType() {
-        return SDKBaseActivity.BottomBarType.NONE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SDKBaseActivity.BottomBarType.NONE : (SDKBaseActivity.BottomBarType) invokeV.objValue;
     }
 
     public abstract void handleFailure(int i2, int i3, String str);
@@ -44,48 +102,167 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
     public abstract void handleResponse(int i2, Object obj, String str);
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecFailure(final int i2, final int i3, final String str) {
-        getHandler().post(new Runnable() { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.4
-            @Override // java.lang.Runnable
-            public void run() {
-                LBSBaseActivity.this.handleFailure(i2, i3, str);
-            }
-        });
+    public void onBeanExecFailure(int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, str) == null) {
+            getHandler().post(new Runnable(this, i2, i3, str) { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f2618a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ int f2619b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ String f2620c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ LBSBaseActivity f2621d;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f2621d = this;
+                    this.f2618a = i2;
+                    this.f2619b = i3;
+                    this.f2620c = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f2621d.handleFailure(this.f2618a, this.f2619b, this.f2620c);
+                    }
+                }
+            });
+        }
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(final int i2, final Object obj, final String str) {
-        getHandler().post(new Runnable() { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.3
-            @Override // java.lang.Runnable
-            public void run() {
-                LBSBaseActivity.this.handleResponse(i2, obj, str);
-            }
-        });
+    public void onBeanExecSuccess(int i2, Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048580, this, i2, obj, str) == null) {
+            getHandler().post(new Runnable(this, i2, obj, str) { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f2614a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ Object f2615b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ String f2616c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ LBSBaseActivity f2617d;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), obj, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f2617d = this;
+                    this.f2614a = i2;
+                    this.f2615b = obj;
+                    this.f2616c = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f2617d.handleResponse(this.f2614a, this.f2615b, this.f2616c);
+                    }
+                }
+            });
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(this.mExitReceiver, new IntentFilter(LBSPayResult.ACTION_EXIT));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            LocalBroadcastManager.getInstance(getActivity()).registerReceiver(this.mExitReceiver, new IntentFilter(LBSPayResult.ACTION_EXIT));
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.mExitReceiver != null) {
-            LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this.mExitReceiver);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.mExitReceiver != null) {
+                LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this.mExitReceiver);
+            }
+            super.onDestroy();
         }
-        super.onDestroy();
     }
 
     public void setBackButton() {
-        TitleBar titleBar = this.titleBar;
-        if (titleBar != null) {
-            titleBar.setLeftButton(new View.OnClickListener() { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    LBSBaseActivity.this.onBackPressed();
-                }
-            });
+        TitleBar titleBar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (titleBar = this.titleBar) == null) {
+            return;
         }
+        titleBar.setLeftButton(new View.OnClickListener(this) { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ LBSBaseActivity f2613a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f2613a = this;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    this.f2613a.onBackPressed();
+                }
+            }
+        });
     }
 }

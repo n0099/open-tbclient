@@ -1,70 +1,42 @@
 package d.a.h0.a.c;
 
-import android.content.SharedPreferences;
-import com.baidu.smallgame.sdk.Log;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes2.dex */
-public class a {
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class a implements g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: d  reason: collision with root package name */
-    public static int f43770d = 1;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f43771e = 2;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static int f43772f = 3;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f43773a = new HashMap();
-
-    /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f43774b = new HashMap();
-
-    /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f43775c;
-
-    public void a() {
-        this.f43773a.clear();
-    }
-
-    public String b(int i2, String str) {
-        String str2;
-        if (i2 == f43770d) {
-            str2 = this.f43773a.get(str);
-        } else if (i2 == f43771e) {
-            str2 = this.f43774b.get(str);
-        } else {
-            if (i2 == f43772f) {
-                SharedPreferences sharedPreferences = this.f43775c;
-                if (sharedPreferences != null) {
-                    str2 = sharedPreferences.getString(str, "");
-                } else {
-                    Log.e("TAG", "prefs data store is null");
-                }
-            }
-            str2 = null;
-        }
-        return str2 == null ? "" : str2;
-    }
-
-    public void c(SharedPreferences sharedPreferences) {
-        this.f43775c = sharedPreferences;
-    }
-
-    public void d(int i2, String str, String str2) {
-        if (i2 == f43770d) {
-            this.f43773a.put(str, str2);
-        } else if (i2 == f43771e) {
-            this.f43774b.put(str, str2);
-        } else if (i2 == f43772f) {
-            SharedPreferences sharedPreferences = this.f43775c;
-            if (sharedPreferences != null) {
-                sharedPreferences.edit().putString(str, str2).commit();
-            } else {
-                Log.e("TAG", "prefs data store is null");
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // d.a.h0.a.c.g
+    public int e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? Log.e(str, str2) : invokeLL.intValue;
+    }
+
+    @Override // d.a.h0.a.c.g
+    public int e(String str, String str2, Throwable th) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, th)) == null) ? Log.e(str, str2, th) : invokeLLL.intValue;
     }
 }

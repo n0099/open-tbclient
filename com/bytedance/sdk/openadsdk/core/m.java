@@ -1,225 +1,299 @@
 package com.bytedance.sdk.openadsdk.core;
 
-import android.app.Application;
+import android.app.Dialog;
 import android.content.Context;
-import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.AppLogHelper;
-import com.bytedance.sdk.openadsdk.TTCustomController;
-import com.bytedance.sdk.openadsdk.utils.ae;
-import com.bytedance.sdk.openadsdk.utils.ah;
-import com.bytedance.sdk.openadsdk.utils.ak;
-import com.bytedance.sdk.openadsdk.utils.al;
-import com.kwai.video.player.KsMediaMeta;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.UUID;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
 /* loaded from: classes6.dex */
-public class m {
+public class m extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f28373a = false;
+    public View f30241a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f28374b = null;
+    public Context f30242b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f28375c = false;
+    public ImageView f30243c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f28376d = -1;
+    public ImageView f30244d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f28377e;
+    public ImageView f30245e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f28378f;
+    public TextView f30246f;
 
-    public static void a() {
-        Context a2;
-        if (p.h().d() && (a2 = p.a()) != null) {
+    /* renamed from: g  reason: collision with root package name */
+    public FrameLayout f30247g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public a f30248h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f30249i;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(View view);
+
+        void a(ImageView imageView, ImageView imageView2, FrameLayout frameLayout);
+
+        void b(View view);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public m(@NonNull Context context) {
+        this(context, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
             try {
-                d.b.c.b.a.f(new com.bytedance.sdk.openadsdk.i.d(a2));
-                d.b.c.b.a.g(true);
-                d.b.c.b.a.d(a2, (Application) a2, com.bytedance.sdk.openadsdk.multipro.b.b());
-            } catch (Exception unused) {
-            }
-        }
-    }
+                if (this.f30247g != null && this.f30247g.getChildCount() > 0) {
+                    View childAt = this.f30247g.getChildAt(0);
+                    if (childAt instanceof NativeExpressView) {
+                        NativeExpressView nativeExpressView = (NativeExpressView) childAt;
+                        if (nativeExpressView.p()) {
+                            this.f30247g.setVisibility(0);
+                            this.f30243c.setVisibility(8);
+                            this.f30244d.setVisibility(8);
+                            this.f30245e.setVisibility(8);
+                            this.f30246f.setVisibility(8);
+                            View findViewById = nativeExpressView.findViewById(com.bytedance.sdk.component.utils.r.e(this.f30242b, "tt_bu_close"));
+                            if (findViewById != null) {
+                                findViewById.setOnClickListener(new View.OnClickListener(this, findViewById) { // from class: com.bytedance.sdk.openadsdk.core.m.3
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(Context context) {
-        d.a(context).a("uuid", UUID.randomUUID().toString());
-    }
+                                    /* renamed from: a  reason: collision with root package name */
+                                    public final /* synthetic */ View f30252a;
 
-    public static void c() {
-        if (Build.VERSION.SDK_INT < 28) {
-            return;
-        }
-        try {
-            Class.forName("android.content.pm.PackageParser$Package").getDeclaredConstructor(String.class).setAccessible(true);
-            Class<?> cls = Class.forName("android.app.ActivityThread");
-            Method declaredMethod = cls.getDeclaredMethod("currentActivityThread", new Class[0]);
-            declaredMethod.setAccessible(true);
-            Object invoke = declaredMethod.invoke(null, new Object[0]);
-            Field declaredField = cls.getDeclaredField("mHiddenApiWarningShown");
-            declaredField.setAccessible(true);
-            declaredField.setBoolean(invoke, true);
-        } catch (Throwable unused) {
-        }
-    }
+                                    /* renamed from: b  reason: collision with root package name */
+                                    public final /* synthetic */ m f30253b;
 
-    public static Handler b() {
-        HandlerThread handlerThread;
-        if (f28378f == null || ((handlerThread = f28377e) != null && !handlerThread.isAlive())) {
-            HandlerThread handlerThread2 = new HandlerThread("tt_pangle_thread_init", 10);
-            f28377e = handlerThread2;
-            handlerThread2.start();
-            f28378f = new Handler(f28377e.getLooper());
-        }
-        return f28378f;
-    }
+                                    {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this, findViewById};
+                                            interceptable2.invokeUnInit(65536, newInitContext);
+                                            int i2 = newInitContext.flag;
+                                            if ((i2 & 1) != 0) {
+                                                int i3 = i2 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable2.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.f30253b = this;
+                                        this.f30252a = findViewById;
+                                    }
 
-    public static void a(Context context) {
-        c();
-        c(context);
-        ah.a();
-        al.a(context);
-        b(context);
-        p.i().a();
-        String a2 = k.a(context);
-        if (!TextUtils.isEmpty(a2)) {
-            p.g().a(a2);
-        }
-        s.a().a(a2);
-        com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a();
-        com.bytedance.sdk.openadsdk.core.g.a.a().b();
-        a();
-    }
-
-    public static void c(final Context context) {
-        d.b.d.b.l.a(context.getApplicationContext(), new d.b.d.b.g() { // from class: com.bytedance.sdk.openadsdk.core.m.1
-            @Override // d.b.d.b.g
-            public Map<String, Object> a() {
-                HashMap hashMap = new HashMap();
-                String a2 = k.a(context);
-                if (!TextUtils.isEmpty(a2)) {
-                    hashMap.put(Constants.KEY_DEVICE_ID, a2);
-                }
-                hashMap.put("ac", com.bytedance.sdk.openadsdk.utils.x.f(context));
-                hashMap.put("aid", 164362);
-                hashMap.put("app_name", "unionser_slardar_applog");
-                String g2 = ak.g();
-                if (!TextUtils.isEmpty(g2)) {
-                    hashMap.put("app_version", g2);
-                }
-                String f2 = ak.f();
-                if (!TextUtils.isEmpty(f2)) {
-                    hashMap.put("version_code", f2);
-                    hashMap.put("update_version_code", f2);
-                }
-                hashMap.put("version_name", "3.4.5.5");
-                hashMap.put("device_platform", "android");
-                hashMap.put(IAdRequestParam.OS, "Android");
-                hashMap.put("device_type", Build.MODEL);
-                hashMap.put("device_mode", Build.MODEL);
-                hashMap.put(Config.ROM, ae.a());
-                hashMap.put(PmsConstant.EnvParam.Key.CPU_ABI, Build.CPU_ABI);
-                hashMap.put("device_brand", Build.BRAND);
-                hashMap.put(KsMediaMeta.KSM_KEY_LANGUAGE, Locale.getDefault().getLanguage());
-                hashMap.put("os_api", String.valueOf(Build.VERSION.SDK_INT));
-                try {
-                    String str = Build.VERSION.RELEASE;
-                    if (str != null && str.length() > 10) {
-                        str = str.substring(0, 10);
-                    }
-                    hashMap.put("os_version", str);
-                } catch (Exception unused) {
-                }
-                hashMap.put("openudid", k.c(context));
-                hashMap.put("dpi", String.valueOf(al.f(context)));
-                hashMap.put("resolution", al.c(context) + "*" + al.d(context));
-                return hashMap;
-            }
-
-            @Override // d.b.d.b.g
-            public String b() {
-                return k.a(context);
-            }
-
-            @Override // d.b.d.b.g
-            public String c() {
-                return AppLogHelper.getInstance().getAppLogUserUniqueID();
-            }
-
-            @Override // d.b.d.b.g
-            public String d() {
-                return null;
-            }
-
-            @Override // d.b.d.b.g
-            public Map<String, Integer> e() {
-                return null;
-            }
-
-            @Override // d.b.d.b.g
-            public List<String> f() {
-                return null;
-            }
-
-            @Override // d.b.d.b.g
-            public Map<String, Object> g() {
-                HashMap hashMap = new HashMap();
-                String g2 = i.d().g();
-                if (TextUtils.isEmpty(g2)) {
-                    g2 = String.valueOf(164362);
-                }
-                hashMap.put("host_appid", g2);
-                hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3.4.5.5");
-                return hashMap;
-            }
-        }, true, false);
-        d.b.d.b.l.d(new d.b.d.b.k() { // from class: com.bytedance.sdk.openadsdk.core.m.2
-            /* JADX WARN: Removed duplicated region for block: B:13:0x0033 A[Catch: all -> 0x003f, TRY_LEAVE, TryCatch #0 {all -> 0x003f, blocks: (B:3:0x0001, B:5:0x0014, B:7:0x0025, B:13:0x0033), top: B:17:0x0001 }] */
-            @Override // d.b.d.b.k
-            /*
-                Code decompiled incorrectly, please refer to instructions dump.
-            */
-            public boolean a(Throwable th, Thread thread) {
-                boolean z;
-                try {
-                    StringWriter stringWriter = new StringWriter();
-                    th.printStackTrace(new PrintWriter(stringWriter));
-                    String stringWriter2 = stringWriter.toString();
-                    if (stringWriter2 != null) {
-                        if (!stringWriter2.contains(AdSlot.class.getPackage().getName()) && !stringWriter2.contains("com.bytedance.msdk")) {
-                            z = false;
-                            if (z) {
-                                d.b.d.b.l.e(e.a().b());
-                                return true;
+                                    @Override // android.view.View.OnClickListener
+                                    public void onClick(View view) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f30253b.f30248h == null) {
+                                            return;
+                                        }
+                                        this.f30253b.f30248h.a(this.f30252a);
+                                    }
+                                });
                             }
                         }
-                        z = true;
-                        if (z) {
+                    }
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onBackPressed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b();
+            super.show();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(@NonNull Context context, @StyleRes int i2) {
+        super(context, i2 == 0 ? com.bytedance.sdk.component.utils.r.g(context, "tt_wg_insert_dialog") : i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f30249i = false;
+        this.f30242b = context;
+    }
+
+    public void a(boolean z, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, aVar) == null) {
+            this.f30249i = z;
+            this.f30248h = aVar;
+            a();
+            a aVar2 = this.f30248h;
+            if (aVar2 != null) {
+                aVar2.a(this.f30243c, this.f30244d, this.f30247g);
+            }
+        }
+    }
+
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            setCancelable(false);
+            View inflate = LayoutInflater.from(this.f30242b).inflate(com.bytedance.sdk.component.utils.r.f(this.f30242b, "tt_insert_ad_layout"), (ViewGroup) null);
+            this.f30241a = inflate;
+            setContentView(inflate);
+            this.f30243c = (ImageView) this.f30241a.findViewById(com.bytedance.sdk.component.utils.r.e(this.f30242b, "tt_insert_ad_img"));
+            this.f30244d = (ImageView) this.f30241a.findViewById(com.bytedance.sdk.component.utils.r.e(this.f30242b, "tt_insert_dislike_icon_img"));
+            this.f30245e = (ImageView) this.f30241a.findViewById(com.bytedance.sdk.component.utils.r.e(this.f30242b, "tt_insert_ad_logo"));
+            this.f30246f = (TextView) this.f30241a.findViewById(com.bytedance.sdk.component.utils.r.e(this.f30242b, "tt_insert_ad_text"));
+            this.f30247g = (FrameLayout) this.f30241a.findViewById(com.bytedance.sdk.component.utils.r.e(this.f30242b, "tt_insert_express_ad_fl"));
+            int c2 = com.bytedance.sdk.openadsdk.r.q.c(this.f30242b);
+            int i2 = c2 / 3;
+            this.f30243c.setMaxWidth(c2);
+            this.f30243c.setMinimumWidth(i2);
+            this.f30243c.setMinimumHeight(i2);
+            this.f30247g.setMinimumWidth(i2);
+            this.f30247g.setMinimumHeight(i2);
+            this.f30243c.setVisibility(this.f30249i ? 8 : 0);
+            this.f30244d.setVisibility(0);
+            this.f30245e.setVisibility(this.f30249i ? 8 : 0);
+            this.f30246f.setVisibility(this.f30249i ? 8 : 0);
+            this.f30247g.setVisibility(this.f30249i ? 0 : 8);
+            int b2 = (int) com.bytedance.sdk.openadsdk.r.q.b(this.f30242b, 15.0f);
+            com.bytedance.sdk.openadsdk.r.q.a(this.f30244d, b2, b2, b2, b2);
+            this.f30244d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.m.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ m f30250a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
-                } catch (Throwable unused) {
+                    this.f30250a = this;
                 }
-                return false;
-            }
-        });
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f30250a.f30248h == null) {
+                        return;
+                    }
+                    this.f30250a.f30248h.a(view);
+                }
+            });
+            this.f30246f.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.m.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ m f30251a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f30251a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f30251a.f30248h == null) {
+                        return;
+                    }
+                    this.f30251a.f30248h.b(view);
+                }
+            });
+        }
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            com.bytedance.sdk.openadsdk.r.p.a(this.f30245e, str);
+        }
     }
 }

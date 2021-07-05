@@ -1,76 +1,115 @@
 package d.a.d.m;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class c implements a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f43330a;
+    public final int f45189a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f43331b;
+    public int f45190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f43332c;
+    public final int f45191c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f43333d;
+    public final int f45192d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f43334e;
+    public final String f45193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap f43335f;
+    public HashMap f45194f;
 
     public c(int i2, int i3, String str, int i4, int i5, int i6) {
-        this.f43330a = i2;
-        this.f43334e = str;
-        this.f43331b = i4;
-        this.f43332c = i5;
-        this.f43333d = i6;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i7 = newInitContext.flag;
+            if ((i7 & 1) != 0) {
+                int i8 = i7 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f45189a = i2;
+        this.f45193e = str;
+        this.f45190b = i4;
+        this.f45191c = i5;
+        this.f45192d = i6;
     }
 
     public static a h(int i2, int i3, String str, int i4, int i5, int i6) {
-        return new c(i2, i3, str, i4, i5, i6);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) ? new c(i2, i3, str, i4, i5, i6) : (a) invokeCommon.objValue;
     }
 
     @Override // d.a.d.m.a
     public void a(HashMap hashMap) {
-        this.f43335f = hashMap;
-        if (hashMap.containsKey("iadex")) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
+            this.f45194f = hashMap;
+            if (hashMap.containsKey("iadex")) {
+                return;
+            }
+            hashMap.put("iadex", d.a.r0.z0.d.e());
         }
-        hashMap.put("iadex", d.a.n0.z0.d.e());
     }
 
     @Override // d.a.d.m.a
     public int b() {
-        return this.f43331b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45190b : invokeV.intValue;
     }
 
     @Override // d.a.d.m.a
     public int c() {
-        return this.f43330a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45189a : invokeV.intValue;
     }
 
     @Override // d.a.d.m.a
     public Map<String, String> d() {
-        return this.f43335f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45194f : (Map) invokeV.objValue;
     }
 
     @Override // d.a.d.m.a
     public int e() {
-        return this.f43333d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f45192d : invokeV.intValue;
     }
 
     @Override // d.a.d.m.a
     public int f() {
-        return this.f43332c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f45191c : invokeV.intValue;
     }
 
     @Override // d.a.d.m.a
     public String g() {
-        return this.f43334e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f45193e : (String) invokeV.objValue;
     }
 }

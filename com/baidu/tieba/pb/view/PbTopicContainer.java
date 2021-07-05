@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.data.RecommendTopicData;
@@ -17,25 +18,49 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.n0.l.a;
-import d.a.n0.p0.b;
+import d.a.r0.l.a;
+import d.a.r0.p0.b;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19723e;
+    public int f19873e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f19724f;
+    public TbPageContext f19874f;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbTopicContainer(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void a(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
-        if (recommendTopicListData == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, recommendTopicListData) == null) || recommendTopicListData == null) {
             return;
         }
         Context context = getContext();
@@ -56,10 +81,11 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getTag() instanceof RecommendTopicData.RecommendTopicListData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && (view.getTag() instanceof RecommendTopicData.RecommendTopicListData)) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view.getTag();
-            TbPageContext tbPageContext = this.f19724f;
+            TbPageContext tbPageContext = this.f19874f;
             if (tbPageContext != null && !b.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
@@ -72,61 +98,90 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        int size = (View.MeasureSpec.getSize(i2) - getPaddingRight()) - getPaddingLeft();
-        int childCount = getChildCount();
-        if (childCount > this.f19723e) {
-            while (true) {
-                childCount--;
-                if (childCount <= this.f19723e) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+            int size = (View.MeasureSpec.getSize(i2) - getPaddingRight()) - getPaddingLeft();
+            int childCount = getChildCount();
+            if (childCount > this.f19873e) {
+                while (true) {
+                    childCount--;
+                    if (childCount <= this.f19873e) {
+                        break;
+                    }
+                    removeViewAt(childCount);
+                }
+            }
+            int i4 = 0;
+            int i5 = 0;
+            while (i4 < getChildCount()) {
+                View childAt = getChildAt(i4);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) childAt.getLayoutParams();
+                childAt.measure(LinearLayout.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight(), layoutParams.width), LinearLayout.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom(), layoutParams.height));
+                i5 += childAt.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin;
+                if (i5 > size) {
                     break;
                 }
-                removeViewAt(childCount);
+                i4++;
             }
-        }
-        int i4 = 0;
-        int i5 = 0;
-        while (i4 < getChildCount()) {
-            View childAt = getChildAt(i4);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) childAt.getLayoutParams();
-            childAt.measure(LinearLayout.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight(), layoutParams.width), LinearLayout.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom(), layoutParams.height));
-            i5 += childAt.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin;
-            if (i5 > size) {
-                break;
+            for (int childCount2 = getChildCount() - 1; childCount2 >= i4; childCount2--) {
+                removeViewAt(childCount2);
             }
-            i4++;
+            super.onMeasure(i2, i3);
         }
-        for (int childCount2 = getChildCount() - 1; childCount2 >= i4; childCount2--) {
-            removeViewAt(childCount2);
-        }
-        super.onMeasure(i2, i3);
     }
 
     public void setData(List<RecommendTopicData.RecommendTopicListData> list) {
-        if (ListUtils.isEmpty(list)) {
-            setVisibility(8);
-            return;
-        }
-        setVisibility(0);
-        removeAllViews();
-        for (int i2 = 0; i2 < 3 && i2 < list.size(); i2++) {
-            RecommendTopicData.RecommendTopicListData recommendTopicListData = list.get(i2);
-            if (recommendTopicListData != null) {
-                a(recommendTopicListData);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            if (ListUtils.isEmpty(list)) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            removeAllViews();
+            for (int i2 = 0; i2 < 3 && i2 < list.size(); i2++) {
+                RecommendTopicData.RecommendTopicListData recommendTopicListData = list.get(i2);
+                if (recommendTopicListData != null) {
+                    a(recommendTopicListData);
+                }
             }
         }
     }
 
     public void setMaxChildCount(int i2) {
-        this.f19723e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.f19873e = i2;
+        }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.f19724f = tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) {
+            this.f19874f = tbPageContext;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19723e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f19873e = 3;
         setOrientation(0);
     }
 }

@@ -1,5 +1,12 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -21,38 +28,77 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class QuicktimeTextTrackImpl extends AbstractTrack {
-    public TrackMetaData trackMetaData = new TrackMetaData();
-    public List<Line> subs = new LinkedList();
-    public SampleDescriptionBox sampleDescriptionBox = new SampleDescriptionBox();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public SampleDescriptionBox sampleDescriptionBox;
+    public List<Line> subs;
+    public TrackMetaData trackMetaData;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Line {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public long from;
         public String text;
         public long to;
 
         public Line(long j, long j2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.from = j;
             this.to = j2;
             this.text = str;
         }
 
         public long getFrom() {
-            return this.from;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.from : invokeV.longValue;
         }
 
         public String getText() {
-            return this.text;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.text : (String) invokeV.objValue;
         }
 
         public long getTo() {
-            return this.to;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.to : invokeV.longValue;
         }
     }
 
     public QuicktimeTextTrackImpl() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.trackMetaData = new TrackMetaData();
+        this.subs = new LinkedList();
+        this.sampleDescriptionBox = new SampleDescriptionBox();
         QuicktimeTextSampleEntry quicktimeTextSampleEntry = new QuicktimeTextSampleEntry();
         quicktimeTextSampleEntry.setDataReferenceIndex(1);
         this.sampleDescriptionBox.addBox(quicktimeTextSampleEntry);
@@ -63,98 +109,141 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public String getHandler() {
-        return "text";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "text" : (String) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public Box getMediaHeaderBox() {
-        GenericMediaHeaderAtom genericMediaHeaderAtom = new GenericMediaHeaderAtom();
-        genericMediaHeaderAtom.addBox(new BaseMediaInfoAtom());
-        genericMediaHeaderAtom.addBox(new GenericMediaHeaderTextAtom());
-        return genericMediaHeaderAtom;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            GenericMediaHeaderAtom genericMediaHeaderAtom = new GenericMediaHeaderAtom();
+            genericMediaHeaderAtom.addBox(new BaseMediaInfoAtom());
+            genericMediaHeaderAtom.addBox(new GenericMediaHeaderTextAtom());
+            return genericMediaHeaderAtom;
+        }
+        return (Box) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SampleDescriptionBox getSampleDescriptionBox() {
-        return this.sampleDescriptionBox;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.sampleDescriptionBox : (SampleDescriptionBox) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public long[] getSampleDurations() {
-        ArrayList<Long> arrayList = new ArrayList();
-        long j = 0;
-        for (Line line : this.subs) {
-            long j2 = line.from - j;
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i2 > 0) {
-                arrayList.add(Long.valueOf(j2));
-            } else if (i2 < 0) {
-                throw new Error("Subtitle display times may not intersect");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<Long> arrayList = new ArrayList();
+            long j = 0;
+            for (Line line : this.subs) {
+                long j2 = line.from - j;
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+                if (i2 > 0) {
+                    arrayList.add(Long.valueOf(j2));
+                } else if (i2 < 0) {
+                    throw new Error("Subtitle display times may not intersect");
+                }
+                arrayList.add(Long.valueOf(line.to - line.from));
+                j = line.to;
             }
-            arrayList.add(Long.valueOf(line.to - line.from));
-            j = line.to;
+            long[] jArr = new long[arrayList.size()];
+            int i3 = 0;
+            for (Long l : arrayList) {
+                jArr[i3] = l.longValue();
+                i3++;
+            }
+            return jArr;
         }
-        long[] jArr = new long[arrayList.size()];
-        int i3 = 0;
-        for (Long l : arrayList) {
-            jArr[i3] = l.longValue();
-            i3++;
-        }
-        return jArr;
+        return (long[]) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public List<Sample> getSamples() {
-        LinkedList linkedList = new LinkedList();
-        long j = 0;
-        for (Line line : this.subs) {
-            int i2 = ((line.from - j) > 0L ? 1 : ((line.from - j) == 0L ? 0 : -1));
-            if (i2 > 0) {
-                linkedList.add(new SampleImpl(ByteBuffer.wrap(new byte[2])));
-            } else if (i2 < 0) {
-                throw new Error("Subtitle display times may not intersect");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            LinkedList linkedList = new LinkedList();
+            long j = 0;
+            for (Line line : this.subs) {
+                int i2 = ((line.from - j) > 0L ? 1 : ((line.from - j) == 0L ? 0 : -1));
+                if (i2 > 0) {
+                    linkedList.add(new SampleImpl(ByteBuffer.wrap(new byte[2])));
+                } else if (i2 < 0) {
+                    throw new Error("Subtitle display times may not intersect");
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+                try {
+                    dataOutputStream.writeShort(line.text.getBytes("UTF-8").length);
+                    dataOutputStream.write(line.text.getBytes("UTF-8"));
+                    dataOutputStream.close();
+                    linkedList.add(new SampleImpl(ByteBuffer.wrap(byteArrayOutputStream.toByteArray())));
+                    j = line.to;
+                } catch (IOException unused) {
+                    throw new Error("VM is broken. Does not support UTF-8");
+                }
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
-            try {
-                dataOutputStream.writeShort(line.text.getBytes("UTF-8").length);
-                dataOutputStream.write(line.text.getBytes("UTF-8"));
-                dataOutputStream.close();
-                linkedList.add(new SampleImpl(ByteBuffer.wrap(byteArrayOutputStream.toByteArray())));
-                j = line.to;
-            } catch (IOException unused) {
-                throw new Error("VM is broken. Does not support UTF-8");
-            }
+            return linkedList;
         }
-        return linkedList;
+        return (List) invokeV.objValue;
     }
 
     public List<Line> getSubs() {
-        return this.subs;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.subs : (List) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public SubSampleInformationBox getSubsampleInformationBox() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (SubSampleInformationBox) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public long[] getSyncSamples() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (long[]) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
-        return this.trackMetaData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.trackMetaData : (TrackMetaData) invokeV.objValue;
     }
 }

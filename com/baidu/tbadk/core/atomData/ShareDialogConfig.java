@@ -5,14 +5,25 @@ import android.content.DialogInterface;
 import android.util.Pair;
 import android.util.SparseArray;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import d.a.n0.r.s.l;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.s.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ShareDialogConfig extends IntentConfig {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener copyLinkListener;
     public int copyTitleId;
     public l.d dialogAddToExpressionListener;
@@ -49,22 +60,100 @@ public class ShareDialogConfig extends IntentConfig {
     public ShareItem[] specialShareItems;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
 
-    /* loaded from: classes3.dex */
-    public enum From {
-        Default,
-        Recommend,
-        Concern,
-        PB,
-        FRS,
-        PersonPolymeric,
-        VideoMiddlePageHorizontal,
-        VideoMiddlePageVertical,
-        HomeVideoTab,
-        HomeGameTab
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class From {
+        public static final /* synthetic */ From[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final From Concern;
+        public static final From Default;
+        public static final From FRS;
+        public static final From HomeGameTab;
+        public static final From HomeVideoTab;
+        public static final From PB;
+        public static final From PersonPolymeric;
+        public static final From Recommend;
+        public static final From VideoMiddlePageHorizontal;
+        public static final From VideoMiddlePageVertical;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(223431087, "Lcom/baidu/tbadk/core/atomData/ShareDialogConfig$From;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(223431087, "Lcom/baidu/tbadk/core/atomData/ShareDialogConfig$From;");
+                    return;
+                }
+            }
+            Default = new From("Default", 0);
+            Recommend = new From("Recommend", 1);
+            Concern = new From("Concern", 2);
+            PB = new From("PB", 3);
+            FRS = new From("FRS", 4);
+            PersonPolymeric = new From("PersonPolymeric", 5);
+            VideoMiddlePageHorizontal = new From("VideoMiddlePageHorizontal", 6);
+            VideoMiddlePageVertical = new From("VideoMiddlePageVertical", 7);
+            HomeVideoTab = new From("HomeVideoTab", 8);
+            From from = new From("HomeGameTab", 9);
+            HomeGameTab = from;
+            $VALUES = new From[]{Default, Recommend, Concern, PB, FRS, PersonPolymeric, VideoMiddlePageHorizontal, VideoMiddlePageVertical, HomeVideoTab, from};
+        }
+
+        public From(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static From valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (From) Enum.valueOf(From.class, str) : (From) invokeL.objValue;
+        }
+
+        public static From[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (From[]) $VALUES.clone() : (From[]) invokeV.objValue;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareDialogConfig(Context context, ShareItem shareItem, boolean z) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
@@ -81,90 +170,160 @@ public class ShareDialogConfig extends IntentConfig {
     }
 
     public void addOutsideTextView(int i2, int i3, View.OnClickListener onClickListener) {
-        if (this.textViewList == null) {
-            this.textViewList = new ArrayList<>();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, onClickListener) == null) {
+            if (this.textViewList == null) {
+                this.textViewList = new ArrayList<>();
+            }
+            this.textViewList.add(new Pair<>(Integer.valueOf(i2), new Pair(Integer.valueOf(i3), onClickListener)));
         }
-        this.textViewList.add(new Pair<>(Integer.valueOf(i2), new Pair(Integer.valueOf(i3), onClickListener)));
     }
 
     public List<Integer> getCommandChannelArray() {
-        return this.mCommandChannelArray;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCommandChannelArray : (List) invokeV.objValue;
     }
 
     public From getFrom() {
-        return this.mFrom;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFrom : (From) invokeV.objValue;
     }
 
     public boolean isAlaLiveRoomShare() {
-        return this.mAlaLiveRoomShare;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAlaLiveRoomShare : invokeV.booleanValue;
     }
 
     public void setAlaLiveRoomShare(boolean z) {
-        this.mAlaLiveRoomShare = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.mAlaLiveRoomShare = z;
+        }
     }
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
-        this.copyLinkListener = onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.copyLinkListener = onClickListener;
+        }
     }
 
     public void setCustomCopyTitle(int i2) {
-        this.copyTitleId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.copyTitleId = i2;
+        }
     }
 
     public void setFrom(From from) {
-        this.mFrom = from;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, from) == null) {
+            this.mFrom = from;
+        }
     }
 
     public void setHasSpecialItem(boolean z) {
-        this.hasSpecialItem = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.hasSpecialItem = z;
+        }
     }
 
     public void setHideMode(int i2) {
-        this.hideMode = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.hideMode = i2;
+        }
     }
 
     public void setIsAlaLive(boolean z) {
-        this.mIsAlaLive = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.mIsAlaLive = z;
+        }
     }
 
     public void setIsCopyLink(boolean z) {
-        this.isSetCopyLink = true;
-        this.isCopyLink = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.isSetCopyLink = true;
+            this.isCopyLink = z;
+        }
     }
 
     public void setIsLandscape(boolean z) {
-        this.isLandscape = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.isLandscape = z;
+        }
     }
 
     public void setIsShowTransmitShare(boolean z) {
-        this.mIsShowTransmitShare = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.mIsShowTransmitShare = z;
+        }
     }
 
     public void setIsSupportNightMode(boolean z) {
-        this.isSupportNightMode = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.isSupportNightMode = z;
+        }
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
-        this.onDismissListener = onDismissListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, onDismissListener) == null) {
+            this.onDismissListener = onDismissListener;
+        }
     }
 
     public void setPrivateThread(int i2) {
-        this.mPrivateThread = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.mPrivateThread = i2;
+        }
     }
 
     public void setSpecialShareItems(int i2, ShareItem shareItem) {
-        if (this.specialShareItems == null) {
-            this.specialShareItems = new ShareItem[9];
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048593, this, i2, shareItem) == null) {
+            if (this.specialShareItems == null) {
+                this.specialShareItems = new ShareItem[9];
+            }
+            this.specialShareItems[i2] = shareItem;
         }
-        this.specialShareItems[i2] = shareItem;
     }
 
     public void setTransmitForumList(ArrayList<TransmitForumData> arrayList) {
-        this.mForumList = arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, arrayList) == null) {
+            this.mForumList = arrayList;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, SparseArray<String> sparseArray) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), sparseArray};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
@@ -181,8 +340,24 @@ public class ShareDialogConfig extends IntentConfig {
         this.mtjStatistics = sparseArray;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, SparseArray<String> sparseArray, boolean z2) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), sparseArray, Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
@@ -203,9 +378,25 @@ public class ShareDialogConfig extends IntentConfig {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @Deprecated
     public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, boolean z2) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;

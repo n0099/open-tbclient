@@ -24,9 +24,20 @@ import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.collection.LongSparseArray;
 import androidx.core.content.res.TypedArrayUtils;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -35,7 +46,9 @@ import java.util.List;
 import java.util.StringTokenizer;
 /* loaded from: classes.dex */
 public abstract class Transition implements Cloneable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DBG = false;
+    public static final int[] DEFAULT_MATCH_ORDER;
     public static final String LOG_TAG = "Transition";
     public static final int MATCH_FIRST = 1;
     public static final int MATCH_ID = 3;
@@ -47,53 +60,47 @@ public abstract class Transition implements Cloneable {
     public static final int MATCH_LAST = 4;
     public static final int MATCH_NAME = 2;
     public static final String MATCH_NAME_STR = "name";
+    public static final PathMotion STRAIGHT_PATH_MOTION;
+    public static ThreadLocal<ArrayMap<Animator, AnimationInfo>> sRunningAnimators;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<Animator> mAnimators;
+    public boolean mCanRemoveViews;
+    public ArrayList<Animator> mCurrentAnimators;
+    public long mDuration;
+    public TransitionValuesMaps mEndValues;
     public ArrayList<TransitionValues> mEndValuesList;
+    public boolean mEnded;
     public EpicenterCallback mEpicenterCallback;
+    public TimeInterpolator mInterpolator;
+    public ArrayList<TransitionListener> mListeners;
+    public int[] mMatchOrder;
+    public String mName;
     public ArrayMap<String, String> mNameOverrides;
+    public int mNumInstances;
+    public TransitionSet mParent;
+    public PathMotion mPathMotion;
+    public boolean mPaused;
     public TransitionPropagation mPropagation;
+    public ViewGroup mSceneRoot;
+    public long mStartDelay;
+    public TransitionValuesMaps mStartValues;
     public ArrayList<TransitionValues> mStartValuesList;
-    public static final int[] DEFAULT_MATCH_ORDER = {2, 1, 3, 4};
-    public static final PathMotion STRAIGHT_PATH_MOTION = new PathMotion() { // from class: androidx.transition.Transition.1
-        @Override // androidx.transition.PathMotion
-        public Path getPath(float f2, float f3, float f4, float f5) {
-            Path path = new Path();
-            path.moveTo(f2, f3);
-            path.lineTo(f4, f5);
-            return path;
-        }
-    };
-    public static ThreadLocal<ArrayMap<Animator, AnimationInfo>> sRunningAnimators = new ThreadLocal<>();
-    public String mName = getClass().getName();
-    public long mStartDelay = -1;
-    public long mDuration = -1;
-    public TimeInterpolator mInterpolator = null;
-    public ArrayList<Integer> mTargetIds = new ArrayList<>();
-    public ArrayList<View> mTargets = new ArrayList<>();
-    public ArrayList<String> mTargetNames = null;
-    public ArrayList<Class<?>> mTargetTypes = null;
-    public ArrayList<Integer> mTargetIdExcludes = null;
-    public ArrayList<View> mTargetExcludes = null;
-    public ArrayList<Class<?>> mTargetTypeExcludes = null;
-    public ArrayList<String> mTargetNameExcludes = null;
-    public ArrayList<Integer> mTargetIdChildExcludes = null;
-    public ArrayList<View> mTargetChildExcludes = null;
-    public ArrayList<Class<?>> mTargetTypeChildExcludes = null;
-    public TransitionValuesMaps mStartValues = new TransitionValuesMaps();
-    public TransitionValuesMaps mEndValues = new TransitionValuesMaps();
-    public TransitionSet mParent = null;
-    public int[] mMatchOrder = DEFAULT_MATCH_ORDER;
-    public ViewGroup mSceneRoot = null;
-    public boolean mCanRemoveViews = false;
-    public ArrayList<Animator> mCurrentAnimators = new ArrayList<>();
-    public int mNumInstances = 0;
-    public boolean mPaused = false;
-    public boolean mEnded = false;
-    public ArrayList<TransitionListener> mListeners = null;
-    public ArrayList<Animator> mAnimators = new ArrayList<>();
-    public PathMotion mPathMotion = STRAIGHT_PATH_MOTION;
+    public ArrayList<View> mTargetChildExcludes;
+    public ArrayList<View> mTargetExcludes;
+    public ArrayList<Integer> mTargetIdChildExcludes;
+    public ArrayList<Integer> mTargetIdExcludes;
+    public ArrayList<Integer> mTargetIds;
+    public ArrayList<String> mTargetNameExcludes;
+    public ArrayList<String> mTargetNames;
+    public ArrayList<Class<?>> mTargetTypeChildExcludes;
+    public ArrayList<Class<?>> mTargetTypeExcludes;
+    public ArrayList<Class<?>> mTargetTypes;
+    public ArrayList<View> mTargets;
 
     /* loaded from: classes.dex */
     public static class AnimationInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String mName;
         public Transition mTransition;
         public TransitionValues mValues;
@@ -101,6 +108,20 @@ public abstract class Transition implements Cloneable {
         public WindowIdImpl mWindowId;
 
         public AnimationInfo(View view, String str, Transition transition, WindowIdImpl windowIdImpl, TransitionValues transitionValues) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view, str, transition, windowIdImpl, transitionValues};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mView = view;
             this.mName = str;
             this.mValues = transitionValues;
@@ -111,30 +132,74 @@ public abstract class Transition implements Cloneable {
 
     /* loaded from: classes.dex */
     public static class ArrayListManager {
-        public static <T> ArrayList<T> add(ArrayList<T> arrayList, T t) {
-            if (arrayList == null) {
-                arrayList = new ArrayList<>();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public ArrayListManager() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if (!arrayList.contains(t)) {
-                arrayList.add(t);
-            }
-            return arrayList;
         }
 
-        public static <T> ArrayList<T> remove(ArrayList<T> arrayList, T t) {
-            if (arrayList != null) {
-                arrayList.remove(t);
-                if (arrayList.isEmpty()) {
-                    return null;
+        public static <T> ArrayList<T> add(ArrayList<T> arrayList, T t) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, arrayList, t)) == null) {
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                }
+                if (!arrayList.contains(t)) {
+                    arrayList.add(t);
                 }
                 return arrayList;
             }
-            return arrayList;
+            return (ArrayList) invokeLL.objValue;
+        }
+
+        public static <T> ArrayList<T> remove(ArrayList<T> arrayList, T t) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, t)) == null) {
+                if (arrayList != null) {
+                    arrayList.remove(t);
+                    if (arrayList.isEmpty()) {
+                        return null;
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+            return (ArrayList) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes.dex */
     public static abstract class EpicenterCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public EpicenterCallback() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public abstract Rect onGetEpicenter(@NonNull Transition transition);
     }
 
@@ -157,75 +222,175 @@ public abstract class Transition implements Cloneable {
         void onTransitionStart(@NonNull Transition transition);
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-214236474, "Landroidx/transition/Transition;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-214236474, "Landroidx/transition/Transition;");
+                return;
+            }
+        }
+        DEFAULT_MATCH_ORDER = new int[]{2, 1, 3, 4};
+        STRAIGHT_PATH_MOTION = new PathMotion() { // from class: androidx.transition.Transition.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // androidx.transition.PathMotion
+            public Path getPath(float f2, float f3, float f4, float f5) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+                    Path path = new Path();
+                    path.moveTo(f2, f3);
+                    path.lineTo(f4, f5);
+                    return path;
+                }
+                return (Path) invokeCommon.objValue;
+            }
+        };
+        sRunningAnimators = new ThreadLocal<>();
+    }
+
     public Transition() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mName = getClass().getName();
+        this.mStartDelay = -1L;
+        this.mDuration = -1L;
+        this.mInterpolator = null;
+        this.mTargetIds = new ArrayList<>();
+        this.mTargets = new ArrayList<>();
+        this.mTargetNames = null;
+        this.mTargetTypes = null;
+        this.mTargetIdExcludes = null;
+        this.mTargetExcludes = null;
+        this.mTargetTypeExcludes = null;
+        this.mTargetNameExcludes = null;
+        this.mTargetIdChildExcludes = null;
+        this.mTargetChildExcludes = null;
+        this.mTargetTypeChildExcludes = null;
+        this.mStartValues = new TransitionValuesMaps();
+        this.mEndValues = new TransitionValuesMaps();
+        this.mParent = null;
+        this.mMatchOrder = DEFAULT_MATCH_ORDER;
+        this.mSceneRoot = null;
+        this.mCanRemoveViews = false;
+        this.mCurrentAnimators = new ArrayList<>();
+        this.mNumInstances = 0;
+        this.mPaused = false;
+        this.mEnded = false;
+        this.mListeners = null;
+        this.mAnimators = new ArrayList<>();
+        this.mPathMotion = STRAIGHT_PATH_MOTION;
     }
 
     private void addUnmatched(ArrayMap<View, TransitionValues> arrayMap, ArrayMap<View, TransitionValues> arrayMap2) {
-        for (int i2 = 0; i2 < arrayMap.size(); i2++) {
-            TransitionValues valueAt = arrayMap.valueAt(i2);
-            if (isValidTarget(valueAt.view)) {
-                this.mStartValuesList.add(valueAt);
-                this.mEndValuesList.add(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, this, arrayMap, arrayMap2) == null) {
+            for (int i2 = 0; i2 < arrayMap.size(); i2++) {
+                TransitionValues valueAt = arrayMap.valueAt(i2);
+                if (isValidTarget(valueAt.view)) {
+                    this.mStartValuesList.add(valueAt);
+                    this.mEndValuesList.add(null);
+                }
             }
-        }
-        for (int i3 = 0; i3 < arrayMap2.size(); i3++) {
-            TransitionValues valueAt2 = arrayMap2.valueAt(i3);
-            if (isValidTarget(valueAt2.view)) {
-                this.mEndValuesList.add(valueAt2);
-                this.mStartValuesList.add(null);
+            for (int i3 = 0; i3 < arrayMap2.size(); i3++) {
+                TransitionValues valueAt2 = arrayMap2.valueAt(i3);
+                if (isValidTarget(valueAt2.view)) {
+                    this.mEndValuesList.add(valueAt2);
+                    this.mStartValuesList.add(null);
+                }
             }
         }
     }
 
     public static void addViewValues(TransitionValuesMaps transitionValuesMaps, View view, TransitionValues transitionValues) {
-        transitionValuesMaps.mViewValues.put(view, transitionValues);
-        int id = view.getId();
-        if (id >= 0) {
-            if (transitionValuesMaps.mIdValues.indexOfKey(id) >= 0) {
-                transitionValuesMaps.mIdValues.put(id, null);
-            } else {
-                transitionValuesMaps.mIdValues.put(id, view);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65540, null, transitionValuesMaps, view, transitionValues) == null) {
+            transitionValuesMaps.mViewValues.put(view, transitionValues);
+            int id = view.getId();
+            if (id >= 0) {
+                if (transitionValuesMaps.mIdValues.indexOfKey(id) >= 0) {
+                    transitionValuesMaps.mIdValues.put(id, null);
+                } else {
+                    transitionValuesMaps.mIdValues.put(id, view);
+                }
             }
-        }
-        String transitionName = ViewCompat.getTransitionName(view);
-        if (transitionName != null) {
-            if (transitionValuesMaps.mNameValues.containsKey(transitionName)) {
-                transitionValuesMaps.mNameValues.put(transitionName, null);
-            } else {
-                transitionValuesMaps.mNameValues.put(transitionName, view);
+            String transitionName = ViewCompat.getTransitionName(view);
+            if (transitionName != null) {
+                if (transitionValuesMaps.mNameValues.containsKey(transitionName)) {
+                    transitionValuesMaps.mNameValues.put(transitionName, null);
+                } else {
+                    transitionValuesMaps.mNameValues.put(transitionName, view);
+                }
             }
-        }
-        if (view.getParent() instanceof ListView) {
-            ListView listView = (ListView) view.getParent();
-            if (listView.getAdapter().hasStableIds()) {
-                long itemIdAtPosition = listView.getItemIdAtPosition(listView.getPositionForView(view));
-                if (transitionValuesMaps.mItemIdValues.indexOfKey(itemIdAtPosition) >= 0) {
-                    View view2 = transitionValuesMaps.mItemIdValues.get(itemIdAtPosition);
-                    if (view2 != null) {
-                        ViewCompat.setHasTransientState(view2, false);
-                        transitionValuesMaps.mItemIdValues.put(itemIdAtPosition, null);
+            if (view.getParent() instanceof ListView) {
+                ListView listView = (ListView) view.getParent();
+                if (listView.getAdapter().hasStableIds()) {
+                    long itemIdAtPosition = listView.getItemIdAtPosition(listView.getPositionForView(view));
+                    if (transitionValuesMaps.mItemIdValues.indexOfKey(itemIdAtPosition) >= 0) {
+                        View view2 = transitionValuesMaps.mItemIdValues.get(itemIdAtPosition);
+                        if (view2 != null) {
+                            ViewCompat.setHasTransientState(view2, false);
+                            transitionValuesMaps.mItemIdValues.put(itemIdAtPosition, null);
+                            return;
+                        }
                         return;
                     }
-                    return;
+                    ViewCompat.setHasTransientState(view, true);
+                    transitionValuesMaps.mItemIdValues.put(itemIdAtPosition, view);
                 }
-                ViewCompat.setHasTransientState(view, true);
-                transitionValuesMaps.mItemIdValues.put(itemIdAtPosition, view);
             }
         }
     }
 
     public static boolean alreadyContains(int[] iArr, int i2) {
-        int i3 = iArr[i2];
-        for (int i4 = 0; i4 < i2; i4++) {
-            if (iArr[i4] == i3) {
-                return true;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, iArr, i2)) == null) {
+            int i3 = iArr[i2];
+            for (int i4 = 0; i4 < i2; i4++) {
+                if (iArr[i4] == i3) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        return invokeLI.booleanValue;
     }
 
     private void captureHierarchy(View view, boolean z) {
-        if (view == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, this, view, z) == null) || view == null) {
             return;
         }
         int id = view.getId();
@@ -283,84 +448,119 @@ public abstract class Transition implements Cloneable {
     }
 
     private ArrayList<Integer> excludeId(ArrayList<Integer> arrayList, int i2, boolean z) {
-        if (i2 > 0) {
-            if (z) {
-                return ArrayListManager.add(arrayList, Integer.valueOf(i2));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{arrayList, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (i2 > 0) {
+                if (z) {
+                    return ArrayListManager.add(arrayList, Integer.valueOf(i2));
+                }
+                return ArrayListManager.remove(arrayList, Integer.valueOf(i2));
             }
-            return ArrayListManager.remove(arrayList, Integer.valueOf(i2));
+            return arrayList;
         }
-        return arrayList;
+        return (ArrayList) invokeCommon.objValue;
     }
 
     public static <T> ArrayList<T> excludeObject(ArrayList<T> arrayList, T t, boolean z) {
-        if (t != null) {
-            if (z) {
-                return ArrayListManager.add(arrayList, t);
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, arrayList, t, z)) == null) {
+            if (t != null) {
+                if (z) {
+                    return ArrayListManager.add(arrayList, t);
+                }
+                return ArrayListManager.remove(arrayList, t);
             }
-            return ArrayListManager.remove(arrayList, t);
+            return arrayList;
         }
-        return arrayList;
+        return (ArrayList) invokeLLZ.objValue;
     }
 
     private ArrayList<Class<?>> excludeType(ArrayList<Class<?>> arrayList, Class<?> cls, boolean z) {
-        if (cls != null) {
-            if (z) {
-                return ArrayListManager.add(arrayList, cls);
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, this, arrayList, cls, z)) == null) {
+            if (cls != null) {
+                if (z) {
+                    return ArrayListManager.add(arrayList, cls);
+                }
+                return ArrayListManager.remove(arrayList, cls);
             }
-            return ArrayListManager.remove(arrayList, cls);
+            return arrayList;
         }
-        return arrayList;
+        return (ArrayList) invokeLLZ.objValue;
     }
 
     private ArrayList<View> excludeView(ArrayList<View> arrayList, View view, boolean z) {
-        if (view != null) {
-            if (z) {
-                return ArrayListManager.add(arrayList, view);
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, this, arrayList, view, z)) == null) {
+            if (view != null) {
+                if (z) {
+                    return ArrayListManager.add(arrayList, view);
+                }
+                return ArrayListManager.remove(arrayList, view);
             }
-            return ArrayListManager.remove(arrayList, view);
+            return arrayList;
         }
-        return arrayList;
+        return (ArrayList) invokeLLZ.objValue;
     }
 
     public static ArrayMap<Animator, AnimationInfo> getRunningAnimators() {
-        ArrayMap<Animator, AnimationInfo> arrayMap = sRunningAnimators.get();
-        if (arrayMap == null) {
-            ArrayMap<Animator, AnimationInfo> arrayMap2 = new ArrayMap<>();
-            sRunningAnimators.set(arrayMap2);
-            return arrayMap2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            ArrayMap<Animator, AnimationInfo> arrayMap = sRunningAnimators.get();
+            if (arrayMap == null) {
+                ArrayMap<Animator, AnimationInfo> arrayMap2 = new ArrayMap<>();
+                sRunningAnimators.set(arrayMap2);
+                return arrayMap2;
+            }
+            return arrayMap;
         }
-        return arrayMap;
+        return (ArrayMap) invokeV.objValue;
     }
 
     public static boolean isValidMatch(int i2) {
-        return i2 >= 1 && i2 <= 4;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) ? i2 >= 1 && i2 <= 4 : invokeI.booleanValue;
     }
 
     public static boolean isValueChanged(TransitionValues transitionValues, TransitionValues transitionValues2, String str) {
-        Object obj = transitionValues.values.get(str);
-        Object obj2 = transitionValues2.values.get(str);
-        if (obj == null && obj2 == null) {
-            return false;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, transitionValues, transitionValues2, str)) == null) {
+            Object obj = transitionValues.values.get(str);
+            Object obj2 = transitionValues2.values.get(str);
+            if (obj == null && obj2 == null) {
+                return false;
+            }
+            if (obj == null || obj2 == null) {
+                return true;
+            }
+            return true ^ obj.equals(obj2);
         }
-        if (obj == null || obj2 == null) {
-            return true;
-        }
-        return true ^ obj.equals(obj2);
+        return invokeLLL.booleanValue;
     }
 
     private void matchIds(ArrayMap<View, TransitionValues> arrayMap, ArrayMap<View, TransitionValues> arrayMap2, SparseArray<View> sparseArray, SparseArray<View> sparseArray2) {
         View view;
-        int size = sparseArray.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            View valueAt = sparseArray.valueAt(i2);
-            if (valueAt != null && isValidTarget(valueAt) && (view = sparseArray2.get(sparseArray.keyAt(i2))) != null && isValidTarget(view)) {
-                TransitionValues transitionValues = arrayMap.get(valueAt);
-                TransitionValues transitionValues2 = arrayMap2.get(view);
-                if (transitionValues != null && transitionValues2 != null) {
-                    this.mStartValuesList.add(transitionValues);
-                    this.mEndValuesList.add(transitionValues2);
-                    arrayMap.remove(valueAt);
-                    arrayMap2.remove(view);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65550, this, arrayMap, arrayMap2, sparseArray, sparseArray2) == null) {
+            int size = sparseArray.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                View valueAt = sparseArray.valueAt(i2);
+                if (valueAt != null && isValidTarget(valueAt) && (view = sparseArray2.get(sparseArray.keyAt(i2))) != null && isValidTarget(view)) {
+                    TransitionValues transitionValues = arrayMap.get(valueAt);
+                    TransitionValues transitionValues2 = arrayMap2.get(view);
+                    if (transitionValues != null && transitionValues2 != null) {
+                        this.mStartValuesList.add(transitionValues);
+                        this.mEndValuesList.add(transitionValues2);
+                        arrayMap.remove(valueAt);
+                        arrayMap2.remove(view);
+                    }
                 }
             }
         }
@@ -368,28 +568,34 @@ public abstract class Transition implements Cloneable {
 
     private void matchInstances(ArrayMap<View, TransitionValues> arrayMap, ArrayMap<View, TransitionValues> arrayMap2) {
         TransitionValues remove;
-        for (int size = arrayMap.size() - 1; size >= 0; size--) {
-            View keyAt = arrayMap.keyAt(size);
-            if (keyAt != null && isValidTarget(keyAt) && (remove = arrayMap2.remove(keyAt)) != null && isValidTarget(remove.view)) {
-                this.mStartValuesList.add(arrayMap.removeAt(size));
-                this.mEndValuesList.add(remove);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, this, arrayMap, arrayMap2) == null) {
+            for (int size = arrayMap.size() - 1; size >= 0; size--) {
+                View keyAt = arrayMap.keyAt(size);
+                if (keyAt != null && isValidTarget(keyAt) && (remove = arrayMap2.remove(keyAt)) != null && isValidTarget(remove.view)) {
+                    this.mStartValuesList.add(arrayMap.removeAt(size));
+                    this.mEndValuesList.add(remove);
+                }
             }
         }
     }
 
     private void matchItemIds(ArrayMap<View, TransitionValues> arrayMap, ArrayMap<View, TransitionValues> arrayMap2, LongSparseArray<View> longSparseArray, LongSparseArray<View> longSparseArray2) {
         View view;
-        int size = longSparseArray.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            View valueAt = longSparseArray.valueAt(i2);
-            if (valueAt != null && isValidTarget(valueAt) && (view = longSparseArray2.get(longSparseArray.keyAt(i2))) != null && isValidTarget(view)) {
-                TransitionValues transitionValues = arrayMap.get(valueAt);
-                TransitionValues transitionValues2 = arrayMap2.get(view);
-                if (transitionValues != null && transitionValues2 != null) {
-                    this.mStartValuesList.add(transitionValues);
-                    this.mEndValuesList.add(transitionValues2);
-                    arrayMap.remove(valueAt);
-                    arrayMap2.remove(view);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65552, this, arrayMap, arrayMap2, longSparseArray, longSparseArray2) == null) {
+            int size = longSparseArray.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                View valueAt = longSparseArray.valueAt(i2);
+                if (valueAt != null && isValidTarget(valueAt) && (view = longSparseArray2.get(longSparseArray.keyAt(i2))) != null && isValidTarget(view)) {
+                    TransitionValues transitionValues = arrayMap.get(valueAt);
+                    TransitionValues transitionValues2 = arrayMap2.get(view);
+                    if (transitionValues != null && transitionValues2 != null) {
+                        this.mStartValuesList.add(transitionValues);
+                        this.mEndValuesList.add(transitionValues2);
+                        arrayMap.remove(valueAt);
+                        arrayMap2.remove(view);
+                    }
                 }
             }
         }
@@ -397,23 +603,30 @@ public abstract class Transition implements Cloneable {
 
     private void matchNames(ArrayMap<View, TransitionValues> arrayMap, ArrayMap<View, TransitionValues> arrayMap2, ArrayMap<String, View> arrayMap3, ArrayMap<String, View> arrayMap4) {
         View view;
-        int size = arrayMap3.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            View valueAt = arrayMap3.valueAt(i2);
-            if (valueAt != null && isValidTarget(valueAt) && (view = arrayMap4.get(arrayMap3.keyAt(i2))) != null && isValidTarget(view)) {
-                TransitionValues transitionValues = arrayMap.get(valueAt);
-                TransitionValues transitionValues2 = arrayMap2.get(view);
-                if (transitionValues != null && transitionValues2 != null) {
-                    this.mStartValuesList.add(transitionValues);
-                    this.mEndValuesList.add(transitionValues2);
-                    arrayMap.remove(valueAt);
-                    arrayMap2.remove(view);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65553, this, arrayMap, arrayMap2, arrayMap3, arrayMap4) == null) {
+            int size = arrayMap3.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                View valueAt = arrayMap3.valueAt(i2);
+                if (valueAt != null && isValidTarget(valueAt) && (view = arrayMap4.get(arrayMap3.keyAt(i2))) != null && isValidTarget(view)) {
+                    TransitionValues transitionValues = arrayMap.get(valueAt);
+                    TransitionValues transitionValues2 = arrayMap2.get(view);
+                    if (transitionValues != null && transitionValues2 != null) {
+                        this.mStartValuesList.add(transitionValues);
+                        this.mEndValuesList.add(transitionValues2);
+                        arrayMap.remove(valueAt);
+                        arrayMap2.remove(view);
+                    }
                 }
             }
         }
     }
 
     private void matchStartAndEnd(TransitionValuesMaps transitionValuesMaps, TransitionValuesMaps transitionValuesMaps2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65554, this, transitionValuesMaps, transitionValuesMaps2) != null) {
+            return;
+        }
         ArrayMap<View, TransitionValues> arrayMap = new ArrayMap<>(transitionValuesMaps.mViewValues);
         ArrayMap<View, TransitionValues> arrayMap2 = new ArrayMap<>(transitionValuesMaps2.mViewValues);
         int i2 = 0;
@@ -439,103 +652,181 @@ public abstract class Transition implements Cloneable {
     }
 
     public static int[] parseMatchOrder(String str) {
-        StringTokenizer stringTokenizer = new StringTokenizer(str, ",");
-        int[] iArr = new int[stringTokenizer.countTokens()];
-        int i2 = 0;
-        while (stringTokenizer.hasMoreTokens()) {
-            String trim = stringTokenizer.nextToken().trim();
-            if ("id".equalsIgnoreCase(trim)) {
-                iArr[i2] = 3;
-            } else if (MATCH_INSTANCE_STR.equalsIgnoreCase(trim)) {
-                iArr[i2] = 1;
-            } else if ("name".equalsIgnoreCase(trim)) {
-                iArr[i2] = 2;
-            } else if (MATCH_ITEM_ID_STR.equalsIgnoreCase(trim)) {
-                iArr[i2] = 4;
-            } else if (trim.isEmpty()) {
-                int[] iArr2 = new int[iArr.length - 1];
-                System.arraycopy(iArr, 0, iArr2, 0, i2);
-                i2--;
-                iArr = iArr2;
-            } else {
-                throw new InflateException("Unknown match type in matchOrder: '" + trim + "'");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
+            StringTokenizer stringTokenizer = new StringTokenizer(str, ",");
+            int[] iArr = new int[stringTokenizer.countTokens()];
+            int i2 = 0;
+            while (stringTokenizer.hasMoreTokens()) {
+                String trim = stringTokenizer.nextToken().trim();
+                if ("id".equalsIgnoreCase(trim)) {
+                    iArr[i2] = 3;
+                } else if (MATCH_INSTANCE_STR.equalsIgnoreCase(trim)) {
+                    iArr[i2] = 1;
+                } else if ("name".equalsIgnoreCase(trim)) {
+                    iArr[i2] = 2;
+                } else if (MATCH_ITEM_ID_STR.equalsIgnoreCase(trim)) {
+                    iArr[i2] = 4;
+                } else if (trim.isEmpty()) {
+                    int[] iArr2 = new int[iArr.length - 1];
+                    System.arraycopy(iArr, 0, iArr2, 0, i2);
+                    i2--;
+                    iArr = iArr2;
+                } else {
+                    throw new InflateException("Unknown match type in matchOrder: '" + trim + "'");
+                }
+                i2++;
             }
-            i2++;
+            return iArr;
         }
-        return iArr;
+        return (int[]) invokeL.objValue;
     }
 
-    private void runAnimator(Animator animator, final ArrayMap<Animator, AnimationInfo> arrayMap) {
-        if (animator != null) {
-            animator.addListener(new AnimatorListenerAdapter() { // from class: androidx.transition.Transition.2
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator2) {
-                    arrayMap.remove(animator2);
-                    Transition.this.mCurrentAnimators.remove(animator2);
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator2) {
-                    Transition.this.mCurrentAnimators.add(animator2);
-                }
-            });
-            animate(animator);
+    private void runAnimator(Animator animator, ArrayMap<Animator, AnimationInfo> arrayMap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65556, this, animator, arrayMap) == null) || animator == null) {
+            return;
         }
+        animator.addListener(new AnimatorListenerAdapter(this, arrayMap) { // from class: androidx.transition.Transition.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Transition this$0;
+            public final /* synthetic */ ArrayMap val$runningAnimators;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, arrayMap};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$runningAnimators = arrayMap;
+            }
+
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
+                    this.val$runningAnimators.remove(animator2);
+                    this.this$0.mCurrentAnimators.remove(animator2);
+                }
+            }
+
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
+                    this.this$0.mCurrentAnimators.add(animator2);
+                }
+            }
+        });
+        animate(animator);
     }
 
     @NonNull
     public Transition addListener(@NonNull TransitionListener transitionListener) {
-        if (this.mListeners == null) {
-            this.mListeners = new ArrayList<>();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transitionListener)) == null) {
+            if (this.mListeners == null) {
+                this.mListeners = new ArrayList<>();
+            }
+            this.mListeners.add(transitionListener);
+            return this;
         }
-        this.mListeners.add(transitionListener);
-        return this;
+        return (Transition) invokeL.objValue;
     }
 
     @NonNull
     public Transition addTarget(@NonNull View view) {
-        this.mTargets.add(view);
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
+            this.mTargets.add(view);
+            return this;
+        }
+        return (Transition) invokeL.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void animate(Animator animator) {
-        if (animator == null) {
-            end();
-            return;
-        }
-        if (getDuration() >= 0) {
-            animator.setDuration(getDuration());
-        }
-        if (getStartDelay() >= 0) {
-            animator.setStartDelay(getStartDelay() + animator.getStartDelay());
-        }
-        if (getInterpolator() != null) {
-            animator.setInterpolator(getInterpolator());
-        }
-        animator.addListener(new AnimatorListenerAdapter() { // from class: androidx.transition.Transition.3
-            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator2) {
-                Transition.this.end();
-                animator2.removeListener(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, animator) == null) {
+            if (animator == null) {
+                end();
+                return;
             }
-        });
-        animator.start();
+            if (getDuration() >= 0) {
+                animator.setDuration(getDuration());
+            }
+            if (getStartDelay() >= 0) {
+                animator.setStartDelay(getStartDelay() + animator.getStartDelay());
+            }
+            if (getInterpolator() != null) {
+                animator.setInterpolator(getInterpolator());
+            }
+            animator.addListener(new AnimatorListenerAdapter(this) { // from class: androidx.transition.Transition.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Transition this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
+                        this.this$0.end();
+                        animator2.removeListener(this);
+                    }
+                }
+            });
+            animator.start();
+        }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void cancel() {
-        for (int size = this.mCurrentAnimators.size() - 1; size >= 0; size--) {
-            this.mCurrentAnimators.get(size).cancel();
-        }
-        ArrayList<TransitionListener> arrayList = this.mListeners;
-        if (arrayList == null || arrayList.size() <= 0) {
-            return;
-        }
-        ArrayList arrayList2 = (ArrayList) this.mListeners.clone();
-        int size2 = arrayList2.size();
-        for (int i2 = 0; i2 < size2; i2++) {
-            ((TransitionListener) arrayList2.get(i2)).onTransitionCancel(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            for (int size = this.mCurrentAnimators.size() - 1; size >= 0; size--) {
+                this.mCurrentAnimators.get(size).cancel();
+            }
+            ArrayList<TransitionListener> arrayList = this.mListeners;
+            if (arrayList == null || arrayList.size() <= 0) {
+                return;
+            }
+            ArrayList arrayList2 = (ArrayList) this.mListeners.clone();
+            int size2 = arrayList2.size();
+            for (int i2 = 0; i2 < size2; i2++) {
+                ((TransitionListener) arrayList2.get(i2)).onTransitionCancel(this);
+            }
         }
     }
 
@@ -543,7 +834,8 @@ public abstract class Transition implements Cloneable {
 
     public void capturePropagationValues(TransitionValues transitionValues) {
         String[] propagationProperties;
-        if (this.mPropagation == null || transitionValues.values.isEmpty() || (propagationProperties = this.mPropagation.getPropagationProperties()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, transitionValues) == null) || this.mPropagation == null || transitionValues.values.isEmpty() || (propagationProperties = this.mPropagation.getPropagationProperties()) == null) {
             return;
         }
         boolean z = false;
@@ -570,76 +862,87 @@ public abstract class Transition implements Cloneable {
         ArrayList<String> arrayList;
         ArrayList<Class<?>> arrayList2;
         ArrayMap<String, String> arrayMap;
-        clearValues(z);
-        if ((this.mTargetIds.size() <= 0 && this.mTargets.size() <= 0) || (((arrayList = this.mTargetNames) != null && !arrayList.isEmpty()) || ((arrayList2 = this.mTargetTypes) != null && !arrayList2.isEmpty()))) {
-            captureHierarchy(viewGroup, z);
-        } else {
-            for (int i2 = 0; i2 < this.mTargetIds.size(); i2++) {
-                View findViewById = viewGroup.findViewById(this.mTargetIds.get(i2).intValue());
-                if (findViewById != null) {
-                    TransitionValues transitionValues = new TransitionValues(findViewById);
-                    if (z) {
-                        captureStartValues(transitionValues);
-                    } else {
-                        captureEndValues(transitionValues);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, viewGroup, z) == null) {
+            clearValues(z);
+            if ((this.mTargetIds.size() <= 0 && this.mTargets.size() <= 0) || (((arrayList = this.mTargetNames) != null && !arrayList.isEmpty()) || ((arrayList2 = this.mTargetTypes) != null && !arrayList2.isEmpty()))) {
+                captureHierarchy(viewGroup, z);
+            } else {
+                for (int i2 = 0; i2 < this.mTargetIds.size(); i2++) {
+                    View findViewById = viewGroup.findViewById(this.mTargetIds.get(i2).intValue());
+                    if (findViewById != null) {
+                        TransitionValues transitionValues = new TransitionValues(findViewById);
+                        if (z) {
+                            captureStartValues(transitionValues);
+                        } else {
+                            captureEndValues(transitionValues);
+                        }
+                        transitionValues.mTargetedTransitions.add(this);
+                        capturePropagationValues(transitionValues);
+                        if (z) {
+                            addViewValues(this.mStartValues, findViewById, transitionValues);
+                        } else {
+                            addViewValues(this.mEndValues, findViewById, transitionValues);
+                        }
                     }
-                    transitionValues.mTargetedTransitions.add(this);
-                    capturePropagationValues(transitionValues);
+                }
+                for (int i3 = 0; i3 < this.mTargets.size(); i3++) {
+                    View view = this.mTargets.get(i3);
+                    TransitionValues transitionValues2 = new TransitionValues(view);
                     if (z) {
-                        addViewValues(this.mStartValues, findViewById, transitionValues);
+                        captureStartValues(transitionValues2);
                     } else {
-                        addViewValues(this.mEndValues, findViewById, transitionValues);
+                        captureEndValues(transitionValues2);
+                    }
+                    transitionValues2.mTargetedTransitions.add(this);
+                    capturePropagationValues(transitionValues2);
+                    if (z) {
+                        addViewValues(this.mStartValues, view, transitionValues2);
+                    } else {
+                        addViewValues(this.mEndValues, view, transitionValues2);
                     }
                 }
             }
-            for (int i3 = 0; i3 < this.mTargets.size(); i3++) {
-                View view = this.mTargets.get(i3);
-                TransitionValues transitionValues2 = new TransitionValues(view);
-                if (z) {
-                    captureStartValues(transitionValues2);
-                } else {
-                    captureEndValues(transitionValues2);
-                }
-                transitionValues2.mTargetedTransitions.add(this);
-                capturePropagationValues(transitionValues2);
-                if (z) {
-                    addViewValues(this.mStartValues, view, transitionValues2);
-                } else {
-                    addViewValues(this.mEndValues, view, transitionValues2);
-                }
+            if (z || (arrayMap = this.mNameOverrides) == null) {
+                return;
             }
-        }
-        if (z || (arrayMap = this.mNameOverrides) == null) {
-            return;
-        }
-        int size = arrayMap.size();
-        ArrayList arrayList3 = new ArrayList(size);
-        for (int i4 = 0; i4 < size; i4++) {
-            arrayList3.add(this.mStartValues.mNameValues.remove(this.mNameOverrides.keyAt(i4)));
-        }
-        for (int i5 = 0; i5 < size; i5++) {
-            View view2 = (View) arrayList3.get(i5);
-            if (view2 != null) {
-                this.mStartValues.mNameValues.put(this.mNameOverrides.valueAt(i5), view2);
+            int size = arrayMap.size();
+            ArrayList arrayList3 = new ArrayList(size);
+            for (int i4 = 0; i4 < size; i4++) {
+                arrayList3.add(this.mStartValues.mNameValues.remove(this.mNameOverrides.keyAt(i4)));
+            }
+            for (int i5 = 0; i5 < size; i5++) {
+                View view2 = (View) arrayList3.get(i5);
+                if (view2 != null) {
+                    this.mStartValues.mNameValues.put(this.mNameOverrides.valueAt(i5), view2);
+                }
             }
         }
     }
 
     public void clearValues(boolean z) {
-        if (z) {
-            this.mStartValues.mViewValues.clear();
-            this.mStartValues.mIdValues.clear();
-            this.mStartValues.mItemIdValues.clear();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            if (z) {
+                this.mStartValues.mViewValues.clear();
+                this.mStartValues.mIdValues.clear();
+                this.mStartValues.mItemIdValues.clear();
+                return;
+            }
+            this.mEndValues.mViewValues.clear();
+            this.mEndValues.mIdValues.clear();
+            this.mEndValues.mItemIdValues.clear();
         }
-        this.mEndValues.mViewValues.clear();
-        this.mEndValues.mIdValues.clear();
-        this.mEndValues.mItemIdValues.clear();
     }
 
     @Nullable
     public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
-        return null;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, viewGroup, transitionValues, transitionValues2)) == null) {
+            return null;
+        }
+        return (Animator) invokeLLL.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -652,327 +955,399 @@ public abstract class Transition implements Cloneable {
         TransitionValues transitionValues;
         Animator animator2;
         TransitionValues transitionValues2;
-        ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
-        SparseIntArray sparseIntArray = new SparseIntArray();
-        int size = arrayList.size();
-        long j = Long.MAX_VALUE;
-        int i4 = 0;
-        while (i4 < size) {
-            TransitionValues transitionValues3 = arrayList.get(i4);
-            TransitionValues transitionValues4 = arrayList2.get(i4);
-            if (transitionValues3 != null && !transitionValues3.mTargetedTransitions.contains(this)) {
-                transitionValues3 = null;
-            }
-            if (transitionValues4 != null && !transitionValues4.mTargetedTransitions.contains(this)) {
-                transitionValues4 = null;
-            }
-            if (transitionValues3 != null || transitionValues4 != null) {
-                if ((transitionValues3 == null || transitionValues4 == null || isTransitionRequired(transitionValues3, transitionValues4)) && (createAnimator = createAnimator(viewGroup, transitionValues3, transitionValues4)) != null) {
-                    if (transitionValues4 != null) {
-                        view = transitionValues4.view;
-                        String[] transitionProperties = getTransitionProperties();
-                        if (transitionProperties != null && transitionProperties.length > 0) {
-                            transitionValues2 = new TransitionValues(view);
-                            i2 = size;
-                            TransitionValues transitionValues5 = transitionValuesMaps2.mViewValues.get(view);
-                            if (transitionValues5 != null) {
-                                int i5 = 0;
-                                while (i5 < transitionProperties.length) {
-                                    transitionValues2.values.put(transitionProperties[i5], transitionValues5.values.get(transitionProperties[i5]));
-                                    i5++;
-                                    i4 = i4;
-                                    transitionValues5 = transitionValues5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048591, this, viewGroup, transitionValuesMaps, transitionValuesMaps2, arrayList, arrayList2) == null) {
+            ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
+            SparseIntArray sparseIntArray = new SparseIntArray();
+            int size = arrayList.size();
+            long j = Long.MAX_VALUE;
+            int i4 = 0;
+            while (i4 < size) {
+                TransitionValues transitionValues3 = arrayList.get(i4);
+                TransitionValues transitionValues4 = arrayList2.get(i4);
+                if (transitionValues3 != null && !transitionValues3.mTargetedTransitions.contains(this)) {
+                    transitionValues3 = null;
+                }
+                if (transitionValues4 != null && !transitionValues4.mTargetedTransitions.contains(this)) {
+                    transitionValues4 = null;
+                }
+                if (transitionValues3 != null || transitionValues4 != null) {
+                    if ((transitionValues3 == null || transitionValues4 == null || isTransitionRequired(transitionValues3, transitionValues4)) && (createAnimator = createAnimator(viewGroup, transitionValues3, transitionValues4)) != null) {
+                        if (transitionValues4 != null) {
+                            view = transitionValues4.view;
+                            String[] transitionProperties = getTransitionProperties();
+                            if (transitionProperties != null && transitionProperties.length > 0) {
+                                transitionValues2 = new TransitionValues(view);
+                                i2 = size;
+                                TransitionValues transitionValues5 = transitionValuesMaps2.mViewValues.get(view);
+                                if (transitionValues5 != null) {
+                                    int i5 = 0;
+                                    while (i5 < transitionProperties.length) {
+                                        transitionValues2.values.put(transitionProperties[i5], transitionValues5.values.get(transitionProperties[i5]));
+                                        i5++;
+                                        i4 = i4;
+                                        transitionValues5 = transitionValues5;
+                                    }
                                 }
+                                i3 = i4;
+                                int size2 = runningAnimators.size();
+                                int i6 = 0;
+                                while (true) {
+                                    if (i6 >= size2) {
+                                        animator2 = createAnimator;
+                                        break;
+                                    }
+                                    AnimationInfo animationInfo = runningAnimators.get(runningAnimators.keyAt(i6));
+                                    if (animationInfo.mValues != null && animationInfo.mView == view && animationInfo.mName.equals(getName()) && animationInfo.mValues.equals(transitionValues2)) {
+                                        animator2 = null;
+                                        break;
+                                    }
+                                    i6++;
+                                }
+                            } else {
+                                i2 = size;
+                                i3 = i4;
+                                animator2 = createAnimator;
+                                transitionValues2 = null;
                             }
-                            i3 = i4;
-                            int size2 = runningAnimators.size();
-                            int i6 = 0;
-                            while (true) {
-                                if (i6 >= size2) {
-                                    animator2 = createAnimator;
-                                    break;
-                                }
-                                AnimationInfo animationInfo = runningAnimators.get(runningAnimators.keyAt(i6));
-                                if (animationInfo.mValues != null && animationInfo.mView == view && animationInfo.mName.equals(getName()) && animationInfo.mValues.equals(transitionValues2)) {
-                                    animator2 = null;
-                                    break;
-                                }
-                                i6++;
-                            }
+                            animator = animator2;
+                            transitionValues = transitionValues2;
                         } else {
                             i2 = size;
                             i3 = i4;
-                            animator2 = createAnimator;
-                            transitionValues2 = null;
+                            view = transitionValues3.view;
+                            animator = createAnimator;
+                            transitionValues = null;
                         }
-                        animator = animator2;
-                        transitionValues = transitionValues2;
-                    } else {
-                        i2 = size;
-                        i3 = i4;
-                        view = transitionValues3.view;
-                        animator = createAnimator;
-                        transitionValues = null;
-                    }
-                    if (animator != null) {
-                        TransitionPropagation transitionPropagation = this.mPropagation;
-                        if (transitionPropagation != null) {
-                            long startDelay = transitionPropagation.getStartDelay(viewGroup, this, transitionValues3, transitionValues4);
-                            sparseIntArray.put(this.mAnimators.size(), (int) startDelay);
-                            j = Math.min(startDelay, j);
+                        if (animator != null) {
+                            TransitionPropagation transitionPropagation = this.mPropagation;
+                            if (transitionPropagation != null) {
+                                long startDelay = transitionPropagation.getStartDelay(viewGroup, this, transitionValues3, transitionValues4);
+                                sparseIntArray.put(this.mAnimators.size(), (int) startDelay);
+                                j = Math.min(startDelay, j);
+                            }
+                            runningAnimators.put(animator, new AnimationInfo(view, getName(), this, ViewUtils.getWindowId(viewGroup), transitionValues));
+                            this.mAnimators.add(animator);
+                            j = j;
                         }
-                        runningAnimators.put(animator, new AnimationInfo(view, getName(), this, ViewUtils.getWindowId(viewGroup), transitionValues));
-                        this.mAnimators.add(animator);
-                        j = j;
+                        i4 = i3 + 1;
+                        size = i2;
                     }
-                    i4 = i3 + 1;
-                    size = i2;
                 }
+                i2 = size;
+                i3 = i4;
+                i4 = i3 + 1;
+                size = i2;
             }
-            i2 = size;
-            i3 = i4;
-            i4 = i3 + 1;
-            size = i2;
-        }
-        if (sparseIntArray.size() != 0) {
-            for (int i7 = 0; i7 < sparseIntArray.size(); i7++) {
-                Animator animator3 = this.mAnimators.get(sparseIntArray.keyAt(i7));
-                animator3.setStartDelay((sparseIntArray.valueAt(i7) - j) + animator3.getStartDelay());
+            if (sparseIntArray.size() != 0) {
+                for (int i7 = 0; i7 < sparseIntArray.size(); i7++) {
+                    Animator animator3 = this.mAnimators.get(sparseIntArray.keyAt(i7));
+                    animator3.setStartDelay((sparseIntArray.valueAt(i7) - j) + animator3.getStartDelay());
+                }
             }
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void end() {
-        int i2 = this.mNumInstances - 1;
-        this.mNumInstances = i2;
-        if (i2 == 0) {
-            ArrayList<TransitionListener> arrayList = this.mListeners;
-            if (arrayList != null && arrayList.size() > 0) {
-                ArrayList arrayList2 = (ArrayList) this.mListeners.clone();
-                int size = arrayList2.size();
-                for (int i3 = 0; i3 < size; i3++) {
-                    ((TransitionListener) arrayList2.get(i3)).onTransitionEnd(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            int i2 = this.mNumInstances - 1;
+            this.mNumInstances = i2;
+            if (i2 == 0) {
+                ArrayList<TransitionListener> arrayList = this.mListeners;
+                if (arrayList != null && arrayList.size() > 0) {
+                    ArrayList arrayList2 = (ArrayList) this.mListeners.clone();
+                    int size = arrayList2.size();
+                    for (int i3 = 0; i3 < size; i3++) {
+                        ((TransitionListener) arrayList2.get(i3)).onTransitionEnd(this);
+                    }
                 }
-            }
-            for (int i4 = 0; i4 < this.mStartValues.mItemIdValues.size(); i4++) {
-                View valueAt = this.mStartValues.mItemIdValues.valueAt(i4);
-                if (valueAt != null) {
-                    ViewCompat.setHasTransientState(valueAt, false);
+                for (int i4 = 0; i4 < this.mStartValues.mItemIdValues.size(); i4++) {
+                    View valueAt = this.mStartValues.mItemIdValues.valueAt(i4);
+                    if (valueAt != null) {
+                        ViewCompat.setHasTransientState(valueAt, false);
+                    }
                 }
-            }
-            for (int i5 = 0; i5 < this.mEndValues.mItemIdValues.size(); i5++) {
-                View valueAt2 = this.mEndValues.mItemIdValues.valueAt(i5);
-                if (valueAt2 != null) {
-                    ViewCompat.setHasTransientState(valueAt2, false);
+                for (int i5 = 0; i5 < this.mEndValues.mItemIdValues.size(); i5++) {
+                    View valueAt2 = this.mEndValues.mItemIdValues.valueAt(i5);
+                    if (valueAt2 != null) {
+                        ViewCompat.setHasTransientState(valueAt2, false);
+                    }
                 }
+                this.mEnded = true;
             }
-            this.mEnded = true;
         }
     }
 
     @NonNull
     public Transition excludeChildren(@NonNull View view, boolean z) {
-        this.mTargetChildExcludes = excludeView(this.mTargetChildExcludes, view, z);
-        return this;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048594, this, view, z)) == null) {
+            this.mTargetChildExcludes = excludeView(this.mTargetChildExcludes, view, z);
+            return this;
+        }
+        return (Transition) invokeLZ.objValue;
     }
 
     @NonNull
     public Transition excludeTarget(@NonNull View view, boolean z) {
-        this.mTargetExcludes = excludeView(this.mTargetExcludes, view, z);
-        return this;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, view, z)) == null) {
+            this.mTargetExcludes = excludeView(this.mTargetExcludes, view, z);
+            return this;
+        }
+        return (Transition) invokeLZ.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void forceToEnd(ViewGroup viewGroup) {
-        ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
-        int size = runningAnimators.size();
-        if (viewGroup == null || size == 0) {
-            return;
-        }
-        WindowIdImpl windowId = ViewUtils.getWindowId(viewGroup);
-        ArrayMap arrayMap = new ArrayMap(runningAnimators);
-        runningAnimators.clear();
-        for (int i2 = size - 1; i2 >= 0; i2--) {
-            AnimationInfo animationInfo = (AnimationInfo) arrayMap.valueAt(i2);
-            if (animationInfo.mView != null && windowId != null && windowId.equals(animationInfo.mWindowId)) {
-                ((Animator) arrayMap.keyAt(i2)).end();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, viewGroup) == null) {
+            ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
+            int size = runningAnimators.size();
+            if (viewGroup == null || size == 0) {
+                return;
+            }
+            WindowIdImpl windowId = ViewUtils.getWindowId(viewGroup);
+            ArrayMap arrayMap = new ArrayMap(runningAnimators);
+            runningAnimators.clear();
+            for (int i2 = size - 1; i2 >= 0; i2--) {
+                AnimationInfo animationInfo = (AnimationInfo) arrayMap.valueAt(i2);
+                if (animationInfo.mView != null && windowId != null && windowId.equals(animationInfo.mWindowId)) {
+                    ((Animator) arrayMap.keyAt(i2)).end();
+                }
             }
         }
     }
 
     public long getDuration() {
-        return this.mDuration;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mDuration : invokeV.longValue;
     }
 
     @Nullable
     public Rect getEpicenter() {
-        EpicenterCallback epicenterCallback = this.mEpicenterCallback;
-        if (epicenterCallback == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            EpicenterCallback epicenterCallback = this.mEpicenterCallback;
+            if (epicenterCallback == null) {
+                return null;
+            }
+            return epicenterCallback.onGetEpicenter(this);
         }
-        return epicenterCallback.onGetEpicenter(this);
+        return (Rect) invokeV.objValue;
     }
 
     @Nullable
     public EpicenterCallback getEpicenterCallback() {
-        return this.mEpicenterCallback;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mEpicenterCallback : (EpicenterCallback) invokeV.objValue;
     }
 
     @Nullable
     public TimeInterpolator getInterpolator() {
-        return this.mInterpolator;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mInterpolator : (TimeInterpolator) invokeV.objValue;
     }
 
     public TransitionValues getMatchedTransitionValues(View view, boolean z) {
-        TransitionSet transitionSet = this.mParent;
-        if (transitionSet != null) {
-            return transitionSet.getMatchedTransitionValues(view, z);
-        }
-        ArrayList<TransitionValues> arrayList = z ? this.mStartValuesList : this.mEndValuesList;
-        if (arrayList == null) {
-            return null;
-        }
-        int size = arrayList.size();
-        int i2 = -1;
-        int i3 = 0;
-        while (true) {
-            if (i3 >= size) {
-                break;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048605, this, view, z)) == null) {
+            TransitionSet transitionSet = this.mParent;
+            if (transitionSet != null) {
+                return transitionSet.getMatchedTransitionValues(view, z);
             }
-            TransitionValues transitionValues = arrayList.get(i3);
-            if (transitionValues == null) {
+            ArrayList<TransitionValues> arrayList = z ? this.mStartValuesList : this.mEndValuesList;
+            if (arrayList == null) {
                 return null;
             }
-            if (transitionValues.view == view) {
-                i2 = i3;
-                break;
+            int size = arrayList.size();
+            int i2 = -1;
+            int i3 = 0;
+            while (true) {
+                if (i3 >= size) {
+                    break;
+                }
+                TransitionValues transitionValues = arrayList.get(i3);
+                if (transitionValues == null) {
+                    return null;
+                }
+                if (transitionValues.view == view) {
+                    i2 = i3;
+                    break;
+                }
+                i3++;
             }
-            i3++;
+            if (i2 >= 0) {
+                return (z ? this.mEndValuesList : this.mStartValuesList).get(i2);
+            }
+            return null;
         }
-        if (i2 >= 0) {
-            return (z ? this.mEndValuesList : this.mStartValuesList).get(i2);
-        }
-        return null;
+        return (TransitionValues) invokeLZ.objValue;
     }
 
     @NonNull
     public String getName() {
-        return this.mName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
     @NonNull
     public PathMotion getPathMotion() {
-        return this.mPathMotion;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mPathMotion : (PathMotion) invokeV.objValue;
     }
 
     @Nullable
     public TransitionPropagation getPropagation() {
-        return this.mPropagation;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mPropagation : (TransitionPropagation) invokeV.objValue;
     }
 
     public long getStartDelay() {
-        return this.mStartDelay;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mStartDelay : invokeV.longValue;
     }
 
     @NonNull
     public List<Integer> getTargetIds() {
-        return this.mTargetIds;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mTargetIds : (List) invokeV.objValue;
     }
 
     @Nullable
     public List<String> getTargetNames() {
-        return this.mTargetNames;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mTargetNames : (List) invokeV.objValue;
     }
 
     @Nullable
     public List<Class<?>> getTargetTypes() {
-        return this.mTargetTypes;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mTargetTypes : (List) invokeV.objValue;
     }
 
     @NonNull
     public List<View> getTargets() {
-        return this.mTargets;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.mTargets : (List) invokeV.objValue;
     }
 
     @Nullable
     public String[] getTransitionProperties() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
     }
 
     @Nullable
     public TransitionValues getTransitionValues(@NonNull View view, boolean z) {
-        TransitionSet transitionSet = this.mParent;
-        if (transitionSet != null) {
-            return transitionSet.getTransitionValues(view, z);
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048615, this, view, z)) == null) {
+            TransitionSet transitionSet = this.mParent;
+            if (transitionSet != null) {
+                return transitionSet.getTransitionValues(view, z);
+            }
+            return (z ? this.mStartValues : this.mEndValues).mViewValues.get(view);
         }
-        return (z ? this.mStartValues : this.mEndValues).mViewValues.get(view);
+        return (TransitionValues) invokeLZ.objValue;
     }
 
     public boolean isTransitionRequired(@Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
-        if (transitionValues == null || transitionValues2 == null) {
-            return false;
-        }
-        String[] transitionProperties = getTransitionProperties();
-        if (transitionProperties != null) {
-            for (String str : transitionProperties) {
-                if (!isValueChanged(transitionValues, transitionValues2, str)) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, transitionValues, transitionValues2)) == null) {
+            if (transitionValues == null || transitionValues2 == null) {
+                return false;
+            }
+            String[] transitionProperties = getTransitionProperties();
+            if (transitionProperties != null) {
+                for (String str : transitionProperties) {
+                    if (!isValueChanged(transitionValues, transitionValues2, str)) {
+                    }
+                }
+                return false;
+            }
+            for (String str2 : transitionValues.values.keySet()) {
+                if (isValueChanged(transitionValues, transitionValues2, str2)) {
                 }
             }
             return false;
+            return true;
         }
-        for (String str2 : transitionValues.values.keySet()) {
-            if (isValueChanged(transitionValues, transitionValues2, str2)) {
-            }
-        }
-        return false;
-        return true;
+        return invokeLL.booleanValue;
     }
 
     public boolean isValidTarget(View view) {
+        InterceptResult invokeL;
         ArrayList<Class<?>> arrayList;
         ArrayList<String> arrayList2;
-        int id = view.getId();
-        ArrayList<Integer> arrayList3 = this.mTargetIdExcludes;
-        if (arrayList3 == null || !arrayList3.contains(Integer.valueOf(id))) {
-            ArrayList<View> arrayList4 = this.mTargetExcludes;
-            if (arrayList4 == null || !arrayList4.contains(view)) {
-                ArrayList<Class<?>> arrayList5 = this.mTargetTypeExcludes;
-                if (arrayList5 != null) {
-                    int size = arrayList5.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        if (this.mTargetTypeExcludes.get(i2).isInstance(view)) {
-                            return false;
-                        }
-                    }
-                }
-                if (this.mTargetNameExcludes == null || ViewCompat.getTransitionName(view) == null || !this.mTargetNameExcludes.contains(ViewCompat.getTransitionName(view))) {
-                    if ((this.mTargetIds.size() == 0 && this.mTargets.size() == 0 && (((arrayList = this.mTargetTypes) == null || arrayList.isEmpty()) && ((arrayList2 = this.mTargetNames) == null || arrayList2.isEmpty()))) || this.mTargetIds.contains(Integer.valueOf(id)) || this.mTargets.contains(view)) {
-                        return true;
-                    }
-                    ArrayList<String> arrayList6 = this.mTargetNames;
-                    if (arrayList6 == null || !arrayList6.contains(ViewCompat.getTransitionName(view))) {
-                        if (this.mTargetTypes != null) {
-                            for (int i3 = 0; i3 < this.mTargetTypes.size(); i3++) {
-                                if (this.mTargetTypes.get(i3).isInstance(view)) {
-                                    return true;
-                                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, view)) == null) {
+            int id = view.getId();
+            ArrayList<Integer> arrayList3 = this.mTargetIdExcludes;
+            if (arrayList3 == null || !arrayList3.contains(Integer.valueOf(id))) {
+                ArrayList<View> arrayList4 = this.mTargetExcludes;
+                if (arrayList4 == null || !arrayList4.contains(view)) {
+                    ArrayList<Class<?>> arrayList5 = this.mTargetTypeExcludes;
+                    if (arrayList5 != null) {
+                        int size = arrayList5.size();
+                        for (int i2 = 0; i2 < size; i2++) {
+                            if (this.mTargetTypeExcludes.get(i2).isInstance(view)) {
+                                return false;
                             }
                         }
-                        return false;
                     }
-                    return true;
+                    if (this.mTargetNameExcludes == null || ViewCompat.getTransitionName(view) == null || !this.mTargetNameExcludes.contains(ViewCompat.getTransitionName(view))) {
+                        if ((this.mTargetIds.size() == 0 && this.mTargets.size() == 0 && (((arrayList = this.mTargetTypes) == null || arrayList.isEmpty()) && ((arrayList2 = this.mTargetNames) == null || arrayList2.isEmpty()))) || this.mTargetIds.contains(Integer.valueOf(id)) || this.mTargets.contains(view)) {
+                            return true;
+                        }
+                        ArrayList<String> arrayList6 = this.mTargetNames;
+                        if (arrayList6 == null || !arrayList6.contains(ViewCompat.getTransitionName(view))) {
+                            if (this.mTargetTypes != null) {
+                                for (int i3 = 0; i3 < this.mTargetTypes.size(); i3++) {
+                                    if (this.mTargetTypes.get(i3).isInstance(view)) {
+                                        return true;
+                                    }
+                                }
+                            }
+                            return false;
+                        }
+                        return true;
+                    }
+                    return false;
                 }
                 return false;
             }
             return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void pause(View view) {
-        if (this.mEnded) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048618, this, view) == null) || this.mEnded) {
             return;
         }
         ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
@@ -997,57 +1372,71 @@ public abstract class Transition implements Cloneable {
 
     public void playTransition(ViewGroup viewGroup) {
         AnimationInfo animationInfo;
-        this.mStartValuesList = new ArrayList<>();
-        this.mEndValuesList = new ArrayList<>();
-        matchStartAndEnd(this.mStartValues, this.mEndValues);
-        ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
-        int size = runningAnimators.size();
-        WindowIdImpl windowId = ViewUtils.getWindowId(viewGroup);
-        for (int i2 = size - 1; i2 >= 0; i2--) {
-            Animator keyAt = runningAnimators.keyAt(i2);
-            if (keyAt != null && (animationInfo = runningAnimators.get(keyAt)) != null && animationInfo.mView != null && windowId.equals(animationInfo.mWindowId)) {
-                TransitionValues transitionValues = animationInfo.mValues;
-                View view = animationInfo.mView;
-                TransitionValues transitionValues2 = getTransitionValues(view, true);
-                TransitionValues matchedTransitionValues = getMatchedTransitionValues(view, true);
-                if (transitionValues2 == null && matchedTransitionValues == null) {
-                    matchedTransitionValues = this.mEndValues.mViewValues.get(view);
-                }
-                if (!(transitionValues2 == null && matchedTransitionValues == null) && animationInfo.mTransition.isTransitionRequired(transitionValues, matchedTransitionValues)) {
-                    if (!keyAt.isRunning() && !keyAt.isStarted()) {
-                        runningAnimators.remove(keyAt);
-                    } else {
-                        keyAt.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, viewGroup) == null) {
+            this.mStartValuesList = new ArrayList<>();
+            this.mEndValuesList = new ArrayList<>();
+            matchStartAndEnd(this.mStartValues, this.mEndValues);
+            ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
+            int size = runningAnimators.size();
+            WindowIdImpl windowId = ViewUtils.getWindowId(viewGroup);
+            for (int i2 = size - 1; i2 >= 0; i2--) {
+                Animator keyAt = runningAnimators.keyAt(i2);
+                if (keyAt != null && (animationInfo = runningAnimators.get(keyAt)) != null && animationInfo.mView != null && windowId.equals(animationInfo.mWindowId)) {
+                    TransitionValues transitionValues = animationInfo.mValues;
+                    View view = animationInfo.mView;
+                    TransitionValues transitionValues2 = getTransitionValues(view, true);
+                    TransitionValues matchedTransitionValues = getMatchedTransitionValues(view, true);
+                    if (transitionValues2 == null && matchedTransitionValues == null) {
+                        matchedTransitionValues = this.mEndValues.mViewValues.get(view);
+                    }
+                    if (!(transitionValues2 == null && matchedTransitionValues == null) && animationInfo.mTransition.isTransitionRequired(transitionValues, matchedTransitionValues)) {
+                        if (!keyAt.isRunning() && !keyAt.isStarted()) {
+                            runningAnimators.remove(keyAt);
+                        } else {
+                            keyAt.cancel();
+                        }
                     }
                 }
             }
+            createAnimators(viewGroup, this.mStartValues, this.mEndValues, this.mStartValuesList, this.mEndValuesList);
+            runAnimators();
         }
-        createAnimators(viewGroup, this.mStartValues, this.mEndValues, this.mStartValuesList, this.mEndValuesList);
-        runAnimators();
     }
 
     @NonNull
     public Transition removeListener(@NonNull TransitionListener transitionListener) {
-        ArrayList<TransitionListener> arrayList = this.mListeners;
-        if (arrayList == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, transitionListener)) == null) {
+            ArrayList<TransitionListener> arrayList = this.mListeners;
+            if (arrayList == null) {
+                return this;
+            }
+            arrayList.remove(transitionListener);
+            if (this.mListeners.size() == 0) {
+                this.mListeners = null;
+            }
             return this;
         }
-        arrayList.remove(transitionListener);
-        if (this.mListeners.size() == 0) {
-            this.mListeners = null;
-        }
-        return this;
+        return (Transition) invokeL.objValue;
     }
 
     @NonNull
     public Transition removeTarget(@NonNull View view) {
-        this.mTargets.remove(view);
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, view)) == null) {
+            this.mTargets.remove(view);
+            return this;
+        }
+        return (Transition) invokeL.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void resume(View view) {
-        if (this.mPaused) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048625, this, view) == null) && this.mPaused) {
             if (!this.mEnded) {
                 ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
                 int size = runningAnimators.size();
@@ -1073,234 +1462,384 @@ public abstract class Transition implements Cloneable {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void runAnimators() {
-        start();
-        ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
-        Iterator<Animator> it = this.mAnimators.iterator();
-        while (it.hasNext()) {
-            Animator next = it.next();
-            if (runningAnimators.containsKey(next)) {
-                start();
-                runAnimator(next, runningAnimators);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
+            start();
+            ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
+            Iterator<Animator> it = this.mAnimators.iterator();
+            while (it.hasNext()) {
+                Animator next = it.next();
+                if (runningAnimators.containsKey(next)) {
+                    start();
+                    runAnimator(next, runningAnimators);
+                }
             }
+            this.mAnimators.clear();
+            end();
         }
-        this.mAnimators.clear();
-        end();
     }
 
     public void setCanRemoveViews(boolean z) {
-        this.mCanRemoveViews = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048627, this, z) == null) {
+            this.mCanRemoveViews = z;
+        }
     }
 
     @NonNull
     public Transition setDuration(long j) {
-        this.mDuration = j;
-        return this;
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) {
+            this.mDuration = j;
+            return this;
+        }
+        return (Transition) invokeJ.objValue;
     }
 
     public void setEpicenterCallback(@Nullable EpicenterCallback epicenterCallback) {
-        this.mEpicenterCallback = epicenterCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, epicenterCallback) == null) {
+            this.mEpicenterCallback = epicenterCallback;
+        }
     }
 
     @NonNull
     public Transition setInterpolator(@Nullable TimeInterpolator timeInterpolator) {
-        this.mInterpolator = timeInterpolator;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, timeInterpolator)) == null) {
+            this.mInterpolator = timeInterpolator;
+            return this;
+        }
+        return (Transition) invokeL.objValue;
     }
 
     public void setMatchOrder(int... iArr) {
-        if (iArr != null && iArr.length != 0) {
-            for (int i2 = 0; i2 < iArr.length; i2++) {
-                if (isValidMatch(iArr[i2])) {
-                    if (alreadyContains(iArr, i2)) {
-                        throw new IllegalArgumentException("matches contains a duplicate value");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, iArr) == null) {
+            if (iArr != null && iArr.length != 0) {
+                for (int i2 = 0; i2 < iArr.length; i2++) {
+                    if (isValidMatch(iArr[i2])) {
+                        if (alreadyContains(iArr, i2)) {
+                            throw new IllegalArgumentException("matches contains a duplicate value");
+                        }
+                    } else {
+                        throw new IllegalArgumentException("matches contains invalid value");
                     }
-                } else {
-                    throw new IllegalArgumentException("matches contains invalid value");
                 }
+                this.mMatchOrder = (int[]) iArr.clone();
+                return;
             }
-            this.mMatchOrder = (int[]) iArr.clone();
-            return;
+            this.mMatchOrder = DEFAULT_MATCH_ORDER;
         }
-        this.mMatchOrder = DEFAULT_MATCH_ORDER;
     }
 
     public void setPathMotion(@Nullable PathMotion pathMotion) {
-        if (pathMotion == null) {
-            this.mPathMotion = STRAIGHT_PATH_MOTION;
-        } else {
-            this.mPathMotion = pathMotion;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048632, this, pathMotion) == null) {
+            if (pathMotion == null) {
+                this.mPathMotion = STRAIGHT_PATH_MOTION;
+            } else {
+                this.mPathMotion = pathMotion;
+            }
         }
     }
 
     public void setPropagation(@Nullable TransitionPropagation transitionPropagation) {
-        this.mPropagation = transitionPropagation;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, transitionPropagation) == null) {
+            this.mPropagation = transitionPropagation;
+        }
     }
 
     public Transition setSceneRoot(ViewGroup viewGroup) {
-        this.mSceneRoot = viewGroup;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, viewGroup)) == null) {
+            this.mSceneRoot = viewGroup;
+            return this;
+        }
+        return (Transition) invokeL.objValue;
     }
 
     @NonNull
     public Transition setStartDelay(long j) {
-        this.mStartDelay = j;
-        return this;
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j)) == null) {
+            this.mStartDelay = j;
+            return this;
+        }
+        return (Transition) invokeJ.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void start() {
-        if (this.mNumInstances == 0) {
-            ArrayList<TransitionListener> arrayList = this.mListeners;
-            if (arrayList != null && arrayList.size() > 0) {
-                ArrayList arrayList2 = (ArrayList) this.mListeners.clone();
-                int size = arrayList2.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    ((TransitionListener) arrayList2.get(i2)).onTransitionStart(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+            if (this.mNumInstances == 0) {
+                ArrayList<TransitionListener> arrayList = this.mListeners;
+                if (arrayList != null && arrayList.size() > 0) {
+                    ArrayList arrayList2 = (ArrayList) this.mListeners.clone();
+                    int size = arrayList2.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        ((TransitionListener) arrayList2.get(i2)).onTransitionStart(this);
+                    }
                 }
+                this.mEnded = false;
             }
-            this.mEnded = false;
+            this.mNumInstances++;
         }
-        this.mNumInstances++;
     }
 
     public String toString() {
-        return toString("");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? toString("") : (String) invokeV.objValue;
     }
 
     @NonNull
     public Transition addTarget(@IdRes int i2) {
-        if (i2 != 0) {
-            this.mTargetIds.add(Integer.valueOf(i2));
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            if (i2 != 0) {
+                this.mTargetIds.add(Integer.valueOf(i2));
+            }
+            return this;
         }
-        return this;
+        return (Transition) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
     public Transition m5clone() {
-        try {
-            Transition transition = (Transition) super.clone();
-            transition.mAnimators = new ArrayList<>();
-            transition.mStartValues = new TransitionValuesMaps();
-            transition.mEndValues = new TransitionValuesMaps();
-            transition.mStartValuesList = null;
-            transition.mEndValuesList = null;
-            return transition;
-        } catch (CloneNotSupportedException unused) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            try {
+                Transition transition = (Transition) super.clone();
+                transition.mAnimators = new ArrayList<>();
+                transition.mStartValues = new TransitionValuesMaps();
+                transition.mEndValues = new TransitionValuesMaps();
+                transition.mStartValuesList = null;
+                transition.mEndValuesList = null;
+                return transition;
+            } catch (CloneNotSupportedException unused) {
+                return null;
+            }
         }
+        return (Transition) invokeV.objValue;
     }
 
     @NonNull
     public Transition excludeChildren(@IdRes int i2, boolean z) {
-        this.mTargetIdChildExcludes = excludeId(this.mTargetIdChildExcludes, i2, z);
-        return this;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            this.mTargetIdChildExcludes = excludeId(this.mTargetIdChildExcludes, i2, z);
+            return this;
+        }
+        return (Transition) invokeCommon.objValue;
     }
 
     @NonNull
     public Transition excludeTarget(@IdRes int i2, boolean z) {
-        this.mTargetIdExcludes = excludeId(this.mTargetIdExcludes, i2, z);
-        return this;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            this.mTargetIdExcludes = excludeId(this.mTargetIdExcludes, i2, z);
+            return this;
+        }
+        return (Transition) invokeCommon.objValue;
     }
 
     @NonNull
     public Transition removeTarget(@IdRes int i2) {
-        if (i2 != 0) {
-            this.mTargetIds.remove(Integer.valueOf(i2));
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i2)) == null) {
+            if (i2 != 0) {
+                this.mTargetIds.remove(Integer.valueOf(i2));
+            }
+            return this;
         }
-        return this;
+        return (Transition) invokeI.objValue;
     }
 
     public String toString(String str) {
-        String str2 = str + getClass().getSimpleName() + "@" + Integer.toHexString(hashCode()) + ": ";
-        if (this.mDuration != -1) {
-            str2 = str2 + "dur(" + this.mDuration + ") ";
-        }
-        if (this.mStartDelay != -1) {
-            str2 = str2 + "dly(" + this.mStartDelay + ") ";
-        }
-        if (this.mInterpolator != null) {
-            str2 = str2 + "interp(" + this.mInterpolator + ") ";
-        }
-        if (this.mTargetIds.size() > 0 || this.mTargets.size() > 0) {
-            String str3 = str2 + "tgts(";
-            if (this.mTargetIds.size() > 0) {
-                for (int i2 = 0; i2 < this.mTargetIds.size(); i2++) {
-                    if (i2 > 0) {
-                        str3 = str3 + StringUtil.ARRAY_ELEMENT_SEPARATOR;
-                    }
-                    str3 = str3 + this.mTargetIds.get(i2);
-                }
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
+            String str2 = str + getClass().getSimpleName() + TNCManager.TNC_PROBE_HEADER_SECEPTOR + Integer.toHexString(hashCode()) + ": ";
+            if (this.mDuration != -1) {
+                str2 = str2 + "dur(" + this.mDuration + ") ";
             }
-            if (this.mTargets.size() > 0) {
-                for (int i3 = 0; i3 < this.mTargets.size(); i3++) {
-                    if (i3 > 0) {
-                        str3 = str3 + StringUtil.ARRAY_ELEMENT_SEPARATOR;
-                    }
-                    str3 = str3 + this.mTargets.get(i3);
-                }
+            if (this.mStartDelay != -1) {
+                str2 = str2 + "dly(" + this.mStartDelay + ") ";
             }
-            return str3 + SmallTailInfo.EMOTION_SUFFIX;
+            if (this.mInterpolator != null) {
+                str2 = str2 + "interp(" + this.mInterpolator + ") ";
+            }
+            if (this.mTargetIds.size() > 0 || this.mTargets.size() > 0) {
+                String str3 = str2 + "tgts(";
+                if (this.mTargetIds.size() > 0) {
+                    for (int i2 = 0; i2 < this.mTargetIds.size(); i2++) {
+                        if (i2 > 0) {
+                            str3 = str3 + StringUtil.ARRAY_ELEMENT_SEPARATOR;
+                        }
+                        str3 = str3 + this.mTargetIds.get(i2);
+                    }
+                }
+                if (this.mTargets.size() > 0) {
+                    for (int i3 = 0; i3 < this.mTargets.size(); i3++) {
+                        if (i3 > 0) {
+                            str3 = str3 + StringUtil.ARRAY_ELEMENT_SEPARATOR;
+                        }
+                        str3 = str3 + this.mTargets.get(i3);
+                    }
+                }
+                return str3 + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return str2;
         }
-        return str2;
+        return (String) invokeL.objValue;
     }
 
     @NonNull
     public Transition addTarget(@NonNull String str) {
-        if (this.mTargetNames == null) {
-            this.mTargetNames = new ArrayList<>();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (this.mTargetNames == null) {
+                this.mTargetNames = new ArrayList<>();
+            }
+            this.mTargetNames.add(str);
+            return this;
         }
-        this.mTargetNames.add(str);
-        return this;
+        return (Transition) invokeL.objValue;
     }
 
     @NonNull
     public Transition excludeChildren(@NonNull Class<?> cls, boolean z) {
-        this.mTargetTypeChildExcludes = excludeType(this.mTargetTypeChildExcludes, cls, z);
-        return this;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048595, this, cls, z)) == null) {
+            this.mTargetTypeChildExcludes = excludeType(this.mTargetTypeChildExcludes, cls, z);
+            return this;
+        }
+        return (Transition) invokeLZ.objValue;
     }
 
     @NonNull
     public Transition excludeTarget(@NonNull String str, boolean z) {
-        this.mTargetNameExcludes = excludeObject(this.mTargetNameExcludes, str, z);
-        return this;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048599, this, str, z)) == null) {
+            this.mTargetNameExcludes = excludeObject(this.mTargetNameExcludes, str, z);
+            return this;
+        }
+        return (Transition) invokeLZ.objValue;
     }
 
     @NonNull
     public Transition removeTarget(@NonNull String str) {
-        ArrayList<String> arrayList = this.mTargetNames;
-        if (arrayList != null) {
-            arrayList.remove(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, str)) == null) {
+            ArrayList<String> arrayList = this.mTargetNames;
+            if (arrayList != null) {
+                arrayList.remove(str);
+            }
+            return this;
         }
-        return this;
+        return (Transition) invokeL.objValue;
     }
 
     @NonNull
     public Transition excludeTarget(@NonNull Class<?> cls, boolean z) {
-        this.mTargetTypeExcludes = excludeType(this.mTargetTypeExcludes, cls, z);
-        return this;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048598, this, cls, z)) == null) {
+            this.mTargetTypeExcludes = excludeType(this.mTargetTypeExcludes, cls, z);
+            return this;
+        }
+        return (Transition) invokeLZ.objValue;
     }
 
     @NonNull
     public Transition removeTarget(@NonNull Class<?> cls) {
-        ArrayList<Class<?>> arrayList = this.mTargetTypes;
-        if (arrayList != null) {
-            arrayList.remove(cls);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, cls)) == null) {
+            ArrayList<Class<?>> arrayList = this.mTargetTypes;
+            if (arrayList != null) {
+                arrayList.remove(cls);
+            }
+            return this;
         }
-        return this;
+        return (Transition) invokeL.objValue;
     }
 
     @NonNull
     public Transition addTarget(@NonNull Class<?> cls) {
-        if (this.mTargetTypes == null) {
-            this.mTargetTypes = new ArrayList<>();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
+            if (this.mTargetTypes == null) {
+                this.mTargetTypes = new ArrayList<>();
+            }
+            this.mTargetTypes.add(cls);
+            return this;
         }
-        this.mTargetTypes.add(cls);
-        return this;
+        return (Transition) invokeL.objValue;
     }
 
     @SuppressLint({"RestrictedApi"})
     public Transition(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mName = getClass().getName();
+        this.mStartDelay = -1L;
+        this.mDuration = -1L;
+        this.mInterpolator = null;
+        this.mTargetIds = new ArrayList<>();
+        this.mTargets = new ArrayList<>();
+        this.mTargetNames = null;
+        this.mTargetTypes = null;
+        this.mTargetIdExcludes = null;
+        this.mTargetExcludes = null;
+        this.mTargetTypeExcludes = null;
+        this.mTargetNameExcludes = null;
+        this.mTargetIdChildExcludes = null;
+        this.mTargetChildExcludes = null;
+        this.mTargetTypeChildExcludes = null;
+        this.mStartValues = new TransitionValuesMaps();
+        this.mEndValues = new TransitionValuesMaps();
+        this.mParent = null;
+        this.mMatchOrder = DEFAULT_MATCH_ORDER;
+        this.mSceneRoot = null;
+        this.mCanRemoveViews = false;
+        this.mCurrentAnimators = new ArrayList<>();
+        this.mNumInstances = 0;
+        this.mPaused = false;
+        this.mEnded = false;
+        this.mListeners = null;
+        this.mAnimators = new ArrayList<>();
+        this.mPathMotion = STRAIGHT_PATH_MOTION;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.TRANSITION);
         XmlResourceParser xmlResourceParser = (XmlResourceParser) attributeSet;
         long namedInt = TypedArrayUtils.getNamedInt(obtainStyledAttributes, xmlResourceParser, "duration", 1, -1);

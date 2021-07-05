@@ -7,151 +7,213 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class NoPressedRelativeLayout extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f12434e;
+    public View f12489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12435f;
+    public View f12490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f12436g;
+    public float f12491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12437h;
+    public int f12492h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f12438i;
+    public float f12493i;
     public Rect j;
     public boolean k;
     public a l;
     public boolean m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(MotionEvent motionEvent);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoPressedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12436g = 0.0f;
-        this.f12437h = 0;
-        this.f12438i = 0.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12491g = 0.0f;
+        this.f12492h = 0;
+        this.f12493i = 0.0f;
         this.k = false;
         this.m = false;
-        this.f12437h = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.f12492h = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     private Rect getTopViewRect() {
-        if (a()) {
-            int[] iArr = {0, 0};
-            View view = this.f12434e;
-            if (view != null) {
-                view.getLocationOnScreen(iArr);
-                this.j = new Rect(iArr[0], iArr[1], iArr[0] + this.f12434e.getWidth(), iArr[1] + this.f12434e.getHeight());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (a()) {
+                int[] iArr = {0, 0};
+                View view = this.f12489e;
+                if (view != null) {
+                    view.getLocationOnScreen(iArr);
+                    this.j = new Rect(iArr[0], iArr[1], iArr[0] + this.f12489e.getWidth(), iArr[1] + this.f12489e.getHeight());
+                }
             }
+            return this.j;
         }
-        return this.j;
+        return (Rect) invokeV.objValue;
     }
 
     private void setBottomViewClickEventEnabled(boolean z) {
-        View view = this.f12435f;
-        if (view != null) {
-            view.setEnabled(z);
-            this.f12435f.setClickable(z);
-            this.f12435f.setLongClickable(z);
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(65538, this, z) == null) || (view = this.f12490f) == null) {
+            return;
         }
+        view.setEnabled(z);
+        this.f12490f.setClickable(z);
+        this.f12490f.setLongClickable(z);
     }
 
     public final boolean a() {
-        if (this.f12434e == null) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f12489e == null) {
+                return false;
+            }
+            Rect rect = this.j;
+            return rect == null || rect.width() <= 0 || this.j.height() <= 0;
         }
-        Rect rect = this.j;
-        return rect == null || rect.width() <= 0 || this.j.height() <= 0;
+        return invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchSetPressed(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0019, code lost:
-        if (r0 != 3) goto L48;
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x001d, code lost:
+        if (r0 != 3) goto L50;
      */
     @Override // android.view.ViewGroup, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        a aVar = this.l;
-        if (aVar != null) {
-            aVar.a(motionEvent);
-        }
-        if (this.f12434e != null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        float abs = this.f12438i > Math.abs(this.f12436g - motionEvent.getRawY()) ? this.f12438i : Math.abs(this.f12436g - motionEvent.getRawY());
-                        this.f12438i = abs;
-                        if (this.k && abs < this.f12437h) {
-                            setBottomViewClickEventEnabled(false);
-                        } else {
-                            setBottomViewClickEventEnabled(true);
-                        }
-                        return super.dispatchTouchEvent(motionEvent);
-                    }
-                }
-                if (this.k) {
-                    float abs2 = Math.abs(this.f12436g - motionEvent.getRawY());
-                    int i2 = this.f12437h;
-                    if (abs2 < i2 && this.f12438i < i2 && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                        setBottomViewClickEventEnabled(false);
-                        if (this.f12434e.isClickable()) {
-                            this.f12434e.performClick();
-                        }
-                        return true;
-                    }
-                }
-            } else {
-                this.f12436g = motionEvent.getRawY();
-                this.f12438i = 0.0f;
-                if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                    this.k = true;
-                    setBottomViewClickEventEnabled(false);
-                } else {
-                    this.k = false;
-                    setBottomViewClickEventEnabled(true);
-                }
-                return super.dispatchTouchEvent(motionEvent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            a aVar = this.l;
+            if (aVar != null) {
+                aVar.a(motionEvent);
             }
+            if (this.f12489e != null) {
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2) {
+                            float abs = this.f12493i > Math.abs(this.f12491g - motionEvent.getRawY()) ? this.f12493i : Math.abs(this.f12491g - motionEvent.getRawY());
+                            this.f12493i = abs;
+                            if (this.k && abs < this.f12492h) {
+                                setBottomViewClickEventEnabled(false);
+                            } else {
+                                setBottomViewClickEventEnabled(true);
+                            }
+                            return super.dispatchTouchEvent(motionEvent);
+                        }
+                    }
+                    if (this.k) {
+                        float abs2 = Math.abs(this.f12491g - motionEvent.getRawY());
+                        int i2 = this.f12492h;
+                        if (abs2 < i2 && this.f12493i < i2 && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                            setBottomViewClickEventEnabled(false);
+                            if (this.f12489e.isClickable()) {
+                                this.f12489e.performClick();
+                            }
+                            return true;
+                        }
+                    }
+                } else {
+                    this.f12491g = motionEvent.getRawY();
+                    this.f12493i = 0.0f;
+                    if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                        this.k = true;
+                        setBottomViewClickEventEnabled(false);
+                    } else {
+                        this.k = false;
+                        setBottomViewClickEventEnabled(true);
+                    }
+                    return super.dispatchTouchEvent(motionEvent);
+                }
+            }
+            return super.dispatchTouchEvent(motionEvent);
         }
-        return super.dispatchTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.m) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (this.m) {
+                return true;
+            }
+            return super.onInterceptTouchEvent(motionEvent);
         }
-        return super.onInterceptTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
     public void setBottomOrderView(View view) {
-        this.f12435f = view;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            this.f12490f = view;
+        }
     }
 
     public void setDispathEventAction(a aVar) {
-        this.l = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.l = aVar;
+        }
     }
 
     public void setNeedInterceptTouchEvent(boolean z) {
-        this.m = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.m = z;
+        }
     }
 
     public void setTopOrderView(View view) {
-        this.f12434e = view;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
+            this.f12489e = view;
+        }
     }
 }

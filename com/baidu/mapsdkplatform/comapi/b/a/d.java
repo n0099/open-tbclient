@@ -2,16 +2,36 @@ package com.baidu.mapsdkplatform.comapi.b.a;
 
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mapsdkplatform.comapi.util.h;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f7568a;
+    public final /* synthetic */ c f7598a;
 
     public d(c cVar) {
-        this.f7568a = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f7598a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,10 +39,11 @@ public class d implements Runnable {
         String str;
         File[] listFiles;
         String str2;
-        if (h.a().b() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || h.a().b() == null) {
             return;
         }
-        str = c.f7563a;
+        str = c.f7593a;
         File file = new File(str);
         if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
             return;
@@ -39,14 +60,14 @@ public class d implements Runnable {
             File file2 = listFiles[i2];
             if (!file2.isDirectory() && file2.exists() && file2.isFile()) {
                 String name = file2.getName();
-                str2 = c.f7564b;
+                str2 = c.f7594b;
                 if (name.contains(str2) && (file2.getName().endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION) || (file2.getName().endsWith(".zip") && file2.exists()))) {
-                    this.f7568a.a(file2);
+                    this.f7598a.a(file2);
                 }
             }
         }
         if (listFiles.length > 10) {
-            this.f7568a.a(listFiles);
+            this.f7598a.a(listFiles);
         }
     }
 }

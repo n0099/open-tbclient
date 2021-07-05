@@ -3,9 +3,17 @@ package com.baidu.wallet.home.storage;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.FileCopyUtils;
 import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.apollon.utils.support.Base64;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.WalletHomeBeanConstants;
 import com.baidu.wallet.home.beans.HomeCfgBean;
 import com.baidu.wallet.home.datamodel.HomeCfgDataModel;
@@ -17,143 +25,214 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HomeDataCacheManager {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f24342c;
+    public static String f24885c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f24343a;
+    public final String f24886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f24344b;
+    public final String f24887b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static HomeDataCacheManager f24345a = new HomeDataCacheManager();
+    /* renamed from: com.baidu.wallet.home.storage.HomeDataCacheManager$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x008d */
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static HomeDataCacheManager f24888a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(835979438, "Lcom/baidu/wallet/home/storage/HomeDataCacheManager$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(835979438, "Lcom/baidu/wallet/home/storage/HomeDataCacheManager$a;");
+                    return;
+                }
+            }
+            f24888a = new HomeDataCacheManager(null);
+        }
+    }
+
+    public /* synthetic */ HomeDataCacheManager(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0091 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.CharSequence, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r6v1, types: [java.io.Reader] */
-    /* JADX WARN: Type inference failed for: r6v4 */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0094 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.CharSequence, java.lang.Object, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r6v2 */
+    /* JADX WARN: Type inference failed for: r6v7, types: [java.io.Reader] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Throwable th;
         FileReader fileReader;
         IOException e2;
         FileNotFoundException e3;
-        if (context == null || TextUtils.isEmpty(str)) {
-            return "";
-        }
-        File file = new File(context.getCacheDir() + "/" + ((String) str));
-        FileReader fileReader2 = null;
-        try {
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return "";
+            }
+            File file = new File(context.getCacheDir() + "/" + ((String) str));
+            FileReader fileReader2 = null;
             try {
-                if (file.exists() && file.isFile()) {
-                    fileReader = new FileReader(file);
+                try {
                     try {
-                        String copyToString = FileCopyUtils.copyToString(fileReader);
-                        if (!TextUtils.isEmpty(copyToString)) {
+                        if (file.exists() && file.isFile()) {
+                            fileReader = new FileReader(file);
                             try {
-                                byte[] decode = Base64.decode(copyToString);
-                                if (decode != null) {
-                                    String str2 = new String(decode);
+                                String copyToString = FileCopyUtils.copyToString(fileReader);
+                                if (!TextUtils.isEmpty(copyToString)) {
                                     try {
-                                        fileReader.close();
-                                    } catch (IOException e4) {
-                                        e4.printStackTrace();
+                                        byte[] decode = Base64.decode(copyToString);
+                                        if (decode != null) {
+                                            String str2 = new String(decode);
+                                            try {
+                                                fileReader.close();
+                                            } catch (IOException e4) {
+                                                e4.printStackTrace();
+                                            }
+                                            return str2;
+                                        }
+                                    } catch (IOException e5) {
+                                        e5.printStackTrace();
                                     }
-                                    return str2;
                                 }
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
+                                fileReader2 = fileReader;
+                            } catch (FileNotFoundException e6) {
+                                e3 = e6;
+                                e3.printStackTrace();
+                                if (fileReader != null) {
+                                    fileReader.close();
+                                }
+                                return "";
+                            } catch (IOException e7) {
+                                e2 = e7;
+                                e2.printStackTrace();
+                                if (fileReader != null) {
+                                    fileReader.close();
+                                }
+                                return "";
                             }
                         }
-                        fileReader2 = fileReader;
-                    } catch (FileNotFoundException e6) {
-                        e3 = e6;
-                        e3.printStackTrace();
-                        if (fileReader != null) {
-                            fileReader.close();
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (str != 0) {
+                            try {
+                                str.close();
+                            } catch (IOException e8) {
+                                e8.printStackTrace();
+                            }
                         }
-                        return "";
-                    } catch (IOException e7) {
-                        e2 = e7;
-                        e2.printStackTrace();
-                        if (fileReader != null) {
-                            fileReader.close();
-                        }
-                        return "";
+                        throw th;
                     }
+                } catch (FileNotFoundException e9) {
+                    fileReader = null;
+                    e3 = e9;
+                } catch (IOException e10) {
+                    fileReader = null;
+                    e2 = e10;
+                } catch (Throwable th3) {
+                    str = 0;
+                    th = th3;
+                    if (str != 0) {
+                    }
+                    throw th;
                 }
-            } catch (IOException e8) {
-                e8.printStackTrace();
-            }
-        } catch (FileNotFoundException e9) {
-            fileReader = null;
-            e3 = e9;
-        } catch (IOException e10) {
-            fileReader = null;
-            e2 = e10;
-        } catch (Throwable th2) {
-            str = 0;
-            th = th2;
-            if (str != 0) {
-                try {
-                    str.close();
-                } catch (IOException e11) {
-                    e11.printStackTrace();
+                if (fileReader2 != null) {
+                    fileReader2.close();
                 }
+            } catch (IOException e11) {
+                e11.printStackTrace();
             }
-            throw th;
+            return "";
         }
-        if (fileReader2 != null) {
-            fileReader2.close();
-        }
-        return "";
+        return (String) invokeLL.objValue;
     }
 
     public static HomeDataCacheManager getInstance() {
-        return a.f24345a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f24888a : (HomeDataCacheManager) invokeV.objValue;
     }
 
     public synchronized String getPpKey(Context context) {
-        if (TextUtils.isEmpty(f24342c)) {
-            f24342c = PayPreferenceManager.getNewPpKey(context);
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(f24885c)) {
+                    f24885c = PayPreferenceManager.getNewPpKey(context);
+                }
+                str = f24885c;
+            }
+            return str;
         }
-        return f24342c;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x00a6 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:98:0x0001 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:109:0x0005 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x00aa */
     /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v23, types: [java.lang.CharSequence, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v26, types: [com.baidu.wallet.home.datamodel.HomeCfgDataModel] */
     /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.Object, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r6v10 */
-    /* JADX WARN: Type inference failed for: r6v11, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r6v22 */
-    /* JADX WARN: Type inference failed for: r6v27 */
-    /* JADX WARN: Type inference failed for: r6v4 */
-    /* JADX WARN: Type inference failed for: r6v5 */
+    /* JADX WARN: Type inference failed for: r6v1 */
+    /* JADX WARN: Type inference failed for: r6v11 */
+    /* JADX WARN: Type inference failed for: r6v12 */
+    /* JADX WARN: Type inference failed for: r6v29, types: [java.io.IOException] */
+    /* JADX WARN: Type inference failed for: r6v33 */
+    /* JADX WARN: Type inference failed for: r6v34 */
+    /* JADX WARN: Type inference failed for: r6v35 */
+    /* JADX WARN: Type inference failed for: r6v36 */
     public HomeCfgResponse getResponseFromAsset(Context context, String str) {
+        InterceptResult invokeLL;
         InputStream inputStream;
         InputStreamReader inputStreamReader;
         InputStream open;
         InputStreamReader inputStreamReader2;
-        HomeCfgDataModel homeCfgDataModel;
+        InputStreamReader inputStreamReader3;
+        InputStreamReader inputStreamReader4;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) != null) {
+            return (HomeCfgResponse) invokeLL.objValue;
+        }
         HomeCfgResponse homeCfgResponse = null;
         homeCfgResponse = null;
         homeCfgResponse = null;
         homeCfgResponse = null;
+        homeCfgResponse = null;
+        homeCfgResponse = null;
+        homeCfgResponse = null;
+        homeCfgResponse = null;
+        homeCfgResponse = null;
         r0 = null;
-        InputStreamReader inputStreamReader3 = null;
+        Reader reader = null;
         try {
             try {
                 try {
@@ -182,184 +261,223 @@ public class HomeDataCacheManager {
                         inputStream = open;
                         th = th;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    inputStreamReader3 = inputStreamReader;
-                    inputStream = str;
+                } catch (IOException e5) {
+                    e5.printStackTrace();
                 }
                 try {
-                    String copyToString = FileCopyUtils.copyToString(inputStreamReader2);
-                    if (!TextUtils.isEmpty(copyToString) && (homeCfgDataModel = (HomeCfgDataModel) JsonUtils.fromJson(copyToString, HomeCfgDataModel.class)) != null) {
-                        homeCfgResponse = homeCfgDataModel.content;
+                    ?? copyToString = FileCopyUtils.copyToString(inputStreamReader2);
+                    boolean isEmpty = TextUtils.isEmpty(copyToString);
+                    inputStreamReader3 = copyToString;
+                    if (!isEmpty) {
+                        ?? r1 = (HomeCfgDataModel) JsonUtils.fromJson(copyToString, HomeCfgDataModel.class);
+                        inputStreamReader3 = r1;
+                        if (r1 != 0) {
+                            homeCfgResponse = r1.content;
+                            inputStreamReader3 = r1;
+                        }
                     }
                     try {
                         inputStreamReader2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                        inputStreamReader4 = inputStreamReader2;
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
+                        inputStreamReader4 = e6;
                     }
-                } catch (FileNotFoundException e6) {
+                } catch (FileNotFoundException e7) {
                     str = open;
-                    e = e6;
+                    e = e7;
                     inputStreamReader = inputStreamReader2;
                     e.printStackTrace();
                     if (inputStreamReader != null) {
                         try {
                             inputStreamReader.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
-                        }
-                    }
-                    if (str != 0) {
-                        str.close();
-                    }
-                    return homeCfgResponse;
-                } catch (IOException e8) {
-                    str = open;
-                    e = e8;
-                    inputStreamReader = inputStreamReader2;
-                    e.printStackTrace();
-                    if (inputStreamReader != null) {
-                        try {
-                            inputStreamReader.close();
-                        } catch (IOException e9) {
-                            e9.printStackTrace();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
                         }
                     }
                     if (str != null) {
                         str.close();
+                        inputStreamReader = inputStreamReader;
+                        str = str;
                     }
                     return homeCfgResponse;
-                } catch (JSONException e10) {
+                } catch (IOException e9) {
                     str = open;
-                    e = e10;
+                    e = e9;
                     inputStreamReader = inputStreamReader2;
                     e.printStackTrace();
                     if (inputStreamReader != null) {
                         try {
                             inputStreamReader.close();
-                        } catch (IOException e11) {
-                            e11.printStackTrace();
+                        } catch (IOException e10) {
+                            e10.printStackTrace();
                         }
                     }
                     if (str != null) {
                         str.close();
+                        inputStreamReader = inputStreamReader;
+                        str = str;
                     }
                     return homeCfgResponse;
-                } catch (Throwable th3) {
-                    inputStream = open;
-                    th = th3;
-                    inputStreamReader3 = inputStreamReader2;
-                    if (inputStreamReader3 != null) {
+                } catch (JSONException e11) {
+                    str = open;
+                    e = e11;
+                    inputStreamReader = inputStreamReader2;
+                    e.printStackTrace();
+                    if (inputStreamReader != null) {
                         try {
-                            inputStreamReader3.close();
+                            inputStreamReader.close();
                         } catch (IOException e12) {
                             e12.printStackTrace();
+                        }
+                    }
+                    if (str != null) {
+                        str.close();
+                        inputStreamReader = inputStreamReader;
+                        str = str;
+                    }
+                    return homeCfgResponse;
+                } catch (Throwable th2) {
+                    inputStream = open;
+                    th = th2;
+                    reader = inputStreamReader2;
+                    if (reader != null) {
+                        try {
+                            reader.close();
+                        } catch (IOException e13) {
+                            e13.printStackTrace();
                         }
                     }
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e13) {
-                            e13.printStackTrace();
+                        } catch (IOException e14) {
+                            e14.printStackTrace();
                         }
                     }
                     throw th;
                 }
-            } catch (FileNotFoundException e14) {
-                e = e14;
-                str = 0;
-                inputStreamReader = null;
-            } catch (IOException e15) {
+            } catch (FileNotFoundException e15) {
                 e = e15;
                 str = null;
                 inputStreamReader = null;
-            } catch (JSONException e16) {
+            } catch (IOException e16) {
                 e = e16;
                 str = null;
                 inputStreamReader = null;
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (JSONException e17) {
+                e = e17;
+                str = null;
+                inputStreamReader = null;
+            } catch (Throwable th3) {
+                th = th3;
                 inputStream = null;
             }
             if (open != null) {
                 open.close();
+                inputStreamReader = inputStreamReader3;
+                str = inputStreamReader4;
             }
-        } catch (IOException e17) {
-            e17.printStackTrace();
+            return homeCfgResponse;
+        } catch (Throwable th4) {
+            th = th4;
+            reader = inputStreamReader;
+            inputStream = str;
         }
-        return homeCfgResponse;
     }
 
     public HomeCfgResponse getResponseFromCache(Context context, String str) {
-        synPPkey(context);
-        String ppKey = getPpKey(context);
-        HomeCfgResponse homeCfgResponse = null;
-        if (!TextUtils.isEmpty(ppKey)) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            synPPkey(context);
+            String ppKey = getPpKey(context);
+            HomeCfgResponse homeCfgResponse = null;
+            if (!TextUtils.isEmpty(ppKey)) {
+                String str2 = "wallet_home_" + ppKey + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_NEW;
+                if (HomeCfgBean.PAGE_FINANCE.equals(str)) {
+                    str2 = "wallet_home_" + ppKey + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_FINANCE;
+                } else if (HomeCfgBean.PAGE_CREDIT.equals(str)) {
+                    str2 = "wallet_home_" + ppKey + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_UMONEY;
+                }
+                String a2 = a(context, str2);
+                if (!TextUtils.isEmpty(a2)) {
+                    try {
+                        homeCfgResponse = (HomeCfgResponse) JsonUtils.fromJson(a2, HomeCfgResponse.class);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                if (homeCfgResponse != null && homeCfgResponse.doCheckValidity()) {
+                    return homeCfgResponse;
+                }
+            }
+            String str3 = "wallet_home_" + StringUtil.NULL_STRING + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_NEW;
+            if (HomeCfgBean.PAGE_FINANCE.equals(str)) {
+                str3 = "wallet_home_" + StringUtil.NULL_STRING + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_FINANCE;
+            } else if (HomeCfgBean.PAGE_CREDIT.equals(str)) {
+                str3 = "wallet_home_" + StringUtil.NULL_STRING + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_UMONEY;
+            }
+            String a3 = a(context, str3);
+            if (!TextUtils.isEmpty(a3)) {
+                try {
+                    homeCfgResponse = (HomeCfgResponse) JsonUtils.fromJson(a3, HomeCfgResponse.class);
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
+            }
+            return (homeCfgResponse == null || !homeCfgResponse.doCheckValidity()) ? getResponseFromAsset(context, str) : homeCfgResponse;
+        }
+        return (HomeCfgResponse) invokeLL.objValue;
+    }
+
+    public void saveResponseDataToCache(Context context, HomeCfgResponse homeCfgResponse, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, context, homeCfgResponse, str) == null) && homeCfgResponse != null && homeCfgResponse.doCheckValidity()) {
+            String json = JsonUtils.toJson(homeCfgResponse);
+            if (TextUtils.isEmpty(json)) {
+                return;
+            }
+            String encodeBytes = Base64.encodeBytes(json.getBytes());
+            String ppKey = getPpKey(context);
+            if (!homeCfgResponse.isLogin()) {
+                ppKey = StringUtil.NULL_STRING;
+            } else if (TextUtils.isEmpty(ppKey)) {
+                return;
+            }
             String str2 = "wallet_home_" + ppKey + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_NEW;
             if (HomeCfgBean.PAGE_FINANCE.equals(str)) {
                 str2 = "wallet_home_" + ppKey + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_FINANCE;
             } else if (HomeCfgBean.PAGE_CREDIT.equals(str)) {
                 str2 = "wallet_home_" + ppKey + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_UMONEY;
             }
-            String a2 = a(context, str2);
-            if (!TextUtils.isEmpty(a2)) {
-                try {
-                    homeCfgResponse = (HomeCfgResponse) JsonUtils.fromJson(a2, HomeCfgResponse.class);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (homeCfgResponse != null && homeCfgResponse.doCheckValidity()) {
-                return homeCfgResponse;
-            }
+            FileCopyUtils.copyToFile(encodeBytes, new File(context.getCacheDir() + "/" + str2));
         }
-        String str3 = "wallet_home_" + StringUtil.NULL_STRING + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_NEW;
-        if (HomeCfgBean.PAGE_FINANCE.equals(str)) {
-            str3 = "wallet_home_" + StringUtil.NULL_STRING + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_FINANCE;
-        } else if (HomeCfgBean.PAGE_CREDIT.equals(str)) {
-            str3 = "wallet_home_" + StringUtil.NULL_STRING + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_UMONEY;
-        }
-        String a3 = a(context, str3);
-        if (!TextUtils.isEmpty(a3)) {
-            try {
-                homeCfgResponse = (HomeCfgResponse) JsonUtils.fromJson(a3, HomeCfgResponse.class);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
-            }
-        }
-        return (homeCfgResponse == null || !homeCfgResponse.doCheckValidity()) ? getResponseFromAsset(context, str) : homeCfgResponse;
-    }
-
-    public void saveResponseDataToCache(Context context, HomeCfgResponse homeCfgResponse, String str) {
-        if (homeCfgResponse == null || !homeCfgResponse.doCheckValidity()) {
-            return;
-        }
-        String json = JsonUtils.toJson(homeCfgResponse);
-        if (TextUtils.isEmpty(json)) {
-            return;
-        }
-        String encodeBytes = Base64.encodeBytes(json.getBytes());
-        String ppKey = getPpKey(context);
-        if (!homeCfgResponse.isLogin()) {
-            ppKey = StringUtil.NULL_STRING;
-        } else if (TextUtils.isEmpty(ppKey)) {
-            return;
-        }
-        String str2 = "wallet_home_" + ppKey + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_NEW;
-        if (HomeCfgBean.PAGE_FINANCE.equals(str)) {
-            str2 = "wallet_home_" + ppKey + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_FINANCE;
-        } else if (HomeCfgBean.PAGE_CREDIT.equals(str)) {
-            str2 = "wallet_home_" + ppKey + "_" + WalletHomeBeanConstants.CONFIG_CACHE_DIR_FOR_UMONEY;
-        }
-        FileCopyUtils.copyToFile(encodeBytes, new File(context.getCacheDir() + "/" + str2));
     }
 
     public synchronized void synPPkey(Context context) {
-        f24342c = PayPreferenceManager.getNewPpKey(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            synchronized (this) {
+                f24885c = PayPreferenceManager.getNewPpKey(context);
+            }
+        }
     }
 
     public HomeDataCacheManager() {
-        this.f24343a = "wallet_home_";
-        this.f24344b = StringUtil.NULL_STRING;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24886a = "wallet_home_";
+        this.f24887b = StringUtil.NULL_STRING;
     }
 }

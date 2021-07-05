@@ -1,93 +1,199 @@
 package rx.internal.operators;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.e;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class NotificationLite {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f72480a = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
-        public static final long serialVersionUID = 1;
-
-        public String toString() {
-            return "Notification=>Completed";
-        }
-    };
+    public static final Object f76150a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f72481b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
-        public static final long serialVersionUID = 2;
+    public static final Object f76151b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-        public String toString() {
-            return "Notification=>NULL";
-        }
-    };
-
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class OnErrorSentinel implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Throwable f72482e;
+        public final Throwable f76152e;
 
         public OnErrorSentinel(Throwable th) {
-            this.f72482e = th;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {th};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f76152e = th;
         }
 
         public String toString() {
-            return "Notification=>Error:" + this.f72482e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Notification=>Error:" + this.f76152e;
+            }
+            return (String) invokeV.objValue;
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(361255245, "Lrx/internal/operators/NotificationLite;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(361255245, "Lrx/internal/operators/NotificationLite;");
+                return;
+            }
+        }
+        f76150a = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+            public static /* synthetic */ Interceptable $ic = null;
+            public static final long serialVersionUID = 1;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            public String toString() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "Notification=>Completed" : (String) invokeV.objValue;
+            }
+        };
+        f76151b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+            public static /* synthetic */ Interceptable $ic = null;
+            public static final long serialVersionUID = 2;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            public String toString() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "Notification=>NULL" : (String) invokeV.objValue;
+            }
+        };
     }
 
     public static <T> boolean a(e<? super T> eVar, Object obj) {
-        if (obj == f72480a) {
-            eVar.onCompleted();
-            return true;
-        } else if (obj == f72481b) {
-            eVar.onNext(null);
-            return false;
-        } else if (obj != null) {
-            if (obj.getClass() == OnErrorSentinel.class) {
-                eVar.onError(((OnErrorSentinel) obj).f72482e);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, eVar, obj)) == null) {
+            if (obj == f76150a) {
+                eVar.onCompleted();
                 return true;
+            } else if (obj == f76151b) {
+                eVar.onNext(null);
+                return false;
+            } else if (obj != null) {
+                if (obj.getClass() == OnErrorSentinel.class) {
+                    eVar.onError(((OnErrorSentinel) obj).f76152e);
+                    return true;
+                }
+                eVar.onNext(obj);
+                return false;
+            } else {
+                throw new IllegalArgumentException("The lite notification can not be null");
             }
-            eVar.onNext(obj);
-            return false;
-        } else {
-            throw new IllegalArgumentException("The lite notification can not be null");
         }
+        return invokeLL.booleanValue;
     }
 
     public static Object b() {
-        return f72480a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f76150a : invokeV.objValue;
     }
 
     public static Object c(Throwable th) {
-        return new OnErrorSentinel(th);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) ? new OnErrorSentinel(th) : invokeL.objValue;
     }
 
     public static Throwable d(Object obj) {
-        return ((OnErrorSentinel) obj).f72482e;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) ? ((OnErrorSentinel) obj).f76152e : (Throwable) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T e(Object obj) {
-        if (obj == f72481b) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) {
+            if (obj == f76151b) {
+                return null;
+            }
+            return obj;
         }
-        return obj;
+        return (T) invokeL.objValue;
     }
 
     public static boolean f(Object obj) {
-        return obj == f72480a;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? obj == f76150a : invokeL.booleanValue;
     }
 
     public static boolean g(Object obj) {
-        return obj instanceof OnErrorSentinel;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? obj instanceof OnErrorSentinel : invokeL.booleanValue;
     }
 
     public static <T> Object h(T t) {
-        return t == null ? f72481b : t;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, t)) == null) ? t == null ? f76151b : t : invokeL.objValue;
     }
 }

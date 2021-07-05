@@ -7,122 +7,176 @@ import android.text.TextUtils;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.core.w;
 import com.bytedance.sdk.openadsdk.core.widget.webview.a.e;
-import com.bytedance.sdk.openadsdk.core.x;
-import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.d.l f28446a;
+    public com.bytedance.sdk.openadsdk.core.e.m f30324a;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28447h;
+    public boolean f30325h;
 
-    public f(Context context, x xVar, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.c.j jVar, boolean z) {
-        super(context, xVar, lVar.am(), jVar);
-        this.f28446a = lVar;
-        this.f28447h = z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(Context context, w wVar, com.bytedance.sdk.openadsdk.core.e.m mVar, com.bytedance.sdk.openadsdk.e.j jVar, boolean z) {
+        super(context, wVar, mVar.ak(), jVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, wVar, mVar, jVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (w) objArr2[1], (String) objArr2[2], (com.bytedance.sdk.openadsdk.e.j) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f30324a = mVar;
+        this.f30325h = z;
     }
 
     private WebResourceResponse a(WebView webView, String str) {
-        com.bytedance.sdk.openadsdk.core.d.k kVar = null;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-        if (a2 != e.a.IMAGE) {
-            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f28446a.af().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                com.bytedance.sdk.openadsdk.core.d.k next = it.next();
-                if (!TextUtils.isEmpty(next.a()) && !TextUtils.isEmpty(str)) {
-                    String a3 = next.a();
-                    if (a3.startsWith("https")) {
-                        a3 = a3.replaceFirst("https", "http");
-                    }
-                    if ((str.startsWith("https") ? str.replaceFirst("https", "http") : str).equals(a3)) {
-                        kVar = next;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, webView, str)) == null) {
+            com.bytedance.sdk.openadsdk.core.e.l lVar = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
+            if (a2 != e.a.f30843d) {
+                Iterator<com.bytedance.sdk.openadsdk.core.e.l> it = this.f30324a.ad().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
                         break;
+                    }
+                    com.bytedance.sdk.openadsdk.core.e.l next = it.next();
+                    if (!TextUtils.isEmpty(next.a()) && !TextUtils.isEmpty(str)) {
+                        String a3 = next.a();
+                        if (a3.startsWith("https")) {
+                            a3 = a3.replaceFirst("https", "http");
+                        }
+                        if ((str.startsWith("https") ? str.replaceFirst("https", "http") : str).equals(a3)) {
+                            lVar = next;
+                            break;
+                        }
                     }
                 }
             }
+            if (a2 == e.a.f30843d) {
+                return a(str, "");
+            }
+            return com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a(str, a2, lVar != null ? lVar.g() : "");
         }
-        if (a2 != e.a.IMAGE && kVar == null) {
-            return com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a(str, a2);
-        }
-        return a(str);
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
-        this.f28952f = false;
-        super.onPageFinished(webView, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+            this.f30855f = false;
+            super.onPageFinished(webView, str);
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        this.f28953g = false;
-        super.onPageStarted(webView, str, bitmap);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+            this.f30856g = false;
+            super.onPageStarted(webView, str, bitmap);
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
     @TargetApi(21)
     public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
-        try {
-            return shouldInterceptRequest(webView, webResourceRequest.getUrl().toString());
-        } catch (Throwable th) {
-            u.c("ExpressClient", "shouldInterceptRequest error1", th);
-            return super.shouldInterceptRequest(webView, webResourceRequest);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest)) == null) {
+            try {
+                return shouldInterceptRequest(webView, webResourceRequest.getUrl().toString());
+            } catch (Throwable th) {
+                com.bytedance.sdk.component.utils.j.c("ExpressClient", "shouldInterceptRequest error1", th);
+                return super.shouldInterceptRequest(webView, webResourceRequest);
+            }
         }
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
     public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-        try {
-            long currentTimeMillis = System.currentTimeMillis();
-            WebResourceResponse a2 = a(webView, str);
-            a(currentTimeMillis, System.currentTimeMillis(), str, a2 != null ? 1 : 2);
-            if (a2 != null) {
-                return a2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                WebResourceResponse a2 = a(webView, str);
+                a(currentTimeMillis, System.currentTimeMillis(), str, a2 != null ? 1 : 2);
+                if (a2 != null) {
+                    return a2;
+                }
+            } catch (Throwable th) {
+                com.bytedance.sdk.component.utils.j.c("ExpressClient", "shouldInterceptRequest error2", th);
             }
-        } catch (Throwable th) {
-            u.c("ExpressClient", "shouldInterceptRequest error2", th);
+            return super.shouldInterceptRequest(webView, str);
         }
-        return super.shouldInterceptRequest(webView, str);
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
-    private WebResourceResponse a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            File a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(com.bytedance.sdk.openadsdk.i.a.a.a().a(str, 0, 0, null), this.f28447h);
-            if (a2 == null || !a2.exists() || a2.length() <= 0) {
+    private WebResourceResponse a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return new WebResourceResponse(e.a.IMAGE.a(), "utf-8", new FileInputStream(a2));
-        } catch (Throwable th) {
-            u.c("ExpressClient", "get image WebResourceResponse error", th);
-            return null;
+            try {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = com.bytedance.sdk.openadsdk.l.a.a.a().a(str, 0, 0, null);
+                }
+                File a2 = com.bytedance.sdk.openadsdk.l.a.a.a().a(str2, this.f30325h);
+                if (a2 == null || !a2.exists() || a2.length() <= 0) {
+                    return null;
+                }
+                return new WebResourceResponse(e.a.f30843d.a(), "utf-8", new FileInputStream(a2));
+            } catch (Throwable th) {
+                com.bytedance.sdk.component.utils.j.c("ExpressClient", "get image WebResourceResponse error", th);
+                return null;
+            }
         }
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
     private void a(long j, long j2, String str, int i2) {
-        com.bytedance.sdk.openadsdk.c.j jVar = this.f28951e;
-        if (jVar == null || jVar.a() == null) {
+        com.bytedance.sdk.openadsdk.e.j jVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Integer.valueOf(i2)}) == null) || (jVar = this.f30854e) == null || jVar.b() == null) {
             return;
         }
         e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-        if (a2 == e.a.HTML) {
-            this.f28951e.a().a(str, j, j2, i2);
-        } else if (a2 == e.a.JS) {
-            this.f28951e.a().b(str, j, j2, i2);
+        if (a2 == e.a.f30840a) {
+            this.f30854e.b().a(str, j, j2, i2);
+        } else if (a2 == e.a.f30842c) {
+            this.f30854e.b().b(str, j, j2, i2);
         }
     }
 }

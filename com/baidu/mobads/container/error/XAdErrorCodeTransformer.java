@@ -1,13 +1,34 @@
 package com.baidu.mobads.container.error;
 
 import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class XAdErrorCodeTransformer {
+    public static /* synthetic */ Interceptable $ic;
     public static Map<String, String> errorMap;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1397948094, "Lcom/baidu/mobads/container/error/XAdErrorCodeTransformer;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1397948094, "Lcom/baidu/mobads/container/error/XAdErrorCodeTransformer;");
+                return;
+            }
+        }
         HashMap hashMap = new HashMap();
         errorMap = hashMap;
         hashMap.put("0100000", "请求错误");
@@ -87,21 +108,45 @@ public class XAdErrorCodeTransformer {
         errorMap.put("0201110", "广告信息错误");
     }
 
-    public static String errorCodeConvert(String str) {
-        if (!TextUtils.isEmpty(str) && str.length() == 6) {
-            return "0" + str;
+    public XAdErrorCodeTransformer() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return str;
+    }
+
+    public static String errorCodeConvert(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() == 6) {
+                return "0" + str;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String errorMsg(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (str.length() == 6) {
+                str = "0" + str;
+            }
+            String str2 = errorMap.get(str);
+            return str2 == null ? "" : str2;
         }
-        if (str.length() == 6) {
-            str = "0" + str;
-        }
-        String str2 = errorMap.get(str);
-        return str2 == null ? "" : str2;
+        return (String) invokeL.objValue;
     }
 }

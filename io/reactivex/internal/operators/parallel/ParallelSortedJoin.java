@@ -1,5 +1,10 @@
 package io.reactivex.internal.operators.parallel;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.exceptions.Exceptions;
@@ -15,33 +20,60 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class ParallelSortedJoin<T> extends Flowable<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Comparator<? super T> comparator;
     public final ParallelFlowable<List<T>> source;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class SortedJoinInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<List<T>> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6751017204873808094L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final int index;
         public final SortedJoinSubscription<T> parent;
 
         public SortedJoinInnerSubscriber(SortedJoinSubscription<T> sortedJoinSubscription, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sortedJoinSubscription, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.parent = sortedJoinSubscription;
             this.index = i2;
         }
 
         public void cancel() {
-            SubscriptionHelper.cancel(this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SubscriptionHelper.cancel(this);
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            this.parent.innerError(th);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                this.parent.innerError(th);
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -51,33 +83,58 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            SubscriptionHelper.setOnce(this, subscription, Long.MAX_VALUE);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, subscription) == null) {
+                SubscriptionHelper.setOnce(this, subscription, Long.MAX_VALUE);
+            }
         }
 
         public void onNext(List<T> list) {
-            this.parent.innerNext(list, this.index);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+                this.parent.innerNext(list, this.index);
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class SortedJoinSubscription<T> extends AtomicInteger implements Subscription {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3481980673745556697L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
         public final Comparator<? super T> comparator;
+        public final AtomicReference<Throwable> error;
         public final int[] indexes;
         public final List<T>[] lists;
+        public final AtomicInteger remaining;
+        public final AtomicLong requested;
         public final SortedJoinInnerSubscriber<T>[] subscribers;
-        public final AtomicLong requested = new AtomicLong();
-        public final AtomicInteger remaining = new AtomicInteger();
-        public final AtomicReference<Throwable> error = new AtomicReference<>();
 
         public SortedJoinSubscription(Subscriber<? super T> subscriber, int i2, Comparator<? super T> comparator) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, Integer.valueOf(i2), comparator};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.requested = new AtomicLong();
+            this.remaining = new AtomicInteger();
+            this.error = new AtomicReference<>();
             this.actual = subscriber;
             this.comparator = comparator;
             SortedJoinInnerSubscriber<T>[] sortedJoinInnerSubscriberArr = new SortedJoinInnerSubscriber[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                sortedJoinInnerSubscriberArr[i3] = new SortedJoinInnerSubscriber<>(this, i3);
+            for (int i5 = 0; i5 < i2; i5++) {
+                sortedJoinInnerSubscriberArr[i5] = new SortedJoinInnerSubscriber<>(this, i5);
             }
             this.subscribers = sortedJoinInnerSubscriberArr;
             this.lists = new List[i2];
@@ -87,7 +144,8 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            if (this.cancelled) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
                 return;
             }
             this.cancelled = true;
@@ -98,87 +156,90 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
         }
 
         public void cancelAll() {
-            for (SortedJoinInnerSubscriber<T> sortedJoinInnerSubscriber : this.subscribers) {
-                sortedJoinInnerSubscriber.cancel();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                for (SortedJoinInnerSubscriber<T> sortedJoinInnerSubscriber : this.subscribers) {
+                    sortedJoinInnerSubscriber.cancel();
+                }
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:43:0x00a3, code lost:
-            if (r15 != 0) goto L77;
-         */
         /* JADX WARN: Code restructure failed: missing block: B:45:0x00a7, code lost:
-            if (r16.cancelled == false) goto L56;
+            if (r15 != 0) goto L79;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:46:0x00a9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:47:0x00ab, code lost:
+            if (r16.cancelled == false) goto L58;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:48:0x00ad, code lost:
             java.util.Arrays.fill(r3, (java.lang.Object) null);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:47:0x00ad, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:49:0x00b1, code lost:
             return;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:48:0x00ae, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:50:0x00b2, code lost:
             r10 = r16.error.get();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:49:0x00b7, code lost:
-            if (r10 == null) goto L58;
+        /* JADX WARN: Code restructure failed: missing block: B:51:0x00bb, code lost:
+            if (r10 == null) goto L60;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:50:0x00b9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:52:0x00bd, code lost:
             cancelAll();
             java.util.Arrays.fill(r3, (java.lang.Object) null);
             r2.onError(r10);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:51:0x00c2, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:53:0x00c6, code lost:
             return;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:52:0x00c3, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:54:0x00c7, code lost:
             r5 = 0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:53:0x00c4, code lost:
-            if (r5 >= r4) goto L69;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:55:0x00ce, code lost:
-            if (r0[r5] == r3[r5].size()) goto L62;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:56:0x00d0, code lost:
-            r13 = false;
+        /* JADX WARN: Code restructure failed: missing block: B:55:0x00c8, code lost:
+            if (r5 >= r4) goto L71;
          */
         /* JADX WARN: Code restructure failed: missing block: B:57:0x00d2, code lost:
-            r5 = r5 + 1;
+            if (r0[r5] == r3[r5].size()) goto L64;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:58:0x00d5, code lost:
-            r13 = true;
+        /* JADX WARN: Code restructure failed: missing block: B:58:0x00d4, code lost:
+            r13 = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:59:0x00d6, code lost:
-            if (r13 == false) goto L77;
+            r5 = r5 + 1;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:60:0x00d8, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:60:0x00d9, code lost:
+            r13 = true;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:61:0x00da, code lost:
+            if (r13 == false) goto L79;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:62:0x00dc, code lost:
             java.util.Arrays.fill(r3, (java.lang.Object) null);
             r2.onComplete();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:61:0x00df, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:63:0x00e3, code lost:
             return;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:63:0x00e4, code lost:
-            if (r11 == 0) goto L82;
+        /* JADX WARN: Code restructure failed: missing block: B:65:0x00e8, code lost:
+            if (r11 == 0) goto L84;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:65:0x00ed, code lost:
-            if (r7 == Long.MAX_VALUE) goto L82;
+        /* JADX WARN: Code restructure failed: missing block: B:67:0x00f1, code lost:
+            if (r7 == Long.MAX_VALUE) goto L84;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:66:0x00ef, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:68:0x00f3, code lost:
             r16.requested.addAndGet(-r11);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:67:0x00f5, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:69:0x00f9, code lost:
             r5 = get();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:68:0x00f9, code lost:
-            if (r5 != r6) goto L90;
+        /* JADX WARN: Code restructure failed: missing block: B:70:0x00fd, code lost:
+            if (r5 != r6) goto L92;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:69:0x00fb, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:71:0x00ff, code lost:
             r5 = addAndGet(-r6);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:70:0x0100, code lost:
-            if (r5 != 0) goto L88;
+        /* JADX WARN: Code restructure failed: missing block: B:72:0x0104, code lost:
+            if (r5 != 0) goto L90;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:71:0x0102, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:73:0x0106, code lost:
             return;
          */
         /*
@@ -186,7 +247,8 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
         */
         public void drain() {
             int i2;
-            if (getAndIncrement() != 0) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
             Subscriber<? super T> subscriber = this.actual;
@@ -255,23 +317,30 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
         }
 
         public void innerError(Throwable th) {
-            if (this.error.compareAndSet(null, th)) {
-                drain();
-            } else if (th != this.error.get()) {
-                RxJavaPlugins.onError(th);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                if (this.error.compareAndSet(null, th)) {
+                    drain();
+                } else if (th != this.error.get()) {
+                    RxJavaPlugins.onError(th);
+                }
             }
         }
 
         public void innerNext(List<T> list, int i2) {
-            this.lists[i2] = list;
-            if (this.remaining.decrementAndGet() == 0) {
-                drain();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048580, this, list, i2) == null) {
+                this.lists[i2] = list;
+                if (this.remaining.decrementAndGet() == 0) {
+                    drain();
+                }
             }
         }
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            if (SubscriptionHelper.validate(j)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
                 BackpressureHelper.add(this.requested, j);
                 if (this.remaining.get() == 0) {
                     drain();
@@ -281,14 +350,31 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
     }
 
     public ParallelSortedJoin(ParallelFlowable<List<T>> parallelFlowable, Comparator<? super T> comparator) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parallelFlowable, comparator};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.source = parallelFlowable;
         this.comparator = comparator;
     }
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super T> subscriber) {
-        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(subscriber, this.source.parallelism(), this.comparator);
-        subscriber.onSubscribe(sortedJoinSubscription);
-        this.source.subscribe(sortedJoinSubscription.subscribers);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(subscriber, this.source.parallelism(), this.comparator);
+            subscriber.onSubscribe(sortedJoinSubscription);
+            this.source.subscribe(sortedJoinSubscription.subscribers);
+        }
     }
 }

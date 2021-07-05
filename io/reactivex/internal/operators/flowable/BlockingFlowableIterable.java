@@ -1,5 +1,12 @@
 package io.reactivex.internal.operators.flowable;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.disposables.Disposable;
@@ -15,14 +22,18 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
     public final Flowable<T> source;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class BlockingFlowableIterator<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Iterator<T>, Runnable, Disposable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6695226475494099826L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final long batchSize;
         public final Condition condition;
         public volatile boolean done;
@@ -33,6 +44,20 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
         public final SpscArrayQueue<T> queue;
 
         public BlockingFlowableIterator(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.queue = new SpscArrayQueue<>(i2);
             this.batchSize = i2;
             this.limit = i2 - (i2 >> 2);
@@ -43,11 +68,19 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            SubscriptionHelper.cancel(this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SubscriptionHelper.cancel(this);
+            }
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+                return invokeV.booleanValue;
+            }
             while (true) {
                 boolean z = this.done;
                 boolean isEmpty = this.queue.isEmpty();
@@ -82,83 +115,130 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return SubscriptionHelper.isCancelled(get());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? SubscriptionHelper.isCancelled(get()) : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (hasNext()) {
-                T poll = this.queue.poll();
-                long j = this.produced + 1;
-                if (j == this.limit) {
-                    this.produced = 0L;
-                    get().request(j);
-                } else {
-                    this.produced = j;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (hasNext()) {
+                    T poll = this.queue.poll();
+                    long j = this.produced + 1;
+                    if (j == this.limit) {
+                        this.produced = 0L;
+                        get().request(j);
+                    } else {
+                        this.produced = j;
+                    }
+                    return poll;
                 }
-                return poll;
+                throw new NoSuchElementException();
             }
-            throw new NoSuchElementException();
+            return (T) invokeV.objValue;
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            this.done = true;
-            signalConsumer();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.done = true;
+                signalConsumer();
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            this.error = th;
-            this.done = true;
-            signalConsumer();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+                this.error = th;
+                this.done = true;
+                signalConsumer();
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            if (!this.queue.offer(t)) {
-                SubscriptionHelper.cancel(this);
-                onError(new MissingBackpressureException("Queue full?!"));
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                if (!this.queue.offer(t)) {
+                    SubscriptionHelper.cancel(this);
+                    onError(new MissingBackpressureException("Queue full?!"));
+                    return;
+                }
+                signalConsumer();
             }
-            signalConsumer();
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            SubscriptionHelper.setOnce(this, subscription, this.batchSize);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, subscription) == null) {
+                SubscriptionHelper.setOnce(this, subscription, this.batchSize);
+            }
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            throw new UnsupportedOperationException("remove");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                throw new UnsupportedOperationException("remove");
+            }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SubscriptionHelper.cancel(this);
-            signalConsumer();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                SubscriptionHelper.cancel(this);
+                signalConsumer();
+            }
         }
 
         public void signalConsumer() {
-            this.lock.lock();
-            try {
-                this.condition.signalAll();
-            } finally {
-                this.lock.unlock();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                this.lock.lock();
+                try {
+                    this.condition.signalAll();
+                } finally {
+                    this.lock.unlock();
+                }
             }
         }
     }
 
     public BlockingFlowableIterable(Flowable<T> flowable, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flowable, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.source = flowable;
         this.bufferSize = i2;
     }
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
-        BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.source.subscribe((FlowableSubscriber) blockingFlowableIterator);
-        return blockingFlowableIterator;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
+            this.source.subscribe((FlowableSubscriber) blockingFlowableIterator);
+            return blockingFlowableIterator;
+        }
+        return (Iterator) invokeV.objValue;
     }
 }

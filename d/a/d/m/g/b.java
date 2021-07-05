@@ -1,71 +1,124 @@
 package d.a.d.m.g;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes.dex */
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public final boolean a(@NonNull a aVar) {
-        return aVar.f43371i == 1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f45230i == 1 : invokeL.booleanValue;
     }
 
     public void b(@NonNull a aVar) {
-        aVar.f43363a = 2;
-        d.a.d.m.b.a(aVar, "image");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            aVar.f45222a = 2;
+            d.a.d.m.b.a(aVar, "image");
+        }
     }
 
     public void c(@NonNull a aVar, int i2) {
-        aVar.f43363a = 7;
-        d.a.d.m.b.b(aVar, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, aVar, i2) == null) {
+            aVar.f45222a = 7;
+            d.a.d.m.b.b(aVar, i2);
+        }
     }
 
     public void d(@NonNull a aVar) {
-        aVar.f43363a = 5;
-        d.a.d.m.b.d(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            aVar.f45222a = 5;
+            d.a.d.m.b.d(aVar);
+        }
     }
 
     public void e(@NonNull a aVar) {
-        aVar.f43363a = 2;
-        d.a.d.m.b.a(aVar, "button");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            aVar.f45222a = 2;
+            d.a.d.m.b.a(aVar, "button");
+        }
     }
 
     public void f(@NonNull a aVar) {
-        if (a(aVar)) {
-            aVar.f43363a = 34;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) && a(aVar)) {
+            aVar.f45222a = 34;
             d.a.d.m.b.c(aVar);
         }
     }
 
     public void g(@NonNull a aVar) {
-        if (a(aVar)) {
-            aVar.f43363a = 32;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) && a(aVar)) {
+            aVar.f45222a = 32;
             d.a.d.m.b.c(aVar);
         }
     }
 
     public void h(@NonNull a aVar) {
-        if (a(aVar)) {
-            aVar.f43363a = 33;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) && a(aVar)) {
+            aVar.f45222a = 33;
             d.a.d.m.b.c(aVar);
         }
     }
 
     public void i(@NonNull a aVar) {
-        aVar.f43363a = 3;
-        d.a.d.m.b.e(aVar);
-        if (a(aVar)) {
-            aVar.f43363a = 31;
-            d.a.d.m.b.f(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            aVar.f45222a = 3;
+            d.a.d.m.b.e(aVar);
+            if (a(aVar)) {
+                aVar.f45222a = 31;
+                d.a.d.m.b.f(aVar);
+            }
         }
     }
 
     public void j(@NonNull a aVar) {
-        aVar.f43363a = 2;
-        d.a.d.m.b.a(aVar, "title");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
+            aVar.f45222a = 2;
+            d.a.d.m.b.a(aVar, "title");
+        }
     }
 
     public void k(@NonNull a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+        }
     }
 
     public void l(@NonNull a aVar, int i2) {
-        d.a.d.m.b.g(aVar, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, aVar, i2) == null) {
+            d.a.d.m.b.g(aVar, i2);
+        }
     }
 }

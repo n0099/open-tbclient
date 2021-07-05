@@ -1,64 +1,111 @@
 package com.vivo.push.b;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class p extends u {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40331a;
+    public String f42074a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40332b;
+    public int f42075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40333c;
+    public boolean f42076c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p() {
         super(7);
-        this.f40332b = 0;
-        this.f40333c = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42075b = 0;
+        this.f42076c = false;
     }
 
     public final void a(int i2) {
-        this.f40332b = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.f42075b = i2;
+        }
     }
 
     public final void b(String str) {
-        this.f40331a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f42074a = str;
+        }
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
-        super.c(aVar);
-        aVar.a("content", this.f40331a);
-        aVar.a("log_level", this.f40332b);
-        aVar.a("is_server_log", this.f40333c);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            super.c(aVar);
+            aVar.a("content", this.f42074a);
+            aVar.a("log_level", this.f42075b);
+            aVar.a("is_server_log", this.f42076c);
+        }
     }
 
     public final String d() {
-        return this.f40331a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42074a : (String) invokeV.objValue;
     }
 
     public final int e() {
-        return this.f40332b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42075b : invokeV.intValue;
     }
 
     public final boolean f() {
-        return this.f40333c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42076c : invokeV.booleanValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final String toString() {
-        return "OnLogCommand";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "OnLogCommand" : (String) invokeV.objValue;
     }
 
     public final void a(boolean z) {
-        this.f40333c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f42076c = z;
+        }
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
-        super.d(aVar);
-        this.f40331a = aVar.a("content");
-        this.f40332b = aVar.b("log_level", 0);
-        this.f40333c = aVar.d("is_server_log");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            super.d(aVar);
+            this.f42074a = aVar.a("content");
+            this.f42075b = aVar.b("log_level", 0);
+            this.f42076c = aVar.d("is_server_log");
+        }
     }
 }

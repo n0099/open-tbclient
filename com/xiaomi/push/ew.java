@@ -1,217 +1,357 @@
 package com.xiaomi.push;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.video.player.PlayerPostEvent;
 import com.kwai.video.player.PlayerProps;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes7.dex */
-public enum ew {
-    TCP_CONN_FAIL(1),
-    TCP_CONN_TIME(2),
-    PING_RTT(3),
-    CHANNEL_CON_FAIL(4),
-    CHANNEL_CON_OK(5),
-    ICMP_PING_FAIL(6),
-    ICMP_PING_OK(7),
-    CHANNEL_ONLINE_RATE(8),
-    BATCH_TCP_CONN_SUCCESS(1000),
-    BATCH_TCP_CONN_FAIL(1001),
-    CHANNEL_STATS_COUNTER(8000),
-    GSLB_REQUEST_SUCCESS(10000),
-    GSLB_TCP_NOACCESS(PlayerPostEvent.MEDIA_INFO_PLAY_TO_END),
-    GSLB_TCP_NETUNREACH(10102),
-    GSLB_TCP_CONNREFUSED(10103),
-    GSLB_TCP_NOROUTETOHOST(10104),
-    GSLB_TCP_TIMEOUT(10105),
-    GSLB_TCP_INVALARG(Constants.REQUEST_SEND_TO_MY_COMPUTER),
-    GSLB_TCP_UKNOWNHOST(Constants.REQUEST_SHARE_TO_TROOP_BAR),
-    GSLB_TCP_ERR_OTHER(10199),
-    GSLB_ERR(10999),
-    CONN_SUCCESS(20000),
-    CONN_TCP_NOACCESS(20101),
-    CONN_TCP_NETUNREACH(20102),
-    CONN_TCP_CONNREFUSED(20103),
-    CONN_TCP_NOROUTETOHOST(20104),
-    CONN_TCP_TIMEOUT(20105),
-    CONN_TCP_INVALARG(20106),
-    CONN_TCP_UKNOWNHOST(20107),
-    CONN_TCP_ERR_OTHER(20199),
-    CONN_XMPP_ERR(20399),
-    CONN_BOSH_UNKNOWNHOST(20407),
-    CONN_BOSH_ERR(20499),
-    BIND_SUCCESS(30000),
-    BIND_TCP_READ_TIMEOUT_DEPRECTED(PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH),
-    BIND_TCP_CONNRESET_DEPRECTED(PlayerProps.FFP_PROP_STRING_STREAM_ID),
-    BIND_TCP_BROKEN_PIPE_DEPRECTED(PlayerProps.FFP_PROP_STRING_DOMAIN),
-    BIND_TCP_READ_TIMEOUT(30108),
-    BIND_TCP_CONNRESET(30109),
-    BIND_TCP_BROKEN_PIPE(30110),
-    BIND_TCP_ERR(30199),
-    BIND_XMPP_ERR(30399),
-    BIND_BOSH_ITEM_NOT_FOUND(30401),
-    BIND_BOSH_ERR(30499),
-    BIND_TIMEOUT(30501),
-    BIND_INVALID_SIG(30502),
-    CHANNEL_TCP_READTIMEOUT_DEPRECTED(40101),
-    CHANNEL_TCP_CONNRESET_DEPRECTED(40102),
-    CHANNEL_TCP_BROKEN_PIPE_DEPRECTED(40103),
-    CHANNEL_TCP_READTIMEOUT(40108),
-    CHANNEL_TCP_CONNRESET(40109),
-    CHANNEL_TCP_BROKEN_PIPE(40110),
-    CHANNEL_TCP_ERR(40199),
-    CHANNEL_XMPPEXCEPTION(40399),
-    CHANNEL_BOSH_ITEMNOTFIND(40401),
-    CHANNEL_BOSH_EXCEPTION(40499),
-    CHANNEL_TIMER_DELAYED(50001);
-    
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes8.dex */
+public final class ew {
+    public static /* synthetic */ Interceptable $ic;
+    public static final ew A;
+    public static final ew B;
+    public static final ew C;
+    public static final ew D;
+    public static final ew E;
+    public static final ew F;
+    public static final ew G;
+    public static final ew H;
+    public static final ew I;
+    public static final ew J;
+    public static final ew K;
+    public static final ew L;
+    public static final ew M;
+    public static final ew N;
+    public static final ew O;
+    public static final ew P;
+    public static final ew Q;
+    public static final ew R;
+    public static final ew S;
+    public static final ew T;
+    public static final ew U;
+    public static final ew V;
+    public static final ew W;
+    public static final ew X;
+    public static final ew Y;
+    public static final ew Z;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final ew f43071a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f339a;
+    public static final /* synthetic */ ew[] f341a;
+    public static final ew aa;
+    public static final ew ab;
+    public static final ew ac;
+    public static final ew ad;
+    public static final ew ae;
 
-    ew(int i2) {
-        this.f339a = i2;
+    /* renamed from: b  reason: collision with root package name */
+    public static final ew f43072b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final ew f43073c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final ew f43074d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final ew f43075e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final ew f43076f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final ew f43077g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final ew f43078h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final ew f43079i;
+    public static final ew j;
+    public static final ew k;
+    public static final ew l;
+    public static final ew m;
+    public static final ew n;
+    public static final ew o;
+    public static final ew p;
+    public static final ew q;
+    public static final ew r;
+    public static final ew s;
+    public static final ew t;
+    public static final ew u;
+    public static final ew v;
+    public static final ew w;
+    public static final ew x;
+    public static final ew y;
+    public static final ew z;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final int f342a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56375346, "Lcom/xiaomi/push/ew;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56375346, "Lcom/xiaomi/push/ew;");
+                return;
+            }
+        }
+        f43071a = new ew("TCP_CONN_FAIL", 0, 1);
+        f43072b = new ew("TCP_CONN_TIME", 1, 2);
+        f43073c = new ew("PING_RTT", 2, 3);
+        f43074d = new ew("CHANNEL_CON_FAIL", 3, 4);
+        f43075e = new ew("CHANNEL_CON_OK", 4, 5);
+        f43076f = new ew("ICMP_PING_FAIL", 5, 6);
+        f43077g = new ew("ICMP_PING_OK", 6, 7);
+        f43078h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
+        f43079i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
+        j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
+        k = new ew("CHANNEL_STATS_COUNTER", 10, 8000);
+        l = new ew("GSLB_REQUEST_SUCCESS", 11, 10000);
+        m = new ew("GSLB_TCP_NOACCESS", 12, PlayerPostEvent.MEDIA_INFO_PLAY_TO_END);
+        n = new ew("GSLB_TCP_NETUNREACH", 13, 10102);
+        o = new ew("GSLB_TCP_CONNREFUSED", 14, 10103);
+        p = new ew("GSLB_TCP_NOROUTETOHOST", 15, 10104);
+        q = new ew("GSLB_TCP_TIMEOUT", 16, 10105);
+        r = new ew("GSLB_TCP_INVALARG", 17, Constants.REQUEST_SEND_TO_MY_COMPUTER);
+        s = new ew("GSLB_TCP_UKNOWNHOST", 18, Constants.REQUEST_SHARE_TO_TROOP_BAR);
+        t = new ew("GSLB_TCP_ERR_OTHER", 19, 10199);
+        u = new ew("GSLB_ERR", 20, 10999);
+        v = new ew("CONN_SUCCESS", 21, 20000);
+        w = new ew("CONN_TCP_NOACCESS", 22, 20101);
+        x = new ew("CONN_TCP_NETUNREACH", 23, 20102);
+        y = new ew("CONN_TCP_CONNREFUSED", 24, 20103);
+        z = new ew("CONN_TCP_NOROUTETOHOST", 25, 20104);
+        A = new ew("CONN_TCP_TIMEOUT", 26, 20105);
+        B = new ew("CONN_TCP_INVALARG", 27, 20106);
+        C = new ew("CONN_TCP_UKNOWNHOST", 28, 20107);
+        D = new ew("CONN_TCP_ERR_OTHER", 29, 20199);
+        E = new ew("CONN_XMPP_ERR", 30, 20399);
+        F = new ew("CONN_BOSH_UNKNOWNHOST", 31, 20407);
+        G = new ew("CONN_BOSH_ERR", 32, 20499);
+        H = new ew("BIND_SUCCESS", 33, 30000);
+        I = new ew("BIND_TCP_READ_TIMEOUT_DEPRECTED", 34, PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH);
+        J = new ew("BIND_TCP_CONNRESET_DEPRECTED", 35, PlayerProps.FFP_PROP_STRING_STREAM_ID);
+        K = new ew("BIND_TCP_BROKEN_PIPE_DEPRECTED", 36, PlayerProps.FFP_PROP_STRING_DOMAIN);
+        L = new ew("BIND_TCP_READ_TIMEOUT", 37, 30108);
+        M = new ew("BIND_TCP_CONNRESET", 38, 30109);
+        N = new ew("BIND_TCP_BROKEN_PIPE", 39, 30110);
+        O = new ew("BIND_TCP_ERR", 40, 30199);
+        P = new ew("BIND_XMPP_ERR", 41, 30399);
+        Q = new ew("BIND_BOSH_ITEM_NOT_FOUND", 42, 30401);
+        R = new ew("BIND_BOSH_ERR", 43, 30499);
+        S = new ew("BIND_TIMEOUT", 44, 30501);
+        T = new ew("BIND_INVALID_SIG", 45, 30502);
+        U = new ew("CHANNEL_TCP_READTIMEOUT_DEPRECTED", 46, 40101);
+        V = new ew("CHANNEL_TCP_CONNRESET_DEPRECTED", 47, 40102);
+        W = new ew("CHANNEL_TCP_BROKEN_PIPE_DEPRECTED", 48, 40103);
+        X = new ew("CHANNEL_TCP_READTIMEOUT", 49, 40108);
+        Y = new ew("CHANNEL_TCP_CONNRESET", 50, 40109);
+        Z = new ew("CHANNEL_TCP_BROKEN_PIPE", 51, 40110);
+        aa = new ew("CHANNEL_TCP_ERR", 52, 40199);
+        ab = new ew("CHANNEL_XMPPEXCEPTION", 53, 40399);
+        ac = new ew("CHANNEL_BOSH_ITEMNOTFIND", 54, 40401);
+        ad = new ew("CHANNEL_BOSH_EXCEPTION", 55, 40499);
+        ew ewVar = new ew("CHANNEL_TIMER_DELAYED", 56, 50001);
+        ae = ewVar;
+        f341a = new ew[]{f43071a, f43072b, f43073c, f43074d, f43075e, f43076f, f43077g, f43078h, f43079i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
+    }
+
+    public ew(String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f342a = i3;
     }
 
     public static ew a(int i2) {
-        if (i2 != 30501) {
-            if (i2 != 30502) {
-                switch (i2) {
-                    case 1:
-                        return TCP_CONN_FAIL;
-                    case 2:
-                        return TCP_CONN_TIME;
-                    case 3:
-                        return PING_RTT;
-                    case 4:
-                        return CHANNEL_CON_FAIL;
-                    case 5:
-                        return CHANNEL_CON_OK;
-                    case 6:
-                        return ICMP_PING_FAIL;
-                    case 7:
-                        return ICMP_PING_OK;
-                    case 8:
-                        return CHANNEL_ONLINE_RATE;
-                    default:
-                        switch (i2) {
-                            case 8000:
-                                return CHANNEL_STATS_COUNTER;
-                            case 10000:
-                                return GSLB_REQUEST_SUCCESS;
-                            case 10199:
-                                return GSLB_TCP_ERR_OTHER;
-                            case 10999:
-                                return GSLB_ERR;
-                            case 20000:
-                                return CONN_SUCCESS;
-                            case 20199:
-                                return CONN_TCP_ERR_OTHER;
-                            case 20399:
-                                return CONN_XMPP_ERR;
-                            case 20407:
-                                return CONN_BOSH_UNKNOWNHOST;
-                            case 20499:
-                                return CONN_BOSH_ERR;
-                            case 30000:
-                                return BIND_SUCCESS;
-                            case 30199:
-                                return BIND_TCP_ERR;
-                            case 30399:
-                                return BIND_XMPP_ERR;
-                            case 30401:
-                                return BIND_BOSH_ITEM_NOT_FOUND;
-                            case 30499:
-                                return BIND_BOSH_ERR;
-                            case 40199:
-                                return CHANNEL_TCP_ERR;
-                            case 40399:
-                                return CHANNEL_XMPPEXCEPTION;
-                            case 40401:
-                                return CHANNEL_BOSH_ITEMNOTFIND;
-                            case 40499:
-                                return CHANNEL_BOSH_EXCEPTION;
-                            case 50001:
-                                return CHANNEL_TIMER_DELAYED;
-                            default:
-                                switch (i2) {
-                                    case PlayerPostEvent.MEDIA_INFO_PLAY_TO_END /* 10101 */:
-                                        return GSLB_TCP_NOACCESS;
-                                    case 10102:
-                                        return GSLB_TCP_NETUNREACH;
-                                    case 10103:
-                                        return GSLB_TCP_CONNREFUSED;
-                                    case 10104:
-                                        return GSLB_TCP_NOROUTETOHOST;
-                                    case 10105:
-                                        return GSLB_TCP_TIMEOUT;
-                                    case Constants.REQUEST_SEND_TO_MY_COMPUTER /* 10106 */:
-                                        return GSLB_TCP_INVALARG;
-                                    case Constants.REQUEST_SHARE_TO_TROOP_BAR /* 10107 */:
-                                        return GSLB_TCP_UKNOWNHOST;
-                                    default:
-                                        switch (i2) {
-                                            case 20101:
-                                                return CONN_TCP_NOACCESS;
-                                            case 20102:
-                                                return CONN_TCP_NETUNREACH;
-                                            case 20103:
-                                                return CONN_TCP_CONNREFUSED;
-                                            case 20104:
-                                                return CONN_TCP_NOROUTETOHOST;
-                                            case 20105:
-                                                return CONN_TCP_TIMEOUT;
-                                            case 20106:
-                                                return CONN_TCP_INVALARG;
-                                            case 20107:
-                                                return CONN_TCP_UKNOWNHOST;
-                                            default:
-                                                switch (i2) {
-                                                    case PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH /* 30101 */:
-                                                        return BIND_TCP_READ_TIMEOUT_DEPRECTED;
-                                                    case PlayerProps.FFP_PROP_STRING_STREAM_ID /* 30102 */:
-                                                        return BIND_TCP_CONNRESET_DEPRECTED;
-                                                    case PlayerProps.FFP_PROP_STRING_DOMAIN /* 30103 */:
-                                                        return BIND_TCP_BROKEN_PIPE_DEPRECTED;
-                                                    default:
-                                                        switch (i2) {
-                                                            case 30108:
-                                                                return BIND_TCP_READ_TIMEOUT;
-                                                            case 30109:
-                                                                return BIND_TCP_CONNRESET;
-                                                            case 30110:
-                                                                return BIND_TCP_BROKEN_PIPE;
-                                                            default:
-                                                                switch (i2) {
-                                                                    case 40101:
-                                                                        return CHANNEL_TCP_READTIMEOUT_DEPRECTED;
-                                                                    case 40102:
-                                                                        return CHANNEL_TCP_CONNRESET_DEPRECTED;
-                                                                    case 40103:
-                                                                        return CHANNEL_TCP_BROKEN_PIPE_DEPRECTED;
-                                                                    default:
-                                                                        switch (i2) {
-                                                                            case 40108:
-                                                                                return CHANNEL_TCP_READTIMEOUT;
-                                                                            case 40109:
-                                                                                return CHANNEL_TCP_CONNRESET;
-                                                                            case 40110:
-                                                                                return CHANNEL_TCP_BROKEN_PIPE;
-                                                                            default:
-                                                                                return null;
-                                                                        }
-                                                                }
-                                                        }
-                                                }
-                                        }
-                                }
-                        }
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (i2 != 30501) {
+                if (i2 != 30502) {
+                    switch (i2) {
+                        case 1:
+                            return f43071a;
+                        case 2:
+                            return f43072b;
+                        case 3:
+                            return f43073c;
+                        case 4:
+                            return f43074d;
+                        case 5:
+                            return f43075e;
+                        case 6:
+                            return f43076f;
+                        case 7:
+                            return f43077g;
+                        case 8:
+                            return f43078h;
+                        default:
+                            switch (i2) {
+                                case 8000:
+                                    return k;
+                                case 10000:
+                                    return l;
+                                case 10199:
+                                    return t;
+                                case 10999:
+                                    return u;
+                                case 20000:
+                                    return v;
+                                case 20199:
+                                    return D;
+                                case 20399:
+                                    return E;
+                                case 20407:
+                                    return F;
+                                case 20499:
+                                    return G;
+                                case 30000:
+                                    return H;
+                                case 30199:
+                                    return O;
+                                case 30399:
+                                    return P;
+                                case 30401:
+                                    return Q;
+                                case 30499:
+                                    return R;
+                                case 40199:
+                                    return aa;
+                                case 40399:
+                                    return ab;
+                                case 40401:
+                                    return ac;
+                                case 40499:
+                                    return ad;
+                                case 50001:
+                                    return ae;
+                                default:
+                                    switch (i2) {
+                                        case PlayerPostEvent.MEDIA_INFO_PLAY_TO_END /* 10101 */:
+                                            return m;
+                                        case 10102:
+                                            return n;
+                                        case 10103:
+                                            return o;
+                                        case 10104:
+                                            return p;
+                                        case 10105:
+                                            return q;
+                                        case Constants.REQUEST_SEND_TO_MY_COMPUTER /* 10106 */:
+                                            return r;
+                                        case Constants.REQUEST_SHARE_TO_TROOP_BAR /* 10107 */:
+                                            return s;
+                                        default:
+                                            switch (i2) {
+                                                case 20101:
+                                                    return w;
+                                                case 20102:
+                                                    return x;
+                                                case 20103:
+                                                    return y;
+                                                case 20104:
+                                                    return z;
+                                                case 20105:
+                                                    return A;
+                                                case 20106:
+                                                    return B;
+                                                case 20107:
+                                                    return C;
+                                                default:
+                                                    switch (i2) {
+                                                        case PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH /* 30101 */:
+                                                            return I;
+                                                        case PlayerProps.FFP_PROP_STRING_STREAM_ID /* 30102 */:
+                                                            return J;
+                                                        case PlayerProps.FFP_PROP_STRING_DOMAIN /* 30103 */:
+                                                            return K;
+                                                        default:
+                                                            switch (i2) {
+                                                                case 30108:
+                                                                    return L;
+                                                                case 30109:
+                                                                    return M;
+                                                                case 30110:
+                                                                    return N;
+                                                                default:
+                                                                    switch (i2) {
+                                                                        case 40101:
+                                                                            return U;
+                                                                        case 40102:
+                                                                            return V;
+                                                                        case 40103:
+                                                                            return W;
+                                                                        default:
+                                                                            switch (i2) {
+                                                                                case 40108:
+                                                                                    return X;
+                                                                                case 40109:
+                                                                                    return Y;
+                                                                                case 40110:
+                                                                                    return Z;
+                                                                                default:
+                                                                                    return null;
+                                                                            }
+                                                                    }
+                                                            }
+                                                    }
+                                            }
+                                    }
+                            }
+                    }
                 }
+                return T;
             }
-            return BIND_INVALID_SIG;
+            return S;
         }
-        return BIND_TIMEOUT;
+        return (ew) invokeI.objValue;
+    }
+
+    public static ew valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ew) Enum.valueOf(ew.class, str) : (ew) invokeL.objValue;
+    }
+
+    public static ew[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ew[]) f341a.clone() : (ew[]) invokeV.objValue;
     }
 
     public int a() {
-        return this.f339a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f342a : invokeV.intValue;
     }
 }

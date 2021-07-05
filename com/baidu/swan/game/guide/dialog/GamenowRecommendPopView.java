@@ -13,181 +13,333 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.swan.game.guide.GamenowRecommendPopViewAdapter;
 import com.baidu.swan.game.guide.download.GamenowDownloadButtomView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
-import d.a.m0.a.k;
-import d.a.m0.f.j.h;
-import d.a.m0.f.j.i;
+import d.a.q0.a.k;
+import d.a.q0.f.j.h;
+import d.a.q0.f.j.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GamenowRecommendPopView extends RelativeLayout {
-    public static final boolean t = k.f46983a;
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean t;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f11727e;
+    public Context f11794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f11728f;
+    public TextView f11795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f11729g;
+    public LinearLayout f11796g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f11730h;
+    public View f11797h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RecyclerView f11731i;
+    public RecyclerView f11798i;
     public TextView j;
     public TextView k;
     public SimpleDraweeView l;
     public e m;
-    public d.a.m0.f.i.k.f.a n;
+    public d.a.q0.f.i.k.f.a n;
     public GamenowDownloadButtomView o;
     public GameGuideConfigInfo.CloseInfo p;
     public int q;
     public DownloadState r;
     public boolean s;
 
-    /* loaded from: classes3.dex */
-    public class a implements d.a.m0.f.i.k.f.a {
-        public a() {
+    /* loaded from: classes4.dex */
+    public class a implements d.a.q0.f.i.k.f.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ GamenowRecommendPopView f11799a;
+
+        public a(GamenowRecommendPopView gamenowRecommendPopView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gamenowRecommendPopView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11799a = gamenowRecommendPopView;
         }
 
-        @Override // d.a.m0.f.i.k.f.a
+        @Override // d.a.q0.f.i.k.f.a
         public void a(int i2) {
-            d.a.m0.f.j.n.c.n().D(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                d.a.q0.f.j.n.c.n().D(i2);
+            }
         }
 
-        @Override // d.a.m0.f.i.k.f.a
+        @Override // d.a.q0.f.i.k.f.a
         public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
 
-        @Override // d.a.m0.f.i.k.f.a
+        @Override // d.a.q0.f.i.k.f.a
         public void c(DownloadState downloadState, int i2) {
             String str;
-            if (GamenowRecommendPopView.this.r == downloadState) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i2) == null) || this.f11799a.r == downloadState) {
                 return;
             }
-            if (GamenowRecommendPopView.this.q == 0 || GamenowRecommendPopView.this.q == 1) {
+            if (this.f11799a.q == 0 || this.f11799a.q == 1) {
                 str = "2";
             } else {
-                str = GamenowRecommendPopView.this.q == 2 ? "1" : "";
+                str = this.f11799a.q == 2 ? "1" : "";
             }
-            GamenowRecommendPopView.this.i(downloadState, str);
-            d.a.m0.f.j.n.c.n().E(downloadState);
-            GamenowRecommendPopView.this.r = downloadState;
-            GamenowRecommendPopView.this.s = true;
+            this.f11799a.i(downloadState, str);
+            d.a.q0.f.j.n.c.n().E(downloadState);
+            this.f11799a.r = downloadState;
+            this.f11799a.s = true;
         }
 
-        @Override // d.a.m0.f.i.k.f.a
+        @Override // d.a.q0.f.i.k.f.a
         public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            }
         }
 
-        @Override // d.a.m0.f.i.k.f.a
+        @Override // d.a.q0.f.i.k.f.a
         public String e() {
-            return d.a.m0.f.j.b.o.I();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.a.q0.f.j.b.o.I() : (String) invokeV.objValue;
         }
 
-        @Override // d.a.m0.f.i.k.f.a
+        @Override // d.a.q0.f.i.k.f.a
         public void f(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
-        public b() {
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (GamenowRecommendPopView.this.q != 0 && GamenowRecommendPopView.this.q != 1) {
-                if (GamenowRecommendPopView.this.q == 2) {
-                    d.a.m0.f.j.r.b.n().b("gbADialogClick", "1", "", "");
-                }
-            } else {
-                d.a.m0.f.j.r.b.n().b("gbBDialogClick", "1", "", "");
-            }
-            d.a.m0.f.j.n.c.n().w("");
-            d.a.m0.f.j.n.c.n().x("");
-            if (GamenowRecommendPopView.this.m != null) {
-                GamenowRecommendPopView.this.m.a();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public c() {
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (GamenowRecommendPopView.this.q == 2) {
-                d.a.m0.f.j.r.b.n().b("gbADialogClick", "2", "", "");
-            }
-            d.a.m0.f.j.n.c.n().s(true);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f11735e;
+        public final /* synthetic */ GamenowRecommendPopView f11800e;
 
-        public d(List list) {
-            this.f11735e = list;
+        public b(GamenowRecommendPopView gamenowRecommendPopView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gamenowRecommendPopView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11800e = gamenowRecommendPopView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (this.f11800e.q != 0 && this.f11800e.q != 1) {
+                    if (this.f11800e.q == 2) {
+                        d.a.q0.f.j.r.b.n().b("gbADialogClick", "1", "", "");
+                    }
+                } else {
+                    d.a.q0.f.j.r.b.n().b("gbBDialogClick", "1", "", "");
+                }
+                d.a.q0.f.j.n.c.n().w("");
+                d.a.q0.f.j.n.c.n().x("");
+                if (this.f11800e.m != null) {
+                    this.f11800e.m.a();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ GamenowRecommendPopView f11801e;
+
+        public c(GamenowRecommendPopView gamenowRecommendPopView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gamenowRecommendPopView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11801e = gamenowRecommendPopView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (this.f11801e.q == 2) {
+                    d.a.q0.f.j.r.b.n().b("gbADialogClick", "2", "", "");
+                }
+                d.a.q0.f.j.n.c.n().s(true);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ List f11802e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ GamenowRecommendPopView f11803f;
+
+        public d(GamenowRecommendPopView gamenowRecommendPopView, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gamenowRecommendPopView, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11803f = gamenowRecommendPopView;
+            this.f11802e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            GamenowRecommendPopView.this.f11731i.setAdapter(new GamenowRecommendPopViewAdapter(GamenowRecommendPopView.this.f11727e, this.f11735e));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f11803f.f11798i.setAdapter(new GamenowRecommendPopViewAdapter(this.f11803f.f11794e, this.f11802e));
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void a();
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-251160572, "Lcom/baidu/swan/game/guide/dialog/GamenowRecommendPopView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-251160572, "Lcom/baidu/swan/game/guide/dialog/GamenowRecommendPopView;");
+                return;
+            }
+        }
+        t = k.f49133a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GamenowRecommendPopView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.r = DownloadState.NOT_START;
     }
 
     public final void i(DownloadState downloadState, String str) {
         String str2;
         String str3;
-        String H = d.a.m0.f.j.b.o.H();
-        if (TextUtils.equals(d.a.m0.f.j.b.o.I(), d.a.m0.f.j.m.c.f50656a)) {
-            H = d.a.m0.f.j.n.c.n().o();
-        }
-        String str4 = H;
-        if (TextUtils.isEmpty(str) || !str.equals("2")) {
-            str2 = "";
-            str3 = str2;
-        } else {
-            str2 = d.a.m0.f.j.n.c.n().l();
-            str3 = d.a.m0.f.j.n.c.n().m();
-        }
-        DownloadState downloadState2 = this.r;
-        if (downloadState2 != DownloadState.DOWNLOAD_PAUSED && downloadState2 != DownloadState.DOWNLOAD_FAILED && downloadState == DownloadState.DOWNLOADING) {
-            d.a.m0.f.j.r.b.n().e("statusBeginDownload", "gbview", str, str2, str3, str4);
-        } else if (downloadState == DownloadState.DOWNLOAD_PAUSED) {
-            if (this.s) {
-                d.a.m0.f.j.r.b.n().e("statusDownloadPause", "gbview", str, str2, str3, str4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, downloadState, str) == null) {
+            String H = d.a.q0.f.j.b.o.H();
+            if (TextUtils.equals(d.a.q0.f.j.b.o.I(), d.a.q0.f.j.m.c.f52802a)) {
+                H = d.a.q0.f.j.n.c.n().o();
             }
-        } else if (downloadState == DownloadState.DOWNLOADED && this.s) {
-            d.a.m0.f.j.r.b.n().e("statusDownloaded", "gbview", str, str2, str3, str4);
+            String str4 = H;
+            if (TextUtils.isEmpty(str) || !str.equals("2")) {
+                str2 = "";
+                str3 = str2;
+            } else {
+                str2 = d.a.q0.f.j.n.c.n().l();
+                str3 = d.a.q0.f.j.n.c.n().m();
+            }
+            DownloadState downloadState2 = this.r;
+            if (downloadState2 != DownloadState.DOWNLOAD_PAUSED && downloadState2 != DownloadState.DOWNLOAD_FAILED && downloadState == DownloadState.DOWNLOADING) {
+                d.a.q0.f.j.r.b.n().e("statusBeginDownload", "gbview", str, str2, str3, str4);
+            } else if (downloadState == DownloadState.DOWNLOAD_PAUSED) {
+                if (this.s) {
+                    d.a.q0.f.j.r.b.n().e("statusDownloadPause", "gbview", str, str2, str3, str4);
+                }
+            } else if (downloadState == DownloadState.DOWNLOADED && this.s) {
+                d.a.q0.f.j.r.b.n().e("statusDownloaded", "gbview", str, str2, str3, str4);
+            }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0112  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0116  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -195,143 +347,191 @@ public class GamenowRecommendPopView extends RelativeLayout {
         int i2;
         String str;
         SimpleDraweeView simpleDraweeView;
-        int i3 = this.q;
-        if (i3 == 0 || i3 == 1) {
-            LayoutInflater.from(this.f11727e).inflate(i.aiapps_gamenow_recommend_game_view, this);
-            this.f11731i = (RecyclerView) findViewById(h.rv_guide_game);
-            this.f11731i.setLayoutManager(new GridLayoutManager(this.f11727e, 3));
-        } else if (i3 == 2) {
-            LayoutInflater.from(this.f11727e).inflate(i.aiapps_gamenow_recommend_view, this);
-            this.j = (TextView) findViewById(h.gamenow_recommend_title);
-            this.l = (SimpleDraweeView) findViewById(h.active_image_bg);
-        }
-        this.k = (TextView) findViewById(h.gamenow_recommend_sub_title);
-        this.f11728f = (TextView) findViewById(h.gamenow_guide_exit_game);
-        int parseColor = Color.parseColor("#333333");
-        GradientDrawable gradientDrawable = null;
-        try {
-            if (!TextUtils.isEmpty(this.p.exitTextColor) && !this.p.exitTextColor.equals(StringUtil.NULL_STRING)) {
-                parseColor = Color.parseColor(this.p.exitTextColor);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i3 = this.q;
+            if (i3 == 0 || i3 == 1) {
+                LayoutInflater.from(this.f11794e).inflate(i.aiapps_gamenow_recommend_game_view, this);
+                this.f11798i = (RecyclerView) findViewById(h.rv_guide_game);
+                this.f11798i.setLayoutManager(new GridLayoutManager(this.f11794e, 3));
+            } else if (i3 == 2) {
+                LayoutInflater.from(this.f11794e).inflate(i.aiapps_gamenow_recommend_view, this);
+                this.j = (TextView) findViewById(h.gamenow_recommend_title);
+                this.l = (SimpleDraweeView) findViewById(h.active_image_bg);
             }
-            if (!TextUtils.isEmpty(this.p.exitBackgroundColor) && !this.p.exitBackgroundColor.equals(StringUtil.NULL_STRING) && (this.f11728f.getBackground() instanceof GradientDrawable)) {
-                GradientDrawable gradientDrawable2 = (GradientDrawable) this.f11728f.getBackground();
-                try {
-                    gradientDrawable2.setColor(Color.parseColor(this.p.exitBackgroundColor));
-                    gradientDrawable = gradientDrawable2;
-                } catch (IllegalArgumentException e2) {
-                    e = e2;
-                    gradientDrawable = gradientDrawable2;
-                    if (t) {
-                        e.printStackTrace();
-                    }
-                    this.f11728f.setTextColor(parseColor);
-                    this.f11729g = (LinearLayout) findViewById(h.gamenow_guide_download_container);
-                    this.f11730h = findViewById(h.rl_guide_game_bg);
-                    this.n = new a();
-                    i2 = this.q;
-                    str = "2";
-                    if (i2 != 0) {
-                        str = "1";
-                    }
-                    GamenowDownloadButtomView i4 = d.a.m0.f.j.n.c.n().i(this.n, "gbview", str);
-                    this.o = i4;
-                    this.f11729g.addView(i4);
-                    this.f11728f.setOnClickListener(new b());
-                    simpleDraweeView = this.l;
-                    if (simpleDraweeView != null) {
-                    }
-                    d.a.m0.h.o0.g.f.e.b(this.f11728f, gradientDrawable);
+            this.k = (TextView) findViewById(h.gamenow_recommend_sub_title);
+            this.f11795f = (TextView) findViewById(h.gamenow_guide_exit_game);
+            int parseColor = Color.parseColor("#333333");
+            GradientDrawable gradientDrawable = null;
+            try {
+                if (!TextUtils.isEmpty(this.p.exitTextColor) && !this.p.exitTextColor.equals(StringUtil.NULL_STRING)) {
+                    parseColor = Color.parseColor(this.p.exitTextColor);
                 }
+                if (!TextUtils.isEmpty(this.p.exitBackgroundColor) && !this.p.exitBackgroundColor.equals(StringUtil.NULL_STRING) && (this.f11795f.getBackground() instanceof GradientDrawable)) {
+                    GradientDrawable gradientDrawable2 = (GradientDrawable) this.f11795f.getBackground();
+                    try {
+                        gradientDrawable2.setColor(Color.parseColor(this.p.exitBackgroundColor));
+                        gradientDrawable = gradientDrawable2;
+                    } catch (IllegalArgumentException e2) {
+                        e = e2;
+                        gradientDrawable = gradientDrawable2;
+                        if (t) {
+                            e.printStackTrace();
+                        }
+                        this.f11795f.setTextColor(parseColor);
+                        this.f11796g = (LinearLayout) findViewById(h.gamenow_guide_download_container);
+                        this.f11797h = findViewById(h.rl_guide_game_bg);
+                        this.n = new a(this);
+                        i2 = this.q;
+                        str = "2";
+                        if (i2 != 0) {
+                            str = "1";
+                        }
+                        GamenowDownloadButtomView i4 = d.a.q0.f.j.n.c.n().i(this.n, "gbview", str);
+                        this.o = i4;
+                        this.f11796g.addView(i4);
+                        this.f11795f.setOnClickListener(new b(this));
+                        simpleDraweeView = this.l;
+                        if (simpleDraweeView != null) {
+                        }
+                        d.a.q0.h.o0.g.f.e.b(this.f11795f, gradientDrawable);
+                    }
+                }
+            } catch (IllegalArgumentException e3) {
+                e = e3;
             }
-        } catch (IllegalArgumentException e3) {
-            e = e3;
+            this.f11795f.setTextColor(parseColor);
+            this.f11796g = (LinearLayout) findViewById(h.gamenow_guide_download_container);
+            this.f11797h = findViewById(h.rl_guide_game_bg);
+            this.n = new a(this);
+            i2 = this.q;
+            str = "2";
+            if (i2 != 0 && i2 != 1 && i2 == 2) {
+                str = "1";
+            }
+            GamenowDownloadButtomView i42 = d.a.q0.f.j.n.c.n().i(this.n, "gbview", str);
+            this.o = i42;
+            this.f11796g.addView(i42);
+            this.f11795f.setOnClickListener(new b(this));
+            simpleDraweeView = this.l;
+            if (simpleDraweeView != null) {
+                simpleDraweeView.setOnClickListener(new c(this));
+            }
+            d.a.q0.h.o0.g.f.e.b(this.f11795f, gradientDrawable);
         }
-        this.f11728f.setTextColor(parseColor);
-        this.f11729g = (LinearLayout) findViewById(h.gamenow_guide_download_container);
-        this.f11730h = findViewById(h.rl_guide_game_bg);
-        this.n = new a();
-        i2 = this.q;
-        str = "2";
-        if (i2 != 0 && i2 != 1 && i2 == 2) {
-            str = "1";
-        }
-        GamenowDownloadButtomView i42 = d.a.m0.f.j.n.c.n().i(this.n, "gbview", str);
-        this.o = i42;
-        this.f11729g.addView(i42);
-        this.f11728f.setOnClickListener(new b());
-        simpleDraweeView = this.l;
-        if (simpleDraweeView != null) {
-            simpleDraweeView.setOnClickListener(new c());
-        }
-        d.a.m0.h.o0.g.f.e.b(this.f11728f, gradientDrawable);
     }
 
     public final void k() {
-        ArrayList arrayList = new ArrayList();
-        GameGuideConfigInfo.CloseInfo closeInfo = this.p;
-        ArrayList<GameGuideConfigInfo.RecommendGameInfo> arrayList2 = closeInfo.gameList;
-        String str = closeInfo.gameRecommendTips;
-        int i2 = this.q;
-        int i3 = 3;
-        if (i2 != 0) {
-            if (i2 != 1) {
-                i3 = 0;
-            } else if (d.a.m0.a.a2.e.Q() == null || d.a.m0.a.a2.e.Q().L().d0() != 1) {
-                i3 = 6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            GameGuideConfigInfo.CloseInfo closeInfo = this.p;
+            ArrayList<GameGuideConfigInfo.RecommendGameInfo> arrayList2 = closeInfo.gameList;
+            String str = closeInfo.gameRecommendTips;
+            int i2 = this.q;
+            int i3 = 3;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    i3 = 0;
+                } else if (d.a.q0.a.a2.e.Q() == null || d.a.q0.a.a2.e.Q().L().d0() != 1) {
+                    i3 = 6;
+                }
             }
-        }
-        if (arrayList2 != null && arrayList2.size() >= i3) {
-            for (int i4 = 0; i4 < i3; i4++) {
-                arrayList.add(arrayList2.get(i4));
+            if (arrayList2 != null && arrayList2.size() >= i3) {
+                for (int i4 = 0; i4 < i3; i4++) {
+                    arrayList.add(arrayList2.get(i4));
+                }
             }
+            post(new d(this, arrayList));
+            if (this.k == null || TextUtils.isEmpty(str)) {
+                return;
+            }
+            this.k.setText(str);
         }
-        post(new d(arrayList));
-        if (this.k == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.k.setText(str);
     }
 
     public final void l() {
-        GameGuideConfigInfo.CloseInfo closeInfo = this.p;
-        String str = closeInfo.bannerTitle;
-        String str2 = closeInfo.bannerSubTitle;
-        String str3 = closeInfo.bannerImgUrl;
-        if (this.j != null && !TextUtils.isEmpty(str)) {
-            this.j.setText(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            GameGuideConfigInfo.CloseInfo closeInfo = this.p;
+            String str = closeInfo.bannerTitle;
+            String str2 = closeInfo.bannerSubTitle;
+            String str3 = closeInfo.bannerImgUrl;
+            if (this.j != null && !TextUtils.isEmpty(str)) {
+                this.j.setText(str);
+            }
+            if (this.k != null && !TextUtils.isEmpty(str2)) {
+                this.k.setText(str2);
+            }
+            if (this.l == null || TextUtils.isEmpty(str3)) {
+                return;
+            }
+            this.l.setController(Fresco.newDraweeControllerBuilder().setUri(str3).setAutoPlayAnimations(true).build());
         }
-        if (this.k != null && !TextUtils.isEmpty(str2)) {
-            this.k.setText(str2);
-        }
-        if (this.l == null || TextUtils.isEmpty(str3)) {
-            return;
-        }
-        this.l.setController(Fresco.newDraweeControllerBuilder().setUri(str3).setAutoPlayAnimations(true).build());
     }
 
     public final void m() {
-        int i2 = this.q;
-        if (i2 == 0 || i2 == 1) {
-            k();
-        } else if (i2 != 2) {
-        } else {
-            l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int i2 = this.q;
+            if (i2 == 0 || i2 == 1) {
+                k();
+            } else if (i2 != 2) {
+            } else {
+                l();
+            }
         }
     }
 
     public void setOnClickListener(e eVar) {
-        this.m = eVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
+            this.m = eVar;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GamenowRecommendPopView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.r = DownloadState.NOT_START;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GamenowRecommendPopView(Context context, GameGuideConfigInfo.CloseInfo closeInfo) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, closeInfo};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.r = DownloadState.NOT_START;
-        this.f11727e = context;
+        this.f11794e = context;
         this.p = closeInfo;
         this.q = closeInfo.type;
         j();

@@ -1,26 +1,50 @@
 package com.kwai.sodler.lib;
 
 import android.util.Log;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+        }
     }
 
     public static void a(String str, Throwable th) {
-        Log.w(str, th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, th) == null) {
+            Log.w(str, th);
+        }
     }
 
     public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+        }
     }
 
     public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+        }
     }
 
     public static void d(String str, String str2) {
-        Log.e(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) {
+            Log.e(str, str2);
+        }
     }
 
     public static void e(String str, String str2) {
-        Log.w(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
+            Log.w(str, str2);
+        }
     }
 }

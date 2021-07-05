@@ -1,0 +1,749 @@
+package com.baidu.ugc.editvideo.data;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.bean.AddressField;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.producers.ProducerConstants;
+import com.google.gson.annotations.SerializedName;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
+import d.a.y0.t.l;
+import d.a.y0.t.w;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class TextWordsEntity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<TextFontEntity> mCoverFontList;
+    public List<TextStyleEntity> mCoverStyleList;
+
+    /* loaded from: classes6.dex */
+    public static class StyleBackgroudInfoEntity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("alpha")
+        public String mBackgroudAlpha;
+        @SerializedName(TipsConfigItem.TipConfigData.BOTTOM)
+        public int mBackgroudBottom;
+        @SerializedName("color")
+        public String mBackgroudColor;
+        @SerializedName("imageUrl")
+        public String mBackgroudImageUrl;
+        @SerializedName(CustomDialogData.POS_LEFT)
+        public int mBackgroudLeft;
+        @SerializedName("right")
+        public int mBackgroudRight;
+        @SerializedName("top")
+        public int mBackgroudTop;
+        @SerializedName("width")
+        public int mBackgroudWidth;
+        @SerializedName(ProducerConstants.EXTRA_IMAGE_TYPE)
+        public int mImageType;
+        @SerializedName("localParentFile")
+        public String mLocalParentFile;
+        public File mSourceFile;
+        @SerializedName("stretchableX")
+        public ArrayList<Div> mStretchableX;
+        @SerializedName("stretchableY")
+        public ArrayList<Div> mStretchableY;
+
+        public StyleBackgroudInfoEntity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mSourceFile = null;
+            this.mLocalParentFile = null;
+        }
+
+        public static StyleBackgroudInfoEntity parse(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                StyleBackgroudInfoEntity styleBackgroudInfoEntity = new StyleBackgroudInfoEntity();
+                try {
+                    styleBackgroudInfoEntity.mBackgroudColor = jSONObject.optString("color");
+                    styleBackgroudInfoEntity.mBackgroudAlpha = jSONObject.optString("alpha");
+                    styleBackgroudInfoEntity.mBackgroudImageUrl = jSONObject.optString("imageUrl");
+                    styleBackgroudInfoEntity.mLocalParentFile = jSONObject.optString("localParentFile");
+                    styleBackgroudInfoEntity.mBackgroudLeft = jSONObject.optInt(CustomDialogData.POS_LEFT);
+                    styleBackgroudInfoEntity.mBackgroudTop = jSONObject.optInt("top");
+                    styleBackgroudInfoEntity.mBackgroudRight = jSONObject.optInt("right");
+                    styleBackgroudInfoEntity.mBackgroudBottom = jSONObject.optInt(TipsConfigItem.TipConfigData.BOTTOM);
+                    styleBackgroudInfoEntity.mBackgroudWidth = jSONObject.optInt("width");
+                    styleBackgroudInfoEntity.mImageType = jSONObject.optInt(ProducerConstants.EXTRA_IMAGE_TYPE);
+                    JSONArray optJSONArray = jSONObject.optJSONArray("stretchableX");
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("stretchableY");
+                    ArrayList<Div> arrayList = new ArrayList<>();
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                            Div div = new Div();
+                            div.start = optJSONObject.optInt("start");
+                            div.stop = optJSONObject.optInt(IntentConfig.STOP);
+                            arrayList.add(div);
+                        }
+                    }
+                    styleBackgroudInfoEntity.mStretchableX = arrayList;
+                    ArrayList<Div> arrayList2 = new ArrayList<>();
+                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                            Div div2 = new Div();
+                            div2.parse(optJSONObject2);
+                            arrayList2.add(div2);
+                        }
+                    }
+                    styleBackgroudInfoEntity.mStretchableY = arrayList2;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return styleBackgroudInfoEntity;
+            }
+            return (StyleBackgroudInfoEntity) invokeL.objValue;
+        }
+
+        public static JSONObject toJson(StyleBackgroudInfoEntity styleBackgroudInfoEntity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, styleBackgroudInfoEntity)) == null) {
+                if (styleBackgroudInfoEntity == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("color", styleBackgroudInfoEntity.mBackgroudColor);
+                    jSONObject.put("alpha", styleBackgroudInfoEntity.mBackgroudAlpha);
+                    jSONObject.put("imageUrl", styleBackgroudInfoEntity.mBackgroudImageUrl);
+                    jSONObject.put("localParentFile", styleBackgroudInfoEntity.mLocalParentFile);
+                    jSONObject.put(CustomDialogData.POS_LEFT, styleBackgroudInfoEntity.mBackgroudLeft);
+                    jSONObject.put("top", styleBackgroudInfoEntity.mBackgroudTop);
+                    jSONObject.put("right", styleBackgroudInfoEntity.mBackgroudRight);
+                    jSONObject.put(TipsConfigItem.TipConfigData.BOTTOM, styleBackgroudInfoEntity.mBackgroudBottom);
+                    jSONObject.put("width", styleBackgroudInfoEntity.mBackgroudWidth);
+                    jSONObject.put(ProducerConstants.EXTRA_IMAGE_TYPE, styleBackgroudInfoEntity.mImageType);
+                    JSONArray jSONArray = new JSONArray();
+                    Iterator<Div> it = styleBackgroudInfoEntity.mStretchableX.iterator();
+                    while (it.hasNext()) {
+                        Div next = it.next();
+                        if (next != null) {
+                            jSONArray.put(next.toJson());
+                        }
+                    }
+                    jSONObject.put("stretchableX", jSONArray);
+                    JSONArray jSONArray2 = new JSONArray();
+                    Iterator<Div> it2 = styleBackgroudInfoEntity.mStretchableY.iterator();
+                    while (it2.hasNext()) {
+                        Div next2 = it2.next();
+                        if (next2 != null) {
+                            jSONArray2.put(next2.toJson());
+                        }
+                    }
+                    jSONObject.put("stretchableY", jSONArray2);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+
+        public File getSourceFile() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (w.a(this.mBackgroudImageUrl)) {
+                    return new File("");
+                }
+                if (this.mSourceFile == null) {
+                    String str = this.mLocalParentFile;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(l.b(this.mBackgroudImageUrl));
+                    String str2 = this.mBackgroudImageUrl;
+                    sb.append(str2.substring(str2.lastIndexOf(".")));
+                    this.mSourceFile = new File(str, sb.toString());
+                }
+                return this.mSourceFile;
+            }
+            return (File) invokeV.objValue;
+        }
+
+        public boolean isLoaded() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getSourceFile() != null && getSourceFile().exists() : invokeV.booleanValue;
+        }
+
+        public boolean isNeedDown() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? w.a(this.mBackgroudImageUrl) : invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class StyleShadowInfoEntity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("alpha")
+        public String mShadowAlpha;
+        @SerializedName("blur")
+        public String mShadowBlur;
+        @SerializedName("color")
+        public String mShadowColor;
+        @SerializedName("offset_x")
+        public String mShadowOffsetX;
+        @SerializedName("offset_y")
+        public String mShadowOffsetY;
+        @SerializedName("width")
+        public String mShadowWidth;
+
+        public StyleShadowInfoEntity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static StyleShadowInfoEntity parse(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                StyleShadowInfoEntity styleShadowInfoEntity = new StyleShadowInfoEntity();
+                try {
+                    styleShadowInfoEntity.mShadowColor = jSONObject.optString("color");
+                    styleShadowInfoEntity.mShadowAlpha = jSONObject.optString("alpha");
+                    styleShadowInfoEntity.mShadowOffsetX = jSONObject.optString("offset_x");
+                    styleShadowInfoEntity.mShadowOffsetY = jSONObject.optString("offset_y");
+                    styleShadowInfoEntity.mShadowBlur = jSONObject.optString("blur");
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return styleShadowInfoEntity;
+            }
+            return (StyleShadowInfoEntity) invokeL.objValue;
+        }
+
+        public static JSONObject toJson(StyleShadowInfoEntity styleShadowInfoEntity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, styleShadowInfoEntity)) == null) {
+                if (styleShadowInfoEntity == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("color", styleShadowInfoEntity.mShadowColor);
+                    jSONObject.put("alpha", styleShadowInfoEntity.mShadowAlpha);
+                    jSONObject.put("offset_x", styleShadowInfoEntity.mShadowOffsetX);
+                    jSONObject.put("offset_y", styleShadowInfoEntity.mShadowOffsetY);
+                    jSONObject.put("blur", styleShadowInfoEntity.mShadowBlur);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class StyleStrokeInfoEntity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("alpha")
+        public String mStrokeAlpha;
+        @SerializedName("color")
+        public String mStrokeColor;
+        @SerializedName("width")
+        public String mStrokeWidth;
+
+        public StyleStrokeInfoEntity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static StyleStrokeInfoEntity parse(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                StyleStrokeInfoEntity styleStrokeInfoEntity = new StyleStrokeInfoEntity();
+                try {
+                    styleStrokeInfoEntity.mStrokeColor = jSONObject.optString("color");
+                    styleStrokeInfoEntity.mStrokeAlpha = jSONObject.optString("alpha");
+                    styleStrokeInfoEntity.mStrokeWidth = jSONObject.optString("width");
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return styleStrokeInfoEntity;
+            }
+            return (StyleStrokeInfoEntity) invokeL.objValue;
+        }
+
+        public static JSONObject toJson(StyleStrokeInfoEntity styleStrokeInfoEntity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, styleStrokeInfoEntity)) == null) {
+                if (styleStrokeInfoEntity == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("color", styleStrokeInfoEntity.mStrokeColor);
+                    jSONObject.put("alpha", styleStrokeInfoEntity.mStrokeAlpha);
+                    jSONObject.put("width", styleStrokeInfoEntity.mStrokeWidth);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class StyleTextInfoEntity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("alpha")
+        public String mTextAlpha;
+        @SerializedName("color")
+        public String mTextColor;
+
+        public StyleTextInfoEntity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static StyleTextInfoEntity parse(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                StyleTextInfoEntity styleTextInfoEntity = new StyleTextInfoEntity();
+                try {
+                    styleTextInfoEntity.mTextColor = jSONObject.optString("color");
+                    styleTextInfoEntity.mTextAlpha = jSONObject.optString("alpha");
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return styleTextInfoEntity;
+            }
+            return (StyleTextInfoEntity) invokeL.objValue;
+        }
+
+        public static JSONObject toJson(StyleTextInfoEntity styleTextInfoEntity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, styleTextInfoEntity)) == null) {
+                if (styleTextInfoEntity == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("color", styleTextInfoEntity.mTextColor);
+                    jSONObject.put("alpha", styleTextInfoEntity.mTextAlpha);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class TextFontEntity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String mDownloadUrl;
+        public String mIconUrl;
+        public String mId;
+        public int mIsDefault;
+        public String mName;
+        public File mRootDir;
+        public File mSourceFile;
+
+        public TextFontEntity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mIsDefault = 0;
+            this.mSourceFile = null;
+        }
+
+        public static TextFontEntity parse(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                TextFontEntity textFontEntity = new TextFontEntity();
+                try {
+                    textFontEntity.mId = jSONObject.optString("id");
+                    textFontEntity.mName = jSONObject.optString("name");
+                    textFontEntity.mIconUrl = jSONObject.optString("icon_url");
+                    textFontEntity.mDownloadUrl = jSONObject.optString("download_url");
+                    textFontEntity.mIsDefault = jSONObject.optInt(AddressField.KEY_IS_DEFAULT);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return textFontEntity;
+            }
+            return (TextFontEntity) invokeL.objValue;
+        }
+
+        public static JSONObject toJson(TextFontEntity textFontEntity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, textFontEntity)) == null) {
+                if (textFontEntity == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("id", textFontEntity.mId);
+                    jSONObject.put("name", textFontEntity.mName);
+                    jSONObject.put("icon_url", textFontEntity.mIconUrl);
+                    jSONObject.put("download_url", textFontEntity.mDownloadUrl);
+                    jSONObject.put(AddressField.KEY_IS_DEFAULT, textFontEntity.mIsDefault);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+
+        public File getSourceFile() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.mSourceFile == null) {
+                    File file = this.mRootDir;
+                    this.mSourceFile = new File(file, l.b(this.mDownloadUrl) + getSuffix());
+                }
+                return this.mSourceFile;
+            }
+            return (File) invokeV.objValue;
+        }
+
+        public String getSuffix() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDownloadUrl.contains(".otf") ? ".otf" : ".ttf" : (String) invokeV.objValue;
+        }
+
+        public boolean isDefault() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsDefault == 1 : invokeV.booleanValue;
+        }
+
+        public boolean isLoaded() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getSourceFile() != null && getSourceFile().exists() : invokeV.booleanValue;
+        }
+
+        public void setFontRootDir(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, file) == null) {
+                this.mRootDir = file;
+            }
+        }
+
+        public void setSourceFile(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, file) == null) {
+                this.mSourceFile = file;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class TextStyleEntity {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String TEXT_TYPE_HORIZONTAL = "1";
+        public static final String TEXT_TYPE_NONE = "0";
+        public static final String TEXT_TYPE_VERTICAL = "2";
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("background_infos")
+        public StyleBackgroudInfoEntity mBackgroudInfoEntity;
+        @SerializedName("icon_url")
+        public String mIconUrl;
+        @SerializedName("id")
+        public String mId;
+        @SerializedName("name")
+        public String mName;
+        @SerializedName("shadow_infos")
+        public List<StyleShadowInfoEntity> mShadowInfoList;
+        @SerializedName("stroke_infos")
+        public List<StyleStrokeInfoEntity> mStrokeInfoList;
+        @SerializedName("text_infos")
+        public List<StyleTextInfoEntity> mTextInfoList;
+        @SerializedName("text_type")
+        public String mTextType;
+
+        public TextStyleEntity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mTextType = "0";
+        }
+
+        public static TextStyleEntity parse(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            JSONArray optJSONArray;
+            StyleShadowInfoEntity parse;
+            JSONArray optJSONArray2;
+            StyleStrokeInfoEntity parse2;
+            JSONArray optJSONArray3;
+            StyleTextInfoEntity parse3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                TextStyleEntity textStyleEntity = new TextStyleEntity();
+                try {
+                    textStyleEntity.mId = jSONObject.optString("id");
+                    textStyleEntity.mName = jSONObject.optString("name");
+                    textStyleEntity.mIconUrl = jSONObject.optString("icon_url");
+                    textStyleEntity.mTextType = jSONObject.optString("text_type");
+                    if (jSONObject.has("text_infos") && (optJSONArray3 = jSONObject.optJSONArray("text_infos")) != null && optJSONArray3.length() > 0) {
+                        textStyleEntity.mTextInfoList = new ArrayList();
+                        for (int i2 = 0; i2 < optJSONArray3.length(); i2++) {
+                            JSONObject optJSONObject = optJSONArray3.optJSONObject(i2);
+                            if (optJSONObject != null && (parse3 = StyleTextInfoEntity.parse(optJSONObject)) != null) {
+                                textStyleEntity.mTextInfoList.add(parse3);
+                            }
+                        }
+                    }
+                    if (jSONObject.has("stroke_infos") && (optJSONArray2 = jSONObject.optJSONArray("stroke_infos")) != null && optJSONArray2.length() > 0) {
+                        textStyleEntity.mStrokeInfoList = new ArrayList();
+                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                            if (optJSONObject2 != null && (parse2 = StyleStrokeInfoEntity.parse(optJSONObject2)) != null) {
+                                textStyleEntity.mStrokeInfoList.add(parse2);
+                            }
+                        }
+                    }
+                    if (jSONObject.has("shadow_infos") && (optJSONArray = jSONObject.optJSONArray("shadow_infos")) != null && optJSONArray.length() > 0) {
+                        textStyleEntity.mShadowInfoList = new ArrayList();
+                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i4);
+                            if (optJSONObject3 != null && (parse = StyleShadowInfoEntity.parse(optJSONObject3)) != null) {
+                                textStyleEntity.mShadowInfoList.add(parse);
+                            }
+                        }
+                    }
+                    if (jSONObject.has("background_infos")) {
+                        textStyleEntity.mBackgroudInfoEntity = StyleBackgroudInfoEntity.parse(jSONObject.optJSONObject("background_infos"));
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return textStyleEntity;
+            }
+            return (TextStyleEntity) invokeL.objValue;
+        }
+
+        public static JSONObject toJson(TextStyleEntity textStyleEntity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, textStyleEntity)) == null) {
+                if (textStyleEntity == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("id", textStyleEntity.mId);
+                    jSONObject.put("name", textStyleEntity.mName);
+                    jSONObject.put("icon_url", textStyleEntity.mIconUrl);
+                    jSONObject.put("text_type", textStyleEntity.mTextType);
+                    if (textStyleEntity.mTextInfoList != null && textStyleEntity.mTextInfoList.size() > 0) {
+                        JSONArray jSONArray = new JSONArray();
+                        for (StyleTextInfoEntity styleTextInfoEntity : textStyleEntity.mTextInfoList) {
+                            jSONArray.put(StyleTextInfoEntity.toJson(styleTextInfoEntity));
+                        }
+                        jSONObject.put("text_infos", jSONArray);
+                    }
+                    if (textStyleEntity.mStrokeInfoList != null && textStyleEntity.mStrokeInfoList.size() > 0) {
+                        JSONArray jSONArray2 = new JSONArray();
+                        for (StyleStrokeInfoEntity styleStrokeInfoEntity : textStyleEntity.mStrokeInfoList) {
+                            jSONArray2.put(StyleStrokeInfoEntity.toJson(styleStrokeInfoEntity));
+                        }
+                        jSONObject.put("stroke_infos", jSONArray2);
+                    }
+                    if (textStyleEntity.mShadowInfoList != null && textStyleEntity.mShadowInfoList.size() > 0) {
+                        JSONArray jSONArray3 = new JSONArray();
+                        for (StyleShadowInfoEntity styleShadowInfoEntity : textStyleEntity.mShadowInfoList) {
+                            jSONArray3.put(StyleShadowInfoEntity.toJson(styleShadowInfoEntity));
+                        }
+                        jSONObject.put("shadow_infos", jSONArray3);
+                    }
+                    jSONObject.put("background_infos", StyleBackgroudInfoEntity.toJson(textStyleEntity.mBackgroudInfoEntity));
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+    }
+
+    public TextWordsEntity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static TextWordsEntity parse(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONArray optJSONArray;
+        TextFontEntity parse;
+        JSONArray optJSONArray2;
+        TextStyleEntity parse2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            TextWordsEntity textWordsEntity = new TextWordsEntity();
+            try {
+                if (jSONObject.has("style") && (optJSONArray2 = jSONObject.optJSONArray("style")) != null && optJSONArray2.length() > 0) {
+                    textWordsEntity.mCoverStyleList = new ArrayList();
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
+                        if (optJSONObject != null && (parse2 = TextStyleEntity.parse(optJSONObject)) != null) {
+                            textWordsEntity.mCoverStyleList.add(parse2);
+                        }
+                    }
+                }
+                if (jSONObject.has("font") && (optJSONArray = jSONObject.optJSONArray("font")) != null && optJSONArray.length() > 0) {
+                    textWordsEntity.mCoverFontList = new ArrayList();
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
+                        if (optJSONObject2 != null && (parse = TextFontEntity.parse(optJSONObject2)) != null) {
+                            textWordsEntity.mCoverFontList.add(parse);
+                        }
+                    }
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            return textWordsEntity;
+        }
+        return (TextWordsEntity) invokeL.objValue;
+    }
+
+    public static JSONObject toJson(TextWordsEntity textWordsEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, textWordsEntity)) == null) {
+            if (textWordsEntity == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (textWordsEntity.mCoverStyleList != null && textWordsEntity.mCoverStyleList.size() > 0) {
+                    JSONArray jSONArray = new JSONArray();
+                    for (TextStyleEntity textStyleEntity : textWordsEntity.mCoverStyleList) {
+                        jSONArray.put(TextStyleEntity.toJson(textStyleEntity));
+                    }
+                    jSONObject.put("style", jSONArray);
+                }
+                if (textWordsEntity.mCoverFontList != null && textWordsEntity.mCoverFontList.size() > 0) {
+                    JSONArray jSONArray2 = new JSONArray();
+                    for (TextFontEntity textFontEntity : textWordsEntity.mCoverFontList) {
+                        jSONArray2.put(TextFontEntity.toJson(textFontEntity));
+                    }
+                    jSONObject.put("font", jSONArray2);
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+}

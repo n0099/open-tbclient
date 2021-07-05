@@ -3,6 +3,12 @@ package d.a.c.e.p;
 import android.os.Environment;
 import android.os.StatFs;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.Base64;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,212 +19,297 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class f {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42613a = "baidu";
+    public static String f44422a = "baidu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f42614b = Environment.getExternalStorageDirectory();
+    public static final File f44423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char f42615c = File.separatorChar;
+    public static final char f44424c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2144845841, "Ld/a/c/e/p/f;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2144845841, "Ld/a/c/e/p/f;");
+                return;
+            }
+        }
+        f44423b = Environment.getExternalStorageDirectory();
+        f44424c = File.separatorChar;
+    }
 
     public static int A(String str) {
+        InterceptResult invokeL;
         int lastIndexOf;
-        if (str != null && B(str) <= (lastIndexOf = str.lastIndexOf(46))) {
-            return lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && B(str) <= (lastIndexOf = str.lastIndexOf(46))) {
+                return lastIndexOf;
+            }
+            return -1;
         }
-        return -1;
+        return invokeL.intValue;
     }
 
     public static int B(String str) {
-        if (str == null) {
-            return -1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null) {
+                return -1;
+            }
+            return Math.max(str.lastIndexOf(47), str.lastIndexOf(92));
         }
-        return Math.max(str.lastIndexOf(47), str.lastIndexOf(92));
+        return invokeL.intValue;
     }
 
     public static boolean C(File file) throws IOException {
-        if (file != null) {
-            if (D()) {
-                return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            if (file != null) {
+                if (D()) {
+                    return false;
+                }
+                if (file.getParent() != null) {
+                    file = new File(file.getParentFile().getCanonicalFile(), file.getName());
+                }
+                return !file.getCanonicalFile().equals(file.getAbsoluteFile());
             }
-            if (file.getParent() != null) {
-                file = new File(file.getParentFile().getCanonicalFile(), file.getName());
-            }
-            return !file.getCanonicalFile().equals(file.getAbsoluteFile());
+            throw new NullPointerException("File must not be null");
         }
-        throw new NullPointerException("File must not be null");
+        return invokeL.booleanValue;
     }
 
     public static boolean D() {
-        return f42615c == '\\';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f44424c == '\\' : invokeV.booleanValue;
     }
 
     public static void E(OutputStream outputStream) throws IOException {
-        outputStream.write(new byte[]{Base64.INTERNAL_PADDING, PublicSuffixDatabase.EXCEPTION_MARKER, 65, 77, 82, 10}, 0, 6);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, outputStream) == null) {
+            outputStream.write(new byte[]{Base64.INTERNAL_PADDING, PublicSuffixDatabase.EXCEPTION_MARKER, 65, 77, 82, 10}, 0, 6);
+        }
     }
 
     public static boolean a(String str, String str2) {
-        File file = new File(r(v(str, str2)));
-        if (file.exists()) {
-            return true;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+            File file = new File(r(v(str, str2)));
+            if (file.exists()) {
+                return true;
+            }
+            try {
+                return file.mkdirs();
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return false;
+            }
         }
-        try {
-            return file.mkdirs();
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-            return false;
-        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean b(String str) {
-        String y = y(str);
-        if (c()) {
-            File file = new File(y);
-            return file.exists() || file.mkdirs();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            String y = y(str);
+            if (c()) {
+                File file = new File(y);
+                return file.exists() || file.mkdirs();
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static boolean c() {
-        return Environment.getExternalStorageState().equals("mounted");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
     }
 
     public static boolean d() {
-        try {
-            StatFs statFs = new StatFs(f42614b.getPath());
-            return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
-        } catch (Exception unused) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            try {
+                StatFs statFs = new StatFs(f44423b.getPath());
+                return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
+            } catch (Exception unused) {
+                return false;
+            }
         }
+        return invokeV.booleanValue;
     }
 
     public static void e(File file) throws IOException {
-        if (file.exists()) {
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    IOException e2 = null;
-                    for (File file2 : listFiles) {
-                        try {
-                            p(file2);
-                        } catch (IOException e3) {
-                            e2 = e3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, file) == null) {
+            if (file.exists()) {
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        IOException e2 = null;
+                        for (File file2 : listFiles) {
+                            try {
+                                p(file2);
+                            } catch (IOException e3) {
+                                e2 = e3;
+                            }
                         }
+                        if (e2 != null) {
+                            throw e2;
+                        }
+                        return;
                     }
-                    if (e2 != null) {
-                        throw e2;
-                    }
-                    return;
+                    throw new IOException("Failed to list contents of " + file);
                 }
-                throw new IOException("Failed to list contents of " + file);
+                throw new IllegalArgumentException(file + " is not a directory");
             }
-            throw new IllegalArgumentException(file + " is not a directory");
+            throw new IllegalArgumentException(file + " does not exist");
         }
-        throw new IllegalArgumentException(file + " does not exist");
     }
 
     public static void f(File file, File file2) throws IOException {
-        g(file, file2, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, file, file2) == null) {
+            g(file, file2, true);
+        }
     }
 
     public static void g(File file, File file2, boolean z) throws IOException {
-        if (file == null) {
-            throw new NullPointerException("Source must not be null");
-        }
-        if (file2 != null) {
-            if (file.exists()) {
-                if (!file.isDirectory()) {
-                    if (!file.getCanonicalPath().equals(file2.getCanonicalPath())) {
-                        File parentFile = file2.getParentFile();
-                        if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
-                            throw new IOException("Destination '" + parentFile + "' directory cannot be created");
-                        } else if (file2.exists() && !file2.canWrite()) {
-                            throw new IOException("Destination '" + file2 + "' exists but is read-only");
-                        } else {
-                            o(file, file2, z);
-                            return;
-                        }
-                    }
-                    throw new IOException("Source '" + file + "' and destination '" + file2 + "' are the same");
-                }
-                throw new IOException("Source '" + file + "' exists but is a directory");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65548, null, file, file2, z) == null) {
+            if (file == null) {
+                throw new NullPointerException("Source must not be null");
             }
-            throw new FileNotFoundException("Source '" + file + "' does not exist");
+            if (file2 != null) {
+                if (file.exists()) {
+                    if (!file.isDirectory()) {
+                        if (!file.getCanonicalPath().equals(file2.getCanonicalPath())) {
+                            File parentFile = file2.getParentFile();
+                            if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
+                                throw new IOException("Destination '" + parentFile + "' directory cannot be created");
+                            } else if (file2.exists() && !file2.canWrite()) {
+                                throw new IOException("Destination '" + file2 + "' exists but is read-only");
+                            } else {
+                                o(file, file2, z);
+                                return;
+                            }
+                        }
+                        throw new IOException("Source '" + file + "' and destination '" + file2 + "' are the same");
+                    }
+                    throw new IOException("Source '" + file + "' exists but is a directory");
+                }
+                throw new FileNotFoundException("Source '" + file + "' does not exist");
+            }
+            throw new NullPointerException("Destination must not be null");
         }
-        throw new NullPointerException("Destination must not be null");
     }
 
     public static File h(String str, String str2) {
-        if (b(str)) {
-            try {
-                if (a(str, str2)) {
-                    File t = t(str, str2);
-                    if (!t.exists() || t.delete()) {
-                        if (t.createNewFile()) {
-                            return t;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) {
+            if (b(str)) {
+                try {
+                    if (a(str, str2)) {
+                        File t = t(str, str2);
+                        if (!t.exists() || t.delete()) {
+                            if (t.createNewFile()) {
+                                return t;
+                            }
+                            return null;
                         }
                         return null;
                     }
                     return null;
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                    return null;
                 }
-                return null;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                return null;
             }
+            return null;
         }
-        return null;
+        return (File) invokeLL.objValue;
     }
 
     public static File i(String str) {
-        return j(null, str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) ? j(null, str) : (File) invokeL.objValue;
     }
 
     public static File j(String str, String str2) {
-        if (b(str)) {
-            try {
-                File t = t(str, str2);
-                if (t.exists()) {
-                    return t;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, str2)) == null) {
+            if (b(str)) {
+                try {
+                    File t = t(str, str2);
+                    if (t.exists()) {
+                        return t;
+                    }
+                    if (t.createNewFile()) {
+                        return t;
+                    }
+                    return null;
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                    return null;
                 }
-                if (t.createNewFile()) {
-                    return t;
-                }
-                return null;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                return null;
             }
+            return null;
         }
-        return null;
+        return (File) invokeLL.objValue;
     }
 
     public static boolean k(String str) {
-        return l(null, str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? l(null, str) : invokeL.booleanValue;
     }
 
     public static boolean l(String str, String str2) {
-        if (b(str)) {
-            File t = t(str, str2);
-            try {
-                if (t.exists()) {
-                    return t.delete();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, str, str2)) == null) {
+            if (b(str)) {
+                File t = t(str, str2);
+                try {
+                    if (t.exists()) {
+                        return t.delete();
+                    }
+                    return false;
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                    return false;
                 }
-                return false;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                return false;
             }
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 
     public static void m(File file) throws IOException {
-        if (file.exists()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65554, null, file) == null) && file.exists()) {
             if (!C(file)) {
                 e(file);
             }
@@ -230,23 +321,28 @@ public class f {
     }
 
     public static boolean n(File file) {
-        if (file == null) {
-            return false;
-        }
-        try {
-            if (file.isDirectory()) {
-                e(file);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, file)) == null) {
+            if (file == null) {
+                return false;
             }
-        } catch (Exception unused) {
+            try {
+                if (file.isDirectory()) {
+                    e(file);
+                }
+            } catch (Exception unused) {
+            }
+            try {
+                return file.delete();
+            } catch (Exception unused2) {
+                return false;
+            }
         }
-        try {
-            return file.delete();
-        } catch (Exception unused2) {
-            return false;
-        }
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x00a9 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x00ad */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v2 */
     /* JADX WARN: Type inference failed for: r4v4 */
@@ -266,50 +362,44 @@ public class f {
         FileChannel fileChannel;
         FileChannel fileChannel2;
         Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLZ(65556, null, file, file2, z) != null) {
+            return;
+        }
         if (file2.exists() && file2.isDirectory()) {
             throw new IOException("Destination '" + file2 + "' exists but is a directory");
         }
         FileChannel fileChannel3 = 0;
         try {
             fileInputStream = new FileInputStream(file);
-        } catch (Error e2) {
-            e = e2;
+            try {
+                r6 = new FileOutputStream(file2);
+            } catch (Error e2) {
+                e = e2;
+                obj = null;
+                fileChannel2 = null;
+            } catch (Throwable th) {
+                th = th;
+                r6 = 0;
+                fileChannel2 = r6;
+                m.d(fileChannel3);
+                m.f(r6);
+                m.d(fileChannel2);
+                m.e(fileInputStream);
+                throw th;
+            }
+        } catch (Error e3) {
+            e = e3;
             fileChannel = null;
             r6 = 0;
             fileChannel2 = null;
-        } catch (Throwable th) {
-            th = th;
+        } catch (Throwable th2) {
+            th = th2;
             fileInputStream = null;
             r6 = 0;
         }
         try {
-            r6 = new FileOutputStream(file2);
-            try {
-                fileChannel2 = fileInputStream.getChannel();
-            } catch (Error e3) {
-                e = e3;
-                fileChannel2 = null;
-                obj = r6;
-                fileChannel3 = fileInputStream;
-                fileChannel = fileChannel2;
-                r6 = obj;
-                try {
-                    throw new IOException("Failed Error to copy contents from '" + file + "' to '" + file2 + "' with " + e.toString());
-                } catch (Throwable th2) {
-                    th = th2;
-                    FileChannel fileChannel4 = fileChannel;
-                    fileInputStream = fileChannel3;
-                    fileChannel3 = fileChannel4;
-                    m.d(fileChannel3);
-                    m.f(r6);
-                    m.d(fileChannel2);
-                    m.e(fileInputStream);
-                    throw th;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                fileChannel2 = null;
-            }
+            fileChannel2 = fileInputStream.getChannel();
             try {
                 fileChannel3 = r6.getChannel();
                 long size = fileChannel2.size();
@@ -335,7 +425,19 @@ public class f {
                 fileChannel = fileChannel3;
                 fileChannel3 = fileInputStream;
                 r6 = r6;
-                throw new IOException("Failed Error to copy contents from '" + file + "' to '" + file2 + "' with " + e.toString());
+                try {
+                    throw new IOException("Failed Error to copy contents from '" + file + "' to '" + file2 + "' with " + e.toString());
+                } catch (Throwable th3) {
+                    th = th3;
+                    FileChannel fileChannel4 = fileChannel;
+                    fileInputStream = fileChannel3;
+                    fileChannel3 = fileChannel4;
+                    m.d(fileChannel3);
+                    m.f(r6);
+                    m.d(fileChannel2);
+                    m.e(fileInputStream);
+                    throw th;
+                }
             } catch (Throwable th4) {
                 th = th4;
                 m.d(fileChannel3);
@@ -346,137 +448,183 @@ public class f {
             }
         } catch (Error e5) {
             e = e5;
-            obj = null;
             fileChannel2 = null;
+            obj = r6;
+            fileChannel3 = fileInputStream;
+            fileChannel = fileChannel2;
+            r6 = obj;
+            throw new IOException("Failed Error to copy contents from '" + file + "' to '" + file2 + "' with " + e.toString());
         } catch (Throwable th5) {
             th = th5;
-            r6 = 0;
-            fileChannel2 = r6;
-            m.d(fileChannel3);
-            m.f(r6);
-            m.d(fileChannel2);
-            m.e(fileInputStream);
-            throw th;
+            fileChannel2 = null;
         }
     }
 
     public static void p(File file) throws IOException {
-        if (file.isDirectory()) {
-            m(file);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65557, null, file) == null) {
+            if (file.isDirectory()) {
+                m(file);
+                return;
+            }
+            boolean exists = file.exists();
+            if (file.delete()) {
+                return;
+            }
+            if (!exists) {
+                throw new FileNotFoundException("File does not exist: " + file);
+            }
+            throw new IOException("Unable to delete file: " + file);
         }
-        boolean exists = file.exists();
-        if (file.delete()) {
-            return;
-        }
-        if (!exists) {
-            throw new FileNotFoundException("File does not exist: " + file);
-        }
-        throw new IOException("Unable to delete file: " + file);
     }
 
     public static void q(File file) throws IOException {
-        if (file.exists()) {
-            if (file.isDirectory()) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65558, null, file) == null) {
+            if (file.exists()) {
+                if (file.isDirectory()) {
+                    return;
+                }
+                throw new IOException("File " + file + " exists and is not a directory. Unable to create directory.");
+            } else if (file.mkdirs() || file.isDirectory()) {
+            } else {
+                throw new IOException("Unable to create directory " + file);
             }
-            throw new IOException("File " + file + " exists and is not a directory. Unable to create directory.");
-        } else if (file.mkdirs() || file.isDirectory()) {
-        } else {
-            throw new IOException("Unable to create directory " + file);
         }
     }
 
     public static String r(String str) {
-        int lastIndexOf = str.lastIndexOf("/");
-        if (lastIndexOf <= 0 || lastIndexOf >= str.length()) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf <= 0 || lastIndexOf >= str.length()) {
+                return null;
+            }
+            return str.substring(0, lastIndexOf);
         }
-        return str.substring(0, lastIndexOf);
+        return (String) invokeL.objValue;
     }
 
     public static String s(String str) {
-        if (str == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            int A = A(str);
+            return A == -1 ? "" : str.substring(A + 1);
         }
-        int A = A(str);
-        return A == -1 ? "" : str.substring(A + 1);
+        return (String) invokeL.objValue;
     }
 
     public static File t(String str, String str2) {
-        if (b(str)) {
-            try {
-                return new File(v(str, str2));
-            } catch (SecurityException e2) {
-                BdLog.e(e2.getMessage());
-                return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
+            if (b(str)) {
+                try {
+                    return new File(v(str, str2));
+                } catch (SecurityException e2) {
+                    BdLog.e(e2.getMessage());
+                    return null;
+                }
             }
+            return null;
         }
-        return null;
+        return (File) invokeLL.objValue;
     }
 
     public static String u(String str) {
-        return v(null, str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) ? v(null, str) : (String) invokeL.objValue;
     }
 
     public static String v(String str, String str2) {
-        if (str != null) {
-            return f42614b + "/" + f42613a + "/" + str + "/" + str2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, str, str2)) == null) {
+            if (str != null) {
+                return f44423b + "/" + f44422a + "/" + str + "/" + str2;
+            }
+            return f44423b + "/" + f44422a + "/" + str2;
         }
-        return f42614b + "/" + f42613a + "/" + str2;
+        return (String) invokeLL.objValue;
     }
 
     public static long w(File file) {
-        long j = 0;
-        FileInputStream fileInputStream = null;
-        try {
-            if (file.exists()) {
-                FileInputStream fileInputStream2 = new FileInputStream(file);
-                try {
-                    j = fileInputStream2.available();
-                } catch (Exception unused) {
-                } catch (Throwable th) {
-                    th = th;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, file)) == null) {
+            long j = 0;
+            FileInputStream fileInputStream = null;
+            try {
+                if (file.exists()) {
+                    FileInputStream fileInputStream2 = new FileInputStream(file);
+                    try {
+                        j = fileInputStream2.available();
+                    } catch (Exception unused) {
+                    } catch (Throwable th) {
+                        th = th;
+                        fileInputStream = fileInputStream2;
+                        d.a.c.e.m.a.c(fileInputStream);
+                        throw th;
+                    }
                     fileInputStream = fileInputStream2;
-                    d.a.c.e.m.a.c(fileInputStream);
-                    throw th;
                 }
-                fileInputStream = fileInputStream2;
+            } catch (Exception unused2) {
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception unused2) {
-        } catch (Throwable th2) {
-            th = th2;
+            d.a.c.e.m.a.c(fileInputStream);
+            return j;
         }
-        d.a.c.e.m.a.c(fileInputStream);
-        return j;
+        return invokeL.longValue;
     }
 
     public static InputStream x(File file) {
-        if (file != null) {
-            try {
-                return new FileInputStream(file);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, file)) == null) {
+            if (file != null) {
+                try {
+                    return new FileInputStream(file);
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                }
             }
+            return null;
         }
-        return null;
+        return (InputStream) invokeL.objValue;
     }
 
     public static String y(String str) {
-        if (str != null) {
-            return f42614b + "/" + f42613a + "/" + str + "/";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
+            if (str != null) {
+                return f44423b + "/" + f44422a + "/" + str + "/";
+            }
+            return f44423b + "/" + f44422a + "/";
         }
-        return f42614b + "/" + f42613a + "/";
+        return (String) invokeL.objValue;
     }
 
     public static int z() {
-        String externalStorageState = Environment.getExternalStorageState();
-        if (externalStorageState.equals("mounted")) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            if (externalStorageState.equals("mounted")) {
+                return 0;
+            }
+            if (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable") || externalStorageState.equals("removed")) {
+                return 1;
+            }
+            return externalStorageState.equals("shared") ? 2 : 3;
         }
-        if (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable") || externalStorageState.equals("removed")) {
-            return 1;
-        }
-        return externalStorageState.equals("shared") ? 2 : 3;
+        return invokeV.intValue;
     }
 }

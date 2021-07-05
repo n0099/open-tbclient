@@ -9,72 +9,97 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.widget.ImageView;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class ez extends ImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f23018a;
+    public Paint f23534a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23019b;
+    public int f23535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23020c;
+    public int f23536c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f23021d;
+    public Paint f23537d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ez(Context context) {
         super(context);
-        this.f23019b = 5;
-        this.f23020c = 5;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23535b = 5;
+        this.f23536c = 5;
         float f2 = context.getResources().getDisplayMetrics().density;
-        this.f23019b = (int) (this.f23019b * f2);
-        this.f23020c = (int) (this.f23020c * f2);
+        this.f23535b = (int) (this.f23535b * f2);
+        this.f23536c = (int) (this.f23536c * f2);
         Paint paint = new Paint();
-        this.f23018a = paint;
+        this.f23534a = paint;
         paint.setColor(-1);
-        this.f23018a.setAntiAlias(true);
-        this.f23018a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f23534a.setAntiAlias(true);
+        this.f23534a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
-        this.f23021d = paint2;
+        this.f23537d = paint2;
         paint2.setXfermode(null);
     }
 
     @Override // android.view.View
     public final void draw(Canvas canvas) {
-        Bitmap createBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.RGB_565);
-        Canvas canvas2 = new Canvas(createBitmap);
-        super.draw(canvas2);
-        Path path = new Path();
-        path.moveTo(0.0f, this.f23020c);
-        path.lineTo(0.0f, 0.0f);
-        path.lineTo(this.f23019b, 0.0f);
-        path.arcTo(new RectF(0.0f, 0.0f, this.f23019b * 2, this.f23020c * 2), -90.0f, -90.0f);
-        path.close();
-        canvas2.drawPath(path, this.f23018a);
-        Path path2 = new Path();
-        path2.moveTo(getWidth(), this.f23020c);
-        path2.lineTo(getWidth(), 0.0f);
-        path2.lineTo(getWidth() - this.f23019b, 0.0f);
-        path2.arcTo(new RectF(getWidth() - (this.f23019b * 2), 0.0f, getWidth(), (this.f23020c * 2) + 0), -90.0f, 90.0f);
-        path2.close();
-        canvas2.drawPath(path2, this.f23018a);
-        Path path3 = new Path();
-        path3.moveTo(0.0f, getHeight() - this.f23020c);
-        path3.lineTo(0.0f, getHeight());
-        path3.lineTo(this.f23019b, getHeight());
-        path3.arcTo(new RectF(0.0f, getHeight() - (this.f23020c * 2), (this.f23019b * 2) + 0, getHeight()), 90.0f, 90.0f);
-        path3.close();
-        canvas2.drawPath(path3, this.f23018a);
-        Path path4 = new Path();
-        path4.moveTo(getWidth() - this.f23019b, getHeight());
-        path4.lineTo(getWidth(), getHeight());
-        path4.lineTo(getWidth(), getHeight() - this.f23020c);
-        path4.arcTo(new RectF(getWidth() - (this.f23019b * 2), getHeight() - (this.f23020c * 2), getWidth(), getHeight()), 0.0f, 90.0f);
-        path4.close();
-        canvas2.drawPath(path4, this.f23018a);
-        canvas.drawBitmap(createBitmap, 0.0f, 0.0f, this.f23021d);
-        createBitmap.recycle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.RGB_565);
+            Canvas canvas2 = new Canvas(createBitmap);
+            super.draw(canvas2);
+            Path path = new Path();
+            path.moveTo(0.0f, this.f23536c);
+            path.lineTo(0.0f, 0.0f);
+            path.lineTo(this.f23535b, 0.0f);
+            path.arcTo(new RectF(0.0f, 0.0f, this.f23535b * 2, this.f23536c * 2), -90.0f, -90.0f);
+            path.close();
+            canvas2.drawPath(path, this.f23534a);
+            Path path2 = new Path();
+            path2.moveTo(getWidth(), this.f23536c);
+            path2.lineTo(getWidth(), 0.0f);
+            path2.lineTo(getWidth() - this.f23535b, 0.0f);
+            path2.arcTo(new RectF(getWidth() - (this.f23535b * 2), 0.0f, getWidth(), (this.f23536c * 2) + 0), -90.0f, 90.0f);
+            path2.close();
+            canvas2.drawPath(path2, this.f23534a);
+            Path path3 = new Path();
+            path3.moveTo(0.0f, getHeight() - this.f23536c);
+            path3.lineTo(0.0f, getHeight());
+            path3.lineTo(this.f23535b, getHeight());
+            path3.arcTo(new RectF(0.0f, getHeight() - (this.f23536c * 2), (this.f23535b * 2) + 0, getHeight()), 90.0f, 90.0f);
+            path3.close();
+            canvas2.drawPath(path3, this.f23534a);
+            Path path4 = new Path();
+            path4.moveTo(getWidth() - this.f23535b, getHeight());
+            path4.lineTo(getWidth(), getHeight());
+            path4.lineTo(getWidth(), getHeight() - this.f23536c);
+            path4.arcTo(new RectF(getWidth() - (this.f23535b * 2), getHeight() - (this.f23536c * 2), getWidth(), getHeight()), 0.0f, 90.0f);
+            path4.close();
+            canvas2.drawPath(path4, this.f23534a);
+            canvas.drawBitmap(createBitmap, 0.0f, 0.0f, this.f23537d);
+            createBitmap.recycle();
+        }
     }
 }

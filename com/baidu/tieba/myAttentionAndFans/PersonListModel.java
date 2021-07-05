@@ -1,5 +1,6 @@
 package com.baidu.tieba.myAttentionAndFans;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -11,6 +12,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,304 +23,492 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseFollowListSwitchMsg;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseLocalPersonListMessage;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseNetPersonListMessage;
-import d.a.n0.r.q.g1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.a.f;
+import d.a.r0.r.q.h1;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonListModel extends BdBaseModel<PersonListActivity> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;
+    public static final BdUniqueId FOLLOWME;
+    public static final BdUniqueId MYFOLLOW;
     public static final int SWITCH_TYPE_ALL = 1;
     public static final int SWITCH_TYPE_TIEBA = 2;
     public static final int TYPE_ALL = 0;
     public static final int TYPE_EACH = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener customListener;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18558e;
+    public boolean f18693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18559f;
+    public String f18694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18560g;
+    public int f18695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f18561h;
+    public d f18696h;
     public HttpMessageListener httpListener;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18562i;
+    public int f18697i;
     public PersonListActivity j;
-    public d.a.n0.s.e.a k;
+    public d.a.r0.s.e.a k;
     public int l;
     public int m;
     public HttpMessageListener mFollowSwitchListener;
     public String n;
     public int o;
-    public static final BdUniqueId MYFOLLOW = BdUniqueId.gen();
-    public static final BdUniqueId FOLLOWME = BdUniqueId.gen();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonListModel f18698a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(PersonListModel personListModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personListModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18698a = personListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002005) {
-                return;
-            }
-            int statusCode = httpResponsedMessage.getStatusCode();
-            int error = httpResponsedMessage.getError();
-            if (statusCode == 200 && error == 0) {
-                PersonListModel.this.K();
-                return;
-            }
-            BdLog.e("follow switch request fail");
-            if (PersonListModel.this.f18561h != null) {
-                PersonListModel.this.f18561h.b("follow switch request fail", false);
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002005) {
+                int statusCode = httpResponsedMessage.getStatusCode();
+                int error = httpResponsedMessage.getError();
+                if (statusCode == 200 && error == 0) {
+                    this.f18698a.K();
+                    return;
+                }
+                BdLog.e("follow switch request fail");
+                if (this.f18698a.f18696h != null) {
+                    this.f18698a.f18696h.b("follow switch request fail", false);
+                }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
-        public b(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonListModel f18699a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(PersonListModel personListModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personListModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18699a = personListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             String errorString;
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002004 && (httpResponsedMessage instanceof ResponseNetPersonListMessage)) {
-                if (PersonListModel.this.getUniqueId().getId() != Integer.parseInt((String) ((HashMap) httpResponsedMessage.getOrginalMessage().getExtra()).get("pageid"))) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002004 && (httpResponsedMessage instanceof ResponseNetPersonListMessage)) {
+                if (this.f18699a.getUniqueId().getId() != Integer.parseInt((String) ((HashMap) httpResponsedMessage.getOrginalMessage().getExtra()).get("pageid"))) {
                     return;
                 }
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode != 200 || error != 0) {
-                    if (PersonListModel.this.f18561h != null) {
+                    if (this.f18699a.f18696h != null) {
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                            errorString = PersonListModel.this.j.getResources().getString(R.string.neterror);
+                            errorString = this.f18699a.j.getResources().getString(R.string.neterror);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }
-                        PersonListModel.this.f18561h.b(errorString, false);
+                        this.f18699a.f18696h.b(errorString, false);
                         return;
                     }
                     return;
                 }
-                g1 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
+                h1 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
-                    if (!StringUtils.isNull(data.f53814g)) {
-                        PersonListModel.this.n = data.f53814g;
-                        PersonListModel.this.m = data.f53815h;
+                    if (!StringUtils.isNull(data.f55969g)) {
+                        this.f18699a.n = data.f55969g;
+                        this.f18699a.m = data.f55970h;
                     }
-                    data.f53815h = PersonListModel.this.m;
-                    data.f53814g = PersonListModel.this.n;
+                    data.f55970h = this.f18699a.m;
+                    data.f55969g = this.f18699a.n;
                 }
-                if (PersonListModel.this.f18561h != null) {
-                    PersonListModel.this.f18561h.a(data, false);
+                if (this.f18699a.f18696h != null) {
+                    this.f18699a.f18696h.a(data, false);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
-        public c(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonListModel f18700a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(PersonListModel personListModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personListModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18700a = personListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
-                g1 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
+                h1 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                 if (data2 == null) {
-                    if (PersonListModel.this.f18561h != null) {
-                        PersonListModel.this.f18561h.b("", true);
+                    if (this.f18700a.f18696h != null) {
+                        this.f18700a.f18696h.b("", true);
                         return;
                     }
                     return;
                 }
-                if (!StringUtils.isNull(data2.f53814g)) {
-                    PersonListModel.this.n = data2.f53814g;
-                    PersonListModel.this.m = data2.f53815h;
+                if (!StringUtils.isNull(data2.f55969g)) {
+                    this.f18700a.n = data2.f55969g;
+                    this.f18700a.m = data2.f55970h;
                 }
-                data2.f53815h = PersonListModel.this.m;
-                data2.f53814g = PersonListModel.this.n;
-                if (PersonListModel.this.f18561h != null) {
-                    PersonListModel.this.f18561h.a(data2, true);
+                data2.f55970h = this.f18700a.m;
+                data2.f55969g = this.f18700a.n;
+                if (this.f18700a.f18696h != null) {
+                    this.f18700a.f18696h.a(data2, true);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface d {
-        g1 a(g1 g1Var, boolean z);
+        h1 a(h1 h1Var, boolean z);
 
         void b(String str, boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e extends BdAsyncTask<Void, Void, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18566a;
+        public String f18701a;
 
         public e(String str) {
-            this.f18566a = str;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18701a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public String doInBackground(Void... voidArr) {
-            if (this.f18566a == null) {
-                return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                if (this.f18701a == null) {
+                    return null;
+                }
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ERR_URL);
+                netWork.addPostData("portrait", this.f18701a);
+                return netWork.postNetData();
             }
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ERR_URL);
-            netWork.addPostData("portrait", this.f18566a);
-            return netWork.postNetData();
+            return (String) invokeL.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1447768321, "Lcom/baidu/tieba/myAttentionAndFans/PersonListModel;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1447768321, "Lcom/baidu/tieba/myAttentionAndFans/PersonListModel;");
+                return;
+            }
+        }
+        MYFOLLOW = BdUniqueId.gen();
+        FOLLOWME = BdUniqueId.gen();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonListModel(PersonListActivity personListActivity, d dVar) {
         super(personListActivity.getPageContext());
-        this.f18562i = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {personListActivity, dVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f18697i = 0;
         this.l = 0;
         this.o = 0;
-        this.mFollowSwitchListener = new a(CmdConfigHttp.CMD_FOLLOW_SWITCH);
-        this.httpListener = new b(CmdConfigHttp.PIC_PERSONAL_LIST);
-        this.customListener = new c(2001188);
+        this.mFollowSwitchListener = new a(this, CmdConfigHttp.CMD_FOLLOW_SWITCH);
+        this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
+        this.customListener = new c(this, 2001188);
         this.j = personListActivity;
-        d.a.n0.s.e.a aVar = new d.a.n0.s.e.a(personListActivity.getPageContext());
+        d.a.r0.s.e.a aVar = new d.a.r0.s.e.a(personListActivity.getPageContext());
         this.k = aVar;
         aVar.k(this.mLoadDataCallBack);
-        this.f18558e = true;
-        this.f18559f = null;
-        this.f18561h = dVar;
+        this.f18693e = true;
+        this.f18694f = null;
+        this.f18696h = dVar;
     }
 
     public boolean C() {
-        return this.f18558e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18693e : invokeV.booleanValue;
     }
 
     public int D() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : invokeV.intValue;
     }
 
     public int E() {
-        return this.f18562i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18697i : invokeV.intValue;
     }
 
     public void F(int i2) {
-        this.l = i2;
-        this.f18562i = 0;
-        K();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.l = i2;
+            this.f18697i = 0;
+            K();
+        }
     }
 
     public void G() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FOLLOW_SWITCH, TbConfig.SERVER_ADDRESS + "c/c/user/setFollowListSwitch");
-        tbHttpMessageTask.setResponsedClass(ResponseFollowListSwitchMsg.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.mFollowSwitchListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FOLLOW_SWITCH, TbConfig.SERVER_ADDRESS + "c/c/user/setFollowListSwitch");
+            tbHttpMessageTask.setResponsedClass(ResponseFollowListSwitchMsg.class);
+            messageManager.registerTask(tbHttpMessageTask);
+            registerListener(this.mFollowSwitchListener);
+        }
     }
 
     public void H() {
         String str;
-        MessageManager messageManager = MessageManager.getInstance();
-        if (this.f18558e) {
-            str = TbConfig.SERVER_ADDRESS + "c/u/follow/followList";
-        } else {
-            str = TbConfig.SERVER_ADDRESS + "c/u/fans/page";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            if (this.f18693e) {
+                str = TbConfig.SERVER_ADDRESS + "c/u/follow/followList";
+            } else {
+                str = TbConfig.SERVER_ADDRESS + "c/u/fans/page";
+            }
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_PERSONAL_LIST, str);
+            tbHttpMessageTask.setResponsedClass(ResponseNetPersonListMessage.class);
+            messageManager.registerTask(tbHttpMessageTask);
+            registerListener(this.httpListener);
         }
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_PERSONAL_LIST, str);
-        tbHttpMessageTask.setResponsedClass(ResponseNetPersonListMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.httpListener);
     }
 
     public void I() {
-        MessageManager.getInstance().unRegisterListener(this.customListener);
-        MessageManager.getInstance().unRegisterListener(this.httpListener);
-        MessageManager.getInstance().unRegisterListener(this.mFollowSwitchListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.customListener);
+            MessageManager.getInstance().unRegisterListener(this.httpListener);
+            MessageManager.getInstance().unRegisterListener(this.mFollowSwitchListener);
+        }
     }
 
     public void J(int i2) {
-        this.o = i2;
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FOLLOW_SWITCH);
-        httpMessage.addParam("follow_list_switch", i2);
-        sendMessage(httpMessage);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.o = i2;
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FOLLOW_SWITCH);
+            httpMessage.addParam("follow_list_switch", i2);
+            sendMessage(httpMessage);
+        }
     }
 
     public void K() {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
-        HashMap hashMap = new HashMap();
-        if (this.f18558e) {
-            httpMessage.setTag(FOLLOWME);
-        } else {
-            httpMessage.setTag(MYFOLLOW);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
+            HashMap hashMap = new HashMap();
+            if (this.f18693e) {
+                httpMessage.setTag(FOLLOWME);
+            } else {
+                httpMessage.setTag(MYFOLLOW);
+            }
+            String str = this.f18694f;
+            if (str != null && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
+                httpMessage.addParam("uid", this.f18694f);
+            }
+            hashMap.put("id", String.valueOf(this.f18694f));
+            int i2 = this.f18697i;
+            if (i2 != 0) {
+                int i3 = i2 + 1;
+                this.f18697i = i3;
+                httpMessage.addParam(Config.PACKAGE_NAME, String.valueOf(i3));
+            }
+            httpMessage.addParam("tab", this.l);
+            httpMessage.addParam("follow_list_switch", this.o);
+            hashMap.put("page", String.valueOf(this.f18697i));
+            hashMap.put("pageid", String.valueOf(getUniqueId().getId()));
+            httpMessage.setExtra(hashMap);
+            sendMessage(httpMessage);
         }
-        String str = this.f18559f;
-        if (str != null && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            httpMessage.addParam("uid", this.f18559f);
-        }
-        hashMap.put("id", String.valueOf(this.f18559f));
-        int i2 = this.f18562i;
-        if (i2 != 0) {
-            int i3 = i2 + 1;
-            this.f18562i = i3;
-            httpMessage.addParam(Config.PACKAGE_NAME, String.valueOf(i3));
-        }
-        httpMessage.addParam("tab", this.l);
-        httpMessage.addParam("follow_list_switch", this.o);
-        hashMap.put("page", String.valueOf(this.f18562i));
-        hashMap.put("pageid", String.valueOf(getUniqueId().getId()));
-        httpMessage.setExtra(hashMap);
-        sendMessage(httpMessage);
     }
 
     public void L(String str) {
-        this.f18559f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f18694f = str;
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void M(boolean z) {
-        this.f18558e = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f18693e = z;
+        }
     }
 
     public void N(int i2) {
-        this.f18562i = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.f18697i = i2;
+        }
     }
 
     public void O(String str) {
-        new e(str).execute(new Void[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            new e(str).execute(new Void[0]);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public String getId() {
-        return this.f18559f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f18694f : (String) invokeV.objValue;
     }
 
     public int getSex() {
-        return this.f18560g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f18695g : invokeV.intValue;
     }
 
     public void setSex(int i2) {
-        this.f18560g = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            this.f18695g = i2;
+        }
     }
 }

@@ -5,309 +5,475 @@ import android.os.Parcelable;
 import android.view.View;
 import android.view.accessibility.AccessibilityRecord;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes.dex */
 public class AccessibilityRecordCompat {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final AccessibilityRecord mRecord;
 
     @Deprecated
     public AccessibilityRecordCompat(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mRecord = (AccessibilityRecord) obj;
     }
 
     @Deprecated
     public static AccessibilityRecordCompat obtain(AccessibilityRecordCompat accessibilityRecordCompat) {
-        return new AccessibilityRecordCompat(AccessibilityRecord.obtain(accessibilityRecordCompat.mRecord));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, accessibilityRecordCompat)) == null) ? new AccessibilityRecordCompat(AccessibilityRecord.obtain(accessibilityRecordCompat.mRecord)) : (AccessibilityRecordCompat) invokeL.objValue;
     }
 
     @Deprecated
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj instanceof AccessibilityRecordCompat) {
-            AccessibilityRecordCompat accessibilityRecordCompat = (AccessibilityRecordCompat) obj;
-            AccessibilityRecord accessibilityRecord = this.mRecord;
-            if (accessibilityRecord == null) {
-                if (accessibilityRecordCompat.mRecord != null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof AccessibilityRecordCompat) {
+                AccessibilityRecordCompat accessibilityRecordCompat = (AccessibilityRecordCompat) obj;
+                AccessibilityRecord accessibilityRecord = this.mRecord;
+                if (accessibilityRecord == null) {
+                    if (accessibilityRecordCompat.mRecord != null) {
+                        return false;
+                    }
+                } else if (!accessibilityRecord.equals(accessibilityRecordCompat.mRecord)) {
                     return false;
                 }
-            } else if (!accessibilityRecord.equals(accessibilityRecordCompat.mRecord)) {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Deprecated
     public int getAddedCount() {
-        return this.mRecord.getAddedCount();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRecord.getAddedCount() : invokeV.intValue;
     }
 
     @Deprecated
     public CharSequence getBeforeText() {
-        return this.mRecord.getBeforeText();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecord.getBeforeText() : (CharSequence) invokeV.objValue;
     }
 
     @Deprecated
     public CharSequence getClassName() {
-        return this.mRecord.getClassName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecord.getClassName() : (CharSequence) invokeV.objValue;
     }
 
     @Deprecated
     public CharSequence getContentDescription() {
-        return this.mRecord.getContentDescription();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRecord.getContentDescription() : (CharSequence) invokeV.objValue;
     }
 
     @Deprecated
     public int getCurrentItemIndex() {
-        return this.mRecord.getCurrentItemIndex();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRecord.getCurrentItemIndex() : invokeV.intValue;
     }
 
     @Deprecated
     public int getFromIndex() {
-        return this.mRecord.getFromIndex();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mRecord.getFromIndex() : invokeV.intValue;
     }
 
     @Deprecated
     public Object getImpl() {
-        return this.mRecord;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mRecord : invokeV.objValue;
     }
 
     @Deprecated
     public int getItemCount() {
-        return this.mRecord.getItemCount();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mRecord.getItemCount() : invokeV.intValue;
     }
 
     @Deprecated
     public int getMaxScrollX() {
-        return getMaxScrollX(this.mRecord);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getMaxScrollX(this.mRecord) : invokeV.intValue;
     }
 
     @Deprecated
     public int getMaxScrollY() {
-        return getMaxScrollY(this.mRecord);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getMaxScrollY(this.mRecord) : invokeV.intValue;
     }
 
     @Deprecated
     public Parcelable getParcelableData() {
-        return this.mRecord.getParcelableData();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mRecord.getParcelableData() : (Parcelable) invokeV.objValue;
     }
 
     @Deprecated
     public int getRemovedCount() {
-        return this.mRecord.getRemovedCount();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRecord.getRemovedCount() : invokeV.intValue;
     }
 
     @Deprecated
     public int getScrollX() {
-        return this.mRecord.getScrollX();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mRecord.getScrollX() : invokeV.intValue;
     }
 
     @Deprecated
     public int getScrollY() {
-        return this.mRecord.getScrollY();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mRecord.getScrollY() : invokeV.intValue;
     }
 
     @Deprecated
     public AccessibilityNodeInfoCompat getSource() {
-        return AccessibilityNodeInfoCompat.wrapNonNullInstance(this.mRecord.getSource());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? AccessibilityNodeInfoCompat.wrapNonNullInstance(this.mRecord.getSource()) : (AccessibilityNodeInfoCompat) invokeV.objValue;
     }
 
     @Deprecated
     public List<CharSequence> getText() {
-        return this.mRecord.getText();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mRecord.getText() : (List) invokeV.objValue;
     }
 
     @Deprecated
     public int getToIndex() {
-        return this.mRecord.getToIndex();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mRecord.getToIndex() : invokeV.intValue;
     }
 
     @Deprecated
     public int getWindowId() {
-        return this.mRecord.getWindowId();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mRecord.getWindowId() : invokeV.intValue;
     }
 
     @Deprecated
     public int hashCode() {
-        AccessibilityRecord accessibilityRecord = this.mRecord;
-        if (accessibilityRecord == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            AccessibilityRecord accessibilityRecord = this.mRecord;
+            if (accessibilityRecord == null) {
+                return 0;
+            }
+            return accessibilityRecord.hashCode();
         }
-        return accessibilityRecord.hashCode();
+        return invokeV.intValue;
     }
 
     @Deprecated
     public boolean isChecked() {
-        return this.mRecord.isChecked();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mRecord.isChecked() : invokeV.booleanValue;
     }
 
     @Deprecated
     public boolean isEnabled() {
-        return this.mRecord.isEnabled();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mRecord.isEnabled() : invokeV.booleanValue;
     }
 
     @Deprecated
     public boolean isFullScreen() {
-        return this.mRecord.isFullScreen();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mRecord.isFullScreen() : invokeV.booleanValue;
     }
 
     @Deprecated
     public boolean isPassword() {
-        return this.mRecord.isPassword();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mRecord.isPassword() : invokeV.booleanValue;
     }
 
     @Deprecated
     public boolean isScrollable() {
-        return this.mRecord.isScrollable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mRecord.isScrollable() : invokeV.booleanValue;
     }
 
     @Deprecated
     public void recycle() {
-        this.mRecord.recycle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.mRecord.recycle();
+        }
     }
 
     @Deprecated
     public void setAddedCount(int i2) {
-        this.mRecord.setAddedCount(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
+            this.mRecord.setAddedCount(i2);
+        }
     }
 
     @Deprecated
     public void setBeforeText(CharSequence charSequence) {
-        this.mRecord.setBeforeText(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, charSequence) == null) {
+            this.mRecord.setBeforeText(charSequence);
+        }
     }
 
     @Deprecated
     public void setChecked(boolean z) {
-        this.mRecord.setChecked(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+            this.mRecord.setChecked(z);
+        }
     }
 
     @Deprecated
     public void setClassName(CharSequence charSequence) {
-        this.mRecord.setClassName(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, charSequence) == null) {
+            this.mRecord.setClassName(charSequence);
+        }
     }
 
     @Deprecated
     public void setContentDescription(CharSequence charSequence) {
-        this.mRecord.setContentDescription(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, charSequence) == null) {
+            this.mRecord.setContentDescription(charSequence);
+        }
     }
 
     @Deprecated
     public void setCurrentItemIndex(int i2) {
-        this.mRecord.setCurrentItemIndex(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+            this.mRecord.setCurrentItemIndex(i2);
+        }
     }
 
     @Deprecated
     public void setEnabled(boolean z) {
-        this.mRecord.setEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.mRecord.setEnabled(z);
+        }
     }
 
     @Deprecated
     public void setFromIndex(int i2) {
-        this.mRecord.setFromIndex(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+            this.mRecord.setFromIndex(i2);
+        }
     }
 
     @Deprecated
     public void setFullScreen(boolean z) {
-        this.mRecord.setFullScreen(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+            this.mRecord.setFullScreen(z);
+        }
     }
 
     @Deprecated
     public void setItemCount(int i2) {
-        this.mRecord.setItemCount(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
+            this.mRecord.setItemCount(i2);
+        }
     }
 
     @Deprecated
     public void setMaxScrollX(int i2) {
-        setMaxScrollX(this.mRecord, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            setMaxScrollX(this.mRecord, i2);
+        }
     }
 
     @Deprecated
     public void setMaxScrollY(int i2) {
-        setMaxScrollY(this.mRecord, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
+            setMaxScrollY(this.mRecord, i2);
+        }
     }
 
     @Deprecated
     public void setParcelableData(Parcelable parcelable) {
-        this.mRecord.setParcelableData(parcelable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, parcelable) == null) {
+            this.mRecord.setParcelableData(parcelable);
+        }
     }
 
     @Deprecated
     public void setPassword(boolean z) {
-        this.mRecord.setPassword(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+            this.mRecord.setPassword(z);
+        }
     }
 
     @Deprecated
     public void setRemovedCount(int i2) {
-        this.mRecord.setRemovedCount(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
+            this.mRecord.setRemovedCount(i2);
+        }
     }
 
     @Deprecated
     public void setScrollX(int i2) {
-        this.mRecord.setScrollX(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
+            this.mRecord.setScrollX(i2);
+        }
     }
 
     @Deprecated
     public void setScrollY(int i2) {
-        this.mRecord.setScrollY(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+            this.mRecord.setScrollY(i2);
+        }
     }
 
     @Deprecated
     public void setScrollable(boolean z) {
-        this.mRecord.setScrollable(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+            this.mRecord.setScrollable(z);
+        }
     }
 
     @Deprecated
     public void setSource(View view) {
-        this.mRecord.setSource(view);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, view) == null) {
+            this.mRecord.setSource(view);
+        }
     }
 
     @Deprecated
     public void setToIndex(int i2) {
-        this.mRecord.setToIndex(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+            this.mRecord.setToIndex(i2);
+        }
     }
 
     public static int getMaxScrollX(AccessibilityRecord accessibilityRecord) {
-        if (Build.VERSION.SDK_INT >= 15) {
-            return accessibilityRecord.getMaxScrollX();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accessibilityRecord)) == null) {
+            if (Build.VERSION.SDK_INT >= 15) {
+                return accessibilityRecord.getMaxScrollX();
+            }
+            return 0;
         }
-        return 0;
+        return invokeL.intValue;
     }
 
     public static int getMaxScrollY(AccessibilityRecord accessibilityRecord) {
-        if (Build.VERSION.SDK_INT >= 15) {
-            return accessibilityRecord.getMaxScrollY();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, accessibilityRecord)) == null) {
+            if (Build.VERSION.SDK_INT >= 15) {
+                return accessibilityRecord.getMaxScrollY();
+            }
+            return 0;
         }
-        return 0;
+        return invokeL.intValue;
     }
 
     @Deprecated
     public static AccessibilityRecordCompat obtain() {
-        return new AccessibilityRecordCompat(AccessibilityRecord.obtain());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new AccessibilityRecordCompat(AccessibilityRecord.obtain()) : (AccessibilityRecordCompat) invokeV.objValue;
     }
 
     public static void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i2) {
-        if (Build.VERSION.SDK_INT >= 15) {
-            accessibilityRecord.setMaxScrollX(i2);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, accessibilityRecord, i2) == null) || Build.VERSION.SDK_INT < 15) {
+            return;
         }
+        accessibilityRecord.setMaxScrollX(i2);
     }
 
     public static void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i2) {
-        if (Build.VERSION.SDK_INT >= 15) {
-            accessibilityRecord.setMaxScrollY(i2);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, accessibilityRecord, i2) == null) || Build.VERSION.SDK_INT < 15) {
+            return;
         }
+        accessibilityRecord.setMaxScrollY(i2);
     }
 
     @Deprecated
     public void setSource(View view, int i2) {
-        setSource(this.mRecord, view, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048621, this, view, i2) == null) {
+            setSource(this.mRecord, view, i2);
+        }
     }
 
     public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view, int i2) {
-        if (Build.VERSION.SDK_INT >= 16) {
-            accessibilityRecord.setSource(view, i2);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(65543, null, accessibilityRecord, view, i2) == null) || Build.VERSION.SDK_INT < 16) {
+            return;
         }
+        accessibilityRecord.setSource(view, i2);
     }
 }

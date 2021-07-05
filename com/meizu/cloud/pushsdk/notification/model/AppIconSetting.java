@@ -45,7 +45,7 @@ public class AppIconSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                d.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -70,7 +70,7 @@ public class AppIconSetting implements Parcelable {
             return appIconSetting;
         }
         str = "no such tag app_icon_setting";
-        d.j.a.a.a.b(TAG, str);
+        d.h.a.a.a.b(TAG, str);
         return appIconSetting;
     }
 

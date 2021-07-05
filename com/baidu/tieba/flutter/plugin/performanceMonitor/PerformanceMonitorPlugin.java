@@ -6,39 +6,57 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorAuto;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.RouterCallback;
 import com.facebook.common.util.UriUtil;
 import d.a.c.e.n.a;
-import d.a.n0.m0.j;
-import d.a.n0.m0.k;
-import d.a.o0.n0.a.g.e;
+import d.a.r0.m0.j;
+import d.a.r0.m0.k;
+import d.a.s0.q0.a.g.e;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonitorAuto.HostPerformanceMonitor {
-    public static HashMap<String, String> flutterEngineStartInfo = new HashMap<>();
-    public final CustomMessageListener mFlutterEngineInitListener = new CustomMessageListener(2921451) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof HashMap)) {
-                return;
-            }
-            PerformanceMonitorPlugin.flutterEngineStartInfo.clear();
-            PerformanceMonitorPlugin.flutterEngineStartInfo.putAll((HashMap) customResponsedMessage.getData());
-        }
-    };
+    public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, String> flutterEngineStartInfo;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final CustomMessageListener mFlutterEngineInitListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class PerfCPULogAsync extends BdAsyncTask<String, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final a mItem;
         public final String mPage;
+        public final /* synthetic */ PerformanceMonitorPlugin this$0;
 
-        public PerfCPULogAsync(String str, a aVar) {
+        public PerfCPULogAsync(PerformanceMonitorPlugin performanceMonitorPlugin, String str, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {performanceMonitorPlugin, str, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = performanceMonitorPlugin;
             this.mPage = str;
             this.mItem = aVar;
         }
@@ -46,33 +64,115 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            this.mItem.b("memp", String.valueOf(k.d().c()));
-            this.mItem.b("cpu", k.d().b());
-            BdStatisticsManager.getInstance().performance(this.mPage, this.mItem);
-            return Boolean.TRUE;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                this.mItem.b("memp", String.valueOf(k.d().c()));
+                this.mItem.b("cpu", k.d().b());
+                BdStatisticsManager.getInstance().performance(this.mPage, this.mItem);
+                return Boolean.TRUE;
+            }
+            return (Boolean) invokeL.objValue;
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1065146764, "Lcom/baidu/tieba/flutter/plugin/performanceMonitor/PerformanceMonitorPlugin;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1065146764, "Lcom/baidu/tieba/flutter/plugin/performanceMonitor/PerformanceMonitorPlugin;");
+                return;
+            }
+        }
+        flutterEngineStartInfo = new HashMap<>();
+    }
+
+    public PerformanceMonitorPlugin() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mFlutterEngineInitListener = new CustomMessageListener(this, 2921451) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PerformanceMonitorPlugin this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof HashMap)) {
+                    PerformanceMonitorPlugin.flutterEngineStartInfo.clear();
+                    PerformanceMonitorPlugin.flutterEngineStartInfo.putAll((HashMap) customResponsedMessage.getData());
+                }
+            }
+        };
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        e.e(flutterPluginBinding.getBinaryMessenger(), this);
-        MessageManager.getInstance().registerListener(this.mFlutterEngineInitListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, flutterPluginBinding) == null) {
+            e.e(flutterPluginBinding.getBinaryMessenger(), this);
+            MessageManager.getInstance().registerListener(this.mFlutterEngineInitListener);
+        }
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        MessageManager.getInstance().unRegisterListener(this.mFlutterEngineInitListener);
-        e.e(flutterPluginBinding.getBinaryMessenger(), null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterPluginBinding) == null) {
+            MessageManager.getInstance().unRegisterListener(this.mFlutterEngineInitListener);
+            e.e(flutterPluginBinding.getBinaryMessenger(), null);
+        }
     }
 
     @Override // com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorAuto.HostPerformanceMonitor
     public void reportEnginePerformance(PerformanceMonitorAuto.MapParam mapParam) {
-        if (mapParam.getParams() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mapParam) == null) || mapParam.getParams() == null) {
             return;
         }
         HashMap params = mapParam.getParams();
@@ -94,39 +194,43 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
 
     @Override // com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorAuto.HostPerformanceMonitor
     public void reportFPSPerformance(PerformanceMonitorAuto.FpsParam fpsParam) {
-        String page = fpsParam.getPage();
-        double doubleValue = fpsParam.getFps().doubleValue();
-        a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-        statsItem.b("action", "fluency");
-        statsItem.b("page", page);
-        statsItem.c("fps", Double.valueOf(doubleValue));
-        statsItem.c("flutter", 1);
-        HashMap fatal = fpsParam.getFatal();
-        if (fatal != null) {
-            if (fatal.containsKey("blocks") && (fatal.get("blocks") instanceof String)) {
-                statsItem.c("fatal_blocks", fatal.get("blocks"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fpsParam) == null) {
+            String page = fpsParam.getPage();
+            double doubleValue = fpsParam.getFps().doubleValue();
+            a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+            statsItem.b("action", "fluency");
+            statsItem.b("page", page);
+            statsItem.c("fps", Double.valueOf(doubleValue));
+            statsItem.c("flutter", 1);
+            HashMap fatal = fpsParam.getFatal();
+            if (fatal != null) {
+                if (fatal.containsKey("blocks") && (fatal.get("blocks") instanceof String)) {
+                    statsItem.c("fatal_blocks", fatal.get("blocks"));
+                }
+                if (fatal.containsKey("vast") && (fatal.get("vast") instanceof Boolean)) {
+                    statsItem.c("fatal_vast", fatal.get("vast"));
+                }
             }
-            if (fatal.containsKey("vast") && (fatal.get("vast") instanceof Boolean)) {
-                statsItem.c("fatal_vast", fatal.get("vast"));
+            HashMap cont = fpsParam.getCont();
+            if (cont != null) {
+                if (cont.containsKey("blocks") && (cont.get("blocks") instanceof String)) {
+                    statsItem.c("cont_blocks", cont.get("blocks"));
+                }
+                if (cont.containsKey("vast") && (cont.get("vast") instanceof Boolean)) {
+                    statsItem.c("cont_vast", cont.get("vast"));
+                }
             }
+            PerfCPULogAsync perfCPULogAsync = new PerfCPULogAsync(this, page, statsItem);
+            perfCPULogAsync.setSelfExecute(true);
+            perfCPULogAsync.execute(new String[0]);
         }
-        HashMap cont = fpsParam.getCont();
-        if (cont != null) {
-            if (cont.containsKey("blocks") && (cont.get("blocks") instanceof String)) {
-                statsItem.c("cont_blocks", cont.get("blocks"));
-            }
-            if (cont.containsKey("vast") && (cont.get("vast") instanceof Boolean)) {
-                statsItem.c("cont_vast", cont.get("vast"));
-            }
-        }
-        PerfCPULogAsync perfCPULogAsync = new PerfCPULogAsync(page, statsItem);
-        perfCPULogAsync.setSelfExecute(true);
-        perfCPULogAsync.execute(new String[0]);
     }
 
     @Override // com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorAuto.HostPerformanceMonitor
     public void reportImageLoadPerformance(PerformanceMonitorAuto.MapParam mapParam) {
-        if (mapParam.getParams() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, mapParam) == null) || mapParam.getParams() == null) {
             return;
         }
         HashMap params = mapParam.getParams();
@@ -148,7 +252,8 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
     @Override // com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorAuto.HostPerformanceMonitor
     public void reportPageLoadPerformance(PerformanceMonitorAuto.MapParam mapParam) {
         HashMap params;
-        if (!k.d().g() || mapParam.getParams() == null || (params = mapParam.getParams()) == null || params.get("viewCreateTime") == null || ((Double) params.get("viewCreateTime")).doubleValue() <= 0.0d) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, mapParam) == null) || !k.d().g() || mapParam.getParams() == null || (params = mapParam.getParams()) == null || params.get("viewCreateTime") == null || ((Double) params.get("viewCreateTime")).doubleValue() <= 0.0d) {
             return;
         }
         String str = (String) params.get("pageName");

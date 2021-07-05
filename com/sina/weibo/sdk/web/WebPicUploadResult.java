@@ -1,35 +1,68 @@
 package com.sina.weibo.sdk.web;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class WebPicUploadResult {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String RESP_UPLOAD_PIC_PARAM_CODE = "code";
     public static final String RESP_UPLOAD_PIC_PARAM_DATA = "data";
     public static final int RESP_UPLOAD_PIC_SUCC_CODE = 1;
-    public int code = -2;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int code;
     public String picId;
 
+    public WebPicUploadResult() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.code = -2;
+    }
+
     public static WebPicUploadResult parse(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            WebPicUploadResult webPicUploadResult = new WebPicUploadResult();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                webPicUploadResult.code = jSONObject.optInt("code", -2);
+                webPicUploadResult.picId = jSONObject.optString("data", "");
+            } catch (JSONException unused) {
+            }
+            return webPicUploadResult;
         }
-        WebPicUploadResult webPicUploadResult = new WebPicUploadResult();
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            webPicUploadResult.code = jSONObject.optInt("code", -2);
-            webPicUploadResult.picId = jSONObject.optString("data", "");
-        } catch (JSONException unused) {
-        }
-        return webPicUploadResult;
+        return (WebPicUploadResult) invokeL.objValue;
     }
 
     public int getCode() {
-        return this.code;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : invokeV.intValue;
     }
 
     public String getPicId() {
-        return this.picId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.picId : (String) invokeV.objValue;
     }
 }

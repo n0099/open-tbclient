@@ -9,16 +9,40 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes2.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class CommonAlertDialog extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
     public TextView mContinueView;
     public TextView mMessageView;
     public LinearLayout mPercentLayout;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @SuppressLint({"ResourceAsColor"})
     public CommonAlertDialog(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         requestWindowFeature(1);
         getWindow().getDecorView().setBackgroundColor(17170445);
         this.mPercentLayout = new LinearLayout(context);
@@ -69,15 +93,23 @@ public class CommonAlertDialog extends Dialog {
     }
 
     private int dp2px(Context context, float f2) {
-        return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, this, context, f2)) == null) ? (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
     }
 
     public void setNegativeButton(String str, View.OnClickListener onClickListener) {
-        this.mCloseView.setText(str);
-        this.mCloseView.setOnClickListener(onClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, onClickListener) == null) {
+            this.mCloseView.setText(str);
+            this.mCloseView.setOnClickListener(onClickListener);
+        }
     }
 
     public void setPositiveButton(View.OnClickListener onClickListener) {
-        this.mContinueView.setOnClickListener(onClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.mContinueView.setOnClickListener(onClickListener);
+        }
     }
 }

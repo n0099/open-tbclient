@@ -5,11 +5,20 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.assist.ImageScaleType;
 import com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.process.BitmapProcessor;
 /* loaded from: classes7.dex */
 public final class DisplayImageOptions {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final boolean cacheInMemory;
     public final boolean cacheOnDisk;
     public final boolean considerExifParams;
@@ -30,193 +39,376 @@ public final class DisplayImageOptions {
     public final BitmapProcessor preProcessor;
     public final boolean resetViewBeforeLoading;
 
+    /* renamed from: com.kwad.sdk.core.imageloader.core.DisplayImageOptions$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
     /* loaded from: classes7.dex */
     public static class Builder {
-        public int imageResOnLoading = 0;
-        public int imageResForEmptyUri = 0;
-        public int imageResOnFail = 0;
-        public Drawable imageOnLoading = null;
-        public Drawable imageForEmptyUri = null;
-        public Drawable imageOnFail = null;
-        public boolean resetViewBeforeLoading = false;
-        public boolean cacheInMemory = false;
-        public boolean cacheOnDisk = false;
-        public ImageScaleType imageScaleType = ImageScaleType.IN_SAMPLE_POWER_OF_2;
-        public BitmapFactory.Options decodingOptions = new BitmapFactory.Options();
-        public int delayBeforeLoading = 0;
-        public boolean considerExifParams = false;
-        public Object extraForDownloader = null;
-        public BitmapProcessor preProcessor = null;
-        public BitmapProcessor postProcessor = null;
-        public BitmapDisplayer displayer = DefaultConfigurationFactory.createBitmapDisplayer();
-        public Handler handler = null;
-        public boolean isSyncLoading = false;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean cacheInMemory;
+        public boolean cacheOnDisk;
+        public boolean considerExifParams;
+        public BitmapFactory.Options decodingOptions;
+        public int delayBeforeLoading;
+        public BitmapDisplayer displayer;
+        public Object extraForDownloader;
+        public Handler handler;
+        public Drawable imageForEmptyUri;
+        public Drawable imageOnFail;
+        public Drawable imageOnLoading;
+        public int imageResForEmptyUri;
+        public int imageResOnFail;
+        public int imageResOnLoading;
+        public ImageScaleType imageScaleType;
+        public boolean isSyncLoading;
+        public BitmapProcessor postProcessor;
+        public BitmapProcessor preProcessor;
+        public boolean resetViewBeforeLoading;
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.imageResOnLoading = 0;
+            this.imageResForEmptyUri = 0;
+            this.imageResOnFail = 0;
+            this.imageOnLoading = null;
+            this.imageForEmptyUri = null;
+            this.imageOnFail = null;
+            this.resetViewBeforeLoading = false;
+            this.cacheInMemory = false;
+            this.cacheOnDisk = false;
+            this.imageScaleType = ImageScaleType.IN_SAMPLE_POWER_OF_2;
+            this.decodingOptions = new BitmapFactory.Options();
+            this.delayBeforeLoading = 0;
+            this.considerExifParams = false;
+            this.extraForDownloader = null;
+            this.preProcessor = null;
+            this.postProcessor = null;
+            this.displayer = DefaultConfigurationFactory.createBitmapDisplayer();
+            this.handler = null;
+            this.isSyncLoading = false;
+        }
 
         public Builder bitmapConfig(Bitmap.Config config) {
-            if (config != null) {
-                this.decodingOptions.inPreferredConfig = config;
-                return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, config)) == null) {
+                if (config != null) {
+                    this.decodingOptions.inPreferredConfig = config;
+                    return this;
+                }
+                throw new IllegalArgumentException("bitmapConfig can't be null");
             }
-            throw new IllegalArgumentException("bitmapConfig can't be null");
+            return (Builder) invokeL.objValue;
         }
 
         public DisplayImageOptions build() {
-            return new DisplayImageOptions(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new DisplayImageOptions(this, null) : (DisplayImageOptions) invokeV.objValue;
         }
 
         @Deprecated
         public Builder cacheInMemory() {
-            this.cacheInMemory = true;
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                this.cacheInMemory = true;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
         }
 
         public Builder cacheInMemory(boolean z) {
-            this.cacheInMemory = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.cacheInMemory = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         @Deprecated
         public Builder cacheOnDisc() {
-            return cacheOnDisk(true);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? cacheOnDisk(true) : (Builder) invokeV.objValue;
         }
 
         @Deprecated
         public Builder cacheOnDisc(boolean z) {
-            return cacheOnDisk(z);
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) ? cacheOnDisk(z) : (Builder) invokeZ.objValue;
         }
 
         public Builder cacheOnDisk(boolean z) {
-            this.cacheOnDisk = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+                this.cacheOnDisk = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder cloneFrom(DisplayImageOptions displayImageOptions) {
-            this.imageResOnLoading = displayImageOptions.imageResOnLoading;
-            this.imageResForEmptyUri = displayImageOptions.imageResForEmptyUri;
-            this.imageResOnFail = displayImageOptions.imageResOnFail;
-            this.imageOnLoading = displayImageOptions.imageOnLoading;
-            this.imageForEmptyUri = displayImageOptions.imageForEmptyUri;
-            this.imageOnFail = displayImageOptions.imageOnFail;
-            this.resetViewBeforeLoading = displayImageOptions.resetViewBeforeLoading;
-            this.cacheInMemory = displayImageOptions.cacheInMemory;
-            this.cacheOnDisk = displayImageOptions.cacheOnDisk;
-            this.imageScaleType = displayImageOptions.imageScaleType;
-            this.decodingOptions = displayImageOptions.decodingOptions;
-            this.delayBeforeLoading = displayImageOptions.delayBeforeLoading;
-            this.considerExifParams = displayImageOptions.considerExifParams;
-            this.extraForDownloader = displayImageOptions.extraForDownloader;
-            this.preProcessor = displayImageOptions.preProcessor;
-            this.postProcessor = displayImageOptions.postProcessor;
-            this.displayer = displayImageOptions.displayer;
-            this.handler = displayImageOptions.handler;
-            this.isSyncLoading = displayImageOptions.isSyncLoading;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, displayImageOptions)) == null) {
+                this.imageResOnLoading = displayImageOptions.imageResOnLoading;
+                this.imageResForEmptyUri = displayImageOptions.imageResForEmptyUri;
+                this.imageResOnFail = displayImageOptions.imageResOnFail;
+                this.imageOnLoading = displayImageOptions.imageOnLoading;
+                this.imageForEmptyUri = displayImageOptions.imageForEmptyUri;
+                this.imageOnFail = displayImageOptions.imageOnFail;
+                this.resetViewBeforeLoading = displayImageOptions.resetViewBeforeLoading;
+                this.cacheInMemory = displayImageOptions.cacheInMemory;
+                this.cacheOnDisk = displayImageOptions.cacheOnDisk;
+                this.imageScaleType = displayImageOptions.imageScaleType;
+                this.decodingOptions = displayImageOptions.decodingOptions;
+                this.delayBeforeLoading = displayImageOptions.delayBeforeLoading;
+                this.considerExifParams = displayImageOptions.considerExifParams;
+                this.extraForDownloader = displayImageOptions.extraForDownloader;
+                this.preProcessor = displayImageOptions.preProcessor;
+                this.postProcessor = displayImageOptions.postProcessor;
+                this.displayer = displayImageOptions.displayer;
+                this.handler = displayImageOptions.handler;
+                this.isSyncLoading = displayImageOptions.isSyncLoading;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder considerExifParams(boolean z) {
-            this.considerExifParams = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+                this.considerExifParams = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder decodingOptions(BitmapFactory.Options options) {
-            if (options != null) {
-                this.decodingOptions = options;
-                return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, options)) == null) {
+                if (options != null) {
+                    this.decodingOptions = options;
+                    return this;
+                }
+                throw new IllegalArgumentException("decodingOptions can't be null");
             }
-            throw new IllegalArgumentException("decodingOptions can't be null");
+            return (Builder) invokeL.objValue;
         }
 
         public Builder delayBeforeLoading(int i2) {
-            this.delayBeforeLoading = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+                this.delayBeforeLoading = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder displayer(BitmapDisplayer bitmapDisplayer) {
-            if (bitmapDisplayer != null) {
-                this.displayer = bitmapDisplayer;
-                return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bitmapDisplayer)) == null) {
+                if (bitmapDisplayer != null) {
+                    this.displayer = bitmapDisplayer;
+                    return this;
+                }
+                throw new IllegalArgumentException("displayer can't be null");
             }
-            throw new IllegalArgumentException("displayer can't be null");
+            return (Builder) invokeL.objValue;
         }
 
         public Builder extraForDownloader(Object obj) {
-            this.extraForDownloader = obj;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+                this.extraForDownloader = obj;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder handler(Handler handler) {
-            this.handler = handler;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, handler)) == null) {
+                this.handler = handler;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder imageScaleType(ImageScaleType imageScaleType) {
-            this.imageScaleType = imageScaleType;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, imageScaleType)) == null) {
+                this.imageScaleType = imageScaleType;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder postProcessor(BitmapProcessor bitmapProcessor) {
-            this.postProcessor = bitmapProcessor;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, bitmapProcessor)) == null) {
+                this.postProcessor = bitmapProcessor;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder preProcessor(BitmapProcessor bitmapProcessor) {
-            this.preProcessor = bitmapProcessor;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, bitmapProcessor)) == null) {
+                this.preProcessor = bitmapProcessor;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder resetViewBeforeLoading() {
-            this.resetViewBeforeLoading = true;
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                this.resetViewBeforeLoading = true;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
         }
 
         public Builder resetViewBeforeLoading(boolean z) {
-            this.resetViewBeforeLoading = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
+                this.resetViewBeforeLoading = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder showImageForEmptyUri(int i2) {
-            this.imageResForEmptyUri = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
+                this.imageResForEmptyUri = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder showImageForEmptyUri(Drawable drawable) {
-            this.imageForEmptyUri = drawable;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, drawable)) == null) {
+                this.imageForEmptyUri = drawable;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder showImageOnFail(int i2) {
-            this.imageResOnFail = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
+                this.imageResOnFail = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder showImageOnFail(Drawable drawable) {
-            this.imageOnFail = drawable;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, drawable)) == null) {
+                this.imageOnFail = drawable;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder showImageOnLoading(int i2) {
-            this.imageResOnLoading = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
+                this.imageResOnLoading = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder showImageOnLoading(Drawable drawable) {
-            this.imageOnLoading = drawable;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, drawable)) == null) {
+                this.imageOnLoading = drawable;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @Deprecated
         public Builder showStubImage(int i2) {
-            this.imageResOnLoading = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
+                this.imageResOnLoading = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder syncLoading(boolean z) {
-            this.isSyncLoading = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048602, this, z)) == null) {
+                this.isSyncLoading = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
     }
 
     public DisplayImageOptions(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.imageResOnLoading = builder.imageResOnLoading;
         this.imageResForEmptyUri = builder.imageResForEmptyUri;
         this.imageResOnFail = builder.imageResOnFail;
@@ -238,98 +430,157 @@ public final class DisplayImageOptions {
         this.isSyncLoading = builder.isSyncLoading;
     }
 
+    public /* synthetic */ DisplayImageOptions(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
     public static DisplayImageOptions createSimple() {
-        return new Builder().build();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? new Builder().build() : (DisplayImageOptions) invokeV.objValue;
     }
 
     public BitmapFactory.Options getDecodingOptions() {
-        return this.decodingOptions;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.decodingOptions : (BitmapFactory.Options) invokeV.objValue;
     }
 
     public int getDelayBeforeLoading() {
-        return this.delayBeforeLoading;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.delayBeforeLoading : invokeV.intValue;
     }
 
     public BitmapDisplayer getDisplayer() {
-        return this.displayer;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.displayer : (BitmapDisplayer) invokeV.objValue;
     }
 
     public Object getExtraForDownloader() {
-        return this.extraForDownloader;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.extraForDownloader : invokeV.objValue;
     }
 
     public Handler getHandler() {
-        return this.handler;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.handler : (Handler) invokeV.objValue;
     }
 
     public Drawable getImageForEmptyUri(Resources resources) {
-        int i2 = this.imageResForEmptyUri;
-        return i2 != 0 ? resources.getDrawable(i2) : this.imageForEmptyUri;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, resources)) == null) {
+            int i2 = this.imageResForEmptyUri;
+            return i2 != 0 ? resources.getDrawable(i2) : this.imageForEmptyUri;
+        }
+        return (Drawable) invokeL.objValue;
     }
 
     public Drawable getImageOnFail(Resources resources) {
-        int i2 = this.imageResOnFail;
-        return i2 != 0 ? resources.getDrawable(i2) : this.imageOnFail;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
+            int i2 = this.imageResOnFail;
+            return i2 != 0 ? resources.getDrawable(i2) : this.imageOnFail;
+        }
+        return (Drawable) invokeL.objValue;
     }
 
     public Drawable getImageOnLoading(Resources resources) {
-        int i2 = this.imageResOnLoading;
-        return i2 != 0 ? resources.getDrawable(i2) : this.imageOnLoading;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, resources)) == null) {
+            int i2 = this.imageResOnLoading;
+            return i2 != 0 ? resources.getDrawable(i2) : this.imageOnLoading;
+        }
+        return (Drawable) invokeL.objValue;
     }
 
     public ImageScaleType getImageScaleType() {
-        return this.imageScaleType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.imageScaleType : (ImageScaleType) invokeV.objValue;
     }
 
     public BitmapProcessor getPostProcessor() {
-        return this.postProcessor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.postProcessor : (BitmapProcessor) invokeV.objValue;
     }
 
     public BitmapProcessor getPreProcessor() {
-        return this.preProcessor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.preProcessor : (BitmapProcessor) invokeV.objValue;
     }
 
     public boolean isCacheInMemory() {
-        return this.cacheInMemory;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.cacheInMemory : invokeV.booleanValue;
     }
 
     public boolean isCacheOnDisk() {
-        return this.cacheOnDisk;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.cacheOnDisk : invokeV.booleanValue;
     }
 
     public boolean isConsiderExifParams() {
-        return this.considerExifParams;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.considerExifParams : invokeV.booleanValue;
     }
 
     public boolean isResetViewBeforeLoading() {
-        return this.resetViewBeforeLoading;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.resetViewBeforeLoading : invokeV.booleanValue;
     }
 
     public boolean isSyncLoading() {
-        return this.isSyncLoading;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.isSyncLoading : invokeV.booleanValue;
     }
 
     public boolean shouldDelayBeforeLoading() {
-        return this.delayBeforeLoading > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.delayBeforeLoading > 0 : invokeV.booleanValue;
     }
 
     public boolean shouldPostProcess() {
-        return this.postProcessor != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.postProcessor != null : invokeV.booleanValue;
     }
 
     public boolean shouldPreProcess() {
-        return this.preProcessor != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.preProcessor != null : invokeV.booleanValue;
     }
 
     public boolean shouldShowImageForEmptyUri() {
-        return (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) ? false : true : invokeV.booleanValue;
     }
 
     public boolean shouldShowImageOnFail() {
-        return (this.imageOnFail == null && this.imageResOnFail == 0) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.imageOnFail == null && this.imageResOnFail == 0) ? false : true : invokeV.booleanValue;
     }
 
     public boolean shouldShowImageOnLoading() {
-        return (this.imageOnLoading == null && this.imageResOnLoading == 0) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.imageOnLoading == null && this.imageResOnLoading == 0) ? false : true : invokeV.booleanValue;
     }
 }

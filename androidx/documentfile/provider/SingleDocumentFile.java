@@ -5,101 +5,173 @@ import android.net.Uri;
 import android.provider.DocumentsContract;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RequiresApi(19)
 /* loaded from: classes.dex */
 public class SingleDocumentFile extends DocumentFile {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public Uri mUri;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SingleDocumentFile(@Nullable DocumentFile documentFile, Context context, Uri uri) {
         super(documentFile);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {documentFile, context, uri};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((DocumentFile) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
         this.mUri = uri;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public boolean canRead() {
-        return DocumentsContractApi19.canRead(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? DocumentsContractApi19.canRead(this.mContext, this.mUri) : invokeV.booleanValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public boolean canWrite() {
-        return DocumentsContractApi19.canWrite(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DocumentsContractApi19.canWrite(this.mContext, this.mUri) : invokeV.booleanValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public DocumentFile createDirectory(String str) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (DocumentFile) invokeL.objValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public DocumentFile createFile(String str, String str2) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (DocumentFile) invokeLL.objValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public boolean delete() {
-        try {
-            return DocumentsContract.deleteDocument(this.mContext.getContentResolver(), this.mUri);
-        } catch (Exception unused) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return DocumentsContract.deleteDocument(this.mContext.getContentResolver(), this.mUri);
+            } catch (Exception unused) {
+                return false;
+            }
         }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public boolean exists() {
-        return DocumentsContractApi19.exists(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? DocumentsContractApi19.exists(this.mContext, this.mUri) : invokeV.booleanValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     @Nullable
     public String getName() {
-        return DocumentsContractApi19.getName(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? DocumentsContractApi19.getName(this.mContext, this.mUri) : (String) invokeV.objValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     @Nullable
     public String getType() {
-        return DocumentsContractApi19.getType(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? DocumentsContractApi19.getType(this.mContext, this.mUri) : (String) invokeV.objValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public Uri getUri() {
-        return this.mUri;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUri : (Uri) invokeV.objValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public boolean isDirectory() {
-        return DocumentsContractApi19.isDirectory(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? DocumentsContractApi19.isDirectory(this.mContext, this.mUri) : invokeV.booleanValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public boolean isFile() {
-        return DocumentsContractApi19.isFile(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? DocumentsContractApi19.isFile(this.mContext, this.mUri) : invokeV.booleanValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public boolean isVirtual() {
-        return DocumentsContractApi19.isVirtual(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? DocumentsContractApi19.isVirtual(this.mContext, this.mUri) : invokeV.booleanValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public long lastModified() {
-        return DocumentsContractApi19.lastModified(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? DocumentsContractApi19.lastModified(this.mContext, this.mUri) : invokeV.longValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public long length() {
-        return DocumentsContractApi19.length(this.mContext, this.mUri);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? DocumentsContractApi19.length(this.mContext, this.mUri) : invokeV.longValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public DocumentFile[] listFiles() {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (DocumentFile[]) invokeV.objValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public boolean renameTo(String str) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -12,9 +12,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduWalletDelegate;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.base.widget.GridLayout;
@@ -22,8 +28,9 @@ import com.baidu.wallet.base.widget.SimpleRatingBar;
 import com.baidu.wallet.paysdk.datamodel.FeedbackInfo;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FeedbackDialog extends Dialog implements View.OnClickListener, SimpleRatingBar.OnSimpleRatingBarChangeListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ICON_HEIGHT_DP = 12;
     public static final int ICON_PADDING_DP = 6;
     public static final int ICON_WIDTH_DP = 12;
@@ -33,6 +40,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public static final int TAG_MAX_COUNT = 6;
     public static final int TAG_VER_SPAC_DP = 10;
     public static final float TAG_WIDTH_DP = 130.0f;
+    public transient /* synthetic */ FieldHolder $fh;
     public String isEntryClicked;
     public ImageView mCloseButton;
     public FeedbackInfo mFeedbackInfo;
@@ -47,35 +55,84 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public ArrayList<TagButton> mTags;
     public TextView mTitle;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public FeedbackInfo f26235a;
+        public FeedbackInfo f26778a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f26236b;
+        public b f26779b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a();
 
         void a(c cVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f26237a;
+        public int f26780a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f26238b;
+        public String[] f26781b;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FeedbackDialog(Context context) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.isEntryClicked = "0";
         this.mTags = new ArrayList<>();
         this.mLastRating = -1;
@@ -83,120 +140,136 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     }
 
     public void fillTagGroup(FeedbackInfo.FeedbackTag[] feedbackTagArr) {
-        int length = feedbackTagArr.length <= 6 ? feedbackTagArr.length : 6;
-        this.mTagGroup.removeAllViews();
-        this.mTags.clear();
-        if (length <= 0) {
-            this.mTagGroup.setVisibility(8);
-            return;
-        }
-        this.mTagGroup.setVisibility(0);
-        for (int i2 = 0; i2 < length; i2++) {
-            TagButton tagButton = new TagButton(getContext());
-            tagButton.setData(feedbackTagArr[i2].desc, feedbackTagArr[i2].key);
-            this.mTagGroup.addView(tagButton, new ViewGroup.LayoutParams(DisplayUtils.dip2px(getContext(), 130.0f), DisplayUtils.dip2px(getContext(), 34.0f)));
-            this.mTags.add(tagButton);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, feedbackTagArr) == null) {
+            int length = feedbackTagArr.length <= 6 ? feedbackTagArr.length : 6;
+            this.mTagGroup.removeAllViews();
+            this.mTags.clear();
+            if (length <= 0) {
+                this.mTagGroup.setVisibility(8);
+                return;
+            }
+            this.mTagGroup.setVisibility(0);
+            for (int i2 = 0; i2 < length; i2++) {
+                TagButton tagButton = new TagButton(getContext());
+                tagButton.setData(feedbackTagArr[i2].desc, feedbackTagArr[i2].key);
+                this.mTagGroup.addView(tagButton, new ViewGroup.LayoutParams(DisplayUtils.dip2px(getContext(), 130.0f), DisplayUtils.dip2px(getContext(), 34.0f)));
+                this.mTags.add(tagButton);
+            }
         }
     }
 
     public void initDialog(a aVar) {
-        this.mFeedbackInfo = aVar.f26235a;
-        this.mListener = aVar.f26236b;
-        this.mCloseButton.setOnClickListener(this);
-        this.mSubmit.setOnClickListener(this);
-        FeedbackInfo feedbackInfo = this.mFeedbackInfo;
-        if (feedbackInfo == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.mFeedbackInfo = aVar.f26778a;
+            this.mListener = aVar.f26779b;
+            this.mCloseButton.setOnClickListener(this);
+            this.mSubmit.setOnClickListener(this);
+            FeedbackInfo feedbackInfo = this.mFeedbackInfo;
+            if (feedbackInfo == null) {
+                return;
+            }
+            this.mTitle.setText(feedbackInfo.question_desc);
+            if (this.mFeedbackInfo.isEntryValid()) {
+                this.mLink.setVisibility(0);
+                this.mLink.setTextColor(ResUtils.getColor(getContext(), "ebpay_text_666666"));
+                this.mLink.setText(this.mFeedbackInfo.entry_desc);
+                Drawable drawable = ResUtils.getDrawable(getContext(), "wallet_cashdesk_go_icon");
+                drawable.setBounds(0, 0, DisplayUtils.dip2px(getContext(), 12.0f), DisplayUtils.dip2px(getContext(), 12.0f));
+                this.mLink.setCompoundDrawablePadding(DisplayUtils.dip2px(getContext(), 6.0f));
+                this.mLink.setCompoundDrawables(null, null, drawable, null);
+                this.mLink.setOnClickListener(this);
+            }
+            this.mTagGroup.setHorizontalSpacing(DisplayUtils.dip2px(getContext(), 9.0f));
+            this.mTagGroup.setVerticalSpacing(DisplayUtils.dip2px(getContext(), 10.0f));
+            this.mTagGroup.setColumnCount(2);
+            this.mRatingBar.setOnChangeListener(this);
+            this.mRatingBar.setRating(0);
         }
-        this.mTitle.setText(feedbackInfo.question_desc);
-        if (this.mFeedbackInfo.isEntryValid()) {
-            this.mLink.setVisibility(0);
-            this.mLink.setTextColor(ResUtils.getColor(getContext(), "ebpay_text_666666"));
-            this.mLink.setText(this.mFeedbackInfo.entry_desc);
-            Drawable drawable = ResUtils.getDrawable(getContext(), "wallet_cashdesk_go_icon");
-            drawable.setBounds(0, 0, DisplayUtils.dip2px(getContext(), 12.0f), DisplayUtils.dip2px(getContext(), 12.0f));
-            this.mLink.setCompoundDrawablePadding(DisplayUtils.dip2px(getContext(), 6.0f));
-            this.mLink.setCompoundDrawables(null, null, drawable, null);
-            this.mLink.setOnClickListener(this);
-        }
-        this.mTagGroup.setHorizontalSpacing(DisplayUtils.dip2px(getContext(), 9.0f));
-        this.mTagGroup.setVerticalSpacing(DisplayUtils.dip2px(getContext(), 10.0f));
-        this.mTagGroup.setColumnCount(2);
-        this.mRatingBar.setOnChangeListener(this);
-        this.mRatingBar.setRating(0);
     }
 
     public void initView() {
-        requestWindowFeature(1);
-        setContentView(ResUtils.layout(getContext(), "wallet_cashdesk_feedback_dialog"));
-        Window window = getWindow();
-        window.setWindowAnimations(ResUtils.style(getContext(), "wallet_base_bottom_dialog_anim"));
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.x = 0;
-        attributes.y = window.getWindowManager().getDefaultDisplay().getHeight();
-        attributes.width = -1;
-        attributes.height = -2;
-        onWindowAttributesChanged(attributes);
-        setCanceledOnTouchOutside(false);
-        setCancelable(true);
-        this.mCloseButton = (ImageView) findViewById(ResUtils.id(getContext(), "feedback_close"));
-        this.mTitle = (TextView) findViewById(ResUtils.id(getContext(), "feedback_title"));
-        this.mRatingBar = (SimpleRatingBar) findViewById(ResUtils.id(getContext(), "feedback_ratingbar"));
-        this.mRatingText = (TextView) findViewById(ResUtils.id(getContext(), "feedback_ratingtxt"));
-        LinearLayout linearLayout = (LinearLayout) findViewById(ResUtils.id(getContext(), "feedback_panel"));
-        this.mPanel = linearLayout;
-        linearLayout.setVisibility(8);
-        this.mTagGroup = (GridLayout) findViewById(ResUtils.id(getContext(), "feedback_tags"));
-        this.mSubmit = (Button) findViewById(ResUtils.id(getContext(), "feedback_submit"));
-        this.mLink = (TextView) findViewById(ResUtils.id(getContext(), "feedback_link"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            requestWindowFeature(1);
+            setContentView(ResUtils.layout(getContext(), "wallet_cashdesk_feedback_dialog"));
+            Window window = getWindow();
+            window.setWindowAnimations(ResUtils.style(getContext(), "wallet_base_bottom_dialog_anim"));
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.x = 0;
+            attributes.y = window.getWindowManager().getDefaultDisplay().getHeight();
+            attributes.width = -1;
+            attributes.height = -2;
+            onWindowAttributesChanged(attributes);
+            setCanceledOnTouchOutside(false);
+            setCancelable(true);
+            this.mCloseButton = (ImageView) findViewById(ResUtils.id(getContext(), "feedback_close"));
+            this.mTitle = (TextView) findViewById(ResUtils.id(getContext(), "feedback_title"));
+            this.mRatingBar = (SimpleRatingBar) findViewById(ResUtils.id(getContext(), "feedback_ratingbar"));
+            this.mRatingText = (TextView) findViewById(ResUtils.id(getContext(), "feedback_ratingtxt"));
+            LinearLayout linearLayout = (LinearLayout) findViewById(ResUtils.id(getContext(), "feedback_panel"));
+            this.mPanel = linearLayout;
+            linearLayout.setVisibility(8);
+            this.mTagGroup = (GridLayout) findViewById(ResUtils.id(getContext(), "feedback_tags"));
+            this.mSubmit = (Button) findViewById(ResUtils.id(getContext(), "feedback_submit"));
+            this.mLink = (TextView) findViewById(ResUtils.id(getContext(), "feedback_link"));
+        }
     }
 
     @Override // android.app.Dialog
     public void onBackPressed() {
-        super.onBackPressed();
-        PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_FEEDBACK_CLOSE_CLICK, this.isEntryClicked);
-        b bVar = this.mListener;
-        if (bVar != null) {
-            bVar.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onBackPressed();
+            PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_FEEDBACK_CLOSE_CLICK, this.isEntryClicked);
+            b bVar = this.mListener;
+            if (bVar != null) {
+                bVar.a();
+            }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mCloseButton) {
-            onBackPressed();
-        } else if (view == this.mSubmit) {
-            PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_FEEDBACK_SUBMIT_CLICK, this.isEntryClicked);
-            if (this.mListener != null) {
-                c cVar = new c();
-                cVar.f26237a = this.mRatingBar.getRating();
-                ArrayList arrayList = new ArrayList();
-                Iterator<TagButton> it = this.mTags.iterator();
-                while (it.hasNext()) {
-                    TagButton next = it.next();
-                    if (next.getCheckState()) {
-                        arrayList.add(next.getKey());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            if (view == this.mCloseButton) {
+                onBackPressed();
+            } else if (view == this.mSubmit) {
+                PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_FEEDBACK_SUBMIT_CLICK, this.isEntryClicked);
+                if (this.mListener != null) {
+                    c cVar = new c();
+                    cVar.f26780a = this.mRatingBar.getRating();
+                    ArrayList arrayList = new ArrayList();
+                    Iterator<TagButton> it = this.mTags.iterator();
+                    while (it.hasNext()) {
+                        TagButton next = it.next();
+                        if (next.getCheckState()) {
+                            arrayList.add(next.getKey());
+                        }
                     }
+                    String[] strArr = new String[arrayList.size()];
+                    cVar.f26781b = strArr;
+                    arrayList.toArray(strArr);
+                    this.mListener.a(cVar);
                 }
-                String[] strArr = new String[arrayList.size()];
-                cVar.f26238b = strArr;
-                arrayList.toArray(strArr);
-                this.mListener.a(cVar);
-            }
-            dismiss();
-        } else if (view == this.mLink) {
-            PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_PAY_FEEDBACK_ENTRY_CLICK);
-            if (this.mFeedbackInfo != null) {
-                getWindow().setWindowAnimations(ResUtils.style(getContext(), "wallet_base_bottom_dialog_no_anim"));
-                this.isEntryClicked = "1";
-                BaiduWalletDelegate.getInstance().openH5Module(getContext(), this.mFeedbackInfo.entry_uri);
+                dismiss();
+            } else if (view == this.mLink) {
+                PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_PAY_FEEDBACK_ENTRY_CLICK);
+                if (this.mFeedbackInfo != null) {
+                    getWindow().setWindowAnimations(ResUtils.style(getContext(), "wallet_base_bottom_dialog_no_anim"));
+                    this.isEntryClicked = "1";
+                    BaiduWalletDelegate.getInstance().openH5Module(getContext(), this.mFeedbackInfo.entry_uri);
+                }
             }
         }
     }
 
     @Override // com.baidu.wallet.base.widget.SimpleRatingBar.OnSimpleRatingBarChangeListener
     public void onRatingChanged(SimpleRatingBar simpleRatingBar, int i2, boolean z) {
-        if (this.mFeedbackInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{simpleRatingBar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.mFeedbackInfo == null) {
             return;
         }
         if (z && this.mPanel.getVisibility() != 0) {
@@ -225,57 +298,125 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         this.mLastRating = i2;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class TagButton extends Button implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public boolean mChecked;
         public String mKey;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TagButton(Context context) {
             super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mChecked = false;
             initView();
         }
 
         public boolean getCheckState() {
-            return this.mChecked;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mChecked : invokeV.booleanValue;
         }
 
         public String getKey() {
-            return this.mKey;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mKey : (String) invokeV.objValue;
         }
 
         public void initView() {
-            setTextSize(1, 13.0f);
-            setGravity(17);
-            setChecked(false);
-            setOnClickListener(this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                setTextSize(1, 13.0f);
+                setGravity(17);
+                setChecked(false);
+                setOnClickListener(this);
+            }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            setChecked(!this.mChecked);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+                setChecked(!this.mChecked);
+            }
         }
 
         public void setChecked(boolean z) {
-            this.mChecked = z;
-            setBackgroundDrawable(ResUtils.getDrawable(getContext(), this.mChecked ? "wallet_cashdesk_feedbacktag_checked_shape" : "wallet_cashdesk_feedbacktag_uncheck_shape"));
-            setTextColor(ResUtils.getColor(getContext(), this.mChecked ? "wallet_base_mainColor" : "ebpay_text_666666"));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+                this.mChecked = z;
+                setBackgroundDrawable(ResUtils.getDrawable(getContext(), this.mChecked ? "wallet_cashdesk_feedbacktag_checked_shape" : "wallet_cashdesk_feedbacktag_uncheck_shape"));
+                setTextColor(ResUtils.getColor(getContext(), this.mChecked ? "wallet_base_mainColor" : "ebpay_text_666666"));
+            }
         }
 
         public void setData(String str, String str2) {
-            setText(str);
-            this.mKey = str2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+                setText(str);
+                this.mKey = str2;
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TagButton(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.mChecked = false;
             initView();
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FeedbackDialog(Context context, int i2) {
         super(context, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.isEntryClicked = "0";
         this.mTags = new ArrayList<>();
         this.mLastRating = -1;

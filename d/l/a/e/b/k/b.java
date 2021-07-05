@@ -1,0 +1,439 @@
+package d.l.a.e.b.k;
+
+import android.annotation.SuppressLint;
+import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ss.android.socialbase.downloader.exception.BaseException;
+import com.ss.android.socialbase.downloader.model.DownloadInfo;
+import d.l.a.e.b.o.k;
+import java.io.IOException;
+import java.util.List;
+/* loaded from: classes10.dex */
+public class b implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.ss.android.socialbase.downloader.model.b f74834e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.ss.android.socialbase.downloader.model.b f74835f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.l.a.e.b.g.g f74836g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public DownloadInfo f74837h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final f f74838i;
+    public k j;
+    public d.l.a.e.b.g.k k;
+    public volatile boolean l;
+    public volatile boolean m;
+    public boolean n;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1799718204, "Ld/l/a/e/b/k/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1799718204, "Ld/l/a/e/b/k/b;");
+            }
+        }
+    }
+
+    public b(com.ss.android.socialbase.downloader.model.b bVar, d.l.a.e.b.n.a aVar, f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, aVar, fVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.n = false;
+        this.f74835f = bVar;
+        if (aVar != null) {
+            this.f74837h = aVar.J();
+        }
+        this.f74838i = fVar;
+        this.k = d.l.a.e.b.g.e.M0();
+        this.f74835f.a(this);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.l = true;
+            d.l.a.e.b.g.g gVar = this.f74836g;
+            if (gVar != null) {
+                gVar.h();
+            }
+        }
+    }
+
+    public void b(long j, long j2) {
+        d.l.a.e.b.g.g gVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (gVar = this.f74836g) == null) {
+            return;
+        }
+        gVar.d(j, j2);
+    }
+
+    public final void c(com.ss.android.socialbase.downloader.model.b bVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, bVar, j) == null) {
+            com.ss.android.socialbase.downloader.model.b e2 = bVar.d() ? bVar.e() : bVar;
+            if (e2 != null) {
+                if (e2.h()) {
+                    this.k.a(e2.k(), e2.b(), j);
+                }
+                e2.b(j);
+                this.k.a(e2.k(), e2.s(), e2.b(), j);
+            } else if (bVar.d()) {
+                this.k.a(bVar.k(), bVar.s(), j);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:110:0x01a2 */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0110, code lost:
+        throw new com.ss.android.socialbase.downloader.exception.BaseException(1002, java.lang.String.format("Http response error , code is : %s ", java.lang.String.valueOf(r0)));
+     */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x01cf A[Catch: all -> 0x0294, TRY_ENTER, TryCatch #7 {all -> 0x0294, BaseException -> 0x01b6, blocks: (B:127:0x01c5, B:131:0x01cf, B:133:0x01d5, B:136:0x01de, B:138:0x01e6, B:140:0x01ec, B:144:0x01f7, B:146:0x01fb, B:148:0x0203, B:150:0x0214, B:159:0x023c, B:161:0x0242, B:163:0x024f, B:167:0x0257, B:162:0x0249, B:153:0x0221, B:154:0x022f, B:169:0x0262, B:171:0x026a, B:173:0x0272, B:175:0x027a, B:177:0x0282, B:180:0x028b, B:114:0x01a6, B:118:0x01b0, B:121:0x01b7), top: B:196:0x01c5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:161:0x0242 A[Catch: all -> 0x0294, TryCatch #7 {all -> 0x0294, BaseException -> 0x01b6, blocks: (B:127:0x01c5, B:131:0x01cf, B:133:0x01d5, B:136:0x01de, B:138:0x01e6, B:140:0x01ec, B:144:0x01f7, B:146:0x01fb, B:148:0x0203, B:150:0x0214, B:159:0x023c, B:161:0x0242, B:163:0x024f, B:167:0x0257, B:162:0x0249, B:153:0x0221, B:154:0x022f, B:169:0x0262, B:171:0x026a, B:173:0x0272, B:175:0x027a, B:177:0x0282, B:180:0x028b, B:114:0x01a6, B:118:0x01b0, B:121:0x01b7), top: B:196:0x01c5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x0249 A[Catch: all -> 0x0294, TryCatch #7 {all -> 0x0294, BaseException -> 0x01b6, blocks: (B:127:0x01c5, B:131:0x01cf, B:133:0x01d5, B:136:0x01de, B:138:0x01e6, B:140:0x01ec, B:144:0x01f7, B:146:0x01fb, B:148:0x0203, B:150:0x0214, B:159:0x023c, B:161:0x0242, B:163:0x024f, B:167:0x0257, B:162:0x0249, B:153:0x0221, B:154:0x022f, B:169:0x0262, B:171:0x026a, B:173:0x0272, B:175:0x027a, B:177:0x0282, B:180:0x028b, B:114:0x01a6, B:118:0x01b0, B:121:0x01b7), top: B:196:0x01c5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:167:0x0257 A[Catch: all -> 0x0294, TRY_ENTER, TRY_LEAVE, TryCatch #7 {all -> 0x0294, BaseException -> 0x01b6, blocks: (B:127:0x01c5, B:131:0x01cf, B:133:0x01d5, B:136:0x01de, B:138:0x01e6, B:140:0x01ec, B:144:0x01f7, B:146:0x01fb, B:148:0x0203, B:150:0x0214, B:159:0x023c, B:161:0x0242, B:163:0x024f, B:167:0x0257, B:162:0x0249, B:153:0x0221, B:154:0x022f, B:169:0x0262, B:171:0x026a, B:173:0x0272, B:175:0x027a, B:177:0x0282, B:180:0x028b, B:114:0x01a6, B:118:0x01b0, B:121:0x01b7), top: B:196:0x01c5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:208:0x0253 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:211:0x01cb A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean d(com.ss.android.socialbase.downloader.model.b bVar) {
+        Interceptable interceptable;
+        InterceptResult invokeL;
+        boolean z;
+        long j;
+        long j2;
+        com.ss.android.socialbase.downloader.exception.h h2;
+        com.ss.android.socialbase.downloader.model.b e2;
+        Interceptable interceptable2 = $ic;
+        if (interceptable2 != null && (invokeL = (interceptable = interceptable2).invokeL(1048579, this, bVar)) != null) {
+            return invokeL.booleanValue;
+        }
+        long j3 = interceptable;
+        while (true) {
+            com.ss.android.socialbase.downloader.model.b bVar2 = (bVar.d() && bVar.f() && (e2 = bVar.e()) != null && e2.s() == bVar.s()) ? e2 : null;
+            if (bVar2 != null && bVar2.i()) {
+                return true;
+            }
+            long n = bVar.n();
+            long p = bVar.p();
+            long n2 = bVar.n();
+            if (bVar2 != null) {
+                n2 = bVar2.n();
+                n = bVar2.n();
+                p = bVar2.p();
+            }
+            long j4 = n;
+            long j5 = p;
+            long j6 = 0;
+            boolean z2 = false;
+            try {
+                try {
+                    if (h()) {
+                        return false;
+                    }
+                    String f2 = f();
+                    boolean z3 = this.j != null;
+                    this.n = z3;
+                    bVar.b(z3);
+                    try {
+                        try {
+                            try {
+                                try {
+                                    if (!this.n) {
+                                        List<com.ss.android.socialbase.downloader.model.c> s = d.l.a.e.b.l.f.s(this.f74837h.getExtraHeaders(), this.f74837h.geteTag(), j4, j5);
+                                        s.add(new com.ss.android.socialbase.downloader.model.c("Chunk-Index", String.valueOf(bVar.s())));
+                                        d.l.a.e.b.l.f.C(s, this.f74837h);
+                                        d.l.a.e.b.l.f.d0(s, this.f74837h);
+                                        this.j = d.l.a.e.b.g.e.B(this.f74837h.isNeedDefaultHttpServiceBackUp(), this.f74837h.getMaxBytes(), f2, s);
+                                    }
+                                    if (this.j != null) {
+                                        try {
+                                            if (this.f74838i != null) {
+                                                try {
+                                                    int b2 = this.j.b();
+                                                    if (b2 < 200 || b2 >= 300) {
+                                                        this.f74838i.e(this.j);
+                                                    }
+                                                } catch (Throwable th) {
+                                                    th.printStackTrace();
+                                                }
+                                            }
+                                        } catch (BaseException e3) {
+                                            e = e3;
+                                            j = n2;
+                                            z = false;
+                                            try {
+                                                if (h()) {
+                                                }
+                                            } catch (BaseException e4) {
+                                                this.f74838i.g(e4);
+                                                return z;
+                                            } finally {
+                                                g();
+                                            }
+                                        }
+                                    }
+                                    if (h()) {
+                                        return false;
+                                    }
+                                    if (this.j != null) {
+                                        if (!this.n) {
+                                            try {
+                                                int b3 = this.j.b();
+                                                if (!d.l.a.e.b.l.f.C0(b3)) {
+                                                    break;
+                                                }
+                                            } catch (BaseException e5) {
+                                                throw e5;
+                                            } catch (Throwable th2) {
+                                                d.l.a.e.b.l.f.B(th2, "ChunkRunnableGetResponseCode");
+                                                throw null;
+                                            }
+                                        }
+                                        z = false;
+                                        j = n2;
+                                        this.f74836g = new d.l.a.e.b.g.g(this.f74837h, f2, this.j, bVar, this.f74838i);
+                                        if (bVar2 != null) {
+                                            long c2 = bVar2.c(false);
+                                            if (j5 != 0 && j5 >= j4) {
+                                                c2 = (j5 - j4) + 1;
+                                            }
+                                            this.f74836g.e(bVar2.n(), bVar2.p(), c2);
+                                        }
+                                        try {
+                                            this.f74836g.k();
+                                            return true;
+                                        } catch (BaseException e6) {
+                                            e = e6;
+                                            z2 = true;
+                                            if (h()) {
+                                            }
+                                        }
+                                    } else {
+                                        throw new BaseException(1022, new IOException("download can't continue, chunk connection is null"));
+                                    }
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    if (h()) {
+                                        return true;
+                                    }
+                                    d.l.a.e.b.l.f.B(th, "downloadChunkInner");
+                                    throw null;
+                                }
+                            } catch (Throwable th4) {
+                                if (this.j != null && this.f74838i != null) {
+                                    try {
+                                        int b4 = this.j.b();
+                                        if (b4 < 200 || b4 >= 300) {
+                                            this.f74838i.e(this.j);
+                                        }
+                                    } catch (Throwable th5) {
+                                        th5.printStackTrace();
+                                    }
+                                }
+                                throw th4;
+                            }
+                        } catch (BaseException e7) {
+                            throw e7;
+                        } catch (Throwable th6) {
+                            d.l.a.e.b.l.f.B(th6, "ChunkRunnableConnection");
+                            throw null;
+                        }
+                    } catch (BaseException e8) {
+                        e = e8;
+                        z2 = false;
+                        j = j3;
+                        if (h()) {
+                            return true;
+                        }
+                        if (d.l.a.e.b.l.f.h0(e)) {
+                            this.f74838i.i(e, z);
+                            return z;
+                        } else if (this.f74838i.a(e)) {
+                            if (d.l.a.e.b.l.f.K(e)) {
+                                this.f74838i.i(e, true);
+                                return z;
+                            }
+                            if (z2) {
+                                if (this.f74836g != null) {
+                                    if (d.l.a.e.b.l.a.a(32)) {
+                                        j2 = this.f74836g.a() - this.f74836g.l();
+                                        int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+                                        if (i2 > 0) {
+                                            c(bVar, this.f74836g.l());
+                                        } else if (i2 < 0) {
+                                        }
+                                        if (!d.l.a.e.b.l.a.a(16)) {
+                                            h2 = this.f74838i.b(bVar, e, j2);
+                                        } else {
+                                            h2 = this.f74838i.h(e, j2);
+                                        }
+                                        if (h2 != com.ss.android.socialbase.downloader.exception.h.f41524a) {
+                                            return z;
+                                        }
+                                        bVar.b(z);
+                                        g();
+                                    } else {
+                                        long j7 = j;
+                                        j6 = this.f74836g.a() - j7;
+                                        c(bVar, j7);
+                                    }
+                                } else {
+                                    this.f74838i.g(e);
+                                    return z;
+                                }
+                            }
+                            j2 = j6;
+                            if (!d.l.a.e.b.l.a.a(16)) {
+                            }
+                            if (h2 != com.ss.android.socialbase.downloader.exception.h.f41524a) {
+                            }
+                        } else if (this.f74837h.isNeedChunkDowngradeRetry() && !this.f74837h.isChunkDowngradeRetryUsed() && this.f74837h.getChunkCount() > 1 && d.l.a.e.b.l.f.L(e, this.f74837h)) {
+                            this.f74838i.f(e);
+                            return z;
+                        } else {
+                            this.f74838i.g(e);
+                            return z;
+                        }
+                    }
+                } catch (Throwable th7) {
+                    th = th7;
+                    z = false;
+                }
+            } catch (BaseException e9) {
+                e = e9;
+                j3 = n2;
+                z = false;
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.m = true;
+            d.l.a.e.b.g.g gVar = this.f74836g;
+            if (gVar != null) {
+                gVar.j();
+            }
+        }
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f74837h.getConnectionUrl() : (String) invokeV.objValue;
+    }
+
+    public final void g() {
+        k kVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (kVar = this.j) == null) {
+            return;
+        }
+        kVar.d();
+        this.j = null;
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.l || this.m : invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:8:0x001b, code lost:
+        r4.f74834e.a(false);
+     */
+    @Override // java.lang.Runnable
+    @SuppressLint({"DefaultLocale"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Process.setThreadPriority(10);
+            this.f74834e = this.f74835f;
+            while (true) {
+                try {
+                    this.f74834e.a(this);
+                    if (!d(this.f74834e)) {
+                        break;
+                    }
+                    this.f74834e.a(false);
+                    if (!h()) {
+                        this.f74834e = this.f74838i.a(this.f74834e.s());
+                        if (h() || this.f74834e == null) {
+                            break;
+                        }
+                        Thread.sleep(50L);
+                    } else {
+                        break;
+                    }
+                } finally {
+                    com.ss.android.socialbase.downloader.model.b bVar = this.f74834e;
+                    if (bVar != null) {
+                        bVar.a(false);
+                    }
+                    g();
+                    this.f74838i.c(this);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public b(com.ss.android.socialbase.downloader.model.b bVar, d.l.a.e.b.n.a aVar, k kVar, f fVar) {
+        this(bVar, aVar, fVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, aVar, kVar, fVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((com.ss.android.socialbase.downloader.model.b) objArr2[0], (d.l.a.e.b.n.a) objArr2[1], (f) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.j = kVar;
+    }
+}

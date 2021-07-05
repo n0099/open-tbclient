@@ -1,255 +1,436 @@
 package com.bytedance.sdk.openadsdk.core.bannerexpress;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.alibaba.fastjson.asm.Opcodes;
-import com.bytedance.sdk.openadsdk.core.d.j;
-import com.bytedance.sdk.openadsdk.core.d.l;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.openadsdk.core.e.k;
+import com.bytedance.sdk.openadsdk.core.e.m;
+import com.bytedance.sdk.openadsdk.core.h;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.BackupView;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.i;
 import com.bytedance.sdk.openadsdk.core.widget.TTRatingBar;
-import com.bytedance.sdk.openadsdk.i.e;
-import com.bytedance.sdk.openadsdk.utils.ad;
-import com.bytedance.sdk.openadsdk.utils.ak;
-import com.bytedance.sdk.openadsdk.utils.al;
+import com.bytedance.sdk.openadsdk.r.o;
+import com.bytedance.sdk.openadsdk.r.q;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public class BannerExpressBackupView extends BackupView {
-    public static i[] k = {new i(1, 6.6666665f, 600, 90), new i(1, 6.4f, 640, 100), new i(1, 4.0f, 600, 150), new i(2, 1.2f, 600, 500), new i(3, 1, 1.5f, 600, 400), new i(3, 2, 2.0f, 600, 300), new i(3, 3, 2.3076923f, 600, 260), new i(3, 4, 1.7783505f, 690, 388)};
-    public View l;
-    public NativeExpressView m;
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a n;
-    public int o;
+    public static /* synthetic */ Interceptable $ic;
+    public static i[] l;
+    public transient /* synthetic */ FieldHolder $fh;
+    public View m;
+    public NativeExpressView n;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a o;
+    public int p;
+    public i q;
+    public TextView r;
+    public TextView s;
+    public ImageView t;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2113192726, "Lcom/bytedance/sdk/openadsdk/core/bannerexpress/BannerExpressBackupView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2113192726, "Lcom/bytedance/sdk/openadsdk/core/bannerexpress/BannerExpressBackupView;");
+                return;
+            }
+        }
+        l = new i[]{new i(1, 6.4f, 640, 100), new i(3, 1.2f, 600, 500)};
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BannerExpressBackupView(@NonNull Context context) {
         super(context);
-        this.o = 1;
-        this.f28393a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.p = 1;
+        this.f30269a = context;
     }
 
     private void b() {
-        i a2 = a(this.m.getExpectExpressWidth(), this.m.getExpectExpressHeight());
-        if (this.m.getExpectExpressWidth() > 0 && this.m.getExpectExpressHeight() > 0) {
-            if (this.m.getExpectExpressWidth() > this.m.getExpectExpressHeight()) {
-                this.f28398f = al.c(this.f28393a, this.m.getExpectExpressHeight() * a2.f28456c);
-                this.f28399g = al.c(this.f28393a, this.m.getExpectExpressHeight());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            this.q = a(this.n.getExpectExpressWidth(), this.n.getExpectExpressHeight());
+            if (this.n.getExpectExpressWidth() > 0 && this.n.getExpectExpressHeight() > 0) {
+                this.f30274f = q.d(this.f30269a, this.n.getExpectExpressWidth());
+                this.f30275g = q.d(this.f30269a, this.n.getExpectExpressHeight());
             } else {
-                this.f28398f = al.c(this.f28393a, this.m.getExpectExpressWidth());
-                this.f28399g = al.c(this.f28393a, this.m.getExpectExpressWidth() / a2.f28456c);
+                int c2 = q.c(this.f30269a);
+                this.f30274f = c2;
+                this.f30275g = Float.valueOf(c2 / this.q.f30334c).intValue();
             }
-        } else {
-            int c2 = al.c(this.f28393a);
-            this.f28398f = c2;
-            this.f28399g = Float.valueOf(c2 / a2.f28456c).intValue();
-        }
-        int i2 = this.f28398f;
-        if (i2 > 0 && i2 > al.c(this.f28393a)) {
-            float c3 = al.c(this.f28393a) / this.f28398f;
-            this.f28398f = al.c(this.f28393a);
-            this.f28399g = Float.valueOf(this.f28399g * c3).intValue();
-        }
-        ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(this.f28398f, this.f28399g);
-        }
-        layoutParams.width = this.f28398f;
-        layoutParams.height = this.f28399g;
-        if (layoutParams instanceof FrameLayout.LayoutParams) {
-            ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
-        }
-        setLayoutParams(layoutParams);
-        int i3 = a2.f28454a;
-        if (i3 == 1) {
-            d();
-        } else if (i3 == 2) {
-            c();
-        } else if (i3 == 3) {
-            a(a2);
-        } else {
-            d();
+            int i2 = this.f30274f;
+            if (i2 > 0 && i2 > q.c(this.f30269a)) {
+                float c3 = q.c(this.f30269a) / this.f30274f;
+                this.f30274f = q.c(this.f30269a);
+                this.f30275g = Float.valueOf(this.f30275g * c3).intValue();
+            }
+            ViewGroup.LayoutParams layoutParams = getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(this.f30274f, this.f30275g);
+            }
+            layoutParams.width = this.f30274f;
+            layoutParams.height = this.f30275g;
+            if (layoutParams instanceof FrameLayout.LayoutParams) {
+                ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
+            }
+            setLayoutParams(layoutParams);
+            i iVar = this.q;
+            int i3 = iVar.f30332a;
+            if (i3 == 1) {
+                c();
+            } else if (i3 == 3) {
+                a(iVar);
+            } else {
+                c();
+            }
         }
     }
 
     private void c() {
-        View inflate = LayoutInflater.from(this.f28393a).inflate(ad.f(this.f28393a, "tt_backup_banner_layout2"), (ViewGroup) this, true);
-        this.l = inflate;
-        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28393a, "tt_ad_content_layout"));
-        View findViewById = this.l.findViewById(ad.e(this.f28393a, "tt_bu_close"));
-        ImageView imageView = (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_img"));
-        ImageView imageView2 = (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_icon"));
-        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_download"));
-        findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                BannerExpressBackupView.this.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            float d2 = (this.f30275g * 1.0f) / q.d(this.f30269a, 50.0f);
+            int i2 = this.f30274f;
+            if ((this.f30275g * 1.0f) / i2 > 0.21875f) {
+                d2 = (i2 * 1.0f) / q.d(this.f30269a, 320.0f);
             }
-        });
-        int a2 = (int) al.a(this.f28393a, 15.0f);
-        al.a(findViewById, a2, a2, a2, a2);
-        ((TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_title"))).setText(getTitle());
-        ((TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_desc"))).setText(getDescription());
-        if (!TextUtils.isEmpty(this.f28394b.al())) {
-            textView.setText(this.f28394b.al());
-        }
-        if (this.f28394b.X() != null) {
-            View videoView = getVideoView();
-            if (videoView != null) {
-                frameLayout.removeAllViews();
-                int c2 = this.f28398f - al.c(this.f28393a, 14.0f);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, (c2 * 9) / 16);
-                layoutParams.gravity = 17;
-                frameLayout.addView(videoView, 0, layoutParams);
+            View inflate = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_backup_banner_layout1"), (ViewGroup) this, true);
+            this.m = inflate;
+            this.t = (ImageView) inflate.findViewById(r.e(this.f30269a, "tt_bu_close"));
+            ImageView imageView = (ImageView) this.m.findViewById(r.e(this.f30269a, "tt_bu_icon"));
+            this.r = (TextView) this.m.findViewById(r.e(this.f30269a, "tt_bu_title"));
+            TextView textView = (TextView) this.m.findViewById(r.e(this.f30269a, "tt_bu_score"));
+            TTRatingBar tTRatingBar = (TTRatingBar) this.m.findViewById(r.e(this.f30269a, "tt_bu_score_bar"));
+            TextView textView2 = (TextView) this.m.findViewById(r.e(this.f30269a, "tt_bu_download"));
+            TextView textView3 = this.r;
+            textView3.setTextSize(2, q.a(this.f30269a, textView3.getTextSize()) * d2);
+            textView.setTextSize(2, q.a(this.f30269a, textView.getTextSize()) * d2);
+            textView2.setTextSize(2, q.a(this.f30269a, textView2.getTextSize()) * d2);
+            this.t.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ BannerExpressBackupView f29750a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f29750a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f29750a.a();
+                    }
+                }
+            });
+            com.bytedance.sdk.openadsdk.g.a.a(this.f30270b.Y()).a(imageView);
+            this.r.setText(getTitle());
+            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = (int) (q.d(this.f30269a, 45.0f) * d2);
+                layoutParams.height = (int) (q.d(this.f30269a, 45.0f) * d2);
             }
-            al.a((View) imageView, 8);
-            al.a((View) frameLayout, 0);
-        } else {
-            a(imageView);
-            al.a((View) imageView, 0);
-            al.a((View) frameLayout, 8);
+            if (!TextUtils.isEmpty(this.f30270b.aj())) {
+                textView2.setText(this.f30270b.aj());
+            }
+            int e2 = this.f30270b.al() != null ? this.f30270b.al().e() : 4;
+            textView.setText(String.format(Locale.getDefault(), "%.1f", Float.valueOf(e2)));
+            tTRatingBar.setStarEmptyNum(1);
+            tTRatingBar.setStarFillNum(e2);
+            tTRatingBar.setStarImageWidth(q.d(this.f30269a, 15.0f) * d2);
+            tTRatingBar.setStarImageHeight(q.d(this.f30269a, 14.0f) * d2);
+            tTRatingBar.setStarImagePadding(q.d(this.f30269a, 4.0f));
+            tTRatingBar.a();
+            a((View) this, true);
+            a((View) textView2, true);
         }
-        e.c().a(this.f28394b.aa().a(), imageView2);
-        a((View) this, true);
-        a((View) textView, true);
-        a(frameLayout);
     }
 
     private void d() {
-        View inflate = LayoutInflater.from(this.f28393a).inflate(ad.f(this.f28393a, "tt_backup_banner_layout1"), (ViewGroup) this, true);
-        this.l = inflate;
-        View findViewById = inflate.findViewById(ad.e(this.f28393a, "tt_bu_close"));
-        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_score"));
-        TTRatingBar tTRatingBar = (TTRatingBar) this.l.findViewById(ad.e(this.f28393a, "tt_bu_score_bar"));
-        TextView textView2 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_download"));
-        findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                BannerExpressBackupView.this.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            int i2 = this.q.f30332a;
+            if (i2 != 2 && i2 != 3) {
+                TextView textView = this.r;
+                if (textView != null) {
+                    textView.setTextColor(Color.parseColor("#FF333333"));
+                }
+                ImageView imageView = this.t;
+                if (imageView != null) {
+                    imageView.setImageResource(r.d(getContext(), "tt_dislike_icon"));
+                    return;
+                }
+                return;
             }
-        });
-        e.c().a(this.f28394b.aa().a(), (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_icon")));
-        ((TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_title"))).setText(getTitle());
-        if (!TextUtils.isEmpty(this.f28394b.al())) {
-            textView2.setText(this.f28394b.al());
+            TextView textView2 = this.r;
+            if (textView2 != null) {
+                textView2.setTextColor(Color.parseColor("#FFAEAEAE"));
+            }
+            TextView textView3 = this.s;
+            if (textView3 != null) {
+                textView3.setTextColor(Color.parseColor("#3E3E3E"));
+            }
+            ImageView imageView2 = this.t;
+            if (imageView2 != null) {
+                imageView2.setImageResource(r.d(getContext(), "tt_titlebar_close_press_for_dark"));
+            }
         }
-        int e2 = this.f28394b.an() != null ? this.f28394b.an().e() : 4;
-        textView.setText(String.format(Locale.getDefault(), "%.1f", Float.valueOf(e2)));
-        tTRatingBar.setStarEmptyNum(1);
-        tTRatingBar.setStarFillNum(e2);
-        tTRatingBar.setStarImageWidth(al.c(this.f28393a, 15.0f));
-        tTRatingBar.setStarImageHeight(al.c(this.f28393a, 14.0f));
-        tTRatingBar.setStarImagePadding(al.c(this.f28393a, 4.0f));
-        tTRatingBar.a();
-        a((View) this, true);
-        a((View) textView2, true);
+    }
+
+    private void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            int i2 = this.q.f30332a;
+            if (i2 != 2 && i2 != 3) {
+                TextView textView = this.r;
+                if (textView != null) {
+                    textView.setTextColor(-1);
+                }
+            } else {
+                TextView textView2 = this.r;
+                if (textView2 != null) {
+                    textView2.setTextColor(-1);
+                }
+                TextView textView3 = this.s;
+                if (textView3 != null) {
+                    textView3.setTextColor(-1);
+                }
+            }
+            this.t.setImageResource(r.d(getContext(), "tt_dislike_icon_night"));
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.BackupView
-    public void a(int i2, j jVar) {
-        NativeExpressView nativeExpressView = this.m;
-        if (nativeExpressView != null) {
-            nativeExpressView.a(i2, jVar);
+    public void a(int i2, k kVar) {
+        NativeExpressView nativeExpressView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, kVar) == null) || (nativeExpressView = this.n) == null) {
+            return;
+        }
+        nativeExpressView.a(i2, kVar);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.BackupView, com.bytedance.sdk.openadsdk.theme.a
+    public void a_(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            super.a_(i2);
+            c(i2);
         }
     }
 
-    public void a(l lVar, NativeExpressView nativeExpressView, com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
-        setBackgroundColor(-1);
-        this.f28394b = lVar;
-        this.m = nativeExpressView;
-        this.n = aVar;
-        this.f28397e = "banner_ad";
-        nativeExpressView.addView(this, new ViewGroup.LayoutParams(-2, -2));
-        int d2 = ak.d(this.f28394b.ap());
-        this.f28400h = d2;
-        a(d2);
-        b();
+    public void a(m mVar, NativeExpressView nativeExpressView, com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, nativeExpressView, aVar) == null) {
+            setBackgroundColor(-1);
+            this.f30270b = mVar;
+            this.n = nativeExpressView;
+            this.o = aVar;
+            this.f30273e = "banner_ad";
+            nativeExpressView.addView(this, new ViewGroup.LayoutParams(-2, -2));
+            int d2 = o.d(this.f30270b.ao());
+            this.f30276h = d2;
+            b(d2);
+            b();
+            c(h.d().A());
+        }
     }
 
     private void a(ImageView imageView) {
-        e.c().a(this.f28394b.af().get(0).a(), imageView);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, imageView) == null) {
+            com.bytedance.sdk.openadsdk.g.a.a(this.f30270b.ad().get(0)).a(imageView);
+        }
     }
 
     private void a(i iVar) {
-        View inflate = LayoutInflater.from(this.f28393a).inflate(ad.f(this.f28393a, "tt_backup_banner_layout3"), (ViewGroup) this, true);
-        this.l = inflate;
-        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28393a, "tt_ad_content_layout"));
-        View findViewById = this.l.findViewById(ad.e(this.f28393a, "tt_bu_close"));
-        ImageView imageView = (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_img"));
-        ImageView imageView2 = (ImageView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_icon"));
-        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_title"));
-        TextView textView2 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_desc"));
-        TextView textView3 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_name"));
-        TextView textView4 = (TextView) this.l.findViewById(ad.e(this.f28393a, "tt_bu_download"));
-        findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                BannerExpressBackupView.this.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, this, iVar) == null) {
+            float d2 = (this.f30275g * 1.0f) / q.d(this.f30269a, 250.0f);
+            View inflate = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_backup_banner_layout3"), (ViewGroup) this, true);
+            this.m = inflate;
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(r.e(this.f30269a, "tt_ad_content_layout"));
+            this.t = (ImageView) this.m.findViewById(r.e(this.f30269a, "tt_bu_close"));
+            ImageView imageView = (ImageView) this.m.findViewById(r.e(this.f30269a, "tt_bu_img"));
+            ImageView imageView2 = (ImageView) this.m.findViewById(r.e(this.f30269a, "tt_bu_icon"));
+            this.r = (TextView) this.m.findViewById(r.e(this.f30269a, "tt_bu_title"));
+            this.s = (TextView) this.m.findViewById(r.e(this.f30269a, "tt_bu_desc"));
+            TextView textView = (TextView) this.m.findViewById(r.e(this.f30269a, "tt_bu_name"));
+            TextView textView2 = (TextView) this.m.findViewById(r.e(this.f30269a, "tt_bu_download"));
+            LinearLayout linearLayout = (LinearLayout) this.m.findViewById(r.e(this.f30269a, "tt_bu_total_title"));
+            ViewGroup.LayoutParams layoutParams = imageView2.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = (int) (q.d(this.f30269a, 45.0f) * d2);
+                layoutParams.height = (int) (q.d(this.f30269a, 45.0f) * d2);
             }
-        });
-        int a2 = (int) al.a(this.f28393a, 15.0f);
-        al.a(findViewById, a2, a2, a2, a2);
-        if (this.f28394b.X() != null) {
-            View videoView = getVideoView();
-            if (videoView != null) {
-                int i2 = (this.f28399g * 266) / 400;
-                int i3 = (this.f28398f * 406) / 600;
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i3, (i3 * 9) / 16);
-                int i4 = iVar.f28455b;
-                if (i4 == 1) {
-                    int i5 = (this.f28398f * 406) / 600;
-                    layoutParams = new FrameLayout.LayoutParams(i5, (i5 * 9) / 16);
-                } else if (i4 == 2) {
-                    layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                } else if (i4 == 3) {
-                    int i6 = (this.f28399g * Opcodes.NEWARRAY) / 260;
-                    layoutParams = new FrameLayout.LayoutParams((i6 * 16) / 9, i6);
-                } else if (i4 == 4) {
-                    int i7 = (this.f28398f * 480) / 690;
-                    layoutParams = new FrameLayout.LayoutParams(i7, (i7 * 9) / 16);
+            TextView textView3 = this.r;
+            textView3.setTextSize(2, q.a(this.f30269a, textView3.getTextSize()) * d2);
+            TextView textView4 = this.s;
+            textView4.setTextSize(2, q.a(this.f30269a, textView4.getTextSize()) * d2);
+            textView.setTextSize(2, q.a(this.f30269a, textView.getTextSize()) * d2);
+            textView2.setTextSize(2, q.a(this.f30269a, textView2.getTextSize()) * d2);
+            try {
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
+                float f2 = d2 - 1.0f;
+                if (f2 > 0.0f) {
+                    layoutParams2.topMargin = q.d(this.f30269a, f2 * 8.0f);
                 }
-                layoutParams.gravity = 17;
-                frameLayout.addView(videoView, 0, layoutParams);
+                ((RelativeLayout.LayoutParams) textView2.getLayoutParams()).setMargins(0, (int) (q.d(this.f30269a, 16.0f) * d2), 0, 0);
+            } catch (Throwable unused) {
             }
-            al.a((View) imageView, 8);
-        } else {
-            a(imageView);
-            al.a((View) imageView, 0);
+            this.t.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ BannerExpressBackupView f29749a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f29749a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f29749a.a();
+                    }
+                }
+            });
+            int b2 = (int) q.b(this.f30269a, 15.0f);
+            q.a(this.t, b2, b2, b2, b2);
+            if (this.f30270b.V() != null) {
+                View videoView = getVideoView();
+                if (videoView != null) {
+                    int i2 = (this.f30275g * 266) / 400;
+                    int i3 = (this.f30274f * 406) / 600;
+                    FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(i3, (i3 * 9) / 16);
+                    int i4 = iVar.f30333b;
+                    if (i4 == 1) {
+                        int i5 = (this.f30274f * 406) / 600;
+                        layoutParams3 = new FrameLayout.LayoutParams(i5, (i5 * 9) / 16);
+                    } else if (i4 == 2) {
+                        layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
+                    } else if (i4 == 3) {
+                        int i6 = (this.f30275g * Opcodes.NEWARRAY) / 260;
+                        layoutParams3 = new FrameLayout.LayoutParams((i6 * 16) / 9, i6);
+                    } else if (i4 == 4) {
+                        int i7 = (this.f30274f * 480) / 690;
+                        layoutParams3 = new FrameLayout.LayoutParams(i7, (i7 * 9) / 16);
+                    }
+                    layoutParams3.gravity = 17;
+                    frameLayout.addView(videoView, 0, layoutParams3);
+                }
+                q.a((View) imageView, 8);
+            } else {
+                a(imageView);
+                q.a((View) imageView, 0);
+            }
+            com.bytedance.sdk.openadsdk.g.a.a(this.f30270b.Y()).a(imageView2);
+            textView.setText(getNameOrSource());
+            this.r.setText(String.format(Locale.getDefault(), "%s提供的广告", getNameOrSource()));
+            this.s.setText(getDescription());
+            if (!TextUtils.isEmpty(this.f30270b.aj())) {
+                textView2.setText(this.f30270b.aj());
+            }
+            a((View) this, true);
+            a((View) textView2, true);
+            a(frameLayout);
         }
-        e.c().a(this.f28394b.aa().a(), imageView2);
-        textView3.setText(getNameOrSource());
-        textView.setText(String.format(Locale.getDefault(), "%s提供的广告", getNameOrSource()));
-        textView2.setText(getDescription());
-        if (!TextUtils.isEmpty(this.f28394b.al())) {
-            textView4.setText(this.f28394b.al());
+    }
+
+    private void c(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
+            if (i2 == 1) {
+                e();
+                this.m.setBackgroundColor(0);
+                return;
+            }
+            d();
+            this.m.setBackgroundColor(-1);
         }
-        a((View) this, true);
-        a((View) textView4, true);
-        a(frameLayout);
     }
 
     private i a(int i2, int i3) {
-        i[] iVarArr;
-        try {
-            float floatValue = Float.valueOf(i2).floatValue() / Float.valueOf(i3).floatValue();
-            i iVar = k[0];
-            float f2 = Float.MAX_VALUE;
-            for (i iVar2 : k) {
-                float abs = Math.abs(iVar2.f28456c - floatValue);
-                if (abs <= f2) {
-                    iVar = iVar2;
-                    f2 = abs;
-                }
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, this, i2, i3)) == null) {
+            try {
+                return ((double) i3) >= Math.floor((((double) i2) * 450.0d) / 600.0d) ? l[1] : l[0];
+            } catch (Throwable unused) {
+                return l[0];
             }
-            return iVar;
-        } catch (Throwable unused) {
-            return k[0];
         }
+        return (i) invokeII.objValue;
     }
 }

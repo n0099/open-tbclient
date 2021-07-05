@@ -4,113 +4,155 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.a.n0.r.q.a2;
-import d.a.o0.v.i.b.a;
-import d.a.o0.v.i.d.c;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.b2;
+import d.a.s0.v.i.b.a;
+import d.a.s0.v.i.d.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f14133a;
+    public TbPageContext<?> f14220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f14134b = new ArrayList<>();
+    public ArrayList<a> f14221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<a2> f14135c = new ArrayList();
+    public List<b2> f14222c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14136d;
+    public String f14223d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f14137e;
+    public BdUniqueId f14224e;
 
     public FrsAlaStageLiveViewItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.f14133a = tbPageContext;
-        this.f14137e = bdUniqueId;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f14221b = new ArrayList<>();
+        this.f14222c = new ArrayList();
+        this.f14220a = tbPageContext;
+        this.f14224e = bdUniqueId;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
-        viewGroup.removeView(this.f14134b.get(i2).c());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
+            viewGroup.removeView(this.f14221b.get(i2).c());
+        }
     }
 
     public final a e() {
-        return new a(this.f14133a, this.f14137e);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.f14220a, this.f14224e) : (a) invokeV.objValue;
     }
 
-    public void f(List<a2> list, c cVar) {
+    public void f(List<b2> list, c cVar) {
         a aVar;
-        if (list == null || list.isEmpty()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, cVar) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f14135c.clear();
-        this.f14135c.addAll(list);
-        int size = this.f14134b.size();
-        int size2 = this.f14135c.size();
+        this.f14222c.clear();
+        this.f14222c.addAll(list);
+        int size = this.f14221b.size();
+        int size2 = this.f14222c.size();
         if (size > size2) {
             ArrayList arrayList = new ArrayList();
             for (int i2 = size2; i2 < size; i2++) {
-                arrayList.add(this.f14134b.get(i2));
+                arrayList.add(this.f14221b.get(i2));
             }
             for (int i3 = 0; i3 < arrayList.size(); i3++) {
                 a aVar2 = (a) arrayList.get(i3);
                 if (aVar2.c() != null && aVar2.c().getParent() != null) {
                     ((ViewGroup) aVar2.c().getParent()).removeView(aVar2.c());
                 }
-                this.f14134b.remove(aVar2);
+                this.f14221b.remove(aVar2);
             }
             arrayList.clear();
         }
         for (int i4 = 0; i4 < size2; i4++) {
             if (i4 >= size) {
                 aVar = e();
-                aVar.g(this.f14133a.getUniqueId());
+                aVar.g(this.f14220a.getUniqueId());
                 aVar.h(cVar);
-                this.f14134b.add(aVar);
+                this.f14221b.add(aVar);
             } else {
-                aVar = this.f14134b.get(i4);
+                aVar = this.f14221b.get(i4);
             }
-            if (this.f14135c.get(i4) != null && aVar != null) {
-                aVar.f(this.f14135c.get(i4), this.f14136d);
+            if (this.f14222c.get(i4) != null && aVar != null) {
+                aVar.f(this.f14222c.get(i4), this.f14223d);
             }
         }
         notifyDataSetChanged();
     }
 
     public void g(String str) {
-        this.f14136d = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f14223d = str;
+        }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return ListUtils.getCount(this.f14134b);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f14221b) : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
-        ArrayList<a> arrayList = this.f14134b;
-        if (arrayList == null) {
-            return super.instantiateItem(viewGroup, i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
+            ArrayList<a> arrayList = this.f14221b;
+            if (arrayList == null) {
+                return super.instantiateItem(viewGroup, i2);
+            }
+            a aVar = (a) ListUtils.getItem(arrayList, i2);
+            if (aVar == null) {
+                return super.instantiateItem(viewGroup, i2);
+            }
+            if (aVar.c().getParent() == null) {
+                viewGroup.addView(aVar.c(), new ViewGroup.LayoutParams(-2, -2));
+            }
+            aVar.e();
+            aVar.c().setTag(Integer.valueOf(i2));
+            return aVar.c();
         }
-        a aVar = (a) ListUtils.getItem(arrayList, i2);
-        if (aVar == null) {
-            return super.instantiateItem(viewGroup, i2);
-        }
-        if (aVar.c().getParent() == null) {
-            viewGroup.addView(aVar.c(), new ViewGroup.LayoutParams(-2, -2));
-        }
-        aVar.e();
-        aVar.c().setTag(Integer.valueOf(i2));
-        return aVar.c();
+        return invokeLI.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
     }
 }

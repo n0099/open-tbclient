@@ -1,73 +1,319 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Locale;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes6.dex */
-public enum d implements e {
-    IDENTITY { // from class: com.bytedance.sdk.openadsdk.preload.a.d.1
-        @Override // com.bytedance.sdk.openadsdk.preload.a.e
-        public String a(Field field) {
-            return field.getName();
+public abstract class d implements e {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final d f31894a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final d f31895b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final d f31896c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final d f31897d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final d f31898e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final d f31899f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final /* synthetic */ d[] f31900g;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(45358368, "Lcom/bytedance/sdk/openadsdk/preload/a/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(45358368, "Lcom/bytedance/sdk/openadsdk/preload/a/d;");
+                return;
+            }
         }
-    },
-    UPPER_CAMEL_CASE { // from class: com.bytedance.sdk.openadsdk.preload.a.d.2
-        @Override // com.bytedance.sdk.openadsdk.preload.a.e
-        public String a(Field field) {
-            return d.a(field.getName());
+        f31894a = new d("IDENTITY", 0) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r9, r10);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.preload.a.e
+            public String a(Field field) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? field.getName() : (String) invokeL.objValue;
+            }
+        };
+        f31895b = new d("UPPER_CAMEL_CASE", 1) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r9, r10);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.preload.a.e
+            public String a(Field field) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? d.a(field.getName()) : (String) invokeL.objValue;
+            }
+        };
+        f31896c = new d("UPPER_CAMEL_CASE_WITH_SPACES", 2) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r9, r10);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.preload.a.e
+            public String a(Field field) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? d.a(d.a(field.getName(), " ")) : (String) invokeL.objValue;
+            }
+        };
+        f31897d = new d("LOWER_CASE_WITH_UNDERSCORES", 3) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r9, r10);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.preload.a.e
+            public String a(Field field) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? d.a(field.getName(), "_").toLowerCase(Locale.ENGLISH) : (String) invokeL.objValue;
+            }
+        };
+        f31898e = new d("LOWER_CASE_WITH_DASHES", 4) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r9, r10);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.preload.a.e
+            public String a(Field field) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? d.a(field.getName(), "-").toLowerCase(Locale.ENGLISH) : (String) invokeL.objValue;
+            }
+        };
+        d dVar = new d("LOWER_CASE_WITH_DOTS", 5) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r9, r10);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.preload.a.e
+            public String a(Field field) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? d.a(field.getName(), ".").toLowerCase(Locale.ENGLISH) : (String) invokeL.objValue;
+            }
+        };
+        f31899f = dVar;
+        f31900g = new d[]{f31894a, f31895b, f31896c, f31897d, f31898e, dVar};
+    }
+
+    public d(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-    },
-    UPPER_CAMEL_CASE_WITH_SPACES { // from class: com.bytedance.sdk.openadsdk.preload.a.d.3
-        @Override // com.bytedance.sdk.openadsdk.preload.a.e
-        public String a(Field field) {
-            return d.a(d.a(field.getName(), " "));
-        }
-    },
-    LOWER_CASE_WITH_UNDERSCORES { // from class: com.bytedance.sdk.openadsdk.preload.a.d.4
-        @Override // com.bytedance.sdk.openadsdk.preload.a.e
-        public String a(Field field) {
-            return d.a(field.getName(), "_").toLowerCase(Locale.ENGLISH);
-        }
-    },
-    LOWER_CASE_WITH_DASHES { // from class: com.bytedance.sdk.openadsdk.preload.a.d.5
-        @Override // com.bytedance.sdk.openadsdk.preload.a.e
-        public String a(Field field) {
-            return d.a(field.getName(), "-").toLowerCase(Locale.ENGLISH);
-        }
-    },
-    LOWER_CASE_WITH_DOTS { // from class: com.bytedance.sdk.openadsdk.preload.a.d.6
-        @Override // com.bytedance.sdk.openadsdk.preload.a.e
-        public String a(Field field) {
-            return d.a(field.getName(), ".").toLowerCase(Locale.ENGLISH);
-        }
-    };
+    }
 
     public static String a(String str, String str2) {
-        StringBuilder sb = new StringBuilder();
-        int length = str.length();
-        for (int i2 = 0; i2 < length; i2++) {
-            char charAt = str.charAt(i2);
-            if (Character.isUpperCase(charAt) && sb.length() != 0) {
-                sb.append(str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int length = str.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                char charAt = str.charAt(i2);
+                if (Character.isUpperCase(charAt) && sb.length() != 0) {
+                    sb.append(str2);
+                }
+                sb.append(charAt);
             }
-            sb.append(charAt);
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeLL.objValue;
+    }
+
+    public static d valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? (d) Enum.valueOf(d.class, str) : (d) invokeL.objValue;
+    }
+
+    public static d[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (d[]) f31900g.clone() : (d[]) invokeV.objValue;
     }
 
     public static String a(String str) {
-        int length = str.length() - 1;
-        int i2 = 0;
-        while (!Character.isLetter(str.charAt(i2)) && i2 < length) {
-            i2++;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int length = str.length() - 1;
+            int i2 = 0;
+            while (!Character.isLetter(str.charAt(i2)) && i2 < length) {
+                i2++;
+            }
+            char charAt = str.charAt(i2);
+            if (Character.isUpperCase(charAt)) {
+                return str;
+            }
+            char upperCase = Character.toUpperCase(charAt);
+            if (i2 == 0) {
+                return upperCase + str.substring(1);
+            }
+            return str.substring(0, i2) + upperCase + str.substring(i2 + 1);
         }
-        char charAt = str.charAt(i2);
-        if (Character.isUpperCase(charAt)) {
-            return str;
-        }
-        char upperCase = Character.toUpperCase(charAt);
-        if (i2 == 0) {
-            return upperCase + str.substring(1);
-        }
-        return str.substring(0, i2) + upperCase + str.substring(i2 + 1);
+        return (String) invokeL.objValue;
     }
 }

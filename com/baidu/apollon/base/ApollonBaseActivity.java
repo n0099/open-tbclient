@@ -2,121 +2,207 @@ package com.baidu.apollon.base;
 
 import android.app.Activity;
 import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.NoProguard;
 import com.baidu.apollon.utils.LogUtil;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ApollonBaseActivity extends Activity implements NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3608a = "ApollonBaseActivity";
-    public static LinkedList<ApollonBaseActivity> mActivityStack = new LinkedList<>();
-    public static int mLiveActivityNum = 0;
-    public int mFlag = -1;
+    public static final String f3606a = "ApollonBaseActivity";
+    public static LinkedList<ApollonBaseActivity> mActivityStack;
+    public static int mLiveActivityNum;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int mFlag;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-989282628, "Lcom/baidu/apollon/base/ApollonBaseActivity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-989282628, "Lcom/baidu/apollon/base/ApollonBaseActivity;");
+                return;
+            }
+        }
+        mActivityStack = new LinkedList<>();
+        mLiveActivityNum = 0;
+    }
+
+    public ApollonBaseActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mFlag = -1;
+    }
 
     public static void addLiveActivityNum() {
-        mLiveActivityNum++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            mLiveActivityNum++;
+        }
     }
 
     public static synchronized void addToTask(ApollonBaseActivity apollonBaseActivity) {
-        synchronized (ApollonBaseActivity.class) {
-            mActivityStack.remove(apollonBaseActivity);
-            mActivityStack.add(apollonBaseActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, apollonBaseActivity) == null) {
+            synchronized (ApollonBaseActivity.class) {
+                mActivityStack.remove(apollonBaseActivity);
+                mActivityStack.add(apollonBaseActivity);
+            }
         }
     }
 
     public static synchronized void clearTask() {
-        synchronized (ApollonBaseActivity.class) {
-            Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
-            while (it.hasNext()) {
-                it.next().finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+            synchronized (ApollonBaseActivity.class) {
+                Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
+                while (it.hasNext()) {
+                    it.next().finish();
+                }
             }
         }
     }
 
     public static synchronized void clearTaskExcept(ApollonBaseActivity apollonBaseActivity) {
-        synchronized (ApollonBaseActivity.class) {
-            Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
-            while (it.hasNext()) {
-                ApollonBaseActivity next = it.next();
-                if (next != apollonBaseActivity) {
-                    next.finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, apollonBaseActivity) == null) {
+            synchronized (ApollonBaseActivity.class) {
+                Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
+                while (it.hasNext()) {
+                    ApollonBaseActivity next = it.next();
+                    if (next != apollonBaseActivity) {
+                        next.finish();
+                    }
                 }
             }
         }
     }
 
     public static synchronized void clearTasksTopOf(ApollonBaseActivity apollonBaseActivity) {
-        synchronized (ApollonBaseActivity.class) {
-            LogUtil.d(f3608a, "clearTasksTopOf. stack size = " + mActivityStack.size());
-            for (int size = mActivityStack.size() + (-1); size > 0; size--) {
-                ApollonBaseActivity apollonBaseActivity2 = mActivityStack.get(size);
-                if (apollonBaseActivity2 == apollonBaseActivity) {
-                    break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, apollonBaseActivity) == null) {
+            synchronized (ApollonBaseActivity.class) {
+                LogUtil.d(f3606a, "clearTasksTopOf. stack size = " + mActivityStack.size());
+                for (int size = mActivityStack.size() + (-1); size > 0; size--) {
+                    ApollonBaseActivity apollonBaseActivity2 = mActivityStack.get(size);
+                    if (apollonBaseActivity2 == apollonBaseActivity) {
+                        break;
+                    }
+                    apollonBaseActivity2.finish();
                 }
-                apollonBaseActivity2.finish();
             }
         }
     }
 
     public static synchronized void clearTasksWithFlag(int i2) {
-        synchronized (ApollonBaseActivity.class) {
-            LogUtil.d(f3608a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
-            Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
-            while (it.hasNext()) {
-                ApollonBaseActivity next = it.next();
-                if (next.mFlag == i2) {
-                    next.finish();
-                    next.overridePendingTransition(0, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, null, i2) == null) {
+            synchronized (ApollonBaseActivity.class) {
+                LogUtil.d(f3606a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
+                Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
+                while (it.hasNext()) {
+                    ApollonBaseActivity next = it.next();
+                    if (next.mFlag == i2) {
+                        next.finish();
+                        next.overridePendingTransition(0, 0);
+                    }
                 }
             }
         }
     }
 
     public static void decLiveActivityNum() {
-        mLiveActivityNum--;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            mLiveActivityNum--;
+        }
     }
 
     public static ApollonBaseActivity getTopActivity() throws Throwable {
-        return mActivityStack.getLast();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? mActivityStack.getLast() : (ApollonBaseActivity) invokeV.objValue;
     }
 
     public static boolean isAppInForeground() {
-        return mLiveActivityNum > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? mLiveActivityNum > 0 : invokeV.booleanValue;
     }
 
     public static synchronized void removeFromTask(ApollonBaseActivity apollonBaseActivity) {
-        synchronized (ApollonBaseActivity.class) {
-            mActivityStack.remove(apollonBaseActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, apollonBaseActivity) == null) {
+            synchronized (ApollonBaseActivity.class) {
+                mActivityStack.remove(apollonBaseActivity);
+            }
         }
     }
 
     public Activity getActivity() {
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        addToTask(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            addToTask(this);
+        }
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        removeFromTask(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            removeFromTask(this);
+        }
     }
 
     @Override // android.app.Activity
     public void onPause() {
-        super.onPause();
-        decLiveActivityNum();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onPause();
+            decLiveActivityNum();
+        }
     }
 
     @Override // android.app.Activity
     public void onResume() {
-        super.onResume();
-        addLiveActivityNum();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onResume();
+            addLiveActivityNum();
+        }
     }
 }

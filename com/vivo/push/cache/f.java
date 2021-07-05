@@ -3,54 +3,93 @@ package com.vivo.push.cache;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.g;
 import com.vivo.push.util.p;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class f extends d<com.vivo.push.model.a> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.vivo.push.cache.d
     public final String a() {
-        return "com.vivo.pushservice.other";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "com.vivo.pushservice.other" : (String) invokeV.objValue;
     }
 
     @Override // com.vivo.push.cache.d
     public final List<com.vivo.push.model.a> a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (String str2 : str.trim().split(com.vivo.push.cache.impl.a.SPILTE_TAG)) {
-            String trim = str2.trim();
-            String[] split = trim.trim().split(",");
-            if (split.length >= 2) {
-                try {
-                    arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
-                } catch (Exception e2) {
-                    p.d("PushConfigSettings", "str2Clients E: " + e2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (String str2 : str.trim().split(com.vivo.push.cache.impl.a.SPILTE_TAG)) {
+                String trim = str2.trim();
+                String[] split = trim.trim().split(",");
+                if (split.length >= 2) {
+                    try {
+                        arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
+                    } catch (Exception e2) {
+                        p.d("PushConfigSettings", "str2Clients E: " + e2);
+                    }
                 }
             }
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeL.objValue;
     }
 
     @Override // com.vivo.push.cache.d
     public final String b(String str) throws Exception {
-        return new String(g.a(g.a(d.f40401a), g.a(d.f40402b), Base64.decode(str, 2)), "utf-8");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new String(g.a(g.a(d.f42144a), g.a(d.f42145b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
     }
 
     public final String c(String str) {
-        synchronized (d.f40403c) {
-            for (T t : this.f40404d) {
-                if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
-                    return t.b();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (d.f42146c) {
+                for (T t : this.f42147d) {
+                    if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
+                        return t.b();
+                    }
                 }
+                return null;
             }
-            return null;
         }
+        return (String) invokeL.objValue;
     }
 }

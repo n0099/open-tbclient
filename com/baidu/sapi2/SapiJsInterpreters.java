@@ -9,6 +9,9 @@ import android.content.DialogInterface;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.DatePicker;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
@@ -47,7 +50,11 @@ import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -59,2852 +66,5987 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiJsInterpreters {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SapiJsInterpreters";
+    public transient /* synthetic */ FieldHolder $fh;
+    public SapiConfiguration configuration;
     public Context context;
+    public HashMap<String, AbstractInterpreter> interpreterHashMap;
     public SapiJsCallBacks.CallBacks jsCallBacks;
     public long preShareClickTime;
     public SapiWebView sapiWebView;
-    public HashMap<String, AbstractInterpreter> interpreterHashMap = new HashMap<>();
-    public SapiConfiguration configuration = SapiAccountManager.getInstance().getSapiConfiguration();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public abstract class AbstractInterpreter {
-        public AbstractInterpreter() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        public AbstractInterpreter(SapiJsInterpreters sapiJsInterpreters) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         public abstract String interpret(SapiWebView.Command command);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionBindWidgetPhoneNumberExist extends AbstractInterpreter {
-        public ActionBindWidgetPhoneNumberExist() {
-            super();
-        }
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
 
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            String str = command.getActionParams().get(0);
-            if (SapiJsInterpreters.this.jsCallBacks.bindWidgetCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.bindWidgetCallback.onPhoneNumberExist(str);
-                return null;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionBindWidgetPhoneNumberExist(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ActionFaceLoginSwitch extends AbstractInterpreter {
-        public ActionFaceLoginSwitch() {
-            super();
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            try {
-                String optString = new JSONObject(command.getActionParams().get(0)).optString("livinguname");
-                if (TextUtils.isEmpty(optString)) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                String str = command.getActionParams().get(0);
+                if (this.this$0.jsCallBacks.bindWidgetCallback != null) {
+                    this.this$0.jsCallBacks.bindWidgetCallback.onPhoneNumberExist(str);
                     return null;
                 }
-                new FaceLoginService().syncFaceLoginUID(SapiJsInterpreters.this.context, optString);
-                return null;
-            } catch (JSONException e2) {
-                Log.e(e2);
                 return null;
             }
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class ActionForgetPwd extends AbstractInterpreter {
-        public ActionForgetPwd() {
-            super();
-        }
+    /* loaded from: classes3.dex */
+    public class ActionFaceLoginSwitch extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
 
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            return SapiJsInterpreters.this.jsCallBacks.authorizationListener != null ? SapiJsInterpreters.this.jsCallBacks.authorizationListener.onForgetPwd() : false ? "1" : "0";
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ActionGenerateSign extends AbstractInterpreter {
-        public ActionGenerateSign() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            String str = command.getActionParams().get(0);
-            HashMap hashMap = new HashMap();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    hashMap.put(next, jSONObject.optString(next));
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionFaceLoginSwitch(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
             }
-            return SapiUtils.calculateSig(hashMap, SapiJsInterpreters.this.configuration.appSignKey);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ActionGetLoadtime extends AbstractInterpreter {
-        public ActionGetLoadtime() {
-            super();
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiWebView unused = SapiJsInterpreters.this.sapiWebView;
-            if (SapiWebView.statLoadLogin != null) {
-                SapiWebView unused2 = SapiJsInterpreters.this.sapiWebView;
-                return SapiWebView.statLoadLogin.toJSON().toString();
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ActionGetSmsCheckCodeFromClip extends AbstractInterpreter {
-        public ActionGetSmsCheckCodeFromClip() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        @TargetApi(11)
-        public String interpret(SapiWebView.Command command) {
-            String str = "";
-            try {
-                ClipboardManager clipboardManager = (ClipboardManager) SapiJsInterpreters.this.context.getSystemService("clipboard");
-                if (clipboardManager.hasPrimaryClip()) {
-                    str = SapiUtils.getSmsCheckCode(clipboardManager.getPrimaryClip().getItemAt(0).getText().toString());
-                }
-            } catch (Throwable th) {
-                Log.e(th);
-            }
-            SapiStatUtil.statSmsCodeClip(SapiJsInterpreters.this.context, TextUtils.isEmpty(str) ? "0" : "1");
-            return str;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ActionGloryLogin extends AbstractInterpreter {
-        public ActionGloryLogin() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.socialLoginHandler != null) {
-                Message message = new Message();
-                message.what = SocialType.GLORY.getType();
-                message.obj = SocialType.GLORY;
-                SapiJsInterpreters.this.jsCallBacks.socialLoginHandler.sendMessage(message);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ActionHuaweiLogin extends AbstractInterpreter {
-        public ActionHuaweiLogin() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.socialLoginHandler != null) {
-                Message message = new Message();
-                message.what = SocialType.HUAWEI.getType();
-                message.obj = SocialType.HUAWEI;
-                SapiJsInterpreters.this.jsCallBacks.socialLoginHandler.sendMessage(message);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ActionJoinLogin extends AbstractInterpreter {
-        public ActionJoinLogin() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                Object[] pkgIconAndName = SapiUtils.getPkgIconAndName(SapiJsInterpreters.this.context, SapiJsInterpreters.this.context.getPackageName());
-                jSONObject.put("icon", pkgIconAndName[0]);
-                jSONObject.put("name", pkgIconAndName[1]);
-                List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
-                Object obj = "false";
-                if (SapiJsInterpreters.this.jsCallBacks.shareAccountClickCallback != null && shareStorageModel != null && shareStorageModel.size() > 0) {
-                    jSONObject.put("openShareLogin", "true");
-                } else {
-                    jSONObject.put("openShareLogin", "false");
-                }
-                if (SapiJsInterpreters.this.jsCallBacks.joinLoginParams != null) {
-                    obj = SapiJsInterpreters.this.jsCallBacks.joinLoginParams.hasThirdAccount + "";
-                }
-                jSONObject.put("hasThirdAccount", obj);
-                jSONObject.put("supportFaceLogin", new FaceLoginService().isSupFaceLogin());
-                if (SapiJsInterpreters.this.jsCallBacks.joinLoginParams != null && SapiJsInterpreters.this.jsCallBacks.joinLoginParams.agreement != null) {
-                    JSONArray jSONArray = new JSONArray();
-                    for (String str : SapiJsInterpreters.this.jsCallBacks.joinLoginParams.agreement.keySet()) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("name", str);
-                        jSONObject2.put("url", SapiJsInterpreters.this.jsCallBacks.joinLoginParams.agreement.get(str));
-                        jSONArray.put(jSONObject2);
-                    }
-                    jSONObject.put("agreement", jSONArray);
-                }
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ActionLoadExternalWebview extends AbstractInterpreter {
-        public ActionLoadExternalWebview() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.loadExternalWebViewCallback != null) {
-                SapiWebView.LoadExternalWebViewResult loadExternalWebViewResult = new SapiWebView.LoadExternalWebViewResult();
-                loadExternalWebViewResult.defaultTitle = command.getActionParams().get(0);
-                loadExternalWebViewResult.externalUrl = command.getActionParams().get(1);
-                SapiJsInterpreters.this.jsCallBacks.loadExternalWebViewCallback.loadExternalWebview(loadExternalWebViewResult);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ActionLoadSlideWebview extends AbstractInterpreter {
-        public ActionLoadSlideWebview() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.loadSlideWebViewCallback != null) {
-                SapiWebView.LoadSlideWebViewResult loadSlideWebViewResult = new SapiWebView.LoadSlideWebViewResult();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                    loadSlideWebViewResult.placeholderTitle = jSONObject.optString("placeholderTitle");
-                    loadSlideWebViewResult.url = jSONObject.optString("url");
-                    loadSlideWebViewResult.page = jSONObject.optString("page");
-                    loadSlideWebViewResult.adapter = jSONObject.optString("adapter");
-                    SapiJsInterpreters.this.jsCallBacks.loadSlideWebViewCallback.loadSlideWebview(loadSlideWebViewResult);
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("errno", "0");
-                    return jSONObject2.toString();
+                    String optString = new JSONObject(command.getActionParams().get(0)).optString("livinguname");
+                    if (TextUtils.isEmpty(optString)) {
+                        return null;
+                    }
+                    new FaceLoginService().syncFaceLoginUID(this.this$0.context, optString);
+                    return null;
                 } catch (JSONException e2) {
                     Log.e(e2);
                     return null;
                 }
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public class ActionForgetPwd extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionForgetPwd(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                return this.this$0.jsCallBacks.authorizationListener != null ? this.this$0.jsCallBacks.authorizationListener.onForgetPwd() : false ? "1" : "0";
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ActionGenerateSign extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionGenerateSign(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                String str = command.getActionParams().get(0);
+                HashMap hashMap = new HashMap();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        hashMap.put(next, jSONObject.optString(next));
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                return SapiUtils.calculateSig(hashMap, this.this$0.configuration.appSignKey);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ActionGetLoadtime extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionGetLoadtime(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                SapiWebView unused = this.this$0.sapiWebView;
+                if (SapiWebView.statLoadLogin != null) {
+                    SapiWebView unused2 = this.this$0.sapiWebView;
+                    return SapiWebView.statLoadLogin.toJSON().toString();
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ActionGetSmsCheckCodeFromClip extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionGetSmsCheckCodeFromClip(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        @TargetApi(11)
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                String str = "";
+                try {
+                    ClipboardManager clipboardManager = (ClipboardManager) this.this$0.context.getSystemService("clipboard");
+                    if (clipboardManager.hasPrimaryClip()) {
+                        str = SapiUtils.getSmsCheckCode(clipboardManager.getPrimaryClip().getItemAt(0).getText().toString());
+                    }
+                } catch (Throwable th) {
+                    Log.e(th);
+                }
+                SapiStatUtil.statSmsCodeClip(this.this$0.context, TextUtils.isEmpty(str) ? "0" : "1");
+                return str;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ActionGloryLogin extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionGloryLogin(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    Message message = new Message();
+                    message.what = SocialType.GLORY.getType();
+                    message.obj = SocialType.GLORY;
+                    this.this$0.jsCallBacks.socialLoginHandler.sendMessage(message);
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ActionHuaweiLogin extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionHuaweiLogin(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    Message message = new Message();
+                    message.what = SocialType.HUAWEI.getType();
+                    message.obj = SocialType.HUAWEI;
+                    this.this$0.jsCallBacks.socialLoginHandler.sendMessage(message);
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ActionJoinLogin extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionJoinLogin(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    Object[] pkgIconAndName = SapiUtils.getPkgIconAndName(this.this$0.context, this.this$0.context.getPackageName());
+                    jSONObject.put("icon", pkgIconAndName[0]);
+                    jSONObject.put("name", pkgIconAndName[1]);
+                    List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
+                    Object obj = "false";
+                    if (this.this$0.jsCallBacks.shareAccountClickCallback != null && shareStorageModel != null && shareStorageModel.size() > 0) {
+                        jSONObject.put("openShareLogin", "true");
+                    } else {
+                        jSONObject.put("openShareLogin", "false");
+                    }
+                    if (this.this$0.jsCallBacks.joinLoginParams != null) {
+                        obj = this.this$0.jsCallBacks.joinLoginParams.hasThirdAccount + "";
+                    }
+                    jSONObject.put("hasThirdAccount", obj);
+                    jSONObject.put("supportFaceLogin", new FaceLoginService().isSupFaceLogin());
+                    if (this.this$0.jsCallBacks.joinLoginParams != null && this.this$0.jsCallBacks.joinLoginParams.agreement != null) {
+                        JSONArray jSONArray = new JSONArray();
+                        for (String str : this.this$0.jsCallBacks.joinLoginParams.agreement.keySet()) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            jSONObject2.put("name", str);
+                            jSONObject2.put("url", this.this$0.jsCallBacks.joinLoginParams.agreement.get(str));
+                            jSONArray.put(jSONObject2);
+                        }
+                        jSONObject.put("agreement", jSONArray);
+                    }
+                } catch (Exception e2) {
+                    Log.e(e2);
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ActionLoadExternalWebview extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionLoadExternalWebview(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.loadExternalWebViewCallback != null) {
+                    SapiWebView.LoadExternalWebViewResult loadExternalWebViewResult = new SapiWebView.LoadExternalWebViewResult();
+                    loadExternalWebViewResult.defaultTitle = command.getActionParams().get(0);
+                    loadExternalWebViewResult.externalUrl = command.getActionParams().get(1);
+                    this.this$0.jsCallBacks.loadExternalWebViewCallback.loadExternalWebview(loadExternalWebViewResult);
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ActionLoadSlideWebview extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionLoadSlideWebview(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.loadSlideWebViewCallback != null) {
+                    SapiWebView.LoadSlideWebViewResult loadSlideWebViewResult = new SapiWebView.LoadSlideWebViewResult();
+                    try {
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                        loadSlideWebViewResult.placeholderTitle = jSONObject.optString("placeholderTitle");
+                        loadSlideWebViewResult.url = jSONObject.optString("url");
+                        loadSlideWebViewResult.page = jSONObject.optString("page");
+                        loadSlideWebViewResult.adapter = jSONObject.optString("adapter");
+                        this.this$0.jsCallBacks.loadSlideWebViewCallback.loadSlideWebview(loadSlideWebViewResult);
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("errno", "0");
+                        return jSONObject2.toString();
+                    } catch (JSONException e2) {
+                        Log.e(e2);
+                        return null;
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public class ActionRemoveShareAccount extends AbstractInterpreter {
-        public ActionRemoveShareAccount() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionRemoveShareAccount(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                return null;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSetTitle extends AbstractInterpreter {
-        public ActionSetTitle() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionSetTitle(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            String str = command.getActionParams().get(0);
-            if (SapiJsInterpreters.this.jsCallBacks.webViewTitleCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.webViewTitleCallback.onTitleChange(str);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                String str = command.getActionParams().get(0);
+                if (this.this$0.jsCallBacks.webViewTitleCallback != null) {
+                    this.this$0.jsCallBacks.webViewTitleCallback.onTitleChange(str);
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareAccountsViewBtnClicked extends AbstractInterpreter {
-        public ActionShareAccountsViewBtnClicked() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionShareAccountsViewBtnClicked(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.quickLoginHandler != null) {
-                SapiJsInterpreters.this.jsCallBacks.quickLoginHandler.handleOtherLogin();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.quickLoginHandler != null) {
+                    this.this$0.jsCallBacks.quickLoginHandler.handleOtherLogin();
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareClickOther extends AbstractInterpreter {
-        public ActionShareClickOther() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionShareClickOther(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiStatUtil.statShareClickOther(command.getActionParams().get(0), SapiJsInterpreters.this.sapiWebView.extras);
-            return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                SapiStatUtil.statShareClickOther(command.getActionParams().get(0), this.this$0.sapiWebView.extras);
+                return null;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareV2Login extends AbstractInterpreter {
-        public ActionShareV2Login() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionShareV2Login(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            return SapiJsInterpreters.this.jsCallBacks.shareV2LoginParams.pageParams.toString();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) ? this.this$0.jsCallBacks.shareV2LoginParams.pageParams.toString() : (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareV2LoginClick extends AbstractInterpreter {
-        public ActionShareV2LoginClick() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionShareV2LoginClick(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.jsCallBacks.shareV2LoginParams.onSuccess();
-            return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                this.this$0.jsCallBacks.shareV2LoginParams.onSuccess();
+                return null;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareV2LoginFail extends AbstractInterpreter {
-        public ActionShareV2LoginFail() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionShareV2LoginFail(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.jsCallBacks.shareV2LoginParams.onError();
-            return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                this.this$0.jsCallBacks.shareV2LoginParams.onError();
+                return null;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialMeizuSso extends AbstractInterpreter {
-        public ActionSocialMeizuSso() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionSocialMeizuSso(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.socialLoginHandler != null) {
-                Message message = new Message();
-                message.what = SocialType.MEIZU.getType();
-                message.obj = SocialType.MEIZU;
-                SapiJsInterpreters.this.jsCallBacks.socialLoginHandler.sendMessage(message);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    Message message = new Message();
+                    message.what = SocialType.MEIZU.getType();
+                    message.obj = SocialType.MEIZU;
+                    this.this$0.jsCallBacks.socialLoginHandler.sendMessage(message);
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialQqSso extends AbstractInterpreter {
-        public ActionSocialQqSso() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionSocialQqSso(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.socialLoginHandler != null) {
-                Message message = new Message();
-                message.what = SocialType.QQ_SSO.getType();
-                message.obj = SocialType.QQ_SSO;
-                SapiJsInterpreters.this.jsCallBacks.socialLoginHandler.sendMessage(message);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    Message message = new Message();
+                    message.what = SocialType.QQ_SSO.getType();
+                    message.obj = SocialType.QQ_SSO;
+                    this.this$0.jsCallBacks.socialLoginHandler.sendMessage(message);
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialSinaSso extends AbstractInterpreter {
-        public ActionSocialSinaSso() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionSocialSinaSso(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.socialLoginHandler != null) {
-                Message message = new Message();
-                message.what = SocialType.SINA_WEIBO_SSO.getType();
-                message.obj = SocialType.SINA_WEIBO_SSO;
-                SapiJsInterpreters.this.jsCallBacks.socialLoginHandler.sendMessage(message);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    Message message = new Message();
+                    message.what = SocialType.SINA_WEIBO_SSO.getType();
+                    message.obj = SocialType.SINA_WEIBO_SSO;
+                    this.this$0.jsCallBacks.socialLoginHandler.sendMessage(message);
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialSso extends AbstractInterpreter {
-        public ActionSocialSso() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionSocialSso(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        /* JADX WARN: Code restructure failed: missing block: B:32:0x007b, code lost:
-            if (r5.equals(com.baidu.sapi2.utils.enums.FastLoginFeature.SSOLoginType.WEIXIN) != false) goto L8;
+        /* JADX WARN: Code restructure failed: missing block: B:34:0x007f, code lost:
+            if (r5.equals(com.baidu.sapi2.utils.enums.FastLoginFeature.SSOLoginType.WEIXIN) != false) goto L10;
          */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
             SocialType socialType;
-            if (SapiJsInterpreters.this.jsCallBacks.socialLoginHandler != null) {
-                char c2 = 0;
-                String str = command.getActionParams().get(0);
-                switch (str.hashCode()) {
-                    case -1519161818:
-                        break;
-                    case -1506464740:
-                        if (str.equals(FastLoginFeature.SSOLoginType.MEIZU)) {
-                            c2 = 7;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    char c2 = 0;
+                    String str = command.getActionParams().get(0);
+                    switch (str.hashCode()) {
+                        case -1519161818:
                             break;
-                        }
-                        c2 = 65535;
-                        break;
-                    case -952571024:
-                        if (str.equals(FastLoginFeature.SSOLoginType.QQ)) {
-                            c2 = 3;
+                        case -1506464740:
+                            if (str.equals(FastLoginFeature.SSOLoginType.MEIZU)) {
+                                c2 = 7;
+                                break;
+                            }
+                            c2 = 65535;
                             break;
-                        }
-                        c2 = 65535;
-                        break;
-                    case -19158255:
-                        if (str.equals(FastLoginFeature.SSOLoginType.HUAWEI)) {
-                            c2 = 4;
+                        case -952571024:
+                            if (str.equals(FastLoginFeature.SSOLoginType.QQ)) {
+                                c2 = 3;
+                                break;
+                            }
+                            c2 = 65535;
                             break;
-                        }
-                        c2 = 65535;
-                        break;
-                    case 3872:
-                        if (str.equals(FastLoginFeature.SSOLoginType.YY)) {
-                            c2 = '\b';
+                        case -19158255:
+                            if (str.equals(FastLoginFeature.SSOLoginType.HUAWEI)) {
+                                c2 = 4;
+                                break;
+                            }
+                            c2 = 65535;
                             break;
-                        }
-                        c2 = 65535;
-                        break;
-                    case 110658813:
-                        if (str.equals("tsina")) {
-                            c2 = 2;
+                        case 3872:
+                            if (str.equals(FastLoginFeature.SSOLoginType.YY)) {
+                                c2 = '\b';
+                                break;
+                            }
+                            c2 = 65535;
                             break;
-                        }
-                        c2 = 65535;
-                        break;
-                    case 738596251:
-                        if (str.equals(FastLoginFeature.SSOLoginType.HONOR)) {
-                            c2 = 5;
+                        case 110658813:
+                            if (str.equals("tsina")) {
+                                c2 = 2;
+                                break;
+                            }
+                            c2 = 65535;
                             break;
-                        }
-                        c2 = 65535;
-                        break;
-                    case 1288743885:
-                        if (str.equals(FastLoginFeature.SSOLoginType.SINA_SSO)) {
-                            c2 = 1;
+                        case 738596251:
+                            if (str.equals(FastLoginFeature.SSOLoginType.HONOR)) {
+                                c2 = 5;
+                                break;
+                            }
+                            c2 = 65535;
                             break;
-                        }
-                        c2 = 65535;
-                        break;
-                    case 1587088523:
-                        if (str.equals(FastLoginFeature.SSOLoginType.XIAOMI)) {
-                            c2 = 6;
+                        case 1288743885:
+                            if (str.equals(FastLoginFeature.SSOLoginType.SINA_SSO)) {
+                                c2 = 1;
+                                break;
+                            }
+                            c2 = 65535;
                             break;
-                        }
-                        c2 = 65535;
-                        break;
-                    default:
-                        c2 = 65535;
-                        break;
+                        case 1587088523:
+                            if (str.equals(FastLoginFeature.SSOLoginType.XIAOMI)) {
+                                c2 = 6;
+                                break;
+                            }
+                            c2 = 65535;
+                            break;
+                        default:
+                            c2 = 65535;
+                            break;
+                    }
+                    switch (c2) {
+                        case 0:
+                            socialType = SocialType.WEIXIN;
+                            break;
+                        case 1:
+                        case 2:
+                            socialType = SocialType.SINA_WEIBO_SSO;
+                            break;
+                        case 3:
+                            socialType = SocialType.QQ_SSO;
+                            break;
+                        case 4:
+                            socialType = SocialType.HUAWEI;
+                            break;
+                        case 5:
+                            socialType = SocialType.GLORY;
+                            break;
+                        case 6:
+                            socialType = SocialType.XIAOMI;
+                            break;
+                        case 7:
+                            socialType = SocialType.MEIZU;
+                            break;
+                        case '\b':
+                            socialType = SocialType.YY;
+                            break;
+                        default:
+                            socialType = null;
+                            break;
+                    }
+                    if (socialType != null) {
+                        Message message = new Message();
+                        message.what = socialType.getType();
+                        message.obj = socialType;
+                        this.this$0.jsCallBacks.socialLoginHandler.sendMessage(message);
+                    }
                 }
-                switch (c2) {
-                    case 0:
-                        socialType = SocialType.WEIXIN;
-                        break;
-                    case 1:
-                    case 2:
-                        socialType = SocialType.SINA_WEIBO_SSO;
-                        break;
-                    case 3:
-                        socialType = SocialType.QQ_SSO;
-                        break;
-                    case 4:
-                        socialType = SocialType.HUAWEI;
-                        break;
-                    case 5:
-                        socialType = SocialType.GLORY;
-                        break;
-                    case 6:
-                        socialType = SocialType.XIAOMI;
-                        break;
-                    case 7:
-                        socialType = SocialType.MEIZU;
-                        break;
-                    case '\b':
-                        socialType = SocialType.YY;
-                        break;
-                    default:
-                        socialType = null;
-                        break;
-                }
-                if (socialType != null) {
-                    Message message = new Message();
-                    message.what = socialType.getType();
-                    message.obj = socialType;
-                    SapiJsInterpreters.this.jsCallBacks.socialLoginHandler.sendMessage(message);
-                }
+                return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialWeixinSso extends AbstractInterpreter {
-        public ActionSocialWeixinSso() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionSocialWeixinSso(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.socialLoginHandler != null) {
-                Message message = new Message();
-                message.what = SocialType.WEIXIN.getType();
-                message.obj = SocialType.WEIXIN;
-                SapiJsInterpreters.this.jsCallBacks.socialLoginHandler.sendMessage(message);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    Message message = new Message();
+                    message.what = SocialType.WEIXIN.getType();
+                    message.obj = SocialType.WEIXIN;
+                    this.this$0.jsCallBacks.socialLoginHandler.sendMessage(message);
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionStopSlideWebview extends AbstractInterpreter {
-        public ActionStopSlideWebview() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionStopSlideWebview(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.stopSlideWebviewCallback != null) {
-                boolean z = false;
-                try {
-                    z = new JSONObject(command.getActionParams().get(0)).optBoolean("isStop");
-                } catch (Exception e2) {
-                    Log.e(e2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.stopSlideWebviewCallback != null) {
+                    boolean z = false;
+                    try {
+                        z = new JSONObject(command.getActionParams().get(0)).optBoolean("isStop");
+                    } catch (Exception e2) {
+                        Log.e(e2);
+                    }
+                    this.this$0.jsCallBacks.stopSlideWebviewCallback.onStopSlide(z);
+                    return null;
                 }
-                SapiJsInterpreters.this.jsCallBacks.stopSlideWebviewCallback.onStopSlide(z);
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionXiaoMiSso extends AbstractInterpreter {
-        public ActionXiaoMiSso() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionXiaoMiSso(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.socialLoginHandler != null) {
-                Message message = new Message();
-                message.what = SocialType.XIAOMI.getType();
-                message.obj = SocialType.XIAOMI;
-                SapiJsInterpreters.this.jsCallBacks.socialLoginHandler.sendMessage(message);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    Message message = new Message();
+                    message.what = SocialType.XIAOMI.getType();
+                    message.obj = SocialType.XIAOMI;
+                    this.this$0.jsCallBacks.socialLoginHandler.sendMessage(message);
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AddressManageGetPasteboard extends AbstractInterpreter {
-        public AddressManageGetPasteboard() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public AddressManageGetPasteboard(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", 0);
-                ClipboardManager clipboardManager = (ClipboardManager) SapiJsInterpreters.this.context.getSystemService("clipboard");
-                if (clipboardManager.hasPrimaryClip()) {
-                    jSONObject.put("paste", clipboardManager.getPrimaryClip().getItemAt(0).getText().toString());
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("errno", 0);
+                    ClipboardManager clipboardManager = (ClipboardManager) this.this$0.context.getSystemService("clipboard");
+                    if (clipboardManager.hasPrimaryClip()) {
+                        jSONObject.put("paste", clipboardManager.getPrimaryClip().getItemAt(0).getText().toString());
+                    }
+                } catch (Throwable th) {
+                    Log.e(th);
                 }
-            } catch (Throwable th) {
-                Log.e(th);
+                return jSONObject.toString();
             }
-            return jSONObject.toString();
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AuthorizedResponse extends AbstractInterpreter {
-        public AuthorizedResponse() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public AuthorizedResponse(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            String str = command.getActionParams().get(0);
-            int parseInt = command.getActionParams().size() >= 2 ? Integer.parseInt(command.getActionParams().get(1)) : 0;
-            String str2 = command.getActionParams().size() >= 3 ? command.getActionParams().get(2) : null;
-            if (parseInt == 1) {
-                SocialResponse parseOpenApiAuthorizedResult = SapiWebView.parseOpenApiAuthorizedResult(str, SapiJsInterpreters.this.context);
-                if (parseOpenApiAuthorizedResult == null) {
-                    if (SapiJsInterpreters.this.jsCallBacks.authorizationListener != null) {
-                        SapiJsInterpreters.this.sapiWebView.post(new Runnable() { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                if (SapiJsInterpreters.this.jsCallBacks.authorizationListener != null) {
-                                    SapiJsInterpreters.this.jsCallBacks.authorizationListener.onFailed(-100, "登录失败");
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                String str = command.getActionParams().get(0);
+                int parseInt = command.getActionParams().size() >= 2 ? Integer.parseInt(command.getActionParams().get(1)) : 0;
+                String str2 = command.getActionParams().size() >= 3 ? command.getActionParams().get(2) : null;
+                if (parseInt == 1) {
+                    SocialResponse parseOpenApiAuthorizedResult = SapiWebView.parseOpenApiAuthorizedResult(str, this.this$0.context);
+                    if (parseOpenApiAuthorizedResult == null) {
+                        if (this.this$0.jsCallBacks.authorizationListener != null) {
+                            this.this$0.sapiWebView.post(new Runnable(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ AuthorizedResponse this$1;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$1 = this;
                                 }
-                            }
-                        });
-                    }
-                } else if (parseOpenApiAuthorizedResult.offlineNotice || parseOpenApiAuthorizedResult.bindGuide || parseOpenApiAuthorizedResult.errorCode == 21 || parseOpenApiAuthorizedResult.bindConflict) {
-                    SapiJsInterpreters.this.jsCallBacks.rrLoginResponse = parseOpenApiAuthorizedResult;
-                } else {
-                    SapiJsInterpreters.this.sapiWebView.handleOpenApiAuthorizeResponse(parseOpenApiAuthorizedResult);
-                }
-            }
-            if (parseInt == 0) {
-                final SapiAccountResponse parseAuthorizedResult = SapiJsInterpreters.this.sapiWebView.parseAuthorizedResult(str, SapiJsInterpreters.this.context);
-                if (parseAuthorizedResult == null) {
-                    if (SapiJsInterpreters.this.jsCallBacks.authorizationListener != null) {
-                        SapiJsInterpreters.this.sapiWebView.post(new Runnable() { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.2
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                if (SapiJsInterpreters.this.jsCallBacks.authorizationListener != null) {
-                                    SapiJsInterpreters.this.jsCallBacks.authorizationListener.onFailed(-100, "登录失败");
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.this$0.jsCallBacks.authorizationListener == null) {
+                                        return;
+                                    }
+                                    this.this$1.this$0.jsCallBacks.authorizationListener.onFailed(-100, "登录失败");
                                 }
-                            }
-                        });
-                    }
-                } else {
-                    int i2 = parseAuthorizedResult.errorCode;
-                    if (i2 == 0 || i2 == 110000) {
-                        SapiJsInterpreters.this.sapiWebView.handleAuthorizeResponse(parseAuthorizedResult);
-                        if (SapiWebView.SWITCH_ACCOUNT_PAGE.equals(str2)) {
-                            JSONObject jSONObject = new JSONObject();
-                            try {
-                                jSONObject.put("errno", 0);
-                            } catch (JSONException e2) {
-                                Log.e(e2);
-                            }
-                            return jSONObject.toString();
+                            });
                         }
-                    } else if (SapiJsInterpreters.this.jsCallBacks.authorizationListener != null) {
-                        SapiJsInterpreters.this.sapiWebView.post(new Runnable() { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.3
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                if (SapiJsInterpreters.this.jsCallBacks.authorizationListener != null) {
-                                    AuthorizationListener authorizationListener = SapiJsInterpreters.this.jsCallBacks.authorizationListener;
-                                    SapiAccountResponse sapiAccountResponse = parseAuthorizedResult;
+                    } else if (parseOpenApiAuthorizedResult.offlineNotice || parseOpenApiAuthorizedResult.bindGuide || parseOpenApiAuthorizedResult.errorCode == 21 || parseOpenApiAuthorizedResult.bindConflict) {
+                        this.this$0.jsCallBacks.rrLoginResponse = parseOpenApiAuthorizedResult;
+                    } else {
+                        this.this$0.sapiWebView.handleOpenApiAuthorizeResponse(parseOpenApiAuthorizedResult);
+                    }
+                }
+                if (parseInt == 0) {
+                    SapiAccountResponse parseAuthorizedResult = this.this$0.sapiWebView.parseAuthorizedResult(str, this.this$0.context);
+                    if (parseAuthorizedResult == null) {
+                        if (this.this$0.jsCallBacks.authorizationListener != null) {
+                            this.this$0.sapiWebView.post(new Runnable(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.2
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ AuthorizedResponse this$1;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$1 = this;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.this$0.jsCallBacks.authorizationListener == null) {
+                                        return;
+                                    }
+                                    this.this$1.this$0.jsCallBacks.authorizationListener.onFailed(-100, "登录失败");
+                                }
+                            });
+                        }
+                    } else {
+                        int i2 = parseAuthorizedResult.errorCode;
+                        if (i2 == 0 || i2 == 110000) {
+                            this.this$0.sapiWebView.handleAuthorizeResponse(parseAuthorizedResult);
+                            if (SapiWebView.SWITCH_ACCOUNT_PAGE.equals(str2)) {
+                                JSONObject jSONObject = new JSONObject();
+                                try {
+                                    jSONObject.put("errno", 0);
+                                } catch (JSONException e2) {
+                                    Log.e(e2);
+                                }
+                                return jSONObject.toString();
+                            }
+                        } else if (this.this$0.jsCallBacks.authorizationListener != null) {
+                            this.this$0.sapiWebView.post(new Runnable(this, parseAuthorizedResult) { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.3
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ AuthorizedResponse this$1;
+                                public final /* synthetic */ SapiAccountResponse val$response;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, parseAuthorizedResult};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i3 = newInitContext.flag;
+                                        if ((i3 & 1) != 0) {
+                                            int i4 = i3 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$1 = this;
+                                    this.val$response = parseAuthorizedResult;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.this$0.jsCallBacks.authorizationListener == null) {
+                                        return;
+                                    }
+                                    AuthorizationListener authorizationListener = this.this$1.this$0.jsCallBacks.authorizationListener;
+                                    SapiAccountResponse sapiAccountResponse = this.val$response;
                                     authorizationListener.onFailed(sapiAccountResponse.errorCode, sapiAccountResponse.errorMsg);
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 }
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class Back extends AbstractInterpreter {
-        public Back() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.sapiWebView.back();
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ConfigFastloginFeatures extends AbstractInterpreter {
-        public ConfigFastloginFeatures() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            List<FastLoginFeature> fastLoginFeatureList = SapiJsInterpreters.this.jsCallBacks.localConfigCallback != null ? SapiJsInterpreters.this.jsCallBacks.localConfigCallback.getFastLoginFeatureList() : null;
-            if (fastLoginFeatureList == null) {
-                fastLoginFeatureList = SapiJsInterpreters.this.configuration.fastLoginFeatureList;
-            }
-            if (fastLoginFeatureList == null) {
                 return null;
             }
-            StringBuilder sb = new StringBuilder();
-            if (SapiContext.getInstance().isHostsHijacked()) {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class Back extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public Back(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                this.this$0.sapiWebView.back();
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ConfigFastloginFeatures extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ConfigFastloginFeatures(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                List<FastLoginFeature> fastLoginFeatureList = this.this$0.jsCallBacks.localConfigCallback != null ? this.this$0.jsCallBacks.localConfigCallback.getFastLoginFeatureList() : null;
+                if (fastLoginFeatureList == null) {
+                    fastLoginFeatureList = this.this$0.configuration.fastLoginFeatureList;
+                }
+                if (fastLoginFeatureList == null) {
+                    return null;
+                }
+                StringBuilder sb = new StringBuilder();
+                if (SapiContext.getInstance().isHostsHijacked()) {
+                    return sb.toString();
+                }
+                for (int i2 = 0; i2 < fastLoginFeatureList.size(); i2++) {
+                    FastLoginFeature fastLoginFeature = fastLoginFeatureList.get(i2);
+                    if (i2 == 0) {
+                        sb.append(fastLoginFeature.getStrValue());
+                    } else {
+                        sb.append(",");
+                        sb.append(fastLoginFeature.getStrValue());
+                    }
+                }
                 return sb.toString();
             }
-            for (int i2 = 0; i2 < fastLoginFeatureList.size(); i2++) {
-                FastLoginFeature fastLoginFeature = fastLoginFeatureList.get(i2);
-                if (i2 == 0) {
-                    sb.append(fastLoginFeature.getStrValue());
-                } else {
-                    sb.append(",");
-                    sb.append(fastLoginFeature.getStrValue());
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class ConfigLoginShareStrategy extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ConfigLoginShareStrategy(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return sb.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class ConfigLoginShareStrategy extends AbstractInterpreter {
-        public ConfigLoginShareStrategy() {
-            super();
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            return SapiJsInterpreters.this.configuration.loginShareStrategy().getStrValue();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) ? this.this$0.configuration.loginShareStrategy().getStrValue() : (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class CurrentAccountBdussExpired extends AbstractInterpreter {
-        public CurrentAccountBdussExpired() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public CurrentAccountBdussExpired(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.currentAccountBdussExpiredCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.currentAccountBdussExpiredCallback.onBdussExpired();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.currentAccountBdussExpiredCallback != null) {
+                    this.this$0.jsCallBacks.currentAccountBdussExpiredCallback.onBdussExpired();
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class CurrentPageName extends AbstractInterpreter {
-        public CurrentPageName() {
-            super();
-        }
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
 
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.getCurrentPageNameCallback != null) {
-                try {
-                    SapiJsInterpreters.this.jsCallBacks.getCurrentPageNameCallback.getCurrentPageName(new JSONObject(command.getActionParams().get(0)).optString("name"));
-                    return null;
-                } catch (Exception e2) {
-                    Log.e(e2);
-                    return null;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public CurrentPageName(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class Finish extends AbstractInterpreter {
-        public Finish() {
-            super();
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.sapiWebView.handleOpenApiAuthorizeResponse(SapiJsInterpreters.this.jsCallBacks.rrLoginResponse);
-            if (command.getActionParams().size() > 0) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.getCurrentPageNameCallback != null) {
+                    try {
+                        this.this$0.jsCallBacks.getCurrentPageNameCallback.getCurrentPageName(new JSONObject(command.getActionParams().get(0)).optString("name"));
+                        return null;
+                    } catch (Exception e2) {
+                        Log.e(e2);
+                        return null;
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class Finish extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public Finish(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                this.this$0.sapiWebView.handleOpenApiAuthorizeResponse(this.this$0.jsCallBacks.rrLoginResponse);
+                if (command.getActionParams().size() > 0) {
+                    try {
+                        this.this$0.sapiWebView.finish(new JSONObject(command.getActionParams().get(0)).optString("page"));
+                    } catch (JSONException e2) {
+                        Log.e(e2);
+                    }
+                } else {
+                    this.this$0.sapiWebView.finish();
+                }
+                if (this.this$0.jsCallBacks.webviewPageFinishCallback != null) {
+                    this.this$0.jsCallBacks.webviewPageFinishCallback.onFinish(command.getActionParams().size() > 0 ? command.getActionParams().get(0) : "");
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class FocusEdittextCoordinateY extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public FocusEdittextCoordinateY(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.focusEdittextCoordinateYCallBack != null) {
+                    try {
+                        this.this$0.jsCallBacks.focusEdittextCoordinateYCallBack.onCallback(new JSONObject(command.getActionParams().get(0)).optInt("coordinateY"));
+                        return null;
+                    } catch (Exception e2) {
+                        Log.e(e2);
+                        return null;
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class GetAllClientAccounts extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public GetAllClientAccounts(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                Log.d(ShareUtils.TAG, "GetAllClientAccounts ----- start --------");
+                SapiContext sapiContext = SapiContext.getInstance();
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    SapiJsInterpreters.this.sapiWebView.finish(new JSONObject(command.getActionParams().get(0)).optString("page"));
+                    jSONObject.put("errno", 0);
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
-            } else {
-                SapiJsInterpreters.this.sapiWebView.finish();
+                List<SapiAccount> touchidAccounts = sapiContext.getTouchidAccounts();
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    boolean z = FingerprintUtil.getFingerPrintState(this.this$0.configuration) == 0;
+                    for (SapiAccount sapiAccount : touchidAccounts) {
+                        JSONObject jSONObject2 = sapiAccount.toJSONObject();
+                        if (!TextUtils.isEmpty(sapiAccount.phone) && sapiAccount.phone.contains("http://")) {
+                            sapiAccount.phone = sapiAccount.phone.replace("http://", "https://");
+                        }
+                        jSONObject2.put("portrait", sapiAccount.phone);
+                        String str = "1";
+                        if (!z) {
+                            jSONObject2.put("touchCode", "1");
+                        } else {
+                            if (!TextUtils.isEmpty(sapiAccount.email)) {
+                                str = "0";
+                            }
+                            jSONObject2.put("touchCode", str);
+                        }
+                        jSONObject2.remove("phone");
+                        jSONObject2.remove("extra");
+                        jSONObject2.remove("app");
+                        jSONArray.put(jSONObject2);
+                    }
+                    jSONObject.put("fingerAccounts", jSONArray);
+                } catch (Exception e3) {
+                    Log.e(e3);
+                }
+                try {
+                    jSONObject.put("onekeyAccounts", new OneKeyLoginSdkCall().getEncryptPhone());
+                } catch (Exception e4) {
+                    Log.e(e4);
+                }
+                try {
+                    jSONObject.put("faceAccounts", sapiContext.getV2FaceLoginCheckResults());
+                } catch (Exception e5) {
+                    Log.e(e5);
+                }
+                try {
+                    Log.d(ShareUtils.TAG, "GetAllClientAccounts ----- share start --------");
+                    List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
+                    JSONArray jSONArray2 = ShareStorage.StorageModel.toJSONArray(shareStorageModel);
+                    if (jSONArray2 != null && jSONArray2.length() != 0) {
+                        jSONObject.put("from", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
+                        jSONObject.put("canshare2Accounts", jSONArray2);
+                        Log.d(ShareUtils.TAG, "shareV2 value=" + jSONObject.toString());
+                        SapiStatUtil.statShareV2Open(shareStorageModel, null, this.this$0.sapiWebView.extras);
+                    } else if (sapiContext.getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_SHARE_V3).meetGray) {
+                        List<String> installedApps = ShareUtils.getInstalledApps(this.this$0.configuration.context);
+                        String[] deletedShareModels = ShareUtils.getDeletedShareModels();
+                        JSONArray jSONArray3 = new JSONArray();
+                        JSONArray jSONArray4 = new JSONArray();
+                        if (installedApps != null && installedApps.size() > 0) {
+                            for (String str2 : installedApps) {
+                                jSONArray3.put(str2);
+                            }
+                        }
+                        if (deletedShareModels != null && deletedShareModels.length > 0) {
+                            for (String str3 : deletedShareModels) {
+                                jSONArray4.put(str3);
+                            }
+                        }
+                        jSONObject.put("from", ShareUtils.SHARE_ACCOUNT_CLOUND_VERSION);
+                        jSONObject.put("appList", jSONArray3);
+                        jSONObject.put("deleteAccounts", jSONArray4);
+                        jSONObject.put("currentAppPkg", this.this$0.configuration.context.getPackageName());
+                        Log.d(ShareUtils.TAG, "shareV3 value=" + jSONObject.toString());
+                    } else {
+                        Log.d(ShareUtils.TAG, "not support shareV3");
+                    }
+                } catch (Exception e6) {
+                    Log.e(e6);
+                }
+                try {
+                    jSONObject.put("recentLoginUid", sapiContext.getDecryptStr(SapiContext.KEY_LAST_LOGIN_UID));
+                    if (this.this$0.sapiWebView != null && this.this$0.sapiWebView.mExcludeTypes != null) {
+                        jSONObject.put("excludeTypes", this.this$0.sapiWebView.mExcludeTypes.getName());
+                    }
+                } catch (JSONException e7) {
+                    Log.e(e7);
+                }
+                return jSONObject.toString();
             }
-            if (SapiJsInterpreters.this.jsCallBacks.webviewPageFinishCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.webviewPageFinishCallback.onFinish(command.getActionParams().size() > 0 ? command.getActionParams().get(0) : "");
-                return null;
-            }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class FocusEdittextCoordinateY extends AbstractInterpreter {
-        public FocusEdittextCoordinateY() {
-            super();
+    /* loaded from: classes3.dex */
+    public class GetCurrentAccountInfo extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public GetCurrentAccountInfo(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.focusEdittextCoordinateYCallBack != null) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+                JSONObject jSONObject = new JSONObject();
+                if (currentAccount != null) {
+                    try {
+                        currentAccount.portrait = currentAccount.getCompletePortrait();
+                        jSONObject.put("currentAccount", currentAccount.toJSONObject());
+                        jSONObject.put("errno", 0);
+                        return jSONObject.toString();
+                    } catch (JSONException e2) {
+                        Log.e(e2);
+                        return null;
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class GetPresetPhoneNumber extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public GetPresetPhoneNumber(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.configuration.forbidPresetPhoneNumber) {
+                    return "";
+                }
+                if (SapiUtils.isValidPhoneNumber(this.this$0.configuration.presetPhoneNumber)) {
+                    return this.this$0.configuration.presetPhoneNumber;
+                }
+                String localPhoneNumber = this.this$0.sapiWebView.getLocalPhoneNumber();
+                return SapiUtils.isValidPhoneNumber(localPhoneNumber) ? localPhoneNumber : "";
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class GrantWebLogin extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public GrantWebLogin(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    SapiJsInterpreters.this.jsCallBacks.focusEdittextCoordinateYCallBack.onCallback(new JSONObject(command.getActionParams().get(0)).optInt("coordinateY"));
+                    int optInt = new JSONObject(command.getActionParams().get(0)).optInt("type");
+                    if (this.this$0.jsCallBacks.grantWebCallback != null) {
+                        this.this$0.jsCallBacks.grantWebCallback.onGrant(optInt);
+                        return null;
+                    }
                     return null;
                 } catch (Exception e2) {
                     Log.e(e2);
                     return null;
                 }
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class GetAllClientAccounts extends AbstractInterpreter {
-        public GetAllClientAccounts() {
-            super();
+    /* loaded from: classes3.dex */
+    public class InvoiceBuildSelectedInvoice extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public InvoiceBuildSelectedInvoice(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            Log.d(ShareUtils.TAG, "GetAllClientAccounts ----- start --------");
-            SapiContext sapiContext = SapiContext.getInstance();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", 0);
-            } catch (JSONException e2) {
-                Log.e(e2);
-            }
-            List<SapiAccount> touchidAccounts = sapiContext.getTouchidAccounts();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                boolean z = FingerprintUtil.getFingerPrintState(SapiJsInterpreters.this.configuration) == 0;
-                for (SapiAccount sapiAccount : touchidAccounts) {
-                    JSONObject jSONObject2 = sapiAccount.toJSONObject();
-                    if (!TextUtils.isEmpty(sapiAccount.phone) && sapiAccount.phone.contains("http://")) {
-                        sapiAccount.phone = sapiAccount.phone.replace("http://", "https://");
-                    }
-                    jSONObject2.put("portrait", sapiAccount.phone);
-                    String str = "1";
-                    if (!z) {
-                        jSONObject2.put("touchCode", "1");
-                    } else {
-                        if (!TextUtils.isEmpty(sapiAccount.email)) {
-                            str = "0";
-                        }
-                        jSONObject2.put("touchCode", str);
-                    }
-                    jSONObject2.remove("phone");
-                    jSONObject2.remove("extra");
-                    jSONObject2.remove("app");
-                    jSONArray.put(jSONObject2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.invoiceBuildCallback != null && command.getActionParams().size() > 0) {
+                    this.this$0.jsCallBacks.invoiceBuildCallback.onCallback(command.getActionParams().get(0));
                 }
-                jSONObject.put("fingerAccounts", jSONArray);
-            } catch (Exception e3) {
-                Log.e(e3);
-            }
-            try {
-                jSONObject.put("onekeyAccounts", new OneKeyLoginSdkCall().getEncryptPhone());
-            } catch (Exception e4) {
-                Log.e(e4);
-            }
-            try {
-                jSONObject.put("faceAccounts", sapiContext.getV2FaceLoginCheckResults());
-            } catch (Exception e5) {
-                Log.e(e5);
-            }
-            try {
-                Log.d(ShareUtils.TAG, "GetAllClientAccounts ----- share start --------");
-                List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
-                JSONArray jSONArray2 = ShareStorage.StorageModel.toJSONArray(shareStorageModel);
-                if (jSONArray2 != null && jSONArray2.length() != 0) {
-                    jSONObject.put("from", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
-                    jSONObject.put("canshare2Accounts", jSONArray2);
-                    Log.d(ShareUtils.TAG, "shareV2 value=" + jSONObject.toString());
-                    SapiStatUtil.statShareV2Open(shareStorageModel, null, SapiJsInterpreters.this.sapiWebView.extras);
-                } else if (sapiContext.getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_SHARE_V3).meetGray) {
-                    String[] split = sapiContext.getBaiduAppPkgList().split(",");
-                    String[] deletedShareModels = ShareUtils.getDeletedShareModels();
-                    JSONArray jSONArray3 = new JSONArray();
-                    JSONArray jSONArray4 = new JSONArray();
-                    if (split != null && split.length > 0) {
-                        for (String str2 : split) {
-                            jSONArray3.put(str2);
-                        }
-                    }
-                    if (deletedShareModels != null && deletedShareModels.length > 0) {
-                        for (String str3 : deletedShareModels) {
-                            jSONArray4.put(str3);
-                        }
-                    }
-                    jSONObject.put("from", ShareUtils.SHARE_ACCOUNT_CLOUND_VERSION);
-                    jSONObject.put("appList", jSONArray3);
-                    jSONObject.put("deleteAccounts", jSONArray4);
-                    jSONObject.put("currentAppPkg", SapiJsInterpreters.this.configuration.context.getPackageName());
-                    Log.d(ShareUtils.TAG, "shareV3 value=" + jSONObject.toString());
-                } else {
-                    Log.d(ShareUtils.TAG, "not support shareV3");
-                }
-            } catch (Exception e6) {
-                Log.e(e6);
-            }
-            try {
-                jSONObject.put("recentLoginUid", sapiContext.getDecryptStr(SapiContext.KEY_LAST_LOGIN_UID));
-                if (SapiJsInterpreters.this.sapiWebView != null && SapiJsInterpreters.this.sapiWebView.mExcludeTypes != null) {
-                    jSONObject.put("excludeTypes", SapiJsInterpreters.this.sapiWebView.mExcludeTypes.getName());
-                }
-            } catch (JSONException e7) {
-                Log.e(e7);
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class GetCurrentAccountInfo extends AbstractInterpreter {
-        public GetCurrentAccountInfo() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-            JSONObject jSONObject = new JSONObject();
-            if (currentAccount != null) {
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    currentAccount.portrait = currentAccount.getCompletePortrait();
-                    jSONObject.put("currentAccount", currentAccount.toJSONObject());
                     jSONObject.put("errno", 0);
+                } catch (JSONException unused) {
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class NormalizeGuestAccount extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public NormalizeGuestAccount(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    int optInt = jSONObject.optInt("errno");
+                    String optString = jSONObject.optString("msg");
+                    if (optInt != 0) {
+                        if (this.this$0.jsCallBacks.normalizeGuestAccountCallback != null) {
+                            this.this$0.jsCallBacks.normalizeGuestAccountCallback.onFailure(optInt, optString);
+                        }
+                    } else {
+                        boolean z = jSONObject.optInt("merge") == 1;
+                        String optString2 = jSONObject.optString("normalizeWay");
+                        SapiAccountResponse parseAuthorizedResult = this.this$0.sapiWebView.parseAuthorizedResult(jSONObject.optString("xml"), this.this$0.context);
+                        if (parseAuthorizedResult == null) {
+                            if (this.this$0.jsCallBacks.normalizeGuestAccountCallback != null) {
+                                this.this$0.jsCallBacks.normalizeGuestAccountCallback.onFailure(NormalizeGuestAccountResult.ERROR_CODE_PARSE_XML, NormalizeGuestAccountResult.ERROR_MSG_PARSE_XML);
+                            }
+                        } else {
+                            SapiAccount sapiAccountResponseToAccount = this.this$0.sapiWebView.sapiAccountResponseToAccount(parseAuthorizedResult);
+                            if (!SapiAccount.isValidAccount(sapiAccountResponseToAccount)) {
+                                this.this$0.jsCallBacks.normalizeGuestAccountCallback.onFailure(-202, "网络连接失败，请检查网络设置");
+                                return null;
+                            }
+                            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+                            if (currentAccount != null) {
+                                sapiAccountResponseToAccount.addSocialInfo(currentAccount.getSocialType(), currentAccount.getSocialPortrait(), currentAccount.getSocialNickname());
+                            }
+                            SapiAccountManager.getInstance().removeLoginAccount(currentAccount);
+                            SapiAccountManager.getInstance().validate(sapiAccountResponseToAccount);
+                            if (this.this$0.jsCallBacks.normalizeGuestAccountCallback != null) {
+                                this.this$0.jsCallBacks.normalizeGuestAccountCallback.onSuccess(z, optString2);
+                            }
+                        }
+                    }
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                    if (this.this$0.jsCallBacks.normalizeGuestAccountCallback != null) {
+                        this.this$0.jsCallBacks.normalizeGuestAccountCallback.onFailure(-202, "网络连接失败，请检查网络设置");
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class NormalizeGuestDescription extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public NormalizeGuestDescription(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("errno", 0);
+                    if (!TextUtils.isEmpty(this.this$0.jsCallBacks.normalizeGuestAccountDesc)) {
+                        jSONObject.put("description", new JSONObject(this.this$0.jsCallBacks.normalizeGuestAccountDesc));
+                    }
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class OauthCallBaidu extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public OauthCallBaidu(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.bdOauthLoginParams != null) {
+                    this.this$0.jsCallBacks.bdOauthLoginParams.callback.onCallback(command.getActionParams().get(0));
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class OauthSsoHash extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public OauthSsoHash(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                SapiAccountManager.getInstance().getAccountService().generateSsoHash(new SsoHashCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.OauthSsoHash.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ OauthSsoHash this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onSuccess(SsoHashResult ssoHashResult) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ssoHashResult) == null) {
+                            this.this$1.this$0.jsCallBacks.promptResult.confirm(ssoHashResult.ssoHash);
+                        }
+                    }
+                }, this.this$0.jsCallBacks.bdOauthLoginParams.callingPkg, this.this$0.jsCallBacks.bdOauthLoginParams.callingAppId);
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class RealNameVerifySucceed extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public RealNameVerifySucceed(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.realnameAuthenticateCallback != null) {
+                    this.this$0.jsCallBacks.realnameAuthenticateCallback.onSuccess();
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionAccountCenterFastloginFeatures extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionAccountCenterFastloginFeatures(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (this.this$0.configuration.fastLoginFeatureList == null || this.this$0.configuration.fastLoginFeatureList.isEmpty()) {
+                    return null;
+                }
+                arrayList.addAll(this.this$0.configuration.fastLoginFeatureList);
+                if (arrayList.isEmpty()) {
+                    return null;
+                }
+                arrayList.remove(FastLoginFeature.MEIZU_SSO);
+                arrayList.remove(FastLoginFeature.SINA_WEIBO_SSO);
+                arrayList.remove(FastLoginFeature.TX_QQ_SSO);
+                arrayList.remove(FastLoginFeature.HUAWEI_LOGIN);
+                arrayList.remove(FastLoginFeature.TX_WEIXIN_SSO);
+                StringBuilder sb = new StringBuilder();
+                if (SapiContext.getInstance().isHostsHijacked()) {
+                    return sb.toString();
+                }
+                for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                    FastLoginFeature fastLoginFeature = (FastLoginFeature) arrayList.get(i2);
+                    if (i2 == 0) {
+                        sb.append(fastLoginFeature.getStrValue());
+                    } else {
+                        sb.append(",");
+                        sb.append(fastLoginFeature.getStrValue());
+                    }
+                }
+                return sb.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionAccountDestroy extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionAccountDestroy(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.accountDestoryCallback != null) {
+                    this.this$0.jsCallBacks.accountDestoryCallback.onAccountDestory(new SapiWebView.AccountDestoryCallback.AccountDestoryResult());
+                }
+                this.this$0.sapiWebView.finish();
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionAccountFreeze extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionAccountFreeze(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.accountFreezeCallback != null) {
+                    this.this$0.jsCallBacks.accountFreezeCallback.onAccountFreeze(new SapiWebView.AccountFreezeCallback.AccountFreezeResult());
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionBdussChanged extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionBdussChanged(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.bdussChangeCallback != null) {
+                    this.this$0.jsCallBacks.bdussChangeCallback.onBdussChange();
+                } else {
+                    SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionBdussChanged.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ SapiActionBdussChanged this$1;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$1 = this;
+                        }
+
+                        @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
+                        public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, web2NativeLoginResult) == null) {
+                            }
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.baidu.sapi2.callback.LoginStatusAware
+                        public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, web2NativeLoginResult) == null) {
+                            }
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.baidu.sapi2.callback.SapiCallback
+                        public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048580, this, web2NativeLoginResult) == null) {
+                            }
+                        }
+
+                        @Override // com.baidu.sapi2.callback.SapiCallback
+                        public void onFinish() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
+                            }
+                        }
+
+                        @Override // com.baidu.sapi2.callback.SapiCallback
+                        public void onStart() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048582, this) == null) {
+                            }
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.baidu.sapi2.callback.SapiCallback
+                        public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, web2NativeLoginResult) == null) {
+                            }
+                        }
+                    }, true);
+                }
+                new PtokenStat().onEvent(PtokenStat.SAPI_ACTION_BDUSS_CHANGED);
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionCheckLoginStatus extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionCheckLoginStatus(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    if (this.this$0.jsCallBacks.loginStatusChangeCallback != null) {
+                        jSONObject.put("sup", true);
+                    }
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionCheckMethodSupport extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionCheckMethodSupport(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0037, code lost:
+            if (r4.this$0.configuration.supportFaceLogin != false) goto L13;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:14:0x0039, code lost:
+            r0 = true;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:26:0x0069, code lost:
+            if (r4.this$0.jsCallBacks.invokeScAppCallback != null) goto L13;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:31:0x007e, code lost:
+            if (r4.this$0.configuration.supportFaceLogin != false) goto L13;
+         */
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                boolean z2 = false;
+                String str = command.getActionParams().get(0);
+                try {
+                    Class.forName(this.this$0.interpreterNameToClassFullName(str));
+                    z = true;
+                } catch (ClassNotFoundException unused) {
+                    z = false;
+                }
+                if (str.equals("sapi_biometrics_identification_with_uid")) {
+                    if (this.this$0.jsCallBacks.bioScanFaceCallback != null) {
+                    }
+                    z = z2;
+                } else if (str.equals("sapi_biometrics_identification") || str.equals("sapi_biometrics_identification_no_bduss") || str.equals("sapi_biometrics_identification_with_authtoken")) {
+                    if (this.this$0.jsCallBacks.biometricsIdentifyCallback != null) {
+                    }
+                    z = z2;
+                } else if (str.equals("sapi_action_sc_app_check")) {
+                }
+                return z ? "1" : "0";
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionChinaMobileOauth extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionChinaMobileOauth(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                new OneKeyLoginSdkCall().getToken(this.this$0.configuration, new OneKeyLoginSdkCall.TokenListener(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionChinaMobileOauth.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiActionChinaMobileOauth this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.TokenListener
+                    public void onGetTokenComplete(JSONObject jSONObject) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                            Log.d(OneKeyLoginSdkCall.TAG, "SapiActionChinaMobileOauth onGetTokenComplete result=" + jSONObject);
+                            this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
+                        }
+                    }
+                });
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionCoverWebBduss extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionCoverWebBduss(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                String cookieBduss = SapiUtils.getCookieBduss();
+                if (this.this$0.jsCallBacks.coverWebBdussCallback != null) {
+                    this.this$0.jsCallBacks.coverWebBdussCallback.onCoverBduss(cookieBduss, new SapiWebView.CoverWebBdussResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionCoverWebBduss.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ SapiActionCoverWebBduss this$1;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$1 = this;
+                        }
+
+                        @Override // com.baidu.sapi2.SapiWebView.CoverWebBdussResult
+                        public void setWebBduss(String str) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                                this.this$1.this$0.sapiWebView.webLogin(this.this$1.this$0.context, str);
+                                this.this$1.this$0.sapiWebView.reload();
+                            }
+                        }
+                    });
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionDeliverParams extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionDeliverParams(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    String optString = jSONObject.optString("username");
+                    boolean equals = jSONObject.optString(IntentConfig.CLOSE, "0").equals("1");
+                    SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult = new SapiWebView.PreFillUserNameCallback.PreFillUserNameResult();
+                    preFillUserNameResult.userName = optString;
+                    if (this.this$0.jsCallBacks.prefillUserNameCallback != null) {
+                        this.this$0.jsCallBacks.prefillUserNameCallback.onPreFillUserName(preFillUserNameResult);
+                    }
+                    if (equals) {
+                        this.this$0.sapiWebView.finish();
+                        return null;
+                    }
+                    return null;
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionDirectedLogin extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionDirectedLogin(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("encryptedId", this.this$0.jsCallBacks.directedLoginParams.encryptedId);
+                    jSONObject.put("displayname", this.this$0.jsCallBacks.directedLoginParams.displayname);
+                    jSONObject.put("errno", 0);
+                } catch (Exception e2) {
+                    Log.e(e2);
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionGetAppTpl extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionGetAppTpl(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) ? this.this$0.configuration.getTpl() : (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionGetNaUiConfig extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String TAG;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionGetNaUiConfig(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+            this.TAG = "sapi_action_get_na_ui_config";
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("errno", "0");
+                    if (this.this$0.configuration != null) {
+                        jSONObject.put("textZoom", this.this$0.configuration.textZoom);
+                        jSONObject.put("browseModeState", this.this$0.configuration.browseModeState);
+                    } else {
+                        jSONObject.put("textZoom", 100);
+                        jSONObject.put("browseModeState", 1);
+                    }
+                    return jSONObject.toString();
+                } catch (Exception unused) {
+                    Log.e(this.TAG, "get na ui config error");
+                    return "";
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionGetSecurityZid extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionGetSecurityZid(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    int optInt = new JSONObject(command.getActionParams().get(0)).optInt(TbEnum.SystemMessage.KEY_EVENT_ID);
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("errno", "0");
+                    jSONObject.put("zid", Security.getZid(ServiceManager.getInstance().getIsAccountManager().getConfignation().context, optInt));
                     return jSONObject.toString();
                 } catch (JSONException e2) {
                     Log.e(e2);
                     return null;
                 }
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class GetPresetPhoneNumber extends AbstractInterpreter {
-        public GetPresetPhoneNumber() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.configuration.forbidPresetPhoneNumber) {
-                return "";
-            }
-            if (SapiUtils.isValidPhoneNumber(SapiJsInterpreters.this.configuration.presetPhoneNumber)) {
-                return SapiJsInterpreters.this.configuration.presetPhoneNumber;
-            }
-            String localPhoneNumber = SapiJsInterpreters.this.sapiWebView.getLocalPhoneNumber();
-            return SapiUtils.isValidPhoneNumber(localPhoneNumber) ? localPhoneNumber : "";
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class GrantWebLogin extends AbstractInterpreter {
-        public GrantWebLogin() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                int optInt = new JSONObject(command.getActionParams().get(0)).optInt("type");
-                if (SapiJsInterpreters.this.jsCallBacks.grantWebCallback != null) {
-                    SapiJsInterpreters.this.jsCallBacks.grantWebCallback.onGrant(optInt);
-                    return null;
-                }
-                return null;
-            } catch (Exception e2) {
-                Log.e(e2);
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class InvoiceBuildSelectedInvoice extends AbstractInterpreter {
-        public InvoiceBuildSelectedInvoice() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.invoiceBuildCallback != null && command.getActionParams().size() > 0) {
-                SapiJsInterpreters.this.jsCallBacks.invoiceBuildCallback.onCallback(command.getActionParams().get(0));
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", 0);
-            } catch (JSONException unused) {
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class NormalizeGuestAccount extends AbstractInterpreter {
-        public NormalizeGuestAccount() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                int optInt = jSONObject.optInt("errno");
-                String optString = jSONObject.optString("msg");
-                if (optInt != 0) {
-                    if (SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback != null) {
-                        SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback.onFailure(optInt, optString);
-                    }
-                } else {
-                    boolean z = jSONObject.optInt("merge") == 1;
-                    String optString2 = jSONObject.optString("normalizeWay");
-                    SapiAccountResponse parseAuthorizedResult = SapiJsInterpreters.this.sapiWebView.parseAuthorizedResult(jSONObject.optString("xml"), SapiJsInterpreters.this.context);
-                    if (parseAuthorizedResult == null) {
-                        if (SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback != null) {
-                            SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback.onFailure(NormalizeGuestAccountResult.ERROR_CODE_PARSE_XML, NormalizeGuestAccountResult.ERROR_MSG_PARSE_XML);
-                        }
-                    } else {
-                        SapiAccount sapiAccountResponseToAccount = SapiJsInterpreters.this.sapiWebView.sapiAccountResponseToAccount(parseAuthorizedResult);
-                        if (!SapiAccount.isValidAccount(sapiAccountResponseToAccount)) {
-                            SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback.onFailure(-202, "网络连接失败，请检查网络设置");
-                            return null;
-                        }
-                        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                        if (currentAccount != null) {
-                            sapiAccountResponseToAccount.addSocialInfo(currentAccount.getSocialType(), currentAccount.getSocialPortrait(), currentAccount.getSocialNickname());
-                        }
-                        SapiAccountManager.getInstance().removeLoginAccount(currentAccount);
-                        SapiAccountManager.getInstance().validate(sapiAccountResponseToAccount);
-                        if (SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback != null) {
-                            SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback.onSuccess(z, optString2);
-                        }
-                    }
-                }
-            } catch (JSONException e2) {
-                Log.e(e2);
-                if (SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback != null) {
-                    SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback.onFailure(-202, "网络连接失败，请检查网络设置");
-                }
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class NormalizeGuestDescription extends AbstractInterpreter {
-        public NormalizeGuestDescription() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", 0);
-                if (!TextUtils.isEmpty(SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountDesc)) {
-                    jSONObject.put("description", new JSONObject(SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountDesc));
-                }
-            } catch (JSONException e2) {
-                Log.e(e2);
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class OauthCallBaidu extends AbstractInterpreter {
-        public OauthCallBaidu() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.bdOauthLoginParams != null) {
-                SapiJsInterpreters.this.jsCallBacks.bdOauthLoginParams.callback.onCallback(command.getActionParams().get(0));
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class OauthSsoHash extends AbstractInterpreter {
-        public OauthSsoHash() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            SapiAccountManager.getInstance().getAccountService().generateSsoHash(new SsoHashCallback() { // from class: com.baidu.sapi2.SapiJsInterpreters.OauthSsoHash.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onSuccess(SsoHashResult ssoHashResult) {
-                    SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(ssoHashResult.ssoHash);
-                }
-            }, SapiJsInterpreters.this.jsCallBacks.bdOauthLoginParams.callingPkg, SapiJsInterpreters.this.jsCallBacks.bdOauthLoginParams.callingAppId);
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class RealNameVerifySucceed extends AbstractInterpreter {
-        public RealNameVerifySucceed() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.realnameAuthenticateCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.realnameAuthenticateCallback.onSuccess();
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionAccountCenterFastloginFeatures extends AbstractInterpreter {
-        public SapiActionAccountCenterFastloginFeatures() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            ArrayList arrayList = new ArrayList();
-            if (SapiJsInterpreters.this.configuration.fastLoginFeatureList == null || SapiJsInterpreters.this.configuration.fastLoginFeatureList.isEmpty()) {
-                return null;
-            }
-            arrayList.addAll(SapiJsInterpreters.this.configuration.fastLoginFeatureList);
-            if (arrayList.isEmpty()) {
-                return null;
-            }
-            arrayList.remove(FastLoginFeature.MEIZU_SSO);
-            arrayList.remove(FastLoginFeature.SINA_WEIBO_SSO);
-            arrayList.remove(FastLoginFeature.TX_QQ_SSO);
-            arrayList.remove(FastLoginFeature.HUAWEI_LOGIN);
-            arrayList.remove(FastLoginFeature.TX_WEIXIN_SSO);
-            StringBuilder sb = new StringBuilder();
-            if (SapiContext.getInstance().isHostsHijacked()) {
-                return sb.toString();
-            }
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                FastLoginFeature fastLoginFeature = (FastLoginFeature) arrayList.get(i2);
-                if (i2 == 0) {
-                    sb.append(fastLoginFeature.getStrValue());
-                } else {
-                    sb.append(",");
-                    sb.append(fastLoginFeature.getStrValue());
-                }
-            }
-            return sb.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionAccountDestroy extends AbstractInterpreter {
-        public SapiActionAccountDestroy() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.accountDestoryCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.accountDestoryCallback.onAccountDestory(new SapiWebView.AccountDestoryCallback.AccountDestoryResult());
-            }
-            SapiJsInterpreters.this.sapiWebView.finish();
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionAccountFreeze extends AbstractInterpreter {
-        public SapiActionAccountFreeze() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.accountFreezeCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.accountFreezeCallback.onAccountFreeze(new SapiWebView.AccountFreezeCallback.AccountFreezeResult());
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionBdussChanged extends AbstractInterpreter {
-        public SapiActionBdussChanged() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.bdussChangeCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.bdussChangeCallback.onBdussChange();
-            } else {
-                SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionBdussChanged.1
-                    @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
-                    public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.sapi2.callback.LoginStatusAware
-                    public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.sapi2.callback.SapiCallback
-                    public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
-                    }
-
-                    @Override // com.baidu.sapi2.callback.SapiCallback
-                    public void onFinish() {
-                    }
-
-                    @Override // com.baidu.sapi2.callback.SapiCallback
-                    public void onStart() {
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.sapi2.callback.SapiCallback
-                    public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
-                    }
-                }, true);
-            }
-            new PtokenStat().onEvent(PtokenStat.SAPI_ACTION_BDUSS_CHANGED);
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionCheckLoginStatus extends AbstractInterpreter {
-        public SapiActionCheckLoginStatus() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (SapiJsInterpreters.this.jsCallBacks.loginStatusChangeCallback != null) {
-                    jSONObject.put("sup", true);
-                }
-            } catch (JSONException e2) {
-                Log.e(e2);
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionCheckMethodSupport extends AbstractInterpreter {
-        public SapiActionCheckMethodSupport() {
-            super();
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x0032, code lost:
-            if (r4.this$0.configuration.supportFaceLogin != false) goto L11;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x0034, code lost:
-            r0 = true;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:24:0x0060, code lost:
-            if (r4.this$0.jsCallBacks.invokeScAppCallback != null) goto L11;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x0075, code lost:
-            if (r4.this$0.configuration.supportFaceLogin != false) goto L11;
-         */
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public String interpret(SapiWebView.Command command) {
-            boolean z;
-            boolean z2 = false;
-            String str = command.getActionParams().get(0);
-            try {
-                Class.forName(SapiJsInterpreters.this.interpreterNameToClassFullName(str));
-                z = true;
-            } catch (ClassNotFoundException unused) {
-                z = false;
-            }
-            if (str.equals("sapi_biometrics_identification_with_uid")) {
-                if (SapiJsInterpreters.this.jsCallBacks.bioScanFaceCallback != null) {
-                }
-                z = z2;
-            } else if (str.equals("sapi_biometrics_identification") || str.equals("sapi_biometrics_identification_no_bduss") || str.equals("sapi_biometrics_identification_with_authtoken")) {
-                if (SapiJsInterpreters.this.jsCallBacks.biometricsIdentifyCallback != null) {
-                }
-                z = z2;
-            } else if (str.equals("sapi_action_sc_app_check")) {
-            }
-            return z ? "1" : "0";
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionChinaMobileOauth extends AbstractInterpreter {
-        public SapiActionChinaMobileOauth() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            new OneKeyLoginSdkCall().getToken(SapiJsInterpreters.this.configuration, new OneKeyLoginSdkCall.TokenListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionChinaMobileOauth.1
-                @Override // com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.TokenListener
-                public void onGetTokenComplete(JSONObject jSONObject) {
-                    Log.d(OneKeyLoginSdkCall.TAG, "SapiActionChinaMobileOauth onGetTokenComplete result=" + jSONObject);
-                    SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                }
-            });
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionCoverWebBduss extends AbstractInterpreter {
-        public SapiActionCoverWebBduss() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            String cookieBduss = SapiUtils.getCookieBduss();
-            if (SapiJsInterpreters.this.jsCallBacks.coverWebBdussCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.coverWebBdussCallback.onCoverBduss(cookieBduss, new SapiWebView.CoverWebBdussResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionCoverWebBduss.1
-                    @Override // com.baidu.sapi2.SapiWebView.CoverWebBdussResult
-                    public void setWebBduss(String str) {
-                        SapiJsInterpreters.this.sapiWebView.webLogin(SapiJsInterpreters.this.context, str);
-                        SapiJsInterpreters.this.sapiWebView.reload();
-                    }
-                });
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionDeliverParams extends AbstractInterpreter {
-        public SapiActionDeliverParams() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                String optString = jSONObject.optString("username");
-                boolean equals = jSONObject.optString(IntentConfig.CLOSE, "0").equals("1");
-                SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult = new SapiWebView.PreFillUserNameCallback.PreFillUserNameResult();
-                preFillUserNameResult.userName = optString;
-                if (SapiJsInterpreters.this.jsCallBacks.prefillUserNameCallback != null) {
-                    SapiJsInterpreters.this.jsCallBacks.prefillUserNameCallback.onPreFillUserName(preFillUserNameResult);
-                }
-                if (equals) {
-                    SapiJsInterpreters.this.sapiWebView.finish();
-                    return null;
-                }
-                return null;
-            } catch (JSONException e2) {
-                Log.e(e2);
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionDirectedLogin extends AbstractInterpreter {
-        public SapiActionDirectedLogin() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("encryptedId", SapiJsInterpreters.this.jsCallBacks.directedLoginParams.encryptedId);
-                jSONObject.put("displayname", SapiJsInterpreters.this.jsCallBacks.directedLoginParams.displayname);
-                jSONObject.put("errno", 0);
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionGetAppTpl extends AbstractInterpreter {
-        public SapiActionGetAppTpl() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            return SapiJsInterpreters.this.configuration.getTpl();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionGetNaUiConfig extends AbstractInterpreter {
-        public String TAG;
-
-        public SapiActionGetNaUiConfig() {
-            super();
-            this.TAG = "sapi_action_get_na_ui_config";
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("errno", "0");
-                if (SapiJsInterpreters.this.configuration != null) {
-                    jSONObject.put("textZoom", SapiJsInterpreters.this.configuration.textZoom);
-                    jSONObject.put("browseModeState", SapiJsInterpreters.this.configuration.browseModeState);
-                } else {
-                    jSONObject.put("textZoom", 100);
-                    jSONObject.put("browseModeState", 1);
-                }
-                return jSONObject.toString();
-            } catch (Exception unused) {
-                Log.e(this.TAG, "get na ui config error");
-                return "";
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionGetSecurityZid extends AbstractInterpreter {
-        public SapiActionGetSecurityZid() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                int optInt = new JSONObject(command.getActionParams().get(0)).optInt(TbEnum.SystemMessage.KEY_EVENT_ID);
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("errno", "0");
-                jSONObject.put("zid", Security.getZid(ServiceManager.getInstance().getIsAccountManager().getConfignation().context, optInt));
-                return jSONObject.toString();
-            } catch (JSONException e2) {
-                Log.e(e2);
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionHandleBackButton extends AbstractInterpreter {
-        public SapiActionHandleBackButton() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionHandleBackButton(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.jsCallBacks.leftBtnIsVisible = Integer.parseInt(command.getActionParams().get(0));
-            if (SapiJsInterpreters.this.jsCallBacks.leftBtnVisibleCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.leftBtnVisibleCallback.onLeftBtnVisible(SapiJsInterpreters.this.jsCallBacks.leftBtnIsVisible);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                this.this$0.jsCallBacks.leftBtnIsVisible = Integer.parseInt(command.getActionParams().get(0));
+                if (this.this$0.jsCallBacks.leftBtnVisibleCallback != null) {
+                    this.this$0.jsCallBacks.leftBtnVisibleCallback.onLeftBtnVisible(this.this$0.jsCallBacks.leftBtnIsVisible);
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionHideSuccessTip extends AbstractInterpreter {
-        public SapiActionHideSuccessTip() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionHideSuccessTip(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("hideTip", SapiJsInterpreters.this.jsCallBacks.hideSuccessTip ? "1" : "0");
-                jSONObject.put("errno", 0);
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionJumpToUri extends AbstractInterpreter {
-        public SapiActionJumpToUri() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks == null) {
-                return null;
-            }
-            if (SapiJsInterpreters.this.jsCallBacks.jumpToUriCallBack == null) {
-                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-            } else {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    SapiJsInterpreters.this.jsCallBacks.jumpToUriCallBack.onJumpTo(new JSONObject(command.getActionParams().get(0)).optString("url"));
-                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("hideTip", this.this$0.jsCallBacks.hideSuccessTip ? "1" : "0");
                     jSONObject.put("errno", 0);
-                    if (SapiJsInterpreters.this.jsCallBacks.promptResult != null) {
-                        SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    if (SapiJsInterpreters.this.jsCallBacks.promptResult != null) {
-                        SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                    }
+                } catch (Exception e2) {
+                    Log.e(e2);
                 }
+                return jSONObject.toString();
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public class SapiActionJumpToUri extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionJumpToUri(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks == null) {
+                    return null;
+                }
+                if (this.this$0.jsCallBacks.jumpToUriCallBack != null) {
+                    try {
+                        this.this$0.jsCallBacks.jumpToUriCallBack.onJumpTo(new JSONObject(command.getActionParams().get(0)).optString("url"));
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("errno", 0);
+                        if (this.this$0.jsCallBacks.promptResult != null) {
+                            this.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
+                        }
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                        if (this.this$0.jsCallBacks.promptResult != null) {
+                            this.this$0.jsCallBacks.promptResult.cancel();
+                        }
+                    }
+                } else {
+                    this.this$0.jsCallBacks.promptResult.cancel();
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public class SapiActionLastLoginType extends AbstractInterpreter {
-        public SapiActionLastLoginType() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionLastLoginType(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("lastLoginType", SapiUtils.getLastLoginType());
-                jSONObject.put("errno", 0);
-            } catch (Exception e2) {
-                Log.e(e2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("lastLoginType", SapiUtils.getLastLoginType());
+                    jSONObject.put("errno", 0);
+                } catch (Exception e2) {
+                    Log.e(e2);
+                }
+                return jSONObject.toString();
             }
-            return jSONObject.toString();
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionLoginStatusChange extends AbstractInterpreter {
-        public SapiActionLoginStatusChange() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionLoginStatusChange(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.loginStatusChangeCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.loginStatusChangeCallback.onChange();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.loginStatusChangeCallback != null) {
+                    this.this$0.jsCallBacks.loginStatusChangeCallback.onChange();
+                    return null;
+                }
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionMakeVibrate extends AbstractInterpreter {
-        public SapiActionMakeVibrate() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionMakeVibrate(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.makeVibrateCallBack == null) {
-                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                JSONArray optJSONArray = jSONObject.optJSONArray("pattern");
-                int optInt = jSONObject.optInt("repeat", -1);
-                if (optJSONArray == null || optJSONArray.length() == 0) {
-                    SapiJsInterpreters.this.jsCallBacks.makeVibrateCallBack.presetVibrate();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.makeVibrateCallBack == null) {
+                    this.this$0.jsCallBacks.promptResult.cancel();
                     return null;
                 }
-                long[] jArr = new long[optJSONArray.length()];
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    jArr[i2] = optJSONArray.getLong(i2);
-                }
-                SapiJsInterpreters.this.jsCallBacks.makeVibrateCallBack.vibrate(jArr, optInt);
-                return null;
-            } catch (JSONException e2) {
-                Log.e(SapiJsInterpreters.TAG, e2.getMessage());
-                if (SapiJsInterpreters.this.jsCallBacks == null || SapiJsInterpreters.this.jsCallBacks.promptResult == null) {
-                    return null;
-                }
-                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionMiniDi extends AbstractInterpreter {
-        public SapiActionMiniDi() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                JSONArray optJSONArray = new JSONObject(command.getActionParams().get(0)).optJSONArray("di_keys");
-                if (optJSONArray == null) {
-                    return null;
-                }
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (!TextUtils.isEmpty(optJSONArray.optString(i2))) {
-                        arrayList.add(optJSONArray.optString(i2));
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    JSONArray optJSONArray = jSONObject.optJSONArray("pattern");
+                    int optInt = jSONObject.optInt(MediaAEffect.AE_ANIM_REPEAT, -1);
+                    if (optJSONArray == null || optJSONArray.length() == 0) {
+                        this.this$0.jsCallBacks.makeVibrateCallBack.presetVibrate();
+                        return null;
                     }
+                    long[] jArr = new long[optJSONArray.length()];
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        jArr[i2] = optJSONArray.getLong(i2);
+                    }
+                    this.this$0.jsCallBacks.makeVibrateCallBack.vibrate(jArr, optInt);
+                    return null;
+                } catch (JSONException e2) {
+                    Log.e(SapiJsInterpreters.TAG, e2.getMessage());
+                    if (this.this$0.jsCallBacks == null || this.this$0.jsCallBacks.promptResult == null) {
+                        return null;
+                    }
+                    this.this$0.jsCallBacks.promptResult.cancel();
+                    return null;
                 }
-                return SapiDeviceInfo.getDiCookieInfo(arrayList, false);
-            } catch (Exception e2) {
-                Log.e(e2);
-                return null;
             }
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class SapiActionPasteboardSet extends AbstractInterpreter {
-        public SapiActionPasteboardSet() {
-            super();
+    /* loaded from: classes3.dex */
+    public class SapiActionMiniDi extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionMiniDi(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                ((ClipboardManager) SapiJsInterpreters.this.context.getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("address", new JSONObject(command.getActionParams().get(0)).optString("content")));
-                jSONObject.put("errno", 0);
-                return jSONObject.toString();
-            } catch (Exception e2) {
-                Log.e(e2);
-                return jSONObject.toString();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONArray optJSONArray = new JSONObject(command.getActionParams().get(0)).optJSONArray("di_keys");
+                    if (optJSONArray == null) {
+                        return null;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    int length = optJSONArray.length();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        if (!TextUtils.isEmpty(optJSONArray.optString(i2))) {
+                            arrayList.add(optJSONArray.optString(i2));
+                        }
+                    }
+                    return SapiDeviceInfo.getDiCookieInfo(arrayList, false);
+                } catch (Exception e2) {
+                    Log.e(e2);
+                    return null;
+                }
             }
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public class SapiActionPasteboardSet extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionPasteboardSet(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    ((ClipboardManager) this.this$0.context.getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("address", new JSONObject(command.getActionParams().get(0)).optString("content")));
+                    jSONObject.put("errno", 0);
+                    return jSONObject.toString();
+                } catch (Exception e2) {
+                    Log.e(e2);
+                    return jSONObject.toString();
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public class SapiActionPickDate extends AbstractInterpreter {
-        public SapiActionPickDate() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionPickDate(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         @TargetApi(11)
         public String interpret(SapiWebView.Command command) {
-            String str = command.getActionParams().get(0);
-            Calendar calendar = Calendar.getInstance();
-            Date time = calendar.getTime();
-            try {
-                calendar.setTime(new SimpleDateFormat("yyyyMMdd").parse(str));
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
-            int i2 = calendar.get(1);
-            int i3 = calendar.get(2);
-            int i4 = calendar.get(5);
-            calendar.setTime(time);
-            int i5 = calendar.get(1);
-            int i6 = calendar.get(2);
-            int i7 = calendar.get(5);
-            DatePickerDialog datePickerDialog = new DatePickerDialog(SapiJsInterpreters.this.context, 3, new DatePickerDialog.OnDateSetListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickDate.1
-                @Override // android.app.DatePickerDialog.OnDateSetListener
-                public void onDateSet(DatePicker datePicker, int i8, int i9, int i10) {
-                    SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(i8 + String.format("%02d", Integer.valueOf(i9 + 1)) + String.format("%02d", Integer.valueOf(i10)) + "");
-                }
-            }, i2, i3, i4);
-            datePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickDate.2
-                @Override // android.content.DialogInterface.OnCancelListener
-                public void onCancel(DialogInterface dialogInterface) {
-                    SapiJsInterpreters.this.jsCallBacks.promptResult.confirm("");
-                }
-            });
-            datePickerDialog.setTitle("");
-            calendar.set(i5, i6, i7, 23, 59, 59);
-            datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
-            calendar.set(i5 - 100, i6, i7, 0, 0, 0);
-            datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
-            datePickerDialog.show();
-            datePickerDialog.setCustomTitle(null);
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionPickImage extends AbstractInterpreter {
-        public SapiActionPickImage() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            int i2 = 0;
-            try {
-                i2 = Integer.parseInt(command.getActionParams().get(0));
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
-            int i3 = 512;
-            int i4 = 1;
-            if (command.getActionParams().size() > 1) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                String str = command.getActionParams().get(0);
+                Calendar calendar = Calendar.getInstance();
+                Date time = calendar.getTime();
                 try {
-                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(1));
-                    i4 = jSONObject.optInt("sence", 1);
-                    i3 = jSONObject.optInt("size", 512);
-                } catch (JSONException e3) {
-                    Log.e(e3);
-                }
-            }
-            SapiJsInterpreters.this.jsCallBacks.pickPhotoCallback.onPickImage(i2, i4, i3, new SapiWebView.PickPhotoResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickImage.1
-                @Override // com.baidu.sapi2.SapiWebView.PickPhotoResult
-                public void setImageData(String str) {
-                    if (SapiJsInterpreters.this.jsCallBacks.promptResult != null) {
-                        SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(str);
-                    }
-                }
-            });
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionQrLogin extends AbstractInterpreter {
-        public SapiActionQrLogin() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                if (SapiJsInterpreters.this.jsCallBacks.qrLoginCallback != null) {
-                    int optInt = jSONObject.optInt("relogin", -1);
-                    if (optInt == 1) {
-                        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                        String optString = jSONObject.optString("bduss");
-                        String optString2 = jSONObject.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
-                        if (currentAccount != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                            currentAccount.bduss = optString;
-                            currentAccount.ptoken = optString2;
-                            currentAccount.deleteStokens();
-                            SapiAccountManager.getInstance().validate(currentAccount);
-                        }
-                    }
-                    SapiJsInterpreters.this.jsCallBacks.qrLoginCallback.loginStatusChange(optInt == 1);
-                }
-                if (SapiJsInterpreters.this.jsCallBacks.finishPage) {
-                    SapiJsInterpreters.this.sapiWebView.finish();
-                    return null;
-                }
-                return null;
-            } catch (Exception e2) {
-                Log.e(e2);
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionRealname extends AbstractInterpreter {
-        public SapiActionRealname() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                AccountRealNameResult accountRealNameResult = new AccountRealNameResult();
-                int optInt = jSONObject.optInt("status");
-                accountRealNameResult.callbackkey = jSONObject.optString("callbackKey");
-                if (SapiJsInterpreters.this.jsCallBacks.realNameStatusCallback != null) {
-                    if (optInt == 1) {
-                        accountRealNameResult.juniorRealNameSuc = true;
-                    } else if (optInt == 2) {
-                        accountRealNameResult.seniorRealNameSuc = true;
-                    }
-                    SapiJsInterpreters.this.jsCallBacks.realNameStatusCallback.onFinish(accountRealNameResult);
-                    return null;
-                }
-                return null;
-            } catch (JSONException e2) {
-                Log.e(e2);
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionScAppCheck extends AbstractInterpreter {
-        public SapiActionScAppCheck() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                jSONObject.optString("action");
-                String optString = jSONObject.optString("minver");
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("state", new SapiScheme().getInvokeScState(SapiJsInterpreters.this.context, optString, SapiJsInterpreters.this.jsCallBacks.invokeScAppCallback));
-                return jSONObject2.toString();
-            } catch (JSONException e2) {
-                Log.e(e2);
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionScAppInvoke extends AbstractInterpreter {
-        public SapiActionScAppInvoke() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                String optString = jSONObject.optString("action");
-                String optString2 = jSONObject.optString("minver");
-                ArrayList arrayList = new ArrayList();
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!next.equals("action")) {
-                        arrayList.add(new PassNameValuePair(next, jSONObject.optString(next)));
-                    }
-                }
-                SapiJsInterpreters.this.jsCallBacks.invokeScAppCallback.onInvokeScApp(optString, optString2, arrayList, new SapiWebView.InvokeScAppCallback.InvokeScAppResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionScAppInvoke.1
-                    @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback.InvokeScAppResult
-                    public void setInvokeResult(String str) {
-                        SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(str);
-                    }
-                });
-                return null;
-            } catch (JSONException e2) {
-                Log.e(e2);
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionSwitchAccount extends AbstractInterpreter {
-        public SapiActionSwitchAccount() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.switchAccountCallback != null) {
-                List<String> actionParams = command.getActionParams();
-                SapiWebView.SwitchAccountCallback.Result result = new SapiWebView.SwitchAccountCallback.Result();
-                if (actionParams != null && actionParams.size() > 0) {
-                    if (actionParams.size() > 1) {
-                        try {
-                            JSONObject jSONObject = new JSONObject(command.getActionParams().get(1));
-                            result.extraJson = jSONObject.optString("extrajson");
-                            result.displayName = jSONObject.optString("displayname");
-                            result.encryptedUid = jSONObject.optString("uid");
-                            result.loginType = jSONObject.optInt("type");
-                            result.switchAccountType = 2;
-                            SapiJsInterpreters.this.jsCallBacks.switchAccountCallback.onAccountSwitch(result);
-                            return null;
-                        } catch (JSONException e2) {
-                            Log.e(e2);
-                        }
-                    } else {
-                        result.userName = actionParams.get(0);
-                        result.switchAccountType = 1;
-                        SapiJsInterpreters.this.jsCallBacks.switchAccountCallback.onAccountSwitch(result);
-                        return null;
-                    }
-                }
-                result.switchAccountType = 0;
-                SapiJsInterpreters.this.jsCallBacks.switchAccountCallback.onAccountSwitch(result);
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionThirdInstalledInfo extends AbstractInterpreter {
-        public SapiActionThirdInstalledInfo() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("errno", "0");
-                JSONArray jSONArray = new JSONArray();
-                if (ThirdPartyUtil.isWeixinAvilible(SapiJsInterpreters.this.context)) {
-                    jSONArray.put(ThirdPartyUtil.TYPE_WEIXIN);
-                }
-                if (ThirdPartyUtil.isQQClientAvailable(SapiJsInterpreters.this.context)) {
-                    jSONArray.put("qzone");
-                }
-                if (ThirdPartyUtil.isSinaInstalled(SapiJsInterpreters.this.context)) {
-                    jSONArray.put("tsina");
-                }
-                jSONObject.put("types", jSONArray);
-                return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return "";
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionThirdSafetyVerification extends AbstractInterpreter {
-        public SapiActionThirdSafetyVerification() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.socialVerificationHandler == null) {
-                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                return null;
-            }
-            try {
-                SapiJsInterpreters.this.jsCallBacks.socialVerificationHandler.sendMessage(ThirdPartyUtil.getVerificationMsg(new JSONObject(command.getActionParams().get(0)).optString("type")));
-                return null;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                if (SapiJsInterpreters.this.jsCallBacks == null || SapiJsInterpreters.this.jsCallBacks.promptResult == null) {
-                    return null;
-                }
-                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionUpdateNavigator extends AbstractInterpreter {
-        public SapiActionUpdateNavigator() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            int parseInt = Integer.parseInt(command.getActionParams().get(0));
-            if (SapiJsInterpreters.this.jsCallBacks.pageStateCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.pageStateCallback.pageState(parseInt);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiActionUpsms extends AbstractInterpreter {
-        public SapiActionUpsms() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            ArrayList arrayList = new ArrayList(1);
-            arrayList.add(command.getActionParams().get(0));
-            SapiUtils.sendSms(SapiJsInterpreters.this.context, command.getActionParams().get(1), arrayList);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", "0");
-            } catch (JSONException unused) {
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiBiometricsIdentification extends AbstractInterpreter {
-        public SapiBiometricsIdentification() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult = new SapiWebView.BiometricsIdentifyResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentification.1
-                @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyResult
-                public void setIdentifyToken(String str) {
-                    if (SapiJsInterpreters.this.jsCallBacks.promptResult != null) {
-                        SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(str);
-                    }
-                }
-            };
-            biometricsIdentifyResult.biometricType = Integer.parseInt(command.getActionParams().get(0));
-            biometricsIdentifyResult.livenessRecogType = "bduss";
-            biometricsIdentifyResult.recordVideo = 0;
-            biometricsIdentifyResult.subPro = "pp";
-            if (command.getActionParams().size() > 1) {
-                biometricsIdentifyResult.recordVideo = Integer.parseInt(command.getActionParams().get(1));
-            }
-            if (command.getActionParams().size() > 2) {
-                biometricsIdentifyResult.subPro = command.getActionParams().get(2).toString();
-            }
-            if (command.getActionParams().size() > 3) {
-                try {
-                    biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(3)).optInt("hideGuidePage", 0);
-                } catch (JSONException e2) {
-                    Log.e(e2);
-                }
-            }
-            biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
-            if (SapiJsInterpreters.this.jsCallBacks.biometricsIdentifyCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.biometricsIdentifyCallback.onBiometricsIdentify(biometricsIdentifyResult);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiBiometricsIdentificationLive extends AbstractInterpreter {
-        public SapiBiometricsIdentificationLive() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.biometricsIdentificationLiveCallBack == null) {
-                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                return null;
-            }
-            try {
-                SapiJsInterpreters.this.jsCallBacks.biometricsIdentificationLiveCallBack.getLiveImage((int) (Float.parseFloat(new JSONObject(command.getActionParams().get(0)).optString("scale")) * 100.0f), new PassFaceRecogCallback() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationLive.1
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-                    public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-                        try {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("errno", 0);
-                            jSONObject.put("businessno", passFaceRecogResult.getResultCode());
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-                    public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-                        try {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("errno", 0);
-                            jSONObject.put("originalimage", passFaceRecogResult.originalImage);
-                            jSONObject.put("credentialKey", passFaceRecogResult.callbackkey);
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                        } catch (JSONException e2) {
-                            Log.e(SapiJsInterpreters.TAG, e2.getMessage());
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                        }
-                    }
-                });
-                return null;
-            } catch (JSONException e2) {
-                Log.e(SapiJsInterpreters.TAG, e2.getMessage());
-                if (SapiJsInterpreters.this.jsCallBacks == null || SapiJsInterpreters.this.jsCallBacks.promptResult == null) {
-                    return null;
-                }
-                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiBiometricsIdentificationNoBduss extends AbstractInterpreter {
-        public SapiBiometricsIdentificationNoBduss() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult = new SapiWebView.BiometricsIdentifyResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationNoBduss.1
-                @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyResult
-                public void setIdentifyToken(String str) {
-                    if (SapiJsInterpreters.this.jsCallBacks.promptResult != null) {
-                        SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(str);
-                    }
-                }
-            };
-            biometricsIdentifyResult.biometricType = Integer.parseInt(command.getActionParams().get(0));
-            biometricsIdentifyResult.livenessRecogType = "certinfo";
-            biometricsIdentifyResult.realName = command.getActionParams().get(1);
-            biometricsIdentifyResult.idCardNum = command.getActionParams().get(2);
-            biometricsIdentifyResult.recordVideo = 0;
-            biometricsIdentifyResult.phoneNum = "";
-            if (command.getActionParams().size() > 3) {
-                biometricsIdentifyResult.recordVideo = Integer.parseInt(command.getActionParams().get(3));
-            }
-            if (command.getActionParams().size() > 4) {
-                biometricsIdentifyResult.phoneNum = command.getActionParams().get(4);
-            }
-            biometricsIdentifyResult.subPro = "pp";
-            if (command.getActionParams().size() > 5) {
-                biometricsIdentifyResult.subPro = command.getActionParams().get(5);
-            }
-            if (command.getActionParams().size() > 6) {
-                try {
-                    biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(6)).optInt("hideGuidePage", 0);
-                } catch (JSONException e2) {
-                    Log.e(e2);
-                }
-            }
-            biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
-            if (SapiJsInterpreters.this.jsCallBacks.biometricsIdentifyCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.biometricsIdentifyCallback.onBiometricsIdentify(biometricsIdentifyResult);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiBiometricsIdentificationWithAuthtoken extends AbstractInterpreter {
-        public SapiBiometricsIdentificationWithAuthtoken() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult = new SapiWebView.BiometricsIdentifyResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationWithAuthtoken.1
-                @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyResult
-                public void setIdentifyToken(String str) {
-                    if (SapiJsInterpreters.this.jsCallBacks.promptResult != null) {
-                        SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(str);
-                    }
-                }
-            };
-            biometricsIdentifyResult.biometricType = Integer.parseInt(command.getActionParams().get(0));
-            biometricsIdentifyResult.livenessRecogType = "authtoken";
-            biometricsIdentifyResult.authToken = command.getActionParams().get(1);
-            biometricsIdentifyResult.recordVideo = 0;
-            biometricsIdentifyResult.subPro = "pp";
-            if (command.getActionParams().size() > 2) {
-                biometricsIdentifyResult.recordVideo = Integer.parseInt(command.getActionParams().get(2));
-            }
-            if (command.getActionParams().size() > 3) {
-                biometricsIdentifyResult.subPro = command.getActionParams().get(3).toString();
-            }
-            if (command.getActionParams().size() > 4) {
-                try {
-                    biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(4)).optInt("hideGuidePage", 0);
-                } catch (JSONException e2) {
-                    Log.e(e2);
-                }
-            }
-            biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
-            if (SapiJsInterpreters.this.jsCallBacks.biometricsIdentifyCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.biometricsIdentifyCallback.onBiometricsIdentify(biometricsIdentifyResult);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiBiometricsIdentificationWithUid extends AbstractInterpreter {
-        public SapiBiometricsIdentificationWithUid() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.bioScanFaceCallback == null) {
-                return null;
-            }
-            SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult = new SapiWebView.BioScanFaceCallback.BioScanFaceResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationWithUid.1
-                @Override // com.baidu.sapi2.SapiWebView.BioScanFaceCallback.BioScanFaceResult
-                public void setScanFaceIdentifyResult(String str) {
-                    SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(str);
-                }
-            };
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                bioScanFaceResult.uid = jSONObject.optString("uid");
-                bioScanFaceResult.type = jSONObject.optInt("type");
-                bioScanFaceResult.subpro = jSONObject.optString("subpro");
-                bioScanFaceResult.showGuidePage = 1 - jSONObject.optInt("hideGuidePage", 0);
-                if (TextUtils.isEmpty(bioScanFaceResult.subpro)) {
-                    bioScanFaceResult.subpro = "pp";
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
-                if (optJSONObject != null) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        bioScanFaceResult.transParamsMap.put(next, optJSONObject.optString(next));
-                    }
-                }
-                SapiJsInterpreters.this.jsCallBacks.bioScanFaceCallback.onBioScanFace(bioScanFaceResult);
-            } catch (JSONException e2) {
-                Log.e(e2);
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiGoBack extends AbstractInterpreter {
-        public SapiGoBack() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.sapiWebView.canGoBack()) {
-                SapiJsInterpreters.this.sapiWebView.goBack();
-                return null;
-            }
-            SapiJsInterpreters.this.sapiWebView.finish();
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiIdcardOcrImage extends AbstractInterpreter {
-        public SapiIdcardOcrImage() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.idcardOcrImageCallBack == null) {
-                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                SapiJsInterpreters.this.jsCallBacks.idcardOcrImageCallBack.getIdcardImage(jSONObject.optString("way"), jSONObject.optString("type"), new IdcardOcrImageCallback() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiIdcardOcrImage.1
-                    @Override // com.baidu.sapi2.callback.IdcardOcrImageCallback
-                    public void onFailure(IdcardOcrImageRusult idcardOcrImageRusult) {
-                        try {
-                            JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("errno", idcardOcrImageRusult.getResultCode());
-                            jSONObject2.put("errmsg", idcardOcrImageRusult.getResultMsg());
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject2.toString());
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                        }
-                    }
-
-                    @Override // com.baidu.sapi2.callback.IdcardOcrImageCallback
-                    public void onSuccess(IdcardOcrImageRusult idcardOcrImageRusult) {
-                        try {
-                            JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("errno", idcardOcrImageRusult.getResultCode());
-                            jSONObject2.put("errmsg", idcardOcrImageRusult.getResultMsg());
-                            jSONObject2.put("type", idcardOcrImageRusult.type);
-                            jSONObject2.put("image", idcardOcrImageRusult.image);
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject2.toString());
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                        }
-                    }
-                });
-                return null;
-            } catch (JSONException e2) {
-                Log.e(SapiJsInterpreters.TAG, e2.getMessage());
-                if (SapiJsInterpreters.this.jsCallBacks == null || SapiJsInterpreters.this.jsCallBacks.promptResult == null) {
-                    return null;
-                }
-                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiOnekeyOauthToken extends AbstractInterpreter {
-        public SapiOnekeyOauthToken() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            new OneKeyLoginSdkCall().getMobileOauthToken(SapiJsInterpreters.this.configuration, new OneKeyLoginSdkCall.TokenListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiOnekeyOauthToken.1
-                @Override // com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.TokenListener
-                public void onGetTokenComplete(JSONObject jSONObject) {
-                    Log.d(OneKeyLoginSdkCall.TAG, "SapiOnekeyOauthToken onGetTokenComplete result=" + jSONObject.toString());
-                    SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                }
-            });
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiRemoveLoginHistory extends AbstractInterpreter {
-        public SapiRemoveLoginHistory() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", 0);
-                JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
-                String optString = jSONObject2.optString("portraitSign");
-                if (!TextUtils.isEmpty(optString)) {
-                    SapiContext.getInstance().removeTouchidAccountByPortrait(optString);
-                }
-                JSONArray optJSONArray = jSONObject2.optJSONArray(FaceLoginService.KEY_FACE_LOGIN_LIVINGUNAMES);
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    SapiContext.getInstance().markAsDeleteFaceLogin(optJSONArray);
-                }
-                String optString2 = jSONObject2.optString("portrait");
-                if (!TextUtils.isEmpty(optString2)) {
-                    String[] split = optString2.split("/");
-                    String str = split[split.length - 1];
-                    if (str.contains(".")) {
-                        str = str.substring(0, str.lastIndexOf("."));
-                    }
-                    ShareUtils.markAsDeleteShareLogin(str);
-                }
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SapiShareAccountClick extends AbstractInterpreter {
-        public SapiShareAccountClick() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            String optString;
-            if (System.currentTimeMillis() - SapiJsInterpreters.this.preShareClickTime > 1000) {
-                SapiJsInterpreters.this.preShareClickTime = System.currentTimeMillis();
-                try {
-                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                    String optString2 = jSONObject.optString("pkg");
-                    String optString3 = jSONObject.optString("from", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
-                    if (ShareUtils.SHARE_ACCOUNT_CLOUND_VERSION.equals(optString3)) {
-                        optString = jSONObject.optString("portrait");
-                    } else {
-                        optString = jSONObject.optString("url");
-                    }
-                    String optString4 = jSONObject.optString("trace_id");
-                    String optString5 = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID);
-                    SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(ConstantHelper.LOG_FINISH);
-                    SapiJsInterpreters.this.jsCallBacks.shareAccountClickCallback.onClick(optString2, optString, optString4, optString5, optString3);
+                    calendar.setTime(new SimpleDateFormat("yyyyMMdd").parse(str));
                 } catch (Exception e2) {
                     Log.e(e2);
                 }
+                int i2 = calendar.get(1);
+                int i3 = calendar.get(2);
+                int i4 = calendar.get(5);
+                calendar.setTime(time);
+                int i5 = calendar.get(1);
+                int i6 = calendar.get(2);
+                int i7 = calendar.get(5);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(this.this$0.context, 3, new DatePickerDialog.OnDateSetListener(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickDate.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiActionPickDate this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i8 = newInitContext.flag;
+                            if ((i8 & 1) != 0) {
+                                int i9 = i8 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // android.app.DatePickerDialog.OnDateSetListener
+                    public void onDateSet(DatePicker datePicker, int i8, int i9, int i10) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, datePicker, i8, i9, i10) == null) {
+                            this.this$1.this$0.jsCallBacks.promptResult.confirm(i8 + String.format("%02d", Integer.valueOf(i9 + 1)) + String.format("%02d", Integer.valueOf(i10)) + "");
+                        }
+                    }
+                }, i2, i3, i4);
+                datePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickDate.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiActionPickDate this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i8 = newInitContext.flag;
+                            if ((i8 & 1) != 0) {
+                                int i9 = i8 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // android.content.DialogInterface.OnCancelListener
+                    public void onCancel(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            this.this$1.this$0.jsCallBacks.promptResult.confirm("");
+                        }
+                    }
+                });
+                datePickerDialog.setTitle("");
+                calendar.set(i5, i6, i7, 23, 59, 59);
+                datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+                calendar.set(i5 - 100, i6, i7, 0, 0, 0);
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                datePickerDialog.show();
+                datePickerDialog.setCustomTitle(null);
+                return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class SpeechRecognitionGetContent extends AbstractInterpreter {
-        public SpeechRecognitionGetContent() {
-            super();
+    /* loaded from: classes3.dex */
+    public class SapiActionPickImage extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionPickImage(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.jsCallBacks.speechRecognitionCallback.onSpeechRecognition(new SapiJsCallBacks.SpeechRecognitionResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SpeechRecognitionGetContent.1
-                @Override // com.baidu.sapi2.SapiJsCallBacks.SpeechRecognitionResult
-                public void setSpeechData(int i2, String str) {
-                    if (SapiJsInterpreters.this.jsCallBacks.promptResult != null) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                int i2 = 0;
+                try {
+                    i2 = Integer.parseInt(command.getActionParams().get(0));
+                } catch (Exception e2) {
+                    Log.e(e2);
+                }
+                int i3 = 512;
+                int i4 = 1;
+                if (command.getActionParams().size() > 1) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(1));
+                        i4 = jSONObject.optInt("sence", 1);
+                        i3 = jSONObject.optInt("size", 512);
+                    } catch (JSONException e3) {
+                        Log.e(e3);
+                    }
+                }
+                this.this$0.jsCallBacks.pickPhotoCallback.onPickImage(i2, i4, i3, new SapiWebView.PickPhotoResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickImage.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiActionPickImage this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i5 = newInitContext.flag;
+                            if ((i5 & 1) != 0) {
+                                int i6 = i5 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // com.baidu.sapi2.SapiWebView.PickPhotoResult
+                    public void setImageData(String str) {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || this.this$1.this$0.jsCallBacks.promptResult == null) {
+                            return;
+                        }
+                        this.this$1.this$0.jsCallBacks.promptResult.confirm(str);
+                    }
+                });
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionQrLogin extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionQrLogin(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    if (this.this$0.jsCallBacks.qrLoginCallback != null) {
+                        int optInt = jSONObject.optInt("relogin", -1);
+                        if (optInt == 1) {
+                            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+                            String optString = jSONObject.optString("bduss");
+                            String optString2 = jSONObject.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
+                            if (currentAccount != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                                currentAccount.bduss = optString;
+                                currentAccount.ptoken = optString2;
+                                currentAccount.deleteStokens();
+                                SapiAccountManager.getInstance().validate(currentAccount);
+                            }
+                        }
+                        this.this$0.jsCallBacks.qrLoginCallback.loginStatusChange(optInt == 1);
+                    }
+                    if (this.this$0.jsCallBacks.finishPage) {
+                        this.this$0.sapiWebView.finish();
+                        return null;
+                    }
+                    return null;
+                } catch (Exception e2) {
+                    Log.e(e2);
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionRealname extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionRealname(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    AccountRealNameResult accountRealNameResult = new AccountRealNameResult();
+                    int optInt = jSONObject.optInt("status");
+                    accountRealNameResult.callbackkey = jSONObject.optString("callbackKey");
+                    if (this.this$0.jsCallBacks.realNameStatusCallback != null) {
+                        if (optInt == 1) {
+                            accountRealNameResult.juniorRealNameSuc = true;
+                        } else if (optInt == 2) {
+                            accountRealNameResult.seniorRealNameSuc = true;
+                        }
+                        this.this$0.jsCallBacks.realNameStatusCallback.onFinish(accountRealNameResult);
+                        return null;
+                    }
+                    return null;
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionScAppCheck extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionScAppCheck(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    jSONObject.optString("action");
+                    String optString = jSONObject.optString("minver");
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("state", new SapiScheme().getInvokeScState(this.this$0.context, optString, this.this$0.jsCallBacks.invokeScAppCallback));
+                    return jSONObject2.toString();
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionScAppInvoke extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionScAppInvoke(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    String optString = jSONObject.optString("action");
+                    String optString2 = jSONObject.optString("minver");
+                    ArrayList arrayList = new ArrayList();
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!next.equals("action")) {
+                            arrayList.add(new PassNameValuePair(next, jSONObject.optString(next)));
+                        }
+                    }
+                    this.this$0.jsCallBacks.invokeScAppCallback.onInvokeScApp(optString, optString2, arrayList, new SapiWebView.InvokeScAppCallback.InvokeScAppResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionScAppInvoke.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ SapiActionScAppInvoke this$1;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$1 = this;
+                        }
+
+                        @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback.InvokeScAppResult
+                        public void setInvokeResult(String str) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                                this.this$1.this$0.jsCallBacks.promptResult.confirm(str);
+                            }
+                        }
+                    });
+                    return null;
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionSwitchAccount extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionSwitchAccount(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.switchAccountCallback != null) {
+                    List<String> actionParams = command.getActionParams();
+                    SapiWebView.SwitchAccountCallback.Result result = new SapiWebView.SwitchAccountCallback.Result();
+                    if (actionParams != null && actionParams.size() > 0) {
+                        if (actionParams.size() > 1) {
+                            try {
+                                JSONObject jSONObject = new JSONObject(command.getActionParams().get(1));
+                                result.extraJson = jSONObject.optString("extrajson");
+                                result.displayName = jSONObject.optString("displayname");
+                                result.encryptedUid = jSONObject.optString("uid");
+                                result.loginType = jSONObject.optInt("type");
+                                result.switchAccountType = 2;
+                                this.this$0.jsCallBacks.switchAccountCallback.onAccountSwitch(result);
+                                return null;
+                            } catch (JSONException e2) {
+                                Log.e(e2);
+                            }
+                        } else {
+                            result.userName = actionParams.get(0);
+                            result.switchAccountType = 1;
+                            this.this$0.jsCallBacks.switchAccountCallback.onAccountSwitch(result);
+                            return null;
+                        }
+                    }
+                    result.switchAccountType = 0;
+                    this.this$0.jsCallBacks.switchAccountCallback.onAccountSwitch(result);
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionThirdInstalledInfo extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionThirdInstalledInfo(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("errno", "0");
+                    JSONArray jSONArray = new JSONArray();
+                    if (ThirdPartyUtil.isWeixinAvilible(this.this$0.context)) {
+                        jSONArray.put(ThirdPartyUtil.TYPE_WEIXIN);
+                    }
+                    if (ThirdPartyUtil.isQQClientAvailable(this.this$0.context)) {
+                        jSONArray.put("qzone");
+                    }
+                    if (ThirdPartyUtil.isSinaInstalled(this.this$0.context)) {
+                        jSONArray.put("tsina");
+                    }
+                    jSONObject.put("types", jSONArray);
+                    return jSONObject.toString();
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    return "";
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionThirdSafetyVerification extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionThirdSafetyVerification(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.socialVerificationHandler != null) {
+                    try {
+                        this.this$0.jsCallBacks.socialVerificationHandler.sendMessage(ThirdPartyUtil.getVerificationMsg(new JSONObject(command.getActionParams().get(0)).optString("type")));
+                        return null;
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                        if (this.this$0.jsCallBacks == null || this.this$0.jsCallBacks.promptResult == null) {
+                            return null;
+                        }
+                        this.this$0.jsCallBacks.promptResult.cancel();
+                        return null;
+                    }
+                }
+                this.this$0.jsCallBacks.promptResult.cancel();
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionUpdateNavigator extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionUpdateNavigator(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                int parseInt = Integer.parseInt(command.getActionParams().get(0));
+                if (this.this$0.jsCallBacks.pageStateCallback != null) {
+                    this.this$0.jsCallBacks.pageStateCallback.pageState(parseInt);
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiActionUpsms extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionUpsms(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                ArrayList arrayList = new ArrayList(1);
+                arrayList.add(command.getActionParams().get(0));
+                SapiUtils.sendSms(this.this$0.context, command.getActionParams().get(1), arrayList);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("errno", "0");
+                } catch (JSONException unused) {
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiBiometricsIdentification extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiBiometricsIdentification(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult = new SapiWebView.BiometricsIdentifyResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentification.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiBiometricsIdentification this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyResult
+                    public void setIdentifyToken(String str) {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || this.this$1.this$0.jsCallBacks.promptResult == null) {
+                            return;
+                        }
+                        this.this$1.this$0.jsCallBacks.promptResult.confirm(str);
+                    }
+                };
+                biometricsIdentifyResult.biometricType = Integer.parseInt(command.getActionParams().get(0));
+                biometricsIdentifyResult.livenessRecogType = "bduss";
+                biometricsIdentifyResult.recordVideo = 0;
+                biometricsIdentifyResult.subPro = "pp";
+                if (command.getActionParams().size() > 1) {
+                    biometricsIdentifyResult.recordVideo = Integer.parseInt(command.getActionParams().get(1));
+                }
+                if (command.getActionParams().size() > 2) {
+                    biometricsIdentifyResult.subPro = command.getActionParams().get(2).toString();
+                }
+                if (command.getActionParams().size() > 3) {
+                    try {
+                        biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(3)).optInt("hideGuidePage", 0);
+                    } catch (JSONException e2) {
+                        Log.e(e2);
+                    }
+                }
+                biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
+                if (this.this$0.jsCallBacks.biometricsIdentifyCallback != null) {
+                    this.this$0.jsCallBacks.biometricsIdentifyCallback.onBiometricsIdentify(biometricsIdentifyResult);
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiBiometricsIdentificationLive extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiBiometricsIdentificationLive(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.biometricsIdentificationLiveCallBack == null) {
+                    this.this$0.jsCallBacks.promptResult.cancel();
+                    return null;
+                }
+                try {
+                    this.this$0.jsCallBacks.biometricsIdentificationLiveCallBack.getLiveImage((int) (Float.parseFloat(new JSONObject(command.getActionParams().get(0)).optString("scale")) * 100.0f), new PassFaceRecogCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationLive.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ SapiBiometricsIdentificationLive this$1;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$1 = this;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+                        public void onFailure(PassFaceRecogResult passFaceRecogResult) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
+                                try {
+                                    JSONObject jSONObject = new JSONObject();
+                                    jSONObject.put("errno", 0);
+                                    jSONObject.put("businessno", passFaceRecogResult.getResultCode());
+                                    this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                    this.this$1.this$0.jsCallBacks.promptResult.cancel();
+                                }
+                            }
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+                        public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048579, this, passFaceRecogResult) == null) {
+                                try {
+                                    JSONObject jSONObject = new JSONObject();
+                                    jSONObject.put("errno", 0);
+                                    jSONObject.put("originalimage", passFaceRecogResult.originalImage);
+                                    jSONObject.put("credentialKey", passFaceRecogResult.callbackkey);
+                                    this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
+                                } catch (JSONException e2) {
+                                    Log.e(SapiJsInterpreters.TAG, e2.getMessage());
+                                    this.this$1.this$0.jsCallBacks.promptResult.cancel();
+                                }
+                            }
+                        }
+                    });
+                    return null;
+                } catch (JSONException e2) {
+                    Log.e(SapiJsInterpreters.TAG, e2.getMessage());
+                    if (this.this$0.jsCallBacks == null || this.this$0.jsCallBacks.promptResult == null) {
+                        return null;
+                    }
+                    this.this$0.jsCallBacks.promptResult.cancel();
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiBiometricsIdentificationNoBduss extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiBiometricsIdentificationNoBduss(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult = new SapiWebView.BiometricsIdentifyResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationNoBduss.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiBiometricsIdentificationNoBduss this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyResult
+                    public void setIdentifyToken(String str) {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || this.this$1.this$0.jsCallBacks.promptResult == null) {
+                            return;
+                        }
+                        this.this$1.this$0.jsCallBacks.promptResult.confirm(str);
+                    }
+                };
+                biometricsIdentifyResult.biometricType = Integer.parseInt(command.getActionParams().get(0));
+                biometricsIdentifyResult.livenessRecogType = "certinfo";
+                biometricsIdentifyResult.realName = command.getActionParams().get(1);
+                biometricsIdentifyResult.idCardNum = command.getActionParams().get(2);
+                biometricsIdentifyResult.recordVideo = 0;
+                biometricsIdentifyResult.phoneNum = "";
+                if (command.getActionParams().size() > 3) {
+                    biometricsIdentifyResult.recordVideo = Integer.parseInt(command.getActionParams().get(3));
+                }
+                if (command.getActionParams().size() > 4) {
+                    biometricsIdentifyResult.phoneNum = command.getActionParams().get(4);
+                }
+                biometricsIdentifyResult.subPro = "pp";
+                if (command.getActionParams().size() > 5) {
+                    biometricsIdentifyResult.subPro = command.getActionParams().get(5);
+                }
+                if (command.getActionParams().size() > 6) {
+                    try {
+                        biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(6)).optInt("hideGuidePage", 0);
+                    } catch (JSONException e2) {
+                        Log.e(e2);
+                    }
+                }
+                biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
+                if (this.this$0.jsCallBacks.biometricsIdentifyCallback != null) {
+                    this.this$0.jsCallBacks.biometricsIdentifyCallback.onBiometricsIdentify(biometricsIdentifyResult);
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiBiometricsIdentificationWithAuthtoken extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiBiometricsIdentificationWithAuthtoken(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult = new SapiWebView.BiometricsIdentifyResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationWithAuthtoken.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiBiometricsIdentificationWithAuthtoken this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyResult
+                    public void setIdentifyToken(String str) {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || this.this$1.this$0.jsCallBacks.promptResult == null) {
+                            return;
+                        }
+                        this.this$1.this$0.jsCallBacks.promptResult.confirm(str);
+                    }
+                };
+                biometricsIdentifyResult.biometricType = Integer.parseInt(command.getActionParams().get(0));
+                biometricsIdentifyResult.livenessRecogType = "authtoken";
+                biometricsIdentifyResult.authToken = command.getActionParams().get(1);
+                biometricsIdentifyResult.recordVideo = 0;
+                biometricsIdentifyResult.subPro = "pp";
+                if (command.getActionParams().size() > 2) {
+                    biometricsIdentifyResult.recordVideo = Integer.parseInt(command.getActionParams().get(2));
+                }
+                if (command.getActionParams().size() > 3) {
+                    biometricsIdentifyResult.subPro = command.getActionParams().get(3).toString();
+                }
+                if (command.getActionParams().size() > 4) {
+                    try {
+                        biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(4)).optInt("hideGuidePage", 0);
+                    } catch (JSONException e2) {
+                        Log.e(e2);
+                    }
+                }
+                biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
+                if (this.this$0.jsCallBacks.biometricsIdentifyCallback != null) {
+                    this.this$0.jsCallBacks.biometricsIdentifyCallback.onBiometricsIdentify(biometricsIdentifyResult);
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiBiometricsIdentificationWithUid extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiBiometricsIdentificationWithUid(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.bioScanFaceCallback == null) {
+                    return null;
+                }
+                SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult = new SapiWebView.BioScanFaceCallback.BioScanFaceResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationWithUid.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiBiometricsIdentificationWithUid this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // com.baidu.sapi2.SapiWebView.BioScanFaceCallback.BioScanFaceResult
+                    public void setScanFaceIdentifyResult(String str) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                            this.this$1.this$0.jsCallBacks.promptResult.confirm(str);
+                        }
+                    }
+                };
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    bioScanFaceResult.uid = jSONObject.optString("uid");
+                    bioScanFaceResult.type = jSONObject.optInt("type");
+                    bioScanFaceResult.subpro = jSONObject.optString("subpro");
+                    bioScanFaceResult.showGuidePage = 1 - jSONObject.optInt("hideGuidePage", 0);
+                    if (TextUtils.isEmpty(bioScanFaceResult.subpro)) {
+                        bioScanFaceResult.subpro = "pp";
+                    }
+                    JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
+                    if (optJSONObject != null) {
+                        Iterator<String> keys = optJSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            bioScanFaceResult.transParamsMap.put(next, optJSONObject.optString(next));
+                        }
+                    }
+                    this.this$0.jsCallBacks.bioScanFaceCallback.onBioScanFace(bioScanFaceResult);
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiGoBack extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiGoBack(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.sapiWebView.canGoBack()) {
+                    this.this$0.sapiWebView.goBack();
+                    return null;
+                }
+                this.this$0.sapiWebView.finish();
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiIdcardOcrImage extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiIdcardOcrImage(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.idcardOcrImageCallBack == null) {
+                    this.this$0.jsCallBacks.promptResult.cancel();
+                    return null;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    this.this$0.jsCallBacks.idcardOcrImageCallBack.getIdcardImage(jSONObject.optString("way"), jSONObject.optString("type"), new IdcardOcrImageCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiIdcardOcrImage.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ SapiIdcardOcrImage this$1;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$1 = this;
+                        }
+
+                        @Override // com.baidu.sapi2.callback.IdcardOcrImageCallback
+                        public void onFailure(IdcardOcrImageRusult idcardOcrImageRusult) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, idcardOcrImageRusult) == null) {
+                                try {
+                                    JSONObject jSONObject2 = new JSONObject();
+                                    jSONObject2.put("errno", idcardOcrImageRusult.getResultCode());
+                                    jSONObject2.put("errmsg", idcardOcrImageRusult.getResultMsg());
+                                    this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject2.toString());
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                    this.this$1.this$0.jsCallBacks.promptResult.cancel();
+                                }
+                            }
+                        }
+
+                        @Override // com.baidu.sapi2.callback.IdcardOcrImageCallback
+                        public void onSuccess(IdcardOcrImageRusult idcardOcrImageRusult) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, idcardOcrImageRusult) == null) {
+                                try {
+                                    JSONObject jSONObject2 = new JSONObject();
+                                    jSONObject2.put("errno", idcardOcrImageRusult.getResultCode());
+                                    jSONObject2.put("errmsg", idcardOcrImageRusult.getResultMsg());
+                                    jSONObject2.put("type", idcardOcrImageRusult.type);
+                                    jSONObject2.put("image", idcardOcrImageRusult.image);
+                                    this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject2.toString());
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                    this.this$1.this$0.jsCallBacks.promptResult.cancel();
+                                }
+                            }
+                        }
+                    });
+                    return null;
+                } catch (JSONException e2) {
+                    Log.e(SapiJsInterpreters.TAG, e2.getMessage());
+                    if (this.this$0.jsCallBacks == null || this.this$0.jsCallBacks.promptResult == null) {
+                        return null;
+                    }
+                    this.this$0.jsCallBacks.promptResult.cancel();
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiOnekeyOauthToken extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiOnekeyOauthToken(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                new OneKeyLoginSdkCall().getMobileOauthToken(this.this$0.configuration, new OneKeyLoginSdkCall.TokenListener(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiOnekeyOauthToken.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiOnekeyOauthToken this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.TokenListener
+                    public void onGetTokenComplete(JSONObject jSONObject) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                            Log.d(OneKeyLoginSdkCall.TAG, "SapiOnekeyOauthToken onGetTokenComplete result=" + jSONObject.toString());
+                            this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
+                        }
+                    }
+                });
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiRemoveLoginHistory extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiRemoveLoginHistory(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("errno", 0);
+                    JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
+                    String optString = jSONObject2.optString("portraitSign");
+                    if (!TextUtils.isEmpty(optString)) {
+                        SapiContext.getInstance().removeTouchidAccountByPortrait(optString);
+                    }
+                    JSONArray optJSONArray = jSONObject2.optJSONArray(FaceLoginService.KEY_FACE_LOGIN_LIVINGUNAMES);
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        SapiContext.getInstance().markAsDeleteFaceLogin(optJSONArray);
+                    }
+                    String optString2 = jSONObject2.optString("portrait");
+                    if (!TextUtils.isEmpty(optString2)) {
+                        String[] split = optString2.split("/");
+                        String str = split[split.length - 1];
+                        if (str.contains(".")) {
+                            str = str.substring(0, str.lastIndexOf("."));
+                        }
+                        ShareUtils.markAsDeleteShareLogin(str);
+                    }
+                } catch (Exception e2) {
+                    Log.e(e2);
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SapiShareAccountClick extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiShareAccountClick(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            String optString;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (System.currentTimeMillis() - this.this$0.preShareClickTime > 1000) {
+                    this.this$0.preShareClickTime = System.currentTimeMillis();
+                    try {
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                        String optString2 = jSONObject.optString("pkg");
+                        String optString3 = jSONObject.optString("from", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
+                        if (ShareUtils.SHARE_ACCOUNT_CLOUND_VERSION.equals(optString3)) {
+                            optString = jSONObject.optString("portrait");
+                        } else {
+                            optString = jSONObject.optString("url");
+                        }
+                        String optString4 = jSONObject.optString("trace_id");
+                        String optString5 = jSONObject.optString("session_id");
+                        this.this$0.jsCallBacks.promptResult.confirm(ConstantHelper.LOG_FINISH);
+                        this.this$0.jsCallBacks.shareAccountClickCallback.onClick(optString2, optString, optString4, optString5, optString3);
+                    } catch (Exception e2) {
+                        Log.e(e2);
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SpeechRecognitionGetContent extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SpeechRecognitionGetContent(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                this.this$0.jsCallBacks.speechRecognitionCallback.onSpeechRecognition(new SapiJsCallBacks.SpeechRecognitionResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SpeechRecognitionGetContent.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SpeechRecognitionGetContent this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // com.baidu.sapi2.SapiJsCallBacks.SpeechRecognitionResult
+                    public void setSpeechData(int i2, String str) {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.this$1.this$0.jsCallBacks.promptResult == null) {
+                            return;
+                        }
                         try {
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("errno", i2);
                             jSONObject.put("text", str);
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
+                            this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
                         } catch (JSONException e2) {
                             Log.e(e2);
                         }
                     }
-                }
-            });
-            return null;
+                });
+                return null;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SwitchAccountGetAccounts extends AbstractInterpreter {
-        public SwitchAccountGetAccounts() {
-            super();
-        }
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
 
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            List<SapiAccount> arrayList = new ArrayList<>();
-            if (SapiJsInterpreters.this.configuration.supportMultipleAccounts) {
-                arrayList = SapiContext.getInstance().getLoginAccounts();
-            } else {
-                arrayList.add(SapiContext.getInstance().getCurrentAccount());
-            }
-            JSONArray jSONArray = new JSONArray();
-            try {
-                for (SapiAccount sapiAccount : arrayList) {
-                    JSONObject jSONObject2 = sapiAccount.toJSONObject();
-                    jSONObject2.put("portrait", sapiAccount.getCompletePortrait());
-                    jSONArray.put(jSONObject2);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SwitchAccountGetAccounts(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                jSONObject.put("errno", 0);
-                jSONObject.put("accountList", jSONArray);
-            } catch (JSONException e2) {
-                Log.e(e2);
             }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SwitchAccountGetConfig extends AbstractInterpreter {
-        public SwitchAccountGetConfig() {
-            super();
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", 0);
-                jSONObject.put("showSwitchAccount", SapiJsInterpreters.this.sapiWebView.showSwitchAccount ? 1 : 0);
-                jSONObject.put("showLinkAccount", SapiJsInterpreters.this.sapiWebView.showLinkAccount ? 1 : 0);
-            } catch (JSONException e2) {
-                Log.e(e2);
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SwitchAccountRemoveAccount extends AbstractInterpreter {
-        public SwitchAccountRemoveAccount() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                String optString = new JSONObject(command.getActionParams().get(0)).optString("uid");
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                List<SapiAccount> arrayList = new ArrayList<>();
+                if (this.this$0.configuration.supportMultipleAccounts) {
+                    arrayList = SapiContext.getInstance().getLoginAccounts();
+                } else {
+                    arrayList.add(SapiContext.getInstance().getCurrentAccount());
                 }
-                for (SapiAccount sapiAccount : SapiContext.getInstance().getLoginAccounts()) {
-                    if (optString.equals(sapiAccount.uid)) {
-                        SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
-                        jSONObject.put("errno", 0);
-                        return jSONObject.toString();
-                    }
-                }
-                return null;
-            } catch (Exception e2) {
-                Log.e(e2);
-                return null;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class SwitchStyleForCloseBtnAndStatusBar extends AbstractInterpreter {
-        public SwitchStyleForCloseBtnAndStatusBar() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.jsCallBacks.mSwitchStyleForCloseBtnAndStatusBarCallBack != null) {
+                JSONArray jSONArray = new JSONArray();
                 try {
-                    SapiJsInterpreters.this.jsCallBacks.mSwitchStyleForCloseBtnAndStatusBarCallBack.switchStyle(new JSONObject(command.getActionParams().get(0)).optString("styleType"));
+                    for (SapiAccount sapiAccount : arrayList) {
+                        JSONObject jSONObject2 = sapiAccount.toJSONObject();
+                        jSONObject2.put("portrait", sapiAccount.getCompletePortrait());
+                        jSONArray.put(jSONObject2);
+                    }
+                    jSONObject.put("errno", 0);
+                    jSONObject.put("accountList", jSONArray);
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SwitchAccountGetConfig extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SwitchAccountGetConfig(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("errno", 0);
+                    jSONObject.put("showSwitchAccount", this.this$0.sapiWebView.showSwitchAccount ? 1 : 0);
+                    jSONObject.put("showLinkAccount", this.this$0.sapiWebView.showLinkAccount ? 1 : 0);
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class SwitchAccountRemoveAccount extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SwitchAccountRemoveAccount(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    String optString = new JSONObject(command.getActionParams().get(0)).optString("uid");
+                    if (TextUtils.isEmpty(optString)) {
+                        return null;
+                    }
+                    for (SapiAccount sapiAccount : SapiContext.getInstance().getLoginAccounts()) {
+                        if (optString.equals(sapiAccount.uid)) {
+                            SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
+                            jSONObject.put("errno", 0);
+                            return jSONObject.toString();
+                        }
+                    }
                     return null;
                 } catch (Exception e2) {
                     Log.e(e2);
                     return null;
                 }
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class TouchidChangeStatus extends AbstractInterpreter {
-        public TouchidChangeStatus() {
-            super();
+    /* loaded from: classes3.dex */
+    public class SwitchStyleForCloseBtnAndStatusBar extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SwitchStyleForCloseBtnAndStatusBar(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:16:0x0052  */
-        /* JADX WARN: Removed duplicated region for block: B:20:0x006f  */
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks.mSwitchStyleForCloseBtnAndStatusBarCallBack != null) {
+                    try {
+                        this.this$0.jsCallBacks.mSwitchStyleForCloseBtnAndStatusBarCallBack.switchStyle(new JSONObject(command.getActionParams().get(0)).optString("styleType"));
+                        return null;
+                    } catch (Exception e2) {
+                        Log.e(e2);
+                        return null;
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class TouchidChangeStatus extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public TouchidChangeStatus(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:18:0x0056  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0073  */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
             String str;
             String str2;
             String str3;
-            final JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", 0);
-                jSONObject.put("status", 0);
-                JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
-                str = jSONObject2.optString("handle");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    str2 = jSONObject2.optString("portrait");
+                    jSONObject.put("errno", 0);
+                    jSONObject.put("status", 0);
+                    JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
+                    str = jSONObject2.optString("handle");
                     try {
-                        str3 = jSONObject2.optString("portraitSign");
-                    } catch (JSONException e2) {
-                        e = e2;
-                        Log.e(e);
-                        str3 = null;
-                        final SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                        currentAccount.phone = str2;
-                        if (!"open".equals(str)) {
+                        str2 = jSONObject2.optString("portrait");
+                        try {
+                            str3 = jSONObject2.optString("portraitSign");
+                        } catch (JSONException e2) {
+                            e = e2;
+                            Log.e(e);
+                            str3 = null;
+                            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+                            currentAccount.phone = str2;
+                            if (!"open".equals(str)) {
+                            }
                         }
+                    } catch (JSONException e3) {
+                        e = e3;
+                        str2 = null;
                     }
-                } catch (JSONException e3) {
-                    e = e3;
+                } catch (JSONException e4) {
+                    e = e4;
+                    str = null;
                     str2 = null;
                 }
-            } catch (JSONException e4) {
-                e = e4;
-                str = null;
-                str2 = null;
-            }
-            final SapiAccount currentAccount2 = SapiContext.getInstance().getCurrentAccount();
-            currentAccount2.phone = str2;
-            if (!"open".equals(str)) {
-                currentAccount2.email = str3;
-                SapiJsCallBacks.FingerprintResult fingerprintResult = new SapiJsCallBacks.FingerprintResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.TouchidChangeStatus.1
-                    @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintResult
-                    public void setResult(int i2) {
-                        try {
-                            jSONObject.put("status", i2);
-                            if (i2 == 0) {
-                                SapiContext.getInstance().addTouchidAccounts(currentAccount2);
+                SapiAccount currentAccount2 = SapiContext.getInstance().getCurrentAccount();
+                currentAccount2.phone = str2;
+                if (!"open".equals(str)) {
+                    currentAccount2.email = str3;
+                    SapiJsCallBacks.FingerprintResult fingerprintResult = new SapiJsCallBacks.FingerprintResult(this, jSONObject, currentAccount2) { // from class: com.baidu.sapi2.SapiJsInterpreters.TouchidChangeStatus.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ TouchidChangeStatus this$1;
+                        public final /* synthetic */ SapiAccount val$currentAccount;
+                        public final /* synthetic */ JSONObject val$json;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, jSONObject, currentAccount2};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
                             }
-                            SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                        } catch (Exception e5) {
-                            Log.e(e5);
+                            this.this$1 = this;
+                            this.val$json = jSONObject;
+                            this.val$currentAccount = currentAccount2;
                         }
+
+                        @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintResult
+                        public void setResult(int i2) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                                try {
+                                    this.val$json.put("status", i2);
+                                    if (i2 == 0) {
+                                        SapiContext.getInstance().addTouchidAccounts(this.val$currentAccount);
+                                    }
+                                    this.this$1.this$0.jsCallBacks.promptResult.confirm(this.val$json.toString());
+                                } catch (Exception e5) {
+                                    Log.e(e5);
+                                }
+                            }
+                        }
+                    };
+                    if (this.this$0.jsCallBacks.fingerprintCallback != null) {
+                        this.this$0.jsCallBacks.fingerprintCallback.onCallback(fingerprintResult);
                     }
-                };
-                if (SapiJsInterpreters.this.jsCallBacks.fingerprintCallback != null) {
-                    SapiJsInterpreters.this.jsCallBacks.fingerprintCallback.onCallback(fingerprintResult);
+                    return null;
                 }
+                currentAccount2.email = "";
+                SapiContext.getInstance().addTouchidAccounts(currentAccount2);
+                this.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
                 return null;
             }
-            currentAccount2.email = "";
-            SapiContext.getInstance().addTouchidAccounts(currentAccount2);
-            SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TouchidCheckGuideStatus extends AbstractInterpreter {
-        public TouchidCheckGuideStatus() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public TouchidCheckGuideStatus(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
             boolean z;
             String str;
-            JSONObject jSONObject = new JSONObject();
-            try {
-                String optString = new JSONObject(command.getActionParams().get(0)).optString("portraitSign");
-                int fingerPrintState = FingerprintUtil.getFingerPrintState(SapiJsInterpreters.this.configuration);
-                boolean contains = SapiContext.getInstance().getTouchidLoginRecord().contains(optString);
-                List<SapiAccount> touchidAccounts = SapiContext.getInstance().getTouchidAccounts();
-                if (touchidAccounts != null) {
-                    for (SapiAccount sapiAccount : touchidAccounts) {
-                        if (sapiAccount != null && sapiAccount.email != null && sapiAccount.email.equals(optString)) {
-                            z = true;
-                            break;
-                        }
-                    }
-                }
-                z = false;
-                int i2 = (fingerPrintState != 0 || TextUtils.isEmpty(optString) || contains) ? 0 : 1;
-                if (!SapiJsInterpreters.this.sapiWebView.supportTouchGuide) {
-                    i2 = 0;
-                }
-                if (z) {
-                    i2 = 0;
-                }
-                jSONObject.put("errno", 0);
-                jSONObject.put(AuthoritySharedPreferences.KEY_CONFIG_FIRSTSHOT_GUIDE, i2);
-                if (TextUtils.isEmpty(optString)) {
-                    str = "100";
-                } else if (fingerPrintState == 101 || fingerPrintState == 102) {
-                    str = fingerPrintState + "";
-                } else if (contains) {
-                    str = "103";
-                } else if (!SapiJsInterpreters.this.sapiWebView.supportTouchGuide) {
-                    str = TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT;
-                } else if (z) {
-                    str = TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP;
-                } else {
-                    str = fingerPrintState + "";
-                }
-                LinkedHashMap linkedHashMap = new LinkedHashMap(1);
-                linkedHashMap.put("native_guide_finger", str);
-                StatService.onEventAutoStatistic(linkedHashMap);
-                if (i2 == 1) {
-                    SapiContext.getInstance().addTouchidLoginRecord(optString);
-                }
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
-            return jSONObject.toString();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class TouchidGetStatus extends AbstractInterpreter {
-        public TouchidGetStatus() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            boolean z;
-            JSONObject jSONObject = new JSONObject();
-            try {
-                int i2 = 1;
-                if (FingerprintUtil.getFingerPrintState(SapiJsInterpreters.this.configuration) == 0) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    String optString = new JSONObject(command.getActionParams().get(0)).optString("portraitSign");
+                    int fingerPrintState = FingerprintUtil.getFingerPrintState(this.this$0.configuration);
+                    boolean contains = SapiContext.getInstance().getTouchidLoginRecord().contains(optString);
                     List<SapiAccount> touchidAccounts = SapiContext.getInstance().getTouchidAccounts();
-                    SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                    Iterator<SapiAccount> it = touchidAccounts.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            z = false;
-                            break;
-                        }
-                        SapiAccount next = it.next();
-                        if (next.equals(currentAccount) && !TextUtils.isEmpty(next.email)) {
-                            z = true;
-                            break;
+                    if (touchidAccounts != null) {
+                        for (SapiAccount sapiAccount : touchidAccounts) {
+                            if (sapiAccount != null && sapiAccount.email != null && sapiAccount.email.equals(optString)) {
+                                z = true;
+                                break;
+                            }
                         }
                     }
-                    if (!z) {
-                        i2 = 2;
+                    z = false;
+                    int i2 = (fingerPrintState != 0 || TextUtils.isEmpty(optString) || contains) ? 0 : 1;
+                    if (!this.this$0.sapiWebView.supportTouchGuide) {
+                        i2 = 0;
                     }
-                } else {
-                    i2 = 0;
+                    if (z) {
+                        i2 = 0;
+                    }
+                    jSONObject.put("errno", 0);
+                    jSONObject.put(AuthoritySharedPreferences.KEY_CONFIG_FIRSTSHOT_GUIDE, i2);
+                    if (TextUtils.isEmpty(optString)) {
+                        str = "100";
+                    } else if (fingerPrintState == 101 || fingerPrintState == 102) {
+                        str = fingerPrintState + "";
+                    } else if (contains) {
+                        str = "103";
+                    } else if (!this.this$0.sapiWebView.supportTouchGuide) {
+                        str = TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT;
+                    } else if (z) {
+                        str = TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP;
+                    } else {
+                        str = fingerPrintState + "";
+                    }
+                    LinkedHashMap linkedHashMap = new LinkedHashMap(1);
+                    linkedHashMap.put("native_guide_finger", str);
+                    StatService.onEventAutoStatistic(linkedHashMap);
+                    if (i2 == 1) {
+                        SapiContext.getInstance().addTouchidLoginRecord(optString);
+                    }
+                } catch (Exception e2) {
+                    Log.e(e2);
                 }
-                jSONObject.put("errno", 0);
-                jSONObject.put("status", i2);
-            } catch (Exception e2) {
-                Log.e(e2);
+                return jSONObject.toString();
             }
-            return jSONObject.toString();
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class TouchidLogin extends AbstractInterpreter {
-        public TouchidLogin() {
-            super();
+    /* loaded from: classes3.dex */
+    public class TouchidGetStatus extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public TouchidGetStatus(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsCallBacks.FingerprintResult fingerprintResult = new SapiJsCallBacks.FingerprintResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.TouchidLogin.1
-                @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintResult
-                public void setResult(int i2) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("errno", 0);
-                        jSONObject.put("status", i2);
-                        SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                    } catch (Exception e2) {
-                        Log.e(e2);
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    int i2 = 1;
+                    if (FingerprintUtil.getFingerPrintState(this.this$0.configuration) == 0) {
+                        List<SapiAccount> touchidAccounts = SapiContext.getInstance().getTouchidAccounts();
+                        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+                        Iterator<SapiAccount> it = touchidAccounts.iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                z = false;
+                                break;
+                            }
+                            SapiAccount next = it.next();
+                            if (next.equals(currentAccount) && !TextUtils.isEmpty(next.email)) {
+                                z = true;
+                                break;
+                            }
+                        }
+                        if (!z) {
+                            i2 = 2;
+                        }
+                    } else {
+                        i2 = 0;
                     }
+                    jSONObject.put("errno", 0);
+                    jSONObject.put("status", i2);
+                } catch (Exception e2) {
+                    Log.e(e2);
                 }
-            };
-            fingerprintResult.authType = 3;
-            if (SapiJsInterpreters.this.jsCallBacks.fingerprintCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.fingerprintCallback.onCallback(fingerprintResult);
-                return null;
+                return jSONObject.toString();
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class TouchidOpenGuide extends AbstractInterpreter {
-        public TouchidOpenGuide() {
-            super();
+    /* loaded from: classes3.dex */
+    public class TouchidLogin extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public TouchidLogin(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(final SapiWebView.Command command) {
-            SapiJsCallBacks.FingerprintResult fingerprintResult = new SapiJsCallBacks.FingerprintResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.TouchidOpenGuide.1
-                @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintResult
-                public void setResult(int i2) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("errno", 0);
-                        jSONObject.put("status", i2);
-                        SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                        if (i2 == 0) {
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                SapiJsCallBacks.FingerprintResult fingerprintResult = new SapiJsCallBacks.FingerprintResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.TouchidLogin.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TouchidLogin this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintResult
+                    public void setResult(int i2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                            JSONObject jSONObject = new JSONObject();
                             try {
-                                JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
-                                String optString = jSONObject2.optString("portrait");
-                                String optString2 = jSONObject2.optString("portraitSign");
-                                if (TextUtils.isEmpty(optString)) {
-                                    String[] strArr = SapiJsInterpreters.this.jsCallBacks.touchidPortraitAndSign;
-                                    strArr[0] = SapiJsInterpreters.this.configuration.environment.getConfigHttpsUrl() + SapiEnv.DEFAULT_PORTRAIT;
-                                    String[] strArr2 = SapiJsInterpreters.this.sapiWebView.touchidPortraitAndSign;
-                                    strArr2[0] = SapiJsInterpreters.this.configuration.environment.getConfigHttpsUrl() + SapiEnv.DEFAULT_PORTRAIT;
-                                } else {
-                                    SapiJsInterpreters.this.jsCallBacks.touchidPortraitAndSign[0] = optString;
-                                    SapiJsInterpreters.this.sapiWebView.touchidPortraitAndSign[0] = optString;
-                                }
-                                SapiJsInterpreters.this.jsCallBacks.touchidPortraitAndSign[1] = optString2;
-                                SapiJsInterpreters.this.sapiWebView.touchidPortraitAndSign[1] = optString2;
+                                jSONObject.put("errno", 0);
+                                jSONObject.put("status", i2);
+                                this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
                             } catch (Exception e2) {
                                 Log.e(e2);
                             }
                         }
-                    } catch (Exception e3) {
-                        Log.e(e3);
                     }
+                };
+                fingerprintResult.authType = 3;
+                if (this.this$0.jsCallBacks.fingerprintCallback != null) {
+                    this.this$0.jsCallBacks.fingerprintCallback.onCallback(fingerprintResult);
+                    return null;
                 }
-            };
-            if (SapiJsInterpreters.this.jsCallBacks.fingerprintCallback != null) {
-                SapiJsInterpreters.this.jsCallBacks.fingerprintCallback.onCallback(fingerprintResult);
                 return null;
             }
-            return null;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class UniteVerifyResult extends AbstractInterpreter {
-        public UniteVerifyResult() {
-            super();
+    /* loaded from: classes3.dex */
+    public class TouchidOpenGuide extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public TouchidOpenGuide(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            try {
-                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                String optString = jSONObject.optString("info");
-                String optString2 = jSONObject.optString("u");
-                SapiAccount sapiAccount = new SapiAccount();
-                sapiAccount.uid = jSONObject.optString("passuid");
-                sapiAccount.username = jSONObject.optString("username");
-                sapiAccount.displayname = jSONObject.optString("displayname");
-                sapiAccount.bduss = jSONObject.optString("bduss");
-                sapiAccount.ptoken = jSONObject.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
-                sapiAccount.stoken = jSONObject.optString("stoken");
-                if (TextUtils.isEmpty(optString) || !SapiAccount.isValidAccount(sapiAccount) || SapiJsInterpreters.this.jsCallBacks.uniteVerifyCallback == null) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                SapiJsCallBacks.FingerprintResult fingerprintResult = new SapiJsCallBacks.FingerprintResult(this, command) { // from class: com.baidu.sapi2.SapiJsInterpreters.TouchidOpenGuide.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TouchidOpenGuide this$1;
+                    public final /* synthetic */ SapiWebView.Command val$command;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, command};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                        this.val$command = command;
+                    }
+
+                    @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintResult
+                    public void setResult(int i2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                            JSONObject jSONObject = new JSONObject();
+                            try {
+                                jSONObject.put("errno", 0);
+                                jSONObject.put("status", i2);
+                                this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
+                                if (i2 == 0) {
+                                    try {
+                                        JSONObject jSONObject2 = new JSONObject(this.val$command.getActionParams().get(0));
+                                        String optString = jSONObject2.optString("portrait");
+                                        String optString2 = jSONObject2.optString("portraitSign");
+                                        if (TextUtils.isEmpty(optString)) {
+                                            String[] strArr = this.this$1.this$0.jsCallBacks.touchidPortraitAndSign;
+                                            strArr[0] = this.this$1.this$0.configuration.environment.getConfigHttpsUrl() + SapiEnv.DEFAULT_PORTRAIT;
+                                            String[] strArr2 = this.this$1.this$0.sapiWebView.touchidPortraitAndSign;
+                                            strArr2[0] = this.this$1.this$0.configuration.environment.getConfigHttpsUrl() + SapiEnv.DEFAULT_PORTRAIT;
+                                        } else {
+                                            this.this$1.this$0.jsCallBacks.touchidPortraitAndSign[0] = optString;
+                                            this.this$1.this$0.sapiWebView.touchidPortraitAndSign[0] = optString;
+                                        }
+                                        this.this$1.this$0.jsCallBacks.touchidPortraitAndSign[1] = optString2;
+                                        this.this$1.this$0.sapiWebView.touchidPortraitAndSign[1] = optString2;
+                                    } catch (Exception e2) {
+                                        Log.e(e2);
+                                    }
+                                }
+                            } catch (Exception e3) {
+                                Log.e(e3);
+                            }
+                        }
+                    }
+                };
+                if (this.this$0.jsCallBacks.fingerprintCallback != null) {
+                    this.this$0.jsCallBacks.fingerprintCallback.onCallback(fingerprintResult);
                     return null;
                 }
-                SapiJsInterpreters.this.jsCallBacks.uniteVerifyCallback.onSuccess(optString, optString2, sapiAccount);
-                return null;
-            } catch (JSONException e2) {
-                Log.e(e2);
                 return null;
             }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class UniteVerifyResult extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public UniteVerifyResult(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    String optString = jSONObject.optString("info");
+                    String optString2 = jSONObject.optString("u");
+                    SapiAccount sapiAccount = new SapiAccount();
+                    sapiAccount.uid = jSONObject.optString("passuid");
+                    sapiAccount.username = jSONObject.optString("username");
+                    sapiAccount.displayname = jSONObject.optString("displayname");
+                    sapiAccount.bduss = jSONObject.optString("bduss");
+                    sapiAccount.ptoken = jSONObject.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
+                    sapiAccount.stoken = jSONObject.optString("stoken");
+                    if (TextUtils.isEmpty(optString) || !SapiAccount.isValidAccount(sapiAccount) || this.this$0.jsCallBacks.uniteVerifyCallback == null) {
+                        return null;
+                    }
+                    this.this$0.jsCallBacks.uniteVerifyCallback.onSuccess(optString, optString2, sapiAccount);
+                    return null;
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
         }
     }
 
     public SapiJsInterpreters(SapiWebView sapiWebView, SapiJsCallBacks.CallBacks callBacks) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sapiWebView, callBacks};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.interpreterHashMap = new HashMap<>();
         this.sapiWebView = sapiWebView;
         this.context = sapiWebView.getContext();
         this.jsCallBacks = callBacks;
+        this.configuration = SapiAccountManager.getInstance().getSapiConfiguration();
     }
 
     private AbstractInterpreter buidInterpreterByName(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return (AbstractInterpreter) Class.forName(interpreterNameToClassFullName(str)).getDeclaredConstructor(getClass()).newInstance(this);
+            } catch (Exception e2) {
+                Log.e(e2);
+                return null;
+            }
         }
-        try {
-            return (AbstractInterpreter) Class.forName(interpreterNameToClassFullName(str)).getDeclaredConstructor(getClass()).newInstance(this);
-        } catch (Exception e2) {
-            Log.e(e2);
-            return null;
-        }
+        return (AbstractInterpreter) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String interpreterNameToClassFullName(String str) {
-        String[] split = str.split("_");
-        StringBuilder sb = new StringBuilder();
-        sb.append("com.baidu.sapi2.SapiJsInterpreters$");
-        for (String str2 : split) {
-            char[] charArray = str2.toCharArray();
-            if (charArray[0] >= 'a' && charArray[0] <= 'z') {
-                charArray[0] = (char) (charArray[0] - ' ');
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) {
+            String[] split = str.split("_");
+            StringBuilder sb = new StringBuilder();
+            sb.append("com.baidu.sapi2.SapiJsInterpreters$");
+            for (String str2 : split) {
+                char[] charArray = str2.toCharArray();
+                if (charArray[0] >= 'a' && charArray[0] <= 'z') {
+                    charArray[0] = (char) (charArray[0] - ' ');
+                }
+                sb.append(new String(charArray));
             }
-            sb.append(new String(charArray));
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeL.objValue;
     }
 
     public AbstractInterpreter getInterpreter(String str) {
-        AbstractInterpreter abstractInterpreter = this.interpreterHashMap.get(str);
-        if (abstractInterpreter == null && (abstractInterpreter = buidInterpreterByName(str)) != null) {
-            this.interpreterHashMap.put(str, abstractInterpreter);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            AbstractInterpreter abstractInterpreter = this.interpreterHashMap.get(str);
+            if (abstractInterpreter == null && (abstractInterpreter = buidInterpreterByName(str)) != null) {
+                this.interpreterHashMap.put(str, abstractInterpreter);
+            }
+            return abstractInterpreter;
         }
-        return abstractInterpreter;
+        return (AbstractInterpreter) invokeL.objValue;
     }
 }

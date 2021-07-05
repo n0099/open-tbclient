@@ -8,142 +8,273 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.webkit.WebMessageCompat;
 import androidx.webkit.WebMessagePortCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.WebMessagePortBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
 /* loaded from: classes.dex */
 public class WebMessagePortImpl extends WebMessagePortCompat {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public WebMessagePortBoundaryInterface mBoundaryInterface;
     public WebMessagePort mFrameworksImpl;
 
     public WebMessagePortImpl(WebMessagePort webMessagePort) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webMessagePort};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mFrameworksImpl = webMessagePort;
     }
 
     @RequiresApi(23)
     public static WebMessage compatToFrameworkMessage(WebMessageCompat webMessageCompat) {
-        return new WebMessage(webMessageCompat.getData(), compatToPorts(webMessageCompat.getPorts()));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, webMessageCompat)) == null) ? new WebMessage(webMessageCompat.getData(), compatToPorts(webMessageCompat.getPorts())) : (WebMessage) invokeL.objValue;
     }
 
     @RequiresApi(23)
     public static WebMessagePort[] compatToPorts(WebMessagePortCompat[] webMessagePortCompatArr) {
-        if (webMessagePortCompatArr == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, webMessagePortCompatArr)) == null) {
+            if (webMessagePortCompatArr == null) {
+                return null;
+            }
+            int length = webMessagePortCompatArr.length;
+            WebMessagePort[] webMessagePortArr = new WebMessagePort[length];
+            for (int i2 = 0; i2 < length; i2++) {
+                webMessagePortArr[i2] = webMessagePortCompatArr[i2].getFrameworkPort();
+            }
+            return webMessagePortArr;
         }
-        int length = webMessagePortCompatArr.length;
-        WebMessagePort[] webMessagePortArr = new WebMessagePort[length];
-        for (int i2 = 0; i2 < length; i2++) {
-            webMessagePortArr[i2] = webMessagePortCompatArr[i2].getFrameworkPort();
-        }
-        return webMessagePortArr;
+        return (WebMessagePort[]) invokeL.objValue;
     }
 
     @RequiresApi(23)
     public static WebMessageCompat frameworkMessageToCompat(WebMessage webMessage) {
-        return new WebMessageCompat(webMessage.getData(), portsToCompat(webMessage.getPorts()));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, webMessage)) == null) ? new WebMessageCompat(webMessage.getData(), portsToCompat(webMessage.getPorts())) : (WebMessageCompat) invokeL.objValue;
     }
 
     private WebMessagePortBoundaryInterface getBoundaryInterface() {
-        if (this.mBoundaryInterface == null) {
-            this.mBoundaryInterface = (WebMessagePortBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebMessagePortBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertWebMessagePort(this.mFrameworksImpl));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (this.mBoundaryInterface == null) {
+                this.mBoundaryInterface = (WebMessagePortBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebMessagePortBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertWebMessagePort(this.mFrameworksImpl));
+            }
+            return this.mBoundaryInterface;
         }
-        return this.mBoundaryInterface;
+        return (WebMessagePortBoundaryInterface) invokeV.objValue;
     }
 
     @RequiresApi(23)
     private WebMessagePort getFrameworksImpl() {
-        if (this.mFrameworksImpl == null) {
-            this.mFrameworksImpl = WebViewGlueCommunicator.getCompatConverter().convertWebMessagePort(Proxy.getInvocationHandler(this.mBoundaryInterface));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (this.mFrameworksImpl == null) {
+                this.mFrameworksImpl = WebViewGlueCommunicator.getCompatConverter().convertWebMessagePort(Proxy.getInvocationHandler(this.mBoundaryInterface));
+            }
+            return this.mFrameworksImpl;
         }
-        return this.mFrameworksImpl;
+        return (WebMessagePort) invokeV.objValue;
     }
 
     public static WebMessagePortCompat[] portsToCompat(WebMessagePort[] webMessagePortArr) {
-        if (webMessagePortArr == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, webMessagePortArr)) == null) {
+            if (webMessagePortArr == null) {
+                return null;
+            }
+            WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[webMessagePortArr.length];
+            for (int i2 = 0; i2 < webMessagePortArr.length; i2++) {
+                webMessagePortCompatArr[i2] = new WebMessagePortImpl(webMessagePortArr[i2]);
+            }
+            return webMessagePortCompatArr;
         }
-        WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[webMessagePortArr.length];
-        for (int i2 = 0; i2 < webMessagePortArr.length; i2++) {
-            webMessagePortCompatArr[i2] = new WebMessagePortImpl(webMessagePortArr[i2]);
-        }
-        return webMessagePortCompatArr;
+        return (WebMessagePortCompat[]) invokeL.objValue;
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
     @SuppressLint({"NewApi"})
     public void close() {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_MESSAGE_PORT_CLOSE");
-        if (feature.isSupportedByFramework()) {
-            getFrameworksImpl().close();
-        } else if (feature.isSupportedByWebView()) {
-            getBoundaryInterface().close();
-        } else {
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_MESSAGE_PORT_CLOSE");
+            if (feature.isSupportedByFramework()) {
+                getFrameworksImpl().close();
+            } else if (feature.isSupportedByWebView()) {
+                getBoundaryInterface().close();
+            } else {
+                throw WebViewFeatureInternal.getUnsupportedOperationException();
+            }
         }
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
     @RequiresApi(23)
     public WebMessagePort getFrameworkPort() {
-        return getFrameworksImpl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getFrameworksImpl() : (WebMessagePort) invokeV.objValue;
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
     public InvocationHandler getInvocationHandler() {
-        return Proxy.getInvocationHandler(getBoundaryInterface());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Proxy.getInvocationHandler(getBoundaryInterface()) : (InvocationHandler) invokeV.objValue;
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
     @SuppressLint({"NewApi"})
     public void postMessage(@NonNull WebMessageCompat webMessageCompat) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_MESSAGE_PORT_POST_MESSAGE");
-        if (feature.isSupportedByFramework()) {
-            getFrameworksImpl().postMessage(compatToFrameworkMessage(webMessageCompat));
-        } else if (feature.isSupportedByWebView()) {
-            getBoundaryInterface().postMessage(BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebMessageAdapter(webMessageCompat)));
-        } else {
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, webMessageCompat) == null) {
+            WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_MESSAGE_PORT_POST_MESSAGE");
+            if (feature.isSupportedByFramework()) {
+                getFrameworksImpl().postMessage(compatToFrameworkMessage(webMessageCompat));
+            } else if (feature.isSupportedByWebView()) {
+                getBoundaryInterface().postMessage(BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebMessageAdapter(webMessageCompat)));
+            } else {
+                throw WebViewFeatureInternal.getUnsupportedOperationException();
+            }
         }
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
     @SuppressLint({"NewApi"})
-    public void setWebMessageCallback(@NonNull final WebMessagePortCompat.WebMessageCallbackCompat webMessageCallbackCompat) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_MESSAGE_PORT_SET_MESSAGE_CALLBACK");
-        if (feature.isSupportedByFramework()) {
-            getFrameworksImpl().setWebMessageCallback(new WebMessagePort.WebMessageCallback() { // from class: androidx.webkit.internal.WebMessagePortImpl.1
-                @Override // android.webkit.WebMessagePort.WebMessageCallback
-                public void onMessage(WebMessagePort webMessagePort, WebMessage webMessage) {
-                    webMessageCallbackCompat.onMessage(new WebMessagePortImpl(webMessagePort), WebMessagePortImpl.frameworkMessageToCompat(webMessage));
-                }
-            });
-        } else if (feature.isSupportedByWebView()) {
-            getBoundaryInterface().setWebMessageCallback(BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebMessageCallbackAdapter(webMessageCallbackCompat)));
-        } else {
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
+    public void setWebMessageCallback(@NonNull WebMessagePortCompat.WebMessageCallbackCompat webMessageCallbackCompat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, webMessageCallbackCompat) == null) {
+            WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_MESSAGE_PORT_SET_MESSAGE_CALLBACK");
+            if (feature.isSupportedByFramework()) {
+                getFrameworksImpl().setWebMessageCallback(new WebMessagePort.WebMessageCallback(this, webMessageCallbackCompat) { // from class: androidx.webkit.internal.WebMessagePortImpl.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ WebMessagePortImpl this$0;
+                    public final /* synthetic */ WebMessagePortCompat.WebMessageCallbackCompat val$callback;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, webMessageCallbackCompat};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$callback = webMessageCallbackCompat;
+                    }
+
+                    @Override // android.webkit.WebMessagePort.WebMessageCallback
+                    public void onMessage(WebMessagePort webMessagePort, WebMessage webMessage) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webMessagePort, webMessage) == null) {
+                            this.val$callback.onMessage(new WebMessagePortImpl(webMessagePort), WebMessagePortImpl.frameworkMessageToCompat(webMessage));
+                        }
+                    }
+                });
+            } else if (feature.isSupportedByWebView()) {
+                getBoundaryInterface().setWebMessageCallback(BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebMessageCallbackAdapter(webMessageCallbackCompat)));
+            } else {
+                throw WebViewFeatureInternal.getUnsupportedOperationException();
+            }
         }
     }
 
     public WebMessagePortImpl(InvocationHandler invocationHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {invocationHandler};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mBoundaryInterface = (WebMessagePortBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebMessagePortBoundaryInterface.class, invocationHandler);
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
     @SuppressLint({"NewApi"})
-    public void setWebMessageCallback(Handler handler, @NonNull final WebMessagePortCompat.WebMessageCallbackCompat webMessageCallbackCompat) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("CREATE_WEB_MESSAGE_CHANNEL");
-        if (feature.isSupportedByFramework()) {
-            getFrameworksImpl().setWebMessageCallback(new WebMessagePort.WebMessageCallback() { // from class: androidx.webkit.internal.WebMessagePortImpl.2
-                @Override // android.webkit.WebMessagePort.WebMessageCallback
-                public void onMessage(WebMessagePort webMessagePort, WebMessage webMessage) {
-                    webMessageCallbackCompat.onMessage(new WebMessagePortImpl(webMessagePort), WebMessagePortImpl.frameworkMessageToCompat(webMessage));
-                }
-            }, handler);
-        } else if (feature.isSupportedByWebView()) {
-            getBoundaryInterface().setWebMessageCallback(BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebMessageCallbackAdapter(webMessageCallbackCompat)), handler);
-        } else {
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
+    public void setWebMessageCallback(Handler handler, @NonNull WebMessagePortCompat.WebMessageCallbackCompat webMessageCallbackCompat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, handler, webMessageCallbackCompat) == null) {
+            WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("CREATE_WEB_MESSAGE_CHANNEL");
+            if (feature.isSupportedByFramework()) {
+                getFrameworksImpl().setWebMessageCallback(new WebMessagePort.WebMessageCallback(this, webMessageCallbackCompat) { // from class: androidx.webkit.internal.WebMessagePortImpl.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ WebMessagePortImpl this$0;
+                    public final /* synthetic */ WebMessagePortCompat.WebMessageCallbackCompat val$callback;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, webMessageCallbackCompat};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$callback = webMessageCallbackCompat;
+                    }
+
+                    @Override // android.webkit.WebMessagePort.WebMessageCallback
+                    public void onMessage(WebMessagePort webMessagePort, WebMessage webMessage) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webMessagePort, webMessage) == null) {
+                            this.val$callback.onMessage(new WebMessagePortImpl(webMessagePort), WebMessagePortImpl.frameworkMessageToCompat(webMessage));
+                        }
+                    }
+                }, handler);
+            } else if (feature.isSupportedByWebView()) {
+                getBoundaryInterface().setWebMessageCallback(BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebMessageCallbackAdapter(webMessageCallbackCompat)), handler);
+            } else {
+                throw WebViewFeatureInternal.getUnsupportedOperationException();
+            }
         }
     }
 }

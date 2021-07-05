@@ -1,12 +1,40 @@
 package com.alipay.a.a;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.TreeMap;
 /* loaded from: classes.dex */
 public final class g implements i, j {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public g() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.alipay.a.a.j
     public final Object a(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, obj)) != null) {
+            return invokeL.objValue;
+        }
         TreeMap treeMap = new TreeMap();
         Class<?> cls = obj.getClass();
         while (true) {
@@ -37,31 +65,41 @@ public final class g implements i, j {
 
     @Override // com.alipay.a.a.i
     public final Object a(Object obj, Type type) {
-        if (obj.getClass().equals(org.json.alipay.b.class)) {
-            org.json.alipay.b bVar = (org.json.alipay.b) obj;
-            Class cls = (Class) type;
-            Object newInstance = cls.newInstance();
-            while (!cls.equals(Object.class)) {
-                Field[] declaredFields = cls.getDeclaredFields();
-                if (declaredFields != null && declaredFields.length > 0) {
-                    for (Field field : declaredFields) {
-                        String name = field.getName();
-                        Type genericType = field.getGenericType();
-                        if (bVar.b(name)) {
-                            field.setAccessible(true);
-                            field.set(newInstance, e.a(bVar.a(name), genericType));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, type)) == null) {
+            if (obj.getClass().equals(org.json.alipay.b.class)) {
+                org.json.alipay.b bVar = (org.json.alipay.b) obj;
+                Class cls = (Class) type;
+                Object newInstance = cls.newInstance();
+                while (!cls.equals(Object.class)) {
+                    Field[] declaredFields = cls.getDeclaredFields();
+                    if (declaredFields != null && declaredFields.length > 0) {
+                        for (Field field : declaredFields) {
+                            String name = field.getName();
+                            Type genericType = field.getGenericType();
+                            if (bVar.b(name)) {
+                                field.setAccessible(true);
+                                field.set(newInstance, e.a(bVar.a(name), genericType));
+                            }
                         }
                     }
+                    cls = cls.getSuperclass();
                 }
-                cls = cls.getSuperclass();
+                return newInstance;
             }
-            return newInstance;
+            return null;
         }
-        return null;
+        return invokeLL.objValue;
     }
 
     @Override // com.alipay.a.a.i, com.alipay.a.a.j
     public final boolean a(Class<?> cls) {
-        return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

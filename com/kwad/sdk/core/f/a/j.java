@@ -5,66 +5,125 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.b.f;
 import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes7.dex */
 public class j {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34342a;
+    public Context f36105a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f34343b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f36106b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f34344c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.j.1
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            try {
-                com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "onServiceConnected");
-                j.this.f34343b.put(iBinder);
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-        }
-    };
+    public ServiceConnection f36107c;
 
     public j(Context context) {
-        this.f34342a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f36106b = new LinkedBlockingQueue<>(1);
+        this.f36107c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.j.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ j f36108a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f36108a = this;
+            }
+
+            @Override // android.content.ServiceConnection
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
+                    try {
+                        com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "onServiceConnected");
+                        this.f36108a.f36106b.put(iBinder);
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
+                    }
+                }
+            }
+
+            @Override // android.content.ServiceConnection
+            public void onServiceDisconnected(ComponentName componentName) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+                }
+            }
+        };
+        this.f36105a = context;
     }
 
     public String a() {
+        InterceptResult invokeV;
         Context context;
         ServiceConnection serviceConnection;
-        String str = "";
-        try {
-            Intent intent = new Intent();
-            intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
-            intent.setAction("com.bun.msa.action.bindto.service");
-            intent.putExtra("com.bun.msa.param.pkgname", this.f34342a.getPackageName());
-            boolean bindService = this.f34342a.bindService(intent, this.f34344c, 1);
-            com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID isBind=" + bindService);
-            if (bindService) {
-                try {
-                    str = new f.a(this.f34343b.take()).a();
-                    com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID oaid:" + str);
-                    context = this.f34342a;
-                    serviceConnection = this.f34344c;
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    context = this.f34342a;
-                    serviceConnection = this.f34344c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = "";
+            try {
+                Intent intent = new Intent();
+                intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
+                intent.setAction("com.bun.msa.action.bindto.service");
+                intent.putExtra("com.bun.msa.param.pkgname", this.f36105a.getPackageName());
+                boolean bindService = this.f36105a.bindService(intent, this.f36107c, 1);
+                com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID isBind=" + bindService);
+                if (bindService) {
+                    try {
+                        str = new f.a(this.f36106b.take()).a();
+                        com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID oaid:" + str);
+                        context = this.f36105a;
+                        serviceConnection = this.f36107c;
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
+                        context = this.f36105a;
+                        serviceConnection = this.f36107c;
+                    }
+                    context.unbindService(serviceConnection);
                 }
-                context.unbindService(serviceConnection);
+            } catch (Exception e3) {
+                com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID hw service not found");
+                com.kwad.sdk.core.d.a.a(e3);
             }
-        } catch (Exception e3) {
-            com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID hw service not found");
-            com.kwad.sdk.core.d.a.a(e3);
+            return str;
         }
-        return str;
+        return (String) invokeV.objValue;
     }
 }

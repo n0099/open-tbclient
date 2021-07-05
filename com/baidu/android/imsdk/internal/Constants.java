@@ -4,10 +4,19 @@ import android.content.Context;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.util.Random;
 /* loaded from: classes.dex */
 public final class Constants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ACK_MAX_SIZE = 20;
     public static final String ACTION_METHOD = "com.baidu.android.imsdk.action.METHOD";
     public static final String ACTION_SERVICE = "com.baidu.android.imsdk.action.IM_SERVICE";
@@ -53,6 +62,7 @@ public final class Constants {
     public static final String ERROR_MSG_SERVER_INTERNAL_ERROR = "Server error!";
     public static final String ERROR_MSG_SERVICE_ERROR = "service exception";
     public static final String ERROR_MSG_SUCCESS = "Sucess!";
+    public static final Long EXPIRED_TIME;
     public static final String EXTRA_ALARM_ALERT = "AlarmAlert";
     public static final String EXTRA_BAIDU_UID = "buid";
     public static final String EXTRA_BAIDU_UIDS = "users_buid";
@@ -109,6 +119,7 @@ public final class Constants {
     public static final String FRINEDGROUP_PREFIX = "FRIENDGROUP";
     public static final byte GZIP_CAST_TYPE = 11;
     public static final int IM_CAST_BUSY = 1316;
+    public static int IM_ENV = 0;
     public static final String IM_INIT_TRACK_UPLOAD = "com.baidu.imsdk.init.track.upload";
     public static final int IM_IP_LOCATION_EXSIT = 0;
     public static final int IM_IP_LOCATION_NOT_EXSIT = 1;
@@ -244,17 +255,22 @@ public final class Constants {
     public static final String PREF_RELIABLE_MSG_DATA = "imsdk_reliable_msg_data";
     public static final int RECORD_TO_TOP = 0;
     public static final int RECPRD_UPDATE_CONTENT = 1;
+    public static String RELIABLE_CASTID = null;
     public static final String RELIABLE_MAX_MSGINFO_KEY = "reliable_msg_info";
+    public static String RELIABLE_MSGID = null;
+    public static String RELIABLE_UPDATTIME = null;
     public static final int SAVE_TO_DB = 1;
     public static final String SETTING_DEBUG_MODE = "com.baidu.android.imsdk.Settings.debug_mode";
     public static final byte SHORT_PING_CMD_TYPE = 101;
     public static final int SOCKET_BACKUP_PORT_SSL = 8443;
+    public static final int SOCKET_PORT_SSL = 443;
     public static final int SOCKET_PORT_TCP = 8100;
     public static final int SYNC_FOR_INTERNAL_LOGIN = 1;
     public static final int SYNC_FOR_SERVER_NOTIFY = 2;
     public static final int SYNC_FOR_USER_LOGIN = 0;
     public static final long SYNC_MSG_DELAY_TIME = 10800000;
     public static final int SYNC_USERS_PROFILE_DURATION_MS = 3600000;
+    public static long SYNC_USERS_PROFILE_RANDTIME = 0;
     public static final String THREAD_PREFIX = "IM-";
     public static final int TPL_ZHIDA_OL = 6376141;
     public static final int TPL_ZHIDA_RD = 6376141;
@@ -264,10 +280,13 @@ public final class Constants {
     public static final String URL_HTTP_ONLINE = "https://pim.baidu.com/";
     public static final String URL_HTTP_QA = "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/";
     public static final String URL_HTTP_RD = "http://rd-im-server.bcc-szth.baidu.com:8080/";
+    public static int URL_SOCKET_PORT = 0;
     public static final int URL_SOCKET_PORT_OL_BOX = 8100;
+    public static int URL_SOCKET_PORT_OL_SSL = 0;
     public static final int URL_SOCKET_PORT_QA = 8100;
     public static final int URL_SOCKET_PORT_RD = 8100;
     public static final int URL_SOCKET_PORT_TEST_BOX = 8100;
+    public static String URL_SOCKET_SERVER = null;
     public static final int URL_SOCKET_SERVER_CONN_TIME_OUT = 10000;
     public static final String URL_SOCKET_SERVER_OL_BOX = "pimc.baidu.com";
     public static final String URL_SOCKET_SERVER_OL_HQ = "pimc2.baidu.com";
@@ -278,72 +297,121 @@ public final class Constants {
     public static final String USERINFO_PREFIX = "USERINFO";
     public static final int USER_SETTING_UK_NOT_CONCERNED = -2;
     public static final String ZHIDA_SP_PRE = "prefix_crm_zhida_";
-    public static final Long EXPIRED_TIME = 604800000L;
-    public static String RELIABLE_MSGID = "msgid";
-    public static String RELIABLE_CASTID = "castid";
-    public static String RELIABLE_UPDATTIME = "updatetime";
-    public static long SYNC_USERS_PROFILE_RANDTIME = new Random().nextInt(12) + 12;
-    public static final int SOCKET_PORT_SSL = 443;
-    public static int URL_SOCKET_PORT_OL_SSL = SOCKET_PORT_SSL;
-    public static String URL_SOCKET_SERVER = "pimc.baidu.com";
-    public static int URL_SOCKET_PORT = 8100;
-    public static int IM_ENV = 0;
-    public static final String[] mSdkPermissions = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
+    public static final String[] mSdkPermissions;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(826624919, "Lcom/baidu/android/imsdk/internal/Constants;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(826624919, "Lcom/baidu/android/imsdk/internal/Constants;");
+                return;
+            }
+        }
+        EXPIRED_TIME = 604800000L;
+        RELIABLE_MSGID = "msgid";
+        RELIABLE_CASTID = "castid";
+        RELIABLE_UPDATTIME = "updatetime";
+        SYNC_USERS_PROFILE_RANDTIME = new Random().nextInt(12) + 12;
+        URL_SOCKET_PORT_OL_SSL = SOCKET_PORT_SSL;
+        URL_SOCKET_SERVER = "pimc.baidu.com";
+        URL_SOCKET_PORT = 8100;
+        IM_ENV = 0;
+        mSdkPermissions = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
+    }
+
+    public Constants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static boolean dispatchToPimc2(long j) {
-        return j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == APPID_TIEBA;
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == APPID_TIEBA : invokeJ.booleanValue;
     }
 
     public static int getEnv(Context context) {
-        if (context == null) {
-            LogUtils.e("Constants", "context is null!!!");
-            return 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context == null) {
+                LogUtils.e("Constants", "context is null!!!");
+                return 0;
+            }
+            try {
+                return Utility.readIntData(context, KEY_ENV, 0);
+            } catch (Exception unused) {
+                return IM_ENV;
+            }
         }
-        try {
-            return Utility.readIntData(context, KEY_ENV, 0);
-        } catch (Exception unused) {
-            return IM_ENV;
-        }
+        return invokeL.intValue;
     }
 
     public static int getTplZhida(Context context) {
-        Utility.readIntData(context, KEY_ENV, -1);
-        return 6376141;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            Utility.readIntData(context, KEY_ENV, -1);
+            return 6376141;
+        }
+        return invokeL.intValue;
     }
 
     public static boolean isDebugMode() {
-        return IMSettings.isDebugMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? IMSettings.isDebugMode() : invokeV.booleanValue;
     }
 
     public static boolean setEnv(Context context, int i2) {
-        long appid = AccountManager.getAppid(context);
-        if (i2 != 0) {
-            if (i2 == 1) {
-                URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
-                URL_SOCKET_PORT = 8100;
-            } else if (i2 == 2) {
-                URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
-                URL_SOCKET_PORT = 8100;
-            } else if (i2 == 3) {
-                if (dispatchToPimc2(appid)) {
-                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
-                    URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
-                } else {
-                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_TEST_BOX;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) {
+            long appid = AccountManager.getAppid(context);
+            if (i2 != 0) {
+                if (i2 == 1) {
+                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
                     URL_SOCKET_PORT = 8100;
+                } else if (i2 == 2) {
+                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
+                    URL_SOCKET_PORT = 8100;
+                } else if (i2 == 3) {
+                    if (dispatchToPimc2(appid)) {
+                        URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
+                        URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
+                    } else {
+                        URL_SOCKET_SERVER = URL_SOCKET_SERVER_TEST_BOX;
+                        URL_SOCKET_PORT = 8100;
+                    }
                 }
+            } else if (dispatchToPimc2(appid)) {
+                URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
+                URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
+            } else {
+                URL_SOCKET_SERVER = "pimc.baidu.com";
+                URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
             }
-        } else if (dispatchToPimc2(appid)) {
-            URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
-            URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
-        } else {
-            URL_SOCKET_SERVER = "pimc.baidu.com";
-            URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
+            IM_ENV = i2;
+            if (i2 != getEnv(context)) {
+                Utility.writeIntData(context, KEY_ENV, i2);
+            }
+            return true;
         }
-        IM_ENV = i2;
-        if (i2 != getEnv(context)) {
-            Utility.writeIntData(context, KEY_ENV, i2);
-        }
-        return true;
+        return invokeLI.booleanValue;
     }
 }

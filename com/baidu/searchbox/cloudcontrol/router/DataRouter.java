@@ -1,6 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.router;
 
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlData;
@@ -11,110 +12,253 @@ import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.searchbox.cloudcontrol.utils.CloudControlUBCUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DataRouter {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DataRouter";
+    public transient /* synthetic */ FieldHolder $fh;
     public String mErrorMsg;
     public volatile JSONObject mServiceInfo;
 
+    public DataRouter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void onError(String str) {
-        this.mErrorMsg += str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+            this.mErrorMsg += str;
+        }
     }
 
     public String getErrorMsg() {
-        String str = this.mErrorMsg;
-        return str != null ? str : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.mErrorMsg;
+            return str != null ? str : "";
+        }
+        return (String) invokeV.objValue;
     }
 
-    public void routeServiceData(final CloudControlData cloudControlData) {
-        if (cloudControlData == null) {
+    public void routeServiceData(CloudControlData cloudControlData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudControlData) == null) || cloudControlData == null) {
             return;
         }
-        final JSONObject serviceData = cloudControlData.getServiceData();
-        final JSONObject optionsData = cloudControlData.getOptionsData();
-        final HashMap<String, Object> checkDatas = cloudControlData.getCheckDatas();
-        final HashMap<String, Boolean> isForceDispatchs = cloudControlData.getIsForceDispatchs();
-        final CloudControlErrorBean cloudControlErrorBean = cloudControlData.getCloudControlErrorBean();
-        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1
+        JSONObject serviceData = cloudControlData.getServiceData();
+        JSONObject optionsData = cloudControlData.getOptionsData();
+        ExecutorUtilsExt.postOnElastic(new Runnable(this, serviceData, cloudControlData.getCheckDatas(), optionsData, cloudControlData.getCloudControlErrorBean(), cloudControlData.getIsForceDispatchs(), cloudControlData) { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DataRouter this$0;
+            public final /* synthetic */ HashMap val$checkDatas;
+            public final /* synthetic */ CloudControlData val$cloudControlData;
+            public final /* synthetic */ CloudControlErrorBean val$cloudControlErrorBean;
+            public final /* synthetic */ HashMap val$forceDispatchs;
+            public final /* synthetic */ JSONObject val$options;
+            public final /* synthetic */ JSONObject val$serviceData;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, serviceData, r8, optionsData, r10, r11, cloudControlData};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$serviceData = serviceData;
+                this.val$checkDatas = r8;
+                this.val$options = optionsData;
+                this.val$cloudControlErrorBean = r10;
+                this.val$forceDispatchs = r11;
+                this.val$cloudControlData = cloudControlData;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                HashMap<String, ICloudControlProcessor> processors = CloudControlManager.getInstance().getProcessors();
-                JSONObject jSONObject = serviceData;
-                final CountDownLatch countDownLatch = new CountDownLatch(jSONObject != null ? jSONObject.length() : 0);
-                DataRouter.this.mServiceInfo = new JSONObject();
-                for (Map.Entry<String, ICloudControlProcessor> entry : processors.entrySet()) {
-                    final String key = entry.getKey();
-                    JSONObject jSONObject2 = serviceData;
-                    boolean has = jSONObject2 != null ? jSONObject2.has(key) : false;
-                    ICloudControlProcessor value = entry.getValue();
-                    Object obj = checkDatas.get(key);
-                    if (has) {
-                        try {
-                            JSONObject optJSONObject = serviceData.optJSONObject(key);
-                            synchronized (DataRouter.class) {
-                                value.processServiceData(new CloudControlResponseInfo(key, optJSONObject, optionsData, obj, cloudControlErrorBean), new ICloudControlUBCCallBack() { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1.1
-                                    @Override // com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack
-                                    public void setServiceInfo(JSONObject jSONObject3) {
-                                        if (jSONObject3 != null) {
-                                            try {
-                                                DataRouter.this.mServiceInfo.put(key, jSONObject3);
-                                            } catch (JSONException e2) {
-                                                if (AppConfig.isDebug()) {
-                                                    Log.d(DataRouter.TAG, "routeServiceData back json is error" + e2.toString());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    HashMap<String, ICloudControlProcessor> processors = CloudControlManager.getInstance().getProcessors();
+                    JSONObject jSONObject = this.val$serviceData;
+                    CountDownLatch countDownLatch = new CountDownLatch(jSONObject != null ? jSONObject.length() : 0);
+                    this.this$0.mServiceInfo = new JSONObject();
+                    for (Map.Entry<String, ICloudControlProcessor> entry : processors.entrySet()) {
+                        String key = entry.getKey();
+                        JSONObject jSONObject2 = this.val$serviceData;
+                        boolean has = jSONObject2 != null ? jSONObject2.has(key) : false;
+                        ICloudControlProcessor value = entry.getValue();
+                        Object obj = this.val$checkDatas.get(key);
+                        if (has) {
+                            try {
+                                JSONObject optJSONObject = this.val$serviceData.optJSONObject(key);
+                                synchronized (DataRouter.class) {
+                                    value.processServiceData(new CloudControlResponseInfo(key, optJSONObject, this.val$options, obj, this.val$cloudControlErrorBean), new ICloudControlUBCCallBack(this, key, countDownLatch) { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1.1
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+                                        public final /* synthetic */ AnonymousClass1 this$1;
+                                        public final /* synthetic */ CountDownLatch val$countDownLatch;
+                                        public final /* synthetic */ String val$serviceName;
+
+                                        {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this, key, countDownLatch};
+                                                interceptable3.invokeUnInit(65536, newInitContext);
+                                                int i2 = newInitContext.flag;
+                                                if ((i2 & 1) != 0) {
+                                                    int i3 = i2 & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                                    return;
                                                 }
                                             }
+                                            this.this$1 = this;
+                                            this.val$serviceName = key;
+                                            this.val$countDownLatch = countDownLatch;
                                         }
-                                        countDownLatch.countDown();
-                                    }
-                                });
-                            }
-                        } catch (Exception e2) {
-                            DataRouter.this.onError(e2.getMessage());
-                        }
-                    } else {
-                        Boolean bool = (Boolean) isForceDispatchs.get(key);
-                        if (bool != null && bool.booleanValue()) {
-                            try {
-                                if (serviceData != null) {
-                                    CloudControlErrorBean cloudControlErrorBean2 = new CloudControlErrorBean();
-                                    cloudControlErrorBean2.setErrorCode(3);
-                                    cloudControlErrorBean2.setSubErrorCode(31);
-                                    value.processServiceData(new CloudControlResponseInfo(key, null, optionsData, obj, cloudControlErrorBean2), new ICloudControlUBCCallBack() { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1.2
+
                                         @Override // com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack
                                         public void setServiceInfo(JSONObject jSONObject3) {
-                                        }
-                                    });
-                                } else {
-                                    value.processServiceData(new CloudControlResponseInfo(key, null, optionsData, obj, cloudControlErrorBean), new ICloudControlUBCCallBack() { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1.3
-                                        @Override // com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack
-                                        public void setServiceInfo(JSONObject jSONObject3) {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 == null || interceptable3.invokeL(1048576, this, jSONObject3) == null) {
+                                                if (jSONObject3 != null) {
+                                                    try {
+                                                        this.this$1.this$0.mServiceInfo.put(this.val$serviceName, jSONObject3);
+                                                    } catch (JSONException e2) {
+                                                        if (AppConfig.isDebug()) {
+                                                            Log.d(DataRouter.TAG, "routeServiceData back json is error" + e2.toString());
+                                                        }
+                                                    }
+                                                }
+                                                this.val$countDownLatch.countDown();
+                                            }
                                         }
                                     });
                                 }
-                            } catch (JSONException e3) {
-                                DataRouter.this.onError(e3.getMessage());
+                            } catch (Exception e2) {
+                                this.this$0.onError(e2.getMessage());
+                            }
+                        } else {
+                            Boolean bool = (Boolean) this.val$forceDispatchs.get(key);
+                            if (bool != null && bool.booleanValue()) {
+                                try {
+                                    if (this.val$serviceData != null) {
+                                        CloudControlErrorBean cloudControlErrorBean = new CloudControlErrorBean();
+                                        cloudControlErrorBean.setErrorCode(3);
+                                        cloudControlErrorBean.setSubErrorCode(31);
+                                        value.processServiceData(new CloudControlResponseInfo(key, null, this.val$options, obj, cloudControlErrorBean), new ICloudControlUBCCallBack(this) { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1.2
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ AnonymousClass1 this$1;
+
+                                            {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = r2;
+                                                    Object[] objArr = {this};
+                                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                                    int i2 = newInitContext.flag;
+                                                    if ((i2 & 1) != 0) {
+                                                        int i3 = i2 & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                                        return;
+                                                    }
+                                                }
+                                                this.this$1 = this;
+                                            }
+
+                                            @Override // com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack
+                                            public void setServiceInfo(JSONObject jSONObject3) {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 == null || interceptable3.invokeL(1048576, this, jSONObject3) == null) {
+                                                }
+                                            }
+                                        });
+                                    } else {
+                                        value.processServiceData(new CloudControlResponseInfo(key, null, this.val$options, obj, this.val$cloudControlErrorBean), new ICloudControlUBCCallBack(this) { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1.3
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ AnonymousClass1 this$1;
+
+                                            {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = r2;
+                                                    Object[] objArr = {this};
+                                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                                    int i2 = newInitContext.flag;
+                                                    if ((i2 & 1) != 0) {
+                                                        int i3 = i2 & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                                        return;
+                                                    }
+                                                }
+                                                this.this$1 = this;
+                                            }
+
+                                            @Override // com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack
+                                            public void setServiceInfo(JSONObject jSONObject3) {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 == null || interceptable3.invokeL(1048576, this, jSONObject3) == null) {
+                                                }
+                                            }
+                                        });
+                                    }
+                                } catch (JSONException e3) {
+                                    this.this$0.onError(e3.getMessage());
+                                }
                             }
                         }
                     }
-                }
-                try {
-                    countDownLatch.await(15L, TimeUnit.SECONDS);
-                } catch (InterruptedException e4) {
-                    if (AppConfig.isDebug()) {
-                        Log.d(DataRouter.TAG, "processServiceData method need call  cloudControlUBCCallBack " + e4.toString());
-                        e4.printStackTrace();
+                    try {
+                        countDownLatch.await(15L, TimeUnit.SECONDS);
+                    } catch (InterruptedException e4) {
+                        if (AppConfig.isDebug()) {
+                            Log.d(DataRouter.TAG, "processServiceData method need call  cloudControlUBCCallBack " + e4.toString());
+                            e4.printStackTrace();
+                        }
                     }
+                    CloudControlUBCData cloudControlUBCData = this.val$cloudControlData.getCloudControlUBCData();
+                    cloudControlUBCData.collectServiceInfo(this.this$0.mServiceInfo);
+                    new CloudControlUBCUtils().doStatistics(cloudControlUBCData);
                 }
-                CloudControlUBCData cloudControlUBCData = cloudControlData.getCloudControlUBCData();
-                cloudControlUBCData.collectServiceInfo(DataRouter.this.mServiceInfo);
-                new CloudControlUBCUtils().doStatistics(cloudControlUBCData);
             }
         }, "routeServiceData", 0);
     }

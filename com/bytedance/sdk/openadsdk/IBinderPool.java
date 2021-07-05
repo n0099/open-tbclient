@@ -5,108 +5,197 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface IBinderPool extends IInterface {
 
     /* loaded from: classes6.dex */
     public static class Default implements IBinderPool {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (IBinder) invokeV.objValue;
         }
 
         @Override // com.bytedance.sdk.openadsdk.IBinderPool
         public IBinder queryBinder(int i2) throws RemoteException {
-            return null;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+                return null;
+            }
+            return (IBinder) invokeI.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements IBinderPool {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes6.dex */
         public static class a implements IBinderPool {
+            public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static IBinderPool f27136a;
+            public static IBinderPool f28894a;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f27137b;
+            public IBinder f28895b;
 
             public a(IBinder iBinder) {
-                this.f27137b = iBinder;
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {iBinder};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f28895b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27137b;
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28895b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IBinderPool
             public IBinder queryBinder(int i2) throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IBinderPool");
-                    obtain.writeInt(i2);
-                    if (!this.f27137b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                        return Stub.getDefaultImpl().queryBinder(i2);
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IBinderPool");
+                        obtain.writeInt(i2);
+                        if (!this.f28895b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            return Stub.getDefaultImpl().queryBinder(i2);
+                        }
+                        obtain2.readException();
+                        return obtain2.readStrongBinder();
+                    } finally {
+                        obtain2.recycle();
+                        obtain.recycle();
                     }
-                    obtain2.readException();
-                    return obtain2.readStrongBinder();
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
                 }
+                return (IBinder) invokeI.objValue;
             }
         }
 
         public Stub() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             attachInterface(this, "com.bytedance.sdk.openadsdk.IBinderPool");
         }
 
         public static IBinderPool asInterface(IBinder iBinder) {
-            if (iBinder == null) {
-                return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
+                if (iBinder == null) {
+                    return null;
+                }
+                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.bytedance.sdk.openadsdk.IBinderPool");
+                if (queryLocalInterface != null && (queryLocalInterface instanceof IBinderPool)) {
+                    return (IBinderPool) queryLocalInterface;
+                }
+                return new a(iBinder);
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.bytedance.sdk.openadsdk.IBinderPool");
-            if (queryLocalInterface != null && (queryLocalInterface instanceof IBinderPool)) {
-                return (IBinderPool) queryLocalInterface;
-            }
-            return new a(iBinder);
+            return (IBinderPool) invokeL.objValue;
         }
 
         public static IBinderPool getDefaultImpl() {
-            return a.f27136a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f28894a : (IBinderPool) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(IBinderPool iBinderPool) {
-            if (a.f27136a != null || iBinderPool == null) {
-                return false;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iBinderPool)) == null) {
+                if (a.f28894a != null || iBinderPool == null) {
+                    return false;
+                }
+                a.f28894a = iBinderPool;
+                return true;
             }
-            a.f27136a = iBinderPool;
-            return true;
+            return invokeL.booleanValue;
         }
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 != 1) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
+                if (i2 != 1) {
+                    if (i2 != 1598968902) {
+                        return super.onTransact(i2, parcel, parcel2, i3);
+                    }
+                    parcel2.writeString("com.bytedance.sdk.openadsdk.IBinderPool");
+                    return true;
                 }
-                parcel2.writeString("com.bytedance.sdk.openadsdk.IBinderPool");
+                parcel.enforceInterface("com.bytedance.sdk.openadsdk.IBinderPool");
+                IBinder queryBinder = queryBinder(parcel.readInt());
+                parcel2.writeNoException();
+                parcel2.writeStrongBinder(queryBinder);
                 return true;
             }
-            parcel.enforceInterface("com.bytedance.sdk.openadsdk.IBinderPool");
-            IBinder queryBinder = queryBinder(parcel.readInt());
-            parcel2.writeNoException();
-            parcel2.writeStrongBinder(queryBinder);
-            return true;
+            return invokeCommon.booleanValue;
         }
     }
 

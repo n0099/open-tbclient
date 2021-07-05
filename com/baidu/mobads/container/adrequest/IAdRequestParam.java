@@ -1,5 +1,5 @@
 package com.baidu.mobads.container.adrequest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IAdRequestParam {
     public static final String ACT = "act";
     public static final String AD_COUNT = "n";

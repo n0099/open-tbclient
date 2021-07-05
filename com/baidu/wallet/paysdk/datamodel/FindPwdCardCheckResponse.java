@@ -2,17 +2,27 @@ package com.baidu.wallet.paysdk.datamodel;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.beans.IBeanResponse;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FindPwdCardCheckResponse implements IBeanResponse {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Card[] bind_card_arr;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Card implements NoProguard, Serializable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String account_no;
         public String bank_code;
         public String bank_name;
@@ -21,18 +31,61 @@ public class FindPwdCardCheckResponse implements IBeanResponse {
         public String find_pwd_by_sms;
         public String mobile_ec;
         public String unsupport_find_pwd_msg;
+
+        public Card() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public FindPwdCardCheckResponse() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean enableAddBondCards() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public CardData.BondCard[] getBondCards() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) != null) {
+            return (CardData.BondCard[]) invokeV.objValue;
+        }
         Card[] cardArr = this.bind_card_arr;
         if (cardArr == null) {
             return null;
@@ -65,5 +118,8 @@ public class FindPwdCardCheckResponse implements IBeanResponse {
 
     @Override // com.baidu.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+        }
     }
 }

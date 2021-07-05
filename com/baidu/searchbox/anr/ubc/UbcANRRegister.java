@@ -3,6 +3,7 @@ package com.baidu.searchbox.anr.ubc;
 import android.content.Context;
 import android.util.Log;
 import com.android.internal.http.multipart.Part;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.anr.impl.ANRInfo;
@@ -13,30 +14,74 @@ import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.searchbox.ruka.ioc.Constant;
 import com.baidu.searchbox.track.ui.TrackUI;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UbcANRRegister implements IANRRegister {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String KEY_ANR_ACTIVE_UPLOAD = "key_anr_active_upload";
     public static final String KEY_EXT = "ext";
     public static final String TAG = "UbcANRRegister";
     public static final String UBC_ANR = "1794";
     public static final int UI_TRACE_MAX_SIZE = 20;
-    public String separator = Part.CRLF;
-    public static String KEY_ANR_ACTIVE_UPLOAD = "key_anr_active_upload";
-    public static boolean sEnable = QuickPersistConfig.getInstance().getBoolean(KEY_ANR_ACTIVE_UPLOAD, false);
+    public static boolean sEnable;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String separator;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-514694132, "Lcom/baidu/searchbox/anr/ubc/UbcANRRegister;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-514694132, "Lcom/baidu/searchbox/anr/ubc/UbcANRRegister;");
+                return;
+            }
+        }
+        sEnable = QuickPersistConfig.getInstance().getBoolean(KEY_ANR_ACTIVE_UPLOAD, false);
+    }
+
+    public UbcANRRegister() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.separator = Part.CRLF;
+    }
 
     @Override // com.baidu.searchbox.anr.ioc.IANRRegister
     public boolean checkEnable() {
-        return sEnable;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? sEnable : invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.anr.ioc.IANRRegister
     public void onANR(Context context, ANRInfo aNRInfo) {
-        if (checkEnable()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aNRInfo) == null) && checkEnable()) {
             AppConfig.isDebug();
             Log.d("Ruka", "onANR  at UbcANRRegister");
             JSONObject jSONObject = new JSONObject();

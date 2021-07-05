@@ -1,17 +1,38 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.data;
 
 import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
 import com.baidu.mapsdkplatform.comapi.synchronization.data.g;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.CustomerServiceMenu;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g f7871a;
+    public final /* synthetic */ g f7901a;
 
     public h(g gVar) {
-        this.f7871a = gVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f7901a = gVar;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
@@ -19,17 +40,20 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar;
         g.b bVar2;
         g.b bVar3;
-        bVar = this.f7871a.j;
-        Message obtainMessage = bVar.obtainMessage();
-        obtainMessage.what = CustomerServiceMenu.TRANSFER_RECORD;
-        obtainMessage.obj = aVar;
-        bVar2 = this.f7871a.j;
-        if (bVar2 != null) {
-            bVar3 = this.f7871a.j;
-            bVar3.sendMessage(obtainMessage);
-        }
-        if (c.a.SERVER_ERROR == aVar || c.a.NETWORK_ERROR == aVar || c.a.INNER_ERROR == aVar) {
-            g.b(this.f7871a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            bVar = this.f7901a.j;
+            Message obtainMessage = bVar.obtainMessage();
+            obtainMessage.what = CustomerServiceMenu.TRANSFER_RECORD;
+            obtainMessage.obj = aVar;
+            bVar2 = this.f7901a.j;
+            if (bVar2 != null) {
+                bVar3 = this.f7901a.j;
+                bVar3.sendMessage(obtainMessage);
+            }
+            if (c.a.f7834e == aVar || c.a.f7831b == aVar || c.a.f7832c == aVar) {
+                g.b(this.f7901a);
+            }
         }
     }
 
@@ -38,15 +62,18 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar;
         g.b bVar2;
         g.b bVar3;
-        bVar = this.f7871a.j;
-        Message obtainMessage = bVar.obtainMessage();
-        obtainMessage.what = 100000;
-        obtainMessage.obj = str;
-        bVar2 = this.f7871a.j;
-        if (bVar2 != null) {
-            bVar3 = this.f7871a.j;
-            bVar3.sendMessage(obtainMessage);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            bVar = this.f7901a.j;
+            Message obtainMessage = bVar.obtainMessage();
+            obtainMessage.what = 100000;
+            obtainMessage.obj = str;
+            bVar2 = this.f7901a.j;
+            if (bVar2 != null) {
+                bVar3 = this.f7901a.j;
+                bVar3.sendMessage(obtainMessage);
+            }
+            this.f7901a.k = 0;
         }
-        this.f7871a.k = 0;
     }
 }

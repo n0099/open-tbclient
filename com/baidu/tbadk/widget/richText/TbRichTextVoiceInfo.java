@@ -1,61 +1,119 @@
 package com.baidu.tbadk.widget.richText;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.PbContent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbRichTextVoiceInfo extends OrmObject {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13448e;
+    public String f13533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13449f;
+    public int f13534f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13450g;
+    public int f13535g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Object f13451h;
+    public Object f13536h;
 
     public TbRichTextVoiceInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public int getDuration() {
-        return this.f13449f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13534f : invokeV.intValue;
     }
 
     public int w() {
-        return this.f13450g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13535g : invokeV.intValue;
     }
 
     public String x() {
-        return this.f13448e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13533e : (String) invokeV.objValue;
     }
 
     public Object y() {
-        return this.f13451h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13536h : invokeV.objValue;
     }
 
     public void z(Object obj) {
-        this.f13451h = obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            this.f13536h = obj;
+        }
     }
 
     public TbRichTextVoiceInfo(PbContent pbContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbContent};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         if (pbContent == null) {
             return;
         }
-        this.f13448e = pbContent.voice_md5;
-        this.f13449f = pbContent.during_time.intValue() / 1000;
-        this.f13450g = pbContent.is_sub.intValue();
+        this.f13533e = pbContent.voice_md5;
+        this.f13534f = pbContent.during_time.intValue() / 1000;
+        this.f13535g = pbContent.is_sub.intValue();
     }
 
     public TbRichTextVoiceInfo(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         if (jSONObject == null) {
             return;
         }
-        this.f13448e = jSONObject.optString("voice_md5");
-        this.f13449f = jSONObject.optInt("during_time") / 1000;
-        this.f13450g = jSONObject.optInt("is_sub");
+        this.f13533e = jSONObject.optString("voice_md5");
+        this.f13534f = jSONObject.optInt("during_time") / 1000;
+        this.f13535g = jSONObject.optInt("is_sub");
     }
 }

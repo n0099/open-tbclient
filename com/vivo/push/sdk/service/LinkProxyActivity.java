@@ -7,6 +7,11 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.google.android.material.badge.BadgeDrawable;
 import com.vivo.push.util.p;
@@ -14,8 +19,25 @@ import com.vivo.push.util.z;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class LinkProxyActivity extends Activity {
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00d2 A[Catch: Exception -> 0x00e8, TryCatch #2 {Exception -> 0x00e8, blocks: (B:25:0x0095, B:27:0x009b, B:29:0x00a7, B:31:0x00ad, B:33:0x00b5, B:36:0x00bc, B:38:0x00c4, B:40:0x00c8, B:45:0x00d2, B:46:0x00d6), top: B:57:0x0095 }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00d6 A[Catch: Exception -> 0x00e8, TRY_LEAVE, TryCatch #2 {Exception -> 0x00e8, blocks: (B:25:0x0095, B:27:0x009b, B:29:0x00a7, B:31:0x00ad, B:33:0x00b5, B:36:0x00bc, B:38:0x00c4, B:40:0x00c8, B:45:0x00d2, B:46:0x00d6), top: B:57:0x0095 }] */
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public LinkProxyActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00d6 A[Catch: Exception -> 0x00ec, TryCatch #1 {Exception -> 0x00ec, blocks: (B:27:0x0099, B:29:0x009f, B:31:0x00ab, B:33:0x00b1, B:35:0x00b9, B:38:0x00c0, B:40:0x00c8, B:42:0x00cc, B:47:0x00d6, B:48:0x00da), top: B:60:0x0099 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00da A[Catch: Exception -> 0x00ec, TRY_LEAVE, TryCatch #1 {Exception -> 0x00ec, blocks: (B:27:0x0099, B:29:0x009f, B:31:0x00ab, B:33:0x00b1, B:35:0x00b9, B:38:0x00c0, B:40:0x00c8, B:42:0x00cc, B:47:0x00d6, B:48:0x00da), top: B:60:0x0099 }] */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -24,70 +46,76 @@ public class LinkProxyActivity extends Activity {
         PackageManager packageManager;
         List<ResolveInfo> queryIntentServices;
         ResolveInfo resolveInfo;
-        super.onCreate(bundle);
-        Intent intent = getIntent();
-        if (intent == null) {
-            p.d("LinkProxyActivity", "enter RequestPermissionsActivity onCreate, intent is null, finish");
-            finish();
-            return;
-        }
-        boolean z = true;
-        try {
-            Window window = getWindow();
-            window.setGravity(BadgeDrawable.TOP_START);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.x = 0;
-            attributes.y = 0;
-            attributes.height = 1;
-            attributes.width = 1;
-            window.setAttributes(attributes);
-        } catch (Throwable th) {
-            p.b("LinkProxyActivity", "enter onCreate error ", th);
-        }
-        String packageName = getPackageName();
-        p.d("LinkProxyActivity", hashCode() + " enter onCreate " + packageName);
-        if ("com.vivo.abe".equals(packageName)) {
-            try {
-                if (intent == null) {
-                    p.d("LinkProxyActivity", "adapterToService intent is null");
-                } else if (intent.getExtras() == null) {
-                    p.d("LinkProxyActivity", "adapterToService getExtras() is null");
-                } else {
-                    Intent intent2 = (Intent) intent.getExtras().get("previous_intent");
-                    if (intent2 == null) {
-                        p.d("LinkProxyActivity", "adapterToService proxyIntent is null");
-                    } else {
-                        z.a(this, intent2);
-                    }
-                }
-            } catch (Exception e2) {
-                p.a("LinkProxyActivity", e2.toString(), e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            Intent intent = getIntent();
+            if (intent == null) {
+                p.d("LinkProxyActivity", "enter RequestPermissionsActivity onCreate, intent is null, finish");
+                finish();
+                return;
             }
-        } else {
+            boolean z = true;
             try {
-                if (intent.getExtras() != null) {
-                    Intent intent3 = (Intent) intent.getExtras().get("previous_intent");
-                    if (intent3 != null && (packageManager = getPackageManager()) != null && (queryIntentServices = packageManager.queryIntentServices(intent3, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE)) != null && !queryIntentServices.isEmpty() && (resolveInfo = queryIntentServices.get(0)) != null && resolveInfo.serviceInfo != null && resolveInfo.serviceInfo.exported) {
-                        if (!z) {
-                            startService(intent3);
+                Window window = getWindow();
+                window.setGravity(BadgeDrawable.TOP_START);
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.x = 0;
+                attributes.y = 0;
+                attributes.height = 1;
+                attributes.width = 1;
+                window.setAttributes(attributes);
+            } catch (Throwable th) {
+                p.b("LinkProxyActivity", "enter onCreate error ", th);
+            }
+            String packageName = getPackageName();
+            p.d("LinkProxyActivity", hashCode() + " enter onCreate " + packageName);
+            if ("com.vivo.abe".equals(packageName)) {
+                try {
+                    if (intent == null) {
+                        p.d("LinkProxyActivity", "adapterToService intent is null");
+                    } else if (intent.getExtras() == null) {
+                        p.d("LinkProxyActivity", "adapterToService getExtras() is null");
+                    } else {
+                        Intent intent2 = (Intent) intent.getExtras().get("previous_intent");
+                        if (intent2 == null) {
+                            p.d("LinkProxyActivity", "adapterToService proxyIntent is null");
                         } else {
-                            p.b("LinkProxyActivity", "service's exported is " + z);
+                            z.a(this, intent2);
                         }
                     }
-                    z = false;
-                    if (!z) {
-                    }
+                } catch (Exception e2) {
+                    p.a("LinkProxyActivity", e2.toString(), e2);
                 }
-            } catch (Exception e3) {
-                p.a("LinkProxyActivity", e3.toString(), e3);
+            } else {
+                try {
+                    if (intent.getExtras() != null) {
+                        Intent intent3 = (Intent) intent.getExtras().get("previous_intent");
+                        if (intent3 != null && (packageManager = getPackageManager()) != null && (queryIntentServices = packageManager.queryIntentServices(intent3, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE)) != null && !queryIntentServices.isEmpty() && (resolveInfo = queryIntentServices.get(0)) != null && resolveInfo.serviceInfo != null && resolveInfo.serviceInfo.exported) {
+                            if (!z) {
+                                startService(intent3);
+                            } else {
+                                p.b("LinkProxyActivity", "service's exported is " + z);
+                            }
+                        }
+                        z = false;
+                        if (!z) {
+                        }
+                    }
+                } catch (Exception e3) {
+                    p.a("LinkProxyActivity", e3.toString(), e3);
+                }
             }
+            finish();
         }
-        finish();
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        p.d("LinkProxyActivity", hashCode() + " onDestory " + getPackageName());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDestroy();
+            p.d("LinkProxyActivity", hashCode() + " onDestory " + getPackageName());
+        }
     }
 }

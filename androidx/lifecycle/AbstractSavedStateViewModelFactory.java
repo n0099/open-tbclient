@@ -7,14 +7,36 @@ import androidx.annotation.RestrictTo;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.savedstate.SavedStateRegistry;
 import androidx.savedstate.SavedStateRegistryOwner;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public abstract class AbstractSavedStateViewModelFactory extends ViewModelProvider.KeyedFactory {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_SAVED_STATE_HANDLE_CONTROLLER = "androidx.lifecycle.savedstate.vm.tag";
+    public transient /* synthetic */ FieldHolder $fh;
     public final Bundle mDefaultArgs;
     public final Lifecycle mLifecycle;
     public final SavedStateRegistry mSavedStateRegistry;
 
     public AbstractSavedStateViewModelFactory(@NonNull SavedStateRegistryOwner savedStateRegistryOwner, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {savedStateRegistryOwner, bundle};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mSavedStateRegistry = savedStateRegistryOwner.getSavedStateRegistry();
         this.mLifecycle = savedStateRegistryOwner.getLifecycle();
         this.mDefaultArgs = bundle;
@@ -24,10 +46,15 @@ public abstract class AbstractSavedStateViewModelFactory extends ViewModelProvid
     @NonNull
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public final <T extends ViewModel> T create(@NonNull String str, @NonNull Class<T> cls) {
-        SavedStateHandleController create = SavedStateHandleController.create(this.mSavedStateRegistry, this.mLifecycle, str, this.mDefaultArgs);
-        T t = (T) create(str, cls, create.getHandle());
-        t.setTagIfAbsent("androidx.lifecycle.savedstate.vm.tag", create);
-        return t;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
+            SavedStateHandleController create = SavedStateHandleController.create(this.mSavedStateRegistry, this.mLifecycle, str, this.mDefaultArgs);
+            T t = (T) create(str, cls, create.getHandle());
+            t.setTagIfAbsent("androidx.lifecycle.savedstate.vm.tag", create);
+            return t;
+        }
+        return (T) invokeLL.objValue;
     }
 
     @NonNull
@@ -35,16 +62,24 @@ public abstract class AbstractSavedStateViewModelFactory extends ViewModelProvid
 
     @Override // androidx.lifecycle.ViewModelProvider.OnRequeryFactory
     public void onRequery(@NonNull ViewModel viewModel) {
-        SavedStateHandleController.attachHandleIfNeeded(viewModel, this.mSavedStateRegistry, this.mLifecycle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, viewModel) == null) {
+            SavedStateHandleController.attachHandleIfNeeded(viewModel, this.mSavedStateRegistry, this.mLifecycle);
+        }
     }
 
     @Override // androidx.lifecycle.ViewModelProvider.KeyedFactory, androidx.lifecycle.ViewModelProvider.Factory
     @NonNull
     public final <T extends ViewModel> T create(@NonNull Class<T> cls) {
-        String canonicalName = cls.getCanonicalName();
-        if (canonicalName != null) {
-            return (T) create(canonicalName, cls);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            String canonicalName = cls.getCanonicalName();
+            if (canonicalName != null) {
+                return (T) create(canonicalName, cls);
+            }
+            throw new IllegalArgumentException("Local and anonymous classes can not be ViewModels");
         }
-        throw new IllegalArgumentException("Local and anonymous classes can not be ViewModels");
+        return (T) invokeL.objValue;
     }
 }

@@ -11,9 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouch;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
@@ -22,205 +29,344 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import d.a.m0.a.v2.n0;
-import d.a.m0.a.v2.o0;
-import d.a.m0.a.v2.u;
-import d.a.m0.e.d;
+import d.a.q0.a.v2.n0;
+import d.a.q0.a.v2.o0;
+import d.a.q0.a.v2.u;
+import d.a.q0.e.d;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PictureView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11647e;
+    public String f11714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11648f;
+    public String f11715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11649g;
+    public String f11716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ZoomImageView f11650h;
+    public ZoomImageView f11717h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f11651i;
+    public View f11718i;
     public View j;
     public View k;
     public boolean l;
     public c m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements BdImageViewTouch.c {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PictureView f11719a;
+
+        public a(PictureView pictureView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pictureView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11719a = pictureView;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouch.c
         public void a() {
-            if (!PictureView.this.f()) {
-                if (PictureView.this.l) {
-                    PictureView.this.h();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.f11719a.f()) {
+                    if (this.f11719a.l) {
+                        this.f11719a.h();
+                    }
+                } else if (this.f11719a.getContext() instanceof View.OnClickListener) {
+                    ((View.OnClickListener) this.f11719a.getContext()).onClick(this.f11719a.f11717h);
                 }
-            } else if (PictureView.this.getContext() instanceof View.OnClickListener) {
-                ((View.OnClickListener) PictureView.this.getContext()).onClick(PictureView.this.f11650h);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends BaseBitmapDataSubscriber {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PictureView f11720a;
+
+        public b(PictureView pictureView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pictureView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11720a = pictureView;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
         public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            super.onCancellation(dataSource);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                super.onCancellation(dataSource);
+            }
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            PictureView.this.i();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
+                this.f11720a.i();
+            }
         }
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
         public void onNewResultImpl(@Nullable Bitmap bitmap) {
             Bitmap copy;
-            if (bitmap != null && !bitmap.isRecycled()) {
-                try {
-                    if (bitmap.getConfig() == null) {
-                        copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-                    } else {
-                        copy = bitmap.copy(bitmap.getConfig(), true);
-                    }
-                    PictureView.this.f11650h.setImageBitmap(copy);
-                    PictureView.this.j();
-                    if (PictureView.this.m != null) {
-                        PictureView.this.m.b();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    try {
+                        if (bitmap.getConfig() == null) {
+                            copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                        } else {
+                            copy = bitmap.copy(bitmap.getConfig(), true);
+                        }
+                        this.f11720a.f11717h.setImageBitmap(copy);
+                        this.f11720a.j();
+                        if (this.f11720a.m != null) {
+                            this.f11720a.m.b();
+                            return;
+                        }
                         return;
+                    } catch (OutOfMemoryError unused) {
+                        System.gc();
                     }
-                    return;
-                } catch (OutOfMemoryError unused) {
-                    System.gc();
                 }
+                if (this.f11720a.m != null) {
+                    this.f11720a.m.a();
+                }
+                this.f11720a.i();
             }
-            if (PictureView.this.m != null) {
-                PictureView.this.m.a();
-            }
-            PictureView.this.i();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a();
 
         void b();
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PictureView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public boolean f() {
-        ZoomImageView zoomImageView = this.f11650h;
-        return zoomImageView != null && zoomImageView.M();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ZoomImageView zoomImageView = this.f11717h;
+            return zoomImageView != null && zoomImageView.M();
+        }
+        return invokeV.booleanValue;
     }
 
     public final void g(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(d.swan_app_picture_view, this);
-        this.f11650h = (ZoomImageView) inflate.findViewById(d.a.m0.e.c.zoom_imageview);
-        this.f11651i = inflate.findViewById(d.a.m0.e.c.picture_load_progressbar);
-        this.j = inflate.findViewById(d.a.m0.e.c.reload_textview);
-        this.k = inflate.findViewById(d.a.m0.e.c.picture_loading_layout);
-        this.f11650h.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
-        this.f11650h.setZoomRange(1.0f, 3.0f);
-        this.f11650h.setDoubleTapEnabled(true);
-        this.f11650h.setSingleTapListener(new a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(d.swan_app_picture_view, this);
+            this.f11717h = (ZoomImageView) inflate.findViewById(d.a.q0.e.c.zoom_imageview);
+            this.f11718i = inflate.findViewById(d.a.q0.e.c.picture_load_progressbar);
+            this.j = inflate.findViewById(d.a.q0.e.c.reload_textview);
+            this.k = inflate.findViewById(d.a.q0.e.c.picture_loading_layout);
+            this.f11717h.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
+            this.f11717h.setZoomRange(1.0f, 3.0f);
+            this.f11717h.setDoubleTapEnabled(true);
+            this.f11717h.setSingleTapListener(new a(this));
+        }
     }
 
     public View getImageView() {
-        return this.f11650h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11717h : (View) invokeV.objValue;
     }
 
     public Bitmap getImageViewBitmap() {
-        ZoomImageView zoomImageView = this.f11650h;
-        if (zoomImageView != null) {
-            Drawable drawable = zoomImageView.getDrawable();
-            if (drawable instanceof BitmapDrawable) {
-                return ((BitmapDrawable) drawable).getBitmap();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ZoomImageView zoomImageView = this.f11717h;
+            if (zoomImageView != null) {
+                Drawable drawable = zoomImageView.getDrawable();
+                if (drawable instanceof BitmapDrawable) {
+                    return ((BitmapDrawable) drawable).getBitmap();
+                }
+                return u.g(drawable);
             }
-            return u.g(drawable);
+            return null;
         }
-        return null;
+        return (Bitmap) invokeV.objValue;
     }
 
     public boolean h() {
-        String str = this.f11647e;
-        String str2 = this.f11648f;
-        String str3 = this.f11649g;
-        Uri p = o0.p(str);
-        boolean z = p == null;
-        this.f11651i.setVisibility(z ? 4 : 0);
-        this.j.setVisibility(z ? 0 : 4);
-        this.k.setVisibility(0);
-        if (!z) {
-            this.l = false;
-            HashMap hashMap = new HashMap();
-            if (!TextUtils.isEmpty(str2)) {
-                hashMap.put(Config.LAUNCH_REFERER, str2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.f11714e;
+            String str2 = this.f11715f;
+            String str3 = this.f11716g;
+            Uri p = o0.p(str);
+            boolean z = p == null;
+            this.f11718i.setVisibility(z ? 4 : 0);
+            this.j.setVisibility(z ? 0 : 4);
+            this.k.setVisibility(0);
+            if (!z) {
+                this.l = false;
+                HashMap hashMap = new HashMap();
+                if (!TextUtils.isEmpty(str2)) {
+                    hashMap.put(Config.LAUNCH_REFERER, str2);
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    hashMap.put("User-Agent", str3);
+                }
+                ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(n0.o(getContext()), n0.o(getContext())));
+                d.a.q0.a.c1.a.y().e(resizeOptions, hashMap);
+                Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(this), UiThreadImmediateExecutorService.getInstance());
             }
-            if (!TextUtils.isEmpty(str3)) {
-                hashMap.put("User-Agent", str3);
-            }
-            ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(n0.o(getContext()), n0.o(getContext())));
-            d.a.m0.a.c1.a.y().e(resizeOptions, hashMap);
-            Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(), UiThreadImmediateExecutorService.getInstance());
+            return !z;
         }
-        return !z;
+        return invokeV.booleanValue;
     }
 
     public final void i() {
-        this.j.setVisibility(0);
-        this.f11651i.setVisibility(4);
-        this.k.setVisibility(0);
-        this.l = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.j.setVisibility(0);
+            this.f11718i.setVisibility(4);
+            this.k.setVisibility(0);
+            this.l = true;
+        }
     }
 
     public final void j() {
-        this.j.setVisibility(4);
-        this.f11651i.setVisibility(4);
-        this.k.setVisibility(4);
-        this.l = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.j.setVisibility(4);
+            this.f11718i.setVisibility(4);
+            this.k.setVisibility(4);
+            this.l = false;
+        }
     }
 
     public void setData(String str) {
-        this.f11647e = str;
-        this.f11648f = null;
-        h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f11714e = str;
+            this.f11715f = null;
+            h();
+        }
     }
 
     public void setUA(String str) {
-        this.f11649g = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f11716g = str;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PictureView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PictureView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11647e = null;
-        this.f11648f = null;
-        this.f11649g = null;
-        this.f11650h = null;
-        this.f11651i = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f11714e = null;
+        this.f11715f = null;
+        this.f11716g = null;
+        this.f11717h = null;
+        this.f11718i = null;
         this.j = null;
         this.k = null;
         this.l = false;
-        this.f11647e = null;
-        this.f11648f = null;
-        this.f11649g = null;
-        this.f11650h = null;
-        this.f11651i = null;
+        this.f11714e = null;
+        this.f11715f = null;
+        this.f11716g = null;
+        this.f11717h = null;
+        this.f11718i = null;
         this.j = null;
         this.k = null;
         this.l = false;
@@ -228,9 +374,12 @@ public class PictureView extends FrameLayout {
     }
 
     public void setData(String str, String str2, c cVar) {
-        this.m = cVar;
-        this.f11647e = str;
-        this.f11648f = str2;
-        h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, cVar) == null) {
+            this.m = cVar;
+            this.f11714e = str;
+            this.f11715f = str2;
+            h();
+        }
     }
 }

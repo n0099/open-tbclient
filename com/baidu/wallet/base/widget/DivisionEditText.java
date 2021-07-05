@@ -6,203 +6,308 @@ import android.text.InputFilter;
 import android.text.Selection;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-/* loaded from: classes5.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class DivisionEditText extends SafeKeyBoardEditText {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int VIEW_TYPE_BANKCARD = 25;
     public static final int VIEW_TYPE_ID = 20;
     public static final int VIEW_TYPE_PHONE = 13;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f23574a;
+    public boolean f24117a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23575b;
+    public int f24118b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23576c;
+    public int f24119c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DivisionEditText(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f23574a = true;
-        this.f23575b = 0;
-        this.f23576c = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f24117a = true;
+        this.f24118b = 0;
+        this.f24119c = 3;
         setUseSafeKeyBoard(false);
     }
 
     public String getRealText() {
-        return getText().toString().replace(" ", "").trim();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getText().toString().replace(" ", "").trim() : (String) invokeV.objValue;
     }
 
     public boolean isFormatEnabled() {
-        return this.f23574a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24117a : invokeV.booleanValue;
     }
 
     public void setFormatEnable(boolean z) {
-        this.f23574a = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.f24117a = z;
+        }
     }
 
     public void setViewType(int i2) {
-        this.f23575b = i2;
-        if (i2 == 13) {
-            this.f23576c = 3;
-        } else if (i2 == 25) {
-            this.f23576c = 4;
-        } else if (i2 == 20) {
-            this.f23576c = 6;
-            if (isFormatEnabled()) {
-                setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
-                return;
-            } else {
-                setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2 - 2)});
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.f24118b = i2;
+            if (i2 == 13) {
+                this.f24119c = 3;
+            } else if (i2 == 25) {
+                this.f24119c = 4;
+            } else if (i2 == 20) {
+                this.f24119c = 6;
+                if (isFormatEnabled()) {
+                    setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
+                    return;
+                } else {
+                    setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2 - 2)});
+                    return;
+                }
+            }
+            setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public DivisionEditText(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
-    }
-
-    public DivisionEditText(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.f23574a = true;
-        this.f23575b = 0;
-        this.f23576c = 3;
+        this.f24117a = true;
+        this.f24118b = 0;
+        this.f24119c = 3;
         setUseSafeKeyBoard(false);
-        addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.base.widget.DivisionEditText.1
-
-            /* renamed from: g  reason: collision with root package name */
-            public char[] f23583g;
+        addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.base.widget.DivisionEditText.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public int f23577a = 0;
+            public int f24120a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f23578b = 0;
+            public int f24121b;
 
             /* renamed from: c  reason: collision with root package name */
-            public boolean f23579c = false;
+            public boolean f24122c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f23580d = 0;
-
-            /* renamed from: h  reason: collision with root package name */
-            public StringBuffer f23584h = new StringBuffer();
+            public int f24123d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f23581e = 0;
+            public int f24124e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ DivisionEditText f24125f;
+
+            /* renamed from: g  reason: collision with root package name */
+            public char[] f24126g;
+
+            /* renamed from: h  reason: collision with root package name */
+            public StringBuffer f24127h;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f24125f = this;
+                this.f24120a = 0;
+                this.f24121b = 0;
+                this.f24122c = false;
+                this.f24123d = 0;
+                this.f24127h = new StringBuffer();
+                this.f24124e = 0;
+            }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                int i2;
-                if (this.f23579c && DivisionEditText.this.isFormatEnabled()) {
-                    this.f23580d = DivisionEditText.this.getSelectionEnd();
-                    int i3 = 0;
-                    while (i3 < this.f23584h.length()) {
-                        if (this.f23584h.charAt(i3) == ' ') {
-                            this.f23584h.deleteCharAt(i3);
+                int i4;
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) && this.f24122c && this.f24125f.isFormatEnabled()) {
+                    this.f24123d = this.f24125f.getSelectionEnd();
+                    int i5 = 0;
+                    while (i5 < this.f24127h.length()) {
+                        if (this.f24127h.charAt(i5) == ' ') {
+                            this.f24127h.deleteCharAt(i5);
                         } else {
-                            i3++;
+                            i5++;
                         }
                     }
-                    if (DivisionEditText.this.f23575b != 13) {
-                        if (DivisionEditText.this.f23575b != 25) {
-                            if (DivisionEditText.this.f23575b == 20) {
-                                i2 = 0;
-                                for (int i4 = 0; i4 < this.f23584h.length(); i4++) {
-                                    if (i4 == 6 || i4 == 15) {
-                                        this.f23584h.insert(i4, ' ');
-                                        i2++;
+                    if (this.f24125f.f24118b != 13) {
+                        if (this.f24125f.f24118b != 25) {
+                            if (this.f24125f.f24118b == 20) {
+                                i4 = 0;
+                                for (int i6 = 0; i6 < this.f24127h.length(); i6++) {
+                                    if (i6 == 6 || i6 == 15) {
+                                        this.f24127h.insert(i6, ' ');
+                                        i4++;
                                     }
                                 }
                             } else {
-                                i2 = 0;
+                                i4 = 0;
                             }
                         } else {
-                            i2 = 0;
-                            for (int i5 = 0; i5 < this.f23584h.length(); i5++) {
-                                if (i5 == 4 || i5 == 9 || i5 == 14 || i5 == 19) {
-                                    this.f23584h.insert(i5, ' ');
-                                    i2++;
+                            i4 = 0;
+                            for (int i7 = 0; i7 < this.f24127h.length(); i7++) {
+                                if (i7 == 4 || i7 == 9 || i7 == 14 || i7 == 19) {
+                                    this.f24127h.insert(i7, ' ');
+                                    i4++;
                                 }
                             }
                         }
                     } else {
-                        i2 = 0;
-                        for (int i6 = 0; i6 < this.f23584h.length(); i6++) {
-                            if (i6 == 3 || i6 == 8) {
-                                this.f23584h.insert(i6, ' ');
-                                i2++;
+                        i4 = 0;
+                        for (int i8 = 0; i8 < this.f24127h.length(); i8++) {
+                            if (i8 == 3 || i8 == 8) {
+                                this.f24127h.insert(i8, ' ');
+                                i4++;
                             }
                         }
                     }
-                    int i7 = this.f23581e;
-                    if (i2 > i7) {
-                        if (i2 - i7 > 1) {
-                            this.f23580d += i2 - i7;
+                    int i9 = this.f24124e;
+                    if (i4 > i9) {
+                        if (i4 - i9 > 1) {
+                            this.f24123d += i4 - i9;
                         } else {
-                            int i8 = this.f23580d;
-                            if (i8 - 1 >= 0 && this.f23584h.charAt(i8 - 1) == ' ') {
-                                this.f23580d += i2 - this.f23581e;
+                            int i10 = this.f24123d;
+                            if (i10 - 1 >= 0 && this.f24127h.charAt(i10 - 1) == ' ') {
+                                this.f24123d += i4 - this.f24124e;
                             }
                         }
                     }
-                    this.f23583g = new char[this.f23584h.length()];
-                    StringBuffer stringBuffer = this.f23584h;
-                    stringBuffer.getChars(0, stringBuffer.length(), this.f23583g, 0);
-                    String stringBuffer2 = this.f23584h.toString();
-                    if (stringBuffer2.length() > DivisionEditText.this.f23575b) {
-                        stringBuffer2 = stringBuffer2.substring(0, DivisionEditText.this.f23575b);
+                    this.f24126g = new char[this.f24127h.length()];
+                    StringBuffer stringBuffer = this.f24127h;
+                    stringBuffer.getChars(0, stringBuffer.length(), this.f24126g, 0);
+                    String stringBuffer2 = this.f24127h.toString();
+                    if (stringBuffer2.length() > this.f24125f.f24118b) {
+                        stringBuffer2 = stringBuffer2.substring(0, this.f24125f.f24118b);
                     }
-                    DivisionEditText.this.setText(stringBuffer2);
-                    Editable text = DivisionEditText.this.getText();
-                    if (this.f23580d > text.length()) {
-                        this.f23580d = text.length();
-                    } else if (this.f23580d < 0) {
-                        this.f23580d = 0;
+                    this.f24125f.setText(stringBuffer2);
+                    Editable text = this.f24125f.getText();
+                    if (this.f24123d > text.length()) {
+                        this.f24123d = text.length();
+                    } else if (this.f24123d < 0) {
+                        this.f24123d = 0;
                     }
-                    Selection.setSelection(text, this.f23580d);
-                    if (DivisionEditText.this.f23575b == 13 && this.f23577a < editable.length()) {
-                        if (!DivisionEditText.this.isFormatEnabled() && text.length() == 11) {
+                    Selection.setSelection(text, this.f24123d);
+                    if (this.f24125f.f24118b == 13 && this.f24120a < editable.length()) {
+                        if (!this.f24125f.isFormatEnabled() && text.length() == 11) {
                             Selection.setSelection(text, 11);
                         } else if (text.length() == 13) {
                             Selection.setSelection(text, 13);
                         }
                     }
-                    this.f23579c = false;
+                    this.f24122c = false;
                 }
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-                this.f23577a = charSequence.length();
-                if (this.f23584h.length() > 0) {
-                    StringBuffer stringBuffer = this.f23584h;
-                    stringBuffer.delete(0, stringBuffer.length());
-                }
-                this.f23581e = 0;
-                for (int i5 = 0; i5 < charSequence.length(); i5++) {
-                    if (charSequence.charAt(i5) == ' ') {
-                        this.f23581e++;
+            public void beforeTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
+                    this.f24120a = charSequence.length();
+                    if (this.f24127h.length() > 0) {
+                        StringBuffer stringBuffer = this.f24127h;
+                        stringBuffer.delete(0, stringBuffer.length());
+                    }
+                    this.f24124e = 0;
+                    for (int i7 = 0; i7 < charSequence.length(); i7++) {
+                        if (charSequence.charAt(i7) == ' ') {
+                            this.f24124e++;
+                        }
                     }
                 }
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-                this.f23578b = charSequence.length();
-                if (DivisionEditText.this.f23575b == 13 && this.f23578b >= 11 && !DivisionEditText.this.isFormatEnabled()) {
-                    DivisionEditText.this.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
-                }
-                this.f23584h.append(charSequence.toString());
-                int i5 = this.f23578b;
-                if (i5 != this.f23577a && i5 >= DivisionEditText.this.f23576c && !this.f23579c) {
-                    this.f23579c = true;
-                } else {
-                    this.f23579c = false;
+            public void onTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i4, i5, i6) == null) {
+                    this.f24121b = charSequence.length();
+                    if (this.f24125f.f24118b == 13 && this.f24121b >= 11 && !this.f24125f.isFormatEnabled()) {
+                        this.f24125f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
+                    }
+                    this.f24127h.append(charSequence.toString());
+                    int i7 = this.f24121b;
+                    if (i7 != this.f24120a && i7 >= this.f24125f.f24119c && !this.f24122c) {
+                        this.f24122c = true;
+                    } else {
+                        this.f24122c = false;
+                    }
                 }
             }
         });
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DivisionEditText(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 }

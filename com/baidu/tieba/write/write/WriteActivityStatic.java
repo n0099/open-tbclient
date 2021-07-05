@@ -7,6 +7,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -52,32 +53,79 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity;
 import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchActivity;
 import com.baidu.tieba.write.write.vote.WriteVoteActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.j;
 import d.a.c.e.p.l;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class WriteActivityStatic {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f22291a = 11;
+    public static int f22807a = 11;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f22292b = 18;
+    public static int f22808b = 18;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public static class a implements UrlManager.UrlSchemaHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlSchemaHandler
         public void deal(TbPageContext<?> tbPageContext, Map<String, String> map) {
-            if (tbPageContext != null) {
-                WriteActivityStatic.b(tbPageContext);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, map) == null) || tbPageContext == null) {
+                return;
             }
+            WriteActivityStatic.b(tbPageContext);
         }
     }
 
     /* loaded from: classes5.dex */
     public static class b extends d.a.c.c.f.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
@@ -91,33 +139,58 @@ public class WriteActivityStatic {
 
         /* renamed from: process  reason: avoid collision after fix types in other method */
         public CustomMessage<?> process2(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            InterceptResult invokeLL;
             Class<?> cls;
-            if (customMessage != null) {
-                Object data = customMessage.getData();
-                if (data instanceof IntentConfig) {
-                    IntentConfig intentConfig = (IntentConfig) data;
-                    if (intentConfig.getContext() != null && (WriteActivityConfig.class == (cls = data.getClass()) || RecordVideoActivityConfig.class == cls || WriteVoteActivityConfig.class == cls)) {
-                        String simpleName = intentConfig.getContext().getClass().getSimpleName();
-                        if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName)) {
-                            d.a.o0.e3.q0.a.f().o(j.a(intentConfig.getContext()).getUniqueId());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, customMessage, customMessageTask)) == null) {
+                if (customMessage != null) {
+                    Object data = customMessage.getData();
+                    if (data instanceof IntentConfig) {
+                        IntentConfig intentConfig = (IntentConfig) data;
+                        if (intentConfig.getContext() != null && (WriteActivityConfig.class == (cls = data.getClass()) || RecordVideoActivityConfig.class == cls || WriteVoteActivityConfig.class == cls || AlbumFloatActivityConfig.class == cls)) {
+                            String simpleName = intentConfig.getContext().getClass().getSimpleName();
+                            if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName)) {
+                                d.a.s0.h3.q0.a.f().o(j.a(intentConfig.getContext()).getUniqueId());
+                            }
                         }
                     }
                 }
+                return customMessage;
             }
-            return customMessage;
+            return (CustomMessage) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
     public static class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof ExceptionData) || TiebaStaticHelper.getCurrentActivity() == null || TiebaStaticHelper.getCurrentActivity().indexOf("NewVcode") == -1) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof ExceptionData) || TiebaStaticHelper.getCurrentActivity() == null || TiebaStaticHelper.getCurrentActivity().indexOf("NewVcode") == -1) {
                 return;
             }
             TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
@@ -126,13 +199,44 @@ public class WriteActivityStatic {
 
     /* loaded from: classes5.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.o0.d0.c> run(CustomMessage<Object> customMessage) {
-            return new CustomResponsedMessage<>(2001449, new d.a.o0.w3.b());
+        public CustomResponsedMessage<d.a.s0.e0.c> run(CustomMessage<Object> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001449, new d.a.s0.a4.b()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2125123053, "Lcom/baidu/tieba/write/write/WriteActivityStatic;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2125123053, "Lcom/baidu/tieba/write/write/WriteActivityStatic;");
+                return;
+            }
+        }
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(TransmitPostEditActivityConfig.class, TransmitPostEditActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(VcodeActivityConfig.class, VcodeActivity.class);
@@ -154,55 +258,87 @@ public class WriteActivityStatic {
         UrlManager.getInstance().registerSchema(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new a());
         f();
         g();
-        d.a.o0.e3.d0.a.h(309450, GetRepostForumSocketResMessage.class, false, false);
-        d.a.o0.e3.d0.a.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
+        d.a.s0.h3.d0.a.h(309450, GetRepostForumSocketResMessage.class, false, false);
+        d.a.s0.h3.d0.a.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
+    }
+
+    public WriteActivityStatic() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     public static void b(TbPageContext<?> tbPageContext) {
-        BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 <= f22292b && i2 >= f22291a) {
-            d(tbPageContext);
-        } else {
-            c(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, tbPageContext) == null) {
+            BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 <= f22808b && i2 >= f22807a) {
+                d(tbPageContext);
+            } else {
+                c(tbPageContext);
+            }
         }
     }
 
     public static void c(TbPageContext<?> tbPageContext) {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            AntiData antiData = new AntiData();
-            antiData.setIfpost(1);
-            if (antiData.getIfpost() == 0) {
-                l.M(tbPageContext.getPageActivity(), antiData.getForbid_info());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, tbPageContext) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                AntiData antiData = new AntiData();
+                antiData.setIfpost(1);
+                if (antiData.getIfpost() == 0) {
+                    l.M(tbPageContext.getPageActivity(), antiData.getForbid_info());
+                    return;
+                }
+                antiData.setIfVoice(false);
+                WriteActivityConfig.newInstance(tbPageContext.getPageActivity()).setType(9).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setAntiData(antiData).send();
                 return;
             }
-            antiData.setIfVoice(false);
-            WriteActivityConfig.newInstance(tbPageContext.getPageActivity()).setType(9).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setAntiData(antiData).send();
-            return;
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, 12008)));
         }
-        TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, 12008)));
     }
 
     public static void d(TbPageContext<?> tbPageContext) {
-        d.a.n0.l.a.p(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, tbPageContext) == null) {
+            d.a.r0.l.a.p(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
+        }
     }
 
     public static void e() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new d());
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-        d.a.o0.e3.d0.a.f(309686, UrlParserSocketResponseMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, d.a.o0.e3.d0.a.a(TbConfig.URL_URL_PARSER, 309686));
-        tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new d());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+            d.a.s0.h3.d0.a.f(309686, UrlParserSocketResponseMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, d.a.s0.h3.d0.a.a(TbConfig.URL_URL_PARSER, 309686));
+            tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public static void f() {
-        MessageManager.getInstance().addMessageRule(new b(2002001));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            MessageManager.getInstance().addMessageRule(new b(2002001));
+        }
     }
 
     public static void g() {
-        MessageManager.getInstance().registerListener(new c(2016301));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            MessageManager.getInstance().registerListener(new c(2016301));
+        }
     }
 }

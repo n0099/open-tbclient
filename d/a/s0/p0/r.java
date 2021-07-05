@@ -1,0 +1,204 @@
+package d.a.s0.p0;
+
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.w.p.a;
+import d.a.s0.p0.q;
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes9.dex */
+public class r extends d.a.r0.w.p.a {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static r f64493f;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public LinkedList<d.a.r0.w.p.c> f64494e;
+
+    /* loaded from: classes9.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ r f64495a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(r rVar, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f64495a = rVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001444) {
+                Object data = customResponsedMessage.getData();
+                if (data == null || !(data instanceof SingleBarEmotionRecommendData)) {
+                    this.f64495a.g(null);
+                    return;
+                }
+                SingleBarEmotionRecommendData singleBarEmotionRecommendData = (SingleBarEmotionRecommendData) data;
+                LinkedList linkedList = new LinkedList();
+                if (singleBarEmotionRecommendData == null || TextUtils.isEmpty(singleBarEmotionRecommendData.pkg_id) || TextUtils.isEmpty(singleBarEmotionRecommendData.cover)) {
+                    this.f64495a.g(null);
+                    return;
+                }
+                linkedList.add(singleBarEmotionRecommendData);
+                this.f64495a.g(linkedList);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements q.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(r rVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // d.a.s0.p0.q.b
+        public void a(q qVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) {
+                MessageManager.getInstance().runTask(2004603, (Class) null);
+            }
+        }
+    }
+
+    public r() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static r f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f64493f == null) {
+                synchronized (r.class) {
+                    if (f64493f == null) {
+                        f64493f = new r();
+                    }
+                }
+            }
+            return f64493f;
+        }
+        return (r) invokeV.objValue;
+    }
+
+    @Override // d.a.r0.w.p.a
+    public void b(a.InterfaceC1286a interfaceC1286a) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC1286a) == null) && FileHelper.checkSD() && this.f64494e != null) {
+            for (int i2 = 0; i2 < this.f64494e.size(); i2++) {
+                q qVar = (q) this.f64494e.get(i2);
+                if (qVar.t() && d.a.s0.c2.c.i().g(qVar.f()) == null && interfaceC1286a != null) {
+                    interfaceC1286a.a(qVar);
+                }
+            }
+        }
+    }
+
+    @Override // d.a.r0.w.p.a
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // d.a.r0.w.p.a
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, 2001444));
+        }
+    }
+
+    public final synchronized void g(List<d.a.s0.o0.c.b> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            synchronized (this) {
+                if (list != null) {
+                    if (!list.isEmpty()) {
+                        if (this.f64494e != null) {
+                            this.f64494e = null;
+                        }
+                        LinkedList<d.a.r0.w.p.c> linkedList = new LinkedList<>();
+                        boolean z = false;
+                        for (d.a.s0.o0.c.b bVar : list) {
+                            if (bVar != null && !StringUtils.isNull(bVar.getGroupId()) && bVar.IsValid()) {
+                                q qVar = new q(bVar);
+                                linkedList.add(qVar);
+                                z = qVar.u(bVar, new b(this));
+                            }
+                        }
+                        this.f64494e = linkedList;
+                        if (z) {
+                            MessageManager.getInstance().runTask(2004603, (Class) null);
+                        }
+                    }
+                }
+                if (this.f64494e != null) {
+                    this.f64494e = null;
+                    MessageManager.getInstance().runTask(2004603, (Class) null);
+                }
+            }
+        }
+    }
+}

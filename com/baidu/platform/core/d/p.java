@@ -4,33 +4,60 @@ import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class p extends com.baidu.platform.base.e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public p(WalkingRoutePlanOption walkingRoutePlanOption) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {walkingRoutePlanOption};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a(walkingRoutePlanOption);
     }
 
     private void a(WalkingRoutePlanOption walkingRoutePlanOption) {
-        this.f9317a.a("qt", "walk2");
-        this.f9317a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
-        this.f9317a.a("en", a(walkingRoutePlanOption.mTo));
-        PlanNode planNode = walkingRoutePlanOption.mFrom;
-        if (planNode != null) {
-            this.f9317a.a(Config.STAT_SDK_CHANNEL, planNode.getCity());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, walkingRoutePlanOption) == null) {
+            this.f9391a.a("qt", "walk2");
+            this.f9391a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
+            this.f9391a.a("en", a(walkingRoutePlanOption.mTo));
+            PlanNode planNode = walkingRoutePlanOption.mFrom;
+            if (planNode != null) {
+                this.f9391a.a(Config.STAT_SDK_CHANNEL, planNode.getCity());
+            }
+            PlanNode planNode2 = walkingRoutePlanOption.mTo;
+            if (planNode2 != null) {
+                this.f9391a.a("ec", planNode2.getCity());
+            }
+            this.f9391a.a("ie", "utf-8");
+            this.f9391a.a("lrn", "20");
+            this.f9391a.a("version", "3");
+            this.f9391a.a("rp_format", "json");
+            this.f9391a.a("rp_filter", "mobile");
         }
-        PlanNode planNode2 = walkingRoutePlanOption.mTo;
-        if (planNode2 != null) {
-            this.f9317a.a("ec", planNode2.getCity());
-        }
-        this.f9317a.a("ie", "utf-8");
-        this.f9317a.a("lrn", "20");
-        this.f9317a.a("version", "3");
-        this.f9317a.a("rp_format", "json");
-        this.f9317a.a("rp_filter", "mobile");
     }
 
     @Override // com.baidu.platform.base.e
     public String a(com.baidu.platform.domain.c cVar) {
-        return cVar.k();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.k() : (String) invokeL.objValue;
     }
 }

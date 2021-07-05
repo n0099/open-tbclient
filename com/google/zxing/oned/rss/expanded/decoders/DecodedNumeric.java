@@ -1,14 +1,38 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.FormatException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class DecodedNumeric extends DecodedObject {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int FNC1 = 10;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int firstDigit;
     public final int secondDigit;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecodedNumeric(int i2, int i3, int i4) throws FormatException {
         super(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         if (i3 >= 0 && i3 <= 10 && i4 >= 0 && i4 <= 10) {
             this.firstDigit = i3;
             this.secondDigit = i4;
@@ -18,26 +42,38 @@ public final class DecodedNumeric extends DecodedObject {
     }
 
     public int getFirstDigit() {
-        return this.firstDigit;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.firstDigit : invokeV.intValue;
     }
 
     public int getSecondDigit() {
-        return this.secondDigit;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.secondDigit : invokeV.intValue;
     }
 
     public int getValue() {
-        return (this.firstDigit * 10) + this.secondDigit;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.firstDigit * 10) + this.secondDigit : invokeV.intValue;
     }
 
     public boolean isAnyFNC1() {
-        return this.firstDigit == 10 || this.secondDigit == 10;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.firstDigit == 10 || this.secondDigit == 10 : invokeV.booleanValue;
     }
 
     public boolean isFirstDigitFNC1() {
-        return this.firstDigit == 10;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.firstDigit == 10 : invokeV.booleanValue;
     }
 
     public boolean isSecondDigitFNC1() {
-        return this.secondDigit == 10;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.secondDigit == 10 : invokeV.booleanValue;
     }
 }

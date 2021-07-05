@@ -3,84 +3,159 @@ package android.support.v4.media.session;
 import android.media.session.PlaybackState;
 import android.os.Bundle;
 import androidx.annotation.RequiresApi;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.List;
 @RequiresApi(21)
 /* loaded from: classes.dex */
 public class PlaybackStateCompatApi21 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static final class CustomAction {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public CustomAction() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public static String getAction(Object obj) {
-            return ((PlaybackState.CustomAction) obj).getAction();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) ? ((PlaybackState.CustomAction) obj).getAction() : (String) invokeL.objValue;
         }
 
         public static Bundle getExtras(Object obj) {
-            return ((PlaybackState.CustomAction) obj).getExtras();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? ((PlaybackState.CustomAction) obj).getExtras() : (Bundle) invokeL.objValue;
         }
 
         public static int getIcon(Object obj) {
-            return ((PlaybackState.CustomAction) obj).getIcon();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? ((PlaybackState.CustomAction) obj).getIcon() : invokeL.intValue;
         }
 
         public static CharSequence getName(Object obj) {
-            return ((PlaybackState.CustomAction) obj).getName();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) ? ((PlaybackState.CustomAction) obj).getName() : (CharSequence) invokeL.objValue;
         }
 
         public static Object newInstance(String str, CharSequence charSequence, int i2, Bundle bundle) {
-            PlaybackState.CustomAction.Builder builder = new PlaybackState.CustomAction.Builder(str, charSequence, i2);
-            builder.setExtras(bundle);
-            return builder.build();
+            InterceptResult invokeLLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(AdIconUtil.AD_TEXT_ID, null, str, charSequence, i2, bundle)) == null) {
+                PlaybackState.CustomAction.Builder builder = new PlaybackState.CustomAction.Builder(str, charSequence, i2);
+                builder.setExtras(bundle);
+                return builder.build();
+            }
+            return invokeLLIL.objValue;
+        }
+    }
+
+    public PlaybackStateCompatApi21() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public static long getActions(Object obj) {
-        return ((PlaybackState) obj).getActions();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) ? ((PlaybackState) obj).getActions() : invokeL.longValue;
     }
 
     public static long getActiveQueueItemId(Object obj) {
-        return ((PlaybackState) obj).getActiveQueueItemId();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? ((PlaybackState) obj).getActiveQueueItemId() : invokeL.longValue;
     }
 
     public static long getBufferedPosition(Object obj) {
-        return ((PlaybackState) obj).getBufferedPosition();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? ((PlaybackState) obj).getBufferedPosition() : invokeL.longValue;
     }
 
     public static List<Object> getCustomActions(Object obj) {
-        return ((PlaybackState) obj).getCustomActions();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) ? ((PlaybackState) obj).getCustomActions() : (List) invokeL.objValue;
     }
 
     public static CharSequence getErrorMessage(Object obj) {
-        return ((PlaybackState) obj).getErrorMessage();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? ((PlaybackState) obj).getErrorMessage() : (CharSequence) invokeL.objValue;
     }
 
     public static long getLastPositionUpdateTime(Object obj) {
-        return ((PlaybackState) obj).getLastPositionUpdateTime();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((PlaybackState) obj).getLastPositionUpdateTime() : invokeL.longValue;
     }
 
     public static float getPlaybackSpeed(Object obj) {
-        return ((PlaybackState) obj).getPlaybackSpeed();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? ((PlaybackState) obj).getPlaybackSpeed() : invokeL.floatValue;
     }
 
     public static long getPosition(Object obj) {
-        return ((PlaybackState) obj).getPosition();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? ((PlaybackState) obj).getPosition() : invokeL.longValue;
     }
 
     public static int getState(Object obj) {
-        return ((PlaybackState) obj).getState();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? ((PlaybackState) obj).getState() : invokeL.intValue;
     }
 
     public static Object newInstance(int i2, long j, long j2, float f2, long j3, CharSequence charSequence, long j4, List<Object> list, long j5) {
-        PlaybackState.Builder builder = new PlaybackState.Builder();
-        builder.setState(i2, j, f2, j4);
-        builder.setBufferedPosition(j2);
-        builder.setActions(j3);
-        builder.setErrorMessage(charSequence);
-        Iterator<Object> it = list.iterator();
-        while (it.hasNext()) {
-            builder.addCustomAction((PlaybackState.CustomAction) it.next());
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Long.valueOf(j3), charSequence, Long.valueOf(j4), list, Long.valueOf(j5)})) == null) {
+            PlaybackState.Builder builder = new PlaybackState.Builder();
+            builder.setState(i2, j, f2, j4);
+            builder.setBufferedPosition(j2);
+            builder.setActions(j3);
+            builder.setErrorMessage(charSequence);
+            Iterator<Object> it = list.iterator();
+            while (it.hasNext()) {
+                builder.addCustomAction((PlaybackState.CustomAction) it.next());
+            }
+            builder.setActiveQueueItemId(j5);
+            return builder.build();
         }
-        builder.setActiveQueueItemId(j5);
-        return builder.build();
+        return invokeCommon.objValue;
     }
 }

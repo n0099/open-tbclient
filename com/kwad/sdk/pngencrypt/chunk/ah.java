@@ -1,39 +1,71 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class ah {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f36946a;
+    public final e f38709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f36947b;
+    public final boolean f38710b;
 
     public ah(e eVar) {
-        this.f36946a = eVar;
-        this.f36947b = !(eVar instanceof f);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f38709a = eVar;
+        this.f38710b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.addAll(this.f36946a.a("tEXt", str));
-        arrayList.addAll(this.f36946a.a("zTXt", str));
-        arrayList.addAll(this.f36946a.a("iTXt", str));
-        return arrayList;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.f38709a.a("tEXt", str));
+            arrayList.addAll(this.f38709a.a("zTXt", str));
+            arrayList.addAll(this.f38709a.a("iTXt", str));
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 
     public String b(String str) {
-        List<? extends ae> a2 = a(str);
-        if (a2.isEmpty()) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            List<? extends ae> a2 = a(str);
+            if (a2.isEmpty()) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (ae aeVar : a2) {
+                sb.append(aeVar.d());
+                sb.append("\n");
+            }
+            return sb.toString().trim();
         }
-        StringBuilder sb = new StringBuilder();
-        for (ae aeVar : a2) {
-            sb.append(aeVar.d());
-            sb.append("\n");
-        }
-        return sb.toString().trim();
+        return (String) invokeL.objValue;
     }
 }

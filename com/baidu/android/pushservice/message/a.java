@@ -1,64 +1,106 @@
 package com.baidu.android.pushservice.message;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3521a;
+    public Context f3519a;
 
     /* renamed from: com.baidu.android.pushservice.message.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3522a;
+        public static final /* synthetic */ int[] f3520a;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            int[] iArr = new int[h.values().length];
-            f3522a = iArr;
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(562019383, "Lcom/baidu/android/pushservice/message/a$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(562019383, "Lcom/baidu/android/pushservice/message/a$1;");
+                    return;
+                }
+            }
+            int[] iArr = new int[h.a().length];
+            f3520a = iArr;
             try {
-                iArr[h.MSG_ID_HANDSHAKE.ordinal()] = 1;
+                iArr[h.f3557b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f3522a[h.MSG_ID_HEARTBEAT_SERVER.ordinal()] = 2;
+                f3520a[h.f3558c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f3522a[h.MSG_ID_TINY_HEARTBEAT_SERVER.ordinal()] = 3;
+                f3520a[h.f3562g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f3522a[h.MSG_ID_HEARTBEAT_CLIENT.ordinal()] = 4;
+                f3520a[h.f3559d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f3522a[h.MSG_ID_TINY_HEARTBEAT_CLIENT.ordinal()] = 5;
+                f3520a[h.f3561f.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f3522a[h.MSG_ID_PUSH_MSG.ordinal()] = 6;
+                f3520a[h.f3560e.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
     public a(Context context) {
-        this.f3521a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f3519a = context;
     }
 
     public c a(h hVar) {
-        int i2 = AnonymousClass1.f3522a[hVar.ordinal()];
-        if (i2 != 1) {
-            if (i2 == 2 || i2 == 3) {
-                return new l(this.f3521a);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
+            int i2 = AnonymousClass1.f3520a[hVar.ordinal()];
+            if (i2 != 1) {
+                if (i2 == 2 || i2 == 3) {
+                    return new l(this.f3519a);
+                }
+                if (i2 != 6) {
+                    return null;
+                }
+                return new j(this.f3519a);
             }
-            if (i2 != 6) {
-                return null;
-            }
-            return new j(this.f3521a);
+            return new b(this.f3519a);
         }
-        return new b(this.f3521a);
+        return (c) invokeL.objValue;
     }
 }

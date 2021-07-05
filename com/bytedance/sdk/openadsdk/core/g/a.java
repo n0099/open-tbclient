@@ -1,470 +1,135 @@
 package com.bytedance.sdk.openadsdk.core.g;
 
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import android.webkit.WebResourceResponse;
-import com.bytedance.sdk.adnet.err.VAdError;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.i;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.l.e;
-import com.bytedance.sdk.openadsdk.l.g;
-import com.bytedance.sdk.openadsdk.utils.an;
-import com.bytedance.sdk.openadsdk.utils.j;
-import com.bytedance.sdk.openadsdk.utils.u;
-import com.bytedance.sdk.openadsdk.utils.w;
-import d.b.c.b.b.b;
-import d.b.c.b.d.k;
-import d.b.c.b.d.o;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.json.JSONObject;
+import android.app.AppOpsManager;
+import android.content.Context;
+import android.os.Binder;
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.j;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f28270a;
+    public static final String f30089a = "a";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f28271b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Map<l, b> f28272c = Collections.synchronizedMap(new HashMap());
-
-    /* renamed from: d  reason: collision with root package name */
-    public Map<String, JSONObject> f28273d = Collections.synchronizedMap(new HashMap());
-
-    /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f28274e = new AtomicBoolean(false);
-
-    /* renamed from: f  reason: collision with root package name */
-    public Set<String> f28275f = Collections.synchronizedSet(new HashSet());
-
-    /* renamed from: g  reason: collision with root package name */
-    public Handler f28276g = new Handler(Looper.getMainLooper());
-
-    /* renamed from: com.bytedance.sdk.openadsdk.core.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0298a {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-
-        /* renamed from: a  reason: collision with root package name */
-        public long f28292a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f28293b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public long f28294c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public long f28295d;
-
-        public b() {
-        }
-
-        public long a() {
-            return this.f28293b - this.f28292a;
-        }
-
-        public long b() {
-            return this.f28295d - this.f28294c;
-        }
-
-        public b c(long j) {
-            this.f28294c = j;
-            return this;
-        }
-
-        public b d(long j) {
-            this.f28295d = j;
-            return this;
-        }
-
-        public b a(long j) {
-            this.f28292a = j;
-            return this;
-        }
-
-        public b b(long j) {
-            this.f28293b = j;
-            return this;
-        }
-    }
-
-    private boolean c(File file) {
-        String[] list;
-        if (file == null || !file.isDirectory() || (list = file.list()) == null || list.length <= 0) {
-            return false;
-        }
-        return Arrays.asList(list).contains("index.html");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String d() {
-        File externalCacheDir;
-        if (TextUtils.isEmpty(this.f28271b)) {
-            try {
-                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && p.a().getExternalCacheDir() != null) {
-                    externalCacheDir = p.a().getExternalCacheDir();
-                } else {
-                    externalCacheDir = p.a().getCacheDir();
-                }
-                File file = new File(externalCacheDir, "playable");
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                this.f28271b = file.getAbsolutePath();
-            } catch (Throwable th) {
-                u.f("PlayableCache", "init root path error: " + th);
-            }
-        }
-        return this.f28271b;
-    }
-
-    public void b() {
-        if (this.f28274e.get()) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(268178205, "Lcom/bytedance/sdk/openadsdk/core/g/a;")) == null) {
             return;
         }
-        e.a(new g("PlayableCache") { // from class: com.bytedance.sdk.openadsdk.core.g.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                File[] listFiles;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(268178205, "Lcom/bytedance/sdk/openadsdk/core/g/a;");
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return b(context, str);
+            }
+            return c(context, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0051, code lost:
+        if (r0 == 1) goto L29;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0053, code lost:
+        if (r0 == 2) goto L28;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0055, code lost:
+        r7 = r7.replaceFirst("android.permission.", "android:").toLowerCase();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0062, code lost:
+        r7 = "android:read_phone_state";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0065, code lost:
+        r7 = "android:fine_location";
+     */
+    @RequiresApi(api = 19)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, context, str)) != null) {
+            return invokeLL.booleanValue;
+        }
+        String str2 = f30089a;
+        j.f(str2, "checkPermissinKITKATNew，permission：" + str);
+        char c2 = 65535;
+        boolean z = false;
+        try {
+            int hashCode = str.hashCode();
+            if (hashCode != -1888586689) {
+                if (hashCode != -63024214) {
+                    if (hashCode == -5573545 && str.equals("android.permission.READ_PHONE_STATE")) {
+                        c2 = 2;
+                    }
+                } else if (str.equals("android.permission.ACCESS_COARSE_LOCATION")) {
+                    c2 = 0;
+                }
+            } else if (str.equals("android.permission.ACCESS_FINE_LOCATION")) {
+                c2 = 1;
+            }
+            String str3 = "android:coarse_location";
+            int checkOp = ((AppOpsManager) context.getSystemService("appops")).checkOp(str3, Binder.getCallingUid(), context.getPackageName());
+            String str4 = f30089a;
+            j.f(str4, "checkPermissinKITKATNew，locationOp,permission：" + checkOp + "," + str3);
+            if (checkOp != 0) {
                 try {
-                    String c2 = a.this.c();
-                    if (!TextUtils.isEmpty(c2)) {
-                        File file = new File(c2);
-                        if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                            for (File file2 : listFiles) {
-                                try {
-                                    a.this.a(new File(file2, "tt_open_ad_sdk_check_res.dat"), true);
-                                } catch (Throwable unused) {
-                                }
-                            }
-                        }
-                    }
-                } catch (Throwable unused2) {
-                }
-                a.this.f28274e.set(true);
-            }
-        }, 5);
-    }
-
-    private void b(File file) {
-        try {
-            if (file.exists()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (file.setLastModified(currentTimeMillis)) {
-                    return;
-                }
-                file.renameTo(file);
-                if (file.lastModified() < currentTimeMillis) {
-                    u.d("PlayableCache", "Last modified date " + new Date(file.lastModified()) + " is not set for file " + file.getAbsolutePath());
-                }
-            }
-        } catch (Throwable unused) {
-        }
-    }
-
-    public static a a() {
-        if (f28270a == null) {
-            synchronized (a.class) {
-                if (f28270a == null) {
-                    f28270a = new a();
-                }
-            }
-        }
-        return f28270a;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String c() {
-        File file = new File(d(), "games");
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        return file.getAbsolutePath();
-    }
-
-    public boolean a(l lVar) {
-        if (this.f28274e.get() && lVar != null && lVar.X() != null && lVar.X().k() != null) {
-            try {
-                String a2 = j.a(lVar.X().k());
-                if (this.f28273d.get(a2) == null) {
+                    String str5 = f30089a;
+                    j.f(str5, "checkPermissinKITKATNew，false,permission：" + str3);
                     return false;
-                }
-                return c(new File(c(), a2));
-            } catch (Throwable unused) {
-            }
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject a(File file, boolean z) {
-        byte[] d2;
-        if (file != null) {
-            try {
-                if (file.exists() && file.isFile() && file.canRead() && (d2 = com.bytedance.sdk.openadsdk.utils.l.d(file)) != null && d2.length > 0) {
-                    String b2 = com.bytedance.sdk.openadsdk.core.a.b(new String(d2), com.bytedance.sdk.openadsdk.core.b.d());
-                    if (TextUtils.isEmpty(b2)) {
-                        return null;
-                    }
-                    JSONObject jSONObject = new JSONObject(b2);
-                    if (z && jSONObject.length() > 0) {
-                        this.f28273d.put(file.getParentFile().getName(), jSONObject);
-                    }
-                    return jSONObject;
-                }
-                return null;
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return null;
-    }
-
-    public WebResourceResponse a(String str, String str2, String str3) {
-        try {
-        } catch (Throwable th) {
-            u.c("PlayableCache", "playable intercept error: ", th);
-        }
-        if (!this.f28274e.get() || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-            return null;
-        }
-        try {
-            if (str3.startsWith("http") && str3.contains("?")) {
-                str3 = str3.split("\\?")[0];
-                if (str3.endsWith("/")) {
-                    str3 = str3.substring(0, str3.length() - 1);
+                } catch (Exception e2) {
+                    e = e2;
+                    String str6 = f30089a;
+                    j.f(str6, "权限检查出错时默认返回有权限，异常代码：" + e);
+                    return z;
                 }
             }
-        } catch (Throwable unused) {
-        }
-        String a2 = w.a(p.a(), str3);
-        if (TextUtils.isEmpty(a2)) {
-            return null;
-        }
-        String a3 = j.a(str);
-        if (TextUtils.isEmpty(a3)) {
-            return null;
-        }
-        File file = new File(c(), a3);
-        if (c(file)) {
-            String a4 = a(str2);
-            if (TextUtils.isEmpty(a4)) {
-                return null;
-            }
-            String replace = str3.replace(a4, "");
-            if (TextUtils.isEmpty(replace)) {
-                return null;
-            }
-            File file2 = new File(file, replace);
-            if (a(a3, replace, file2)) {
-                return new WebResourceResponse(a2, "utf-8", new FileInputStream(file2));
-            }
-        }
-        return null;
-    }
-
-    private String a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        String[] split = str.split("\\?");
-        if (split != null && split.length == 2) {
-            if (split[0] != null && split[0].endsWith("/")) {
-                str = str.substring(0, split.length - 1);
-            }
-            if (split[0] != null && split[0].endsWith("index.html")) {
-                str = split[0];
-            }
-        }
-        return str.replace("index.html", "");
-    }
-
-    private boolean a(String str, String str2, File file) {
-        JSONObject jSONObject;
-        String optString;
-        return (file == null || !file.exists() || (jSONObject = this.f28273d.get(str)) == null || (optString = jSONObject.optString(str2)) == null || !optString.equalsIgnoreCase(j.a(file))) ? false : true;
-    }
-
-    public void a(final l lVar, final InterfaceC0298a interfaceC0298a) {
-        if (lVar != null && lVar.X() != null && !TextUtils.isEmpty(lVar.X().k())) {
-            final String k = lVar.X().k();
-            if (this.f28275f.contains(k)) {
-                return;
-            }
-            this.f28272c.put(lVar, new b().a(System.currentTimeMillis()));
-            com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar);
-            final String a2 = j.a(k);
-            final File file = new File(c(), a2);
-            if (c(file)) {
-                com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -702, (String) null);
-                b(file);
-                this.f28272c.remove(lVar);
-                a(interfaceC0298a, true);
-                return;
-            }
-            try {
-                com.bytedance.sdk.openadsdk.utils.l.c(file);
-            } catch (Throwable unused) {
-            }
-            this.f28275f.add(k);
-            com.bytedance.sdk.openadsdk.i.e.c().a(k, new b.InterfaceC1897b() { // from class: com.bytedance.sdk.openadsdk.core.g.a.2
-                @Override // d.b.c.b.b.b.InterfaceC1897b
-                public File a(String str) {
-                    return null;
-                }
-
-                @Override // d.b.c.b.b.c.a
-                public void a(long j, long j2) {
-                }
-
-                @Override // d.b.c.b.d.o.a
-                public void a(final o<File> oVar) {
-                    a.this.f28275f.remove(k);
-                    final b bVar = (b) a.this.f28272c.remove(lVar);
-                    if (bVar != null) {
-                        bVar.b(System.currentTimeMillis());
-                    }
-                    if (oVar != null && oVar.f69644a != null) {
-                        e.a(new g("downloadZip") { // from class: com.bytedance.sdk.openadsdk.core.g.a.2.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                long j;
-                                long j2;
-                                boolean z = true;
-                                try {
-                                    if (bVar != null) {
-                                        bVar.c(System.currentTimeMillis());
-                                    }
-                                    an.a(((File) oVar.f69644a).getAbsolutePath(), a.this.c());
-                                    if (bVar != null) {
-                                        bVar.d(System.currentTimeMillis());
-                                    }
-                                    if (bVar != null) {
-                                        long a3 = bVar.a();
-                                        j = bVar.b();
-                                        j2 = a3;
-                                    } else {
-                                        j = 0;
-                                        j2 = 0;
-                                    }
-                                    com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, j2, j);
-                                    a.this.a(file);
-                                    try {
-                                        a.this.a(new File(file, "tt_open_ad_sdk_check_res.dat"), true);
-                                    } catch (Throwable unused2) {
-                                    }
-                                } catch (Throwable th) {
-                                    u.c("PlayableCache", "unzip error: ", th);
-                                    com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -704, th.getMessage());
-                                    z = false;
-                                }
-                                try {
-                                    ((File) oVar.f69644a).delete();
-                                } catch (Throwable unused3) {
-                                }
-                                AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
-                                a.this.a(interfaceC0298a, z);
-                            }
-                        }, 5);
-                        return;
-                    }
-                    int i2 = -700;
-                    if (oVar != null) {
-                        long j = oVar.f69651h;
-                        if (j != 0) {
-                            i2 = Long.valueOf(j).intValue();
-                        }
-                    }
-                    com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i2, (String) null);
-                    a.this.a(interfaceC0298a, false);
-                }
-
-                @Override // d.b.c.b.b.b.InterfaceC1897b
-                public void a(String str, File file2) {
-                }
-
-                @Override // d.b.c.b.b.b.InterfaceC1897b
-                public File b(String str) {
-                    String d2 = a.this.d();
-                    return new File(d2, a2 + ".zip");
-                }
-
-                @Override // d.b.c.b.d.o.a
-                public void b(o<File> oVar) {
-                    k kVar;
-                    int i2;
-                    a.this.f28275f.remove(k);
-                    a.this.f28272c.remove(lVar);
-                    int i3 = -700;
-                    String str = null;
-                    if (oVar != null) {
-                        long j = oVar.f69651h;
-                        if (j != 0) {
-                            i3 = Long.valueOf(j).intValue();
-                        } else {
-                            VAdError vAdError = oVar.f69646c;
-                            if (vAdError != null && (kVar = vAdError.networkResponse) != null && (i2 = kVar.f69627a) != 0) {
-                                i3 = i2;
-                            }
-                        }
-                        VAdError vAdError2 = oVar.f69646c;
-                        if (vAdError2 != null) {
-                            str = vAdError2.getMessage();
-                        }
-                    }
-                    com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i3, str);
-                    a.this.a(interfaceC0298a, false);
-                }
-            });
-            return;
-        }
-        com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -701, (String) null);
-        a(interfaceC0298a, false);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(final InterfaceC0298a interfaceC0298a, final boolean z) {
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            if (interfaceC0298a != null) {
-                interfaceC0298a.a(z);
-            }
-        } else if (interfaceC0298a != null) {
-            this.f28276g.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.g.a.3
-                @Override // java.lang.Runnable
-                public void run() {
-                    InterfaceC0298a interfaceC0298a2 = interfaceC0298a;
-                    if (interfaceC0298a2 != null) {
-                        interfaceC0298a2.a(z);
-                    }
-                }
-            });
+            return true;
+        } catch (Exception e3) {
+            e = e3;
+            z = true;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(File file) {
-        b(file);
-        try {
-            i.d().s().a(file);
-        } catch (Throwable unused) {
-        }
+    public static boolean c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) ? context.getPackageManager().checkPermission(str, context.getPackageName()) == 0 : invokeLL.booleanValue;
     }
 }

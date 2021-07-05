@@ -1,5 +1,5 @@
 package h.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface i<T1, T2, T3, T4, R> {
     R a(T1 t1, T2 t2, T3 t3, T4 t4);
 }

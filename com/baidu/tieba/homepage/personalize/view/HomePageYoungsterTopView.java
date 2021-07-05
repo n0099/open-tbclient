@@ -13,112 +13,237 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.n0.c1.b.e;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.c1.b.e;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HomePageYoungsterTopView extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16631e;
+    public TextView f16767e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16632f;
+    public ImageView f16768f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f16633g;
+    public c f16769g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f16634h;
+    public b f16770h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HomePageYoungsterTopView f16771e;
+
+        public a(HomePageYoungsterTopView homePageYoungsterTopView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {homePageYoungsterTopView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16771e = homePageYoungsterTopView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (HomePageYoungsterTopView.this.f16634h != null) {
-                HomePageYoungsterTopView.this.f16634h.onDelete();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16771e.f16770h == null) {
+                return;
             }
+            this.f16771e.f16770h.onDelete();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void onDelete();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Context> f16636e;
+        public WeakReference<Context> f16772e;
 
         public c(Context context) {
-            this.f16636e = new WeakReference<>(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16772e = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            Context context = this.f16636e.get();
-            if (context == null || !e.d()) {
-                return;
+            Context context;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (context = this.f16772e.get()) != null && e.d()) {
+                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
+                youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
+                youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
             }
-            YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
-            youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
-            youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SkinManager.getColor(R.color.CAM_X0302));
-            textPaint.setUnderlineText(false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0302));
+                textPaint.setUnderlineText(false);
+            }
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HomePageYoungsterTopView(TbPageContext<?> tbPageContext) {
         this(tbPageContext.getPageActivity());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void b() {
-        RelativeLayout.inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-        this.f16631e = (TextView) findViewById(R.id.youngster_top_text);
-        this.f16632f = (ImageView) findViewById(R.id.youngster_top_delete);
-        SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
-        c cVar = new c(getContext());
-        this.f16633g = cVar;
-        spannableString.setSpan(cVar, 9, 13, 33);
-        this.f16631e.setText(spannableString);
-        this.f16631e.setMovementMethod(LinkMovementMethod.getInstance());
-        this.f16632f.setOnClickListener(new a());
-        c();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RelativeLayout.inflate(getContext(), R.layout.view_homepage_youngster_top, this);
+            this.f16767e = (TextView) findViewById(R.id.youngster_top_text);
+            this.f16768f = (ImageView) findViewById(R.id.youngster_top_delete);
+            SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
+            c cVar = new c(getContext());
+            this.f16769g = cVar;
+            spannableString.setSpan(cVar, 9, 13, 33);
+            this.f16767e.setText(spannableString);
+            this.f16767e.setMovementMethod(LinkMovementMethod.getInstance());
+            this.f16768f.setOnClickListener(new a(this));
+            c();
+        }
     }
 
     public void c() {
-        SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-        SkinManager.setViewTextColor(this.f16631e, R.color.CAM_X0107);
-        SkinManager.setImageResource(this.f16632f, R.drawable.icon_home_card_delete);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
+            SkinManager.setViewTextColor(this.f16767e, R.color.CAM_X0107);
+            SkinManager.setImageResource(this.f16768f, R.drawable.icon_home_card_delete);
+        }
     }
 
     public void setOnDeleteClick(b bVar) {
-        this.f16634h = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f16770h = bVar;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HomePageYoungsterTopView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HomePageYoungsterTopView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomePageYoungsterTopView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         b();
     }
 }

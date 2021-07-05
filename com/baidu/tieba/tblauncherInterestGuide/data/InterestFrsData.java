@@ -1,18 +1,29 @@
 package com.baidu.tieba.tblauncherInterestGuide.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class InterestFrsData extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3148930531307087667L;
+    public transient /* synthetic */ FieldHolder $fh;
     public String errmsg;
     public int errno;
-    public ArrayList<Tag> tag_list = new ArrayList<>();
+    public ArrayList<Tag> tag_list;
 
     /* loaded from: classes5.dex */
     public static class Card extends OrmObject implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6381883030119073721L;
+        public transient /* synthetic */ FieldHolder $fh;
         public String avatar;
         public String cdesc;
         public int cid;
@@ -23,104 +34,199 @@ public class InterestFrsData extends OrmObject implements Serializable {
         public int order;
         public String slogan;
 
+        public Card() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public String getAvatar() {
-            return this.avatar;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.avatar : (String) invokeV.objValue;
         }
 
         public String getCdesc() {
-            return this.cdesc;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cdesc : (String) invokeV.objValue;
         }
 
         public int getCid() {
-            return this.cid;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cid : invokeV.intValue;
         }
 
         public int getFid() {
-            return this.fid;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.fid : invokeV.intValue;
         }
 
         public String getFname() {
-            return this.fname;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.fname : (String) invokeV.objValue;
         }
 
         public String getIcon_url() {
-            return this.icon_url;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.icon_url : (String) invokeV.objValue;
         }
 
         public int getIs_like() {
-            return this.is_like;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.is_like : invokeV.intValue;
         }
 
         public int getOrder() {
-            return this.order;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.order : invokeV.intValue;
         }
 
         public String getSlogan() {
-            return this.slogan;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.slogan : (String) invokeV.objValue;
         }
 
         public void setIs_like(int i2) {
-            this.is_like = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+                this.is_like = i2;
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class Tag extends OrmObject implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -161320459489433271L;
+        public transient /* synthetic */ FieldHolder $fh;
         public String bdesc;
         public String bgpic;
         public String bicon;
         public int bid;
         public String bname;
         public int btype;
-        public ArrayList<Card> card_list = new ArrayList<>();
+        public ArrayList<Card> card_list;
+
+        public Tag() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.card_list = new ArrayList<>();
+        }
 
         public String getBdesc() {
-            return this.bdesc;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bdesc : (String) invokeV.objValue;
         }
 
         public String getBgpic() {
-            return this.bgpic;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bgpic : (String) invokeV.objValue;
         }
 
         public String getBicon() {
-            return this.bicon;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bicon : (String) invokeV.objValue;
         }
 
         public int getBid() {
-            return this.bid;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bid : invokeV.intValue;
         }
 
         public String getBname() {
-            return this.bname;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bname : (String) invokeV.objValue;
         }
 
         public int getBtype() {
-            return this.btype;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.btype : invokeV.intValue;
         }
 
         public ArrayList<Card> getCard_list() {
-            return this.card_list;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.card_list : (ArrayList) invokeV.objValue;
         }
     }
 
+    public InterestFrsData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.tag_list = new ArrayList<>();
+    }
+
     public String getErrmsg() {
-        return this.errmsg;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errmsg : (String) invokeV.objValue;
     }
 
     public int getErrno() {
-        return this.errno;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errno : invokeV.intValue;
     }
 
     public ArrayList<Tag> getTag_list() {
-        return this.tag_list;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tag_list : (ArrayList) invokeV.objValue;
     }
 
     public void setErrmsg(String str) {
-        this.errmsg = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.errmsg = str;
+        }
     }
 
     public void setErrno(int i2) {
-        this.errno = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.errno = i2;
+        }
     }
 }

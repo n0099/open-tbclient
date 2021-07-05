@@ -1,5 +1,12 @@
 package androidx.annotation;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -29,15 +36,74 @@ public @interface InspectableProperty {
         int target();
     }
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public enum ValueType {
-        NONE,
-        INFERRED,
-        INT_ENUM,
-        INT_FLAG,
-        COLOR,
-        GRAVITY,
-        RESOURCE_ID
+    public static final class ValueType {
+        public static final /* synthetic */ ValueType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final ValueType COLOR;
+        public static final ValueType GRAVITY;
+        public static final ValueType INFERRED;
+        public static final ValueType INT_ENUM;
+        public static final ValueType INT_FLAG;
+        public static final ValueType NONE;
+        public static final ValueType RESOURCE_ID;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1801543433, "Landroidx/annotation/InspectableProperty$ValueType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1801543433, "Landroidx/annotation/InspectableProperty$ValueType;");
+                    return;
+                }
+            }
+            NONE = new ValueType("NONE", 0);
+            INFERRED = new ValueType("INFERRED", 1);
+            INT_ENUM = new ValueType("INT_ENUM", 2);
+            INT_FLAG = new ValueType("INT_FLAG", 3);
+            COLOR = new ValueType("COLOR", 4);
+            GRAVITY = new ValueType("GRAVITY", 5);
+            ValueType valueType = new ValueType("RESOURCE_ID", 6);
+            RESOURCE_ID = valueType;
+            $VALUES = new ValueType[]{NONE, INFERRED, INT_ENUM, INT_FLAG, COLOR, GRAVITY, valueType};
+        }
+
+        public ValueType(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static ValueType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ValueType) Enum.valueOf(ValueType.class, str) : (ValueType) invokeL.objValue;
+        }
+
+        public static ValueType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ValueType[]) $VALUES.clone() : (ValueType[]) invokeV.objValue;
+        }
     }
 
     int attributeId() default 0;

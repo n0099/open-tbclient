@@ -8,86 +8,192 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdListViewHelper {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f13095a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+    public static final int f13179a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public enum HeadType {
-        DEFAULT,
-        HASTAB,
-        HAS_NO_NETWORK_BAR,
-        TIP
-    }
-
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13096a;
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class HeadType {
+        public static final /* synthetic */ HeadType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final HeadType DEFAULT;
+        public static final HeadType HASTAB;
+        public static final HeadType HAS_NO_NETWORK_BAR;
+        public static final HeadType TIP;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1020764422, "Lcom/baidu/tbadk/util/BdListViewHelper$HeadType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1020764422, "Lcom/baidu/tbadk/util/BdListViewHelper$HeadType;");
+                    return;
+                }
+            }
+            DEFAULT = new HeadType("DEFAULT", 0);
+            HASTAB = new HeadType("HASTAB", 1);
+            HAS_NO_NETWORK_BAR = new HeadType("HAS_NO_NETWORK_BAR", 2);
+            HeadType headType = new HeadType("TIP", 3);
+            TIP = headType;
+            $VALUES = new HeadType[]{DEFAULT, HASTAB, HAS_NO_NETWORK_BAR, headType};
+        }
+
+        public HeadType(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static HeadType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HeadType) Enum.valueOf(HeadType.class, str) : (HeadType) invokeL.objValue;
+        }
+
+        public static HeadType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HeadType[]) $VALUES.clone() : (HeadType[]) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f13180a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1546937665, "Lcom/baidu/tbadk/util/BdListViewHelper$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1546937665, "Lcom/baidu/tbadk/util/BdListViewHelper$a;");
+                    return;
+                }
+            }
             int[] iArr = new int[HeadType.values().length];
-            f13096a = iArr;
+            f13180a = iArr;
             try {
                 iArr[HeadType.DEFAULT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13096a[HeadType.HASTAB.ordinal()] = 2;
+                f13180a[HeadType.HASTAB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f13096a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
+                f13180a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f13096a[HeadType.TIP.ordinal()] = 4;
+                f13180a[HeadType.TIP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
     }
 
-    public static int a(HeadType headType) {
-        Context context = TbadkCoreApplication.getInst().getContext();
-        int i2 = a.f13096a[headType.ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    if (i2 != 4) {
-                        return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds88);
-                    }
-                    return l.g(context, R.dimen.ds56);
-                }
-                return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds168);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(171441950, "Lcom/baidu/tbadk/util/BdListViewHelper;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds176);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(171441950, "Lcom/baidu/tbadk/util/BdListViewHelper;");
+                return;
+            }
         }
-        return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds88);
+        f13179a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+    }
+
+    public static int a(HeadType headType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headType)) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            int i2 = a.f13180a[headType.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds88);
+                        }
+                        return l.g(context, R.dimen.ds56);
+                    }
+                    return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds168);
+                }
+                return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds176);
+            }
+            return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds88);
+        }
+        return invokeL.intValue;
     }
 
     public static int b(HeadType headType, boolean z) {
+        InterceptResult invokeLZ;
         int lightStatusBarHeight;
         int g2;
-        Context context = TbadkCoreApplication.getInst().getContext();
-        if (z) {
-            return a(headType);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, headType, z)) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            if (z) {
+                return a(headType);
+            }
+            if (HeadType.DEFAULT == headType) {
+                lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
+                g2 = l.g(context, R.dimen.ds170);
+            } else {
+                lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
+                g2 = l.g(context, R.dimen.ds240);
+            }
+            return lightStatusBarHeight + g2;
         }
-        if (HeadType.DEFAULT == headType) {
-            lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-            g2 = l.g(context, R.dimen.ds170);
-        } else {
-            lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-            g2 = l.g(context, R.dimen.ds240);
-        }
-        return lightStatusBarHeight + g2;
+        return invokeLZ.intValue;
     }
 
     public static void c(View view, HeadType headType, boolean z) {
-        if (view == null || headType == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, view, headType, z) == null) || view == null || headType == null) {
             return;
         }
         Context context = TbadkCoreApplication.getInst().getContext();
@@ -103,9 +209,14 @@ public class BdListViewHelper {
     }
 
     public static View d(Context context, BdListView bdListView, HeadType headType) {
-        TextView textView = new TextView(context);
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, a(headType)));
-        bdListView.x(textView, 0);
-        return textView;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, bdListView, headType)) == null) {
+            TextView textView = new TextView(context);
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, a(headType)));
+            bdListView.x(textView, 0);
+            return textView;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

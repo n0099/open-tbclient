@@ -1,6 +1,12 @@
 package com.baidu.searchbox.player.ubc;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class VideoPlayerUbcConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String UBC_PLAY_PERFORMANCE_ID = "515";
     public static final String UBC_VIDEO_CARLTON = "481";
     public static final String UBC_VIDEO_DOWNLOAD_TOAST = "615";
@@ -17,4 +23,19 @@ public class VideoPlayerUbcConstants {
     public static final String UBC_VIDEO_PLAY_SUCCESS = "322";
     public static final String UBC_VIDEO_STATUS_LOAD = "3";
     public static final String UBC_VIDEO_WIDGET = "464";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public VideoPlayerUbcConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

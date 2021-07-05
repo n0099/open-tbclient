@@ -9,111 +9,139 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class o {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static int a(byte[] bArr, int i2) {
-        byte b2 = bArr[i2 + 0];
-        byte b3 = bArr[i2 + 1];
-        byte b4 = bArr[i2 + 2];
-        return (bArr[i2 + 3] << 24) | (b3 << 8) | b2 | (b4 << 16);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bArr, i2)) == null) {
+            return (bArr[i2 + 3] << 24) | (bArr[i2 + 1] << 8) | bArr[i2 + 0] | (bArr[i2 + 2] << 16);
+        }
+        return invokeLI.intValue;
     }
 
     public static Drawable a(Context context, String str) {
+        InterceptResult invokeLL;
         Bitmap bitmap;
-        AssetManager assets = context.getAssets();
-        InputStream open = assets.open("ufo_res/" + str);
-        Bitmap decodeStream = BitmapFactory.decodeStream(open);
-        byte[] a2 = a(decodeStream);
-        if (NinePatch.isNinePatchChunk(a2)) {
-            Bitmap createBitmap = Bitmap.createBitmap(decodeStream, 1, 1, decodeStream.getWidth() - 2, decodeStream.getHeight() - 2);
-            decodeStream.recycle();
-            Field declaredField = createBitmap.getClass().getDeclaredField("mNinePatchChunk");
-            declaredField.setAccessible(true);
-            declaredField.set(createBitmap, a2);
-            bitmap = createBitmap;
-        } else {
-            bitmap = decodeStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            AssetManager assets = context.getAssets();
+            InputStream open = assets.open("ufo_res/" + str);
+            Bitmap decodeStream = BitmapFactory.decodeStream(open);
+            byte[] a2 = a(decodeStream);
+            if (NinePatch.isNinePatchChunk(a2)) {
+                Bitmap createBitmap = Bitmap.createBitmap(decodeStream, 1, 1, decodeStream.getWidth() - 2, decodeStream.getHeight() - 2);
+                decodeStream.recycle();
+                Field declaredField = createBitmap.getClass().getDeclaredField("mNinePatchChunk");
+                declaredField.setAccessible(true);
+                declaredField.set(createBitmap, a2);
+                bitmap = createBitmap;
+            } else {
+                bitmap = decodeStream;
+            }
+            open.close();
+            if (bitmap.getNinePatchChunk() == null) {
+                return new BitmapDrawable(bitmap);
+            }
+            Rect rect = new Rect();
+            byte[] ninePatchChunk = bitmap.getNinePatchChunk();
+            rect.left = a(ninePatchChunk, 12);
+            rect.right = a(ninePatchChunk, 16);
+            rect.top = a(ninePatchChunk, 20);
+            rect.bottom = a(ninePatchChunk, 24);
+            return new NinePatchDrawable(context.getResources(), bitmap, bitmap.getNinePatchChunk(), rect, null);
         }
-        open.close();
-        if (bitmap.getNinePatchChunk() == null) {
-            return new BitmapDrawable(bitmap);
-        }
-        Rect rect = new Rect();
-        byte[] ninePatchChunk = bitmap.getNinePatchChunk();
-        rect.left = a(ninePatchChunk, 12);
-        rect.right = a(ninePatchChunk, 16);
-        rect.top = a(ninePatchChunk, 20);
-        rect.bottom = a(ninePatchChunk, 24);
-        return new NinePatchDrawable(context.getResources(), bitmap, bitmap.getNinePatchChunk(), rect, null);
+        return (Drawable) invokeLL.objValue;
     }
 
     public static void a(Bitmap bitmap, byte[] bArr) {
-        int width = bitmap.getWidth() - 2;
-        int[] iArr = new int[width];
-        bitmap.getPixels(iArr, 0, width, 1, bitmap.getHeight() - 1, width, 1);
-        int i2 = 0;
-        int i3 = 0;
-        while (true) {
-            if (i3 >= width) {
-                break;
-            } else if (-16777216 == iArr[i3]) {
-                a(bArr, 12, i3);
-                break;
-            } else {
-                i3++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, bitmap, bArr) == null) {
+            int width = bitmap.getWidth() - 2;
+            int[] iArr = new int[width];
+            bitmap.getPixels(iArr, 0, width, 1, bitmap.getHeight() - 1, width, 1);
+            int i2 = 0;
+            int i3 = 0;
+            while (true) {
+                if (i3 >= width) {
+                    break;
+                } else if (-16777216 == iArr[i3]) {
+                    a(bArr, 12, i3);
+                    break;
+                } else {
+                    i3++;
+                }
             }
-        }
-        int i4 = width - 1;
-        while (true) {
-            if (i4 < 0) {
-                break;
-            } else if (-16777216 == iArr[i4]) {
-                a(bArr, 16, (width - i4) - 2);
-                break;
-            } else {
-                i4--;
+            int i4 = width - 1;
+            while (true) {
+                if (i4 < 0) {
+                    break;
+                } else if (-16777216 == iArr[i4]) {
+                    a(bArr, 16, (width - i4) - 2);
+                    break;
+                } else {
+                    i4--;
+                }
             }
-        }
-        int height = bitmap.getHeight() - 2;
-        int[] iArr2 = new int[height];
-        bitmap.getPixels(iArr2, 0, 1, bitmap.getWidth() - 1, 0, 1, height);
-        while (true) {
-            if (i2 >= height) {
-                break;
-            } else if (-16777216 == iArr2[i2]) {
-                a(bArr, 20, i2);
-                break;
-            } else {
-                i2++;
+            int height = bitmap.getHeight() - 2;
+            int[] iArr2 = new int[height];
+            bitmap.getPixels(iArr2, 0, 1, bitmap.getWidth() - 1, 0, 1, height);
+            while (true) {
+                if (i2 >= height) {
+                    break;
+                } else if (-16777216 == iArr2[i2]) {
+                    a(bArr, 20, i2);
+                    break;
+                } else {
+                    i2++;
+                }
             }
-        }
-        for (int i5 = height - 1; i5 >= 0; i5--) {
-            if (-16777216 == iArr2[i5]) {
-                a(bArr, 24, (height - i5) - 2);
-                return;
+            for (int i5 = height - 1; i5 >= 0; i5--) {
+                if (-16777216 == iArr2[i5]) {
+                    a(bArr, 24, (height - i5) - 2);
+                    return;
+                }
             }
         }
     }
 
     public static void a(OutputStream outputStream, int i2) {
-        outputStream.write((i2 >> 0) & 255);
-        outputStream.write((i2 >> 8) & 255);
-        outputStream.write((i2 >> 16) & 255);
-        outputStream.write((i2 >> 24) & 255);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65539, null, outputStream, i2) == null) {
+            outputStream.write((i2 >> 0) & 255);
+            outputStream.write((i2 >> 8) & 255);
+            outputStream.write((i2 >> 16) & 255);
+            outputStream.write((i2 >> 24) & 255);
+        }
     }
 
     public static void a(byte[] bArr, int i2, int i3) {
-        bArr[i2 + 0] = (byte) (i3 >> 0);
-        bArr[i2 + 1] = (byte) (i3 >> 8);
-        bArr[i2 + 2] = (byte) (i3 >> 16);
-        bArr[i2 + 3] = (byte) (i3 >> 24);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65540, null, bArr, i2, i3) == null) {
+            bArr[i2 + 0] = (byte) (i3 >> 0);
+            bArr[i2 + 1] = (byte) (i3 >> 8);
+            bArr[i2 + 2] = (byte) (i3 >> 16);
+            bArr[i2 + 3] = (byte) (i3 >> 24);
+        }
     }
 
     public static byte[] a(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bitmap)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

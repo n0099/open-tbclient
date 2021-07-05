@@ -3,23 +3,30 @@ package com.baidu.tbadk.core.data;
 import android.util.SparseArray;
 import androidx.core.app.NotificationCompatJellybean;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.n0.r.q.f;
+import d.a.r0.r.q.g;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaInfoData implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int FRS_STAGE_TYPE_AD = 0;
     public static final int FRS_STAGE_TYPE_COMMON = 1;
     public static final int LIVE_STATUS_LIVE_ON = 1;
     public static final int LIVE_STATUS_RECORD = 3;
+    public transient /* synthetic */ FieldHolder $fh;
     public String appId;
     public int audience_count;
     public String cover;
@@ -35,7 +42,7 @@ public class AlaInfoData implements Serializable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public f label;
+    public g label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -66,21 +73,44 @@ public class AlaInfoData implements Serializable {
     public long thread_id;
     public AlaUserInfoData user_info;
 
+    public AlaInfoData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public boolean isLegalYYLiveData() {
-        YyExtData yyExtData = this.mYyExtData;
-        return (yyExtData == null || k.isEmpty(yyExtData.mSid) || k.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            YyExtData yyExtData = this.mYyExtData;
+            return (yyExtData == null || k.isEmpty(yyExtData.mSid) || k.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
         }
     }
 
     public void parserProtobuf(AlaLiveInfo alaLiveInfo) {
-        if (alaLiveInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, alaLiveInfo) == null) || alaLiveInfo == null) {
             return;
         }
         try {
@@ -153,13 +183,14 @@ public class AlaInfoData implements Serializable {
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
             this.live_id = jSONObject.optLong("live_id");
             this.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            this.session_id = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID);
+            this.session_id = jSONObject.optString("session_id");
             this.rtmp_url = jSONObject.optString("rtmp_url");
             this.hls_url = jSONObject.optString("hls_url");
             this.group_id = jSONObject.optLong("group_id");
@@ -185,9 +216,9 @@ public class AlaInfoData implements Serializable {
             this.thread_id = jSONObject.optLong("thread_id");
             JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompatJellybean.KEY_LABEL);
             if (optJSONObject != null) {
-                f fVar = new f();
-                this.label = fVar;
-                fVar.a(optJSONObject);
+                g gVar = new g();
+                this.label = gVar;
+                gVar.a(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
             if (optJSONArray != null) {

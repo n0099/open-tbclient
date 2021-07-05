@@ -6,78 +6,122 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
-import d.a.m0.a.c1.a;
-import d.a.m0.g.c.i.c;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.c1.a;
+import d.a.q0.g.c.i.c;
+/* loaded from: classes4.dex */
 public class InstallNotifyReceiver extends BroadcastReceiver {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PACKAGE_NAME = "key_pkg_name";
     public static final String NOTIFICATION_INSTALL_ACTION_ALARM = "gamecenter.intent.action.INSTALL_ALARM";
     public static final String NOTIFICATION_INSTALL_ACTION_MULTIPLE = "gamecenter.intent.action.INSTALL_MULTIPLE";
     public static final String NOTIFICATION_INSTALL_ACTION_ONE = "gamecenter.intent.action.INSTALL_ONE";
     public static final String OPPORTUNITY = "opportunity";
+    public transient /* synthetic */ FieldHolder $fh;
     public String mOpportunity;
 
+    public InstallNotifyReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static Intent createIntent(String str, String str2, String str3) {
-        Intent intent = new Intent(AppRuntime.getAppContext(), InstallNotifyReceiver.class);
-        intent.setAction(str);
-        intent.putExtra(KEY_PACKAGE_NAME, str2);
-        intent.putExtra(OPPORTUNITY, str3);
-        return intent;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            Intent intent = new Intent(AppRuntime.getAppContext(), InstallNotifyReceiver.class);
+            intent.setAction(str);
+            intent.putExtra(KEY_PACKAGE_NAME, str2);
+            intent.putExtra(OPPORTUNITY, str3);
+            return intent;
+        }
+        return (Intent) invokeLLL.objValue;
     }
 
     public static Intent createToDownloadPageIntent(String str) {
-        String installPageUrlScheme = getInstallPageUrlScheme();
-        Intent intent = new Intent(AppRuntime.getAppContext(), InstallNotifyReceiver.class);
-        intent.setAction(str);
-        intent.setData(Uri.parse(installPageUrlScheme));
-        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        intent.addFlags(134217728);
-        return intent;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String installPageUrlScheme = getInstallPageUrlScheme();
+            Intent intent = new Intent(AppRuntime.getAppContext(), InstallNotifyReceiver.class);
+            intent.setAction(str);
+            intent.setData(Uri.parse(installPageUrlScheme));
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(134217728);
+            return intent;
+        }
+        return (Intent) invokeL.objValue;
     }
 
     public static String getInstallPageUrlScheme() {
-        String a2 = a.m().a();
-        if (!TextUtils.isEmpty(a2)) {
-            if (a2.equals(BaseWebViewActivity.SHOUBAI_SCHEME)) {
-                return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            String a2 = a.m().a();
+            if (!TextUtils.isEmpty(a2)) {
+                if (a2.equals(BaseWebViewActivity.SHOUBAI_SCHEME)) {
+                    return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
+                }
+                if (a2.equals("baiduboxlite")) {
+                    return "baiduboxlite://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
+                }
+                if (a2.equals("tiebaclient")) {
+                    return "tiebaclient://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
+                }
+                if (a2.equals("baiduhaokan")) {
+                    return "baiduhaokan://swan?params=%7B%22swanScheme%22%3A%22baiduhaokan%3A%2F%2Fswan%2FT43rINkXjgPfdKNXTuhQER2KdACVdB00%2Fpages%2Fdownload%2Findex%3F_baiduboxapp%3D%257B%2522from%2522%253A%25221151005410000000%2522%252C%2522ext%2522%253A%257B%257D%257D%22%7D";
+                }
+                if (a2.equals("bdnetdisk")) {
+                    return "bdnetdisk://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
+                }
             }
-            if (a2.equals("baiduboxlite")) {
-                return "baiduboxlite://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
-            }
-            if (a2.equals("tiebaclient")) {
-                return "tiebaclient://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
-            }
-            if (a2.equals("baiduhaokan")) {
-                return "baiduhaokan://swan?params=%7B%22swanScheme%22%3A%22baiduhaokan%3A%2F%2Fswan%2FT43rINkXjgPfdKNXTuhQER2KdACVdB00%2Fpages%2Fdownload%2Findex%3F_baiduboxapp%3D%257B%2522from%2522%253A%25221151005410000000%2522%252C%2522ext%2522%253A%257B%257D%257D%22%7D";
-            }
-            if (a2.equals("bdnetdisk")) {
-                return "bdnetdisk://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
-            }
+            return "";
         }
-        return "";
+        return (String) invokeV.objValue;
     }
 
     private void startInstall(Intent intent) {
-        String stringExtra = intent.getStringExtra(KEY_PACKAGE_NAME);
-        if (TextUtils.isEmpty(stringExtra)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, intent) == null) {
+            String stringExtra = intent.getStringExtra(KEY_PACKAGE_NAME);
+            if (TextUtils.isEmpty(stringExtra)) {
+                return;
+            }
+            d.a.q0.g.c.a.n().q(stringExtra, this.mOpportunity);
         }
-        d.a.m0.g.c.a.n().q(stringExtra, this.mOpportunity);
     }
 
     private void startInstallPage(Intent intent) {
-        if (!TextUtils.isEmpty(this.mOpportunity)) {
-            c.b("notifyList", this.mOpportunity);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, intent) == null) {
+            if (!TextUtils.isEmpty(this.mOpportunity)) {
+                c.b("notifyList", this.mOpportunity);
+            }
+            SchemeRouter.invoke(a.b(), getInstallPageUrlScheme());
         }
-        SchemeRouter.invoke(a.b(), getInstallPageUrlScheme());
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (intent == null || TextUtils.isEmpty(intent.getAction())) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getAction())) {
             return;
         }
         this.mOpportunity = intent.getStringExtra(OPPORTUNITY);
@@ -108,14 +152,19 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             startInstallPage(intent);
         } else if (c2 != 2) {
         } else {
-            d.a.m0.g.c.h.a.f().l();
-            d.a.m0.g.c.h.a.f().n("todayfirst");
+            d.a.q0.g.c.h.a.f().l();
+            d.a.q0.g.c.h.a.f().n("todayfirst");
         }
     }
 
     public static Intent createIntent(String str) {
-        Intent intent = new Intent(AppRuntime.getAppContext(), InstallNotifyReceiver.class);
-        intent.setAction(str);
-        return intent;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Intent intent = new Intent(AppRuntime.getAppContext(), InstallNotifyReceiver.class);
+            intent.setAction(str);
+            return intent;
+        }
+        return (Intent) invokeL.objValue;
     }
 }

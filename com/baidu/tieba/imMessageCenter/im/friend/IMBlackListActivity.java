@@ -6,6 +6,7 @@ import android.view.View;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
@@ -13,20 +14,49 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.BlackListItemData;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.im.model.BlackListModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.n0.r.s.a;
-/* loaded from: classes4.dex */
+import d.a.r0.r.s.a;
+/* loaded from: classes5.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
-    public d.a.n0.r.s.a mDialog;
-    public d.a.c.c.g.c mListener = new a(0);
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public d.a.r0.r.s.a mDialog;
+    public d.a.c.c.g.c mListener;
     public BlackListModel mModel;
     public BlackListItemData mNeedRemovedData;
-    public d.a.o0.g1.a.c.b mView;
+    public d.a.s0.j1.a.c.b mView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.c {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ IMBlackListActivity f17759a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(IMBlackListActivity iMBlackListActivity, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMBlackListActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17759a = iMBlackListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -34,119 +64,228 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
             Message<?> orginalMessage;
-            IMBlackListActivity.this.mView.e();
-            IMBlackListActivity.this.closeLoadingDialog();
-            if (socketResponsedMessage == null) {
-                return;
-            }
-            if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
-                ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
-                if (responseGetMaskInfoMessage.getError() == 0) {
-                    if (IMBlackListActivity.this.mDialog != null) {
-                        IMBlackListActivity.this.mDialog.dismiss();
-                    }
-                    IMBlackListActivity.this.mView.k(responseGetMaskInfoMessage.getBlackList());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
+                this.f17759a.mView.e();
+                this.f17759a.closeLoadingDialog();
+                if (socketResponsedMessage == null) {
                     return;
                 }
-                IMBlackListActivity.this.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? IMBlackListActivity.this.getResources().getString(R.string.neterror) : responseGetMaskInfoMessage.getErrorString());
-                if (j.z()) {
-                    IMBlackListActivity.this.mView.i();
-                }
-            } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
-                if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    if (IMBlackListActivity.this.mDialog != null) {
-                        IMBlackListActivity.this.mDialog.dismiss();
-                    }
-                    IMBlackListActivity iMBlackListActivity = IMBlackListActivity.this;
-                    iMBlackListActivity.showToast(iMBlackListActivity.getPageContext().getString(R.string.black_list_remove_success));
-                    if (IMBlackListActivity.this.mNeedRemovedData != null) {
-                        IMBlackListActivity.this.mView.l(IMBlackListActivity.this.mNeedRemovedData);
-                        IMBlackListActivity.this.mNeedRemovedData = null;
+                if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
+                    ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
+                    if (responseGetMaskInfoMessage.getError() == 0) {
+                        if (this.f17759a.mDialog != null) {
+                            this.f17759a.mDialog.dismiss();
+                        }
+                        this.f17759a.mView.k(responseGetMaskInfoMessage.getBlackList());
                         return;
                     }
-                    return;
+                    this.f17759a.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.f17759a.getResources().getString(R.string.neterror) : responseGetMaskInfoMessage.getErrorString());
+                    if (j.z()) {
+                        this.f17759a.mView.i();
+                    }
+                } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
+                    if (responseUpdateMaskInfoMessage.getError() == 0) {
+                        if (this.f17759a.mDialog != null) {
+                            this.f17759a.mDialog.dismiss();
+                        }
+                        IMBlackListActivity iMBlackListActivity = this.f17759a;
+                        iMBlackListActivity.showToast(iMBlackListActivity.getPageContext().getString(R.string.black_list_remove_success));
+                        if (this.f17759a.mNeedRemovedData != null) {
+                            this.f17759a.mView.l(this.f17759a.mNeedRemovedData);
+                            this.f17759a.mNeedRemovedData = null;
+                            return;
+                        }
+                        return;
+                    }
+                    this.f17759a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                 }
-                IMBlackListActivity.this.showToast(responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements DialogInterface.OnCancelListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ IMBlackListActivity f17760e;
+
+        public b(IMBlackListActivity iMBlackListActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMBlackListActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17760e = iMBlackListActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            if (IMBlackListActivity.this.mModel != null) {
-                IMBlackListActivity.this.mModel.cancelLoadData();
-                IMBlackListActivity.this.mNeedRemovedData = null;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f17760e.mModel == null) {
+                return;
             }
+            this.f17760e.mModel.cancelLoadData();
+            this.f17760e.mNeedRemovedData = null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ IMBlackListActivity f17761e;
+
+        public c(IMBlackListActivity iMBlackListActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMBlackListActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17761e = iMBlackListActivity;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.show();
-            if (IMBlackListActivity.this.mNeedRemovedData != null) {
-                IMBlackListActivity.this.showLoadingDialog();
-                IMBlackListActivity.this.mModel.removeFromBlackList(IMBlackListActivity.this.mNeedRemovedData.getUserId());
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.show();
+                if (this.f17761e.mNeedRemovedData != null) {
+                    this.f17761e.showLoadingDialog();
+                    this.f17761e.mModel.removeFromBlackList(this.f17761e.mNeedRemovedData.getUserId());
+                }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements a.e {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ IMBlackListActivity f17762e;
+
+        public d(IMBlackListActivity iMBlackListActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMBlackListActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17762e = iMBlackListActivity;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
         }
+    }
+
+    public IMBlackListActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mListener = new a(this, 0);
     }
 
     private void createDialog(String str) {
-        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(getPageContext().getPageActivity());
-        this.mDialog = aVar;
-        aVar.setMessage(str);
-        this.mDialog.setPositiveButton(R.string.confirm, new c());
-        this.mDialog.setNegativeButton(R.string.cancel, new d());
-        this.mDialog.create(getPageContext());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
+            d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(getPageContext().getPageActivity());
+            this.mDialog = aVar;
+            aVar.setMessage(str);
+            this.mDialog.setPositiveButton(R.string.confirm, new c(this));
+            this.mDialog.setNegativeButton(R.string.cancel, new d(this));
+            this.mDialog.create(getPageContext());
+        }
     }
 
     private void initModel() {
-        BlackListModel blackListModel = new BlackListModel(getPageContext());
-        this.mModel = blackListModel;
-        blackListModel.setUniqueId(getUniqueId());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            BlackListModel blackListModel = new BlackListModel(getPageContext());
+            this.mModel = blackListModel;
+            blackListModel.setUniqueId(getUniqueId());
+        }
     }
 
     private void initView() {
-        this.mView = new d.a.o0.g1.a.c.b(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            this.mView = new d.a.s0.j1.a.c.b(this);
+        }
     }
 
     private void loadData() {
-        this.mModel.loadBlackList();
-        this.mView.h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            this.mModel.loadBlackList();
+            this.mView.h();
+        }
     }
 
     private void showDialog(BlackListItemData blackListItemData) {
-        createDialog(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.x()));
-        this.mDialog.show();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, this, blackListItemData) == null) {
+            createDialog(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.x()));
+            this.mDialog.show();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingDialog() {
-        showLoadingDialog((String) null, new b());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            showLoadingDialog((String) null, new b(this));
+        }
     }
 
     public void handler(View view, BlackListItemData blackListItemData) {
-        if (blackListItemData == null || blackListItemData.getUserId() <= 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, blackListItemData) == null) || blackListItemData == null || blackListItemData.getUserId() <= 0) {
             return;
         }
         this.mNeedRemovedData = blackListItemData;
@@ -155,20 +294,26 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        registerListener(104103, this.mListener);
-        registerListener(104102, this.mListener);
-        initView();
-        initModel();
-        loadData();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            registerListener(104103, this.mListener);
+            registerListener(104102, this.mListener);
+            initView();
+            initModel();
+            loadData();
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        super.onStop();
-        BlackListModel blackListModel = this.mModel;
-        if (blackListModel != null) {
-            blackListModel.cancelLoadData();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onStop();
+            BlackListModel blackListModel = this.mModel;
+            if (blackListModel != null) {
+                blackListModel.cancelLoadData();
+            }
         }
     }
 }

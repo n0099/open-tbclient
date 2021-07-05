@@ -2,15 +2,35 @@ package com.baidu.ufosdk.ui;
 
 import android.content.Context;
 import android.os.Handler;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ap implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ao f22826a;
+    public final /* synthetic */ ao f23342a;
 
     public ap(ao aoVar) {
-        this.f22826a = aoVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aoVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23342a = aoVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,21 +38,24 @@ public final class ap implements Runnable {
         Handler handler;
         int i2;
         Handler handler2;
-        com.baidu.ufosdk.e.a.a(this.f22826a.f22825a.getApplicationContext());
-        if (UfoSDK.clientid.length() != 0) {
-            handler = this.f22826a.f22825a.v;
-            i2 = 1;
-        } else {
-            handler = this.f22826a.f22825a.v;
-            i2 = 4;
-        }
-        handler.obtainMessage(i2, null).sendToTarget();
-        Context applicationContext = this.f22826a.f22825a.getApplicationContext();
-        String str = UfoSDK.clientid;
-        String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
-        if (c2 != null) {
-            handler2 = this.f22826a.f22825a.v;
-            handler2.obtainMessage(0, c2).sendToTarget();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            com.baidu.ufosdk.e.a.a(this.f23342a.f23341a.getApplicationContext());
+            if (UfoSDK.clientid.length() != 0) {
+                handler = this.f23342a.f23341a.v;
+                i2 = 1;
+            } else {
+                handler = this.f23342a.f23341a.v;
+                i2 = 4;
+            }
+            handler.obtainMessage(i2, null).sendToTarget();
+            Context applicationContext = this.f23342a.f23341a.getApplicationContext();
+            String str = UfoSDK.clientid;
+            String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
+            if (c2 != null) {
+                handler2 = this.f23342a.f23341a.v;
+                handler2.obtainMessage(0, c2).sendToTarget();
+            }
         }
     }
 }

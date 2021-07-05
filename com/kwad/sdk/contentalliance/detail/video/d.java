@@ -1,58 +1,124 @@
 package com.kwad.sdk.contentalliance.detail.video;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f33220a;
+    public String f34983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPlayerStatus f33221b;
+    public VideoPlayerStatus f34984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f33222c;
+    public c f34985c;
 
-    /* loaded from: classes6.dex */
+    /* renamed from: com.kwad.sdk.contentalliance.detail.video.d$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f33223a;
+        public String f34986a;
 
         /* renamed from: b  reason: collision with root package name */
-        public VideoPlayerStatus f33224b;
+        public VideoPlayerStatus f34987b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f33225c;
+        public c f34988c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public a a(@NonNull c cVar) {
-            this.f33225c = cVar;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+                this.f34988c = cVar;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a a(VideoPlayerStatus videoPlayerStatus) {
-            this.f33224b = videoPlayerStatus;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoPlayerStatus)) == null) {
+                this.f34987b = videoPlayerStatus;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a a(String str) {
-            this.f33223a = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.f34986a = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public d a() {
-            return new d(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this, null) : (d) invokeV.objValue;
         }
     }
 
     public d(a aVar) {
-        this.f33222c = new c();
-        this.f33220a = aVar.f33223a;
-        this.f33221b = aVar.f33224b;
-        if (aVar.f33225c != null) {
-            this.f33222c.f33218a = aVar.f33225c.f33218a;
-            this.f33222c.f33219b = aVar.f33225c.f33219b;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.f34985c = new c();
+        this.f34983a = aVar.f34986a;
+        this.f34984b = aVar.f34987b;
+        if (aVar.f34988c != null) {
+            this.f34985c.f34981a = aVar.f34988c.f34981a;
+            this.f34985c.f34982b = aVar.f34988c.f34982b;
+        }
+    }
+
+    public /* synthetic */ d(a aVar, AnonymousClass1 anonymousClass1) {
+        this(aVar);
     }
 }

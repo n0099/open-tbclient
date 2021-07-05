@@ -2,39 +2,62 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public class dl {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static void a(byte[] bArr) {
-        if (bArr.length >= 2) {
-            bArr[0] = 99;
-            bArr[1] = 100;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, bArr) == null) || bArr.length < 2) {
+            return;
         }
+        bArr[0] = 99;
+        bArr[1] = 100;
     }
 
     public static boolean a(Context context, String str, long j) {
-        if (com.xiaomi.push.service.aq.a(context).a(hk.DCJobMutualSwitch.a(), false)) {
-            return (Build.VERSION.SDK_INT < 29 || context.getApplicationInfo().targetSdkVersion < 29) && !ag.a(context, str, j);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+            if (com.xiaomi.push.service.aq.a(context).a(hk.aY.a(), false)) {
+                return (Build.VERSION.SDK_INT < 29 || context.getApplicationInfo().targetSdkVersion < 29) && !ag.a(context, str, j);
+            }
+            return false;
         }
-        return false;
+        return invokeCommon.booleanValue;
     }
 
     public static byte[] a(String str, byte[] bArr) {
-        byte[] m166a = bj.m166a(str);
-        try {
-            a(m166a);
-            return h.a(m166a, bArr);
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
+            byte[] m180a = bj.m180a(str);
+            try {
+                a(m180a);
+                return h.a(m180a, bArr);
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (byte[]) invokeLL.objValue;
     }
 
     public static byte[] b(String str, byte[] bArr) {
-        byte[] m166a = bj.m166a(str);
-        try {
-            a(m166a);
-            return h.b(m166a, bArr);
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
+            byte[] m180a = bj.m180a(str);
+            try {
+                a(m180a);
+                return h.b(m180a, bArr);
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (byte[]) invokeLL.objValue;
     }
 }

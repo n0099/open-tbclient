@@ -3,6 +3,15 @@ package com.baidu.turbonet.net;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.ByteBuffer;
@@ -16,27 +25,36 @@ public interface UrlRequest {
 
     /* loaded from: classes5.dex */
     public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final TurbonetEngine f22605a;
+        public final TurbonetEngine f23121a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f22606b;
+        public final String f23122b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Callback f22607c;
+        public final Callback f23123c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Executor f22608d;
+        public final Executor f23124d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22609e;
+        public String f23125e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final ArrayList<Pair<String, String>> f23126f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f22611g;
+        public boolean f23127g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f22612h;
+        public boolean f23128h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public int f23129i;
+        public Collection<Object> j;
         public UploadDataProvider k;
         public Executor l;
         public boolean m;
@@ -50,19 +68,29 @@ public interface UrlRequest {
         public String u;
         public String v;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f22610f = new ArrayList<>();
-
-        /* renamed from: i  reason: collision with root package name */
-        public int f22613i = 3;
-        public Collection<Object> j = Collections.emptyList();
-
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes5.dex */
         public @interface RequestPriority {
         }
 
         public Builder(String str, Callback callback, Executor executor, TurbonetEngine turbonetEngine) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, callback, executor, turbonetEngine};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f23126f = new ArrayList<>();
+            this.f23129i = 3;
+            this.j = Collections.emptyList();
             if (str == null) {
                 throw new NullPointerException("URL is required.");
             }
@@ -73,10 +101,10 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f22606b = str;
-                this.f22607c = callback;
-                this.f22608d = executor;
-                this.f22605a = turbonetEngine;
+                this.f23122b = str;
+                this.f23123c = callback;
+                this.f23124d = executor;
+                this.f23121a = turbonetEngine;
                 this.m = false;
                 this.o = false;
                 this.p = 0;
@@ -92,137 +120,217 @@ public interface UrlRequest {
         }
 
         public Builder a(String str, String str2) {
-            if (str != null) {
-                if (str2 != null) {
-                    if ("Accept-Encoding".equalsIgnoreCase(str)) {
-                        Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+                if (str != null) {
+                    if (str2 != null) {
+                        if ("Accept-Encoding".equalsIgnoreCase(str)) {
+                            Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
+                            return this;
+                        }
+                        this.f23126f.add(Pair.create(str, str2));
                         return this;
                     }
-                    this.f22610f.add(Pair.create(str, str2));
-                    return this;
+                    throw new NullPointerException("Invalid header value.");
                 }
-                throw new NullPointerException("Invalid header value.");
+                throw new NullPointerException("Invalid header name.");
             }
-            throw new NullPointerException("Invalid header name.");
+            return (Builder) invokeLL.objValue;
         }
 
         public UrlRequest b() {
-            UrlRequest b2 = this.f22605a.b(this.f22606b, this.f22607c, this.f22608d, this.f22613i, this.j, this.f22611g, this.f22612h, this.n);
-            String str = this.f22609e;
-            if (str != null) {
-                b2.e(str);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                UrlRequest b2 = this.f23121a.b(this.f23122b, this.f23123c, this.f23124d, this.f23129i, this.j, this.f23127g, this.f23128h, this.n);
+                String str = this.f23125e;
+                if (str != null) {
+                    b2.e(str);
+                }
+                Iterator<Pair<String, String>> it = this.f23126f.iterator();
+                while (it.hasNext()) {
+                    Pair<String, String> next = it.next();
+                    b2.addHeader((String) next.first, (String) next.second);
+                }
+                UploadDataProvider uploadDataProvider = this.k;
+                if (uploadDataProvider != null) {
+                    b2.i(uploadDataProvider, this.l);
+                }
+                if (this.m) {
+                    b2.h();
+                }
+                if (this.o) {
+                    b2.g();
+                }
+                int i2 = this.p;
+                if (i2 > 0) {
+                    b2.b(i2);
+                }
+                int i3 = this.q;
+                if (i3 > 0) {
+                    b2.l(i3);
+                }
+                int i4 = this.r;
+                if (i4 > 0) {
+                    b2.c(i4);
+                }
+                int i5 = this.s;
+                if (i5 > 0) {
+                    b2.a(i5);
+                }
+                Object obj = this.t;
+                if (obj != null) {
+                    b2.f(obj);
+                }
+                if (!TextUtils.isEmpty(this.u)) {
+                    b2.k(this.u);
+                }
+                if (!TextUtils.isEmpty(this.v)) {
+                    b2.j(this.v);
+                }
+                return b2;
             }
-            Iterator<Pair<String, String>> it = this.f22610f.iterator();
-            while (it.hasNext()) {
-                Pair<String, String> next = it.next();
-                b2.addHeader((String) next.first, (String) next.second);
-            }
-            UploadDataProvider uploadDataProvider = this.k;
-            if (uploadDataProvider != null) {
-                b2.i(uploadDataProvider, this.l);
-            }
-            if (this.m) {
-                b2.h();
-            }
-            if (this.o) {
-                b2.g();
-            }
-            int i2 = this.p;
-            if (i2 > 0) {
-                b2.b(i2);
-            }
-            int i3 = this.q;
-            if (i3 > 0) {
-                b2.l(i3);
-            }
-            int i4 = this.r;
-            if (i4 > 0) {
-                b2.c(i4);
-            }
-            int i5 = this.s;
-            if (i5 > 0) {
-                b2.a(i5);
-            }
-            Object obj = this.t;
-            if (obj != null) {
-                b2.f(obj);
-            }
-            if (!TextUtils.isEmpty(this.u)) {
-                b2.k(this.u);
-            }
-            if (!TextUtils.isEmpty(this.v)) {
-                b2.j(this.v);
-            }
-            return b2;
+            return (UrlRequest) invokeV.objValue;
         }
 
         public Builder c() {
-            this.f22611g = true;
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                this.f23127g = true;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
         }
 
         public Builder d() {
-            this.m = true;
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                this.m = true;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
         }
 
         public Builder e(String str) {
-            this.u = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.u = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder f(String str) {
-            if (str != null) {
-                this.f22609e = str;
-                return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                if (str != null) {
+                    this.f23125e = str;
+                    return this;
+                }
+                throw new NullPointerException("Method is required.");
             }
-            throw new NullPointerException("Method is required.");
+            return (Builder) invokeL.objValue;
         }
 
         public Builder g(String str) {
-            this.v = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.v = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder h(int i2) {
-            this.r = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+                this.r = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder i(int i2) {
-            this.q = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+                this.q = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder j(int i2) {
-            this.p = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+                this.p = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder k(UploadDataProvider uploadDataProvider, Executor executor) {
-            if (uploadDataProvider != null) {
-                if (executor != null) {
-                    if (this.f22609e == null) {
-                        this.f22609e = "POST";
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
+                if (uploadDataProvider != null) {
+                    if (executor != null) {
+                        if (this.f23125e == null) {
+                            this.f23125e = "POST";
+                        }
+                        this.k = uploadDataProvider;
+                        this.l = executor;
+                        return this;
                     }
-                    this.k = uploadDataProvider;
-                    this.l = executor;
-                    return this;
+                    throw new NullPointerException("Invalid UploadDataProvider Executor.");
                 }
-                throw new NullPointerException("Invalid UploadDataProvider Executor.");
+                throw new NullPointerException("Invalid UploadDataProvider.");
             }
-            throw new NullPointerException("Invalid UploadDataProvider.");
+            return (Builder) invokeLL.objValue;
         }
 
         public Builder l() {
-            this.n = true;
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                this.n = true;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
     public static abstract class Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Callback() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, urlRequest, urlResponseInfo) == null) {
+            }
         }
 
         public abstract void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, UrlRequestException urlRequestException);
@@ -238,53 +346,106 @@ public interface UrlRequest {
 
     /* loaded from: classes5.dex */
     public static class Status {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes5.dex */
         public @interface StatusValues {
         }
 
-        public static int a(int i2) {
-            switch (i2) {
-                case 0:
-                    return 0;
-                case 1:
-                    return 1;
-                case 2:
-                    return 2;
-                case 3:
-                    return 3;
-                case 4:
-                    return 4;
-                case 5:
-                default:
-                    throw new IllegalArgumentException("No request status found.");
-                case 6:
-                    return 5;
-                case 7:
-                    return 6;
-                case 8:
-                    return 7;
-                case 9:
-                    return 8;
-                case 10:
-                    return 9;
-                case 11:
-                    return 10;
-                case 12:
-                    return 11;
-                case 13:
-                    return 12;
-                case 14:
-                    return 13;
-                case 15:
-                    return 14;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1379236295, "Lcom/baidu/turbonet/net/UrlRequest$Status;")) == null) {
+                return;
             }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1379236295, "Lcom/baidu/turbonet/net/UrlRequest$Status;");
+            }
+        }
+
+        public Status() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static int a(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+                switch (i2) {
+                    case 0:
+                        return 0;
+                    case 1:
+                        return 1;
+                    case 2:
+                        return 2;
+                    case 3:
+                        return 3;
+                    case 4:
+                        return 4;
+                    case 5:
+                    default:
+                        throw new IllegalArgumentException("No request status found.");
+                    case 6:
+                        return 5;
+                    case 7:
+                        return 6;
+                    case 8:
+                        return 7;
+                    case 9:
+                        return 8;
+                    case 10:
+                        return 9;
+                    case 11:
+                        return 10;
+                    case 12:
+                        return 11;
+                    case 13:
+                        return 12;
+                    case 14:
+                        return 13;
+                    case 15:
+                        return 14;
+                }
+            }
+            return invokeI.intValue;
         }
     }
 
     /* loaded from: classes5.dex */
     public static abstract class StatusListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public StatusListener() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public abstract void a(int i2);
     }
 

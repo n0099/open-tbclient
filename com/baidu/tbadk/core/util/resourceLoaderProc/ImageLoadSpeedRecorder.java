@@ -2,73 +2,163 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImageLoadSpeedRecorder {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int LOWEST_SPEED_FOR_PARALLEL = 20;
     public static final int QUEUE_SIZE = 5;
     public static ImageLoadSpeedRecorder _speedRecorder;
-    public Queue<LoadSpeedRecordItem> mSpeedRecordQueue = new LinkedList();
-    public BdAsyncTaskParallel mTaskSerial = null;
-    public BdAsyncTaskParallel mTaskParallelThree = null;
-    public float mAverageSpeed = 0.0f;
+    public transient /* synthetic */ FieldHolder $fh;
+    public float mAverageSpeed;
+    public Queue<LoadSpeedRecordItem> mSpeedRecordQueue;
+    public BdAsyncTaskParallel mTaskParallelThree;
+    public BdAsyncTaskParallel mTaskSerial;
 
-    /* loaded from: classes3.dex */
-    public class LoadSpeedRecordItem {
-        public int downloadSize;
-        public long timeCosts;
+    /* renamed from: com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoadSpeedRecorder$1  reason: invalid class name */
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public LoadSpeedRecordItem() {
-            this.downloadSize = 0;
-            this.timeCosts = 0L;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(490226495, "Lcom/baidu/tbadk/core/util/resourceLoaderProc/ImageLoadSpeedRecorder;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(490226495, "Lcom/baidu/tbadk/core/util/resourceLoaderProc/ImageLoadSpeedRecorder;");
+        }
+    }
+
+    public ImageLoadSpeedRecorder() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mSpeedRecordQueue = new LinkedList();
+        this.mTaskSerial = null;
+        this.mTaskParallelThree = null;
+        this.mAverageSpeed = 0.0f;
     }
 
     public static ImageLoadSpeedRecorder sharedInstance() {
-        if (_speedRecorder == null) {
-            _speedRecorder = new ImageLoadSpeedRecorder();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (_speedRecorder == null) {
+                _speedRecorder = new ImageLoadSpeedRecorder();
+            }
+            return _speedRecorder;
         }
-        return _speedRecorder;
+        return (ImageLoadSpeedRecorder) invokeV.objValue;
     }
 
     public synchronized void addSpeedRecordItem(int i2, long j) {
-        LoadSpeedRecordItem loadSpeedRecordItem = new LoadSpeedRecordItem();
-        loadSpeedRecordItem.downloadSize = i2;
-        loadSpeedRecordItem.timeCosts = j;
-        this.mSpeedRecordQueue.offer(loadSpeedRecordItem);
-        if (this.mSpeedRecordQueue.size() > 5) {
-            this.mSpeedRecordQueue.poll();
-        }
-        if (speedRedordAvilable()) {
-            int i3 = 0;
-            for (LoadSpeedRecordItem loadSpeedRecordItem2 : this.mSpeedRecordQueue) {
-                if (j > 0) {
-                    i3 = (int) (i3 + (loadSpeedRecordItem2.downloadSize / loadSpeedRecordItem2.timeCosts));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            synchronized (this) {
+                LoadSpeedRecordItem loadSpeedRecordItem = new LoadSpeedRecordItem(this, null);
+                loadSpeedRecordItem.downloadSize = i2;
+                loadSpeedRecordItem.timeCosts = j;
+                this.mSpeedRecordQueue.offer(loadSpeedRecordItem);
+                if (this.mSpeedRecordQueue.size() > 5) {
+                    this.mSpeedRecordQueue.poll();
+                }
+                if (speedRedordAvilable()) {
+                    int i3 = 0;
+                    for (LoadSpeedRecordItem loadSpeedRecordItem2 : this.mSpeedRecordQueue) {
+                        if (j > 0) {
+                            i3 = (int) (i3 + (loadSpeedRecordItem2.downloadSize / loadSpeedRecordItem2.timeCosts));
+                        }
+                    }
+                    this.mAverageSpeed = i3 / 5;
                 }
             }
-            this.mAverageSpeed = i3 / 5;
         }
     }
 
     public BdAsyncTaskParallel getAsyncTaskParallel() {
-        if (j.v()) {
-            if (speedRedordAvilable() && this.mAverageSpeed < 20.0f) {
-                if (this.mTaskSerial == null) {
-                    this.mTaskSerial = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (j.v()) {
+                if (speedRedordAvilable() && this.mAverageSpeed < 20.0f) {
+                    if (this.mTaskSerial == null) {
+                        this.mTaskSerial = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+                    }
+                    return this.mTaskSerial;
                 }
-                return this.mTaskSerial;
+                if (this.mTaskParallelThree == null) {
+                    this.mTaskParallelThree = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
+                }
+                return this.mTaskParallelThree;
             }
-            if (this.mTaskParallelThree == null) {
-                this.mTaskParallelThree = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
-            }
-            return this.mTaskParallelThree;
+            return null;
         }
-        return null;
+        return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
     public boolean speedRedordAvilable() {
-        return this.mSpeedRecordQueue.size() == 5;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSpeedRecordQueue.size() == 5 : invokeV.booleanValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class LoadSpeedRecordItem {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int downloadSize;
+        public final /* synthetic */ ImageLoadSpeedRecorder this$0;
+        public long timeCosts;
+
+        public LoadSpeedRecordItem(ImageLoadSpeedRecorder imageLoadSpeedRecorder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageLoadSpeedRecorder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = imageLoadSpeedRecorder;
+            this.downloadSize = 0;
+            this.timeCosts = 0L;
+        }
+
+        public /* synthetic */ LoadSpeedRecordItem(ImageLoadSpeedRecorder imageLoadSpeedRecorder, AnonymousClass1 anonymousClass1) {
+            this(imageLoadSpeedRecorder);
+        }
     }
 }

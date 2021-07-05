@@ -8,29 +8,38 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-import d.a.o0.d1.c.i;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.g1.c.i;
+/* loaded from: classes5.dex */
 public class HotTopicPkView extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17006e;
+    public int f17132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17007f;
+    public int f17133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17008g;
+    public int f17134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17009h;
+    public int f17135h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f17010i;
+    public int f17136i;
     public int j;
     public Drawable k;
     public Drawable l;
@@ -47,27 +56,68 @@ public class HotTopicPkView extends View {
     public boolean w;
     public boolean x;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HotTopicPkView f17137e;
+
+        public a(HotTopicPkView hotTopicPkView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotTopicPkView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17137e = hotTopicPkView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            for (int i2 = 0; i2 < 4; i2++) {
-                HotTopicPkView.this.postInvalidate();
-                try {
-                    Thread.sleep(100L);
-                } catch (InterruptedException unused) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (int i2 = 0; i2 < 4; i2++) {
+                    this.f17137e.postInvalidate();
+                    try {
+                        Thread.sleep(100L);
+                    } catch (InterruptedException unused) {
+                    }
                 }
+                this.f17137e.w = false;
+                this.f17137e.postInvalidate();
             }
-            HotTopicPkView.this.w = false;
-            HotTopicPkView.this.postInvalidate();
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicPkView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.w = false;
         this.x = false;
         f(context);
@@ -76,175 +126,205 @@ public class HotTopicPkView extends View {
     public final void b(Canvas canvas) {
         int i2;
         int i3;
-        i iVar = this.u;
-        if (iVar.f56398h == 0 && iVar.j == 0) {
-            this.f17010i = (int) ((this.f17009h * 0.5d) + this.n + 50.0d);
-        } else {
-            i iVar2 = this.u;
-            long j = iVar2.f56398h;
-            this.f17010i = (int) (((((float) j) / ((float) (j + iVar2.j))) * this.f17009h) + this.n + 50.0f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            i iVar = this.u;
+            if (iVar.f59685h == 0 && iVar.j == 0) {
+                this.f17136i = (int) ((this.f17135h * 0.5d) + this.n + 50.0d);
+            } else {
+                i iVar2 = this.u;
+                long j = iVar2.f59685h;
+                this.f17136i = (int) (((((float) j) / ((float) (j + iVar2.j))) * this.f17135h) + this.n + 50.0f);
+            }
+            if (this.u.k == 2) {
+                this.t.setColor(SkinManager.getColor(R.color.topic_pk_agree_disable));
+            } else {
+                this.t.setColor(SkinManager.getColor(R.color.CAM_X0308));
+            }
+            canvas.drawRect(this.n / 2.0f, this.j, this.f17136i, this.f17132e - i2, this.t);
+            if (this.u.k == 1) {
+                this.t.setColor(SkinManager.getColor(R.color.topic_pk_oppose_disable));
+            } else {
+                this.t.setColor(SkinManager.getColor(R.color.CAM_X0302));
+            }
+            canvas.drawRect(this.f17136i, this.j, this.f17134g - (this.n / 2.0f), this.f17132e - i3, this.t);
         }
-        if (this.u.k == 2) {
-            this.t.setColor(SkinManager.getColor(R.color.topic_pk_agree_disable));
-        } else {
-            this.t.setColor(SkinManager.getColor(R.color.CAM_X0308));
-        }
-        canvas.drawRect(this.n / 2.0f, this.j, this.f17010i, this.f17006e - i2, this.t);
-        if (this.u.k == 1) {
-            this.t.setColor(SkinManager.getColor(R.color.topic_pk_oppose_disable));
-        } else {
-            this.t.setColor(SkinManager.getColor(R.color.CAM_X0302));
-        }
-        canvas.drawRect(this.f17010i, this.j, this.f17008g - (this.n / 2.0f), this.f17006e - i3, this.t);
     }
 
     public final void c(Canvas canvas) {
-        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pic_vs);
-        this.m = drawable;
-        if (this.w) {
-            if (this.x) {
-                int i2 = this.f17010i;
-                int i3 = this.p;
-                int i4 = this.j;
-                drawable.setBounds((i2 - (i3 / 2)) - 3, i4, ((i2 - (i3 / 2)) - 3) + i3, this.q + i4);
-                this.m.draw(canvas);
-            } else {
-                int i5 = this.f17010i;
-                int i6 = this.p;
-                int i7 = this.j;
-                drawable.setBounds((i5 - (i6 / 2)) + 3, i7, (i5 - (i6 / 2)) + 3 + i6, this.q + i7);
-                this.m.draw(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pic_vs);
+            this.m = drawable;
+            if (this.w) {
+                if (this.x) {
+                    int i2 = this.f17136i;
+                    int i3 = this.p;
+                    int i4 = this.j;
+                    drawable.setBounds((i2 - (i3 / 2)) - 3, i4, ((i2 - (i3 / 2)) - 3) + i3, this.q + i4);
+                    this.m.draw(canvas);
+                } else {
+                    int i5 = this.f17136i;
+                    int i6 = this.p;
+                    int i7 = this.j;
+                    drawable.setBounds((i5 - (i6 / 2)) + 3, i7, (i5 - (i6 / 2)) + 3 + i6, this.q + i7);
+                    this.m.draw(canvas);
+                }
+                this.x = !this.x;
+                return;
             }
-            this.x = !this.x;
-            return;
+            int i8 = this.f17136i;
+            int i9 = this.p;
+            int i10 = this.j;
+            drawable.setBounds(i8 - (i9 / 2), i10, (i8 - (i9 / 2)) + i9, this.q + i10);
+            this.m.draw(canvas);
         }
-        int i8 = this.f17010i;
-        int i9 = this.p;
-        int i10 = this.j;
-        drawable.setBounds(i8 - (i9 / 2), i10, (i8 - (i9 / 2)) + i9, this.q + i10);
-        this.m.draw(canvas);
     }
 
     public final void d(Canvas canvas) {
-        g();
-        this.k.setBounds(0, 0, this.n, this.o);
-        this.k.draw(canvas);
-        Drawable drawable = this.l;
-        int i2 = this.f17008g;
-        drawable.setBounds(i2 - this.n, 0, i2, this.o);
-        this.l.draw(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            g();
+            this.k.setBounds(0, 0, this.n, this.o);
+            this.k.draw(canvas);
+            Drawable drawable = this.l;
+            int i2 = this.f17134g;
+            drawable.setBounds(i2 - this.n, 0, i2, this.o);
+            this.l.draw(canvas);
+        }
     }
 
     public final void e(Canvas canvas) {
-        int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds25);
-        this.t.setTextSize(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.fontsize28));
-        if (this.u.k == 2) {
-            this.t.setColor(SkinManager.getColor(R.color.topic_pk_agree_disable));
-        } else {
-            this.t.setColor(SkinManager.getColor(R.color.CAM_X0308));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds25);
+            this.t.setTextSize(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.fontsize28));
+            if (this.u.k == 2) {
+                this.t.setColor(SkinManager.getColor(R.color.topic_pk_agree_disable));
+            } else {
+                this.t.setColor(SkinManager.getColor(R.color.CAM_X0308));
+            }
+            canvas.drawText(StringHelper.numberUniformFormat(this.u.f59685h), this.n, this.f17132e + dimensionPixelSize, this.t);
+            if (this.u.k == 1) {
+                this.t.setColor(SkinManager.getColor(R.color.topic_pk_oppose_disable));
+            } else {
+                this.t.setColor(SkinManager.getColor(R.color.CAM_X0302));
+            }
+            canvas.drawText(StringHelper.numberUniformFormat(this.u.j), (this.f17134g - this.n) - ((int) this.t.measureText(StringHelper.numberUniformFormat(this.u.j))), this.f17132e + dimensionPixelSize, this.t);
         }
-        canvas.drawText(StringHelper.numberUniformFormat(this.u.f56398h), this.n, this.f17006e + dimensionPixelSize, this.t);
-        if (this.u.k == 1) {
-            this.t.setColor(SkinManager.getColor(R.color.topic_pk_oppose_disable));
-        } else {
-            this.t.setColor(SkinManager.getColor(R.color.CAM_X0302));
-        }
-        canvas.drawText(StringHelper.numberUniformFormat(this.u.j), (this.f17008g - this.n) - ((int) this.t.measureText(StringHelper.numberUniformFormat(this.u.j))), this.f17006e + dimensionPixelSize, this.t);
     }
 
     public final void f(Context context) {
-        Paint paint = new Paint();
-        this.t = paint;
-        paint.setAntiAlias(true);
-        this.t.setDither(true);
-        this.t.setFilterBitmap(true);
-        this.f17007f = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
-        g();
-        this.m = SkinManager.getDrawable(R.drawable.icon_pic_vs);
-        this.n = this.k.getIntrinsicWidth();
-        this.o = this.k.getIntrinsicHeight();
-        this.p = this.m.getIntrinsicWidth();
-        this.q = this.m.getIntrinsicHeight();
-        this.r = new RectF(0.0f, 0.0f, this.n, this.o);
-        this.j = (this.o - this.q) / 2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            Paint paint = new Paint();
+            this.t = paint;
+            paint.setAntiAlias(true);
+            this.t.setDither(true);
+            this.t.setFilterBitmap(true);
+            this.f17133f = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
+            g();
+            this.m = SkinManager.getDrawable(R.drawable.icon_pic_vs);
+            this.n = this.k.getIntrinsicWidth();
+            this.o = this.k.getIntrinsicHeight();
+            this.p = this.m.getIntrinsicWidth();
+            this.q = this.m.getIntrinsicHeight();
+            this.r = new RectF(0.0f, 0.0f, this.n, this.o);
+            this.j = (this.o - this.q) / 2;
+        }
     }
 
     public final void g() {
-        i iVar = this.u;
-        if (iVar == null) {
-            this.k = SkinManager.getDrawable(R.drawable.icon_pk_red_n);
-            this.l = SkinManager.getDrawable(R.drawable.icon_pk_blule_n);
-            return;
-        }
-        int i2 = iVar.k;
-        if (i2 == 1) {
-            this.k = SkinManager.getDrawable(R.drawable.icon_pk_red_s);
-            this.l = SkinManager.getDrawable(R.drawable.icon_pk_blule_d);
-        } else if (i2 == 2) {
-            this.l = SkinManager.getDrawable(R.drawable.icon_pk_blule_s);
-            this.k = SkinManager.getDrawable(R.drawable.icon_pk_red_d);
-        } else {
-            this.k = SkinManager.getDrawable(R.drawable.icon_pk_red_n);
-            this.l = SkinManager.getDrawable(R.drawable.icon_pk_blule_n);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            i iVar = this.u;
+            if (iVar == null) {
+                this.k = SkinManager.getDrawable(R.drawable.icon_pk_red_n);
+                this.l = SkinManager.getDrawable(R.drawable.icon_pk_blule_n);
+                return;
+            }
+            int i2 = iVar.k;
+            if (i2 == 1) {
+                this.k = SkinManager.getDrawable(R.drawable.icon_pk_red_s);
+                this.l = SkinManager.getDrawable(R.drawable.icon_pk_blule_d);
+            } else if (i2 == 2) {
+                this.l = SkinManager.getDrawable(R.drawable.icon_pk_blule_s);
+                this.k = SkinManager.getDrawable(R.drawable.icon_pk_red_d);
+            } else {
+                this.k = SkinManager.getDrawable(R.drawable.icon_pk_red_n);
+                this.l = SkinManager.getDrawable(R.drawable.icon_pk_blule_n);
+            }
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        b(canvas);
-        d(canvas);
-        c(canvas);
-        e(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
+            super.onDraw(canvas);
+            b(canvas);
+            d(canvas);
+            c(canvas);
+            e(canvas);
+        }
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        this.f17006e = this.o;
-        int size = View.MeasureSpec.getSize(i2);
-        this.f17008g = size;
-        setMeasuredDimension(size, this.f17006e + this.f17007f);
-        this.f17009h = (this.f17008g - (this.n * 2)) - 100;
-        if (this.s == null) {
-            int i4 = this.f17008g;
-            this.s = new RectF(i4 - this.n, 0.0f, i4, this.f17006e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            this.f17132e = this.o;
+            int size = View.MeasureSpec.getSize(i2);
+            this.f17134g = size;
+            setMeasuredDimension(size, this.f17132e + this.f17133f);
+            this.f17135h = (this.f17134g - (this.n * 2)) - 100;
+            if (this.s == null) {
+                int i4 = this.f17134g;
+                this.s = new RectF(i4 - this.n, 0.0f, i4, this.f17132e);
+            }
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.u.k != 0) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
+            if (this.u.k != 0) {
+                return true;
+            }
+            if (motionEvent.getAction() != 0) {
+                return super.onTouchEvent(motionEvent);
+            }
+            if (this.r.contains(motionEvent.getX(), motionEvent.getY())) {
+                i iVar = this.u;
+                iVar.f59685h++;
+                iVar.k = 1;
+            } else if (this.s.contains(motionEvent.getX(), motionEvent.getY())) {
+                i iVar2 = this.u;
+                iVar2.j++;
+                iVar2.k = 2;
+            }
+            g();
+            i iVar3 = this.u;
+            if (iVar3.k != 0) {
+                if (iVar3.f59685h + iVar3.j > 50) {
+                    this.w = true;
+                    new Thread(new a(this)).start();
+                } else {
+                    invalidate();
+                }
+                this.v.sendPkData();
+            }
             return true;
         }
-        if (motionEvent.getAction() != 0) {
-            return super.onTouchEvent(motionEvent);
-        }
-        if (this.r.contains(motionEvent.getX(), motionEvent.getY())) {
-            i iVar = this.u;
-            iVar.f56398h++;
-            iVar.k = 1;
-        } else if (this.s.contains(motionEvent.getX(), motionEvent.getY())) {
-            i iVar2 = this.u;
-            iVar2.j++;
-            iVar2.k = 2;
-        }
-        g();
-        i iVar3 = this.u;
-        if (iVar3.k != 0) {
-            if (iVar3.f56398h + iVar3.j > 50) {
-                this.w = true;
-                new Thread(new a()).start();
-            } else {
-                invalidate();
-            }
-            this.v.sendPkData();
-        }
-        return true;
+        return invokeL.booleanValue;
     }
 
     public void setData(i iVar, HotTopicActivity hotTopicActivity) {
-        if (iVar == null || hotTopicActivity == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, iVar, hotTopicActivity) == null) || iVar == null || hotTopicActivity == null) {
             return;
         }
         this.u = iVar;
@@ -252,15 +332,48 @@ public class HotTopicPkView extends View {
         invalidate();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicPkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.w = false;
         this.x = false;
         f(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicPkView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.w = false;
         this.x = false;
         f(context);

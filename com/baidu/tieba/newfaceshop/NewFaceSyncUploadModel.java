@@ -2,40 +2,77 @@ package com.baidu.tieba.newfaceshop;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.a.o0.z1.d;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.c2.d;
 /* loaded from: classes5.dex */
 public class NewFaceSyncUploadModel extends FaceBaseModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public NewFaceSyncUploadModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         registerTask();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP);
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP, TbConfig.SERVER_ADDRESS + "c/e/meme/uploadPackage");
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP, TbConfig.SERVER_ADDRESS + "c/e/meme/uploadPackage");
+            tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public void w(String str) {
-        long currentTimeMillis = System.currentTimeMillis();
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP);
-        httpMessage.addParam("package_ids", str);
-        httpMessage.addParam("pkg_update_time", currentTimeMillis);
-        sendMessage(httpMessage);
-        d.t(currentTimeMillis);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP);
+            httpMessage.addParam("package_ids", str);
+            httpMessage.addParam("pkg_update_time", currentTimeMillis);
+            sendMessage(httpMessage);
+            d.t(currentTimeMillis);
+        }
     }
 }

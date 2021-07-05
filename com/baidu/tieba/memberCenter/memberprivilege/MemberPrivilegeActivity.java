@@ -12,6 +12,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -23,142 +24,263 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.o0.s1.g.a;
-import d.a.o0.s1.g.d;
+import d.a.s0.v1.g.a;
+import d.a.s0.v1.g.d;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String SCENE_ID;
+    public final CustomMessageListener mBuyTdouListener;
+    public final CustomMessageListener mMemListener;
     public d mMemberPrivilegeView;
-    public String SCENE_ID = "4001001000";
-    public HttpMessageListener mRequestMemberPrivilegelistener = new a(CmdConfigHttp.MEMBER_PRIVILEGE_CMD);
-    public final CustomMessageListener mMemListener = new b(2001194);
-    public final CustomMessageListener mBuyTdouListener = new c(2001227);
+    public HttpMessageListener mRequestMemberPrivilegelistener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ MemberPrivilegeActivity f18594a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {memberPrivilegeActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18594a = memberPrivilegeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            MemberPrivilegeActivity memberPrivilegeActivity = MemberPrivilegeActivity.this;
-            memberPrivilegeActivity.hideLoadingView(memberPrivilegeActivity.mMemberPrivilegeView.f());
-            if ((httpResponsedMessage instanceof ResponseMemberPrivilegeMessage) && httpResponsedMessage.getCmd() == 1001531) {
-                int error = httpResponsedMessage.getError();
-                ResponseMemberPrivilegeMessage responseMemberPrivilegeMessage = (ResponseMemberPrivilegeMessage) httpResponsedMessage;
-                if (error != 0) {
-                    MemberPrivilegeActivity.this.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? MemberPrivilegeActivity.this.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                MemberPrivilegeActivity memberPrivilegeActivity = this.f18594a;
+                memberPrivilegeActivity.hideLoadingView(memberPrivilegeActivity.mMemberPrivilegeView.f());
+                if ((httpResponsedMessage instanceof ResponseMemberPrivilegeMessage) && httpResponsedMessage.getCmd() == 1001531) {
+                    int error = httpResponsedMessage.getError();
+                    ResponseMemberPrivilegeMessage responseMemberPrivilegeMessage = (ResponseMemberPrivilegeMessage) httpResponsedMessage;
+                    if (error != 0) {
+                        this.f18594a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.f18594a.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
+                        return;
+                    }
+                    d.a.s0.v1.g.a aVar = responseMemberPrivilegeMessage.mData;
+                    if (aVar != null) {
+                        this.f18594a.mMemberPrivilegeView.e().h(aVar);
+                    } else {
+                        this.f18594a.showToast(R.string.neterror);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ MemberPrivilegeActivity f18595a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {memberPrivilegeActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                d.a.o0.s1.g.a aVar = responseMemberPrivilegeMessage.mData;
-                if (aVar != null) {
-                    MemberPrivilegeActivity.this.mMemberPrivilegeView.e().h(aVar);
-                } else {
-                    MemberPrivilegeActivity.this.showToast(R.string.neterror);
+            }
+            this.f18595a = memberPrivilegeActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || ((Integer) customResponsedMessage.getData()) == null) {
+                return;
+            }
+            this.f18595a.requestMemberPrivilegeData();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ MemberPrivilegeActivity f18596a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {memberPrivilegeActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public b(int i2) {
-            super(i2);
+            this.f18596a = memberPrivilegeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || ((Integer) customResponsedMessage.getData()) == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            MemberPrivilegeActivity.this.requestMemberPrivilegeData();
+            this.f18596a.requestMemberPrivilegeData();
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends CustomMessageListener {
-        public c(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null) {
+    public MemberPrivilegeActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            MemberPrivilegeActivity.this.requestMemberPrivilegeData();
         }
+        this.SCENE_ID = "4001001000";
+        this.mRequestMemberPrivilegelistener = new a(this, CmdConfigHttp.MEMBER_PRIVILEGE_CMD);
+        this.mMemListener = new b(this, 2001194);
+        this.mBuyTdouListener = new c(this, 2001227);
     }
 
     private void initUI() {
-        this.mMemberPrivilegeView = new d(getPageContext().getOrignalPage());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.mMemberPrivilegeView = new d(getPageContext().getOrignalPage());
+        }
     }
 
     private boolean isBubbleLink(String str) {
+        InterceptResult invokeL;
         Map<String, String> paramPair;
-        return (TextUtils.isEmpty(str) || (paramPair = UrlManager.getParamPair(UrlManager.getParamStr(str))) == null || !"1".equals(paramPair.get("type"))) ? false : true;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? (TextUtils.isEmpty(str) || (paramPair = UrlManager.getParamPair(UrlManager.getParamStr(str))) == null || !"1".equals(paramPair.get("type"))) ? false : true : invokeL.booleanValue;
     }
 
     private void registerGetMemberPrivilegeTask() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MEMBER_PRIVILEGE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.MEMBER_PRIVILEGE);
-        tbHttpMessageTask.setResponsedClass(ResponseMemberPrivilegeMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MEMBER_PRIVILEGE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.MEMBER_PRIVILEGE);
+            tbHttpMessageTask.setResponsedClass(ResponseMemberPrivilegeMessage.class);
+            messageManager.registerTask(tbHttpMessageTask);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        this.mMemberPrivilegeView.onChangeSkinType(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            this.mMemberPrivilegeView.onChangeSkinType(i2);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (R.id.left_button == view.getId()) {
-            TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_33", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-            sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(getPageContext().getPageActivity(), 0, "pay", 3, 1, this.SCENE_ID)));
-        } else if (R.id.right_button == view.getId()) {
-            CurrencyJumpHelper.memberCenterBuyTBean(getPageContext().getPageActivity(), this.SCENE_ID);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            if (R.id.left_button == view.getId()) {
+                TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_33", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(getPageContext().getPageActivity(), 0, "pay", 3, 1, this.SCENE_ID)));
+            } else if (R.id.right_button == view.getId()) {
+                CurrencyJumpHelper.memberCenterBuyTBean(getPageContext().getPageActivity(), this.SCENE_ID);
+            }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        registerGetMemberPrivilegeTask();
-        registerListener(this.mMemListener);
-        registerListener(this.mBuyTdouListener);
-        registerListener(this.mRequestMemberPrivilegelistener);
-        initUI();
-        requestMemberPrivilegeData();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            registerGetMemberPrivilegeTask();
+            registerListener(this.mMemListener);
+            registerListener(this.mBuyTdouListener);
+            registerListener(this.mRequestMemberPrivilegelistener);
+            initUI();
+            requestMemberPrivilegeData();
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-        if (i2 == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i2)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || i2 == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i2)) {
             return;
         }
-        String str = ((a.C1656a) this.mMemberPrivilegeView.e().getItem(i2)).f64396d;
-        String str2 = ((a.C1656a) this.mMemberPrivilegeView.e().getItem(i2)).f64394b;
+        String str = ((a.C1839a) this.mMemberPrivilegeView.e().getItem(i2)).f68407d;
+        String str2 = ((a.C1839a) this.mMemberPrivilegeView.e().getItem(i2)).f68405b;
         if (k.isEmpty(str)) {
             return;
         }
         if (isBubbleLink(str)) {
             sendMessage(new CustomMessage(2002001, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
         } else {
-            d.a.n0.l.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
+            d.a.r0.l.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
         }
     }
 
     public void requestMemberPrivilegeData() {
-        showLoadingView(this.mMemberPrivilegeView.f(), true);
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MEMBER_PRIVILEGE_CMD);
-        httpMessage.addParam("st_type", "shop");
-        sendMessage(httpMessage);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            showLoadingView(this.mMemberPrivilegeView.f(), true);
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MEMBER_PRIVILEGE_CMD);
+            httpMessage.addParam("st_type", "shop");
+            sendMessage(httpMessage);
+        }
     }
 }

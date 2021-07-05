@@ -10,106 +10,192 @@ import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BannerLayoutForAd extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BannerFocusImageViewGroup f23793a;
+    public BannerFocusImageViewGroup f24336a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f23794b;
+    public LinearLayout f24337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BannerBaseItemInfo[] f23795c;
+    public BannerBaseItemInfo[] f24338c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23796d;
+    public int f24339d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23797e;
+    public int f24340e;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BannerLayoutForAd(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public void initView() {
-        LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_banner_vip"), this);
-        this.f23793a = (BannerFocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_banner_gallery"));
-        this.f23794b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_banner_indicators"));
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f23793a.getLayoutParams();
-        int displayWidth = (DisplayUtils.getDisplayWidth(getContext()) - this.f23796d) - this.f23797e;
-        int i2 = (displayWidth * Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID) / 750;
-        if (layoutParams == null) {
-            layoutParams = new FrameLayout.LayoutParams(displayWidth, i2);
-        } else {
-            layoutParams.width = displayWidth;
-            layoutParams.height = i2;
-        }
-        this.f23793a.setChildLeft(getPaddingLeft());
-        this.f23793a.setLayoutParams(layoutParams);
-        this.f23793a.setChildLeft(this.f23796d);
-        this.f23793a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos() { // from class: com.baidu.wallet.base.widget.banner.BannerLayoutForAd.1
-            @Override // com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.CurrFocusImagePos
-            public void setCurrPos(int i3, int i4) {
-                int i5 = 0;
-                while (i5 < i4) {
-                    if (BannerLayoutForAd.this.f23794b.getChildAt(i5) != null) {
-                        BannerLayoutForAd.this.f23794b.getChildAt(i5).setSelected(i5 == i3);
-                    }
-                    i5++;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_banner_vip"), this);
+            this.f24336a = (BannerFocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_banner_gallery"));
+            this.f24337b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_banner_indicators"));
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f24336a.getLayoutParams();
+            int displayWidth = (DisplayUtils.getDisplayWidth(getContext()) - this.f24339d) - this.f24340e;
+            int i2 = (displayWidth * Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID) / 750;
+            if (layoutParams == null) {
+                layoutParams = new FrameLayout.LayoutParams(displayWidth, i2);
+            } else {
+                layoutParams.width = displayWidth;
+                layoutParams.height = i2;
             }
-        });
+            this.f24336a.setChildLeft(getPaddingLeft());
+            this.f24336a.setLayoutParams(layoutParams);
+            this.f24336a.setChildLeft(this.f24339d);
+            this.f24336a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos(this) { // from class: com.baidu.wallet.base.widget.banner.BannerLayoutForAd.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ BannerLayoutForAd f24341a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f24341a = this;
+                }
+
+                @Override // com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.CurrFocusImagePos
+                public void setCurrPos(int i3, int i4) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeII(1048576, this, i3, i4) == null) {
+                        int i5 = 0;
+                        while (i5 < i4) {
+                            if (this.f24341a.f24337b.getChildAt(i5) != null) {
+                                this.f24341a.f24337b.getChildAt(i5).setSelected(i5 == i3);
+                            }
+                            i5++;
+                        }
+                    }
+                }
+            });
+        }
     }
 
     public boolean isDataValide() {
-        BannerBaseItemInfo[] bannerBaseItemInfoArr = this.f23795c;
-        return bannerBaseItemInfoArr != null && bannerBaseItemInfoArr.length > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BannerBaseItemInfo[] bannerBaseItemInfoArr = this.f24338c;
+            return bannerBaseItemInfoArr != null && bannerBaseItemInfoArr.length > 0;
+        }
+        return invokeV.booleanValue;
     }
 
     public void refreshData() {
-        this.f23793a.setFocusConfigInfo(this.f23795c, "");
-        int drawable = ResUtils.drawable(getContext(), "wallet_base_indicators");
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 7.0f), DisplayUtils.dip2px(getContext(), 2.0f));
-        if (this.f23795c.length > 1) {
-            int i2 = 0;
-            while (i2 < this.f23795c.length) {
-                View view = new View(getContext());
-                view.setBackgroundResource(drawable);
-                view.setSelected(i2 == 0);
-                this.f23794b.addView(view, layoutParams);
-                layoutParams.leftMargin = DisplayUtils.dip2px(getContext(), 6.0f);
-                i2++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f24336a.setFocusConfigInfo(this.f24338c, "");
+            int drawable = ResUtils.drawable(getContext(), "wallet_base_indicators");
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 7.0f), DisplayUtils.dip2px(getContext(), 2.0f));
+            if (this.f24338c.length > 1) {
+                int i2 = 0;
+                while (i2 < this.f24338c.length) {
+                    View view = new View(getContext());
+                    view.setBackgroundResource(drawable);
+                    view.setSelected(i2 == 0);
+                    this.f24337b.addView(view, layoutParams);
+                    layoutParams.leftMargin = DisplayUtils.dip2px(getContext(), 6.0f);
+                    i2++;
+                }
+                this.f24337b.setVisibility(0);
+                return;
             }
-            this.f23794b.setVisibility(0);
-            return;
+            this.f24337b.setVisibility(8);
         }
-        this.f23794b.setVisibility(8);
     }
 
     public void setConfigData(BannerBaseItemInfo[] bannerBaseItemInfoArr) {
-        this.f23795c = bannerBaseItemInfoArr;
-        if (isDataValide()) {
-            removeAllViews();
-            initView();
-            refreshData();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bannerBaseItemInfoArr) == null) {
+            this.f24338c = bannerBaseItemInfoArr;
+            if (isDataValide()) {
+                removeAllViews();
+                initView();
+                refreshData();
+            }
         }
     }
 
     public void setMaiDianDataKey(String str) {
-        BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f23793a;
-        if (bannerFocusImageViewGroup != null) {
-            bannerFocusImageViewGroup.setMaiDianDataKey(str);
+        BannerFocusImageViewGroup bannerFocusImageViewGroup;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (bannerFocusImageViewGroup = this.f24336a) == null) {
+            return;
         }
+        bannerFocusImageViewGroup.setMaiDianDataKey(str);
     }
 
     public void setMarginLeftAndRight(int i2, int i3) {
-        this.f23796d = i2;
-        this.f23797e = i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
+            this.f24339d = i2;
+            this.f24340e = i3;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BannerLayoutForAd(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

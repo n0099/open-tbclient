@@ -14,63 +14,116 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.permission.DangerousPermissionManagerProxy;
 import com.baidu.fsg.base.permission.RequestPermissionDialogCallBack;
 import com.baidu.fsg.face.base.d.d;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.liveness.camera.LivenessCameraSurfaceView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity implements Camera.PreviewCallback, SurfaceHolder.Callback {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5658b = 1;
+    public static final int f5688b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5659c = 2;
+    public static final int f5689c = 2;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f5690a;
     public com.baidu.fsg.face.liveness.camera.a cameraControl;
 
+    /* renamed from: d  reason: collision with root package name */
+    public int f5691d;
+
     /* renamed from: e  reason: collision with root package name */
-    public LivenessCameraSurfaceView f5662e;
+    public LivenessCameraSurfaceView f5692e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SurfaceHolder f5663f;
+    public SurfaceHolder f5693f;
     public com.baidu.fsg.face.base.d.b faceRectGroup;
 
     /* renamed from: g  reason: collision with root package name */
-    public MediaPlayer f5664g;
+    public MediaPlayer f5694g;
     public boolean permissionFlag;
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f5661d = 1;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f5660a = false;
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements MediaPlayer.OnErrorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
         public boolean onError(MediaPlayer mediaPlayer, int i2, int i3) {
-            mediaPlayer.reset();
-            return false;
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
+                mediaPlayer.reset();
+                return false;
+            }
+            return invokeLII.booleanValue;
         }
     }
 
+    public LivenessCameraBaseActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f5691d = 1;
+        this.f5690a = false;
+    }
+
     private boolean e() {
-        this.f5662e.setVisibility(4);
-        boolean a2 = this.cameraControl.a(getActivity(), true);
-        this.f5662e.bindSurfaceView(this, this.cameraControl.f());
-        this.f5662e.setVisibility(0);
-        return a2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            this.f5692e.setVisibility(4);
+            boolean a2 = this.cameraControl.a(getActivity(), true);
+            this.f5692e.bindSurfaceView(this, this.cameraControl.f());
+            this.f5692e.setVisibility(0);
+            return a2;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void setBrightness(Activity activity, int i2) {
-        WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-        attributes.screenBrightness = Float.valueOf(i2).floatValue() * 0.003921569f;
-        activity.getWindow().setAttributes(attributes);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, activity, i2) == null) {
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.screenBrightness = Float.valueOf(i2).floatValue() * 0.003921569f;
+            activity.getWindow().setAttributes(attributes);
+        }
     }
 
     public abstract View a();
@@ -89,220 +142,393 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
 
     @Override // com.baidu.fsg.face.liveness.activity.LivenessBaseActivity, com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        getWindow().addFlags(128);
-        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
-        LivenessCameraSurfaceView livenessCameraSurfaceView = new LivenessCameraSurfaceView(getActivity(), null);
-        this.f5662e = livenessCameraSurfaceView;
-        SurfaceHolder holder = livenessCameraSurfaceView.getHolder();
-        this.f5663f = holder;
-        holder.setFormat(-2);
-        this.f5663f.setType(3);
-        this.f5663f.addCallback(this);
-        addContentView(this.f5662e, layoutParams);
-        addContentView(a(), layoutParams);
-        this.cameraControl = new com.baidu.fsg.face.liveness.camera.a();
-        this.faceRectGroup = new com.baidu.fsg.face.base.d.b();
-        f.b(this, getResources().getColor(17170445));
-        setBrightness(getActivity(), 255);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            super.onCreate(bundle);
+            getWindow().addFlags(128);
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
+            LivenessCameraSurfaceView livenessCameraSurfaceView = new LivenessCameraSurfaceView(getActivity(), null);
+            this.f5692e = livenessCameraSurfaceView;
+            SurfaceHolder holder = livenessCameraSurfaceView.getHolder();
+            this.f5693f = holder;
+            holder.setFormat(-2);
+            this.f5693f.setType(3);
+            this.f5693f.addCallback(this);
+            addContentView(this.f5692e, layoutParams);
+            addContentView(a(), layoutParams);
+            this.cameraControl = new com.baidu.fsg.face.liveness.camera.a();
+            this.faceRectGroup = new com.baidu.fsg.face.base.d.b();
+            f.b(this, getResources().getColor(17170445));
+            setBrightness(getActivity(), 255);
+        }
     }
 
     @Override // com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        try {
-            if (this.f5664g != null) {
-                this.f5664g.stop();
-                this.f5664g.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onDestroy();
+            try {
+                if (this.f5694g != null) {
+                    this.f5694g.stop();
+                    this.f5694g.release();
+                }
+            } catch (Exception e2) {
+                d.a(e2);
             }
-        } catch (Exception e2) {
-            d.a(e2);
         }
     }
 
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, Camera camera) {
-        a(bArr, camera);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, bArr, camera) == null) {
+            a(bArr, camera);
+        }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i2, strArr, iArr);
-        this.permissionFlag = false;
-        if (i2 == 1) {
-            if (iArr.length == 1) {
-                if (iArr[0] == 0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048586, this, i2, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i2, strArr, iArr);
+            this.permissionFlag = false;
+            if (i2 == 1) {
+                if (iArr.length == 1) {
+                    if (iArr[0] == 0) {
+                        startVideoOrCamera();
+                    } else {
+                        a(true);
+                    }
+                }
+            } else if (i2 == 2 && iArr.length == 2) {
+                boolean z = iArr[0] == 0;
+                boolean z2 = iArr[1] == 0;
+                if (z && z2) {
                     startVideoOrCamera();
                 } else {
-                    a(true);
+                    a(z, z2, true);
                 }
-            }
-        } else if (i2 == 2 && iArr.length == 2) {
-            boolean z = iArr[0] == 0;
-            boolean z2 = iArr[1] == 0;
-            if (z && z2) {
-                startVideoOrCamera();
-            } else {
-                a(z, z2, true);
             }
         }
     }
 
     public void playSound(int i2) {
-        MediaPlayer mediaPlayer = this.f5664g;
-        if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
-            MediaPlayer create = MediaPlayer.create(this, i2);
-            this.f5664g = create;
-            if (create == null) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            MediaPlayer mediaPlayer = this.f5694g;
+            if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
+                MediaPlayer create = MediaPlayer.create(this, i2);
+                this.f5694g = create;
+                if (create == null) {
+                    return;
+                }
+                create.setOnErrorListener(new b());
+                setVolumeControlStream(3);
+                this.f5694g.start();
             }
-            create.setOnErrorListener(new b());
-            setVolumeControlStream(3);
-            this.f5664g.start();
         }
     }
 
     public void startRecod() {
-        this.f5662e.post(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.3
-            @Override // java.lang.Runnable
-            public void run() {
-                new a().execute(new Void[0]);
-            }
-        });
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.f5692e.post(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ LivenessCameraBaseActivity f5697a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f5697a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        new a().execute(new Void[0]);
+                    }
+                }
+            });
+        }
     }
 
     public void startVideoOrCamera() {
-        if (this.f5661d == 0) {
-            String[] strArr = {PermissionRequest.RESOURCE_VIDEO_CAPTURE};
-            if (!DangerousPermissionManagerProxy.getInstance().isPermissionGroupGranted(getActivity(), strArr)) {
-                DangerousPermissionManagerProxy.getInstance().requestPermissionsDialog(getActivity(), strArr, new RequestPermissionDialogCallBack() { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.1
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.f5691d == 0) {
+                String[] strArr = {PermissionRequest.RESOURCE_VIDEO_CAPTURE};
+                if (!DangerousPermissionManagerProxy.getInstance().isPermissionGroupGranted(getActivity(), strArr)) {
+                    DangerousPermissionManagerProxy.getInstance().requestPermissionsDialog(getActivity(), strArr, new RequestPermissionDialogCallBack(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ LivenessCameraBaseActivity f5695a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f5695a = this;
+                        }
+
+                        @Override // com.baidu.fsg.base.permission.RequestPermissionDialogCallBack
+                        @TargetApi(23)
+                        public void isAllAgree(boolean z) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                                if (z) {
+                                    LivenessCameraBaseActivity livenessCameraBaseActivity = this.f5695a;
+                                    livenessCameraBaseActivity.permissionFlag = true;
+                                    livenessCameraBaseActivity.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1);
+                                    return;
+                                }
+                                this.f5695a.a(true);
+                            }
+                        }
+                    });
+                    return;
+                } else if (e()) {
+                    c();
+                    return;
+                } else {
+                    a(false);
+                    return;
+                }
+            }
+            String[] strArr2 = {PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE};
+            if (!DangerousPermissionManagerProxy.getInstance().isPermissionGroupGranted(getActivity(), strArr2)) {
+                DangerousPermissionManagerProxy.getInstance().requestPermissionsDialog(getActivity(), strArr2, new RequestPermissionDialogCallBack(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LivenessCameraBaseActivity f5696a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f5696a = this;
+                    }
+
                     @Override // com.baidu.fsg.base.permission.RequestPermissionDialogCallBack
                     @TargetApi(23)
                     public void isAllAgree(boolean z) {
-                        if (z) {
-                            LivenessCameraBaseActivity livenessCameraBaseActivity = LivenessCameraBaseActivity.this;
-                            livenessCameraBaseActivity.permissionFlag = true;
-                            livenessCameraBaseActivity.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1);
-                            return;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                            if (z) {
+                                LivenessCameraBaseActivity livenessCameraBaseActivity = this.f5696a;
+                                livenessCameraBaseActivity.permissionFlag = true;
+                                livenessCameraBaseActivity.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 2);
+                                return;
+                            }
+                            this.f5696a.a(false, false, true);
                         }
-                        LivenessCameraBaseActivity.this.a(true);
                     }
                 });
-                return;
             } else if (e()) {
                 c();
-                return;
             } else {
-                a(false);
-                return;
+                a(false, true, true);
             }
-        }
-        String[] strArr2 = {PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE};
-        if (!DangerousPermissionManagerProxy.getInstance().isPermissionGroupGranted(getActivity(), strArr2)) {
-            DangerousPermissionManagerProxy.getInstance().requestPermissionsDialog(getActivity(), strArr2, new RequestPermissionDialogCallBack() { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.2
-                @Override // com.baidu.fsg.base.permission.RequestPermissionDialogCallBack
-                @TargetApi(23)
-                public void isAllAgree(boolean z) {
-                    if (z) {
-                        LivenessCameraBaseActivity livenessCameraBaseActivity = LivenessCameraBaseActivity.this;
-                        livenessCameraBaseActivity.permissionFlag = true;
-                        livenessCameraBaseActivity.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 2);
-                        return;
-                    }
-                    LivenessCameraBaseActivity.this.a(false, false, true);
-                }
-            });
-        } else if (e()) {
-            c();
-        } else {
-            a(false, true, true);
         }
     }
 
     public void startVideoOrCamera2() {
-        if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
-            this.permissionFlag = true;
-            requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1);
-        } else if (this.f5661d == 0) {
-            if (e()) {
-                c();
-            } else {
-                a(false);
-            }
-        } else if (e()) {
-            if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(PermissionRequest.RESOURCE_AUDIO_CAPTURE) != 0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
                 this.permissionFlag = true;
-                requestPermissions(new String[]{PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 2);
-                return;
-            }
-            this.f5662e.post(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.4
-                @Override // java.lang.Runnable
-                public void run() {
-                    new a().execute(new Void[0]);
+                requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1);
+            } else if (this.f5691d == 0) {
+                if (e()) {
+                    c();
+                } else {
+                    a(false);
                 }
-            });
-        } else {
-            a(false, true, true);
+            } else if (e()) {
+                if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(PermissionRequest.RESOURCE_AUDIO_CAPTURE) != 0) {
+                    this.permissionFlag = true;
+                    requestPermissions(new String[]{PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 2);
+                    return;
+                }
+                this.f5692e.post(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LivenessCameraBaseActivity f5698a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f5698a = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            new a().execute(new Void[0]);
+                        }
+                    }
+                });
+            } else {
+                a(false, true, true);
+            }
         }
     }
 
     public void stopVideoOrCamera() {
         com.baidu.fsg.face.liveness.camera.a aVar;
-        int i2 = this.f5661d;
-        if (i2 == 0) {
-            com.baidu.fsg.face.liveness.camera.a aVar2 = this.cameraControl;
-            if (aVar2 != null) {
-                aVar2.d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            int i2 = this.f5691d;
+            if (i2 == 0) {
+                com.baidu.fsg.face.liveness.camera.a aVar2 = this.cameraControl;
+                if (aVar2 != null) {
+                    aVar2.d();
+                }
+            } else if (i2 != 1 || (aVar = this.cameraControl) == null) {
+            } else {
+                aVar.e();
+                this.cameraControl.d();
             }
-        } else if (i2 != 1 || (aVar = this.cameraControl) == null) {
-        } else {
-            aVar.e();
-            this.cameraControl.d();
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
-        this.faceRectGroup.f5588b = new Rect(this.f5662e.getLeft(), this.f5662e.getTop(), this.f5662e.getRight(), this.f5662e.getBottom());
-        b();
-        this.cameraControl.a((Camera.PreviewCallback) this);
-        this.cameraControl.a(getActivity(), this.f5663f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048592, this, surfaceHolder, i2, i3, i4) == null) {
+            this.faceRectGroup.f5618b = new Rect(this.f5692e.getLeft(), this.f5692e.getTop(), this.f5692e.getRight(), this.f5692e.getBottom());
+            b();
+            this.cameraControl.a((Camera.PreviewCallback) this);
+            this.cameraControl.a(getActivity(), this.f5693f);
+        }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, surfaceHolder) == null) {
+        }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, surfaceHolder) == null) {
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends AsyncTask<Void, Void, String> {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LivenessCameraBaseActivity f5699a;
+
+        public a(LivenessCameraBaseActivity livenessCameraBaseActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {livenessCameraBaseActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f5699a = livenessCameraBaseActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(Void... voidArr) {
-            LivenessCameraBaseActivity livenessCameraBaseActivity = LivenessCameraBaseActivity.this;
-            livenessCameraBaseActivity.f5660a = livenessCameraBaseActivity.cameraControl.a((Context) livenessCameraBaseActivity.getActivity());
-            LivenessCameraBaseActivity livenessCameraBaseActivity2 = LivenessCameraBaseActivity.this;
-            livenessCameraBaseActivity2.cameraControl.a((Camera.PreviewCallback) livenessCameraBaseActivity2);
-            return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                LivenessCameraBaseActivity livenessCameraBaseActivity = this.f5699a;
+                livenessCameraBaseActivity.f5690a = livenessCameraBaseActivity.cameraControl.a((Context) livenessCameraBaseActivity.getActivity());
+                LivenessCameraBaseActivity livenessCameraBaseActivity2 = this.f5699a;
+                livenessCameraBaseActivity2.cameraControl.a((Camera.PreviewCallback) livenessCameraBaseActivity2);
+                return null;
+            }
+            return (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public void onPostExecute(String str) {
-            super.onPostExecute(str);
-            LivenessCameraBaseActivity livenessCameraBaseActivity = LivenessCameraBaseActivity.this;
-            if (livenessCameraBaseActivity.f5660a) {
-                livenessCameraBaseActivity.d();
-            } else {
-                livenessCameraBaseActivity.a(true, false, false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                super.onPostExecute(str);
+                LivenessCameraBaseActivity livenessCameraBaseActivity = this.f5699a;
+                if (livenessCameraBaseActivity.f5690a) {
+                    livenessCameraBaseActivity.d();
+                } else {
+                    livenessCameraBaseActivity.a(true, false, false);
+                }
             }
         }
     }

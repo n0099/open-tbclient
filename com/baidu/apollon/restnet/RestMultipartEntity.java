@@ -1,6 +1,15 @@
 package com.baidu.apollon.restnet;
 
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.FilterOutputStream;
 import java.io.IOException;
@@ -9,210 +18,301 @@ import java.io.OutputStream;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class RestMultipartEntity {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f3828a = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f3830c;
-
-    /* renamed from: f  reason: collision with root package name */
-    public byte[] f3833f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ProgressListener f3834g;
+    public static final char[] f3826a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteArrayOutputStream f3829b = new ByteArrayOutputStream();
+    public ByteArrayOutputStream f3827b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f3828c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3831d = false;
+    public boolean f3829d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f3832e = false;
+    public boolean f3830e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public byte[] f3831f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ProgressListener f3832g;
 
     /* loaded from: classes.dex */
     public interface ProgressListener {
         void transferred(long j, long j2);
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(234770980, "Lcom/baidu/apollon/restnet/RestMultipartEntity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(234770980, "Lcom/baidu/apollon/restnet/RestMultipartEntity;");
+                return;
+            }
+        }
+        f3826a = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    }
+
     public RestMultipartEntity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f3827b = new ByteArrayOutputStream();
+        this.f3829d = false;
+        this.f3830e = false;
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
-        for (int i2 = 0; i2 < 30; i2++) {
-            char[] cArr = f3828a;
+        for (int i4 = 0; i4 < 30; i4++) {
+            char[] cArr = f3826a;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        this.f3830c = sb.toString();
-        this.f3833f = ("\r\n--" + this.f3830c + Part.CRLF).getBytes();
+        this.f3828c = sb.toString();
+        this.f3831f = ("\r\n--" + this.f3828c + Part.CRLF).getBytes();
     }
 
     private void e() throws IOException {
-        if (!this.f3831d) {
-            this.f3831d = true;
-            ByteArrayOutputStream byteArrayOutputStream = this.f3829b;
-            byteArrayOutputStream.write(("--" + this.f3830c + Part.CRLF).getBytes());
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            if (!this.f3829d) {
+                this.f3829d = true;
+                ByteArrayOutputStream byteArrayOutputStream = this.f3827b;
+                byteArrayOutputStream.write(("--" + this.f3828c + Part.CRLF).getBytes());
+                return;
+            }
+            this.f3827b.write(this.f3831f);
         }
-        this.f3829b.write(this.f3833f);
     }
 
     private void f() {
-        if (this.f3832e) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f3830e) {
             return;
         }
         try {
-            ByteArrayOutputStream byteArrayOutputStream = this.f3829b;
-            byteArrayOutputStream.write(("\r\n--" + this.f3830c + "--\r\n").getBytes());
+            ByteArrayOutputStream byteArrayOutputStream = this.f3827b;
+            byteArrayOutputStream.write(("\r\n--" + this.f3828c + "--\r\n").getBytes());
         } catch (IOException e2) {
             e2.printStackTrace();
         }
-        this.f3832e = true;
+        this.f3830e = true;
     }
 
     public String a() {
-        return this.f3830c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3828c : (String) invokeV.objValue;
     }
 
     public void addPart(String str, String str2) {
-        a(str, str2, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            a(str, str2, false);
+        }
     }
 
     public OutputStream b() {
-        return this.f3829b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3827b : (OutputStream) invokeV.objValue;
     }
 
     public ProgressListener c() {
-        return this.f3834g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3832g : (ProgressListener) invokeV.objValue;
     }
 
     public void closeOutStream() {
-        ByteArrayOutputStream byteArrayOutputStream = this.f3829b;
-        if (byteArrayOutputStream != null) {
-            try {
-                byteArrayOutputStream.close();
-            } catch (IOException unused) {
-            }
+        ByteArrayOutputStream byteArrayOutputStream;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (byteArrayOutputStream = this.f3827b) == null) {
+            return;
+        }
+        try {
+            byteArrayOutputStream.close();
+        } catch (IOException unused) {
         }
     }
 
     public long d() {
-        f();
-        return this.f3829b.toByteArray().length;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            f();
+            return this.f3827b.toByteArray().length;
+        }
+        return invokeV.longValue;
     }
 
     public void setProgressListener(ProgressListener progressListener) {
-        this.f3834g = progressListener;
-    }
-
-    public void a(String str, String str2, boolean z) {
-        try {
-            e();
-            ByteArrayOutputStream byteArrayOutputStream = this.f3829b;
-            byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"\r\n\r\n").getBytes());
-            this.f3829b.write(str2.getBytes());
-            if (z) {
-                f();
-            }
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, progressListener) == null) {
+            this.f3832g = progressListener;
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    public void a(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, str, str2, z) == null) {
+            try {
+                e();
+                ByteArrayOutputStream byteArrayOutputStream = this.f3827b;
+                byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"\r\n\r\n").getBytes());
+                this.f3827b.write(str2.getBytes());
+                if (z) {
+                    f();
+                }
+            } catch (IOException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
     public void addPart(String str, String str2, InputStream inputStream, String str3, boolean z) {
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, inputStream, str3, Boolean.valueOf(z)}) == null) {
             try {
                 try {
-                    e();
-                    ByteArrayOutputStream byteArrayOutputStream = this.f3829b;
-                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + str2 + "\"\r\n").getBytes());
-                    if (str3 != null) {
-                        ByteArrayOutputStream byteArrayOutputStream2 = this.f3829b;
-                        byteArrayOutputStream2.write((Part.CONTENT_TYPE + str3 + "\r\n\r\n").getBytes());
-                    } else {
-                        this.f3829b.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
-                    }
-                    byte[] bArr = new byte[4096];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
+                    try {
+                        e();
+                        ByteArrayOutputStream byteArrayOutputStream = this.f3827b;
+                        byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + str2 + "\"\r\n").getBytes());
+                        if (str3 != null) {
+                            ByteArrayOutputStream byteArrayOutputStream2 = this.f3827b;
+                            byteArrayOutputStream2.write((Part.CONTENT_TYPE + str3 + "\r\n\r\n").getBytes());
+                        } else {
+                            this.f3827b.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
                         }
-                        this.f3829b.write(bArr, 0, read);
+                        byte[] bArr = new byte[4096];
+                        while (true) {
+                            int read = inputStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            this.f3827b.write(bArr, 0, read);
+                        }
+                        if (z) {
+                            f();
+                        }
+                        this.f3827b.flush();
+                        inputStream.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
-                    if (z) {
-                        f();
+                } catch (Throwable th) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
-                    this.f3829b.flush();
-                    inputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    inputStream.close();
+                    throw th;
                 }
-            } catch (Throwable th) {
-                try {
-                    inputStream.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
-                }
-                throw th;
+            } catch (IOException e4) {
+                e4.printStackTrace();
+                inputStream.close();
             }
-        } catch (IOException e4) {
-            e4.printStackTrace();
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends FilterOutputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ProgressListener f3835a;
+        public final ProgressListener f3833a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f3836b;
+        public final long f3834b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f3837c;
+        public long f3835c;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(long j, OutputStream outputStream, ProgressListener progressListener) {
             super(outputStream);
-            this.f3836b = j;
-            this.f3837c = 0L;
-            this.f3835a = progressListener;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), outputStream, progressListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((OutputStream) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f3834b = j;
+            this.f3835c = 0L;
+            this.f3833a = progressListener;
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
         public void write(byte[] bArr, int i2, int i3) throws IOException {
-            ((FilterOutputStream) this).out.write(bArr, i2, i3);
-            long j = this.f3837c + i3;
-            this.f3837c = j;
-            ProgressListener progressListener = this.f3835a;
-            if (progressListener != null) {
-                progressListener.transferred(j, this.f3836b);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
+                ((FilterOutputStream) this).out.write(bArr, i2, i3);
+                long j = this.f3835c + i3;
+                this.f3835c = j;
+                ProgressListener progressListener = this.f3833a;
+                if (progressListener != null) {
+                    progressListener.transferred(j, this.f3834b);
+                }
             }
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
         public void write(int i2) throws IOException {
-            ((FilterOutputStream) this).out.write(i2);
-            long j = this.f3837c + 1;
-            this.f3837c = j;
-            ProgressListener progressListener = this.f3835a;
-            if (progressListener != null) {
-                progressListener.transferred(j, this.f3836b);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                ((FilterOutputStream) this).out.write(i2);
+                long j = this.f3835c + 1;
+                this.f3835c = j;
+                ProgressListener progressListener = this.f3833a;
+                if (progressListener != null) {
+                    progressListener.transferred(j, this.f3834b);
+                }
             }
         }
     }
 
     public void a(String str, String str2, InputStream inputStream, String str3) {
-        addPart(str, str2, inputStream, str3, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, inputStream, str3) == null) {
+            addPart(str, str2, inputStream, str3, false);
+        }
     }
 
     public void a(OutputStream outputStream) throws IOException {
-        f();
-        a aVar = new a(d(), outputStream, this.f3834g);
-        aVar.write(this.f3829b.toByteArray());
-        aVar.close();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
+            f();
+            a aVar = new a(d(), outputStream, this.f3832g);
+            aVar.write(this.f3827b.toByteArray());
+            aVar.close();
+        }
     }
 }

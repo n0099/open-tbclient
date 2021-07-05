@@ -3,59 +3,114 @@ package com.bumptech.glide.load.resource.gif;
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.gifdecoder.GifDecoder;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 /* loaded from: classes6.dex */
 public final class GifBitmapProvider implements GifDecoder.BitmapProvider {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final ArrayPool arrayPool;
     public final BitmapPool bitmapPool;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GifBitmapProvider(BitmapPool bitmapPool) {
         this(bitmapPool, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmapPool};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((BitmapPool) objArr2[0], (ArrayPool) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     @NonNull
     public Bitmap obtain(int i2, int i3, @NonNull Bitmap.Config config) {
-        return this.bitmapPool.getDirty(i2, i3, config);
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, config)) == null) ? this.bitmapPool.getDirty(i2, i3, config) : (Bitmap) invokeIIL.objValue;
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     @NonNull
     public byte[] obtainByteArray(int i2) {
-        ArrayPool arrayPool = this.arrayPool;
-        if (arrayPool == null) {
-            return new byte[i2];
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            ArrayPool arrayPool = this.arrayPool;
+            if (arrayPool == null) {
+                return new byte[i2];
+            }
+            return (byte[]) arrayPool.get(i2, byte[].class);
         }
-        return (byte[]) arrayPool.get(i2, byte[].class);
+        return (byte[]) invokeI.objValue;
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     @NonNull
     public int[] obtainIntArray(int i2) {
-        ArrayPool arrayPool = this.arrayPool;
-        if (arrayPool == null) {
-            return new int[i2];
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            ArrayPool arrayPool = this.arrayPool;
+            if (arrayPool == null) {
+                return new int[i2];
+            }
+            return (int[]) arrayPool.get(i2, int[].class);
         }
-        return (int[]) arrayPool.get(i2, int[].class);
+        return (int[]) invokeI.objValue;
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     public void release(@NonNull Bitmap bitmap) {
-        this.bitmapPool.put(bitmap);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
+            this.bitmapPool.put(bitmap);
+        }
     }
 
     public GifBitmapProvider(BitmapPool bitmapPool, @Nullable ArrayPool arrayPool) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmapPool, arrayPool};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.bitmapPool = bitmapPool;
         this.arrayPool = arrayPool;
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     public void release(@NonNull byte[] bArr) {
-        ArrayPool arrayPool = this.arrayPool;
-        if (arrayPool == null) {
+        ArrayPool arrayPool;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) || (arrayPool = this.arrayPool) == null) {
             return;
         }
         arrayPool.put(bArr);
@@ -63,8 +118,9 @@ public final class GifBitmapProvider implements GifDecoder.BitmapProvider {
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     public void release(@NonNull int[] iArr) {
-        ArrayPool arrayPool = this.arrayPool;
-        if (arrayPool == null) {
+        ArrayPool arrayPool;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, iArr) == null) || (arrayPool = this.arrayPool) == null) {
             return;
         }
         arrayPool.put(iArr);

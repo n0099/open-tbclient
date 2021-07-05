@@ -23,13 +23,23 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.widget.j;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.statusbar.ImmersiveKeyboardAdjust;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.base.statistics.StatSettings;
@@ -54,8 +64,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BaseActivity extends SDKBaseActivity implements NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final int DIALOG_GOTO_APP_DETAIL = 52;
     public static final int DIALOG_IMAGE_TIP = 2;
@@ -71,109 +82,179 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public static final String TOA_EXCEPTION = "TOA_Exception";
     public static final String TOA_TARGET = "TOA_InTranslucentActivity";
     public static final String WITH_ANIM = "with_anim";
-    public static LinkedList<BaseActivity> mActivityStack = new LinkedList<>();
-    public static int mLiveActivityNum = 0;
+    public static LinkedList<BaseActivity> mActivityStack;
+    public static int mLiveActivityNum;
     public static float sNocompatDensity;
     public static float sNocompatScaleDensity;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int defaultLenth;
+    public boolean isSupportUIAdapatation;
+    public boolean isTranslucentOrFloating;
+    public boolean isWidthLimitedMode;
     public View mContent;
+    public String mDialogMsg;
+    public int mFlag;
+    public boolean mIsActivityInForeground;
+    public boolean mIsMultiWindowAvailable;
+    public boolean mIsShowMultiWindowTips;
     public ImmersiveKeyboardAdjust mKeyboardAdjust;
+    public String mMultiWindowTipsID;
+    public View mNightModeView;
+    public SafeScrollView mSafeScrollView;
     public long mTimeVal;
+    public boolean mWindowNightMode;
     public b myOrientoinListener;
     public PayStatisticsUtil payStatisticsUtil;
-    public String mDialogMsg = "";
-    public boolean mIsShowMultiWindowTips = false;
-    public boolean mIsMultiWindowAvailable = true;
-    public String mMultiWindowTipsID = "wallet_base_multi_window_tips";
-    public SafeScrollView mSafeScrollView = null;
-    public boolean mIsActivityInForeground = false;
-    public View mNightModeView = null;
-    public boolean mWindowNightMode = true;
-    public boolean isWidthLimitedMode = true;
-    public int defaultLenth = 375;
-    public boolean isSupportUIAdapatation = false;
-    public boolean isTranslucentOrFloating = false;
-    public int mFlag = 0;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1712680755, "Lcom/baidu/wallet/core/BaseActivity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1712680755, "Lcom/baidu/wallet/core/BaseActivity;");
+                return;
+            }
+        }
+        mActivityStack = new LinkedList<>();
+        mLiveActivityNum = 0;
+    }
+
+    public BaseActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mDialogMsg = "";
+        this.mIsShowMultiWindowTips = false;
+        this.mIsMultiWindowAvailable = true;
+        this.mMultiWindowTipsID = "wallet_base_multi_window_tips";
+        this.mSafeScrollView = null;
+        this.mIsActivityInForeground = false;
+        this.mNightModeView = null;
+        this.mWindowNightMode = true;
+        this.isWidthLimitedMode = true;
+        this.defaultLenth = 375;
+        this.isSupportUIAdapatation = false;
+        this.isTranslucentOrFloating = false;
+        this.mFlag = 0;
+    }
 
     public static void addLiveActivityNum() {
-        mLiveActivityNum++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            mLiveActivityNum++;
+        }
     }
 
     public static synchronized void addToTask(BaseActivity baseActivity) {
-        synchronized (BaseActivity.class) {
-            mActivityStack.remove(baseActivity);
-            mActivityStack.add(baseActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, baseActivity) == null) {
+            synchronized (BaseActivity.class) {
+                mActivityStack.remove(baseActivity);
+                mActivityStack.add(baseActivity);
+            }
         }
     }
 
     public static synchronized void clearTask() {
-        synchronized (BaseActivity.class) {
-            Iterator<BaseActivity> it = mActivityStack.iterator();
-            while (it.hasNext()) {
-                it.next().finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            synchronized (BaseActivity.class) {
+                Iterator<BaseActivity> it = mActivityStack.iterator();
+                while (it.hasNext()) {
+                    it.next().finish();
+                }
             }
         }
     }
 
     public static synchronized void clearTaskExcept(BaseActivity baseActivity) {
-        synchronized (BaseActivity.class) {
-            Iterator<BaseActivity> it = mActivityStack.iterator();
-            while (it.hasNext()) {
-                BaseActivity next = it.next();
-                if (next != baseActivity) {
-                    next.finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, baseActivity) == null) {
+            synchronized (BaseActivity.class) {
+                Iterator<BaseActivity> it = mActivityStack.iterator();
+                while (it.hasNext()) {
+                    BaseActivity next = it.next();
+                    if (next != baseActivity) {
+                        next.finish();
+                    }
                 }
             }
         }
     }
 
     public static synchronized void clearTasksTopOf(BaseActivity baseActivity) {
-        synchronized (BaseActivity.class) {
-            LogUtil.d("BaseActivity", "clearTasksTopOf. stack size = " + mActivityStack.size());
-            for (int size = mActivityStack.size() + (-1); size > 0; size--) {
-                BaseActivity baseActivity2 = mActivityStack.get(size);
-                if (baseActivity2 == baseActivity) {
-                    break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, baseActivity) == null) {
+            synchronized (BaseActivity.class) {
+                LogUtil.d("BaseActivity", "clearTasksTopOf. stack size = " + mActivityStack.size());
+                for (int size = mActivityStack.size() + (-1); size > 0; size--) {
+                    BaseActivity baseActivity2 = mActivityStack.get(size);
+                    if (baseActivity2 == baseActivity) {
+                        break;
+                    }
+                    baseActivity2.finish();
                 }
-                baseActivity2.finish();
             }
         }
     }
 
     public static synchronized void clearTasksWithActivityName(Class<?> cls) {
-        synchronized (BaseActivity.class) {
-            for (int size = mActivityStack.size() - 1; size > 0; size--) {
-                BaseActivity baseActivity = mActivityStack.get(size);
-                if (baseActivity.getClass().equals(cls)) {
-                    break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, cls) == null) {
+            synchronized (BaseActivity.class) {
+                for (int size = mActivityStack.size() - 1; size > 0; size--) {
+                    BaseActivity baseActivity = mActivityStack.get(size);
+                    if (baseActivity.getClass().equals(cls)) {
+                        break;
+                    }
+                    baseActivity.finish();
                 }
-                baseActivity.finish();
             }
         }
     }
 
     public static synchronized void clearTasksWithFlag(int i2) {
-        synchronized (BaseActivity.class) {
-            LogUtil.methodTrace("BaseActivity");
-            LogUtil.d("BaseActivity", "clearTasksWithFlag. stack size = " + mActivityStack.size());
-            Iterator<BaseActivity> it = mActivityStack.iterator();
-            while (it.hasNext()) {
-                BaseActivity next = it.next();
-                if ((next.mFlag & i2) != 0) {
-                    next.finish();
-                    next.overridePendingTransition(0, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65545, null, i2) == null) {
+            synchronized (BaseActivity.class) {
+                LogUtil.methodTrace("BaseActivity");
+                LogUtil.d("BaseActivity", "clearTasksWithFlag. stack size = " + mActivityStack.size());
+                Iterator<BaseActivity> it = mActivityStack.iterator();
+                while (it.hasNext()) {
+                    BaseActivity next = it.next();
+                    if ((next.mFlag & i2) != 0) {
+                        next.finish();
+                        next.overridePendingTransition(0, 0);
+                    }
                 }
             }
         }
     }
 
     private void convertFromTranslucent() {
-        try {
-            Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(getActivity(), new Object[0]);
-        } catch (Throwable th) {
-            DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
-            PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(getActivity(), new Object[0]);
+            } catch (Throwable th) {
+                DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
+                PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
+            }
         }
     }
 
@@ -181,670 +262,1052 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         Object obj;
         Class<?> cls;
         Object obj2;
-        try {
-            Class<?>[] declaredClasses = Activity.class.getDeclaredClasses();
-            int length = declaredClasses.length;
-            int i2 = 0;
-            while (true) {
-                obj = null;
-                if (i2 >= length) {
-                    cls = null;
-                    break;
-                }
-                cls = declaredClasses[i2];
-                if (cls.getSimpleName().equals("TranslucentConversionListener")) {
-                    break;
-                }
-                i2++;
-            }
-            if (cls != null) {
-                obj2 = Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler() { // from class: com.baidu.wallet.core.BaseActivity.1
-                    @Override // java.lang.reflect.InvocationHandler
-                    public Object invoke(Object obj3, Method method, Object[] objArr) throws Throwable {
-                        return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            try {
+                Class<?>[] declaredClasses = Activity.class.getDeclaredClasses();
+                int length = declaredClasses.length;
+                int i2 = 0;
+                while (true) {
+                    obj = null;
+                    if (i2 >= length) {
+                        cls = null;
+                        break;
                     }
-                });
-            } else {
-                obj2 = null;
-            }
-            if (Build.VERSION.SDK_INT >= 21) {
-                try {
-                    Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
-                    declaredMethod.setAccessible(true);
-                    obj = declaredMethod.invoke(this, new Object[0]);
-                } catch (Exception e2) {
-                    DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
-                    PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
+                    cls = declaredClasses[i2];
+                    if (cls.getSimpleName().equals("TranslucentConversionListener")) {
+                        break;
+                    }
+                    i2++;
                 }
-                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
-                declaredMethod2.setAccessible(true);
-                declaredMethod2.invoke(getActivity(), obj2, obj);
-                return;
+                if (cls != null) {
+                    obj2 = Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler(this) { // from class: com.baidu.wallet.core.BaseActivity.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ BaseActivity f24535a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f24535a = this;
+                        }
+
+                        @Override // java.lang.reflect.InvocationHandler
+                        public Object invoke(Object obj3, Method method, Object[] objArr) throws Throwable {
+                            InterceptResult invokeLLL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, obj3, method, objArr)) == null) {
+                                return null;
+                            }
+                            return invokeLLL.objValue;
+                        }
+                    });
+                } else {
+                    obj2 = null;
+                }
+                if (Build.VERSION.SDK_INT >= 21) {
+                    try {
+                        Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
+                        declaredMethod.setAccessible(true);
+                        obj = declaredMethod.invoke(this, new Object[0]);
+                    } catch (Exception e2) {
+                        DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
+                        PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
+                    }
+                    Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
+                    declaredMethod2.setAccessible(true);
+                    declaredMethod2.invoke(getActivity(), obj2, obj);
+                    return;
+                }
+                Method declaredMethod3 = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
+                declaredMethod3.setAccessible(true);
+                declaredMethod3.invoke(getActivity(), obj2);
+            } catch (Throwable th) {
+                DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
+                PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
             }
-            Method declaredMethod3 = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
-            declaredMethod3.setAccessible(true);
-            declaredMethod3.invoke(getActivity(), obj2);
-        } catch (Throwable th) {
-            DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
-            PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
         }
     }
 
     public static void decLiveActivityNum() {
-        mLiveActivityNum--;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            mLiveActivityNum--;
+        }
     }
 
     public static BaseActivity getTopActivity() throws Throwable {
-        return mActivityStack.getLast();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? mActivityStack.getLast() : (BaseActivity) invokeV.objValue;
     }
 
     public static boolean isAppInForeground() {
-        return mLiveActivityNum > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? mLiveActivityNum > 0 : invokeV.booleanValue;
     }
 
     private boolean isBaiduappPlugin() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     private boolean isTranslucentOrFloating() {
-        try {
-            Class<?> cls = Class.forName("com.android.internal.R$styleable");
-            Field declaredField = cls.getDeclaredField("Window");
-            declaredField.setAccessible(true);
-            TypedArray obtainStyledAttributes = obtainStyledAttributes((int[]) declaredField.get(null));
-            Field declaredField2 = cls.getDeclaredField("Window_windowIsTranslucent");
-            declaredField2.setAccessible(true);
-            Field declaredField3 = cls.getDeclaredField("Window_windowSwipeToDismiss");
-            declaredField3.setAccessible(true);
-            Field declaredField4 = cls.getDeclaredField("Window_windowIsFloating");
-            declaredField4.setAccessible(true);
-            return obtainStyledAttributes.getBoolean(((Integer) declaredField4.get(null)).intValue(), false) || obtainStyledAttributes.getBoolean(((Integer) declaredField2.get(null)).intValue(), false) || (!obtainStyledAttributes.hasValue(((Integer) declaredField2.get(null)).intValue()) && obtainStyledAttributes.getBoolean(((Integer) declaredField3.get(null)).intValue(), false));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
-            PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.android.internal.R$styleable");
+                Field declaredField = cls.getDeclaredField("Window");
+                declaredField.setAccessible(true);
+                TypedArray obtainStyledAttributes = obtainStyledAttributes((int[]) declaredField.get(null));
+                Field declaredField2 = cls.getDeclaredField("Window_windowIsTranslucent");
+                declaredField2.setAccessible(true);
+                Field declaredField3 = cls.getDeclaredField("Window_windowSwipeToDismiss");
+                declaredField3.setAccessible(true);
+                Field declaredField4 = cls.getDeclaredField("Window_windowIsFloating");
+                declaredField4.setAccessible(true);
+                return obtainStyledAttributes.getBoolean(((Integer) declaredField4.get(null)).intValue(), false) || obtainStyledAttributes.getBoolean(((Integer) declaredField2.get(null)).intValue(), false) || (!obtainStyledAttributes.hasValue(((Integer) declaredField2.get(null)).intValue()) && obtainStyledAttributes.getBoolean(((Integer) declaredField3.get(null)).intValue(), false));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
+                PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
+                return false;
+            }
         }
+        return invokeV.booleanValue;
     }
 
     public static synchronized void removeFromTask(BaseActivity baseActivity) {
-        synchronized (BaseActivity.class) {
-            mActivityStack.remove(baseActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, baseActivity) == null) {
+            synchronized (BaseActivity.class) {
+                mActivityStack.remove(baseActivity);
+            }
         }
     }
 
-    public static void setCustomDensity(@NonNull final Application application, boolean z, int i2) {
+    public static void setCustomDensity(@NonNull Application application, boolean z, int i2) {
         int i3;
-        DisplayMetrics displayMetrics = application.getResources().getDisplayMetrics();
-        if (sNocompatDensity == 0.0f) {
-            sNocompatDensity = displayMetrics.density;
-            sNocompatScaleDensity = displayMetrics.scaledDensity;
-            application.registerComponentCallbacks(new ComponentCallbacks() { // from class: com.baidu.wallet.core.BaseActivity.8
-                @Override // android.content.ComponentCallbacks
-                public void onConfigurationChanged(Configuration configuration) {
-                    if (configuration == null || configuration.fontScale <= 0.0f) {
-                        return;
-                    }
-                    float unused = BaseActivity.sNocompatScaleDensity = application.getResources().getDisplayMetrics().scaledDensity;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{application, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            DisplayMetrics displayMetrics = application.getResources().getDisplayMetrics();
+            if (sNocompatDensity == 0.0f) {
+                sNocompatDensity = displayMetrics.density;
+                sNocompatScaleDensity = displayMetrics.scaledDensity;
+                application.registerComponentCallbacks(new ComponentCallbacks(application) { // from class: com.baidu.wallet.core.BaseActivity.8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // android.content.ComponentCallbacks
-                public void onLowMemory() {
-                }
-            });
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ Application f24544a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {application};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f24544a = application;
+                    }
+
+                    @Override // android.content.ComponentCallbacks
+                    public void onConfigurationChanged(Configuration configuration) {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) || configuration == null || configuration.fontScale <= 0.0f) {
+                            return;
+                        }
+                        float unused = BaseActivity.sNocompatScaleDensity = this.f24544a.getResources().getDisplayMetrics().scaledDensity;
+                    }
+
+                    @Override // android.content.ComponentCallbacks
+                    public void onLowMemory() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        }
+                    }
+                });
+            }
+            if (z) {
+                i3 = displayMetrics.widthPixels;
+            } else {
+                i3 = displayMetrics.heightPixels;
+            }
+            float f2 = i3 / i2;
+            displayMetrics.density = f2;
+            displayMetrics.scaledDensity = (sNocompatScaleDensity / sNocompatDensity) * f2;
+            displayMetrics.densityDpi = (int) (160.0f * f2);
         }
-        if (z) {
-            i3 = displayMetrics.widthPixels;
-        } else {
-            i3 = displayMetrics.heightPixels;
-        }
-        float f2 = i3 / i2;
-        displayMetrics.density = f2;
-        displayMetrics.scaledDensity = (sNocompatScaleDensity / sNocompatDensity) * f2;
-        displayMetrics.densityDpi = (int) (160.0f * f2);
     }
 
     @TargetApi(24)
     private void showMultiWindowTips() {
-        if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode()) {
+            if (this.mIsShowMultiWindowTips) {
+                GlobalUtils.toast(this, ResUtils.getString(getActivity(), this.mMultiWindowTipsID), -1, 1);
+            }
+            if (this.mIsMultiWindowAvailable) {
+                return;
+            }
+            finish();
         }
-        if (this.mIsShowMultiWindowTips) {
-            GlobalUtils.toast(this, ResUtils.getString(getActivity(), this.mMultiWindowTipsID), -1, 1);
-        }
-        if (this.mIsMultiWindowAvailable) {
-            return;
-        }
-        finish();
     }
 
     public void cancleRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
     public void closeNightMode() {
-        if (!isWindowNightMode() || this.mNightModeView == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && isWindowNightMode() && this.mNightModeView != null) {
+            getWindowManager().removeViewImmediate(this.mNightModeView);
+            this.mNightModeView = null;
         }
-        getWindowManager().removeViewImmediate(this.mNightModeView);
-        this.mNightModeView = null;
     }
 
     @Override // android.app.Activity
     public void finish() {
         boolean z;
-        super.finish();
-        try {
-            z = getIntent().getBooleanExtra("with_anim", true);
-        } catch (Exception unused) {
-            z = false;
-        }
-        if (z) {
-            BaiduWalletUtils.finishActivityAnim(getActivity());
-        } else {
-            BaiduWalletUtils.overridePendingTransitionNoAnim(getActivity());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.finish();
+            try {
+                z = getIntent().getBooleanExtra("with_anim", true);
+            } catch (Exception unused) {
+                z = false;
+            }
+            if (z) {
+                BaiduWalletUtils.finishActivityAnim(getActivity());
+            } else {
+                BaiduWalletUtils.overridePendingTransitionNoAnim(getActivity());
+            }
         }
     }
 
     public void finishWithoutAnim() {
-        super.finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.finish();
+        }
     }
 
     @Override // com.baidu.wallet.core.SDKBaseActivity
     public Activity getActivity() {
-        return super.getActivity();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? super.getActivity() : (Activity) invokeV.objValue;
     }
 
     public ArrayList<String> getHandlerFailureData(int i2, int i3, String str) {
+        InterceptResult invokeIIL;
         String str2;
-        String str3 = "";
-        ArrayList<String> arrayList = new ArrayList<>();
-        try {
-            str2 = String.valueOf(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i2, i3, str)) == null) {
+            String str3 = "";
+            ArrayList<String> arrayList = new ArrayList<>();
             try {
-                str3 = String.valueOf(i3);
-            } catch (Exception unused) {
+                str2 = String.valueOf(i2);
+                try {
+                    str3 = String.valueOf(i3);
+                } catch (Exception unused) {
+                }
+            } catch (Exception unused2) {
+                str2 = "";
             }
-        } catch (Exception unused2) {
-            str2 = "";
+            arrayList.add(str2);
+            arrayList.add(str3);
+            arrayList.add(str);
+            return arrayList;
         }
-        arrayList.add(str2);
-        arrayList.add(str3);
-        arrayList.add(str);
-        return arrayList;
+        return (ArrayList) invokeIIL.objValue;
     }
 
     public boolean isActivityInForeground() {
-        return this.mIsActivityInForeground;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsActivityInForeground : invokeV.booleanValue;
     }
 
     public boolean isStatusbarTextColorBlack() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isWindowNightMode() {
-        return this.mWindowNightMode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mWindowNightMode : invokeV.booleanValue;
     }
 
     public void keyBoardAdjustDetach() {
         View view;
-        ImmersiveKeyboardAdjust immersiveKeyboardAdjust = this.mKeyboardAdjust;
-        if (immersiveKeyboardAdjust != null && (view = this.mContent) != null) {
-            immersiveKeyboardAdjust.detachActivity(view);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ImmersiveKeyboardAdjust immersiveKeyboardAdjust = this.mKeyboardAdjust;
+            if (immersiveKeyboardAdjust != null && (view = this.mContent) != null) {
+                immersiveKeyboardAdjust.detachActivity(view);
+            }
+            this.mKeyboardAdjust = null;
+            this.mContent = null;
         }
-        this.mKeyboardAdjust = null;
-        this.mContent = null;
     }
 
     public boolean needKeyboardAdjust() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048587, this, i2, i3, intent) == null) {
+            super.onActivityResult(i2, i3, intent);
+        }
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        if (BaiduWalletUtils.isNightMode()) {
-            startNightMode();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onAttachedToWindow();
+            if (BaiduWalletUtils.isNightMode()) {
+                startNightMode();
+            }
         }
     }
 
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        try {
-            super.onBackPressed();
-        } catch (IllegalStateException unused) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                finishAfterTransition();
-            } else {
-                finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            try {
+                super.onBackPressed();
+            } catch (IllegalStateException unused) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    finishAfterTransition();
+                } else {
+                    finish();
+                }
             }
-        }
-        if (getIntent().getBooleanExtra("with_anim", true)) {
-            BaiduWalletUtils.finishActivityAnim(getActivity());
-        } else {
-            BaiduWalletUtils.overridePendingTransitionNoAnim(getActivity());
+            if (getIntent().getBooleanExtra("with_anim", true)) {
+                BaiduWalletUtils.finishActivityAnim(getActivity());
+            } else {
+                BaiduWalletUtils.overridePendingTransitionNoAnim(getActivity());
+            }
         }
     }
 
     public void onBackPressedForWalletApp() {
-        try {
-            super.onBackPressed();
-        } catch (IllegalStateException unused) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                finishAfterTransition();
-            } else {
-                finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            try {
+                super.onBackPressed();
+            } catch (IllegalStateException unused) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    finishAfterTransition();
+                } else {
+                    finish();
+                }
             }
         }
     }
 
     public void onBackPressedWithoutAnim() {
-        try {
-            super.onBackPressed();
-        } catch (IllegalStateException unused) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                finishAfterTransition();
-            } else {
-                finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            try {
+                super.onBackPressed();
+            } catch (IllegalStateException unused) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    finishAfterTransition();
+                } else {
+                    finish();
+                }
             }
+            overridePendingTransition(0, 0);
         }
-        overridePendingTransition(0, 0);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Serializable serializable;
         ActivityInfo activityInfo;
-        this.mTimeVal = System.currentTimeMillis();
-        PayStatisticsUtil.initStatisticsModule(this, StatSettings.getInstance(this));
-        PayStatisticsUtil.setHttpImpl(new SyncHttpImpl());
-        if (getApplicationInfo().targetSdkVersion > 26 && Build.VERSION.SDK_INT == 26) {
-            DXMSdkSAUtils.onEvent(TOA_BEGIN);
-            PayStatisticsUtil.onEvent(TOA_BEGIN);
-            boolean isTranslucentOrFloating = isTranslucentOrFloating();
-            this.isTranslucentOrFloating = isTranslucentOrFloating;
-            if (isTranslucentOrFloating) {
-                DXMSdkSAUtils.onEvent(TOA_TARGET);
-                PayStatisticsUtil.onEvent(TOA_TARGET);
-                convertFromTranslucent();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
+            this.mTimeVal = System.currentTimeMillis();
+            PayStatisticsUtil.initStatisticsModule(this, StatSettings.getInstance(this));
+            PayStatisticsUtil.setHttpImpl(new SyncHttpImpl());
+            if (getApplicationInfo().targetSdkVersion > 26 && Build.VERSION.SDK_INT == 26) {
+                DXMSdkSAUtils.onEvent(TOA_BEGIN);
+                PayStatisticsUtil.onEvent(TOA_BEGIN);
+                boolean isTranslucentOrFloating = isTranslucentOrFloating();
+                this.isTranslucentOrFloating = isTranslucentOrFloating;
+                if (isTranslucentOrFloating) {
+                    DXMSdkSAUtils.onEvent(TOA_TARGET);
+                    PayStatisticsUtil.onEvent(TOA_TARGET);
+                    convertFromTranslucent();
+                }
             }
-        }
-        try {
-            if (!isBaiduappPlugin()) {
-                setRequestedOrientation(1);
+            try {
+                if (!isBaiduappPlugin()) {
+                    setRequestedOrientation(1);
+                }
+            } catch (Exception unused) {
+                Log.i("BaseActivity", "setRequestedOrientation throw exception");
+                DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList("setRequestedOrientation throw exception"));
+                PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList("setRequestedOrientation throw exception"));
             }
-        } catch (Exception unused) {
-            Log.i("BaseActivity", "setRequestedOrientation throw exception");
-            DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList("setRequestedOrientation throw exception"));
-            PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList("setRequestedOrientation throw exception"));
-        }
-        if (getApplicationInfo().targetSdkVersion > 26 && Build.VERSION.SDK_INT == 26) {
-            if (BeanConstants.CHANNEL_ID_IQIYI.equals(BeanConstants.CHANNEL_ID)) {
-                try {
-                    Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                    declaredField.setAccessible(true);
-                    if (declaredField != null) {
-                        activityInfo = (ActivityInfo) declaredField.get(getActivity());
+            if (getApplicationInfo().targetSdkVersion > 26 && Build.VERSION.SDK_INT == 26) {
+                if (BeanConstants.CHANNEL_ID_IQIYI.equals(BeanConstants.CHANNEL_ID)) {
+                    try {
+                        Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                        declaredField.setAccessible(true);
+                        if (declaredField != null) {
+                            activityInfo = (ActivityInfo) declaredField.get(getActivity());
+                        }
+                    } catch (IllegalAccessException e2) {
+                        DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
+                        PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
+                        e2.printStackTrace();
+                    } catch (NoSuchFieldException e3) {
+                        DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e3.toString()));
+                        PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e3.toString()));
+                        e3.printStackTrace();
                     }
-                } catch (IllegalAccessException e2) {
-                    DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
-                    PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
-                    e2.printStackTrace();
-                } catch (NoSuchFieldException e3) {
-                    DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e3.toString()));
-                    PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e3.toString()));
-                    e3.printStackTrace();
+                    activityInfo = null;
+                } else {
+                    try {
+                        activityInfo = getPackageManager().getActivityInfo(getComponentName(), 0);
+                    } catch (PackageManager.NameNotFoundException e4) {
+                        DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e4.toString()));
+                        PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e4.toString()));
+                        e4.printStackTrace();
+                    }
                 }
-                activityInfo = null;
-            } else {
-                try {
-                    activityInfo = getPackageManager().getActivityInfo(getComponentName(), 0);
-                } catch (PackageManager.NameNotFoundException e4) {
-                    DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e4.toString()));
-                    PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e4.toString()));
-                    e4.printStackTrace();
-                }
-            }
-            if (activityInfo != null) {
-                int themeResource = activityInfo.getThemeResource();
-                if (themeResource == ResUtils.style(getActivity(), "EbpayThemeActivitTranslucent")) {
-                    setTheme(ResUtils.style(getActivity(), "EbpayThemeActivitTranslucentForSystem26"));
-                    convertToTranslucent();
-                } else if (themeResource == ResUtils.style(getActivity(), "EbpayThemeActivityWelcome.Dialog")) {
-                    setTheme(ResUtils.style(getActivity(), "EbpayThemeActivityWelcomeDialogForSystem26"));
-                    convertToTranslucent();
-                } else if (themeResource == ResUtils.style(getActivity(), "EbpayThemeActivityWelcome")) {
-                    setTheme(ResUtils.style(getActivity(), "EbpayThemeActivityWelcomeForSystem26"));
-                    convertToTranslucent();
-                } else if (themeResource == ResUtils.style(getActivity(), "CameraMist")) {
-                    setTheme(ResUtils.style(getActivity(), "CameraMistForSystem26"));
-                    convertToTranslucent();
-                } else if (themeResource == ResUtils.style(getActivity(), "Theme.LBSPaySDK_Transparent")) {
-                    setTheme(ResUtils.style(getActivity(), "Theme.LBSPaySDK_Transparent_For_System_26"));
-                    convertToTranslucent();
-                } else if (this.isTranslucentOrFloating) {
-                    convertToTranslucent();
+                if (activityInfo != null) {
+                    int themeResource = activityInfo.getThemeResource();
+                    if (themeResource == ResUtils.style(getActivity(), "EbpayThemeActivitTranslucent")) {
+                        setTheme(ResUtils.style(getActivity(), "EbpayThemeActivitTranslucentForSystem26"));
+                        convertToTranslucent();
+                    } else if (themeResource == ResUtils.style(getActivity(), "EbpayThemeActivityWelcome.Dialog")) {
+                        setTheme(ResUtils.style(getActivity(), "EbpayThemeActivityWelcomeDialogForSystem26"));
+                        convertToTranslucent();
+                    } else if (themeResource == ResUtils.style(getActivity(), "EbpayThemeActivityWelcome")) {
+                        setTheme(ResUtils.style(getActivity(), "EbpayThemeActivityWelcomeForSystem26"));
+                        convertToTranslucent();
+                    } else if (themeResource == ResUtils.style(getActivity(), "CameraMist")) {
+                        setTheme(ResUtils.style(getActivity(), "CameraMistForSystem26"));
+                        convertToTranslucent();
+                    } else if (themeResource == ResUtils.style(getActivity(), "Theme.LBSPaySDK_Transparent")) {
+                        setTheme(ResUtils.style(getActivity(), "Theme.LBSPaySDK_Transparent_For_System_26"));
+                        convertToTranslucent();
+                    } else if (this.isTranslucentOrFloating) {
+                        convertToTranslucent();
+                    }
                 }
             }
-        }
-        super.onCreate(bundle);
-        DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "push"));
-        PayStatisticsUtil.onPush(getClass().getSimpleName());
-        LogUtil.e("debug_msg", "onCreate-----" + getClass().getName(), null);
-        addToTask(this);
-        if (Build.VERSION.SDK_INT >= 27) {
-            if (Settings.System.getInt(getContentResolver(), "accelerometer_rotation", 0) == 1) {
-                b bVar = new b(getActivity());
-                this.myOrientoinListener = bVar;
-                bVar.enable();
+            super.onCreate(bundle);
+            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "push"));
+            PayStatisticsUtil.onPush(getClass().getSimpleName());
+            LogUtil.e("debug_msg", "onCreate-----" + getClass().getName(), null);
+            addToTask(this);
+            if (Build.VERSION.SDK_INT >= 27) {
+                if (Settings.System.getInt(getContentResolver(), "accelerometer_rotation", 0) == 1) {
+                    b bVar = new b(getActivity());
+                    this.myOrientoinListener = bVar;
+                    bVar.enable();
+                }
             }
-        }
-        if (bundle != null && (serializable = bundle.getSerializable("cashdeskcommondata")) != null && (serializable instanceof NetworkBean.SessionCache)) {
-            NetworkBean.SessionCache.sync((NetworkBean.SessionCache) serializable);
-        }
-        setImmersiveStatusBar(getActivity());
-        if (this.isSupportUIAdapatation) {
-            setCustomDensity(getApplication(), this.isWidthLimitedMode, this.defaultLenth);
+            if (bundle != null && (serializable = bundle.getSerializable("cashdeskcommondata")) != null && (serializable instanceof NetworkBean.SessionCache)) {
+                NetworkBean.SessionCache.sync((NetworkBean.SessionCache) serializable);
+            }
+            setImmersiveStatusBar(getActivity());
+            if (this.isSupportUIAdapatation) {
+                setCustomDensity(getApplication(), this.isWidthLimitedMode, this.defaultLenth);
+            }
         }
     }
 
     @Override // android.app.Activity
     public Dialog onCreateDialog(int i2) {
-        LogUtil.d("BaseActivity", "onCreateDialog. id = " + i2);
-        if (i2 == -2 || i2 == -1 || i2 == 0) {
-            return new LoadingDialog(this);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
+            LogUtil.d("BaseActivity", "onCreateDialog. id = " + i2);
+            if (i2 == -2 || i2 == -1 || i2 == 0) {
+                return new LoadingDialog(this);
+            }
+            if (i2 != 2) {
+                return new PromptDialog(getActivity());
+            }
+            return new PromptImageDialog(getActivity());
         }
-        if (i2 != 2) {
-            return new PromptDialog(getActivity());
-        }
-        return new PromptImageDialog(getActivity());
+        return (Dialog) invokeI.objValue;
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         b bVar;
-        DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), j.j));
-        PayStatisticsUtil.onBack(getClass().getSimpleName());
-        keyBoardAdjustDetach();
-        closeNightMode();
-        super.onDestroy();
-        removeFromTask(this);
-        if (Build.VERSION.SDK_INT < 27 || (bVar = this.myOrientoinListener) == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), j.j));
+            PayStatisticsUtil.onBack(getClass().getSimpleName());
+            keyBoardAdjustDetach();
+            closeNightMode();
+            super.onDestroy();
+            removeFromTask(this);
+            if (Build.VERSION.SDK_INT < 27 || (bVar = this.myOrientoinListener) == null) {
+                return;
+            }
+            bVar.a();
+            this.myOrientoinListener = null;
         }
-        bVar.a();
-        this.myOrientoinListener = null;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        if (i2 == 82 && keyEvent.isLongPress()) {
-            return true;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048595, this, i2, keyEvent)) == null) {
+            if (i2 == 82 && keyEvent.isLongPress()) {
+                return true;
+            }
+            return super.onKeyDown(i2, keyEvent);
         }
-        return super.onKeyDown(i2, keyEvent);
+        return invokeIL.booleanValue;
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     @TargetApi(24)
     public void onMultiWindowModeChanged(boolean z) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            super.onMultiWindowModeChanged(z);
-            SafeScrollView safeScrollView = this.mSafeScrollView;
-            if (safeScrollView != null) {
-                safeScrollView.dismissKeyBoard();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || Build.VERSION.SDK_INT < 24) {
+            return;
+        }
+        super.onMultiWindowModeChanged(z);
+        SafeScrollView safeScrollView = this.mSafeScrollView;
+        if (safeScrollView != null) {
+            safeScrollView.dismissKeyBoard();
+        }
+        if (z && isActivityInForeground()) {
+            if (this.mIsShowMultiWindowTips) {
+                GlobalUtils.toast(this, ResUtils.getString(getActivity(), this.mMultiWindowTipsID), -1, 1);
             }
-            if (z && isActivityInForeground()) {
-                if (this.mIsShowMultiWindowTips) {
-                    GlobalUtils.toast(this, ResUtils.getString(getActivity(), this.mMultiWindowTipsID), -1, 1);
-                }
-                if (this.mIsMultiWindowAvailable) {
-                    return;
-                }
-                finish();
+            if (this.mIsMultiWindowAvailable) {
+                return;
             }
+            finish();
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        super.onPause();
-        decLiveActivityNum();
-        this.mIsActivityInForeground = false;
-        DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "out"));
-        PayStatisticsUtil.onOut(getClass().getSimpleName());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            super.onPause();
+            decLiveActivityNum();
+            this.mIsActivityInForeground = false;
+            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "out"));
+            PayStatisticsUtil.onOut(getClass().getSimpleName());
+        }
     }
 
     @Override // android.app.Activity
     public void onPrepareDialog(int i2, Dialog dialog) {
-        LogUtil.d("BaseActivity", "onPrepareDialog. id = " + i2);
-        if (i2 == -2) {
-            LoadingDialog loadingDialog = (LoadingDialog) dialog;
-            loadingDialog.setCancelable(true);
-            loadingDialog.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.wallet.core.BaseActivity.3
-                @Override // android.content.DialogInterface.OnCancelListener
-                public void onCancel(DialogInterface dialogInterface) {
-                    BaseActivity.this.cancleRequest();
-                }
-            }, loadingDialog));
-        } else if (i2 == -1) {
-            LoadingDialog loadingDialog2 = (LoadingDialog) dialog;
-            loadingDialog2.setCancelable(true);
-            loadingDialog2.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.wallet.core.BaseActivity.2
-                @Override // android.content.DialogInterface.OnCancelListener
-                public void onCancel(DialogInterface dialogInterface) {
-                    BaseActivity.this.onBackPressed();
-                }
-            }, loadingDialog2));
-        } else if (i2 == 0) {
-            ((LoadingDialog) dialog).setCancelable(false);
-        } else if (i2 == 3) {
-            PromptDialog promptDialog = (PromptDialog) dialog;
-            promptDialog.setMessage(this.mDialogMsg);
-            promptDialog.setCanceledOnTouchOutside(false);
-            promptDialog.hideNegativeButton();
-        } else if (i2 == 11) {
-            PromptDialog promptDialog2 = (PromptDialog) dialog;
-            promptDialog2.setMessage(getString(ResUtils.string(getActivity(), "ebpay_no_network")));
-            promptDialog2.setCanceledOnTouchOutside(false);
-            promptDialog2.setNegativeBtn(ResUtils.string(getActivity(), "ebpay_cancel"), new View.OnClickListener() { // from class: com.baidu.wallet.core.BaseActivity.4
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    WalletGlobalUtils.safeDismissDialog(BaseActivity.this, 11);
-                }
-            });
-            promptDialog2.setPositiveBtn(ResUtils.string(getActivity(), "ebpay_setting"), new View.OnClickListener() { // from class: com.baidu.wallet.core.BaseActivity.5
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    WalletGlobalUtils.safeDismissDialog(BaseActivity.this, 11);
-                    try {
-                        BaseActivity.this.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
-                    } catch (Exception e2) {
-                        LogUtil.e("BaseActivity", "onPrepareDialog. DIALOG_NO_NETWORK. onClick", e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048598, this, i2, dialog) == null) {
+            LogUtil.d("BaseActivity", "onPrepareDialog. id = " + i2);
+            if (i2 == -2) {
+                LoadingDialog loadingDialog = (LoadingDialog) dialog;
+                loadingDialog.setCancelable(true);
+                loadingDialog.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.wallet.core.BaseActivity.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ BaseActivity f24537a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f24537a = this;
                     }
-                }
-            });
-        } else if (i2 != 52) {
-            super.onPrepareDialog(i2, dialog);
-        } else {
-            final PromptDialog promptDialog3 = (PromptDialog) dialog;
-            promptDialog3.setMessage(this.mDialogMsg);
-            promptDialog3.setCanceledOnTouchOutside(false);
-            promptDialog3.setPositiveBtn(ResUtils.getString(getActivity(), "ebpay_confirm"), new View.OnClickListener() { // from class: com.baidu.wallet.core.BaseActivity.6
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    promptDialog3.dismiss();
-                    try {
-                        ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(BaseActivity.this.getActivity());
-                        PhoneUtils.showInstalledAppOrDetails(BaseActivity.this.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
-                    } catch (Throwable unused) {
+
+                    @Override // android.content.DialogInterface.OnCancelListener
+                    public void onCancel(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            this.f24537a.cancleRequest();
+                        }
                     }
-                }
-            });
-            promptDialog3.setNegativeBtn(ResUtils.getString(getActivity(), "ebpay_cancel"), new View.OnClickListener() { // from class: com.baidu.wallet.core.BaseActivity.7
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    promptDialog3.dismiss();
-                }
-            });
+                }, loadingDialog));
+            } else if (i2 == -1) {
+                LoadingDialog loadingDialog2 = (LoadingDialog) dialog;
+                loadingDialog2.setCancelable(true);
+                loadingDialog2.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.wallet.core.BaseActivity.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ BaseActivity f24536a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f24536a = this;
+                    }
+
+                    @Override // android.content.DialogInterface.OnCancelListener
+                    public void onCancel(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            this.f24536a.onBackPressed();
+                        }
+                    }
+                }, loadingDialog2));
+            } else if (i2 == 0) {
+                ((LoadingDialog) dialog).setCancelable(false);
+            } else if (i2 == 3) {
+                PromptDialog promptDialog = (PromptDialog) dialog;
+                promptDialog.setMessage(this.mDialogMsg);
+                promptDialog.setCanceledOnTouchOutside(false);
+                promptDialog.hideNegativeButton();
+            } else if (i2 == 11) {
+                PromptDialog promptDialog2 = (PromptDialog) dialog;
+                promptDialog2.setMessage(getString(ResUtils.string(getActivity(), "ebpay_no_network")));
+                promptDialog2.setCanceledOnTouchOutside(false);
+                promptDialog2.setNegativeBtn(ResUtils.string(getActivity(), "ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.core.BaseActivity.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ BaseActivity f24538a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f24538a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            WalletGlobalUtils.safeDismissDialog(this.f24538a, 11);
+                        }
+                    }
+                });
+                promptDialog2.setPositiveBtn(ResUtils.string(getActivity(), "ebpay_setting"), new View.OnClickListener(this) { // from class: com.baidu.wallet.core.BaseActivity.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ BaseActivity f24539a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f24539a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            WalletGlobalUtils.safeDismissDialog(this.f24539a, 11);
+                            try {
+                                this.f24539a.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                            } catch (Exception e2) {
+                                LogUtil.e("BaseActivity", "onPrepareDialog. DIALOG_NO_NETWORK. onClick", e2);
+                            }
+                        }
+                    }
+                });
+            } else if (i2 != 52) {
+                super.onPrepareDialog(i2, dialog);
+            } else {
+                PromptDialog promptDialog3 = (PromptDialog) dialog;
+                promptDialog3.setMessage(this.mDialogMsg);
+                promptDialog3.setCanceledOnTouchOutside(false);
+                promptDialog3.setPositiveBtn(ResUtils.getString(getActivity(), "ebpay_confirm"), new View.OnClickListener(this, promptDialog3) { // from class: com.baidu.wallet.core.BaseActivity.6
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ PromptDialog f24540a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ BaseActivity f24541b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, promptDialog3};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f24541b = this;
+                        this.f24540a = promptDialog3;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            this.f24540a.dismiss();
+                            try {
+                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f24541b.getActivity());
+                                PhoneUtils.showInstalledAppOrDetails(this.f24541b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
+                            } catch (Throwable unused) {
+                            }
+                        }
+                    }
+                });
+                promptDialog3.setNegativeBtn(ResUtils.getString(getActivity(), "ebpay_cancel"), new View.OnClickListener(this, promptDialog3) { // from class: com.baidu.wallet.core.BaseActivity.7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ PromptDialog f24542a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ BaseActivity f24543b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, promptDialog3};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f24543b = this;
+                        this.f24542a = promptDialog3;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            this.f24542a.dismiss();
+                        }
+                    }
+                });
+            }
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
-        addLiveActivityNum();
-        this.mIsActivityInForeground = true;
-        showMultiWindowTips();
-        if (0 != this.mTimeVal) {
-            long currentTimeMillis = System.currentTimeMillis() - this.mTimeVal;
-            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(currentTimeMillis)));
-            PayStatisticsUtil.onIn(getClass().getSimpleName(), currentTimeMillis);
-            this.mTimeVal = 0L;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            super.onResume();
+            addLiveActivityNum();
+            this.mIsActivityInForeground = true;
+            showMultiWindowTips();
+            if (0 != this.mTimeVal) {
+                long currentTimeMillis = System.currentTimeMillis() - this.mTimeVal;
+                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(currentTimeMillis)));
+                PayStatisticsUtil.onIn(getClass().getSimpleName(), currentTimeMillis);
+                this.mTimeVal = 0L;
+                return;
+            }
+            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(0)));
+            PayStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
         }
-        DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(0)));
-        PayStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        NetworkBean.SessionCache sessionCache = NetworkBean.SessionCache.getInstance();
-        if (sessionCache != null) {
-            bundle.putSerializable("cashdeskcommondata", sessionCache);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
+            NetworkBean.SessionCache sessionCache = NetworkBean.SessionCache.getInstance();
+            if (sessionCache != null) {
+                bundle.putSerializable("cashdeskcommondata", sessionCache);
+            }
+            super.onSaveInstanceState(bundle);
         }
-        super.onSaveInstanceState(bundle);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
-        super.onStart();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            super.onStart();
+        }
     }
 
     public void setImmersiveStatusBar(Activity activity) {
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 >= 19) {
-            if (i2 >= 21) {
-                Window window = activity.getWindow();
-                window.getDecorView().setSystemUiVisibility(1280);
-                window.addFlags(Integer.MIN_VALUE);
-                window.setStatusBarColor(ResUtils.getColor(getActivity(), "ebpay_transparent"));
-            } else {
-                Window window2 = activity.getWindow();
-                WindowManager.LayoutParams attributes = window2.getAttributes();
-                attributes.flags = 67108864 | attributes.flags;
-                window2.setAttributes(attributes);
-            }
-            this.mContent = findViewById(16908290);
-            ImmersiveKeyboardAdjust immersiveKeyboardAdjust = new ImmersiveKeyboardAdjust();
-            this.mKeyboardAdjust = immersiveKeyboardAdjust;
-            if (immersiveKeyboardAdjust == null || this.mContent == null || !needKeyboardAdjust()) {
-                return;
-            }
-            this.mKeyboardAdjust.attachActivity(this.mContent);
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048602, this, activity) == null) || (i2 = Build.VERSION.SDK_INT) < 19) {
+            return;
         }
+        if (i2 >= 21) {
+            Window window = activity.getWindow();
+            window.getDecorView().setSystemUiVisibility(1280);
+            window.addFlags(Integer.MIN_VALUE);
+            window.setStatusBarColor(ResUtils.getColor(getActivity(), "ebpay_transparent"));
+        } else {
+            Window window2 = activity.getWindow();
+            WindowManager.LayoutParams attributes = window2.getAttributes();
+            attributes.flags = 67108864 | attributes.flags;
+            window2.setAttributes(attributes);
+        }
+        this.mContent = findViewById(16908290);
+        ImmersiveKeyboardAdjust immersiveKeyboardAdjust = new ImmersiveKeyboardAdjust();
+        this.mKeyboardAdjust = immersiveKeyboardAdjust;
+        if (immersiveKeyboardAdjust == null || this.mContent == null || !needKeyboardAdjust()) {
+            return;
+        }
+        this.mKeyboardAdjust.attachActivity(this.mContent);
     }
 
     public void setIsMultiWindowAvailable(boolean z) {
-        if (z != this.mIsMultiWindowAvailable) {
-            this.mIsMultiWindowAvailable = z;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048603, this, z) == null) || z == this.mIsMultiWindowAvailable) {
+            return;
         }
+        this.mIsMultiWindowAvailable = z;
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.mIsShowMultiWindowTips) {
-            this.mIsShowMultiWindowTips = z;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048604, this, z) == null) || z == this.mIsShowMultiWindowTips) {
+            return;
         }
+        this.mIsShowMultiWindowTips = z;
     }
 
     public void setMultiWindowTipsId(String str) {
-        this.mMultiWindowTipsID = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            this.mMultiWindowTipsID = str;
+        }
     }
 
     public void setSafeScrollView(SafeScrollView safeScrollView) {
-        this.mSafeScrollView = safeScrollView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, safeScrollView) == null) {
+            this.mSafeScrollView = safeScrollView;
+        }
     }
 
     public void setUIAdaptationMode(boolean z, boolean z2, int i2) {
-        this.isWidthLimitedMode = z2;
-        this.defaultLenth = i2;
-        this.isSupportUIAdapatation = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
+            this.isWidthLimitedMode = z2;
+            this.defaultLenth = i2;
+            this.isSupportUIAdapatation = z;
+        }
     }
 
     public void setWindowNightMode(boolean z) {
-        this.mWindowNightMode = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.mWindowNightMode = z;
+        }
     }
 
     public void showBaseDialog(int i2, String str) {
-        this.mDialogMsg = str;
-        WalletGlobalUtils.safeShowDialog(this, i2, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048609, this, i2, str) == null) {
+            this.mDialogMsg = str;
+            WalletGlobalUtils.safeShowDialog(this, i2, str);
+        }
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent) {
-        startActivityForResult(intent, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, intent) == null) {
+            startActivityForResult(intent, -1);
+        }
     }
 
     public void startActivityForResult(Class<?> cls, int i2) {
-        startActivityForResult(new Intent(this, cls), i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048613, this, cls, i2) == null) {
+            startActivityForResult(new Intent(this, cls), i2);
+        }
     }
 
     public void startActivityForResultWithoutAnim(Intent intent, int i2) {
-        super.startActivityForResult(intent, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048614, this, intent, i2) == null) {
+            super.startActivityForResult(intent, i2);
+        }
     }
 
     public void startActivityWithExtras(Bundle bundle, Class<?> cls) {
-        startActivityWithExtras(bundle, cls, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048615, this, bundle, cls) == null) {
+            startActivityWithExtras(bundle, cls, true);
+        }
     }
 
     public void startActivityWithoutAnim(Intent intent) {
-        super.startActivityForResult(intent, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, intent) == null) {
+            super.startActivityForResult(intent, -1);
+        }
     }
 
     public void startNightMode() {
-        if (isWindowNightMode()) {
-            if (this.mNightModeView != null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+            if (isWindowNightMode()) {
+                if (this.mNightModeView != null) {
+                    return;
+                }
+                WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, getBottomBarType() == SDKBaseActivity.BottomBarType.NONE ? -1 : DisplayUtils.getDisplayHeight(this) - DisplayUtils.dip2px(this, 42.0f), 1002, 24, -2);
+                layoutParams.gravity = 48;
+                View view = new View(this);
+                this.mNightModeView = view;
+                view.setBackgroundColor(ResUtils.getColor(this, "ebpay_black_transparent"));
+                getWindowManager().addView(this.mNightModeView, layoutParams);
                 return;
             }
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, getBottomBarType() == SDKBaseActivity.BottomBarType.NONE ? -1 : DisplayUtils.getDisplayHeight(this) - DisplayUtils.dip2px(this, 42.0f), 1002, 24, -2);
-            layoutParams.gravity = 48;
-            View view = new View(this);
-            this.mNightModeView = view;
-            view.setBackgroundColor(ResUtils.getColor(this, "ebpay_black_transparent"));
-            getWindowManager().addView(this.mNightModeView, layoutParams);
-            return;
-        }
-        View findViewById = findViewById(ResUtils.id(getApplicationContext(), "night_mode_view"));
-        if (findViewById != null) {
-            findViewById.setBackgroundColor(ResUtils.getColor(this, "ebpay_black_transparent"));
+            View findViewById = findViewById(ResUtils.id(getApplicationContext(), "night_mode_view"));
+            if (findViewById != null) {
+                findViewById.setBackgroundColor(ResUtils.getColor(this, "ebpay_black_transparent"));
+            }
         }
     }
 
     public void startActivity(Class<?> cls) {
-        startActivityForResult(new Intent(getActivity(), cls), -1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, cls) == null) {
+            startActivityForResult(new Intent(getActivity(), cls), -1);
+        }
     }
 
     public void startActivityWithExtras(Bundle bundle, Class<?> cls, boolean z) {
-        if (bundle == null) {
-            bundle = getIntent().getExtras();
-        }
-        Intent intent = new Intent(getActivity(), cls);
-        if (bundle != null) {
-            intent.putExtras(bundle);
-        }
-        if (z) {
-            startActivity(intent);
-        } else {
-            startActivityWithoutAnim(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048616, this, bundle, cls, z) == null) {
+            if (bundle == null) {
+                bundle = getIntent().getExtras();
+            }
+            Intent intent = new Intent(getActivity(), cls);
+            if (bundle != null) {
+                intent.putExtras(bundle);
+            }
+            if (z) {
+                startActivity(intent);
+            } else {
+                startActivityWithoutAnim(intent);
+            }
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void startActivityForResult(Intent intent, int i2) {
-        super.startActivityForResult(intent, i2);
-        BaiduWalletUtils.startActivityAnim(getActivity());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048612, this, intent, i2) == null) {
+            super.startActivityForResult(intent, i2);
+            BaiduWalletUtils.startActivityAnim(getActivity());
+        }
     }
 }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface Pay {
     public static final int CANCEL = 2;
     public static final int FAIL = 6;
@@ -15,7 +15,7 @@ public interface Pay {
     public static final int TOKEN_FAIL = 4;
     public static final int UNKNOWN = -1000;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PayCallback {
         void onResult(int i2, String str);
     }

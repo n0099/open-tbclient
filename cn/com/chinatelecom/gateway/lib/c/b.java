@@ -3,14 +3,24 @@ package cn.com.chinatelecom.gateway.lib.c;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes.dex */
 public final class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static SharedPreferences a(Context context) {
-        return context.getSharedPreferences(b(context), 0);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? context.getSharedPreferences(b(context), 0) : (SharedPreferences) invokeL.objValue;
     }
 
     public static void a(Context context, String str, int i2) {
-        if (context == null || TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(65537, null, context, str, i2) == null) || context == null || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -21,7 +31,8 @@ public final class b {
     }
 
     public static void a(Context context, String str, String str2) {
-        if (context == null || TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, str, str2) == null) || context == null || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -32,28 +43,40 @@ public final class b {
     }
 
     public static int b(Context context, String str, int i2) {
-        if (context != null && !TextUtils.isEmpty(str)) {
-            try {
-                return a(context).getInt(str, i2);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, str, i2)) == null) {
+            if (context != null && !TextUtils.isEmpty(str)) {
+                try {
+                    return a(context).getInt(str, i2);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
+            return i2;
         }
-        return i2;
+        return invokeLLI.intValue;
     }
 
     public static String b(Context context) {
-        return "ct_account_api_sdk";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? "ct_account_api_sdk" : (String) invokeL.objValue;
     }
 
     public static String b(Context context, String str, String str2) {
-        if (context != null && !TextUtils.isEmpty(str)) {
-            try {
-                return a(context).getString(str, str2);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) {
+            if (context != null && !TextUtils.isEmpty(str)) {
+                try {
+                    return a(context).getString(str, str2);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
+            return str2;
         }
-        return str2;
+        return (String) invokeLLL.objValue;
     }
 }

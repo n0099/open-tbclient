@@ -4,52 +4,86 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.a.f;
 /* loaded from: classes5.dex */
 public class PraiseModel extends BdBaseModel {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int LIKE = 1;
     public static final int UN_LIKE = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f20928g;
+    public static final String f21077g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f20929h;
+    public static TbHttpMessageTask f21078h;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20930e;
+    public b f21079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f20931f;
+    public final HttpMessageListener f21080f;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PraiseModel f21081a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(PraiseModel praiseModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {praiseModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21081a = praiseModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001600) {
-                return;
-            }
-            int statusCode = httpResponsedMessage.getStatusCode();
-            if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                if (PraiseModel.this.f20930e != null) {
-                    PraiseModel.this.f20930e.b(statusCode, null);
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
+                int statusCode = httpResponsedMessage.getStatusCode();
+                if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
+                    if (this.f21081a.f21079e != null) {
+                        this.f21081a.f21079e.b(statusCode, null);
+                        return;
+                    }
                     return;
                 }
-                return;
-            }
-            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
-            if (praiseResponseMessage.getError() == 0) {
-                PraiseModel.this.f20930e.a(praiseResponseMessage.getErrMsg());
-            } else if (PraiseModel.this.f20930e != null) {
-                PraiseModel.this.f20930e.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
+                if (praiseResponseMessage.getError() == 0) {
+                    this.f21081a.f21079e.a(praiseResponseMessage.getErrMsg());
+                } else if (this.f21081a.f21079e != null) {
+                    this.f21081a.f21079e.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                }
             }
         }
     }
@@ -62,34 +96,75 @@ public class PraiseModel extends BdBaseModel {
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1337401938, "Lcom/baidu/tieba/tbadkCore/PraiseModel;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1337401938, "Lcom/baidu/tieba/tbadkCore/PraiseModel;");
+                return;
+            }
+        }
         String str = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
-        f20928g = str;
+        f21077g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, str);
-        f20929h = tbHttpMessageTask;
+        f21078h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(f20929h);
+        MessageManager.getInstance().registerTask(f21078h);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PraiseModel(TbPageContext tbPageContext, b bVar) {
         super(tbPageContext);
-        this.f20930e = null;
-        this.f20931f = new a(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.f20930e = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f21079e = null;
+        this.f21080f = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.f21079e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void registerListener() {
-        this.f20931f.setSelfListener(true);
-        this.f20931f.setTag(getUniqueId());
-        registerListener(this.f20931f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f21080f.setSelfListener(true);
+            this.f21080f.setTag(getUniqueId());
+            registerListener(this.f21080f);
+        }
     }
 }

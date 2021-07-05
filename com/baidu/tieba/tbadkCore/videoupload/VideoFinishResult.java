@@ -1,12 +1,20 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class VideoFinishResult implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ERROR = "error";
     public static final String KEY_ERROR_MSG = "errmsg";
     public static final String KEY_ERROR_NO = "errno";
@@ -14,38 +22,66 @@ public class VideoFinishResult implements Serializable {
     public static final String KEY_VIDEO_MD5 = "video_md5";
     public static final String KEY_VIDEO_URL = "video_url";
     public static final long serialVersionUID = 6275774083063164456L;
+    public transient /* synthetic */ FieldHolder $fh;
     public String errorMessage;
     public int errorNo;
     public String userMessage;
     public String videoMd5;
     public String videoUrl;
 
+    public VideoFinishResult() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public String getErrorMessage() {
-        return this.errorMessage;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errorMessage : (String) invokeV.objValue;
     }
 
     public int getErrorNo() {
-        return this.errorNo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errorNo : invokeV.intValue;
     }
 
     public String getUserMessage() {
-        return this.userMessage;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.userMessage : (String) invokeV.objValue;
     }
 
     public String getVideoMd5() {
-        return this.videoMd5;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.videoMd5 : (String) invokeV.objValue;
     }
 
     public String getVideoUrl() {
-        return this.videoUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.videoUrl : (String) invokeV.objValue;
     }
 
     public boolean isSuccess() {
-        return (this.errorNo != 0 || StringUtils.isNull(this.videoMd5) || StringUtils.isNull(this.videoUrl)) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.errorNo != 0 || StringUtils.isNull(this.videoMd5) || StringUtils.isNull(this.videoUrl)) ? false : true : invokeV.booleanValue;
     }
 
     public void parseJson(String str) {
-        if (StringUtils.isNull(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
         try {
@@ -68,22 +104,37 @@ public class VideoFinishResult implements Serializable {
     }
 
     public void setErrorMessage(String str) {
-        this.errorMessage = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.errorMessage = str;
+        }
     }
 
     public void setErrorNo(int i2) {
-        this.errorNo = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.errorNo = i2;
+        }
     }
 
     public void setUserMessage(String str) {
-        this.userMessage = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.userMessage = str;
+        }
     }
 
     public void setVideoMd5(String str) {
-        this.videoMd5 = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.videoMd5 = str;
+        }
     }
 
     public void setVideoUrl(String str) {
-        this.videoUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.videoUrl = str;
+        }
     }
 }

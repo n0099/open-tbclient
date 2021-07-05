@@ -3,27 +3,38 @@ package com.baidu.sofire.utility;
 import android.annotation.SuppressLint;
 import android.net.TrafficStats;
 import android.os.Build;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes4.dex */
 public final class y {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     @SuppressLint({"NewApi"})
     public static void a() {
-        try {
-            if (Build.VERSION.SDK_INT >= 15) {
-                TrafficStats.setThreadStatsTag(155648);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 15) {
+                    TrafficStats.setThreadStatsTag(155648);
+                }
+            } catch (Throwable unused) {
+                c.a();
             }
-        } catch (Throwable unused) {
-            c.a();
         }
     }
 
     @SuppressLint({"NewApi"})
     public static void b() {
-        try {
-            if (Build.VERSION.SDK_INT >= 15) {
-                TrafficStats.clearThreadStatsTag();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 15) {
+                    TrafficStats.clearThreadStatsTag();
+                }
+            } catch (Throwable unused) {
+                c.a();
             }
-        } catch (Throwable unused) {
-            c.a();
         }
     }
 }

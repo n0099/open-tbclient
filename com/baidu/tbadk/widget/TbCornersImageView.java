@@ -13,24 +13,32 @@ import android.util.AttributeSet;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R$styleable;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class TbCornersImageView extends AppCompatImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13179e;
+    public boolean f13264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13180f;
+    public boolean f13265f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13181g;
+    public int f13266g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13182h;
+    public int f13267h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13183i;
+    public int f13268i;
     public int j;
     public int k;
     public int l;
@@ -48,12 +56,30 @@ public class TbCornersImageView extends AppCompatImageView {
     public Paint x;
     public Path y;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbCornersImageView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void a() {
-        if (this.f13179e) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13264e) {
             return;
         }
         int i2 = 0;
@@ -76,7 +102,7 @@ public class TbCornersImageView extends AppCompatImageView {
             fArr[7] = f5;
             fArr[6] = f5;
             float[] fArr2 = this.u;
-            int i7 = this.f13181g;
+            int i7 = this.f13266g;
             float f6 = i3 - (i7 / 2.0f);
             fArr2[1] = f6;
             fArr2[0] = f6;
@@ -98,213 +124,303 @@ public class TbCornersImageView extends AppCompatImageView {
             }
             int i8 = this.k;
             fArr3[i2] = i8;
-            this.u[i2] = i8 - (this.f13181g / 2.0f);
+            this.u[i2] = i8 - (this.f13266g / 2.0f);
             i2++;
         }
     }
 
     public final void b(boolean z) {
-        if (z) {
-            this.k = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                this.k = 0;
+            }
+            a();
+            r();
+            invalidate();
         }
-        a();
-        r();
-        invalidate();
     }
 
     public final void l() {
-        if (this.f13179e) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f13264e) {
             return;
         }
-        this.f13183i = 0;
+        this.f13268i = 0;
     }
 
     public final void n(Canvas canvas) {
-        if (this.f13179e) {
-            int i2 = this.f13181g;
-            if (i2 > 0) {
-                o(canvas, i2, this.f13182h, this.s - (i2 / 2.0f));
-            }
-            int i3 = this.f13183i;
-            if (i3 > 0) {
-                o(canvas, i3, this.j, (this.s - this.f13181g) - (i3 / 2.0f));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            if (this.f13264e) {
+                int i2 = this.f13266g;
+                if (i2 > 0) {
+                    o(canvas, i2, this.f13267h, this.s - (i2 / 2.0f));
+                }
+                int i3 = this.f13268i;
+                if (i3 > 0) {
+                    o(canvas, i3, this.j, (this.s - this.f13266g) - (i3 / 2.0f));
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        int i4 = this.f13181g;
-        if (i4 > 0) {
-            p(canvas, i4, this.f13182h, this.w, this.t);
+            int i4 = this.f13266g;
+            if (i4 > 0) {
+                p(canvas, i4, this.f13267h, this.w, this.t);
+            }
         }
     }
 
     public final void o(Canvas canvas, int i2, int i3, float f2) {
-        q(i2, i3);
-        this.y.addCircle(this.q / 2.0f, this.r / 2.0f, f2, Path.Direction.CCW);
-        canvas.drawPath(this.y, this.x);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
+            q(i2, i3);
+            this.y.addCircle(this.q / 2.0f, this.r / 2.0f, f2, Path.Direction.CCW);
+            canvas.drawPath(this.y, this.x);
+        }
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.saveLayer(this.v, null, 31);
-        if (!this.f13180f) {
-            int i2 = this.q;
-            int i3 = this.f13181g;
-            int i4 = this.f13183i;
-            int i5 = this.r;
-            canvas.scale((((i2 - (i3 * 2)) - (i4 * 2)) * 1.0f) / i2, (((i5 - (i3 * 2)) - (i4 * 2)) * 1.0f) / i5, i2 / 2.0f, i5 / 2.0f);
-        }
-        super.onDraw(canvas);
-        this.x.reset();
-        this.y.reset();
-        if (this.f13179e) {
-            this.y.addCircle(this.q / 2.0f, this.r / 2.0f, this.s, Path.Direction.CCW);
-        } else {
-            this.y.addRoundRect(this.v, this.u, Path.Direction.CCW);
-        }
-        this.x.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        this.x.setAntiAlias(true);
-        this.x.setStyle(Paint.Style.FILL);
-        canvas.drawPath(this.y, this.x);
-        if (Build.VERSION.SDK_INT <= 27) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            canvas.saveLayer(this.v, null, 31);
+            if (!this.f13265f) {
+                int i2 = this.q;
+                int i3 = this.f13266g;
+                int i4 = this.f13268i;
+                int i5 = this.r;
+                canvas.scale((((i2 - (i3 * 2)) - (i4 * 2)) * 1.0f) / i2, (((i5 - (i3 * 2)) - (i4 * 2)) * 1.0f) / i5, i2 / 2.0f, i5 / 2.0f);
+            }
+            super.onDraw(canvas);
+            this.x.reset();
+            this.y.reset();
+            if (this.f13264e) {
+                this.y.addCircle(this.q / 2.0f, this.r / 2.0f, this.s, Path.Direction.CCW);
+            } else {
+                this.y.addRoundRect(this.v, this.u, Path.Direction.CCW);
+            }
             this.x.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            this.x.setAntiAlias(true);
+            this.x.setStyle(Paint.Style.FILL);
             canvas.drawPath(this.y, this.x);
-        } else {
-            this.x.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-            Path path = new Path();
-            path.addRect(this.v, Path.Direction.CW);
-            path.op(this.y, Path.Op.DIFFERENCE);
-            canvas.drawPath(path, this.x);
+            if (Build.VERSION.SDK_INT <= 27) {
+                this.x.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+                canvas.drawPath(this.y, this.x);
+            } else {
+                this.x.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+                Path path = new Path();
+                path.addRect(this.v, Path.Direction.CW);
+                path.op(this.y, Path.Op.DIFFERENCE);
+                canvas.drawPath(path, this.x);
+            }
+            this.x.setXfermode(null);
+            int i6 = this.p;
+            if (i6 != 0) {
+                this.x.setColor(i6);
+                canvas.drawPath(this.y, this.x);
+            }
+            canvas.restore();
+            n(canvas);
         }
-        this.x.setXfermode(null);
-        int i6 = this.p;
-        if (i6 != 0) {
-            this.x.setColor(i6);
-            canvas.drawPath(this.y, this.x);
-        }
-        canvas.restore();
-        n(canvas);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        this.q = i2;
-        this.r = i3;
-        r();
-        s();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            this.q = i2;
+            this.r = i3;
+            r();
+            s();
+        }
     }
 
     public final void p(Canvas canvas, int i2, int i3, RectF rectF, float[] fArr) {
-        q(i2, i3);
-        this.y.addRoundRect(rectF, fArr, Path.Direction.CCW);
-        canvas.drawPath(this.y, this.x);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{canvas, Integer.valueOf(i2), Integer.valueOf(i3), rectF, fArr}) == null) {
+            q(i2, i3);
+            this.y.addRoundRect(rectF, fArr, Path.Direction.CCW);
+            canvas.drawPath(this.y, this.x);
+        }
     }
 
     public final void q(int i2, int i3) {
-        this.y.reset();
-        this.x.setStrokeWidth(i2);
-        this.x.setColor(i3);
-        this.x.setStyle(Paint.Style.STROKE);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
+            this.y.reset();
+            this.x.setStrokeWidth(i2);
+            this.x.setColor(i3);
+            this.x.setStyle(Paint.Style.STROKE);
+        }
     }
 
     public final void r() {
-        if (this.f13179e) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f13264e) {
             return;
         }
         RectF rectF = this.w;
-        int i2 = this.f13181g;
+        int i2 = this.f13266g;
         rectF.set(i2 / 2.0f, i2 / 2.0f, this.q - (i2 / 2.0f), this.r - (i2 / 2.0f));
     }
 
     public final void s() {
-        if (this.f13179e) {
-            float min = Math.min(this.q, this.r) / 2.0f;
-            this.s = min;
-            RectF rectF = this.v;
-            int i2 = this.q;
-            int i3 = this.r;
-            rectF.set((i2 / 2.0f) - min, (i3 / 2.0f) - min, (i2 / 2.0f) + min, (i3 / 2.0f) + min);
-            return;
-        }
-        this.v.set(0.0f, 0.0f, this.q, this.r);
-        if (this.f13180f) {
-            this.v = this.w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (this.f13264e) {
+                float min = Math.min(this.q, this.r) / 2.0f;
+                this.s = min;
+                RectF rectF = this.v;
+                int i2 = this.q;
+                int i3 = this.r;
+                rectF.set((i2 / 2.0f) - min, (i3 / 2.0f) - min, (i2 / 2.0f) + min, (i3 / 2.0f) + min);
+                return;
+            }
+            this.v.set(0.0f, 0.0f, this.q, this.r);
+            if (this.f13265f) {
+                this.v = this.w;
+            }
         }
     }
 
     public void setBorderColor(@ColorInt int i2) {
-        this.f13182h = i2;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.f13267h = i2;
+            invalidate();
+        }
     }
 
     public void setBorderWidth(int i2) {
-        this.f13181g = i2;
-        b(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.f13266g = i2;
+            b(false);
+        }
     }
 
     public void setCornerBottomLeftRadius(int i2) {
-        this.n = i2;
-        b(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.n = i2;
+            b(true);
+        }
     }
 
     public void setCornerBottomRightRadius(int i2) {
-        this.o = i2;
-        b(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.o = i2;
+            b(true);
+        }
     }
 
     public void setCornerRadius(int i2) {
-        this.k = i2;
-        b(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.k = i2;
+            b(false);
+        }
     }
 
     public void setCornerTopLeftRadius(int i2) {
-        this.l = i2;
-        b(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.l = i2;
+            b(true);
+        }
     }
 
     public void setCornerTopRightRadius(int i2) {
-        this.m = i2;
-        b(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            this.m = i2;
+            b(true);
+        }
     }
 
     public void setInnerBorderColor(@ColorInt int i2) {
-        this.j = i2;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            this.j = i2;
+            invalidate();
+        }
     }
 
     public void setInnerBorderWidth(int i2) {
-        this.f13183i = i2;
-        l();
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+            this.f13268i = i2;
+            l();
+            invalidate();
+        }
     }
 
     public void setMaskColor(@ColorInt int i2) {
-        this.p = i2;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+            this.p = i2;
+            invalidate();
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbCornersImageView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TbCornersImageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13182h = -1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f13267h = -1;
         this.j = -1;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CornersImageView, 0, 0);
-        for (int i3 = 0; i3 < obtainStyledAttributes.getIndexCount(); i3++) {
-            int index = obtainStyledAttributes.getIndex(i3);
+        for (int i5 = 0; i5 < obtainStyledAttributes.getIndexCount(); i5++) {
+            int index = obtainStyledAttributes.getIndex(i5);
             if (index == R$styleable.CornersImageView_is_cover_src) {
-                this.f13180f = obtainStyledAttributes.getBoolean(index, this.f13180f);
+                this.f13265f = obtainStyledAttributes.getBoolean(index, this.f13265f);
             } else if (index == R$styleable.CornersImageView_is_circle) {
-                this.f13179e = obtainStyledAttributes.getBoolean(index, this.f13179e);
+                this.f13264e = obtainStyledAttributes.getBoolean(index, this.f13264e);
             } else if (index == R$styleable.CornersImageView_border_width) {
-                this.f13181g = obtainStyledAttributes.getDimensionPixelSize(index, this.f13181g);
+                this.f13266g = obtainStyledAttributes.getDimensionPixelSize(index, this.f13266g);
             } else if (index == R$styleable.CornersImageView_border_color) {
-                this.f13182h = obtainStyledAttributes.getColor(index, this.f13182h);
+                this.f13267h = obtainStyledAttributes.getColor(index, this.f13267h);
             } else if (index == R$styleable.CornersImageView_inner_border_width) {
-                this.f13183i = obtainStyledAttributes.getDimensionPixelSize(index, this.f13183i);
+                this.f13268i = obtainStyledAttributes.getDimensionPixelSize(index, this.f13268i);
             } else if (index == R$styleable.CornersImageView_inner_border_color) {
                 this.j = obtainStyledAttributes.getColor(index, this.j);
             } else if (index == R$styleable.CornersImageView_corner_radius) {

@@ -56,27 +56,69 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ay {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ay f8703b = new ay();
+    public static final ay f8776b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f8704a = new HashMap<>();
+    public HashMap<String, String> f8777a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581657594, "Lcom/baidu/mobstat/ay;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(581657594, "Lcom/baidu/mobstat/ay;");
+                return;
+            }
+        }
+        f8776b = new ay();
+    }
 
     public ay() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f8777a = new HashMap<>();
         b();
     }
 
     public static ay a() {
-        return f8703b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8776b : (ay) invokeV.objValue;
     }
 
     private void b() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f8704a.size() == 0) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && Build.VERSION.SDK_INT >= 14 && this.f8777a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -356,19 +398,23 @@ public class ay {
     }
 
     private void a(Throwable th) {
-        if (bh.c().b()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65540, this, th) == null) && bh.c().b()) {
             bh.c().b(th.toString());
         }
     }
 
     private void a(String str, String str2) {
-        if (TextUtils.isEmpty(str) || this.f8704a.containsKey(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) || TextUtils.isEmpty(str) || this.f8777a.containsKey(str)) {
             return;
         }
-        this.f8704a.put(str, str2.toUpperCase(Locale.ENGLISH));
+        this.f8777a.put(str, str2.toUpperCase(Locale.ENGLISH));
     }
 
     public String a(String str) {
-        return this.f8704a.get(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f8777a.get(str) : (String) invokeL.objValue;
     }
 }

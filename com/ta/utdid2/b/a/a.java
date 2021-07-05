@@ -1,5 +1,15 @@
 package com.ta.utdid2.b.a;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -15,334 +25,483 @@ import kotlin.text.Typography;
 import org.xmlpull.v1.XmlSerializer;
 /* loaded from: classes7.dex */
 public class a implements XmlSerializer {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f39916a = {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&quot;", null, null, null, "&amp;", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&lt;", null, "&gt;", null};
+    public static final String[] f41659a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public OutputStream f2a;
+    public OutputStream f5a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Writer f3a;
+    public Writer f6a;
 
     /* renamed from: a  reason: collision with other field name */
-    public CharsetEncoder f5a;
+    public ByteBuffer f7a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public CharsetEncoder f8a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final char[] f9a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39917b;
+    public boolean f41660b;
     public int mPos;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final char[] f6a = new char[8192];
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(669989098, "Lcom/ta/utdid2/b/a/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(669989098, "Lcom/ta/utdid2/b/a/a;");
+                return;
+            }
+        }
+        f41659a = new String[]{null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&quot;", null, null, null, "&amp;", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "&lt;", null, "&gt;", null};
+    }
 
-    /* renamed from: a  reason: collision with other field name */
-    public ByteBuffer f4a = ByteBuffer.allocate(8192);
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f9a = new char[8192];
+        this.f7a = ByteBuffer.allocate(8192);
+    }
 
     private void a(String str, int i2, int i3) throws IOException {
-        if (i3 > 8192) {
-            int i4 = i3 + i2;
-            while (i2 < i4) {
-                int i5 = i2 + 8192;
-                a(str, i2, i5 < i4 ? 8192 : i4 - i2);
-                i2 = i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65540, this, str, i2, i3) == null) {
+            if (i3 > 8192) {
+                int i4 = i3 + i2;
+                while (i2 < i4) {
+                    int i5 = i2 + 8192;
+                    a(str, i2, i5 < i4 ? 8192 : i4 - i2);
+                    i2 = i5;
+                }
+                return;
             }
-            return;
+            int i6 = this.mPos;
+            if (i6 + i3 > 8192) {
+                flush();
+                i6 = this.mPos;
+            }
+            str.getChars(i2, i2 + i3, this.f9a, i6);
+            this.mPos = i6 + i3;
         }
-        int i6 = this.mPos;
-        if (i6 + i3 > 8192) {
-            flush();
-            i6 = this.mPos;
-        }
-        str.getChars(i2, i2 + i3, this.f6a, i6);
-        this.mPos = i6 + i3;
     }
 
     private void append(char c2) throws IOException {
-        int i2 = this.mPos;
-        if (i2 >= 8191) {
-            flush();
-            i2 = this.mPos;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Character.valueOf(c2)}) == null) {
+            int i2 = this.mPos;
+            if (i2 >= 8191) {
+                flush();
+                i2 = this.mPos;
+            }
+            this.f9a[i2] = c2;
+            this.mPos = i2 + 1;
         }
-        this.f6a[i2] = c2;
-        this.mPos = i2 + 1;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer attribute(String str, String str2, String str3) throws IOException, IllegalArgumentException, IllegalStateException {
-        append(' ');
-        if (str != null) {
-            append(str);
-            append(':');
-        }
-        append(str2);
-        append("=\"");
-        a(str3);
-        append(Typography.quote);
-        return this;
-    }
-
-    @Override // org.xmlpull.v1.XmlSerializer
-    public void cdsect(String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // org.xmlpull.v1.XmlSerializer
-    public void comment(String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // org.xmlpull.v1.XmlSerializer
-    public void docdecl(String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // org.xmlpull.v1.XmlSerializer
-    public void endDocument() throws IOException, IllegalArgumentException, IllegalStateException {
-        flush();
-    }
-
-    @Override // org.xmlpull.v1.XmlSerializer
-    public XmlSerializer endTag(String str, String str2) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39917b) {
-            append(" />\n");
-        } else {
-            append("</");
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            append(' ');
             if (str != null) {
                 append(str);
                 append(':');
             }
             append(str2);
-            append(">\n");
+            append("=\"");
+            a(str3);
+            append(Typography.quote);
+            return this;
         }
-        this.f39917b = false;
-        return this;
+        return (XmlSerializer) invokeLLL.objValue;
+    }
+
+    @Override // org.xmlpull.v1.XmlSerializer
+    public void cdsect(String str) throws IOException, IllegalArgumentException, IllegalStateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    @Override // org.xmlpull.v1.XmlSerializer
+    public void comment(String str) throws IOException, IllegalArgumentException, IllegalStateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    @Override // org.xmlpull.v1.XmlSerializer
+    public void docdecl(String str) throws IOException, IllegalArgumentException, IllegalStateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    @Override // org.xmlpull.v1.XmlSerializer
+    public void endDocument() throws IOException, IllegalArgumentException, IllegalStateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            flush();
+        }
+    }
+
+    @Override // org.xmlpull.v1.XmlSerializer
+    public XmlSerializer endTag(String str, String str2) throws IOException, IllegalArgumentException, IllegalStateException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (this.f41660b) {
+                append(" />\n");
+            } else {
+                append("</");
+                if (str != null) {
+                    append(str);
+                    append(':');
+                }
+                append(str2);
+                append(">\n");
+            }
+            this.f41660b = false;
+            return this;
+        }
+        return (XmlSerializer) invokeLL.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void entityRef(String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // org.xmlpull.v1.XmlSerializer
-    public void flush() throws IOException {
-        int i2 = this.mPos;
-        if (i2 > 0) {
-            if (this.f2a != null) {
-                CharBuffer wrap = CharBuffer.wrap(this.f6a, 0, i2);
-                CoderResult encode = this.f5a.encode(wrap, this.f4a, true);
-                while (!encode.isError()) {
-                    if (encode.isOverflow()) {
-                        a();
-                        encode = this.f5a.encode(wrap, this.f4a, true);
-                    } else {
-                        a();
-                        this.f2a.flush();
-                    }
-                }
-                throw new IOException(encode.toString());
-            }
-            this.f3a.write(this.f6a, 0, i2);
-            this.f3a.flush();
-            this.mPos = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            throw new UnsupportedOperationException();
         }
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
+    public void flush() throws IOException {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (i2 = this.mPos) <= 0) {
+            return;
+        }
+        if (this.f5a != null) {
+            CharBuffer wrap = CharBuffer.wrap(this.f9a, 0, i2);
+            CoderResult encode = this.f8a.encode(wrap, this.f7a, true);
+            while (!encode.isError()) {
+                if (encode.isOverflow()) {
+                    a();
+                    encode = this.f8a.encode(wrap, this.f7a, true);
+                } else {
+                    a();
+                    this.f5a.flush();
+                }
+            }
+            throw new IOException(encode.toString());
+        }
+        this.f6a.write(this.f9a, 0, i2);
+        this.f6a.flush();
+        this.mPos = 0;
+    }
+
+    @Override // org.xmlpull.v1.XmlSerializer
     public int getDepth() {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public boolean getFeature(String str) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public String getName() {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public String getNamespace() {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public String getPrefix(String str, boolean z) throws IllegalArgumentException {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (String) invokeLZ.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public Object getProperty(String str) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void ignorableWhitespace(String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        throw new UnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void processingInstruction(String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        throw new UnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void setFeature(String str, boolean z) throws IllegalArgumentException, IllegalStateException {
-        if (!str.equals("http://xmlpull.org/v1/doc/features.html#indent-output")) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) && !str.equals("http://xmlpull.org/v1/doc/features.html#indent-output")) {
             throw new UnsupportedOperationException();
         }
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void setOutput(OutputStream outputStream, String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (outputStream != null) {
-            try {
-                this.f5a = Charset.forName(str).newEncoder();
-                this.f2a = outputStream;
-                return;
-            } catch (IllegalCharsetNameException e2) {
-                throw ((UnsupportedEncodingException) new UnsupportedEncodingException(str).initCause(e2));
-            } catch (UnsupportedCharsetException e3) {
-                throw ((UnsupportedEncodingException) new UnsupportedEncodingException(str).initCause(e3));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, outputStream, str) == null) {
+            if (outputStream != null) {
+                try {
+                    this.f8a = Charset.forName(str).newEncoder();
+                    this.f5a = outputStream;
+                    return;
+                } catch (IllegalCharsetNameException e2) {
+                    throw ((UnsupportedEncodingException) new UnsupportedEncodingException(str).initCause(e2));
+                } catch (UnsupportedCharsetException e3) {
+                    throw ((UnsupportedEncodingException) new UnsupportedEncodingException(str).initCause(e3));
+                }
             }
+            throw new IllegalArgumentException();
         }
-        throw new IllegalArgumentException();
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void setPrefix(String str, String str2) throws IOException, IllegalArgumentException, IllegalStateException {
-        throw new UnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void setProperty(String str, Object obj) throws IllegalArgumentException, IllegalStateException {
-        throw new UnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048596, this, str, obj) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void startDocument(String str, Boolean bool) throws IOException, IllegalArgumentException, IllegalStateException {
-        StringBuilder sb = new StringBuilder();
-        sb.append("<?xml version='1.0' encoding='utf-8' standalone='");
-        sb.append(bool.booleanValue() ? "yes" : "no");
-        sb.append("' ?>\n");
-        append(sb.toString());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, str, bool) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("<?xml version='1.0' encoding='utf-8' standalone='");
+            sb.append(bool.booleanValue() ? "yes" : "no");
+            sb.append("' ?>\n");
+            append(sb.toString());
+        }
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer startTag(String str, String str2) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39917b) {
-            append(">\n");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, str2)) == null) {
+            if (this.f41660b) {
+                append(">\n");
+            }
+            append(Typography.less);
+            if (str != null) {
+                append(str);
+                append(':');
+            }
+            append(str2);
+            this.f41660b = true;
+            return this;
         }
-        append(Typography.less);
-        if (str != null) {
-            append(str);
-            append(':');
-        }
-        append(str2);
-        this.f39917b = true;
-        return this;
+        return (XmlSerializer) invokeLL.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer text(char[] cArr, int i2, int i3) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39917b) {
-            append(">");
-            this.f39917b = false;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048600, this, cArr, i2, i3)) == null) {
+            if (this.f41660b) {
+                append(">");
+                this.f41660b = false;
+            }
+            a(cArr, i2, i3);
+            return this;
         }
-        a(cArr, i2, i3);
-        return this;
+        return (XmlSerializer) invokeLII.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public XmlSerializer text(String str) throws IOException, IllegalArgumentException, IllegalStateException {
-        if (this.f39917b) {
-            append(">");
-            this.f39917b = false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            if (this.f41660b) {
+                append(">");
+                this.f41660b = false;
+            }
+            a(str);
+            return this;
         }
-        a(str);
-        return this;
+        return (XmlSerializer) invokeL.objValue;
     }
 
     private void append(char[] cArr, int i2, int i3) throws IOException {
-        if (i3 > 8192) {
-            int i4 = i3 + i2;
-            while (i2 < i4) {
-                int i5 = i2 + 8192;
-                append(cArr, i2, i5 < i4 ? 8192 : i4 - i2);
-                i2 = i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65544, this, cArr, i2, i3) == null) {
+            if (i3 > 8192) {
+                int i4 = i3 + i2;
+                while (i2 < i4) {
+                    int i5 = i2 + 8192;
+                    append(cArr, i2, i5 < i4 ? 8192 : i4 - i2);
+                    i2 = i5;
+                }
+                return;
             }
-            return;
+            int i6 = this.mPos;
+            if (i6 + i3 > 8192) {
+                flush();
+                i6 = this.mPos;
+            }
+            System.arraycopy(cArr, i2, this.f9a, i6, i3);
+            this.mPos = i6 + i3;
         }
-        int i6 = this.mPos;
-        if (i6 + i3 > 8192) {
-            flush();
-            i6 = this.mPos;
-        }
-        System.arraycopy(cArr, i2, this.f6a, i6, i3);
-        this.mPos = i6 + i3;
     }
 
     private void a(String str) throws IOException {
         String str2;
-        int length = str.length();
-        String[] strArr = f39916a;
-        char length2 = (char) strArr.length;
-        int i2 = 0;
-        int i3 = 0;
-        while (i2 < length) {
-            char charAt = str.charAt(i2);
-            if (charAt < length2 && (str2 = strArr[charAt]) != null) {
-                if (i3 < i2) {
-                    a(str, i3, i2 - i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
+            int length = str.length();
+            String[] strArr = f41659a;
+            char length2 = (char) strArr.length;
+            int i2 = 0;
+            int i3 = 0;
+            while (i2 < length) {
+                char charAt = str.charAt(i2);
+                if (charAt < length2 && (str2 = strArr[charAt]) != null) {
+                    if (i3 < i2) {
+                        a(str, i3, i2 - i3);
+                    }
+                    i3 = i2 + 1;
+                    append(str2);
                 }
-                i3 = i2 + 1;
-                append(str2);
+                i2++;
             }
-            i2++;
-        }
-        if (i3 < i2) {
-            a(str, i3, i2 - i3);
+            if (i3 < i2) {
+                a(str, i3, i2 - i3);
+            }
         }
     }
 
     @Override // org.xmlpull.v1.XmlSerializer
     public void setOutput(Writer writer) throws IOException, IllegalArgumentException, IllegalStateException {
-        this.f3a = writer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, writer) == null) {
+            this.f6a = writer;
+        }
     }
 
     private void append(String str) throws IOException {
-        a(str, 0, str.length());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
+            a(str, 0, str.length());
+        }
     }
 
     private void a(char[] cArr, int i2, int i3) throws IOException {
         String str;
-        String[] strArr = f39916a;
-        char length = (char) strArr.length;
-        int i4 = i3 + i2;
-        int i5 = i2;
-        while (i2 < i4) {
-            char c2 = cArr[i2];
-            if (c2 < length && (str = strArr[c2]) != null) {
-                if (i5 < i2) {
-                    append(cArr, i5, i2 - i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, this, cArr, i2, i3) == null) {
+            String[] strArr = f41659a;
+            char length = (char) strArr.length;
+            int i4 = i3 + i2;
+            int i5 = i2;
+            while (i2 < i4) {
+                char c2 = cArr[i2];
+                if (c2 < length && (str = strArr[c2]) != null) {
+                    if (i5 < i2) {
+                        append(cArr, i5, i2 - i5);
+                    }
+                    i5 = i2 + 1;
+                    append(str);
                 }
-                i5 = i2 + 1;
-                append(str);
+                i2++;
             }
-            i2++;
-        }
-        if (i5 < i2) {
-            append(cArr, i5, i2 - i5);
+            if (i5 < i2) {
+                append(cArr, i5, i2 - i5);
+            }
         }
     }
 
     private void a() throws IOException {
-        int position = this.f4a.position();
-        if (position > 0) {
-            this.f4a.flip();
-            this.f2a.write(this.f4a.array(), 0, position);
-            this.f4a.clear();
+        int position;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (position = this.f7a.position()) <= 0) {
+            return;
         }
+        this.f7a.flip();
+        this.f5a.write(this.f7a.array(), 0, position);
+        this.f7a.clear();
     }
 }

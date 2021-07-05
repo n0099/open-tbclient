@@ -2,24 +2,51 @@ package com.baidu.ufosdk.ui;
 
 import android.os.AsyncTask;
 import android.view.inputmethod.InputMethodManager;
-/* loaded from: classes5.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class au extends AsyncTask {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f22831a;
+    public final /* synthetic */ FeedbackFacePageActivity f23347a;
 
     public au(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f22831a = feedbackFacePageActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackFacePageActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23347a = feedbackFacePageActivity;
     }
 
     public static Integer a() {
-        try {
-            Thread.sleep(280L);
-            return null;
-        } catch (InterruptedException e2) {
-            e2.printStackTrace();
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                Thread.sleep(280L);
+                return null;
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (Integer) invokeV.objValue;
     }
 
     @Override // android.os.AsyncTask
@@ -29,10 +56,10 @@ public final class au extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final /* synthetic */ void onPostExecute(Object obj) {
-        this.f22831a.finish();
+        this.f23347a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f22831a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f22831a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f22831a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f23347a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f23347a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f23347a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception unused) {
             com.baidu.ufosdk.f.c.d("exit!");
         }
@@ -40,10 +67,11 @@ public final class au extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final void onPreExecute() {
-        if (this.f22831a.getCurrentFocus() == null || this.f22831a.getCurrentFocus().getWindowToken() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f23347a.getCurrentFocus() == null || this.f23347a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.f22831a.getSystemService("input_method")).hideSoftInputFromWindow(this.f22831a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f23347a.getSystemService("input_method")).hideSoftInputFromWindow(this.f23347a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

@@ -1,43 +1,79 @@
 package com.baidu.location;
 
 import com.baidu.android.common.others.lang.StringUtil;
-/* loaded from: classes2.dex */
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class Jni {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f6446a = 0;
+    public static int f6476a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6447b = 1;
+    public static int f6477b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f6448c = 2;
+    public static int f6478c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6449d = 11;
+    public static int f6479d = 11;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6450e = 12;
+    public static int f6480e = 12;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6451f = 13;
+    public static int f6481f = 13;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6452g = 14;
+    public static int f6482g = 14;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f6453h = 15;
+    public static int f6483h = 15;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f6454i = 1024;
-    public static boolean j = false;
+    public static int f6484i = 1024;
+    public static boolean j;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1037069090, "Lcom/baidu/location/Jni;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1037069090, "Lcom/baidu/location/Jni;");
+                return;
+            }
+        }
         try {
             System.loadLibrary("locSDK7d");
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             j = true;
+        }
+    }
+
+    public Jni() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
@@ -48,166 +84,211 @@ public class Jni {
     public static native String c(byte[] bArr, int i2);
 
     public static double[] coorEncrypt(double d2, double d3, String str) {
-        double[] dArr = {0.0d, 0.0d};
-        if (j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
+            double[] dArr = {0.0d, 0.0d};
+            if (j) {
+                return dArr;
+            }
+            int i2 = -1;
+            if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
+                i2 = f6476a;
+            } else if (str.equals("bd09ll")) {
+                i2 = f6477b;
+            } else if (str.equals("gcj02")) {
+                i2 = f6478c;
+            } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
+                i2 = f6479d;
+            } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
+                i2 = f6480e;
+            } else if (str.equals(BDLocation.BDLOCATION_BD09LL_TO_GCJ02)) {
+                i2 = f6481f;
+            } else if (str.equals("wgs842mc")) {
+                i2 = f6483h;
+            }
+            try {
+                String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
+                dArr[0] = Double.parseDouble(split[0]);
+                dArr[1] = Double.parseDouble(split[1]);
+            } catch (UnsatisfiedLinkError unused) {
+            }
             return dArr;
         }
-        int i2 = -1;
-        if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-            i2 = f6446a;
-        } else if (str.equals("bd09ll")) {
-            i2 = f6447b;
-        } else if (str.equals("gcj02")) {
-            i2 = f6448c;
-        } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
-            i2 = f6449d;
-        } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
-            i2 = f6450e;
-        } else if (str.equals(BDLocation.BDLOCATION_BD09LL_TO_GCJ02)) {
-            i2 = f6451f;
-        } else if (str.equals("wgs842mc")) {
-            i2 = f6453h;
-        }
-        try {
-            String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
-            dArr[0] = Double.parseDouble(split[0]);
-            dArr[1] = Double.parseDouble(split[1]);
-        } catch (UnsatisfiedLinkError unused) {
-        }
-        return dArr;
+        return (double[]) invokeCommon.objValue;
     }
 
     public static native String ee(String str, int i2);
 
     public static String en1(String str) {
-        if (j) {
-            return "err!";
-        }
-        if (str == null) {
-            return StringUtil.NULL_STRING;
-        }
-        byte[] bytes = str.getBytes();
-        byte[] bArr = new byte[f6454i];
-        int length = bytes.length;
-        if (length > 740) {
-            length = 740;
-        }
-        int i2 = 0;
-        for (int i3 = 0; i3 < length; i3++) {
-            if (bytes[i3] != 0) {
-                bArr[i2] = bytes[i3];
-                i2++;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (j) {
+                return "err!";
+            }
+            if (str == null) {
+                return StringUtil.NULL_STRING;
+            }
+            byte[] bytes = str.getBytes();
+            byte[] bArr = new byte[f6484i];
+            int length = bytes.length;
+            if (length > 740) {
+                length = 740;
+            }
+            int i2 = 0;
+            for (int i3 = 0; i3 < length; i3++) {
+                if (bytes[i3] != 0) {
+                    bArr[i2] = bytes[i3];
+                    i2++;
+                }
+            }
+            try {
+                return a(bArr, 132456);
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+                return "err!";
             }
         }
-        try {
-            return a(bArr, 132456);
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-            return "err!";
-        }
+        return (String) invokeL.objValue;
     }
 
     public static String encode(String str) {
-        if (j) {
-            return "err!";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (j) {
+                return "err!";
+            }
+            return en1(str) + "|tp=3";
         }
-        return en1(str) + "|tp=3";
+        return (String) invokeL.objValue;
     }
 
     public static String encode2(String str) {
-        if (j) {
-            return "err!";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (j) {
+                return "err!";
+            }
+            if (str == null) {
+                return StringUtil.NULL_STRING;
+            }
+            try {
+                return c(str.getBytes(), 132456);
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+                return "err!";
+            }
         }
-        if (str == null) {
-            return StringUtil.NULL_STRING;
-        }
-        try {
-            return c(str.getBytes(), 132456);
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-            return "err!";
-        }
+        return (String) invokeL.objValue;
     }
 
     public static Long encode3(String str) {
+        InterceptResult invokeL;
         String str2;
-        if (j) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (j) {
+                return null;
+            }
+            try {
+                str2 = new String(str.getBytes(), "UTF-8");
+            } catch (Exception unused) {
+                str2 = "";
+            }
+            try {
+                return Long.valueOf(murmur(str2));
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
-        try {
-            str2 = new String(str.getBytes(), "UTF-8");
-        } catch (Exception unused) {
-            str2 = "";
-        }
-        try {
-            return Long.valueOf(murmur(str2));
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-            return null;
-        }
+        return (Long) invokeL.objValue;
     }
 
     public static native String encodeNotLimit(String str, int i2);
 
     public static String encodeOfflineLocationUpdateRequest(String str) {
+        InterceptResult invokeL;
         String str2;
-        String str3 = "err!";
-        if (j) {
-            return "err!";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            String str3 = "err!";
+            if (j) {
+                return "err!";
+            }
+            try {
+                str2 = new String(str.getBytes(), "UTF-8");
+            } catch (Exception unused) {
+                str2 = "";
+            }
+            try {
+                str3 = encodeNotLimit(str2, 132456);
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+            }
+            return str3 + "|tp=3";
         }
-        try {
-            str2 = new String(str.getBytes(), "UTF-8");
-        } catch (Exception unused) {
-            str2 = "";
-        }
-        try {
-            str3 = encodeNotLimit(str2, 132456);
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-        }
-        return str3 + "|tp=3";
+        return (String) invokeL.objValue;
     }
 
     public static String encodeTp4(String str) {
+        InterceptResult invokeL;
         String str2;
-        String str3 = "err!";
-        if (j) {
-            return "err!";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            String str3 = "err!";
+            if (j) {
+                return "err!";
+            }
+            try {
+                str2 = new String(str.getBytes(), "UTF-8");
+            } catch (Exception unused) {
+                str2 = "";
+            }
+            try {
+                str3 = ee(str2, 132456);
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+            }
+            return str3 + "|tp=4";
         }
-        try {
-            str2 = new String(str.getBytes(), "UTF-8");
-        } catch (Exception unused) {
-            str2 = "";
-        }
-        try {
-            str3 = ee(str2, 132456);
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-        }
-        return str3 + "|tp=4";
+        return (String) invokeL.objValue;
     }
 
     public static double getGpsSwiftRadius(float f2, double d2, double d3) {
-        if (j) {
-            return 0.0d;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f2), Double.valueOf(d2), Double.valueOf(d3)})) == null) {
+            if (j) {
+                return 0.0d;
+            }
+            try {
+                return gsr(f2, d2, d3);
+            } catch (UnsatisfiedLinkError unused) {
+                return 0.0d;
+            }
         }
-        try {
-            return gsr(f2, d2, d3);
-        } catch (UnsatisfiedLinkError unused) {
-            return 0.0d;
-        }
+        return invokeCommon.doubleValue;
     }
 
     public static String getldkaiv() {
-        if (j) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (j) {
+                return null;
+            }
+            try {
+                return ldkaiv();
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
-        try {
-            return ldkaiv();
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-            return null;
-        }
+        return (String) invokeV.objValue;
     }
 
     public static native double gsr(float f2, double d2, double d3);

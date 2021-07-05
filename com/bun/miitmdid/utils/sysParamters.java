@@ -7,101 +7,169 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class sysParamters {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile sysParamters f27016e;
+    public static volatile sysParamters f27559e;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27017a;
+    public String f27560a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27018b;
+    public String f27561b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27019c;
+    public String f27562c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27020d = "Android";
+    public String f27563d;
     @Keep
-    public String sdk_version = "10011";
+    public String sdk_version;
     @Keep
-    public String sdk_vname = "1.0.11";
+    public String sdk_vname;
+
+    public sysParamters() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f27563d = "Android";
+        this.sdk_version = "10011";
+        this.sdk_vname = "1.0.11";
+    }
 
     public static PackageInfo a(Context context, String str) {
-        try {
-            return context.getPackageManager().getPackageInfo(str, 0);
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(str, 0);
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (PackageInfo) invokeLL.objValue;
     }
 
     public static sysParamters a() {
-        if (f27016e == null) {
-            synchronized (sysParamters.class) {
-                if (f27016e == null) {
-                    f27016e = new sysParamters();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f27559e == null) {
+                synchronized (sysParamters.class) {
+                    if (f27559e == null) {
+                        f27559e = new sysParamters();
+                    }
                 }
             }
+            return f27559e;
         }
-        return f27016e;
+        return (sysParamters) invokeV.objValue;
     }
 
     public static String a(Context context) {
-        if (context == null) {
-            return "0.1.100";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context == null) {
+                return "0.1.100";
+            }
+            PackageInfo a2 = a(context, context.getPackageName());
+            if (a2 == null) {
+                return null;
+            }
+            return a2.versionName;
         }
-        PackageInfo a2 = a(context, context.getPackageName());
-        if (a2 == null) {
-            return null;
-        }
-        return a2.versionName;
+        return (String) invokeL.objValue;
     }
 
     public static String f() {
-        return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? "" : (String) invokeV.objValue;
     }
 
     public static String g() {
-        ApplicationInfo applicationInfo = b.a().getApplicationInfo();
-        return (applicationInfo == null || TextUtils.isEmpty(applicationInfo.packageName)) ? h() : applicationInfo.packageName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            ApplicationInfo applicationInfo = b.a().getApplicationInfo();
+            return (applicationInfo == null || TextUtils.isEmpty(applicationInfo.packageName)) ? h() : applicationInfo.packageName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String h() {
-        return b.a().getPackageName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? b.a().getPackageName() : (String) invokeV.objValue;
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f27017a)) {
-            String a2 = a(b.a());
-            this.f27017a = a2;
-            return a2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.f27560a)) {
+                String a2 = a(b.a());
+                this.f27560a = a2;
+                return a2;
+            }
+            return this.f27560a;
         }
-        return this.f27017a;
+        return (String) invokeV.objValue;
     }
 
     public String c() {
-        return this.sdk_version;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sdk_version : (String) invokeV.objValue;
     }
 
     public String d() {
-        if (TextUtils.isEmpty(this.f27018b)) {
-            String str = Build.MODEL;
-            this.f27018b = str;
-            String replace = str.replace(" ", "-");
-            this.f27018b = replace;
-            return replace;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TextUtils.isEmpty(this.f27561b)) {
+                String str = Build.MODEL;
+                this.f27561b = str;
+                String replace = str.replace(" ", "-");
+                this.f27561b = replace;
+                return replace;
+            }
+            return this.f27561b;
         }
-        return this.f27018b;
+        return (String) invokeV.objValue;
     }
 
     public String e() {
-        if (TextUtils.isEmpty(this.f27019c)) {
-            String encode = Uri.encode(Build.MANUFACTURER);
-            this.f27019c = encode;
-            return encode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.f27562c)) {
+                String encode = Uri.encode(Build.MANUFACTURER);
+                this.f27562c = encode;
+                return encode;
+            }
+            return this.f27562c;
         }
-        return this.f27019c;
+        return (String) invokeV.objValue;
     }
 }

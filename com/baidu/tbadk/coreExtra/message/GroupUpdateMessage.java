@@ -1,9 +1,18 @@
 package com.baidu.tbadk.coreExtra.message;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GroupUpdateMessage implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1071062952403340773L;
+    public transient /* synthetic */ FieldHolder $fh;
     public String authorId;
     public String authorName;
     public String forumId;
@@ -15,83 +24,147 @@ public class GroupUpdateMessage implements Serializable {
     public String nameShow;
     public String portrait;
 
+    public GroupUpdateMessage() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public String getAuthorId() {
-        return this.authorId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.authorId : (String) invokeV.objValue;
     }
 
     public String getAuthorName() {
-        return this.authorName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.authorName : (String) invokeV.objValue;
     }
 
     public String getForumId() {
-        return this.forumId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.forumId : (String) invokeV.objValue;
     }
 
     public int getGrade() {
-        return this.grade;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.grade : invokeV.intValue;
     }
 
     public long getGroupId() {
-        return this.groupId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.groupId : invokeV.longValue;
     }
 
     public int getGroupType() {
-        return this.groupType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.groupType : invokeV.intValue;
     }
 
     public long getLastMsgId() {
-        return this.lastMsgId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.lastMsgId : invokeV.longValue;
     }
 
     public String getName() {
-        return this.name;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.name : (String) invokeV.objValue;
     }
 
     public String getNameShow() {
-        return this.nameShow;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.nameShow : (String) invokeV.objValue;
     }
 
     public String getPortrait() {
-        return this.portrait;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.portrait : (String) invokeV.objValue;
     }
 
     public void setAuthorId(String str) {
-        this.authorId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.authorId = str;
+        }
     }
 
     public void setAuthorName(String str) {
-        this.authorName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.authorName = str;
+        }
     }
 
     public void setForumId(String str) {
-        this.forumId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.forumId = str;
+        }
     }
 
     public void setGrade(int i2) {
-        this.grade = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.grade = i2;
+        }
     }
 
     public void setGroupId(long j) {
-        this.groupId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.groupId = j;
+        }
     }
 
     public void setGroupType(int i2) {
-        this.groupType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.groupType = i2;
+        }
     }
 
     public void setLastMsgId(long j) {
-        this.lastMsgId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.lastMsgId = j;
+        }
     }
 
     public void setName(String str) {
-        this.name = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.name = str;
+        }
     }
 
     public void setNameShow(String str) {
-        this.nameShow = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.nameShow = str;
+        }
     }
 
     public void setPortrait(String str) {
-        this.portrait = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.portrait = str;
+        }
     }
 }

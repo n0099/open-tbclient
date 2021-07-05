@@ -2,8 +2,13 @@ package com.baidu.wallet.remotepay;
 
 import android.content.Intent;
 import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.sapi2.SapiAccount;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.PayCallBackManager;
 import com.baidu.wallet.paysdk.api.BaiduPay;
@@ -11,60 +16,94 @@ import com.baidu.wallet.paysdk.datamodel.PrecashierCreateOrderResponse;
 import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
 import com.baidu.wallet.paysdk.ui.WelcomeActivity;
 import com.baidu.wallet.statistics.api.StatisticManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RemotePaySplashActivity extends PayBaseBeanActivity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26653a;
+    public int f27196a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrecashierCreateOrderResponse f26654b;
+    public PrecashierCreateOrderResponse f27197b;
+
+    public RemotePaySplashActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public void getInstentDatas() {
-        Intent intent = getIntent();
-        if (intent == null) {
-            StatisticManager.onEvent(StatServiceEvent.REMOTE_SPLASH_ACTIVITY_EX_FINISH);
-            PayCallBackManager.callBackClientCancel(this.mAct, "RemotePaySplashActivity.getIntent() is null");
-            finish();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Intent intent = getIntent();
+            if (intent == null) {
+                StatisticManager.onEvent(StatServiceEvent.REMOTE_SPLASH_ACTIVITY_EX_FINISH);
+                PayCallBackManager.callBackClientCancel(this.mAct, "RemotePaySplashActivity.getIntent() is null");
+                finish();
+                return;
+            }
+            this.f27196a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
+            this.f27197b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
         }
-        this.f26653a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
-        this.f26654b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
+        }
     }
 
     public void initView() {
-        setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_activity_for_remote_splash"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_activity_for_remote_splash"));
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_SPLASH_ACTIVITY);
-        setFlagPaySdk();
-        initView();
-        getInstentDatas();
-        startWelcomeActivity();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_SPLASH_ACTIVITY);
+            setFlagPaySdk();
+            initView();
+            getInstentDatas();
+            startWelcomeActivity();
+        }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_SPLASH_ACTIVITY);
-        getInstentDatas();
-        startWelcomeActivity();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
+            super.onNewIntent(intent);
+            StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_SPLASH_ACTIVITY);
+            getInstentDatas();
+            startWelcomeActivity();
+        }
     }
 
     public void startWelcomeActivity() {
-        Intent intent = new Intent(this, WelcomeActivity.class);
-        intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f26653a);
-        PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f26654b;
-        if (precashierCreateOrderResponse != null) {
-            intent.putExtra(BaiduPay.PRECASHIER_PAY_RESPONSE, precashierCreateOrderResponse);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Intent intent = new Intent(this, WelcomeActivity.class);
+            intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f27196a);
+            PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f27197b;
+            if (precashierCreateOrderResponse != null) {
+                intent.putExtra(BaiduPay.PRECASHIER_PAY_RESPONSE, precashierCreateOrderResponse);
+            }
+            startActivity(intent);
         }
-        startActivity(intent);
     }
 }

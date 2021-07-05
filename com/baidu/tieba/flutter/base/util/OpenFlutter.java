@@ -12,6 +12,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
@@ -30,17 +31,23 @@ import com.baidu.tbadk.switchs.FlutterPersonAttentionEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterPersonCenterEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterSignAllEnableSwitch;
 import com.baidu.tieba.flutter.base.view.FlutterPageActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import d.a.c.e.m.e;
 import d.a.c.e.n.a;
 import d.a.c.h.j.g.d;
-import d.a.n0.a.g;
+import d.a.r0.a.g;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OpenFlutter {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
     public static final String ACTIVITY_FANS = "PersonFansList";
     public static final String ACTIVITY_FORUM_DETAIL = "ForumDetail";
@@ -61,183 +68,267 @@ public class OpenFlutter {
     public static final String FRAGMENT_MYTAB = "MyTab";
     public static final String FRAGMENT_NEWCATEGORY = "NewCategoryPage";
     public static final byte TRUE = 1;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public OpenFlutter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static boolean checkPluginEnable(String str) {
-        PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
-        if ((h2 == null || h2.apkPath == null) && !TbadkCoreApplication.getInst().isDebugMode()) {
-            a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-            statsItem.b("page", str);
-            statsItem.b("staticversion", BdStatisticsManager.getInstance().getAppVersion());
-            statsItem.b("version", TbConfig.getVersion());
-            statsItem.b("sub_version", TbConfig.getSubVersion());
-            statsItem.b(com.alipay.sdk.sys.a.j, PluginPackageManager.O().M());
-            statsItem.b("pluginInit", PluginPackageManager.O().M());
-            BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean checkSwitch(String str) {
-        if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
-            return FlutterSignAllEnableSwitch.isOn();
-        }
-        if (str.contains(ACTIVITY_FANS)) {
-            return FlutterPersonAttentionEnableSwitch.isOn();
-        }
-        if (str.contains(ACTIVITY_FORUM_DETAIL)) {
-            return FlutterForumDetailEnableSwitch.isOn();
-        }
-        if (str.contains(ACTIVITY_CONCERN_FORUM)) {
-            return FlutterConcernForumEnableSwitch.isOn();
-        }
-        if (str.contains(ACTIVITY_PERSON_CENTER)) {
-            return FlutterPersonCenterEnableSwitch.isOn();
-        }
-        return true;
-    }
-
-    public static CustomMessage<?> goToFlutter(CustomMessage<?> customMessage) {
-        String str;
-        String name;
-        IntentConfig intentConfig = (IntentConfig) customMessage.getData();
-        if (intentConfig instanceof SignAllForumActivityConfig) {
-            str = ACTIVITY_SIGN_TOGETHER;
-        } else if (intentConfig instanceof PersonListActivityConfig) {
-            if (intentConfig.getIntent().getBooleanExtra("follow", true)) {
-                return customMessage;
-            }
-            str = ACTIVITY_FANS;
-        } else if (intentConfig instanceof ForumDetailActivityConfig) {
-            str = ACTIVITY_FORUM_DETAIL;
-        } else if (intentConfig instanceof PersonBarActivityConfig) {
-            str = ACTIVITY_CONCERN_FORUM;
-        } else if (!(intentConfig instanceof PersonPolymericActivityConfig) && !(intentConfig instanceof PersonInfoActivityConfig)) {
-            return customMessage;
-        } else {
-            e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, TbPageExtraHelper.m()));
-                }
-            }, 100L);
-            str = ACTIVITY_PERSON_CENTER;
-        }
-        if (checkSwitch(str)) {
-            BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
-            serializableMap.setMap(parseParmes(intentConfig, str));
-            if (!intentConfig.getIntent().hasExtra("background_mode")) {
-                Intent intent = intentConfig.getIntent();
-                if (intentConfig.getIntent().getBooleanExtra(EXTRA_TRANSPARANT, false)) {
-                    name = BoostFlutterActivity.BackgroundMode.transparent.name();
-                } else {
-                    name = BoostFlutterActivity.BackgroundMode.opaque.name();
-                }
-                intent.putExtra("background_mode", name);
-            }
-            intentConfig.setComponentClass(FlutterPageActivity.class);
-            intentConfig.getIntent().putExtra("destroy_engine_with_activity", false).putExtra("url", str).putExtra("params", serializableMap);
-            intentConfig.run();
-            return null;
-        }
-        return customMessage;
-    }
-
-    public static boolean openFlutterPage(Context context, String str, Map<String, Object> map) {
-        String name;
-        if (checkSwitch(str)) {
-            Intent intent = new Intent(context, FlutterPageActivity.class);
-            BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
-            serializableMap.setMap(map);
-            if (map.containsKey("animated") && (map.get("animated") instanceof Boolean)) {
-                intent.putExtra("animated", (Boolean) map.get("animated"));
-            }
-            if (map.containsKey(EXTRA_TRANSPARANT) && (map.get(EXTRA_TRANSPARANT) instanceof Boolean)) {
-                if (((Boolean) map.get(EXTRA_TRANSPARANT)).booleanValue()) {
-                    name = BoostFlutterActivity.BackgroundMode.transparent.name();
-                } else {
-                    name = BoostFlutterActivity.BackgroundMode.opaque.name();
-                }
-                intent.putExtra("background_mode", name);
-            }
-            if (map.containsKey("swipeback") && (map.get("swipeback") instanceof Boolean)) {
-                intent.putExtra("swipeback", (Boolean) map.get("swipeback"));
-            }
-            if (map.containsKey("showloading") && (map.get("showloading") instanceof Boolean)) {
-                intent.putExtra("showloading", (Boolean) map.get("showloading"));
-            }
-            int i2 = 10001;
-            if (map.containsKey("requestCode") && (map.get("requestCode") instanceof Integer)) {
-                i2 = ((Integer) map.get("requestCode")).intValue();
-            }
-            if (map != null && map.size() > 0) {
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    if (entry != null && (entry.getValue() instanceof Boolean)) {
-                        map.put(entry.getKey(), Byte.valueOf(((Boolean) entry.getValue()).booleanValue() ? (byte) 1 : (byte) 2));
-                    }
-                }
-            }
-            intent.putExtra("destroy_engine_with_activity", false).putExtra("url", str).putExtra("params", serializableMap);
-            if (context instanceof Activity) {
-                ((Activity) context).startActivityForResult(intent, i2);
-            } else {
-                context.startActivity(intent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
+            if ((h2 == null || h2.apkPath == null) && !TbadkCoreApplication.getInst().isDebugMode()) {
+                a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                statsItem.b("page", str);
+                statsItem.b("staticversion", BdStatisticsManager.getInstance().getAppVersion());
+                statsItem.b("version", TbConfig.getVersion());
+                statsItem.b("sub_version", TbConfig.getSubVersion());
+                statsItem.b(com.alipay.sdk.sys.a.j, PluginPackageManager.O().M());
+                statsItem.b("pluginInit", PluginPackageManager.O().M());
+                BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
+                return false;
             }
             return true;
         }
-        return false;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean checkSwitch(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
+                return FlutterSignAllEnableSwitch.isOn();
+            }
+            if (str.contains(ACTIVITY_FANS)) {
+                return FlutterPersonAttentionEnableSwitch.isOn();
+            }
+            if (str.contains(ACTIVITY_FORUM_DETAIL)) {
+                return FlutterForumDetailEnableSwitch.isOn();
+            }
+            if (str.contains(ACTIVITY_CONCERN_FORUM)) {
+                return FlutterConcernForumEnableSwitch.isOn();
+            }
+            if (str.contains(ACTIVITY_PERSON_CENTER)) {
+                return FlutterPersonCenterEnableSwitch.isOn();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static CustomMessage<?> goToFlutter(CustomMessage<?> customMessage) {
+        InterceptResult invokeL;
+        String str;
+        String name;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, customMessage)) == null) {
+            IntentConfig intentConfig = (IntentConfig) customMessage.getData();
+            if (intentConfig instanceof SignAllForumActivityConfig) {
+                str = ACTIVITY_SIGN_TOGETHER;
+            } else if (intentConfig instanceof PersonListActivityConfig) {
+                if (intentConfig.getIntent().getBooleanExtra("follow", true)) {
+                    return customMessage;
+                }
+                str = ACTIVITY_FANS;
+            } else if (intentConfig instanceof ForumDetailActivityConfig) {
+                str = ACTIVITY_FORUM_DETAIL;
+            } else if (intentConfig instanceof PersonBarActivityConfig) {
+                str = ACTIVITY_CONCERN_FORUM;
+            } else if (!(intentConfig instanceof PersonPolymericActivityConfig) && !(intentConfig instanceof PersonInfoActivityConfig)) {
+                return customMessage;
+            } else {
+                e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, TbPageExtraHelper.m()));
+                        }
+                    }
+                }, 100L);
+                str = ACTIVITY_PERSON_CENTER;
+            }
+            if (checkSwitch(str)) {
+                BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
+                serializableMap.setMap(parseParmes(intentConfig, str));
+                if (!intentConfig.getIntent().hasExtra("background_mode")) {
+                    Intent intent = intentConfig.getIntent();
+                    if (intentConfig.getIntent().getBooleanExtra(EXTRA_TRANSPARANT, false)) {
+                        name = BoostFlutterActivity.BackgroundMode.transparent.name();
+                    } else {
+                        name = BoostFlutterActivity.BackgroundMode.opaque.name();
+                    }
+                    intent.putExtra("background_mode", name);
+                }
+                intentConfig.setComponentClass(FlutterPageActivity.class);
+                intentConfig.getIntent().putExtra("destroy_engine_with_activity", false).putExtra("url", str).putExtra("params", serializableMap);
+                intentConfig.run();
+                return null;
+            }
+            return customMessage;
+        }
+        return (CustomMessage) invokeL.objValue;
+    }
+
+    public static boolean openFlutterPage(Context context, String str, Map<String, Object> map) {
+        InterceptResult invokeLLL;
+        String name;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, map)) == null) {
+            if (checkSwitch(str)) {
+                Intent intent = new Intent(context, FlutterPageActivity.class);
+                BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
+                serializableMap.setMap(map);
+                if (map.containsKey("animated") && (map.get("animated") instanceof Boolean)) {
+                    intent.putExtra("animated", (Boolean) map.get("animated"));
+                }
+                if (map.containsKey(EXTRA_TRANSPARANT) && (map.get(EXTRA_TRANSPARANT) instanceof Boolean)) {
+                    if (((Boolean) map.get(EXTRA_TRANSPARANT)).booleanValue()) {
+                        name = BoostFlutterActivity.BackgroundMode.transparent.name();
+                    } else {
+                        name = BoostFlutterActivity.BackgroundMode.opaque.name();
+                    }
+                    intent.putExtra("background_mode", name);
+                }
+                if (map.containsKey("swipeback") && (map.get("swipeback") instanceof Boolean)) {
+                    intent.putExtra("swipeback", (Boolean) map.get("swipeback"));
+                }
+                if (map.containsKey("showloading") && (map.get("showloading") instanceof Boolean)) {
+                    intent.putExtra("showloading", (Boolean) map.get("showloading"));
+                }
+                int i2 = 10001;
+                if (map.containsKey("requestCode") && (map.get("requestCode") instanceof Integer)) {
+                    i2 = ((Integer) map.get("requestCode")).intValue();
+                }
+                if (map != null && map.size() > 0) {
+                    for (Map.Entry<String, Object> entry : map.entrySet()) {
+                        if (entry != null && (entry.getValue() instanceof Boolean)) {
+                            map.put(entry.getKey(), Byte.valueOf(((Boolean) entry.getValue()).booleanValue() ? (byte) 1 : (byte) 2));
+                        }
+                    }
+                }
+                intent.putExtra("destroy_engine_with_activity", false).putExtra("url", str).putExtra("params", serializableMap);
+                if (context instanceof Activity) {
+                    ((Activity) context).startActivityForResult(intent, i2);
+                } else {
+                    context.startActivity(intent);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 
     public static HashMap parseParmes(IntentConfig intentConfig, String str) {
-        HashMap hashMap = new HashMap();
-        if (ACTIVITY_FANS.equals(str)) {
-            hashMap.put("userId", intentConfig.getIntent().getStringExtra("user_id"));
-            hashMap.put("userSex", String.valueOf(intentConfig.getIntent().getIntExtra("user_sex", 0)));
-            hashMap.put("type", Integer.valueOf(intentConfig.getIntent().getBooleanExtra("follow", true) ? 1 : 2));
-        } else if (ACTIVITY_FORUM_DETAIL.equals(str)) {
-            hashMap.put("_forumId", intentConfig.getIntent().getStringExtra("forum_id"));
-            if (intentConfig instanceof ForumDetailActivityConfig) {
-                hashMap.put("forum_tabs", ((ForumDetailActivityConfig) intentConfig).tabs);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, intentConfig, str)) == null) {
+            HashMap hashMap = new HashMap();
+            if (ACTIVITY_FANS.equals(str)) {
+                hashMap.put("userId", intentConfig.getIntent().getStringExtra("user_id"));
+                hashMap.put("userSex", String.valueOf(intentConfig.getIntent().getIntExtra("user_sex", 0)));
+                hashMap.put("type", Integer.valueOf(intentConfig.getIntent().getBooleanExtra("follow", true) ? 1 : 2));
+            } else if (ACTIVITY_FORUM_DETAIL.equals(str)) {
+                hashMap.put("_forumId", intentConfig.getIntent().getStringExtra("forum_id"));
+                if (intentConfig instanceof ForumDetailActivityConfig) {
+                    hashMap.put("forum_tabs", ((ForumDetailActivityConfig) intentConfig).tabs);
+                }
+            } else if (ACTIVITY_CONCERN_FORUM.equals(str)) {
+                hashMap.put("userId", intentConfig.getIntent().getStringExtra("key_uid"));
+                hashMap.put("userSex", String.valueOf(intentConfig.getIntent().getIntExtra("key_sex", 0)));
+                hashMap.put("likeBarsCount", String.valueOf(intentConfig.getIntent().getIntExtra(PersonBarActivityConfig.LIKE_BARS_COUNT, 0)));
+                hashMap.put("currentTab", String.valueOf(intentConfig.getIntent().getIntExtra("key_current_tab", 0)));
+                hashMap.put("isChooseBarMode", String.valueOf(intentConfig.getIntent().getBooleanExtra(PersonBarActivityConfig.IS_CHOOSE_BAR_MODE, false)));
+                hashMap.put("requestCode", String.valueOf(intentConfig.getIntent().getIntExtra("tb_request_code", 0)));
+                hashMap.put("barId", intentConfig.getIntent().getStringExtra(PersonBarActivityConfig.BAR_ID));
+            } else if (ACTIVITY_PERSON_CENTER.equals(str)) {
+                String stringExtra = intentConfig.getIntent().getStringExtra("user_id");
+                if (!TextUtils.isEmpty(stringExtra)) {
+                    hashMap.put("uid", stringExtra);
+                } else {
+                    hashMap.put("uid", String.valueOf(intentConfig.getIntent().getLongExtra("user_id", 0L)));
+                }
+                hashMap.put("abstatus", d.a.r0.b.d.a() ? "1" : "0");
             }
-        } else if (ACTIVITY_CONCERN_FORUM.equals(str)) {
-            hashMap.put("userId", intentConfig.getIntent().getStringExtra("key_uid"));
-            hashMap.put("userSex", String.valueOf(intentConfig.getIntent().getIntExtra("key_sex", 0)));
-            hashMap.put("likeBarsCount", String.valueOf(intentConfig.getIntent().getIntExtra(PersonBarActivityConfig.LIKE_BARS_COUNT, 0)));
-            hashMap.put("currentTab", String.valueOf(intentConfig.getIntent().getIntExtra("key_current_tab", 0)));
-            hashMap.put("isChooseBarMode", String.valueOf(intentConfig.getIntent().getBooleanExtra(PersonBarActivityConfig.IS_CHOOSE_BAR_MODE, false)));
-            hashMap.put("requestCode", String.valueOf(intentConfig.getIntent().getIntExtra("tb_request_code", 0)));
-            hashMap.put("barId", intentConfig.getIntent().getStringExtra(PersonBarActivityConfig.BAR_ID));
-        } else if (ACTIVITY_PERSON_CENTER.equals(str)) {
-            String stringExtra = intentConfig.getIntent().getStringExtra("user_id");
-            if (!TextUtils.isEmpty(stringExtra)) {
-                hashMap.put("uid", stringExtra);
-            } else {
-                hashMap.put("uid", String.valueOf(intentConfig.getIntent().getLongExtra("user_id", 0L)));
+            if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
+                parseUriParmes(str, hashMap, (Uri) intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI));
             }
-            hashMap.put("abstatus", d.a.n0.b.d.a() ? "1" : "0");
+            return hashMap;
         }
-        if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
-            parseUriParmes(str, hashMap, (Uri) intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI));
-        }
-        return hashMap;
+        return (HashMap) invokeLL.objValue;
     }
 
-    public static void parseUriParmes(String str, final HashMap<String, Object> hashMap, Uri uri) {
+    public static void parseUriParmes(String str, HashMap<String, Object> hashMap, Uri uri) {
         Map<String, String> paramPair;
         int i2;
         String substring;
-        if (ACTIVITY_PERSON_CENTER.equals(str)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (g.c(uri)) {
-                g.b().h(uri, new g.b() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
-                    @Override // d.a.n0.a.g.b
+                g.b().h(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ HashMap val$params;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {hashMap};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.val$params = hashMap;
+                    }
+
+                    @Override // d.a.r0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
-                        if (hashMap2 != null && (hashMap2.get(g.t) instanceof String)) {
-                            String str2 = (String) hashMap2.get(g.t);
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) && hashMap2 != null && (hashMap2.get(g.u) instanceof String)) {
+                            String str2 = (String) hashMap2.get(g.u);
                             if (StringUtils.isNull(str2)) {
                                 return;
                             }
-                            hashMap.put("portrait", str2);
+                            this.val$params.put("portrait", str2);
                         }
                     }
                 });

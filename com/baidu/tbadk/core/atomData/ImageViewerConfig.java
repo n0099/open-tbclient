@@ -5,20 +5,28 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import d.a.n0.c1.b.e;
-import d.a.n0.r.q.a2;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.c1.b.e;
+import d.a.r0.r.q.b2;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImageViewerConfig extends IntentConfig {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ABTEST = "abtest";
     public static final String ACCOUNT_BDUSS = "account_bduss";
     public static final String ACCOUNT_STOKEN = "account_stoken";
@@ -66,183 +74,330 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String THREAD_TYPE = "thread_type";
     public static final String URL = "url";
     public static final String USER_ID = "user_id";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
     public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f12166a;
+        public ArrayList<String> f12219a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f12220b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12168c;
+        public String f12221c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f12222d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f12223e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12171f;
+        public boolean f12224f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f12172g;
+        public String f12225g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f12173h;
+        public boolean f12226h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ConcurrentHashMap<String, ImageUrlData> f12174i;
+        public ConcurrentHashMap<String, ImageUrlData> f12227i;
         public boolean j;
         public boolean k;
-        public a2 m;
+        public boolean l;
+        public b2 m;
         public String n;
         public String o;
+        public boolean p;
         public Rect q;
         public RectF r;
+        public boolean s;
         public boolean t;
         public boolean u;
 
-        /* renamed from: b  reason: collision with root package name */
-        public int f12167b = 0;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f12169d = "";
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f12170e = "";
-        public boolean l = false;
-        public boolean p = true;
-        public boolean s = true;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12220b = 0;
+            this.f12222d = "";
+            this.f12223e = "";
+            this.l = false;
+            this.p = true;
+            this.s = true;
+        }
 
         public b A(String str) {
-            this.n = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                this.n = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
 
         public b B(int i2) {
-            this.f12167b = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+                this.f12220b = i2;
+                return this;
+            }
+            return (b) invokeI.objValue;
         }
 
         public b C(boolean z) {
-            this.f12171f = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.f12224f = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
         }
 
         public b D(boolean z) {
-            this.p = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.p = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
         }
 
         public b E(boolean z) {
-            this.t = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.t = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
         }
 
         public b F(boolean z) {
-            this.f12173h = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.f12226h = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
         }
 
         public b G(boolean z) {
-            this.l = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+                this.l = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
         }
 
         public b H(boolean z) {
-            this.j = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.j = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
         }
 
         public b I(boolean z) {
-            this.s = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+                this.s = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
         }
 
         public b J(String str) {
-            this.f12172g = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+                this.f12225g = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
 
         public b K(boolean z) {
-            this.k = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+                this.k = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
         }
 
         public b L(String str) {
-            this.o = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+                this.o = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
 
         public b M(Rect rect, RectF rectF) {
-            this.q = rect;
-            this.r = rectF;
-            return this;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, rect, rectF)) == null) {
+                this.q = rect;
+                this.r = rectF;
+                return this;
+            }
+            return (b) invokeLL.objValue;
         }
 
-        public b N(a2 a2Var) {
-            this.m = a2Var;
-            return this;
+        public b N(b2 b2Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, b2Var)) == null) {
+                this.m = b2Var;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
 
         public b O(String str) {
-            this.f12170e = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+                this.f12223e = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
 
         public ImageViewerConfig v(Context context) {
-            return new ImageViewerConfig(context, this);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) ? new ImageViewerConfig(context, this, null) : (ImageViewerConfig) invokeL.objValue;
         }
 
         public b w(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            this.f12174i = concurrentHashMap;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, concurrentHashMap)) == null) {
+                this.f12227i = concurrentHashMap;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
 
         public b x(ArrayList<String> arrayList) {
-            this.f12166a = arrayList;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, arrayList)) == null) {
+                this.f12219a = arrayList;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
 
         public b y(String str) {
-            this.f12169d = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+                this.f12222d = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
 
         public b z(String str) {
-            this.f12168c = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+                this.f12221c = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
     }
 
+    public /* synthetic */ ImageViewerConfig(Context context, b bVar, a aVar) {
+        this(context, bVar);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImageViewerConfig(Context context, b bVar) {
         super(context);
         Intent intent;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         if (bVar == null || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (bVar.f12166a != null && bVar.f12166a.size() > 0) {
+        if (bVar.f12219a != null && bVar.f12219a.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", bVar.f12166a);
-            intent.putExtra("index", bVar.f12167b);
+            intent.putStringArrayListExtra("url", bVar.f12219a);
+            intent.putExtra("index", bVar.f12220b);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, bVar.f12171f);
-            intent.putExtra("fname", bVar.f12168c);
-            intent.putExtra("fid", bVar.f12169d);
-            intent.putExtra("tid", bVar.f12170e);
-            intent.putExtra(LAST_ID, bVar.f12172g);
-            intent.putExtra(REVERSE_MODE, bVar.f12173h);
-            intent.putExtra(ASSIST_URLS, bVar.f12174i);
+            intent.putExtra(PARAM_IS_CDN, bVar.f12224f);
+            intent.putExtra("fname", bVar.f12221c);
+            intent.putExtra("fid", bVar.f12222d);
+            intent.putExtra("tid", bVar.f12223e);
+            intent.putExtra(LAST_ID, bVar.f12225g);
+            intent.putExtra(REVERSE_MODE, bVar.f12226h);
+            intent.putExtra(ASSIST_URLS, bVar.f12227i);
             intent.putExtra(IS_SHOW_AD, bVar.j);
             intent.putExtra(NEED_BROADCAST, bVar.k);
             intent.putExtra(SEE_HOST, bVar.l);
-            int size = bVar.f12166a.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                String str = (String) bVar.f12166a.get(i2);
+            int size = bVar.f12219a.size();
+            for (int i4 = 0; i4 < size; i4++) {
+                String str = (String) bVar.f12219a.get(i4);
                 if (!StringUtils.isNull(str)) {
-                    ImageUrlData imageUrlData = bVar.f12174i != null ? (ImageUrlData) bVar.f12174i.get(str) : null;
+                    ImageUrlData imageUrlData = bVar.f12227i != null ? (ImageUrlData) bVar.f12227i.get(str) : null;
                     if (imageUrlData == null) {
                         imageUrlData = new ImageUrlData();
                         imageUrlData.imageUrl = str;
                     }
-                    imageUrlData.overAllIndex = i2 + 1;
+                    imageUrlData.overAllIndex = i4 + 1;
                 }
             }
             TbadkCoreApplication.getInst();
@@ -258,17 +413,17 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
         }
         if (bVar.m != null) {
-            intent.putExtra(IS_BJH, bVar.m.C2());
-            if (bVar.m.C2()) {
+            intent.putExtra(IS_BJH, bVar.m.p2());
+            if (bVar.m.p2()) {
                 intent.putExtra(PARAM_IS_CDN, true);
             }
-            intent.putExtra("nid", bVar.m.M0());
-            intent.putExtra("card_type", bVar.m.W0());
+            intent.putExtra("nid", bVar.m.A0());
+            intent.putExtra("card_type", bVar.m.L0());
             intent.putExtra("recom_source", bVar.m.T0);
             intent.putExtra("ab_tag", bVar.m.V0);
             intent.putExtra("weight", bVar.m.U0);
             intent.putExtra("extra", bVar.m.W0);
-            if (bVar.m.E2()) {
+            if (bVar.m.r2()) {
                 intent.putExtra(IS_VIDEO_WORKS_INFO, true);
             }
         }

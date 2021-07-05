@@ -1,49 +1,91 @@
 package com.baidu.wallet.paysdk.fingerprint.bean;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.restnet.RestNameValuePair;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends PayBaseBean {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25462a;
+    public String f26005a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
         super(context);
-        this.f25462a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f26005a = null;
     }
 
     public void a(String str) {
-        this.f25462a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f26005a = str;
+        }
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
-        execBean(String.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            execBean(String.class);
+        }
     }
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
-        ArrayList arrayList = new ArrayList();
-        if (this.f25462a != null) {
-            arrayList.add(new RestNameValuePair("serial_num", SafePay.getInstance().encryptProxy(this.f25462a)));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (this.f26005a != null) {
+                arrayList.add(new RestNameValuePair("serial_num", SafePay.getInstance().encryptProxy(this.f26005a)));
+            }
+            arrayList.add(new RestNameValuePair("pay_type", "1"));
+            return arrayList;
         }
-        arrayList.add(new RestNameValuePair("pay_type", "1"));
-        return arrayList;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        return FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_CLOSE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_CLOSE : invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
-        return DomainConfig.getInstance().getAppPayHost() + "/_u/otp/closetoken";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return DomainConfig.getInstance().getAppPayHost() + "/_u/otp/closetoken";
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -4,6 +4,12 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -16,134 +22,190 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class an {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f41833a;
+    public static long f43576a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41834a;
+        public int f43577a;
 
         /* renamed from: a  reason: collision with other field name */
-        public byte[] f888a;
+        public byte[] f891a;
 
         public a(byte[] bArr, int i2) {
-            this.f888a = bArr;
-            this.f41834a = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bArr, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f891a = bArr;
+            this.f43577a = i2;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f41835a;
+        public long f43578a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Bitmap f889a;
+        public Bitmap f892a;
 
         public b(Bitmap bitmap, long j) {
-            this.f889a = bitmap;
-            this.f41835a = j;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bitmap, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f892a = bitmap;
+            this.f43578a = j;
         }
     }
 
     public static int a(Context context, InputStream inputStream) {
+        InterceptResult invokeLL;
         int i2;
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeStream(inputStream, null, options);
-        if (options.outWidth == -1 || options.outHeight == -1) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("decode dimension failed for bitmap.");
-            return 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, inputStream)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeStream(inputStream, null, options);
+            if (options.outWidth == -1 || options.outHeight == -1) {
+                com.xiaomi.channel.commonutils.logger.b.m70a("decode dimension failed for bitmap.");
+                return 1;
+            }
+            int round = Math.round((context.getResources().getDisplayMetrics().densityDpi / 160.0f) * 48.0f);
+            int i3 = options.outWidth;
+            if (i3 <= round || (i2 = options.outHeight) <= round) {
+                return 1;
+            }
+            return Math.min(i3 / round, i2 / round);
         }
-        int round = Math.round((context.getResources().getDisplayMetrics().densityDpi / 160.0f) * 48.0f);
-        int i3 = options.outWidth;
-        if (i3 <= round || (i2 = options.outHeight) <= round) {
-            return 1;
-        }
-        return Math.min(i3 / round, i2 / round);
+        return invokeLL.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x002d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x002f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0031 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v0 */
-    /* JADX WARN: Type inference failed for: r0v1 */
-    /* JADX WARN: Type inference failed for: r0v2, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v2 */
     /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5 */
+    /* JADX WARN: Type inference failed for: r1v6, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r1v9, types: [java.io.Closeable, java.io.InputStream] */
     public static Bitmap a(Context context, String str) {
+        ?? r1;
+        InterceptResult invokeLL;
         InputStream inputStream;
-        InputStream inputStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = (r1 = interceptable).invokeLL(65537, null, context, str)) != null) {
+            return (Bitmap) invokeLL.objValue;
+        }
         Uri parse = Uri.parse(str);
         ?? r0 = 0;
         r0 = 0;
         try {
             try {
-                inputStream = context.getContentResolver().openInputStream(parse);
+                r1 = context.getContentResolver().openInputStream(parse);
             } catch (Throwable th) {
                 th = th;
                 r0 = context;
             }
         } catch (IOException e2) {
             e = e2;
-            inputStream2 = null;
             inputStream = null;
+            r1 = 0;
         } catch (Throwable th2) {
             th = th2;
-            inputStream = null;
+            r1 = 0;
         }
         try {
-            int a2 = a(context, inputStream);
-            inputStream2 = context.getContentResolver().openInputStream(parse);
+            int a2 = a(context, (InputStream) r1);
+            inputStream = context.getContentResolver().openInputStream(parse);
             try {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = a2;
-                Bitmap decodeStream = BitmapFactory.decodeStream(inputStream2, null, options);
-                com.xiaomi.push.y.a(inputStream2);
+                Bitmap decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
                 com.xiaomi.push.y.a(inputStream);
+                com.xiaomi.push.y.a((Closeable) r1);
                 return decodeStream;
             } catch (IOException e3) {
                 e = e3;
                 com.xiaomi.channel.commonutils.logger.b.a(e);
-                com.xiaomi.push.y.a(inputStream2);
                 com.xiaomi.push.y.a(inputStream);
+                com.xiaomi.push.y.a((Closeable) r1);
                 return null;
             }
         } catch (IOException e4) {
             e = e4;
-            inputStream2 = null;
+            inputStream = null;
         } catch (Throwable th3) {
             th = th3;
             com.xiaomi.push.y.a((Closeable) r0);
-            com.xiaomi.push.y.a(inputStream);
+            com.xiaomi.push.y.a((Closeable) r1);
             throw th;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00dd, code lost:
-        if (r1 == null) goto L51;
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00e1, code lost:
+        if (r1 == null) goto L53;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x00df, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x00e3, code lost:
         r1.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x00fc, code lost:
-        if (r1 == null) goto L51;
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0100, code lost:
+        if (r1 == null) goto L53;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x00ff, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x0103, code lost:
         return null;
      */
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0101: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:64:0x0101 */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0105: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:66:0x0105 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static a a(String str, boolean z) {
+        InterceptResult invokeLZ;
         HttpURLConnection httpURLConnection;
         InputStream inputStream;
         Closeable closeable;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) != null) {
+            return (a) invokeLZ.objValue;
+        }
         Closeable closeable2 = null;
         try {
             try {
@@ -170,7 +232,7 @@ public class an {
             httpURLConnection.connect();
             int contentLength = httpURLConnection.getContentLength();
             if (z && contentLength > 102400) {
-                com.xiaomi.channel.commonutils.logger.b.m56a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
+                com.xiaomi.channel.commonutils.logger.b.m70a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
                 com.xiaomi.push.y.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -179,7 +241,7 @@ public class an {
             }
             int responseCode = httpURLConnection.getResponseCode();
             if (responseCode != 200) {
-                com.xiaomi.channel.commonutils.logger.b.m56a("Invalid Http Response Code " + responseCode + " received");
+                com.xiaomi.channel.commonutils.logger.b.m70a("Invalid Http Response Code " + responseCode + " received");
                 com.xiaomi.push.y.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -200,7 +262,7 @@ public class an {
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
                 if (i2 <= 0) {
-                    com.xiaomi.channel.commonutils.logger.b.m56a("length 102400 exhausted.");
+                    com.xiaomi.channel.commonutils.logger.b.m70a("length 102400 exhausted.");
                     a aVar = new a(null, 102400);
                     com.xiaomi.push.y.a(inputStream);
                     if (httpURLConnection != null) {
@@ -239,15 +301,20 @@ public class an {
     }
 
     public static b a(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
         a a2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65539, null, context, str, z)) != null) {
+            return (b) invokeLLZ.objValue;
+        }
         ByteArrayInputStream byteArrayInputStream = null;
         b bVar = new b(null, 0L);
         Bitmap b2 = b(context, str);
+        if (b2 != null) {
+            bVar.f892a = b2;
+            return bVar;
+        }
         try {
-            if (b2 != null) {
-                bVar.f889a = b2;
-                return bVar;
-            }
             try {
                 a2 = a(str, z);
             } catch (Exception e2) {
@@ -257,8 +324,8 @@ public class an {
                 com.xiaomi.push.y.a((Closeable) null);
                 return bVar;
             }
-            bVar.f41835a = a2.f41834a;
-            byte[] bArr = a2.f888a;
+            bVar.f43578a = a2.f43577a;
+            byte[] bArr = a2.f891a;
             if (bArr != null) {
                 if (z) {
                     ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(bArr);
@@ -266,7 +333,7 @@ public class an {
                         int a3 = a(context, byteArrayInputStream2);
                         BitmapFactory.Options options = new BitmapFactory.Options();
                         options.inSampleSize = a3;
-                        bVar.f889a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                        bVar.f892a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                         byteArrayInputStream = byteArrayInputStream2;
                     } catch (Exception e3) {
                         e = e3;
@@ -281,10 +348,10 @@ public class an {
                         throw th;
                     }
                 } else {
-                    bVar.f889a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                    bVar.f892a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                 }
             }
-            a(context, a2.f888a, str);
+            a(context, a2.f891a, str);
             com.xiaomi.push.y.a(byteArrayInputStream);
             return bVar;
         } catch (Throwable th2) {
@@ -293,148 +360,143 @@ public class an {
     }
 
     public static void a(Context context) {
-        File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
-        if (file.exists()) {
-            if (f41833a == 0) {
-                f41833a = com.xiaomi.push.x.a(file);
-            }
-            if (f41833a > 15728640) {
-                try {
-                    File[] listFiles = file.listFiles();
-                    for (int i2 = 0; i2 < listFiles.length; i2++) {
-                        if (!listFiles[i2].isDirectory() && Math.abs(System.currentTimeMillis() - listFiles[i2].lastModified()) > 1209600) {
-                            listFiles[i2].delete();
-                        }
-                    }
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+            File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
+            if (file.exists()) {
+                if (f43576a == 0) {
+                    f43576a = com.xiaomi.push.x.a(file);
                 }
-                f41833a = 0L;
+                if (f43576a > 15728640) {
+                    try {
+                        File[] listFiles = file.listFiles();
+                        for (int i2 = 0; i2 < listFiles.length; i2++) {
+                            if (!listFiles[i2].isDirectory() && Math.abs(System.currentTimeMillis() - listFiles[i2].lastModified()) > 1209600) {
+                                listFiles[i2].delete();
+                            }
+                        }
+                    } catch (Exception e2) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e2);
+                    }
+                    f43576a = 0L;
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0064 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00a9 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0041 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x007c  */
-    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r0v0, types: [java.io.File] */
-    /* JADX WARN: Type inference failed for: r0v1 */
-    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.OutputStream, java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r0v5 */
-    /* JADX WARN: Type inference failed for: r0v7, types: [int] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0080  */
+    /* JADX WARN: Removed duplicated region for block: B:47:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void a(Context context, byte[] bArr, String str) {
-        Closeable closeable;
+        FileOutputStream fileOutputStream;
         BufferedOutputStream bufferedOutputStream;
-        if (bArr == null) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("cannot save small icon cause bitmap is null");
-            return;
-        }
-        a(context);
-        ?? file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        File file2 = new File((File) file, com.xiaomi.push.bm.a(str));
-        BufferedOutputStream bufferedOutputStream2 = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, bArr, str) == null) {
+            if (bArr == null) {
+                com.xiaomi.channel.commonutils.logger.b.m70a("cannot save small icon cause bitmap is null");
+                return;
+            }
+            a(context);
+            File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File file2 = new File(file, com.xiaomi.push.bm.a(str));
+            BufferedOutputStream bufferedOutputStream2 = null;
             try {
                 if (!file2.exists()) {
                     file2.createNewFile();
                 }
-                file = new FileOutputStream(file2);
+                fileOutputStream = new FileOutputStream(file2);
                 try {
-                    bufferedOutputStream = new BufferedOutputStream(file);
-                } catch (Exception e2) {
-                    e = e2;
+                    try {
+                        bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th) {
+                    th = th;
                 }
-            } catch (Throwable th) {
-                th = th;
+                try {
+                    bufferedOutputStream.write(bArr);
+                    bufferedOutputStream.flush();
+                    com.xiaomi.push.y.a(bufferedOutputStream);
+                } catch (Exception e3) {
+                    e = e3;
+                    bufferedOutputStream2 = bufferedOutputStream;
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    com.xiaomi.push.y.a(bufferedOutputStream2);
+                    com.xiaomi.push.y.a(fileOutputStream);
+                    if (f43576a != 0) {
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedOutputStream2 = bufferedOutputStream;
+                    com.xiaomi.push.y.a(bufferedOutputStream2);
+                    com.xiaomi.push.y.a(fileOutputStream);
+                    throw th;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                fileOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileOutputStream = null;
             }
-        } catch (Exception e3) {
-            e = e3;
-            file = 0;
-        } catch (Throwable th2) {
-            th = th2;
-            file = 0;
-        }
-        try {
-            bufferedOutputStream.write(bArr);
-            bufferedOutputStream.flush();
-            com.xiaomi.push.y.a(bufferedOutputStream);
-            closeable = file;
-        } catch (Exception e4) {
-            e = e4;
-            bufferedOutputStream2 = bufferedOutputStream;
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            com.xiaomi.push.y.a(bufferedOutputStream2);
-            closeable = file;
-            com.xiaomi.push.y.a(closeable);
-            file = (f41833a > 0L ? 1 : (f41833a == 0L ? 0 : -1));
-            if (file != 0) {
+            com.xiaomi.push.y.a(fileOutputStream);
+            if (f43576a != 0) {
+                f43576a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
             }
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedOutputStream2 = bufferedOutputStream;
-            com.xiaomi.push.y.a(bufferedOutputStream2);
-            com.xiaomi.push.y.a((Closeable) file);
-            throw th;
-        }
-        com.xiaomi.push.y.a(closeable);
-        file = (f41833a > 0L ? 1 : (f41833a == 0L ? 0 : -1));
-        if (file != 0) {
-            f41833a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
         }
     }
 
     public static Bitmap b(Context context, String str) {
+        InterceptResult invokeLL;
         Throwable th;
         FileInputStream fileInputStream;
         Bitmap bitmap;
-        File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon", com.xiaomi.push.bm.a(str));
-        FileInputStream fileInputStream2 = null;
-        Bitmap bitmap2 = null;
-        fileInputStream2 = null;
-        if (file.exists()) {
-            try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+            File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon", com.xiaomi.push.bm.a(str));
+            FileInputStream fileInputStream2 = null;
+            Bitmap bitmap2 = null;
+            fileInputStream2 = null;
+            if (file.exists()) {
                 try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (Exception e2) {
-                    e = e2;
-                    bitmap = null;
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (Exception e2) {
+                        e = e2;
+                        bitmap = null;
+                    }
+                } catch (Throwable th2) {
+                    FileInputStream fileInputStream3 = fileInputStream2;
+                    th = th2;
+                    fileInputStream = fileInputStream3;
                 }
-            } catch (Throwable th2) {
-                FileInputStream fileInputStream3 = fileInputStream2;
-                th = th2;
-                fileInputStream = fileInputStream3;
+                try {
+                    bitmap2 = BitmapFactory.decodeStream(fileInputStream);
+                    file.setLastModified(System.currentTimeMillis());
+                    com.xiaomi.push.y.a(fileInputStream);
+                    return bitmap2;
+                } catch (Exception e3) {
+                    e = e3;
+                    Bitmap bitmap3 = bitmap2;
+                    fileInputStream2 = fileInputStream;
+                    bitmap = bitmap3;
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    com.xiaomi.push.y.a(fileInputStream2);
+                    return bitmap;
+                } catch (Throwable th3) {
+                    th = th3;
+                    com.xiaomi.push.y.a(fileInputStream);
+                    throw th;
+                }
             }
-            try {
-                bitmap2 = BitmapFactory.decodeStream(fileInputStream);
-                file.setLastModified(System.currentTimeMillis());
-                com.xiaomi.push.y.a(fileInputStream);
-                return bitmap2;
-            } catch (Exception e3) {
-                e = e3;
-                Bitmap bitmap3 = bitmap2;
-                fileInputStream2 = fileInputStream;
-                bitmap = bitmap3;
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                com.xiaomi.push.y.a(fileInputStream2);
-                return bitmap;
-            } catch (Throwable th3) {
-                th = th3;
-                com.xiaomi.push.y.a(fileInputStream);
-                throw th;
-            }
+            return null;
         }
-        return null;
+        return (Bitmap) invokeLL.objValue;
     }
 }

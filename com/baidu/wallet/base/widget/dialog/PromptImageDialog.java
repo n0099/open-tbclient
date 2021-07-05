@@ -3,83 +3,212 @@ package com.baidu.wallet.base.widget.dialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.model.ImageDialogModel;
 import com.baidu.wallet.base.widget.dialog.view.ImageDialogAdapter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PromptImageDialog extends WalletDialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageDialogModel f23813a;
+    public ImageDialogModel f24356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f23814b;
+    public View.OnClickListener f24357b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromptImageDialog(Context context) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
-        this.f23813a = new ImageDialogModel();
-        this.f23814b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24356a = new ImageDialogModel();
+        this.f24357b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ PromptImageDialog f24358a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f24358a = this;
+            }
+
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PromptImageDialog.this.dismiss();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    this.f24358a.dismiss();
+                }
             }
         };
         a();
     }
 
     private void a() {
-        ImageDialogModel imageDialogModel = this.f23813a;
-        imageDialogModel.defaultClickListener = this.f23814b;
-        setAdapter(new ImageDialogAdapter(imageDialogModel));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            ImageDialogModel imageDialogModel = this.f24356a;
+            imageDialogModel.defaultClickListener = this.f24357b;
+            setAdapter(new ImageDialogAdapter(imageDialogModel));
+        }
     }
 
     public void setButtonText(String str) {
-        this.f23813a.buttonText = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f24356a.buttonText = str;
+        }
     }
 
     public void setImage(int i2) {
-        this.f23813a.imageId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.f24356a.imageId = i2;
+        }
     }
 
     public void setMessage(int i2) {
-        this.f23813a.messageId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.f24356a.messageId = i2;
+        }
     }
 
     public void setMessageTemp(String str) {
-        this.f23813a.messageTemp = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f24356a.messageTemp = str;
+        }
     }
 
     public void setTitleMessage(int i2) {
-        this.f23813a.titleTextId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.f24356a.titleTextId = i2;
+        }
     }
 
     public void setButtonText(int i2) {
-        this.f23813a.buttonTextId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.f24356a.buttonTextId = i2;
+        }
     }
 
     public void setImage(Drawable drawable) {
-        this.f23813a.imageDrawable = drawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
+            this.f24356a.imageDrawable = drawable;
+        }
     }
 
     public void setMessage(String str) {
-        this.f23813a.message = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f24356a.message = str;
+        }
     }
 
     public void setMessageTemp(int i2) {
-        this.f23813a.messageTempId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.f24356a.messageTempId = i2;
+        }
     }
 
     public void setTitleMessage(String str) {
-        this.f23813a.titleText = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f24356a.titleText = str;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromptImageDialog(Context context, int i2) {
         super(context, i2);
-        this.f23813a = new ImageDialogModel();
-        this.f23814b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24356a = new ImageDialogModel();
+        this.f24357b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ PromptImageDialog f24358a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr3;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f24358a = this;
+            }
+
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PromptImageDialog.this.dismiss();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    this.f24358a.dismiss();
+                }
             }
         };
         a();

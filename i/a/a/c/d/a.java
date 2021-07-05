@@ -1,33 +1,60 @@
 package i.a.a.c.d;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a implements Interceptor {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72145a;
+    public int f75737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72146b = 0;
+    public int f75738b;
 
     public a(int i2) {
-        this.f72145a = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f75738b = 0;
+        this.f75737a = i2;
     }
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
         int i2;
-        Request request = chain.request();
-        Response proceed = chain.proceed(request);
-        while (!proceed.isSuccessful() && (i2 = this.f72146b) < this.f72145a) {
-            this.f72146b = i2 + 1;
-            proceed = chain.proceed(request);
-            RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.f72145a), Integer.valueOf(this.f72146b));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+            Request request = chain.request();
+            Response proceed = chain.proceed(request);
+            while (!proceed.isSuccessful() && (i2 = this.f75738b) < this.f75737a) {
+                this.f75738b = i2 + 1;
+                proceed = chain.proceed(request);
+                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.f75737a), Integer.valueOf(this.f75738b));
+            }
+            return proceed;
         }
-        return proceed;
+        return (Response) invokeL.objValue;
     }
 }

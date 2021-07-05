@@ -2,142 +2,208 @@ package com.baidu.tieba.imageProblem.data;
 
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.n.a;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CDNLogSyncData {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f17842a;
+    public boolean f17968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17843b;
+    public int f17969b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17844c;
+    public int f17970c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f17845d;
+    public int f17971d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17846e = 25;
+    public int f17972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17847f = 25;
+    public int f17973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17848g = 10;
+    public int f17974g;
+
+    public CDNLogSyncData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f17972e = 25;
+        this.f17973f = 25;
+        this.f17974g = 10;
+    }
 
     public final void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
             if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1) {
-                this.f17842a = true;
+                this.f17968a = true;
             } else {
-                this.f17842a = false;
+                this.f17968a = false;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
             if (optJSONObject != null) {
-                this.f17845d = optJSONObject.optInt("num");
+                this.f17971d = optJSONObject.optInt("num");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
             if (optJSONObject2 != null) {
-                this.f17844c = optJSONObject2.optInt("time");
-                this.f17843b = optJSONObject2.optInt("num");
+                this.f17970c = optJSONObject2.optInt("time");
+                this.f17969b = optJSONObject2.optInt("num");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
             if (optJSONObject3 != null) {
-                this.f17846e = optJSONObject3.optInt("succ");
-                this.f17847f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                this.f17848g = optJSONObject3.optInt("slow");
+                this.f17972e = optJSONObject3.optInt("succ");
+                this.f17973f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                this.f17974g = optJSONObject3.optInt("slow");
             }
-            if (this.f17844c <= 0 || this.f17843b <= 0 || this.f17845d <= 0) {
-                this.f17842a = false;
+            if (this.f17970c <= 0 || this.f17969b <= 0 || this.f17971d <= 0) {
+                this.f17968a = false;
             }
         } catch (Exception e2) {
-            this.f17842a = false;
+            this.f17968a = false;
             BdLog.e(e2.getMessage());
         }
     }
 
     public int getErrNumber() {
-        return this.f17845d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17971d : invokeV.intValue;
     }
 
     public int getErrRank() {
-        return this.f17847f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17973f : invokeV.intValue;
     }
 
     public int getSlowNumber() {
-        return this.f17843b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17969b : invokeV.intValue;
     }
 
     public int getSlowRank() {
-        return this.f17848g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17974g : invokeV.intValue;
     }
 
     public int getSuccRank() {
-        return this.f17846e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17972e : invokeV.intValue;
     }
 
     public int getTime() {
-        return this.f17844c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17970c : invokeV.intValue;
     }
 
     public boolean ismSwitch() {
-        return this.f17842a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17968a : invokeV.booleanValue;
     }
 
     public void parseJson(String str) {
-        try {
-            if (TextUtils.isEmpty(str)) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                a(new JSONObject(str));
+            } catch (Exception e2) {
+                this.f17968a = false;
+                BdLog.e(e2.getMessage());
             }
-            a(new JSONObject(str));
-        } catch (Exception e2) {
-            this.f17842a = false;
-            BdLog.e(e2.getMessage());
         }
     }
 
     public void setErrNumber(int i2) {
-        this.f17845d = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.f17971d = i2;
+        }
     }
 
     public void setErrRank(int i2) {
-        this.f17847f = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f17973f = i2;
+        }
     }
 
     public void setSlowNumber(int i2) {
-        this.f17843b = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.f17969b = i2;
+        }
     }
 
     public void setSlowRank(int i2) {
-        this.f17848g = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.f17974g = i2;
+        }
     }
 
     public void setSuccRank(int i2) {
-        this.f17846e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.f17972e = i2;
+        }
     }
 
     public void setTime(int i2) {
-        this.f17844c = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.f17970c = i2;
+        }
     }
 
     public void setmSwitch(boolean z) {
-        if (this.f17842a != z) {
-            a logItem = ImageLogger.getLogItem();
-            logItem.b("act", "fallback");
-            logItem.b("result", z ? "1" : "0");
-            logItem.b("type", SetImageWatermarkTypeReqMsg.SWITCH);
-            BdStatisticsManager.getInstance().debug("img", logItem);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            if (this.f17968a != z) {
+                a logItem = ImageLogger.getLogItem();
+                logItem.b("act", "fallback");
+                logItem.b("result", z ? "1" : "0");
+                logItem.b("type", SetImageWatermarkTypeReqMsg.SWITCH);
+                BdStatisticsManager.getInstance().debug("img", logItem);
+            }
+            this.f17968a = z;
         }
-        this.f17842a = z;
     }
 }

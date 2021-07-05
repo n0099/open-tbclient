@@ -2,45 +2,82 @@ package com.kwad.sdk.glide.webp.decoder;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.glide.load.engine.s;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public class n implements com.kwad.sdk.glide.load.h<k> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.h<Bitmap> f36666b;
+    public final com.kwad.sdk.glide.load.h<Bitmap> f38429b;
 
     public n(com.kwad.sdk.glide.load.h<Bitmap> hVar) {
-        this.f36666b = (com.kwad.sdk.glide.load.h) com.kwad.sdk.glide.g.j.a(hVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f38429b = (com.kwad.sdk.glide.load.h) com.kwad.sdk.glide.g.j.a(hVar);
     }
 
     @Override // com.kwad.sdk.glide.load.h
     public s<k> a(Context context, s<k> sVar, int i2, int i3) {
-        k e2 = sVar.e();
-        s<Bitmap> dVar = new com.kwad.sdk.glide.load.resource.bitmap.d(e2.b(), com.kwad.sdk.glide.c.a(context).a());
-        s<Bitmap> a2 = this.f36666b.a(context, dVar, i2, i3);
-        if (!dVar.equals(a2)) {
-            dVar.d_();
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, context, sVar, i2, i3)) == null) {
+            k e2 = sVar.e();
+            s<Bitmap> dVar = new com.kwad.sdk.glide.load.resource.bitmap.d(e2.b(), com.kwad.sdk.glide.c.a(context).a());
+            s<Bitmap> a2 = this.f38429b.a(context, dVar, i2, i3);
+            if (!dVar.equals(a2)) {
+                dVar.d_();
+            }
+            e2.a(this.f38429b, a2.e());
+            return sVar;
         }
-        e2.a(this.f36666b, a2.e());
-        return sVar;
+        return (s) invokeLLII.objValue;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public void a(MessageDigest messageDigest) {
-        this.f36666b.a(messageDigest);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageDigest) == null) {
+            this.f38429b.a(messageDigest);
+        }
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public boolean equals(Object obj) {
-        if (obj instanceof n) {
-            return this.f36666b.equals(((n) obj).f36666b);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (obj instanceof n) {
+                return this.f38429b.equals(((n) obj).f38429b);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public int hashCode() {
-        return this.f36666b.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38429b.hashCode() : invokeV.intValue;
     }
 }

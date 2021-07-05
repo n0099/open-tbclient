@@ -1,33 +1,64 @@
 package com.win.opensdk;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class g0 implements V1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ i0 f40822a;
+    public final /* synthetic */ i0 f42565a;
 
     public g0(i0 i0Var) {
-        this.f40822a = i0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42565a = i0Var;
     }
 
     @Override // com.win.opensdk.V1
     public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
     }
 
     @Override // com.win.opensdk.V1
     public boolean a(String str, String str2) {
-        i0 i0Var = this.f40822a;
-        if (o1.a(i0Var.f40838c, i0Var.f40843h)) {
-            this.f40822a.f40843h = System.currentTimeMillis();
-            i0 i0Var2 = this.f40822a;
-            o1.a(i0Var2.f40836a, str, i0Var2.f40838c, i0Var2.f40842g, str2);
-            x0.a(this.f40822a.f40836a).a(new y0(this.f40822a.f40838c), str).a("desc", str2).a();
-            PBNativeListener pBNativeListener = this.f40822a.f40841f;
-            if (pBNativeListener != null) {
-                pBNativeListener.onClicked();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            i0 i0Var = this.f42565a;
+            if (o1.a(i0Var.f42581c, i0Var.f42586h)) {
+                this.f42565a.f42586h = System.currentTimeMillis();
+                i0 i0Var2 = this.f42565a;
+                o1.a(i0Var2.f42579a, str, i0Var2.f42581c, i0Var2.f42585g, str2);
+                x0.a(this.f42565a.f42579a).a(new y0(this.f42565a.f42581c), str).a("desc", str2).a();
+                PBNativeListener pBNativeListener = this.f42565a.f42584f;
+                if (pBNativeListener != null) {
+                    pBNativeListener.onClicked();
+                }
+                z.a(this.f42565a.f42581c, str2);
+                return true;
             }
-            z.a(this.f40822a.f40838c, str2);
             return true;
         }
-        return true;
+        return invokeLL.booleanValue;
     }
 }

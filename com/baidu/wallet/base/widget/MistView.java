@@ -7,55 +7,106 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-/* loaded from: classes5.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class MistView extends FrameLayout {
-    public static final int MASK_COLOR_DEFAULT_TRANSPARENT = Color.argb(127, 0, 0, 0);
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int MASK_COLOR_DEFAULT_TRANSPARENT;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f23654a = 100;
+    public static final long f24197a = 100;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Paint f23655b;
+    public final Paint f24198b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23656c;
+    public int f24199c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Rect f23657d;
+    public final Rect f24200d;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2092935932, "Lcom/baidu/wallet/base/widget/MistView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2092935932, "Lcom/baidu/wallet/base/widget/MistView;");
+                return;
+            }
+        }
+        MASK_COLOR_DEFAULT_TRANSPARENT = Color.argb(127, 0, 0, 0);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MistView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23657d = new Rect();
-        this.f23655b = new Paint();
-        this.f23656c = MASK_COLOR_DEFAULT_TRANSPARENT;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24200d = new Rect();
+        this.f24198b = new Paint();
+        this.f24199c = MASK_COLOR_DEFAULT_TRANSPARENT;
     }
 
     public Rect getFocusFrame() {
-        return this.f23657d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24200d : (Rect) invokeV.objValue;
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        int width = canvas.getWidth();
-        int height = canvas.getHeight();
-        this.f23655b.setColor(this.f23656c);
-        if (this.f23657d.width() == 0) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            super.onDraw(canvas);
+            int width = canvas.getWidth();
+            int height = canvas.getHeight();
+            this.f24198b.setColor(this.f24199c);
+            if (this.f24200d.width() == 0) {
+                return;
+            }
+            float f2 = width;
+            canvas.drawRect(0.0f, 0.0f, f2, this.f24200d.top, this.f24198b);
+            Rect rect = this.f24200d;
+            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom, this.f24198b);
+            Rect rect2 = this.f24200d;
+            canvas.drawRect(rect2.right, rect2.top, f2, rect2.bottom, this.f24198b);
+            canvas.drawRect(0.0f, this.f24200d.bottom, f2, height, this.f24198b);
+            Rect rect3 = this.f24200d;
+            postInvalidateDelayed(100L, rect3.left, rect3.top, rect3.right, rect3.bottom);
         }
-        float f2 = width;
-        canvas.drawRect(0.0f, 0.0f, f2, this.f23657d.top, this.f23655b);
-        Rect rect = this.f23657d;
-        canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom, this.f23655b);
-        Rect rect2 = this.f23657d;
-        canvas.drawRect(rect2.right, rect2.top, f2, rect2.bottom, this.f23655b);
-        canvas.drawRect(0.0f, this.f23657d.bottom, f2, height, this.f23655b);
-        Rect rect3 = this.f23657d;
-        postInvalidateDelayed(100L, rect3.left, rect3.top, rect3.right, rect3.bottom);
     }
 
     public void setMistColor(int i2) {
-        this.f23656c = i2;
-        postInvalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.f24199c = i2;
+            postInvalidate();
+        }
     }
 }

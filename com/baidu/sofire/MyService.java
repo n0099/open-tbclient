@@ -6,115 +6,204 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.f;
 import com.baidu.sofire.utility.x;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.DelayTB;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MyService extends Service {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f10162b;
+    public static long f10234b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f10163a = 0;
+    public volatile int f10235a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(329095265, "Lcom/baidu/sofire/MyService;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(329095265, "Lcom/baidu/sofire/MyService;");
+        }
+    }
+
+    public MyService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f10235a = 0;
+    }
 
     public static /* synthetic */ int a(MyService myService) {
-        int i2 = myService.f10163a;
-        myService.f10163a = i2 + 1;
+        int i2 = myService.f10235a;
+        myService.f10235a = i2 + 1;
         return i2;
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
-    public int onStartCommand(final Intent intent, int i2, int i3) {
-        try {
-        } catch (Throwable unused) {
-            com.baidu.sofire.utility.c.a();
-        }
-        if (intent == null) {
-            return super.onStartCommand(intent, i2, i3);
-        }
-        Bundle bundleExtra = intent.getBundleExtra("bundle");
-        if (bundleExtra != null) {
-            String[] stringArray = bundleExtra.getStringArray("appkey");
-            int[] intArray = bundleExtra.getIntArray("key");
-            int i4 = bundleExtra.getInt(DelayTB.DELAY);
-            if (stringArray != null && stringArray.length == 2 && !TextUtils.isEmpty(stringArray[0]) && !TextUtils.isEmpty(stringArray[1])) {
-                com.baidu.sofire.core.d.a(getApplicationContext(), i4, stringArray[0], stringArray[1], intArray);
+    public int onStartCommand(Intent intent, int i2, int i3) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i2, i3)) == null) {
+            try {
+            } catch (Throwable unused) {
+                com.baidu.sofire.utility.c.a();
+            }
+            if (intent == null) {
                 return super.onStartCommand(intent, i2, i3);
             }
-        }
-        final String stringExtra = intent.getStringExtra("from_plugin_package");
-        if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
-            a();
-        } else {
-            long j = f10162b;
-            if ("teac".equals(intent.getAction())) {
-                f10162b = System.currentTimeMillis();
-                if (System.currentTimeMillis() - j < 3000) {
-                    return super.onStartCommand(intent, i2, i3);
-                }
-                if (com.baidu.sofire.utility.c.j != 0 && f10162b - com.baidu.sofire.utility.c.j > 5000) {
+            Bundle bundleExtra = intent.getBundleExtra("bundle");
+            if (bundleExtra != null) {
+                String[] stringArray = bundleExtra.getStringArray("appkey");
+                int[] intArray = bundleExtra.getIntArray("key");
+                int i4 = bundleExtra.getInt(DelayTB.DELAY);
+                if (stringArray != null && stringArray.length == 2 && !TextUtils.isEmpty(stringArray[0]) && !TextUtils.isEmpty(stringArray[1])) {
+                    com.baidu.sofire.core.d.a(getApplicationContext(), i4, stringArray[0], stringArray[1], intArray);
                     return super.onStartCommand(intent, i2, i3);
                 }
             }
-            x.a(getApplicationContext()).a(new Runnable() { // from class: com.baidu.sofire.MyService.1
-                @Override // java.lang.Runnable
-                public final void run() {
-                    try {
-                        MyService.a(MyService.this);
-                        if (MyService.this.getPackageName().equals(stringExtra)) {
-                            MyService.a(MyService.this, MyService.this.getClassLoader(), intent);
-                            MyService.this.a();
-                        } else if ("teac".equals(intent.getAction())) {
-                            int intExtra = intent.getIntExtra("plugin_id", 100041);
-                            String stringExtra2 = intent.getStringExtra("target_method");
-                            if (TextUtils.isEmpty(stringExtra2)) {
-                                MyService.this.a();
-                                return;
-                            }
-                            com.baidu.sofire.core.d.a(intExtra, stringExtra2, (Callback) null, new Class[]{Intent.class}, intent);
-                            MyService.this.a();
-                        } else {
-                            f a2 = f.a();
-                            if (a2 == null) {
-                                MyService.this.a();
-                                return;
-                            }
-                            ApkInfo d2 = a2.d(stringExtra);
-                            if (d2 == null) {
-                                MyService.this.a();
-                                return;
-                            }
-                            MyService.a(MyService.this, d2.classLoader, intent);
-                            MyService.this.a();
-                        }
-                    } catch (Throwable unused2) {
-                        com.baidu.sofire.utility.c.a();
-                        MyService.this.a();
+            String stringExtra = intent.getStringExtra("from_plugin_package");
+            if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
+                a();
+            } else {
+                long j = f10234b;
+                if ("teac".equals(intent.getAction())) {
+                    f10234b = System.currentTimeMillis();
+                    if (System.currentTimeMillis() - j < 3000) {
+                        return super.onStartCommand(intent, i2, i3);
+                    }
+                    if (com.baidu.sofire.utility.c.j != 0 && f10234b - com.baidu.sofire.utility.c.j > 5000) {
+                        return super.onStartCommand(intent, i2, i3);
                     }
                 }
-            });
+                x.a(getApplicationContext()).a(new Runnable(this, stringExtra, intent) { // from class: com.baidu.sofire.MyService.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ String f10236a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ Intent f10237b;
+
+                    /* renamed from: c  reason: collision with root package name */
+                    public final /* synthetic */ MyService f10238c;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, stringExtra, intent};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i5 = newInitContext.flag;
+                            if ((i5 & 1) != 0) {
+                                int i6 = i5 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f10238c = this;
+                        this.f10236a = stringExtra;
+                        this.f10237b = intent;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                MyService.a(this.f10238c);
+                                if (this.f10238c.getPackageName().equals(this.f10236a)) {
+                                    MyService.a(this.f10238c, this.f10238c.getClassLoader(), this.f10237b);
+                                    this.f10238c.a();
+                                } else if ("teac".equals(this.f10237b.getAction())) {
+                                    int intExtra = this.f10237b.getIntExtra("plugin_id", 100041);
+                                    String stringExtra2 = this.f10237b.getStringExtra("target_method");
+                                    if (TextUtils.isEmpty(stringExtra2)) {
+                                        this.f10238c.a();
+                                        return;
+                                    }
+                                    com.baidu.sofire.core.d.a(intExtra, stringExtra2, (Callback) null, new Class[]{Intent.class}, this.f10237b);
+                                    this.f10238c.a();
+                                } else {
+                                    f a2 = f.a();
+                                    if (a2 == null) {
+                                        this.f10238c.a();
+                                        return;
+                                    }
+                                    ApkInfo d2 = a2.d(this.f10236a);
+                                    if (d2 == null) {
+                                        this.f10238c.a();
+                                        return;
+                                    }
+                                    MyService.a(this.f10238c, d2.classLoader, this.f10237b);
+                                    this.f10238c.a();
+                                }
+                            } catch (Throwable unused2) {
+                                com.baidu.sofire.utility.c.a();
+                                this.f10238c.a();
+                            }
+                        }
+                    }
+                });
+            }
+            return super.onStartCommand(intent, i2, i3);
         }
-        return super.onStartCommand(intent, i2, i3);
+        return invokeLII.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        try {
-            this.f10163a--;
-            if (this.f10163a <= 0) {
-                this.f10163a = 0;
-                stopSelf();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            try {
+                this.f10235a--;
+                if (this.f10235a <= 0) {
+                    this.f10235a = 0;
+                    stopSelf();
+                }
+            } catch (Throwable unused) {
+                com.baidu.sofire.utility.c.a();
             }
-        } catch (Throwable unused) {
-            com.baidu.sofire.utility.c.a();
         }
     }
 

@@ -1,83 +1,156 @@
 package d.a.c.g;
 
 import android.app.Application;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.main.manager.Configurations;
 import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
 import com.baidu.searchbox.pms.init.RequestParams;
-/* loaded from: classes.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f42797b = false;
+    public static boolean f44606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f42798c = false;
+    public static boolean f44607c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f42799d = new c();
+    public static c f44608d;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile d.a.c.i.a f42800a;
+    public volatile d.a.c.i.a f44609a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1754126063, "Ld/a/c/g/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1754126063, "Ld/a/c/g/c;");
+                return;
+            }
+        }
+        f44608d = new c();
+    }
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static void a() {
-        if (!f42798c && d.a.c.i.a.m()) {
-            f42798c = true;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f44607c && d.a.c.i.a.m()) {
+            f44607c = true;
             NPSPackageManager.getInstance().downloadAllBundles();
         }
     }
 
     public static void b() {
-        if (f42797b) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f44606b) {
             return;
         }
-        f42797b = true;
+        f44606b = true;
         NPSPackageManager.getInstance().fetchBundleInfo();
     }
 
     public static c d() {
-        return f42799d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f44608d : (c) invokeV.objValue;
     }
 
     public static void j() {
-        a();
-    }
-
-    public RequestParams.Channel c() {
-        i();
-        return this.f42800a.l();
-    }
-
-    public String e() {
-        return g(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
-    }
-
-    public d.a.c.i.a f() {
-        i();
-        return this.f42800a;
-    }
-
-    public String g(String str) {
-        BundleInfo bundleInfo;
-        try {
-            return (NPSPackageManager.getInstance().getBundleStatus(str) == 43 && (bundleInfo = NPSPackageManager.getInstance().getBundleInfo(str)) != null) ? String.valueOf(bundleInfo.getVersionCode()) : "0";
-        } catch (Throwable unused) {
-            return "0";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            a();
         }
     }
 
+    public RequestParams.Channel c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            i();
+            return this.f44609a.l();
+        }
+        return (RequestParams.Channel) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? g(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME) : (String) invokeV.objValue;
+    }
+
+    public d.a.c.i.a f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            i();
+            return this.f44609a;
+        }
+        return (d.a.c.i.a) invokeV.objValue;
+    }
+
+    public String g(String str) {
+        InterceptResult invokeL;
+        BundleInfo bundleInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                return (NPSPackageManager.getInstance().getBundleStatus(str) == 43 && (bundleInfo = NPSPackageManager.getInstance().getBundleInfo(str)) != null) ? String.valueOf(bundleInfo.getVersionCode()) : "0";
+            } catch (Throwable unused) {
+                return "0";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     public void h(Application application) {
-        i();
-        Configurations.Builder builder = new Configurations.Builder();
-        builder.debug(false);
-        NPSManager.getInstance().init(application, builder.build(), false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, application) == null) {
+            i();
+            Configurations.Builder builder = new Configurations.Builder();
+            builder.debug(false);
+            NPSManager.getInstance().init(application, builder.build(), false);
+        }
     }
 
     public final synchronized void i() {
-        if (this.f42800a == null) {
-            this.f42800a = new d.a.c.i.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                if (this.f44609a == null) {
+                    this.f44609a = new d.a.c.i.a();
+                }
+            }
         }
     }
 }

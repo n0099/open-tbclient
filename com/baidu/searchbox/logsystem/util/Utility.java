@@ -24,9 +24,15 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -43,62 +49,98 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Utility {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Utility";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public Utility() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static final boolean createNewEmptyFile(@NonNull File file) {
+        InterceptResult invokeL;
         boolean z;
-        if (file.exists() && file.isFile()) {
-            file.delete();
-        }
-        try {
-            z = file.createNewFile();
-        } catch (IOException e2) {
-            if (LLog.sDebug) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file.exists() && file.isFile()) {
+                file.delete();
             }
-            z = false;
+            try {
+                z = file.createNewFile();
+            } catch (IOException e2) {
+                if (LLog.sDebug) {
+                    e2.printStackTrace();
+                }
+                z = false;
+            }
+            if (LLog.sDebug) {
+                Log.d("Utility", "createNewEmptyFile() = " + z + ", file = " + file.getAbsolutePath());
+            }
+            return z;
         }
-        if (LLog.sDebug) {
-            Log.d("Utility", "createNewEmptyFile() = " + z + ", file = " + file.getAbsolutePath());
-        }
-        return z;
+        return invokeL.booleanValue;
     }
 
     public static String formatTimeDuration(long j) {
-        if (j <= 0) {
-            return String.valueOf(j);
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            if (j <= 0) {
+                return String.valueOf(j);
+            }
+            long j2 = 86400000;
+            long j3 = j / j2;
+            long j4 = j - (j2 * j3);
+            long j5 = 3600000;
+            long j6 = j4 / j5;
+            long j7 = j4 - (j5 * j6);
+            long j8 = 60000;
+            long j9 = j7 / j8;
+            long j10 = j7 - (j8 * j9);
+            long j11 = 1000;
+            long j12 = j10 / j11;
+            return j3 + " " + j6 + ":" + j9 + ":" + j12 + ":" + (j10 - (j11 * j12));
         }
-        long j2 = 86400000;
-        long j3 = j / j2;
-        long j4 = j - (j2 * j3);
-        long j5 = 3600000;
-        long j6 = j4 / j5;
-        long j7 = j4 - (j5 * j6);
-        long j8 = 60000;
-        long j9 = j7 / j8;
-        long j10 = j7 - (j8 * j9);
-        long j11 = 1000;
-        long j12 = j10 / j11;
-        return j3 + " " + j6 + ":" + j9 + ":" + j12 + ":" + (j10 - (j11 * j12));
+        return (String) invokeJ.objValue;
     }
 
     public static String getAppVersion(Context context) {
-        String appVersion = LokiOverlayRuntime.getLokiOverlayContext().getAppVersion();
-        if (TextUtils.isEmpty(appVersion)) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
-                return "0.8";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String appVersion = LokiOverlayRuntime.getLokiOverlayContext().getAppVersion();
+            if (TextUtils.isEmpty(appVersion)) {
+                try {
+                    return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                } catch (PackageManager.NameNotFoundException e2) {
+                    e2.printStackTrace();
+                    return "0.8";
+                }
             }
+            return appVersion;
         }
-        return appVersion;
+        return (String) invokeL.objValue;
     }
 
     @TargetApi(23)
     public static String getMemoryStats(@NonNull Debug.MemoryInfo memoryInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, memoryInfo)) != null) {
+            return (String) invokeL.objValue;
+        }
         Iterator<Map.Entry<String, String>> it = memoryInfo.getMemoryStats().entrySet().iterator();
         if (!it.hasNext()) {
             return StringUtil.EMPTY_ARRAY;
@@ -108,7 +150,7 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f1886h);
+            sb.append(a.f1889h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append('}');
@@ -121,30 +163,46 @@ public class Utility {
 
     @TargetApi(24)
     public static long getProcessStartElapsedRealTime() {
-        return Process.getStartElapsedRealtime();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Process.getStartElapsedRealtime() : invokeV.longValue;
     }
 
     public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        }
     }
 
     public static final boolean isNetWorkEnabled(@NonNull Context context) {
+        InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-        if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
-            return false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
+                return false;
+            }
+            return activeNetworkInfo.isAvailable();
         }
-        return activeNetworkInfo.isAvailable();
+        return invokeL.booleanValue;
     }
 
     public static final boolean isWifiConnected(@NonNull Context context) {
+        InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        return connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            return connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1;
+        }
+        return invokeL.booleanValue;
     }
 
     public static void obtainDBInfo(@NonNull Context context, @NonNull File file) {
         FileWriter fileWriter;
-        if (file.exists() && file.isFile()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65545, null, context, file) == null) && file.exists() && file.isFile()) {
             FileWriter fileWriter2 = null;
             try {
                 try {
@@ -178,7 +236,8 @@ public class Utility {
     }
 
     public static final void obtainDeviceInfo(@NonNull Context context, @NonNull File file) {
-        if (!file.exists() || !file.isFile()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65546, null, context, file) != null) || !file.exists() || !file.isFile()) {
             return;
         }
         FileWriter fileWriter = null;
@@ -225,7 +284,8 @@ public class Utility {
         FileWriter fileWriter;
         File parentFile;
         File parentFile2;
-        if (file.exists() && file.isFile()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65547, null, context, file) == null) && file.exists() && file.isFile()) {
             FileWriter fileWriter2 = null;
             try {
                 try {
@@ -299,13 +359,34 @@ public class Utility {
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0053 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0064 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x0012 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r1v10 */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r1v6 */
+    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r1v9 */
     public static final void obtainLogcatFile(@NonNull File file) {
-        FileOutputStream fileOutputStream;
+        ?? r1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r1 = interceptable;
+            if (r1.invokeL(65548, null, file) != null) {
+                return;
+            }
+        }
         if (file.exists() && file.isFile()) {
             BufferedReader bufferedReader = null;
             try {
                 try {
-                    fileOutputStream = new FileOutputStream(file);
+                    r1 = new FileOutputStream(file);
                     try {
                         BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("logcat -v time -t 1000").getInputStream()));
                         while (true) {
@@ -314,24 +395,26 @@ public class Utility {
                                 if (readLine == null) {
                                     break;
                                 }
-                                fileOutputStream.write(readLine.getBytes());
-                                fileOutputStream.write("\n".getBytes());
+                                r1.write(readLine.getBytes());
+                                r1.write("\n".getBytes());
                             } catch (Exception e2) {
                                 e = e2;
                                 bufferedReader = bufferedReader2;
                                 e.printStackTrace();
                                 Closeables.closeSafely(bufferedReader);
-                                Closeables.closeSafely(fileOutputStream);
+                                r1 = r1;
+                                Closeables.closeSafely((Closeable) r1);
                             } catch (Throwable th) {
                                 th = th;
                                 bufferedReader = bufferedReader2;
                                 Closeables.closeSafely(bufferedReader);
-                                Closeables.closeSafely(fileOutputStream);
+                                Closeables.closeSafely((Closeable) r1);
                                 throw th;
                             }
                         }
-                        fileOutputStream.flush();
+                        r1.flush();
                         Closeables.closeSafely(bufferedReader2);
+                        r1 = r1;
                     } catch (Exception e3) {
                         e = e3;
                     }
@@ -340,17 +423,18 @@ public class Utility {
                 }
             } catch (Exception e4) {
                 e = e4;
-                fileOutputStream = null;
+                r1 = 0;
             } catch (Throwable th3) {
                 th = th3;
-                fileOutputStream = null;
+                r1 = 0;
             }
-            Closeables.closeSafely(fileOutputStream);
+            Closeables.closeSafely((Closeable) r1);
         }
     }
 
     public static final void obtainMemoryInfo(@NonNull Context context, @NonNull File file) {
-        if (!file.exists() || !file.isFile()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65549, null, context, file) != null) || !file.exists() || !file.isFile()) {
             return;
         }
         FileWriter fileWriter = null;
@@ -416,7 +500,8 @@ public class Utility {
     }
 
     public static final void obtainProcessFdInfo(@NonNull File file) {
-        if (file.exists() && file.isFile()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65550, null, file) == null) && file.exists() && file.isFile()) {
             InputStream inputStream = null;
             try {
                 try {
@@ -433,7 +518,8 @@ public class Utility {
     }
 
     public static final void obtainProcessMaps(@NonNull File file) {
-        if (file.exists() && file.isFile()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65551, null, file) == null) && file.exists() && file.isFile()) {
             int myPid = Process.myPid();
             File file2 = new File("/proc/" + myPid + "/maps");
             if (file2.exists()) {
@@ -444,7 +530,8 @@ public class Utility {
 
     public static final void obtainProcessRunningStatus(@Nullable Context context, @NonNull File file, @NonNull String str, @NonNull LogExtra logExtra) {
         FileWriter fileWriter;
-        if (!file.exists() || !file.isFile()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65552, null, context, file, str, logExtra) != null) || !file.exists() || !file.isFile()) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -511,7 +598,8 @@ public class Utility {
     }
 
     public static final void obtainProcessSmaps(@NonNull File file) {
-        if (file.exists() && file.isFile()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65553, null, file) == null) && file.exists() && file.isFile()) {
             File file2 = new File("/proc/self/smaps");
             if (file2.exists()) {
                 FileUtils.copyFile(file2, file);
@@ -520,7 +608,8 @@ public class Utility {
     }
 
     public static final void obtainProcessStatus(@NonNull File file) {
-        if (file.exists() && file.isFile()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65554, null, file) == null) && file.exists() && file.isFile()) {
             int myPid = Process.myPid();
             File file2 = new File("/proc/" + myPid + "/status");
             if (file2.exists()) {
@@ -533,60 +622,61 @@ public class Utility {
         Map<Thread, StackTraceElement[]> allStackTraces;
         Set<Thread> keySet;
         FileWriter fileWriter;
-        if (!file.exists() || !file.isFile() || (allStackTraces = Thread.getAllStackTraces()) == null || (keySet = allStackTraces.keySet()) == null) {
-            return;
-        }
-        FileWriter fileWriter2 = null;
-        try {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65555, null, file) == null) && file.exists() && file.isFile() && (allStackTraces = Thread.getAllStackTraces()) != null && (keySet = allStackTraces.keySet()) != null) {
+            FileWriter fileWriter2 = null;
             try {
-                fileWriter = new FileWriter(file, true);
+                try {
+                    fileWriter = new FileWriter(file, true);
+                } catch (IOException e2) {
+                    e = e2;
+                }
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (IOException e2) {
-            e = e2;
-        }
-        try {
-            fileWriter.write("threads count:" + keySet.size() + "\n");
-            int i2 = 0;
-            for (Thread thread : keySet) {
-                if (thread != null) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(i2);
-                    sb.append(":");
-                    sb.append(thread.getName());
-                    sb.append("\n");
-                    StackTraceElement[] stackTrace = thread.getStackTrace();
-                    if (stackTrace != null) {
-                        for (StackTraceElement stackTraceElement : stackTrace) {
-                            if (stackTraceElement != null) {
-                                sb.append(stackTraceElement.toString());
-                                sb.append("\n");
+            try {
+                fileWriter.write("threads count:" + keySet.size() + "\n");
+                int i2 = 0;
+                for (Thread thread : keySet) {
+                    if (thread != null) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(i2);
+                        sb.append(":");
+                        sb.append(thread.getName());
+                        sb.append("\n");
+                        StackTraceElement[] stackTrace = thread.getStackTrace();
+                        if (stackTrace != null) {
+                            for (StackTraceElement stackTraceElement : stackTrace) {
+                                if (stackTraceElement != null) {
+                                    sb.append(stackTraceElement.toString());
+                                    sb.append("\n");
+                                }
                             }
                         }
+                        sb.append("\n");
+                        fileWriter.write(sb.toString());
+                        i2++;
                     }
-                    sb.append("\n");
-                    fileWriter.write(sb.toString());
-                    i2++;
                 }
+                fileWriter.flush();
+                Closeables.closeSafely(fileWriter);
+            } catch (IOException e3) {
+                e = e3;
+                fileWriter2 = fileWriter;
+                e.printStackTrace();
+                Closeables.closeSafely(fileWriter2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileWriter2 = fileWriter;
+                Closeables.closeSafely(fileWriter2);
+                throw th;
             }
-            fileWriter.flush();
-            Closeables.closeSafely(fileWriter);
-        } catch (IOException e3) {
-            e = e3;
-            fileWriter2 = fileWriter;
-            e.printStackTrace();
-            Closeables.closeSafely(fileWriter2);
-        } catch (Throwable th2) {
-            th = th2;
-            fileWriter2 = fileWriter;
-            Closeables.closeSafely(fileWriter2);
-            throw th;
         }
     }
 
     public static final void printFilePathInfo(@NonNull FileWriter fileWriter, @NonNull File file, @NonNull String str) {
-        if (file.exists()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65556, null, fileWriter, file, str) == null) && file.exists()) {
             try {
                 fileWriter.write(str + file.getAbsolutePath());
                 if (file.isFile()) {
@@ -612,16 +702,21 @@ public class Utility {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x0069 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x006d */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r8v1 */
     /* JADX WARN: Type inference failed for: r8v13 */
     /* JADX WARN: Type inference failed for: r8v4, types: [java.io.Closeable] */
     public static final Pair<String, Boolean> readFile(@NonNull File file, int i2) {
+        InterceptResult invokeLI;
         ?? r8;
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65557, null, file, i2)) != null) {
+            return (Pair) invokeLI.objValue;
+        }
         FileInputStream fileInputStream2 = null;
         if (i2 <= 0) {
             return null;
@@ -703,7 +798,8 @@ public class Utility {
     }
 
     public static void writeDBInfo(@NonNull FileWriter fileWriter, @NonNull File file) {
-        if (file.exists()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65558, null, fileWriter, file) == null) && file.exists()) {
             if (file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 if (listFiles == null || listFiles.length <= 0) {
@@ -728,21 +824,25 @@ public class Utility {
     }
 
     public static final void writeStringToFile(@NonNull File file, @NonNull String str) {
-        writeStringToFile(file, str, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65559, null, file, str) == null) {
+            writeStringToFile(file, str, true);
+        }
     }
 
     public static final void writeStringToFile(@NonNull File file, @NonNull String str, boolean z) {
         FileOutputStream fileOutputStream;
-        if (file.exists() && file.isFile() && !TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65560, null, file, str, z) == null) && file.exists() && file.isFile() && !TextUtils.isEmpty(str)) {
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {
                     fileOutputStream = new FileOutputStream(file, z);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Throwable th) {
+                    th = th;
                 }
-            } catch (Throwable th) {
-                th = th;
+            } catch (Exception e2) {
+                e = e2;
             }
             try {
                 fileOutputStream.write(str.getBytes());

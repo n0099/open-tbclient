@@ -2,15 +2,40 @@ package com.baidu.searchbox.track.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.appframework.SimpleActivityLifeCycle;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class TraceActivityCallbacks extends SimpleActivityLifeCycle {
-    public TraceManager mTraceManager = TraceManager.getInstance();
-    public TraceFragmentCallbackWrapper mTraceFragmentCallbackWrapper = new TraceFragmentCallbackWrapper();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TraceFragmentCallbackWrapper mTraceFragmentCallbackWrapper;
+    public TraceManager mTraceManager;
+
+    public TraceActivityCallbacks() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mTraceManager = TraceManager.getInstance();
+        this.mTraceFragmentCallbackWrapper = new TraceFragmentCallbackWrapper();
+    }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onActivityCreated(Activity activity, Bundle bundle) {
-        if (this.mTraceManager.isRegistered()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && this.mTraceManager.isRegistered()) {
             this.mTraceFragmentCallbackWrapper.register(activity);
             this.mTraceManager.saveTraceInfo(activity, (!TraceManager.checkAPSActivity(activity) || bundle == null) ? null : bundle.getString("ActivityName"), null, "onCreated");
         }
@@ -18,7 +43,8 @@ public class TraceActivityCallbacks extends SimpleActivityLifeCycle {
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onActivityDestroyed(Activity activity) {
-        if (this.mTraceManager.isRegistered()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && this.mTraceManager.isRegistered()) {
             this.mTraceFragmentCallbackWrapper.unregister(activity);
             this.mTraceManager.saveTraceInfo(activity, null, null, "onDestroyed");
         }
@@ -26,28 +52,38 @@ public class TraceActivityCallbacks extends SimpleActivityLifeCycle {
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onActivityResumed(Activity activity) {
-        if (this.mTraceManager.isRegistered()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && this.mTraceManager.isRegistered()) {
             this.mTraceManager.saveTraceInfo(activity, null, null, "onResumed");
         }
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onBackgroundToForeground(Activity activity) {
-        super.onBackgroundToForeground(activity);
-        if (this.mTraceManager.isRegistered()) {
-            this.mTraceManager.saveTraceInfo(activity, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            super.onBackgroundToForeground(activity);
+            if (this.mTraceManager.isRegistered()) {
+                this.mTraceManager.saveTraceInfo(activity, true);
+            }
         }
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onForegroundToBackground(Activity activity) {
-        super.onForegroundToBackground(activity);
-        if (this.mTraceManager.isRegistered()) {
-            this.mTraceManager.saveTraceInfo(activity, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+            super.onForegroundToBackground(activity);
+            if (this.mTraceManager.isRegistered()) {
+                this.mTraceManager.saveTraceInfo(activity, false);
+            }
         }
     }
 
     public void registerTraceFragment(Activity activity) {
-        this.mTraceFragmentCallbackWrapper.register(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            this.mTraceFragmentCallbackWrapper.register(activity);
+        }
     }
 }

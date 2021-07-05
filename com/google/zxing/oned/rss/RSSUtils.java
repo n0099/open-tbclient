@@ -1,30 +1,63 @@
 package com.google.zxing.oned.rss;
-/* loaded from: classes6.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public final class RSSUtils {
-    public static int combins(int i2, int i3) {
-        int i4 = i2 - i3;
-        if (i4 > i3) {
-            i4 = i3;
-            i3 = i4;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public RSSUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        int i5 = 1;
-        int i6 = 1;
-        while (i2 > i3) {
-            i5 *= i2;
-            if (i6 <= i4) {
+    }
+
+    public static int combins(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i2, i3)) == null) {
+            int i4 = i2 - i3;
+            if (i4 > i3) {
+                i4 = i3;
+                i3 = i4;
+            }
+            int i5 = 1;
+            int i6 = 1;
+            while (i2 > i3) {
+                i5 *= i2;
+                if (i6 <= i4) {
+                    i5 /= i6;
+                    i6++;
+                }
+                i2--;
+            }
+            while (i6 <= i4) {
                 i5 /= i6;
                 i6++;
             }
-            i2--;
+            return i5;
         }
-        while (i6 <= i4) {
-            i5 /= i6;
-            i6++;
-        }
-        return i5;
+        return invokeII.intValue;
     }
 
     public static int getRSSvalue(int[] iArr, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{iArr, Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
+            return invokeCommon.intValue;
+        }
         int[] iArr2 = iArr;
         int i3 = 0;
         for (int i4 : iArr2) {

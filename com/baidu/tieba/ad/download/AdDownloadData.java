@@ -2,12 +2,21 @@ package com.baidu.tieba.ad.download;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ad.download.mvp.IDownloadModel;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Objects;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class AdDownloadData implements Serializable, IDownloadModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final String mAdId;
     public String mAppJson;
     public long mContentLength;
@@ -19,167 +28,278 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     public String mPackageName;
     public String mPage;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
     public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f13646a;
+        public final String f13733a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13647b;
+        public String f13734b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13648c;
+        public String f13735c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f13649d;
+        public String f13736d;
 
         public b(@NonNull DownloadCacheKey downloadCacheKey) {
-            this.f13646a = downloadCacheKey.mAdId;
-            this.f13647b = downloadCacheKey.mDownloadUrl;
-            this.f13648c = downloadCacheKey.mPackageName;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {downloadCacheKey};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13733a = downloadCacheKey.mAdId;
+            this.f13734b = downloadCacheKey.mDownloadUrl;
+            this.f13735c = downloadCacheKey.mPackageName;
         }
 
         @NonNull
         public AdDownloadData e() {
-            return new AdDownloadData(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AdDownloadData(this, null) : (AdDownloadData) invokeV.objValue;
         }
+    }
+
+    public /* synthetic */ AdDownloadData(b bVar, a aVar) {
+        this(bVar);
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     public String adId() {
-        return this.mAdId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAdId : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof DownloadCacheKey) {
+                return Objects.equals(this.mAdId, ((DownloadCacheKey) obj).mAdId);
+            }
+            return false;
         }
-        if (obj instanceof DownloadCacheKey) {
-            return Objects.equals(this.mAdId, ((DownloadCacheKey) obj).mAdId);
-        }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public AdDownloadExtra extra() {
-        return this.mExtra;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtra : (AdDownloadExtra) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     public String getAppJson() {
-        return this.mAppJson;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppJson : (String) invokeV.objValue;
     }
 
     public long getContentLength() {
-        return this.mContentLength;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContentLength : invokeV.longValue;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     @NonNull
     public DownloadStatus getCurrentState() {
-        return this.mExtra.getStatus();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mExtra.getStatus() : (DownloadStatus) invokeV.objValue;
     }
 
     public String getDeeplink() {
-        return this.mDeeplinkUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mDeeplinkUrl : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     public String getDownloadKey() {
-        return this.mDownloadKey;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mDownloadKey : (String) invokeV.objValue;
     }
 
     public String getDownloadUrl() {
-        return this.mDownloadUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mDownloadUrl : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     public String getExtInfo() {
-        return this.mExtInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mExtInfo : (String) invokeV.objValue;
     }
 
     public int getFakePercent() {
-        AdDownloadExtra adDownloadExtra = this.mExtra;
-        if (adDownloadExtra == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            AdDownloadExtra adDownloadExtra = this.mExtra;
+            if (adDownloadExtra == null) {
+                return 0;
+            }
+            return adDownloadExtra.getDownloadFakePercent();
         }
-        return adDownloadExtra.getDownloadFakePercent();
+        return invokeV.intValue;
     }
 
     public String getPage() {
-        return this.mPage;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mPage : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     public int getPercent() {
-        return Math.max(this.mExtra.getPercent(), this.mExtra.getDownloadFakePercent());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? Math.max(this.mExtra.getPercent(), this.mExtra.getDownloadFakePercent()) : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     public String getPkgName() {
-        return this.mPackageName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
     }
 
     public int hashCode() {
-        return Objects.hash(this.mAdId);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? Objects.hash(this.mAdId) : invokeV.intValue;
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.mAdId) || TextUtils.isEmpty(this.mDownloadUrl)) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (TextUtils.isEmpty(this.mAdId) || TextUtils.isEmpty(this.mDownloadUrl)) ? false : true : invokeV.booleanValue;
     }
 
     public String pkgName() {
-        return this.mPackageName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
     }
 
     public void setAppJson(String str) {
-        this.mAppJson = str;
-    }
-
-    public void setContentLength(long j) {
-        this.mContentLength = j;
-    }
-
-    public void setDeeplinkUrl(String str) {
-        this.mDeeplinkUrl = str;
-    }
-
-    public void setDownloadKey(String str) {
-        this.mDownloadKey = str;
-    }
-
-    public void setExtInfo(String str) {
-        this.mExtInfo = str;
-    }
-
-    public void setFakePercent(int i2) {
-        AdDownloadExtra adDownloadExtra = this.mExtra;
-        if (adDownloadExtra != null) {
-            adDownloadExtra.setDownloadFakePercent(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.mAppJson = str;
         }
     }
 
+    public void setContentLength(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.mContentLength = j;
+        }
+    }
+
+    public void setDeeplinkUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.mDeeplinkUrl = str;
+        }
+    }
+
+    public void setDownloadKey(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.mDownloadKey = str;
+        }
+    }
+
+    public void setExtInfo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.mExtInfo = str;
+        }
+    }
+
+    public void setFakePercent(int i2) {
+        AdDownloadExtra adDownloadExtra;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048598, this, i2) == null) || (adDownloadExtra = this.mExtra) == null) {
+            return;
+        }
+        adDownloadExtra.setDownloadFakePercent(i2);
+    }
+
     public void setPage(String str) {
-        this.mPage = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.mPage = str;
+        }
     }
 
     public void setPercent(int i2) {
-        this.mExtra.setPercent(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
+            this.mExtra.setPercent(i2);
+        }
     }
 
     public void setupDownloadUrl(String str) {
-        this.mDownloadUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.mDownloadUrl = str;
+        }
     }
 
     public void setupPkgName(String str) {
-        this.mPackageName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.mPackageName = str;
+        }
     }
 
     public AdDownloadData(b bVar) {
-        this.mAdId = bVar.f13646a;
-        this.mPackageName = bVar.f13648c;
-        this.mDownloadUrl = bVar.f13647b;
-        this.mDeeplinkUrl = bVar.f13649d;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mAdId = bVar.f13733a;
+        this.mPackageName = bVar.f13735c;
+        this.mDownloadUrl = bVar.f13734b;
+        this.mDeeplinkUrl = bVar.f13736d;
         this.mExtra = new AdDownloadExtra(this);
     }
 }

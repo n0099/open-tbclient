@@ -1,6 +1,13 @@
 package com.baidu.tieba.im.forum.detail;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -12,8 +19,10 @@ import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ManagerApplyInfo applyInfo;
     public BzApplySwitch bzApplySwitch;
     public RecommendForumInfo forumInfo;
@@ -23,66 +32,99 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public PriManagerApplyInfo privateApplyInfo;
     public List<SimpleThreadInfo> threadInfoList;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumDetailSocketResponse() {
         super(303021);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public ManagerApplyInfo getApplyInfo() {
-        return this.applyInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.applyInfo : (ManagerApplyInfo) invokeV.objValue;
     }
 
     public BzApplySwitch getBzApplySwitch() {
-        return this.bzApplySwitch;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bzApplySwitch : (BzApplySwitch) invokeV.objValue;
     }
 
     public RecommendForumInfo getForumInfo() {
-        return this.forumInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.forumInfo : (RecommendForumInfo) invokeV.objValue;
     }
 
     public ManagerElectionTab getManagerElectionTab() {
-        return this.managerElectionTab;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.managerElectionTab : (ManagerElectionTab) invokeV.objValue;
     }
 
     public PriManagerApplyInfo getPrivateApplyInfo() {
-        return this.privateApplyInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.privateApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
     public List<SimpleThreadInfo> getThreadInfoList() {
-        return this.threadInfoList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadInfoList : (List) invokeV.objValue;
     }
 
     public int isBawuShow() {
-        return this.isBawuShow;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isBawuShow : invokeV.intValue;
     }
 
     public boolean isComplaintShow() {
-        return this.isComplaintShow;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isComplaintShow : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
-        GetForumDetailResIdl getForumDetailResIdl = (GetForumDetailResIdl) new Wire(new Class[0]).parseFrom(bArr, GetForumDetailResIdl.class);
-        if (getForumDetailResIdl == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+            GetForumDetailResIdl getForumDetailResIdl = (GetForumDetailResIdl) new Wire(new Class[0]).parseFrom(bArr, GetForumDetailResIdl.class);
+            if (getForumDetailResIdl == null) {
+                return;
+            }
+            Error error = getForumDetailResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getForumDetailResIdl.error.usermsg);
+            }
+            DataRes dataRes = getForumDetailResIdl.data;
+            if (dataRes == null) {
+                return;
+            }
+            this.forumInfo = dataRes.forum_info;
+            this.threadInfoList = dataRes.thread_list;
+            this.isBawuShow = dataRes.is_bawu_show.intValue();
+            this.isComplaintShow = getForumDetailResIdl.data.is_complaint_show.intValue() != 0;
+            DataRes dataRes2 = getForumDetailResIdl.data;
+            this.applyInfo = dataRes2.bz_apply_info;
+            this.privateApplyInfo = dataRes2.pribz_apply_info;
+            this.managerElectionTab = dataRes2.election_tab;
+            this.bzApplySwitch = dataRes2.bz_apply_switch;
         }
-        Error error = getForumDetailResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getForumDetailResIdl.error.usermsg);
-        }
-        DataRes dataRes = getForumDetailResIdl.data;
-        if (dataRes == null) {
-            return;
-        }
-        this.forumInfo = dataRes.forum_info;
-        this.threadInfoList = dataRes.thread_list;
-        this.isBawuShow = dataRes.is_bawu_show.intValue();
-        this.isComplaintShow = getForumDetailResIdl.data.is_complaint_show.intValue() != 0;
-        DataRes dataRes2 = getForumDetailResIdl.data;
-        this.applyInfo = dataRes2.bz_apply_info;
-        this.privateApplyInfo = dataRes2.pribz_apply_info;
-        this.managerElectionTab = dataRes2.election_tab;
-        this.bzApplySwitch = dataRes2.bz_apply_switch;
     }
 }

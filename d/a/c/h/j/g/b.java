@@ -1,16 +1,39 @@
 package d.a.c.h.j.g;
-/* loaded from: classes.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42907a = 1;
+    public static int f44716a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f42908b = 2;
+    public static int f44717b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f42909c = 3;
+    public static int f44718c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f42910d = 4;
+    public static int f44719d = 4;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1149159038, "Ld/a/c/h/j/g/b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1149159038, "Ld/a/c/h/j/g/b;");
+        }
+    }
 }

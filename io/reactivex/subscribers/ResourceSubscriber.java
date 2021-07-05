@@ -1,5 +1,11 @@
 package io.reactivex.subscribers;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.ListCompositeDisposable;
@@ -9,36 +15,66 @@ import io.reactivex.internal.util.EndConsumerHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Disposable {
-    public final AtomicReference<Subscription> s = new AtomicReference<>();
-    public final ListCompositeDisposable resources = new ListCompositeDisposable();
-    public final AtomicLong missedRequested = new AtomicLong();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicLong missedRequested;
+    public final ListCompositeDisposable resources;
+    public final AtomicReference<Subscription> s;
+
+    public ResourceSubscriber() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.s = new AtomicReference<>();
+        this.resources = new ListCompositeDisposable();
+        this.missedRequested = new AtomicLong();
+    }
 
     public final void add(Disposable disposable) {
-        ObjectHelper.requireNonNull(disposable, "resource is null");
-        this.resources.add(disposable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, disposable) == null) {
+            ObjectHelper.requireNonNull(disposable, "resource is null");
+            this.resources.add(disposable);
+        }
     }
 
     @Override // io.reactivex.disposables.Disposable
     public final void dispose() {
-        if (SubscriptionHelper.cancel(this.s)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SubscriptionHelper.cancel(this.s)) {
             this.resources.dispose();
         }
     }
 
     @Override // io.reactivex.disposables.Disposable
     public final boolean isDisposed() {
-        return SubscriptionHelper.isCancelled(this.s.get());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? SubscriptionHelper.isCancelled(this.s.get()) : invokeV.booleanValue;
     }
 
     public void onStart() {
-        request(Long.MAX_VALUE);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            request(Long.MAX_VALUE);
+        }
     }
 
     @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
     public final void onSubscribe(Subscription subscription) {
-        if (EndConsumerHelper.setOnce(this.s, subscription, ResourceSubscriber.class)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, subscription) == null) && EndConsumerHelper.setOnce(this.s, subscription, ResourceSubscriber.class)) {
             long andSet = this.missedRequested.getAndSet(0L);
             if (andSet != 0) {
                 subscription.request(andSet);
@@ -48,6 +84,9 @@ public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Di
     }
 
     public final void request(long j) {
-        SubscriptionHelper.deferredRequest(this.s, this.missedRequested, j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            SubscriptionHelper.deferredRequest(this.s, this.missedRequested, j);
+        }
     }
 }

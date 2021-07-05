@@ -13,6 +13,8 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.webkit.ValueCallback;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.BdCore;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.BdSailor;
@@ -20,6 +22,14 @@ import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.browser.sailor.feature.upload.BdUploadFeature;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
 import com.baidu.browser.sailor.webkit.update.BdZeusUpdate;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.CookieManager;
@@ -33,8 +43,9 @@ import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class BdSailorPlatform implements INoProGuard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_STATE_BACKGROUND = 0;
     public static final int APP_STATE_FOREGROUND = 1;
     public static final String ERROR_PAGE_ASSET = "webkit/errorpage/flyflow_error_page.html";
@@ -45,38 +56,63 @@ public final class BdSailorPlatform implements INoProGuard {
     public static final String TAG = "com.baidu.browser.sailor.platform.BdSailorPlatform";
     public static SoftReference<String> sErrorPageContent;
     public static BdSailorPlatform sInstance;
+    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public Handler mHandler;
+    public boolean mHasInit;
+    public boolean mIsEnableJavaScriptOnFileScheme;
+    public boolean mIsNeedUpdateKernel;
+    public boolean mIsWebkitInited;
+    public boolean mNeedFix;
     public b mNetworkChangedReciever;
+    public int mNetworkType;
     public HashMap<String, com.baidu.browser.sailor.feature.a> mSailorFeatureMap;
-    public d.a.h.b.b.b.a mSailorStatic;
+    public d.a.i.b.b.b.a mSailorStatic;
     public BdWebkitManager mWebkitMgr;
+    public boolean mWebkitTimerPaused;
     public String mWorkspace;
-    public boolean mNeedFix = true;
-    public boolean mIsWebkitInited = false;
-    public boolean mIsEnableJavaScriptOnFileScheme = false;
-    public boolean mWebkitTimerPaused = false;
-    public int mNetworkType = -1;
-    public boolean mHasInit = false;
-    public boolean mIsNeedUpdateKernel = true;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
-        public a(Looper looper) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ BdSailorPlatform f4339a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(BdSailorPlatform bdSailorPlatform, Looper looper) {
             super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorPlatform, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4339a = bdSailorPlatform;
         }
 
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
-            if (message.what == 1 && BdSailorPlatform.this.mContext != null) {
-                BdSailorPlatform bdSailorPlatform = BdSailorPlatform.this;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f4339a.mContext != null) {
+                BdSailorPlatform bdSailorPlatform = this.f4339a;
                 if (bdSailorPlatform.isAppOnForeground(bdSailorPlatform.mContext)) {
                     return;
                 }
                 try {
                     Log.d(BdSailorPlatform.TAG, "do pause");
-                    BdSailorPlatform.this.mWebkitTimerPaused = d.a.h.b.d.a.a().c();
-                    CookieSyncManager createInstance = CookieSyncManager.createInstance(BdSailorPlatform.this.mContext);
+                    this.f4339a.mWebkitTimerPaused = d.a.i.b.d.a.a().c();
+                    CookieSyncManager createInstance = CookieSyncManager.createInstance(this.f4339a.mContext);
                     if (createInstance != null) {
                         createInstance.stopSync();
                     }
@@ -87,80 +123,158 @@ public final class BdSailorPlatform implements INoProGuard {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class b extends BroadcastReceiver {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ BdSailorPlatform f4340a;
+
+        public b(BdSailorPlatform bdSailorPlatform) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorPlatform};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4340a = bdSailorPlatform;
         }
 
         public /* synthetic */ b(BdSailorPlatform bdSailorPlatform, byte b2) {
-            this();
+            this(bdSailorPlatform);
         }
 
         @Override // android.content.BroadcastReceiver
         public final void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action == null || !action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
-                return;
+            String action;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && (action = intent.getAction()) != null && action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+                BdSailor.getInstance().onNetworkChanged(((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo());
             }
-            BdSailor.getInstance().onNetworkChanged(((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo());
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-587795332, "Lcom/baidu/browser/sailor/platform/BdSailorPlatform;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-587795332, "Lcom/baidu/browser/sailor/platform/BdSailorPlatform;");
         }
     }
 
     public BdSailorPlatform() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mNeedFix = true;
+        this.mIsWebkitInited = false;
+        this.mIsEnableJavaScriptOnFileScheme = false;
+        this.mWebkitTimerPaused = false;
+        this.mNetworkType = -1;
+        this.mHasInit = false;
+        this.mIsNeedUpdateKernel = true;
         Log.d(TAG, "BdSailorPlatform");
-        this.mSailorStatic = new d.a.h.b.b.b.a();
+        this.mSailorStatic = new d.a.i.b.b.b.a();
         this.mWebkitMgr = new BdWebkitManager();
         this.mSailorFeatureMap = new HashMap<>(4);
     }
 
     public static void destroy() {
-        BdSailorPlatform bdSailorPlatform = sInstance;
-        if (bdSailorPlatform != null) {
-            bdSailorPlatform.doDestroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            BdSailorPlatform bdSailorPlatform = sInstance;
+            if (bdSailorPlatform != null) {
+                bdSailorPlatform.doDestroy();
+            }
+            sInstance = null;
         }
-        sInstance = null;
     }
 
     private boolean doInitWorkspace(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (str.endsWith("/")) {
+                str = str.substring(0, str.length() - 1);
+            }
+            new File(str).mkdirs();
+            return true;
         }
-        if (str.endsWith("/")) {
-            str = str.substring(0, str.length() - 1);
-        }
-        new File(str).mkdirs();
-        return true;
+        return invokeL.booleanValue;
     }
 
     public static String getDefaultErrorPageHtml(Context context) {
-        return "<html></html>";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? "<html></html>" : (String) invokeL.objValue;
     }
 
     public static synchronized BdSailorPlatform getInstance() {
+        InterceptResult invokeV;
         BdSailorPlatform bdSailorPlatform;
-        synchronized (BdSailorPlatform.class) {
-            if (sInstance == null) {
-                sInstance = new BdSailorPlatform();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            synchronized (BdSailorPlatform.class) {
+                if (sInstance == null) {
+                    sInstance = new BdSailorPlatform();
+                }
+                bdSailorPlatform = sInstance;
             }
-            bdSailorPlatform = sInstance;
+            return bdSailorPlatform;
         }
-        return bdSailorPlatform;
+        return (BdSailorPlatform) invokeV.objValue;
     }
 
-    public static d.a.h.b.b.b.a getStatic() {
-        return getInstance().mSailorStatic;
+    public static d.a.i.b.b.b.a getStatic() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getInstance().mSailorStatic : (d.a.i.b.b.b.a) invokeV.objValue;
     }
 
     public static BdWebkitManager getWebkitManager() {
-        return getInstance().mWebkitMgr;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? getInstance().mWebkitMgr : (BdWebkitManager) invokeV.objValue;
     }
 
     public static void initCookieSyncManager(Context context) {
-        CookieSyncManager.createInstance(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
+            CookieSyncManager.createInstance(context);
+        }
     }
 
     private void initFeature(Context context) {
-        if (this.mHasInit) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65548, this, context) == null) || this.mHasInit) {
             return;
         }
         registerFeature(new BdUploadFeature(context));
@@ -169,90 +283,118 @@ public final class BdSailorPlatform implements INoProGuard {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isAppOnForeground(Context context) {
+        InterceptResult invokeL;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        if (context == null) {
-            return false;
-        }
-        try {
-            runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-        } catch (Exception e2) {
-            Log.e(TAG, "isAppOnForeground exception");
-            e2.printStackTrace();
-        }
-        if (runningAppProcesses == null) {
-            return false;
-        }
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-            if (runningAppProcessInfo.processName.equals(context.getPackageName())) {
-                if (runningAppProcessInfo.importance == 100) {
-                    Log.d(TAG, "app is in foreground");
-                    return true;
-                }
-                Log.d(TAG, "app is in background");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, context)) == null) {
+            if (context == null) {
                 return false;
             }
+            try {
+                runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            } catch (Exception e2) {
+                Log.e(TAG, "isAppOnForeground exception");
+                e2.printStackTrace();
+            }
+            if (runningAppProcesses == null) {
+                return false;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.processName.equals(context.getPackageName())) {
+                    if (runningAppProcessInfo.importance == 100) {
+                        Log.d(TAG, "app is in foreground");
+                        return true;
+                    }
+                    Log.d(TAG, "app is in background");
+                    return false;
+                }
+            }
+            Log.d(TAG, "app is in background 1");
+            return false;
         }
-        Log.d(TAG, "app is in background 1");
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static boolean onShowFileChooser(Activity activity, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-        com.baidu.browser.sailor.feature.a featureByName = getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_UPLOAD);
-        if (featureByName == null || !featureByName.isEnable()) {
-            valueCallback.onReceiveValue(null);
-            return false;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, activity, valueCallback, fileChooserParams)) == null) {
+            com.baidu.browser.sailor.feature.a featureByName = getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_UPLOAD);
+            if (featureByName == null || !featureByName.isEnable()) {
+                valueCallback.onReceiveValue(null);
+                return false;
+            }
+            BdUploadFeature bdUploadFeature = (BdUploadFeature) featureByName;
+            if (bdUploadFeature == null || activity == null) {
+                return false;
+            }
+            return bdUploadFeature.openFileChooser(activity, valueCallback, fileChooserParams);
         }
-        BdUploadFeature bdUploadFeature = (BdUploadFeature) featureByName;
-        if (bdUploadFeature == null || activity == null) {
-            return false;
-        }
-        return bdUploadFeature.openFileChooser(activity, valueCallback, fileChooserParams);
+        return invokeLLL.booleanValue;
     }
 
     public static boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback) {
+        InterceptResult invokeLL;
         BdUploadFeature bdUploadFeature;
-        com.baidu.browser.sailor.feature.a featureByName = getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_UPLOAD);
-        if (featureByName == null || !featureByName.isEnable() || (bdUploadFeature = (BdUploadFeature) featureByName) == null || activity == null) {
-            valueCallback.onReceiveValue(null);
-            return false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, valueCallback)) == null) {
+            com.baidu.browser.sailor.feature.a featureByName = getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_UPLOAD);
+            if (featureByName == null || !featureByName.isEnable() || (bdUploadFeature = (BdUploadFeature) featureByName) == null || activity == null) {
+                valueCallback.onReceiveValue(null);
+                return false;
+            }
+            return bdUploadFeature.openFileChooser(activity, valueCallback);
         }
-        return bdUploadFeature.openFileChooser(activity, valueCallback);
+        return invokeLL.booleanValue;
     }
 
     public static boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback, String str) {
-        com.baidu.browser.sailor.feature.a featureByName = getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_UPLOAD);
-        if (featureByName == null || !featureByName.isEnable()) {
-            valueCallback.onReceiveValue(null);
-            return false;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65552, null, activity, valueCallback, str)) == null) {
+            com.baidu.browser.sailor.feature.a featureByName = getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_UPLOAD);
+            if (featureByName == null || !featureByName.isEnable()) {
+                valueCallback.onReceiveValue(null);
+                return false;
+            }
+            BdUploadFeature bdUploadFeature = (BdUploadFeature) featureByName;
+            if (bdUploadFeature == null || activity == null) {
+                return false;
+            }
+            return bdUploadFeature.openFileChooser(activity, valueCallback, str);
         }
-        BdUploadFeature bdUploadFeature = (BdUploadFeature) featureByName;
-        if (bdUploadFeature == null || activity == null) {
-            return false;
-        }
-        return bdUploadFeature.openFileChooser(activity, valueCallback, str);
+        return invokeLLL.booleanValue;
     }
 
     public static boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback, String str, String str2) {
-        com.baidu.browser.sailor.feature.a featureByName = getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_UPLOAD);
-        if (featureByName == null || !featureByName.isEnable()) {
-            valueCallback.onReceiveValue(null);
-            return false;
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65553, null, activity, valueCallback, str, str2)) == null) {
+            com.baidu.browser.sailor.feature.a featureByName = getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_UPLOAD);
+            if (featureByName == null || !featureByName.isEnable()) {
+                valueCallback.onReceiveValue(null);
+                return false;
+            }
+            BdUploadFeature bdUploadFeature = (BdUploadFeature) featureByName;
+            if (bdUploadFeature == null || activity == null) {
+                return false;
+            }
+            return bdUploadFeature.openFileChooser(activity, valueCallback, str, str2);
         }
-        BdUploadFeature bdUploadFeature = (BdUploadFeature) featureByName;
-        if (bdUploadFeature == null || activity == null) {
-            return false;
-        }
-        return bdUploadFeature.openFileChooser(activity, valueCallback, str, str2);
+        return invokeLLLL.booleanValue;
     }
 
     private void registerFeature(com.baidu.browser.sailor.feature.a aVar) {
-        if (aVar != null) {
-            this.mSailorFeatureMap.put(aVar.getName(), aVar);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65554, this, aVar) == null) || aVar == null) {
+            return;
         }
+        this.mSailorFeatureMap.put(aVar.getName(), aVar);
     }
 
     private void registerReceiver() {
-        if (getAppContext() != null && this.mNetworkChangedReciever == null) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && getAppContext() != null && this.mNetworkChangedReciever == null) {
             this.mNetworkChangedReciever = new b(this, (byte) 0);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
@@ -261,21 +403,26 @@ public final class BdSailorPlatform implements INoProGuard {
     }
 
     private void setNetworkType(int i2) {
-        this.mNetworkType = i2;
-        if (1 == i2 || -1 == i2) {
-            BdSailor.getInstance().getSailorSettings().setSaveFlow(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65556, this, i2) == null) {
+            this.mNetworkType = i2;
+            if (1 == i2 || -1 == i2) {
+                BdSailor.getInstance().getSailorSettings().setSaveFlow(false);
+            }
         }
     }
 
     private void unregisterFeature(com.baidu.browser.sailor.feature.a aVar) {
-        if (aVar == null || TextUtils.isEmpty(aVar.getName())) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65557, this, aVar) == null) || aVar == null || TextUtils.isEmpty(aVar.getName())) {
             return;
         }
         this.mSailorFeatureMap.remove(aVar);
     }
 
     private void unregisterReceiver() {
-        if (getAppContext() == null || this.mNetworkChangedReciever == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65558, this) == null) || getAppContext() == null || this.mNetworkChangedReciever == null) {
             return;
         }
         getAppContext().unregisterReceiver(this.mNetworkChangedReciever);
@@ -283,108 +430,140 @@ public final class BdSailorPlatform implements INoProGuard {
     }
 
     public final void clearCache(boolean z) {
-        d.a.h.b.d.a a2 = d.a.h.b.d.a.a();
-        try {
-            a2.e();
-            a2.f43738b.clearCache(z);
-        } catch (Exception e2) {
-            Log.printStackTrace(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            d.a.i.b.d.a a2 = d.a.i.b.d.a.a();
+            try {
+                a2.e();
+                a2.f45729b.clearCache(z);
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+            }
         }
     }
 
     public final void doDestroy() {
-        Log.d(TAG, "doDestroy");
-        try {
-            unregisterReceiver();
-            if (this.mHandler != null) {
-                this.mHandler.removeMessages(1);
-                this.mHandler = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Log.d(TAG, "doDestroy");
+            try {
+                unregisterReceiver();
+                if (this.mHandler != null) {
+                    this.mHandler.removeMessages(1);
+                    this.mHandler = null;
+                }
+                d.a.i.b.b.a.a.a();
+                d.a.i.b.d.a.b();
+                WebKitFactory.destroy();
+                this.mContext = null;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            d.a.h.b.b.a.a.a();
-            d.a.h.b.d.a.b();
-            WebKitFactory.destroy();
-            this.mContext = null;
-        } catch (Exception e2) {
-            e2.printStackTrace();
         }
     }
 
     public final com.baidu.browser.sailor.feature.a findSailorFeature(String str) {
-        return getFeatureByName(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? getFeatureByName(str) : (com.baidu.browser.sailor.feature.a) invokeL.objValue;
     }
 
     public final Context getAppContext() {
-        return this.mContext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
     public final String getCookie(String str) {
-        CookieSyncManager.createInstance(this.mContext);
-        return CookieManager.getInstance().getCookie(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            CookieSyncManager.createInstance(this.mContext);
+            return CookieManager.getInstance().getCookie(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public final String getCuid() {
-        return WebKitFactory.getCUIDString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? WebKitFactory.getCUIDString() : (String) invokeV.objValue;
     }
 
     public final com.baidu.browser.sailor.feature.a getFeatureByName(String str) {
-        com.baidu.browser.sailor.feature.a aVar = this.mSailorFeatureMap.get(str);
-        if (aVar instanceof com.baidu.browser.sailor.feature.a) {
-            return aVar;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            com.baidu.browser.sailor.feature.a aVar = this.mSailorFeatureMap.get(str);
+            if (aVar instanceof com.baidu.browser.sailor.feature.a) {
+                return aVar;
+            }
+            return null;
         }
-        return null;
+        return (com.baidu.browser.sailor.feature.a) invokeL.objValue;
     }
 
     public final int getNetworkType() {
-        return this.mNetworkType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mNetworkType : invokeV.intValue;
     }
 
     public final String getWorkspace() {
-        return this.mWorkspace;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mWorkspace : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x006e  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0073  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final boolean init(Context context, String str) {
+        InterceptResult invokeLL;
         boolean z;
         File filesDir;
-        Log.d(TAG, "init");
-        this.mContext = context;
-        if (TextUtils.isEmpty(str)) {
-            str = SAILOR_MODULE_NAME;
-        }
-        if (context != null) {
-            this.mWorkspace = str;
-            try {
-                if (context.getFilesDir() == null) {
-                    new File(context.getApplicationContext().getFilesDir() + "/").mkdirs();
-                }
-                filesDir = context.getFilesDir();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, context, str)) == null) {
+            Log.d(TAG, "init");
+            this.mContext = context;
+            if (TextUtils.isEmpty(str)) {
+                str = SAILOR_MODULE_NAME;
             }
-            if (filesDir != null) {
-                z = doInitWorkspace(filesDir.getAbsolutePath() + str);
-                initFeature(context);
-                BdCore.b().c(context, false);
-                if (this.mHandler == null) {
-                    this.mHandler = new a(Looper.getMainLooper());
+            if (context != null) {
+                this.mWorkspace = str;
+                try {
+                    if (context.getFilesDir() == null) {
+                        new File(context.getApplicationContext().getFilesDir() + "/").mkdirs();
+                    }
+                    filesDir = context.getFilesDir();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-                return z;
+                if (filesDir != null) {
+                    z = doInitWorkspace(filesDir.getAbsolutePath() + str);
+                    initFeature(context);
+                    BdCore.b().c(context, false);
+                    if (this.mHandler == null) {
+                        this.mHandler = new a(this, Looper.getMainLooper());
+                    }
+                    return z;
+                }
             }
+            z = false;
+            initFeature(context);
+            BdCore.b().c(context, false);
+            if (this.mHandler == null) {
+            }
+            return z;
         }
-        z = false;
-        initFeature(context);
-        BdCore.b().c(context, false);
-        if (this.mHandler == null) {
-        }
-        return z;
+        return invokeLL.booleanValue;
     }
 
     public final void initWebkit(String str, boolean z, Class<? extends CrashCallback> cls) {
         String packageName;
-        if (this.mIsWebkitInited) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Boolean.valueOf(z), cls}) == null) || this.mIsWebkitInited) {
             return;
         }
         Log.d(TAG, "initWebkit");
@@ -394,11 +573,11 @@ public final class BdSailorPlatform implements INoProGuard {
             bdWebkitManager.initWebkit(str, z, cls);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        d.a.h.b.d.a a2 = d.a.h.b.d.a.a();
+        d.a.i.b.d.a a2 = d.a.i.b.d.a.a();
         Context appContext = getAppContext();
-        if (a2.f43737a == null) {
-            a2.f43737a = appContext.getApplicationContext();
-            Log.d(d.a.h.b.d.a.f43735d, "in BdWebViewSingleton, init");
+        if (a2.f45728a == null) {
+            a2.f45728a = appContext.getApplicationContext();
+            Log.d(d.a.i.b.d.a.f45726d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();
@@ -421,90 +600,122 @@ public final class BdSailorPlatform implements INoProGuard {
     }
 
     public final boolean isFixWebViewSecurityHoles() {
-        return this.mNeedFix;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mNeedFix : invokeV.booleanValue;
     }
 
     public final boolean isJavaScriptEnabledOnFileScheme() {
-        return this.mIsEnableJavaScriptOnFileScheme;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIsEnableJavaScriptOnFileScheme : invokeV.booleanValue;
     }
 
     public final boolean isNeedUpdateKernel() {
-        return this.mIsNeedUpdateKernel;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mIsNeedUpdateKernel : invokeV.booleanValue;
     }
 
     public final boolean isWebkitInit() {
-        return this.mIsWebkitInited;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mIsWebkitInited : invokeV.booleanValue;
     }
 
     public final void onActivityDestory(Activity activity) {
+        com.baidu.browser.sailor.feature.a findSailorFeature;
         BdUploadFeature bdUploadFeature;
-        com.baidu.browser.sailor.feature.a findSailorFeature = findSailorFeature(BdSailorConfig.SAILOR_BASE_UPLOAD);
-        if (findSailorFeature == null || !findSailorFeature.isEnable() || (bdUploadFeature = (BdUploadFeature) findSailorFeature) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, activity) == null) || (findSailorFeature = findSailorFeature(BdSailorConfig.SAILOR_BASE_UPLOAD)) == null || !findSailorFeature.isEnable() || (bdUploadFeature = (BdUploadFeature) findSailorFeature) == null) {
             return;
         }
         bdUploadFeature.onDestroy(activity);
     }
 
     public final void onActivityResult(Activity activity, int i2, int i3, Intent intent) {
-        if (11 == i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), intent}) == null) && 11 == i2) {
             ((BdUploadFeature) findSailorFeature(BdSailorConfig.SAILOR_BASE_UPLOAD)).onResult(activity, i3, intent);
         }
     }
 
     public final void onReceivedNetworkType(int i2) {
-        setNetworkType(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            setNetworkType(i2);
+        }
     }
 
     public final void pause() {
-        WebSettingsGlobalBlink.notifyBdAppStatusChange(0);
-        Log.d(TAG, "pause ");
-        Handler handler = this.mHandler;
-        if (handler != null) {
-            handler.removeMessages(1);
-            Handler handler2 = this.mHandler;
-            handler2.sendMessageDelayed(handler2.obtainMessage(1), 2000L);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            WebSettingsGlobalBlink.notifyBdAppStatusChange(0);
+            Log.d(TAG, "pause ");
+            Handler handler = this.mHandler;
+            if (handler != null) {
+                handler.removeMessages(1);
+                Handler handler2 = this.mHandler;
+                handler2.sendMessageDelayed(handler2.obtainMessage(1), 2000L);
+            }
         }
     }
 
     public final void resume() {
-        Log.d(TAG, "resume ");
-        WebSettingsGlobalBlink.notifyBdAppStatusChange(1);
-        try {
-            if (this.mHandler != null) {
-                this.mHandler.removeMessages(1);
-                if (this.mWebkitTimerPaused) {
-                    Log.d(TAG, "do resume");
-                    d.a.h.b.d.a.a().d();
-                    CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
-                    if (createInstance != null) {
-                        createInstance.startSync();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            Log.d(TAG, "resume ");
+            WebSettingsGlobalBlink.notifyBdAppStatusChange(1);
+            try {
+                if (this.mHandler != null) {
+                    this.mHandler.removeMessages(1);
+                    if (this.mWebkitTimerPaused) {
+                        Log.d(TAG, "do resume");
+                        d.a.i.b.d.a.a().d();
+                        CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
+                        if (createInstance != null) {
+                            createInstance.startSync();
+                        }
+                        this.mWebkitTimerPaused = false;
                     }
-                    this.mWebkitTimerPaused = false;
                 }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
         }
     }
 
     @Deprecated
     public final void setCuid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+        }
     }
 
     public final void setFixWebViewSecurityHoles(boolean z) {
-        this.mNeedFix = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.mNeedFix = z;
+        }
     }
 
     public final void setJavaScriptEnabledOnFileScheme(boolean z) {
-        this.mIsEnableJavaScriptOnFileScheme = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.mIsEnableJavaScriptOnFileScheme = z;
+        }
     }
 
     public final void setNightMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+        }
     }
 
     public final void startCheckUpdate() {
         String packageName;
-        if (getAppContext() == null || (packageName = getAppContext().getApplicationContext().getPackageName()) == null || !packageName.equalsIgnoreCase(LITE_PACKAGE_NAME)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || getAppContext() == null || (packageName = getAppContext().getApplicationContext().getPackageName()) == null || !packageName.equalsIgnoreCase(LITE_PACKAGE_NAME)) {
             return;
         }
         Log.i(EngineManager.LOG_TAG, "start check zeus update form api");
@@ -513,8 +724,11 @@ public final class BdSailorPlatform implements INoProGuard {
     }
 
     public final void sync2Cookie(String str, String str2) {
-        CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
-        CookieManager.getInstance().setCookie(str, str2);
-        createInstance.sync();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
+            CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
+            CookieManager.getInstance().setCookie(str, str2);
+            createInstance.sync();
+        }
     }
 }

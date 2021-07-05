@@ -14,7 +14,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.pose.PoseAR;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.mobads.container.XAdSDKRemoteExp;
 import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
@@ -53,7 +56,11 @@ import com.baidu.mobads.container.widget.DisplayInfoView;
 import com.baidu.mobads.sdk.api.IOAdEvent;
 import com.baidu.mobads.sdk.api.IOAdEventListener;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -65,8 +72,9 @@ import java.util.Set;
 import org.apache.http.HttpStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class XBaseAdContainer implements IOAdEventListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ADSERV_URL = "http://mobads.baidu.com/ads/index.htm";
     public static final int Baidu_Ad_IMG_ID = 16972527;
     public static final int PATTERN_FULLSCREEN = 1;
@@ -78,112 +86,177 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
     public static final String TAG = "XBaseAdContainer";
     public static final String TIEBA_APPID = "bb3808eb";
     public static final String USE_DIALOG_FRAME = "use_dialog_frame";
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Long CACHE_FILE_TIME_OUT;
     public boolean hasPlayed;
+    public ImageView imageAd;
+    public ImageView imageBaidu;
     public Activity mActivity;
     public final XAdContainerContext mAdContainerCxt;
     public String mAdContainerName;
     public IXAdInstanceInfo mAdInstanceInfo;
+    public final RemoteXAdLogger mAdLogger;
+    public int mAdState;
     public Context mAppContext;
     public XAdRemoteEventDispatcher mContainerEvtListener;
     public HashMap<String, String> mCustomerParameters;
+    public Map<String, WeakReference<IDownloadStateChangeListener>> mDownloadListeners;
+    public boolean mHasAdLogoClicked;
     public boolean mNeedCallCloseAd;
     public CircleTextProgressbar mProgressView;
-    public final Long CACHE_FILE_TIME_OUT = 604800000L;
-    public int mAdState = 0;
-    public ImageView imageBaidu = null;
-    public ImageView imageAd = null;
-    public boolean mHasAdLogoClicked = false;
-    public int windowFocusState = -1;
-    public Map<String, WeakReference<IDownloadStateChangeListener>> mDownloadListeners = new HashMap();
-    public String showRecord = null;
-    public OAdTimer mTimer = null;
-    public final RemoteXAdLogger mAdLogger = RemoteXAdLogger.getInstance();
+    public OAdTimer mTimer;
+    public String showRecord;
+    public int windowFocusState;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ApoParser {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<ResolveInfo> mApps;
+        public List<ResolveInfo> mAppsOem;
         public XAdContainerContext mContext;
+        public boolean mFoundTargetApp;
         public String mPackageName;
         public Uri mSchema;
-        public List<ResolveInfo> mApps = new ArrayList();
-        public List<ResolveInfo> mAppsOem = new ArrayList();
-        public boolean mFoundTargetApp = false;
+        public final /* synthetic */ XBaseAdContainer this$0;
 
-        public ApoParser(XAdContainerContext xAdContainerContext) {
+        public ApoParser(XBaseAdContainer xBaseAdContainer, XAdContainerContext xAdContainerContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xBaseAdContainer, xAdContainerContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = xBaseAdContainer;
+            this.mApps = new ArrayList();
+            this.mAppsOem = new ArrayList();
+            this.mFoundTargetApp = false;
             this.mContext = xAdContainerContext;
         }
 
         public int getCount(boolean z) {
-            if (z) {
-                return this.mFoundTargetApp ? 1 : 0;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                if (z) {
+                    return this.mFoundTargetApp ? 1 : 0;
+                }
+                List<ResolveInfo> list = this.mApps;
+                if (list == null) {
+                    return 0;
+                }
+                return list.size();
             }
-            List<ResolveInfo> list = this.mApps;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+            return invokeZ.intValue;
         }
 
         public String getPackageName() {
-            return this.mPackageName;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
         }
 
         public String getPackageNameOem() {
-            List<ResolveInfo> list = this.mAppsOem;
-            if (list != null && list.size() != 0) {
-                try {
-                    return this.mAppsOem.get(0).activityInfo.packageName;
-                } catch (Throwable unused) {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                List<ResolveInfo> list = this.mAppsOem;
+                if (list != null && list.size() != 0) {
+                    try {
+                        return this.mAppsOem.get(0).activityInfo.packageName;
+                    } catch (Throwable unused) {
+                    }
                 }
+                return "";
             }
-            return "";
+            return (String) invokeV.objValue;
         }
 
         public Uri getUri() {
-            return this.mSchema;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSchema : (Uri) invokeV.objValue;
         }
 
         public ApoParser parse(IXAdInstanceInfo iXAdInstanceInfo) {
-            if (iXAdInstanceInfo == null) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iXAdInstanceInfo)) == null) {
+                if (iXAdInstanceInfo == null) {
+                    return this;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(iXAdInstanceInfo.getAppOpenStrs());
+                    String optString = jSONObject.optString("page", "");
+                    int optInt = jSONObject.optInt("version", 0);
+                    this.mSchema = Uri.parse(optString);
+                    Intent intent = new Intent("android.intent.action.VIEW", this.mSchema);
+                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    PackageManager packageManager = this.mContext.getAppContext().getPackageManager();
+                    List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 65536);
+                    this.mApps = queryIntentActivities;
+                    for (ResolveInfo resolveInfo : queryIntentActivities) {
+                        if (TextUtils.equals(resolveInfo.activityInfo.packageName, iXAdInstanceInfo.getAppPackageName())) {
+                            this.mFoundTargetApp = true;
+                            if (optInt > 0 && packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode < optInt) {
+                                this.mFoundTargetApp = false;
+                            }
+                        } else if (resolveInfo.activityInfo.packageName.startsWith(iXAdInstanceInfo.getAppPackageName()) && optInt <= packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode) {
+                            this.mAppsOem.add(resolveInfo);
+                        }
+                    }
+                    this.mPackageName = iXAdInstanceInfo.getAppPackageName();
+                } catch (Exception unused) {
+                    this.mApps = null;
+                    this.mSchema = null;
+                    this.mFoundTargetApp = false;
+                }
                 return this;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(iXAdInstanceInfo.getAppOpenStrs());
-                String optString = jSONObject.optString("page", "");
-                int optInt = jSONObject.optInt("version", 0);
-                this.mSchema = Uri.parse(optString);
-                Intent intent = new Intent("android.intent.action.VIEW", this.mSchema);
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                PackageManager packageManager = this.mContext.getAppContext().getPackageManager();
-                List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 65536);
-                this.mApps = queryIntentActivities;
-                for (ResolveInfo resolveInfo : queryIntentActivities) {
-                    if (TextUtils.equals(resolveInfo.activityInfo.packageName, iXAdInstanceInfo.getAppPackageName())) {
-                        this.mFoundTargetApp = true;
-                        if (optInt > 0 && packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode < optInt) {
-                            this.mFoundTargetApp = false;
-                        }
-                    } else if (resolveInfo.activityInfo.packageName.startsWith(iXAdInstanceInfo.getAppPackageName()) && optInt <= packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode) {
-                        this.mAppsOem.add(resolveInfo);
-                    }
-                }
-                this.mPackageName = iXAdInstanceInfo.getAppPackageName();
-            } catch (Exception unused) {
-                this.mApps = null;
-                this.mSchema = null;
-                this.mFoundTargetApp = false;
-            }
-            return this;
+            return (ApoParser) invokeL.objValue;
         }
     }
 
     public XBaseAdContainer(XAdContainerContext xAdContainerContext) {
         int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xAdContainerContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.CACHE_FILE_TIME_OUT = 604800000L;
+        this.mAdState = 0;
         JSONObject jSONObject = null;
+        this.imageBaidu = null;
+        this.imageAd = null;
+        this.mHasAdLogoClicked = false;
+        this.windowFocusState = -1;
+        this.mDownloadListeners = new HashMap();
+        this.showRecord = null;
+        this.mTimer = null;
         this.mAdContainerCxt = xAdContainerContext;
         this.mAppContext = xAdContainerContext.getAppContext();
         this.mActivity = xAdContainerContext.getActivity();
         this.mContainerEvtListener = xAdContainerContext.getEventDispatcher();
         this.mAdInstanceInfo = this.mAdContainerCxt.getAdInstanceInfo();
+        this.mAdLogger = RemoteXAdLogger.getInstance();
         try {
             this.mNeedCallCloseAd = Boolean.parseBoolean(this.mAdContainerCxt.getAdReqParam().optString("countDownNew", "true"));
         } catch (Exception unused) {
@@ -213,422 +286,673 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
     }
 
     private void addProgressView() {
-        try {
-            CircleTextProgressbar circleTextProgressbar = new CircleTextProgressbar(this.mActivity);
-            this.mProgressView = circleTextProgressbar;
-            circleTextProgressbar.setVisibility(4);
-            this.mProgressView.setOutLineColor(-7697782);
-            this.mProgressView.setProgressColor(-12956454);
-            this.mProgressView.setProgressLineWidth(ScreenUtils.dp2px(this.mActivity, 2.0f));
-            this.mProgressView.setTextSize(1, 10.0f);
-            this.mProgressView.setTextColor(-1);
-            this.mProgressView.setText("跳过");
-            this.mProgressView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.XBaseAdContainer.5
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    XBaseAdContainer.this.closeAd("user_close");
-                }
-            });
-            this.mProgressView.setCountdownProgressListener(new CircleTextProgressbar.OnCountdownProgressListener() { // from class: com.baidu.mobads.container.XBaseAdContainer.6
-                @Override // com.baidu.mobads.container.components.CircleTextProgressbar.OnCountdownProgressListener
-                public void onEnd() {
-                    if (XBaseAdContainer.this.mNeedCallCloseAd) {
-                        XBaseAdContainer.this.closeAd("time_end");
-                    }
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            try {
+                CircleTextProgressbar circleTextProgressbar = new CircleTextProgressbar(this.mActivity);
+                this.mProgressView = circleTextProgressbar;
+                circleTextProgressbar.setVisibility(4);
+                this.mProgressView.setOutLineColor(-7697782);
+                this.mProgressView.setProgressColor(-12956454);
+                this.mProgressView.setProgressLineWidth(ScreenUtils.dp2px(this.mActivity, 2.0f));
+                this.mProgressView.setTextSize(1, 10.0f);
+                this.mProgressView.setTextColor(-1);
+                this.mProgressView.setText("跳过");
+                this.mProgressView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.XBaseAdContainer.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ XBaseAdContainer this$0;
 
-                @Override // com.baidu.mobads.container.components.CircleTextProgressbar.OnCountdownProgressListener
-                public void onProgress(int i2) {
-                }
-            });
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ScreenUtils.dp2px(this.mActivity, 40.0f), ScreenUtils.dp2px(this.mActivity, 40.0f));
-            layoutParams.addRule(11);
-            layoutParams.addRule(10);
-            int dp2px = ScreenUtils.dp2px(this.mActivity, 14.0f);
-            layoutParams.setMargins(0, dp2px, dp2px, 0);
-            this.mAdContainerCxt.getAdProdBase().addView(this.mProgressView, layoutParams);
-        } catch (Exception unused) {
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            this.this$0.closeAd("user_close");
+                        }
+                    }
+                });
+                this.mProgressView.setCountdownProgressListener(new CircleTextProgressbar.OnCountdownProgressListener(this) { // from class: com.baidu.mobads.container.XBaseAdContainer.6
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ XBaseAdContainer this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.baidu.mobads.container.components.CircleTextProgressbar.OnCountdownProgressListener
+                    public void onEnd() {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.mNeedCallCloseAd) {
+                            this.this$0.closeAd("time_end");
+                        }
+                    }
+
+                    @Override // com.baidu.mobads.container.components.CircleTextProgressbar.OnCountdownProgressListener
+                    public void onProgress(int i2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+                        }
+                    }
+                });
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ScreenUtils.dp2px(this.mActivity, 40.0f), ScreenUtils.dp2px(this.mActivity, 40.0f));
+                layoutParams.addRule(11);
+                layoutParams.addRule(10);
+                int dp2px = ScreenUtils.dp2px(this.mActivity, 14.0f);
+                layoutParams.setMargins(0, dp2px, dp2px, 0);
+                this.mAdContainerCxt.getAdProdBase().addView(this.mProgressView, layoutParams);
+            } catch (Exception unused) {
+            }
         }
     }
 
     public void addDownloadDescT(String str, String str2, String str3, String str4, boolean z, boolean z2) {
-        RelativeLayout relativeLayout = new RelativeLayout(this.mAdContainerCxt.getActivity());
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        if (z2) {
-            layoutParams.addRule(12);
-            layoutParams.setMargins(0, 0, 0, (int) ((this.mActivity.getResources().getDisplayMetrics().density * 15.0f) + 0.5f));
-        } else {
-            layoutParams.addRule(2, Baidu_Ad_IMG_ID);
-        }
-        relativeLayout.setLayoutParams(layoutParams);
-        DisplayInfoView build = new DisplayInfoView.Builder(this.mAdContainerCxt.getActivity()).addContent(str2, str, str3, str4).addTextColor(-10066330).addHideNavigation(true).addListener(new DisplayInfoView.OnDisplayListener() { // from class: com.baidu.mobads.container.XBaseAdContainer.4
-            @Override // com.baidu.mobads.container.widget.DisplayInfoView.OnDisplayListener
-            public void onDismiss(boolean z3) {
-                XBaseAdContainer.this.handleResume(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            RelativeLayout relativeLayout = new RelativeLayout(this.mAdContainerCxt.getActivity());
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            if (z2) {
+                layoutParams.addRule(12);
+                layoutParams.setMargins(0, 0, 0, (int) ((this.mActivity.getResources().getDisplayMetrics().density * 15.0f) + 0.5f));
+            } else {
+                layoutParams.addRule(2, Baidu_Ad_IMG_ID);
             }
+            relativeLayout.setLayoutParams(layoutParams);
+            DisplayInfoView build = new DisplayInfoView.Builder(this.mAdContainerCxt.getActivity()).addContent(str2, str, str3, str4).addTextColor(-10066330).addHideNavigation(true).addListener(new DisplayInfoView.OnDisplayListener(this) { // from class: com.baidu.mobads.container.XBaseAdContainer.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ XBaseAdContainer this$0;
 
-            @Override // com.baidu.mobads.container.widget.DisplayInfoView.OnDisplayListener
-            public void onShow(boolean z3) {
-                XBaseAdContainer.this.handlePause(null);
-            }
-        }).build();
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-        build.setGravity(17);
-        relativeLayout.addView(build, layoutParams2);
-        this.mAdContainerCxt.getAdProdBase().addView(relativeLayout);
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // com.baidu.mobads.container.widget.DisplayInfoView.OnDisplayListener
+                public void onDismiss(boolean z3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z3) == null) {
+                        this.this$0.handleResume(null);
+                    }
+                }
+
+                @Override // com.baidu.mobads.container.widget.DisplayInfoView.OnDisplayListener
+                public void onShow(boolean z3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z3) == null) {
+                        this.this$0.handlePause(null);
+                    }
+                }
+            }).build();
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
+            build.setGravity(17);
+            relativeLayout.addView(build, layoutParams2);
+            this.mAdContainerCxt.getAdProdBase().addView(relativeLayout);
+        }
     }
 
     public void checkAPO(int i2) {
-        try {
-            JSONObject originJsonObject = this.mAdContainerCxt.getAdInstanceInfo().getOriginJsonObject();
-            if (originJsonObject.optInt("act") == 2) {
-                String optString = originJsonObject.optString("apo", "");
-                if (!TextUtils.isEmpty(optString)) {
-                    String optString2 = new JSONObject(optString).optString("page", "");
-                    String optString3 = originJsonObject.optString("pk", "");
-                    if (AdDownloadApkUtils.isInstalled(this.mAppContext, optString3)) {
-                        if (!TextUtils.isEmpty(optString2)) {
-                            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(optString2));
-                            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                            if (this.mAppContext.getPackageManager().resolveActivity(intent, 65536) != null) {
-                                this.mAppContext.startActivity(intent);
-                                PackageUtils.sendDownloadAPOLog(this.mAppContext, this.mAdContainerCxt, optString3, optString2, i2);
-                            }
-                        }
-                    } else {
-                        PackageUtils.mPageMap.put(optString3, optString2);
-                    }
-                }
-            }
-        } catch (Exception e2) {
-            this.mAdLogger.d(e2);
-        }
-    }
-
-    public void checkAndSendRsplashShowLog(final int i2, HashMap<String, Object> hashMap) {
-        XAdContainerContext xAdContainerContext = this.mAdContainerCxt;
-        if (xAdContainerContext != null) {
-            if (xAdContainerContext.getAdInstanceInfo() != null) {
-                StateMachine.event(this.mAdContainerCxt.getAdInstanceInfo().getUniqueId(), AdStateCode.EVENT_IMPRESSION);
-            }
-            if (i2 != 1 && i2 != 2) {
-                int viewState = AdViewUtils.getViewState(this.mAdContainerCxt.getAdProdBase());
-                sendSplashViewState(viewState, true, i2, 413, "");
-                sendSplashViewState(viewState, true, i2, HttpStatus.SC_INSUFFICIENT_SPACE_ON_RESOURCE, "");
-                sendImpressionLog(this.mAdContainerCxt.getAdInstanceInfo());
-                send3rdImpressionLog();
-                processAdStart(hashMap);
-                return;
-            }
-            int viewState2 = AdViewUtils.getViewState(this.mAdContainerCxt.getAdProdBase());
-            if (viewState2 == 0) {
-                sendImpressionLog(this.mAdContainerCxt.getAdInstanceInfo());
-                send3rdImpressionLog();
-                sendSplashViewState(viewState2, true, i2, 413, "");
-                processAdStart(hashMap);
-                return;
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             try {
-                processAdStart(hashMap);
-                sendSplashViewState(viewState2, false, i2, 413, "1");
-                this.showRecord = "";
-                this.showRecord += viewState2;
-                if (this.mTimer != null) {
-                    this.mTimer.stop();
-                    this.mTimer = null;
-                }
-                OAdTimer oAdTimer = new OAdTimer(3000);
-                this.mTimer = oAdTimer;
-                oAdTimer.setEventHandler(new OAdTimer.EventHandler() { // from class: com.baidu.mobads.container.XBaseAdContainer.7
-                    @Override // com.baidu.mobads.container.util.OAdTimer.EventHandler
-                    public void onTimer(int i3) {
-                        int viewState3 = AdViewUtils.getViewState(XBaseAdContainer.this.mAdContainerCxt.getAdProdBase());
-                        StringBuilder sb = new StringBuilder();
-                        XBaseAdContainer xBaseAdContainer = XBaseAdContainer.this;
-                        sb.append(xBaseAdContainer.showRecord);
-                        sb.append(viewState3);
-                        xBaseAdContainer.showRecord = sb.toString();
-                        if (XBaseAdContainer.this.showRecord.endsWith("00")) {
-                            XBaseAdContainer xBaseAdContainer2 = XBaseAdContainer.this;
-                            xBaseAdContainer2.sendImpressionLog(xBaseAdContainer2.mAdContainerCxt.getAdInstanceInfo());
-                            XBaseAdContainer.this.send3rdImpressionLog();
-                            XBaseAdContainer xBaseAdContainer3 = XBaseAdContainer.this;
-                            xBaseAdContainer3.sendSplashViewState(9, true, i2, HttpStatus.SC_LOCKED, xBaseAdContainer3.showRecord);
-                            if (XBaseAdContainer.this.mTimer != null) {
-                                XBaseAdContainer.this.mTimer.stop();
-                                XBaseAdContainer.this.mTimer = null;
+                JSONObject originJsonObject = this.mAdContainerCxt.getAdInstanceInfo().getOriginJsonObject();
+                if (originJsonObject.optInt("act") == 2) {
+                    String optString = originJsonObject.optString("apo", "");
+                    if (!TextUtils.isEmpty(optString)) {
+                        String optString2 = new JSONObject(optString).optString("page", "");
+                        String optString3 = originJsonObject.optString("pk", "");
+                        if (AdDownloadApkUtils.isInstalled(this.mAppContext, optString3)) {
+                            if (!TextUtils.isEmpty(optString2)) {
+                                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(optString2));
+                                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                                if (this.mAppContext.getPackageManager().resolveActivity(intent, 65536) != null) {
+                                    this.mAppContext.startActivity(intent);
+                                    PackageUtils.sendDownloadAPOLog(this.mAppContext, this.mAdContainerCxt, optString3, optString2, i2);
+                                }
                             }
+                        } else {
+                            PackageUtils.mPageMap.put(optString3, optString2);
                         }
                     }
-
-                    @Override // com.baidu.mobads.container.util.OAdTimer.EventHandler
-                    public void onTimerComplete() {
-                        int viewState3 = AdViewUtils.getViewState(XBaseAdContainer.this.mAdContainerCxt.getAdProdBase());
-                        XBaseAdContainer xBaseAdContainer = XBaseAdContainer.this;
-                        xBaseAdContainer.sendSplashViewState(viewState3, false, i2, HttpStatus.SC_LOCKED, xBaseAdContainer.showRecord);
-                        XAdContainerContext xAdContainerContext2 = XBaseAdContainer.this.mAdContainerCxt;
-                        if (xAdContainerContext2 == null || xAdContainerContext2.getAdInstanceInfo() == null) {
-                            return;
-                        }
-                        StateMachine.event(XBaseAdContainer.this.mAdContainerCxt.getAdInstanceInfo().getUniqueId(), AdStateCode.EVENT_IMPRESSION_FAILED);
-                    }
-                });
-                this.mTimer.start();
-                sendSplashViewState(viewState2, false, i2, 413, "2");
+                }
             } catch (Exception e2) {
-                sendSplashViewState(viewState2, false, i2, HttpStatus.SC_LOCKED, "exception");
                 this.mAdLogger.d(e2);
             }
         }
     }
 
+    public void checkAndSendRsplashShowLog(int i2, HashMap<String, Object> hashMap) {
+        XAdContainerContext xAdContainerContext;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, hashMap) == null) || (xAdContainerContext = this.mAdContainerCxt) == null) {
+            return;
+        }
+        if (xAdContainerContext.getAdInstanceInfo() != null) {
+            StateMachine.event(this.mAdContainerCxt.getAdInstanceInfo().getUniqueId(), AdStateCode.EVENT_IMPRESSION);
+        }
+        if (i2 != 1 && i2 != 2) {
+            int viewState = AdViewUtils.getViewState(this.mAdContainerCxt.getAdProdBase());
+            sendSplashViewState(viewState, true, i2, 413, "");
+            sendSplashViewState(viewState, true, i2, HttpStatus.SC_INSUFFICIENT_SPACE_ON_RESOURCE, "");
+            sendImpressionLog(this.mAdContainerCxt.getAdInstanceInfo());
+            send3rdImpressionLog();
+            processAdStart(hashMap);
+            return;
+        }
+        int viewState2 = AdViewUtils.getViewState(this.mAdContainerCxt.getAdProdBase());
+        if (viewState2 == 0) {
+            sendImpressionLog(this.mAdContainerCxt.getAdInstanceInfo());
+            send3rdImpressionLog();
+            sendSplashViewState(viewState2, true, i2, 413, "");
+            processAdStart(hashMap);
+            return;
+        }
+        try {
+            processAdStart(hashMap);
+            sendSplashViewState(viewState2, false, i2, 413, "1");
+            this.showRecord = "";
+            this.showRecord += viewState2;
+            if (this.mTimer != null) {
+                this.mTimer.stop();
+                this.mTimer = null;
+            }
+            OAdTimer oAdTimer = new OAdTimer(3000);
+            this.mTimer = oAdTimer;
+            oAdTimer.setEventHandler(new OAdTimer.EventHandler(this, i2) { // from class: com.baidu.mobads.container.XBaseAdContainer.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ XBaseAdContainer this$0;
+                public final /* synthetic */ int val$rsplashType;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$rsplashType = i2;
+                }
+
+                @Override // com.baidu.mobads.container.util.OAdTimer.EventHandler
+                public void onTimer(int i3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i3) == null) {
+                        int viewState3 = AdViewUtils.getViewState(this.this$0.mAdContainerCxt.getAdProdBase());
+                        StringBuilder sb = new StringBuilder();
+                        XBaseAdContainer xBaseAdContainer = this.this$0;
+                        sb.append(xBaseAdContainer.showRecord);
+                        sb.append(viewState3);
+                        xBaseAdContainer.showRecord = sb.toString();
+                        if (this.this$0.showRecord.endsWith("00")) {
+                            XBaseAdContainer xBaseAdContainer2 = this.this$0;
+                            xBaseAdContainer2.sendImpressionLog(xBaseAdContainer2.mAdContainerCxt.getAdInstanceInfo());
+                            this.this$0.send3rdImpressionLog();
+                            XBaseAdContainer xBaseAdContainer3 = this.this$0;
+                            xBaseAdContainer3.sendSplashViewState(9, true, this.val$rsplashType, HttpStatus.SC_LOCKED, xBaseAdContainer3.showRecord);
+                            if (this.this$0.mTimer != null) {
+                                this.this$0.mTimer.stop();
+                                this.this$0.mTimer = null;
+                            }
+                        }
+                    }
+                }
+
+                @Override // com.baidu.mobads.container.util.OAdTimer.EventHandler
+                public void onTimerComplete() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        int viewState3 = AdViewUtils.getViewState(this.this$0.mAdContainerCxt.getAdProdBase());
+                        XBaseAdContainer xBaseAdContainer = this.this$0;
+                        xBaseAdContainer.sendSplashViewState(viewState3, false, this.val$rsplashType, HttpStatus.SC_LOCKED, xBaseAdContainer.showRecord);
+                        XAdContainerContext xAdContainerContext2 = this.this$0.mAdContainerCxt;
+                        if (xAdContainerContext2 == null || xAdContainerContext2.getAdInstanceInfo() == null) {
+                            return;
+                        }
+                        StateMachine.event(this.this$0.mAdContainerCxt.getAdInstanceInfo().getUniqueId(), AdStateCode.EVENT_IMPRESSION_FAILED);
+                    }
+                }
+            });
+            this.mTimer.start();
+            sendSplashViewState(viewState2, false, i2, 413, "2");
+        } catch (Exception e2) {
+            sendSplashViewState(viewState2, false, i2, HttpStatus.SC_LOCKED, "exception");
+            this.mAdLogger.d(e2);
+        }
+    }
+
     public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
     }
 
     public void closeAd(String str) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("video_close_reason", str);
-        this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdStopped", hashMap));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("video_close_reason", str);
+            this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdStopped", hashMap));
+        }
     }
 
     public void deleteTimeoutCachedFiles(Context context) {
-        try {
-            File file = new File(SdcardUtils.getStoragePath(context));
-            if (file.exists()) {
-                File[] listFiles = file.listFiles();
-                for (File file2 : listFiles) {
-                    if (System.currentTimeMillis() - file2.lastModified() > this.CACHE_FILE_TIME_OUT.longValue()) {
-                        file2.delete();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            try {
+                File file = new File(SdcardUtils.getStoragePath(context));
+                if (file.exists()) {
+                    File[] listFiles = file.listFiles();
+                    for (File file2 : listFiles) {
+                        if (System.currentTimeMillis() - file2.lastModified() > this.CACHE_FILE_TIME_OUT.longValue()) {
+                            file2.delete();
+                        }
                     }
                 }
+            } catch (Exception e2) {
+                this.mAdLogger.e(e2);
             }
-        } catch (Exception e2) {
-            this.mAdLogger.e(e2);
         }
     }
 
     public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
     }
 
     public void displayVersion4DebugMode() {
-        if (!XAdSDKRemoteVersion.DEBUG.booleanValue() || this.mActivity == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && XAdSDKRemoteVersion.DEBUG.booleanValue() && this.mActivity != null) {
+            TextView textView = new TextView(this.mActivity);
+            textView.setTextColor(-16776961);
+            textView.setTextSize(15.0f);
+            textView.setText("P : " + AppConfigImp.getInstance().getProxyVersion() + "\nR : 9.042");
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.bottomMargin = 10;
+            layoutParams.addRule(13);
+            this.mAdContainerCxt.getAdProdBase().addView(textView, layoutParams);
         }
-        TextView textView = new TextView(this.mActivity);
-        textView.setTextColor(-16776961);
-        textView.setTextSize(15.0f);
-        textView.setText("P : " + AppConfigImp.getInstance().getProxyVersion() + "\nR : 9.041");
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.bottomMargin = 10;
-        layoutParams.addRule(13);
-        this.mAdContainerCxt.getAdProdBase().addView(textView, layoutParams);
     }
 
     public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
     }
 
     public void doAddProgressView() {
-        IXAdInstanceInfo adInstanceInfo = this.mAdContainerCxt.getAdInstanceInfo();
-        int optInt = this.mAdContainerCxt.getAdReqParam().optInt("splashTipStyle", 4);
-        if (adInstanceInfo.getOriginJsonObject().has("closetype")) {
-            optInt = adInstanceInfo.getOriginJsonObject().optInt("closetype", 4);
-        }
-        addProgressView();
-        if (!"video".equals(adInstanceInfo.getCreativeType().getValue())) {
-            this.mProgressView.setTimeMillis(5000L);
-            this.mProgressView.start();
-        }
-        if (optInt == 5) {
-            this.mProgressView.setVisibility(0);
-        } else if (optInt == 1) {
-            this.mProgressView.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            IXAdInstanceInfo adInstanceInfo = this.mAdContainerCxt.getAdInstanceInfo();
+            int optInt = this.mAdContainerCxt.getAdReqParam().optInt("splashTipStyle", 4);
+            if (adInstanceInfo.getOriginJsonObject().has("closetype")) {
+                optInt = adInstanceInfo.getOriginJsonObject().optInt("closetype", 4);
+            }
+            addProgressView();
+            if (!"video".equals(adInstanceInfo.getCreativeType().getValue())) {
+                this.mProgressView.setTimeMillis(5000L);
+                this.mProgressView.start();
+            }
+            if (optInt == 5) {
+                this.mProgressView.setVisibility(0);
+            } else if (optInt == 1) {
+                this.mProgressView.setVisibility(0);
+            }
         }
     }
 
     public void doLoadOnUIThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
     }
 
     public void doStartOnUIThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
     }
 
     public void doStopOnUIThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
     }
 
     public XAdContainerContext getAdContainerContext() {
-        return this.mAdContainerCxt;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mAdContainerCxt : (XAdContainerContext) invokeV.objValue;
     }
 
     public String getAdContainerName() {
-        return this.mAdContainerName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mAdContainerName : (String) invokeV.objValue;
     }
 
     public IXAdInstanceInfo getAdInstanceInfoByJson(JSONObject jSONObject) {
+        InterceptResult invokeL;
         XAdContainerContext xAdContainerContext;
         ArrayList<IXAdInstanceInfo> adInstanceList;
-        if (jSONObject == null || !jSONObject.has("uniqueId")) {
-            return null;
-        }
-        String optString = jSONObject.optString("uniqueId");
-        if (TextUtils.isEmpty(optString) || (xAdContainerContext = this.mAdContainerCxt) == null || xAdContainerContext.getAdResponseInfo() == null || (adInstanceList = this.mAdContainerCxt.getAdResponseInfo().getAdInstanceList()) == null) {
-            return null;
-        }
-        for (IXAdInstanceInfo iXAdInstanceInfo : adInstanceList) {
-            if (iXAdInstanceInfo != null && optString.equals(iXAdInstanceInfo.getUniqueId())) {
-                return iXAdInstanceInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, jSONObject)) == null) {
+            if (jSONObject == null || !jSONObject.has("uniqueId")) {
+                return null;
             }
+            String optString = jSONObject.optString("uniqueId");
+            if (TextUtils.isEmpty(optString) || (xAdContainerContext = this.mAdContainerCxt) == null || xAdContainerContext.getAdResponseInfo() == null || (adInstanceList = this.mAdContainerCxt.getAdResponseInfo().getAdInstanceList()) == null) {
+                return null;
+            }
+            for (IXAdInstanceInfo iXAdInstanceInfo : adInstanceList) {
+                if (iXAdInstanceInfo != null && optString.equals(iXAdInstanceInfo.getUniqueId())) {
+                    return iXAdInstanceInfo;
+                }
+            }
+            return null;
         }
-        return null;
+        return (IXAdInstanceInfo) invokeL.objValue;
     }
 
     public int getAdStateForTest() {
-        return this.mAdState;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mAdState : invokeV.intValue;
     }
 
     public View getAdView() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
     }
 
     public HashMap<String, String> getParameters() {
-        return this.mCustomerParameters;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mCustomerParameters : (HashMap) invokeV.objValue;
     }
 
     public String getRemoteVersion() {
-        return "9.041";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? "9.042" : (String) invokeV.objValue;
     }
 
     public HashMap<String, Object> getShouBaiLpFlag(XAdContainerContext xAdContainerContext, IXAdInstanceInfo iXAdInstanceInfo) {
-        return XAdRemoteCommonUtils.getLpFlag(xAdContainerContext, iXAdInstanceInfo);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, xAdContainerContext, iXAdInstanceInfo)) == null) ? XAdRemoteCommonUtils.getLpFlag(xAdContainerContext, iXAdInstanceInfo) : (HashMap) invokeLL.objValue;
     }
 
     public void handleClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        }
     }
 
     public void handleEvent(JSONObject jSONObject, Map<String, Object> map) {
-        if (jSONObject != null) {
-            String optString = jSONObject.optString("event_type");
-            try {
-                if ("splash_focus_start_activity".equals(optString)) {
-                    TransitionController.startActivity((Intent) map.get("splash_focus_user_intent"), this);
-                } else if ("splash_focus_register_transition".equals(optString)) {
-                    TransitionController.registerSceneTransition((Activity) map.get("splash_focus_activity"), jSONObject.optJSONObject("splash_focus_params"));
-                }
-            } catch (Throwable th) {
-                RemoteXAdLogger.getInstance().e(th);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048598, this, jSONObject, map) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY);
+        try {
+            if ("splash_focus_start_activity".equals(optString)) {
+                TransitionController.startActivity((Intent) map.get("splash_focus_user_intent"), this);
+            } else if ("splash_focus_register_transition".equals(optString)) {
+                TransitionController.registerSceneTransition((Activity) map.get("splash_focus_activity"), jSONObject.optJSONObject("splash_focus_params"));
             }
+        } catch (Throwable th) {
+            RemoteXAdLogger.getInstance().e(th);
         }
     }
 
     public void handlePause(IXAdInstanceInfo iXAdInstanceInfo) {
-        CircleTextProgressbar circleTextProgressbar = this.mProgressView;
-        if (circleTextProgressbar != null) {
-            circleTextProgressbar.stop();
+        CircleTextProgressbar circleTextProgressbar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048599, this, iXAdInstanceInfo) == null) || (circleTextProgressbar = this.mProgressView) == null) {
+            return;
         }
+        circleTextProgressbar.stop();
     }
 
     public void handleResume(IXAdInstanceInfo iXAdInstanceInfo) {
-        CircleTextProgressbar circleTextProgressbar = this.mProgressView;
-        if (circleTextProgressbar != null) {
-            circleTextProgressbar.start();
+        CircleTextProgressbar circleTextProgressbar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, iXAdInstanceInfo) == null) || (circleTextProgressbar = this.mProgressView) == null) {
+            return;
         }
+        circleTextProgressbar.start();
     }
 
     public void load() {
-        this.mAdLogger.d(TAG, "load");
-        this.mAdState = 1;
-        ActivityUtils.runOnUiThread(new Runnable() { // from class: com.baidu.mobads.container.XBaseAdContainer.1
-            @Override // java.lang.Runnable
-            public void run() {
-                XBaseAdContainer.this.doLoadOnUIThread();
-            }
-        });
-        XAdMaterialsLoader.getInstance().startLoadRemoteSetting(this.mAppContext);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.mAdLogger.d(TAG, "load");
+            this.mAdState = 1;
+            ActivityUtils.runOnUiThread(new Runnable(this) { // from class: com.baidu.mobads.container.XBaseAdContainer.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ XBaseAdContainer this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.doLoadOnUIThread();
+                    }
+                }
+            });
+            XAdMaterialsLoader.getInstance().startLoadRemoteSetting(this.mAppContext);
+        }
     }
 
     public void onAdClick(IXAdInstanceInfo iXAdInstanceInfo, View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048602, this, iXAdInstanceInfo, view) == null) {
+        }
     }
 
     public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        }
     }
 
     public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        }
     }
 
     public void onPermissionClose(IXAdInstanceInfo iXAdInstanceInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, iXAdInstanceInfo) == null) {
+        }
     }
 
     public void onPermissionShow(IXAdInstanceInfo iXAdInstanceInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, iXAdInstanceInfo) == null) {
+        }
     }
 
     public void onPrivacyClick(IXAdInstanceInfo iXAdInstanceInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, iXAdInstanceInfo) == null) {
+        }
     }
 
     public void onPrivacyLpClose(IXAdInstanceInfo iXAdInstanceInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, iXAdInstanceInfo) == null) {
+        }
     }
 
     public void onWindowFocusChanged(boolean z) {
-        if (z) {
-            this.windowFocusState = 1;
-        } else {
-            this.windowFocusState = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+            if (z) {
+                this.windowFocusState = 1;
+            } else {
+                this.windowFocusState = 0;
+            }
         }
     }
 
     public void onWindowVisibilityChanged(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
+        }
     }
 
     public ApoParser parseApo(IXAdInstanceInfo iXAdInstanceInfo) {
-        return new ApoParser(this.mAdContainerCxt).parse(iXAdInstanceInfo);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, iXAdInstanceInfo)) == null) ? new ApoParser(this, this.mAdContainerCxt).parse(iXAdInstanceInfo) : (ApoParser) invokeL.objValue;
     }
 
     public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+        }
     }
 
     public void processAdError(XAdErrorCode xAdErrorCode, String str) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("error_message", str);
-        this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdError", xAdErrorCode.getCode(), hashMap));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048613, this, xAdErrorCode, str) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("error_message", str);
+            this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdError", xAdErrorCode.getCode(), hashMap));
+        }
     }
 
     public void processAdStart() {
-        processAdStart(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+            processAdStart(null);
+        }
     }
 
     public Boolean processKeyEvent(int i2, KeyEvent keyEvent) {
-        return Boolean.FALSE;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048617, this, i2, keyEvent)) == null) ? Boolean.FALSE : (Boolean) invokeIL.objValue;
     }
 
     public boolean processShouldOverrideUrlLoading(String str, WebView webView) {
-        if (!str.startsWith("http://") && !str.startsWith("https://")) {
-            OpenAppUtils.browserOutside(webView.getContext(), str);
-        } else if (str.startsWith(AdURIUtils.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm"))) {
-            webView.loadUrl(str);
-        } else {
-            IXAdInstanceInfo adInstanceInfo = this.mAdContainerCxt.getAdInstanceInfo();
-            adInstanceInfo.setClickThroughUrl(str);
-            adInstanceInfo.setActionType(1);
-            new XAdRemoteClickHandler().onAdClicked(this, adInstanceInfo, Boolean.TRUE, null);
-            StateMachine.event(adInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
-            StateMachine.event(adInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK_LP);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048618, this, str, webView)) == null) {
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                OpenAppUtils.browserOutside(webView.getContext(), str);
+            } else if (str.startsWith(AdURIUtils.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm"))) {
+                webView.loadUrl(str);
+            } else {
+                IXAdInstanceInfo adInstanceInfo = this.mAdContainerCxt.getAdInstanceInfo();
+                adInstanceInfo.setClickThroughUrl(str);
+                adInstanceInfo.setActionType(1);
+                new XAdRemoteClickHandler().onAdClicked(this, adInstanceInfo, Boolean.TRUE, null);
+                StateMachine.event(adInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
+                StateMachine.event(adInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK_LP);
+            }
+            return true;
         }
-        return true;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(38:1|2|3|4|(3:143|144|145)|6|(2:7|8)|(1:10)|11|(8:125|126|128|129|(1:131)|132|133|(2:135|(26:137|15|(1:124)(1:21)|22|23|24|(2:26|(1:28)(1:29))|30|31|(1:121)(16:34|35|36|37|38|39|40|41|42|(1:113)(10:47|48|50|51|52|53|54|(1:56)|57|58)|59|(1:61)|62|(1:64)|(2:87|(1:(3:96|(5:99|100|102|103|104)|98)(1:95))(1:91))(2:68|(5:70|(1:72)|73|74|75)(2:(1:84)(1:86)|85))|(2:77|78)(1:80))|118|42|(0)|113|59|(0)|62|(0)|(1:66)|87|(1:89)|(1:93)|96|(0)|98|(0)(0))))(1:13)|14|15|(1:17)|124|22|23|24|(0)|30|31|(0)|121|118|42|(0)|113|59|(0)|62|(0)|(0)|87|(0)|(0)|96|(0)|98|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x012d, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(39:3|4|5|6|(3:145|146|147)|8|9|10|(1:12)|13|(8:127|128|130|131|(1:133)|134|135|(2:137|(26:139|17|(1:126)(1:23)|24|25|26|(2:28|(1:30)(1:31))|32|33|(1:123)(16:36|37|38|39|40|41|42|43|44|(1:115)(10:49|50|52|53|54|55|56|(1:58)|59|60)|61|(1:63)|64|(1:66)|(2:89|(1:(3:98|(5:101|102|103|104|105)|100)(1:97))(1:93))(2:70|(5:72|(1:74)|75|76|77)(2:(1:86)(1:88)|87))|(2:79|80)(1:82))|120|44|(0)|115|61|(0)|64|(0)|(1:68)|89|(1:91)|(1:95)|98|(0)|100|(0)(0))))(1:15)|16|17|(1:19)|126|24|25|26|(0)|32|33|(0)|123|120|44|(0)|115|61|(0)|64|(0)|(0)|89|(0)|(0)|98|(0)|100|(0)(0)) */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0131, code lost:
         r19 = r9;
         r18 = "version";
         r17 = 1;
      */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0273  */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x028c  */
-    /* JADX WARN: Removed duplicated region for block: B:120:0x02e8  */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x02ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:157:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00e4 A[Catch: all -> 0x012d, TRY_ENTER, TryCatch #5 {all -> 0x012d, blocks: (B:44:0x00d6, B:47:0x00e4, B:50:0x00f5, B:51:0x00f9), top: B:137:0x00d6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x013b A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x01af  */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x01ff  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x021f  */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x0277  */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x0290  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x02ec  */
+    /* JADX WARN: Removed duplicated region for block: B:150:0x02b2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:162:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00e8 A[Catch: all -> 0x0131, TRY_ENTER, TryCatch #7 {all -> 0x0131, blocks: (B:46:0x00da, B:49:0x00e8, B:52:0x00f9, B:53:0x00fd), top: B:146:0x00da }] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x013f A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x01b3  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0203  */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x0223  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -645,6 +969,10 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         XAdInstanceInfoExt xAdInstanceInfoExt5;
         long lastOpenAppTime;
         int count;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(1048619, this, iXAdInstanceInfo) != null) {
+            return;
+        }
         try {
             jSONObject = new JSONObject(iXAdInstanceInfo.getAppOpenStrs());
         } catch (Exception e2) {
@@ -881,50 +1209,63 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
     }
 
     public void registerState(long j, String str, IXAdInstanceInfo iXAdInstanceInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Long.valueOf(j), str, iXAdInstanceInfo}) == null) {
+        }
     }
 
     public abstract void resetAdContainerName();
 
     public void resize(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048622, this, i2, i3) == null) {
+        }
     }
 
     public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+        }
     }
 
     @Override // com.baidu.mobads.sdk.api.IOAdEventListener
     public void run(IOAdEvent iOAdEvent) {
-        if (iOAdEvent == null || !"AdStatusChange".equals(iOAdEvent.getType())) {
-            return;
-        }
-        try {
-            String message = iOAdEvent.getMessage();
-            if (TextUtils.isEmpty(message)) {
-                return;
-            }
-            Iterator<IXAdInstanceInfo> it = getAdContainerContext().getAdResponseInfo().getAdInstanceList().iterator();
-            while (it.hasNext()) {
-                IXAdInstanceInfo next = it.next();
-                if (message.equals(next.getAppPackageName())) {
-                    this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdStatusChange", next.getUniqueId()));
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048624, this, iOAdEvent) == null) && iOAdEvent != null && "AdStatusChange".equals(iOAdEvent.getType())) {
+            try {
+                String message = iOAdEvent.getMessage();
+                if (TextUtils.isEmpty(message)) {
+                    return;
                 }
+                Iterator<IXAdInstanceInfo> it = getAdContainerContext().getAdResponseInfo().getAdInstanceList().iterator();
+                while (it.hasNext()) {
+                    IXAdInstanceInfo next = it.next();
+                    if (message.equals(next.getAppPackageName())) {
+                        this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdStatusChange", next.getUniqueId()));
+                    }
+                }
+                HashMap<String, WeakReference<IDownloadStateChangeListener>> downloadListener = DownloadStateHandler.getInstance().getDownloadListener();
+                this.mDownloadListeners = downloadListener;
+                if (downloadListener == null || downloadListener.size() <= 0 || this.mDownloadListeners.get(message) == null || this.mDownloadListeners.get(message).get() == null) {
+                    return;
+                }
+                this.mDownloadListeners.get(message).get().onDownloadStateChange();
+            } catch (Throwable th) {
+                this.mAdLogger.d(th);
             }
-            HashMap<String, WeakReference<IDownloadStateChangeListener>> downloadListener = DownloadStateHandler.getInstance().getDownloadListener();
-            this.mDownloadListeners = downloadListener;
-            if (downloadListener == null || downloadListener.size() <= 0 || this.mDownloadListeners.get(message) == null || this.mDownloadListeners.get(message).get() == null) {
-                return;
-            }
-            this.mDownloadListeners.get(message).get().onDownloadStateChange();
-        } catch (Throwable th) {
-            this.mAdLogger.d(th);
         }
     }
 
     public void send3rdImpressionLog() {
-        send3rdLog(this.mAdContainerCxt.getAdInstanceInfo().getThirdImpressionTrackingUrls());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+            send3rdLog(this.mAdContainerCxt.getAdInstanceInfo().getThirdImpressionTrackingUrls());
+        }
     }
 
     public void send3rdLog(List<String> list) {
-        if (list == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048626, this, list) == null) || list == null) {
             return;
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
@@ -941,81 +1282,164 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
     }
 
     public void sendImpressionLog(IXAdInstanceInfo iXAdInstanceInfo) {
-        Set<String> impressionUrls = iXAdInstanceInfo.getImpressionUrls();
-        if (impressionUrls != null) {
-            ArrayList arrayList = new ArrayList();
-            for (Object obj : impressionUrls.toArray()) {
-                arrayList.add((String) obj);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, iXAdInstanceInfo) == null) {
+            Set<String> impressionUrls = iXAdInstanceInfo.getImpressionUrls();
+            if (impressionUrls != null) {
+                ArrayList arrayList = new ArrayList();
+                for (Object obj : impressionUrls.toArray()) {
+                    arrayList.add((String) obj);
+                }
+                impressionUrls.clear();
+                send3rdLog(arrayList);
             }
-            impressionUrls.clear();
-            send3rdLog(arrayList);
+            this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdImpression", iXAdInstanceInfo.getUniqueId()));
         }
-        this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdImpression", iXAdInstanceInfo.getUniqueId()));
     }
 
     public void sendRsplashExpClickLog(int i2) {
-        sendSplashViewState(9, false, i2, HttpStatus.SC_FAILED_DEPENDENCY, this.showRecord);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048628, this, i2) == null) {
+            sendSplashViewState(9, false, i2, HttpStatus.SC_FAILED_DEPENDENCY, this.showRecord);
+        }
     }
 
     public void sendSplashViewState(int i2, boolean z, int i3, int i4, String str) {
-        SplashVSLogUtil.sendLog(this.mAdContainerCxt, i2, z, i3, i4, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+            SplashVSLogUtil.sendLog(this.mAdContainerCxt, i2, z, i3, i4, str);
+        }
     }
 
     public void setAdStateForTest(int i2) {
-        this.mAdState = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
+            this.mAdState = i2;
+        }
     }
 
     public void setParameters(HashMap<String, String> hashMap) {
-        this.mCustomerParameters = hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, hashMap) == null) {
+            this.mCustomerParameters = hashMap;
+        }
     }
 
     public void start() {
-        this.hasPlayed = true;
-        this.mAdLogger.d(TAG, IntentConfig.START);
-        ActivityUtils.runOnUiThread(new Runnable() { // from class: com.baidu.mobads.container.XBaseAdContainer.2
-            @Override // java.lang.Runnable
-            public void run() {
-                XBaseAdContainer.this.doStartOnUIThread();
-            }
-        });
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
+            this.hasPlayed = true;
+            this.mAdLogger.d(TAG, "start");
+            ActivityUtils.runOnUiThread(new Runnable(this) { // from class: com.baidu.mobads.container.XBaseAdContainer.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ XBaseAdContainer this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.doStartOnUIThread();
+                    }
+                }
+            });
+        }
     }
 
     public void startWangmengPage() {
-        IXAdInstanceInfo adInstanceInfo = this.mAdContainerCxt.getAdInstanceInfo();
-        adInstanceInfo.setClickThroughUrl("https://union.baidu.com");
-        adInstanceInfo.setActionType(1);
-        new XAdRemoteClickHandler().onAdClicked(this, adInstanceInfo, Boolean.TRUE, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
+            IXAdInstanceInfo adInstanceInfo = this.mAdContainerCxt.getAdInstanceInfo();
+            adInstanceInfo.setClickThroughUrl("https://union.baidu.com");
+            adInstanceInfo.setActionType(1);
+            new XAdRemoteClickHandler().onAdClicked(this, adInstanceInfo, Boolean.TRUE, null);
+        }
     }
 
     public void stop() {
-        ActivityUtils.runOnUiThread(new Runnable() { // from class: com.baidu.mobads.container.XBaseAdContainer.3
-            @Override // java.lang.Runnable
-            public void run() {
-                XBaseAdContainer.this.doStopOnUIThread();
-            }
-        });
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+            ActivityUtils.runOnUiThread(new Runnable(this) { // from class: com.baidu.mobads.container.XBaseAdContainer.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ XBaseAdContainer this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.doStopOnUIThread();
+                    }
+                }
+            });
+        }
     }
 
     public void switchContext(Activity activity) {
-        this.mActivity = activity;
-        XAdContainerContext adContainerContext = getAdContainerContext();
-        if (adContainerContext instanceof XAbstractAdProdTemplate) {
-            adContainerContext.setActivity(activity);
-            ProdAdRequestInfo prodAdRequestInfo = ((XAbstractAdProdTemplate) adContainerContext).mAdRequestInfo;
-            if (prodAdRequestInfo != null) {
-                prodAdRequestInfo.setAdContainer(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048635, this, activity) == null) {
+            this.mActivity = activity;
+            XAdContainerContext adContainerContext = getAdContainerContext();
+            if (adContainerContext instanceof XAbstractAdProdTemplate) {
+                adContainerContext.setActivity(activity);
+                ProdAdRequestInfo prodAdRequestInfo = ((XAbstractAdProdTemplate) adContainerContext).mAdRequestInfo;
+                if (prodAdRequestInfo != null) {
+                    prodAdRequestInfo.setAdContainer(null);
+                }
             }
+            this.imageAd = null;
+            this.imageBaidu = null;
+            this.mProgressView = null;
         }
-        this.imageAd = null;
-        this.imageBaidu = null;
-        this.mProgressView = null;
     }
 
     public void processAdStart(HashMap<String, Object> hashMap) {
-        this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdStarted", hashMap));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, hashMap) == null) {
+            this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdStarted", hashMap));
+        }
     }
 
     public void processAdError(HashMap<String, Object> hashMap) {
-        this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdError", hashMap));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, hashMap) == null) {
+            this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdError", hashMap));
+        }
     }
 }

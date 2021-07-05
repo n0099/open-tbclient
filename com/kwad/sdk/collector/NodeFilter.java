@@ -2,7 +2,7 @@ package com.kwad.sdk.collector;
 
 import java.io.File;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface NodeFilter extends Serializable {
     void onChildNodeCreate(FNode fNode);
 

@@ -1,108 +1,145 @@
 package com.bytedance.sdk.openadsdk.l;
 
-import android.text.TextUtils;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import org.json.JSONArray;
-import org.json.JSONException;
+import android.content.Context;
+import android.location.Address;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.net.tnc.ITTAdNetDepend;
+import com.bytedance.sdk.openadsdk.core.j;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class d {
+public class d implements ITTAdNetDepend {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentLinkedQueue<com.bytedance.sdk.openadsdk.l.a.a> f29723a = new ConcurrentLinkedQueue<>();
+    public String f31350a;
 
-    public static void a(a aVar, long j, long j2) {
-        if (aVar == null) {
-            return;
-        }
-        f29723a.offer(new com.bytedance.sdk.openadsdk.l.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j, j2));
-        a(false);
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public Context f31351b;
 
-    public static void a(boolean z) {
-        int valueOf;
-        c g2 = e.g();
-        if ((z || f29723a.size() >= 60) && g2 != null) {
-            synchronized (f29723a) {
-                if (f29723a.isEmpty()) {
-                    return;
-                }
-                com.bytedance.sdk.openadsdk.l.a.a[] aVarArr = (com.bytedance.sdk.openadsdk.l.a.a[]) f29723a.toArray(new com.bytedance.sdk.openadsdk.l.a.a[f29723a.size()]);
-                f29723a.clear();
-                int i2 = 0;
-                if (aVarArr.length != 0) {
-                    HashMap hashMap = new HashMap();
-                    for (com.bytedance.sdk.openadsdk.l.a.a aVar : aVarArr) {
-                        String a2 = a(aVar.a(), aVar.b(), aVar.c());
-                        com.bytedance.sdk.openadsdk.l.a.c cVar = (com.bytedance.sdk.openadsdk.l.a.c) hashMap.get(a2);
-                        if (cVar == null) {
-                            hashMap.put(a2, new com.bytedance.sdk.openadsdk.l.a.c(aVar.a(), aVar.b(), aVar.c(), aVar.d(), aVar.d(), aVar.e(), aVar.e(), 1));
-                        } else {
-                            if (aVar.d() > cVar.c()) {
-                                cVar.a(aVar.d());
-                            }
-                            cVar.b(aVar.d());
-                            if (aVar.e() > cVar.d()) {
-                                cVar.c(aVar.e());
-                            }
-                            cVar.d(aVar.e());
-                            cVar.a(1);
-                        }
-                    }
-                    for (com.bytedance.sdk.openadsdk.l.a.c cVar2 : hashMap.values()) {
-                        if (cVar2.e() > 0 && !TextUtils.isEmpty(cVar2.b())) {
-                            String b2 = cVar2.b();
-                            char c2 = 65535;
-                            int hashCode = b2.hashCode();
-                            if (hashCode != 3366) {
-                                if (hashCode == 2993840 && b2.equals("aidl")) {
-                                    c2 = 1;
-                                }
-                            } else if (b2.equals("io")) {
-                                c2 = 0;
-                            }
-                            if (c2 == 0) {
-                                cVar2.b(((ThreadPoolExecutor) e.a()).getLargestPoolSize());
-                            } else if (c2 == 1) {
-                                cVar2.b(((ThreadPoolExecutor) e.c()).getLargestPoolSize());
-                            }
-                            g2.a(cVar2);
-                        }
-                    }
-                }
-                Set<Thread> keySet = Thread.getAllStackTraces().keySet();
-                HashMap hashMap2 = new HashMap();
-                int i3 = 0;
-                for (Thread thread : keySet) {
-                    String name = thread.getName();
-                    if (!TextUtils.isEmpty(name) && name.startsWith("tt_pangle_thread_")) {
-                        i3++;
-                        Integer num = (Integer) hashMap2.get(name);
-                        if (num == null) {
-                            valueOf = 1;
-                        } else {
-                            valueOf = Integer.valueOf(num.intValue() + 1);
-                        }
-                        hashMap2.put(name, valueOf);
-                    }
-                }
-                JSONArray jSONArray = new JSONArray();
-                for (String str : hashMap2.keySet()) {
-                    try {
-                        jSONArray.put(i2, ((Integer) hashMap2.get(str)) + "_" + str);
-                        i2++;
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                g2.a(new com.bytedance.sdk.openadsdk.l.a.b(i3, jSONArray.toString()));
+    public d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f31350a = "sp_multi_ttadnet_config";
+        this.f31351b = context;
     }
 
-    public static String a(String str, int i2, int i3) {
-        return str + "_core_" + i2 + "_max_" + i3;
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public int getAid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Integer.parseInt("1371") : invokeV.intValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public String getChannel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "openadsdk" : (String) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public String[] getConfigServers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new String[]{"tnc3-bjlgy.snssdk.com", "tnc3-alisc1.snssdk.com", "tnc3-aliec2.snssdk.com"} : (String[]) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31351b : (Context) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public String getDid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j.a(this.f31351b) : (String) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public Address getLocationAdress(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return null;
+        }
+        return (Address) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public String getPlatform() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "android" : (String) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public int getProviderInt(Context context, String str, int i2) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, context, str, i2)) == null) ? com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31350a, str, i2) : invokeLLI.intValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public String getProviderString(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2)) == null) ? com.bytedance.sdk.openadsdk.multipro.d.a.b(this.f31350a, str, str2) : (String) invokeLLL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public int getVersionCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return 3613;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
+    public void saveMapToProvider(Context context, Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048586, this, context, map) == null) || map == null) {
+            return;
+        }
+        try {
+            for (Map.Entry<String, ?> entry : map.entrySet()) {
+                Object value = entry.getValue();
+                if (value instanceof Integer) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31350a, entry.getKey(), (Integer) value);
+                } else if (value instanceof Long) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31350a, entry.getKey(), (Long) value);
+                } else if (value instanceof Float) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31350a, entry.getKey(), (Float) value);
+                } else if (value instanceof Boolean) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31350a, entry.getKey(), (Boolean) value);
+                } else if (value instanceof String) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31350a, entry.getKey(), (String) value);
+                }
+            }
+        } catch (Throwable unused) {
+        }
     }
 }

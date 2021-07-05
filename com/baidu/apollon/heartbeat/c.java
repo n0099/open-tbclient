@@ -2,63 +2,123 @@ package com.baidu.apollon.heartbeat;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class c {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3767a = c.class.getClass().getSimpleName();
+    public static final String f3765a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3768b = "last_cfg_request_time";
+    public static final String f3766b = "last_cfg_request_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3769c = "heartbeat_cfg_fingerprint";
+    public static final String f3767c = "heartbeat_cfg_fingerprint";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3770d = 300;
+    public static final int f3768d = 300;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3771e = "HeartBeatSP";
+    public static final String f3769e = "HeartBeatSP";
 
     /* renamed from: f  reason: collision with root package name */
-    public static SharedPreferences f3772f;
+    public static SharedPreferences f3770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SharedPreferences.Editor f3773g;
+    public static SharedPreferences.Editor f3771g;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-793707319, "Lcom/baidu/apollon/heartbeat/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-793707319, "Lcom/baidu/apollon/heartbeat/c;");
+                return;
+            }
+        }
+        f3765a = c.class.getClass().getSimpleName();
+    }
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static void a(Context context) {
-        if (f3772f == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(f3771e, 0);
-            f3772f = sharedPreferences;
-            f3773g = sharedPreferences.edit();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f3770f == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences(f3769e, 0);
+            f3770f = sharedPreferences;
+            f3771g = sharedPreferences.edit();
         }
     }
 
     public static long b(Context context, String str, long j) {
-        a(context);
-        return f3772f.getLong(str, j);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+            a(context);
+            return f3770f.getLong(str, j);
+        }
+        return invokeCommon.longValue;
     }
 
     public static String b(Context context, String str, String str2) {
-        a(context);
-        return f3772f.getString(str, str2);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, str2)) == null) {
+            a(context);
+            return f3770f.getString(str, str2);
+        }
+        return (String) invokeLLL.objValue;
     }
 
     public static void a(Context context, String str, long j) {
-        a(context);
-        f3773g.putLong(str, j);
-        f3773g.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+            a(context);
+            f3771g.putLong(str, j);
+            f3771g.commit();
+        }
     }
 
     public static void a(Context context, String str, String str2) {
-        a(context);
-        f3773g.putString(str, str2);
-        f3773g.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2) == null) {
+            a(context);
+            f3771g.putString(str, str2);
+            f3771g.commit();
+        }
     }
 
     public static void a(Context context, String str) {
-        a(context);
-        f3773g.remove(str);
-        f3773g.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            a(context);
+            f3771g.remove(str);
+            f3771g.commit();
+        }
     }
 }

@@ -3,22 +3,85 @@ package com.baidu.tbadk.core.util;
 import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CustomToast2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static Handler mHandler;
+    public static String mText;
     public static Toast mToast;
-    public static Handler mHandler = new Handler();
-    public static String mText = null;
-    public static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.CustomToast2.1
-        @Override // java.lang.Runnable
-        public void run() {
-            CustomToast2.mToast.cancel();
+    public static Runnable r;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1684405473, "Lcom/baidu/tbadk/core/util/CustomToast2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1684405473, "Lcom/baidu/tbadk/core/util/CustomToast2;");
+                return;
+            }
         }
-    };
+        mHandler = new Handler();
+        mText = null;
+        r = new Runnable() { // from class: com.baidu.tbadk.core.util.CustomToast2.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    CustomToast2.mToast.cancel();
+                }
+            }
+        };
+    }
+
+    public CustomToast2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static void showToast(Context context, String str, int i2) {
-        if (str == null || str.length() <= 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, context, str, i2) == null) || str == null || str.length() <= 0) {
             return;
         }
         mHandler.removeCallbacks(r);
@@ -37,14 +100,23 @@ public class CustomToast2 {
     }
 
     public static void showToast(Context context, String str) {
-        showToast(context, str, 2000);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+            showToast(context, str, 2000);
+        }
     }
 
     public static void showToast(Context context, int i2) {
-        showToast(context, context.getResources().getString(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65539, null, context, i2) == null) {
+            showToast(context, context.getResources().getString(i2));
+        }
     }
 
     public static void showToast(Context context, int i2, int i3) {
-        showToast(context, context.getResources().getString(i2), i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65540, null, context, i2, i3) == null) {
+            showToast(context, context.getResources().getString(i2), i3);
+        }
     }
 }

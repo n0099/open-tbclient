@@ -3,34 +3,54 @@ package com.baidu.ufosdk.ui;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class db {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f22916a;
+    public TextView f23432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f22917b;
+    public ImageView f23433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f22918c;
+    public TextView f23434c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f22919d;
+    public RelativeLayout f23435d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f22920e;
+    public RelativeLayout f23436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22921f;
+    public TextView f23437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22922g;
+    public TextView f23438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f22923h;
+    public i f23439h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f22924i;
+    public ImageView f23440i;
     public TextView j;
+
+    public db() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -1,8 +1,489 @@
 package com.bytedance.sdk.openadsdk.a;
 
-import androidx.annotation.MainThread;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.net.NetClient;
+import com.bytedance.sdk.component.net.NetResponse;
+import com.bytedance.sdk.component.net.callback.NetCallback;
+import com.bytedance.sdk.component.net.executor.DownloadExecutor;
+import com.bytedance.sdk.component.net.executor.NetExecutor;
+import com.bytedance.sdk.component.utils.e;
+import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.openadsdk.CacheDirConstants;
+import com.bytedance.sdk.openadsdk.core.l;
+import com.bytedance.sdk.openadsdk.core.o;
+import com.bytedance.sdk.openadsdk.r.d;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface b {
-    @MainThread
-    void onError(int i2, String str);
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Map<String, com.bytedance.sdk.openadsdk.a.a> f28961a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ReentrantLock f28962b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Set<String> f28963c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public NetClient f28964d;
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final b f28971a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-664305601, "Lcom/bytedance/sdk/openadsdk/a/b$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-664305601, "Lcom/bytedance/sdk/openadsdk/a/b$a;");
+                    return;
+                }
+            }
+            f28971a = new b();
+        }
+    }
+
+    private NetClient b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            if (this.f28964d == null) {
+                this.f28964d = new NetClient.Builder().connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).build();
+            }
+            return this.f28964d;
+        }
+        return (NetClient) invokeV.objValue;
+    }
+
+    private JSONArray c(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, jSONObject)) == null) {
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("creatives");
+            JSONArray jSONArray = new JSONArray();
+            if (optJSONArray2 == null) {
+                return jSONArray;
+            }
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
+                if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("precache_brand_video")) != null) {
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        jSONArray.put(optJSONArray.opt(i3));
+                    }
+                }
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (String str : this.f28961a.keySet()) {
+                com.bytedance.sdk.openadsdk.a.a aVar = this.f28961a.get(str);
+                if (aVar != null) {
+                    jSONArray.put(aVar.e());
+                }
+            }
+            String jSONArray2 = jSONArray.toString();
+            d.f(jSONArray2);
+            j.b("BrandVideoCacheManager", "save video cache:" + jSONArray2);
+        }
+    }
+
+    @NonNull
+    private Map<String, com.bytedance.sdk.openadsdk.a.a> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            Iterator<Map.Entry<String, com.bytedance.sdk.openadsdk.a.a>> it = this.f28961a.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<String, com.bytedance.sdk.openadsdk.a.a> next = it.next();
+                if (next.getValue().d()) {
+                    hashMap.put(next.getKey(), next.getValue());
+                    it.remove();
+                } else {
+                    arrayList.add(next.getValue());
+                }
+            }
+            int O = o.h().O();
+            j.b("BrandVideoCacheManager", "setting num:" + O);
+            int size = this.f28961a.size() - O;
+            if (size > 0) {
+                Collections.sort(arrayList, new Comparator<com.bytedance.sdk.openadsdk.a.a>(this) { // from class: com.bytedance.sdk.openadsdk.a.b.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ b f28970a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f28970a = this;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // java.util.Comparator
+                    /* renamed from: a */
+                    public int compare(com.bytedance.sdk.openadsdk.a.a aVar, com.bytedance.sdk.openadsdk.a.a aVar2) {
+                        InterceptResult invokeLL;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, aVar, aVar2)) == null) {
+                            long c2 = aVar2.c() - aVar.c();
+                            if (c2 == 0) {
+                                String brandCacheDir = CacheDirConstants.getBrandCacheDir();
+                                c2 = aVar.a(brandCacheDir) - aVar2.a(brandCacheDir);
+                            }
+                            return (int) c2;
+                        }
+                        return invokeLL.intValue;
+                    }
+                });
+                for (int i2 = 0; i2 < size; i2++) {
+                    com.bytedance.sdk.openadsdk.a.a aVar = (com.bytedance.sdk.openadsdk.a.a) arrayList.get(i2);
+                    this.f28961a.remove(aVar.b());
+                    hashMap.put(aVar.b(), aVar);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f28961a = new HashMap();
+        this.f28962b = new ReentrantLock();
+        this.f28963c = new HashSet();
+        String i4 = d.i();
+        if (TextUtils.isEmpty(i4)) {
+            return;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(i4);
+            for (int i5 = 0; i5 < jSONArray.length(); i5++) {
+                b(jSONArray.optJSONObject(i5));
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static b a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f28971a : (b) invokeV.objValue;
+    }
+
+    public void a(@NonNull JSONObject jSONObject) {
+        JSONArray c2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || (c2 = c(jSONObject)) == null || c2.length() == 0) {
+            return;
+        }
+        l.c().postDelayed(new Runnable(this, c2) { // from class: com.bytedance.sdk.openadsdk.a.b.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ JSONArray f28965a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ b f28966b;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, c2};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f28966b = this;
+                this.f28965a = c2;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    j.b("BrandVideoCacheManager", "onReceivedNewBrandCache start:" + this.f28965a.length());
+                    this.f28966b.a(this.f28965a);
+                }
+            }
+        }, 20000L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(@NonNull JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, this, jSONArray) == null) {
+            try {
+                this.f28962b.lock();
+                int length = jSONArray.length();
+                for (int i2 = 0; i2 < length; i2++) {
+                    b(jSONArray.optJSONObject(i2));
+                }
+                Map<String, com.bytedance.sdk.openadsdk.a.a> e2 = e();
+                int c2 = c();
+                d();
+                a(e2);
+                this.f28962b.unlock();
+                a(c2);
+            } catch (Throwable th) {
+                this.f28962b.unlock();
+                throw th;
+            }
+        }
+    }
+
+    private void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65550, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        com.bytedance.sdk.openadsdk.a.a aVar = new com.bytedance.sdk.openadsdk.a.a(jSONObject);
+        this.f28961a.put(aVar.b(), aVar);
+    }
+
+    private int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            int i2 = 0;
+            for (String str : this.f28961a.keySet()) {
+                com.bytedance.sdk.openadsdk.o.f.b a2 = a(this.f28961a.get(str));
+                if (a2 != null) {
+                    String d2 = a2.d();
+                    String b2 = a2.b();
+                    String a3 = a2.a();
+                    File file = new File(d2, b2);
+                    if (file.exists() && file.length() > 0) {
+                        j.b("BrandVideoCacheManager", " file :" + b2 + " exist!");
+                    } else {
+                        i2++;
+                        if (this.f28963c.contains(b2)) {
+                            j.c("BrandVideoCacheManager", " task :" + b2 + " is running!");
+                        } else {
+                            this.f28963c.add(b2);
+                            a(a3, d2, b2);
+                        }
+                    }
+                }
+            }
+            return i2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
+            try {
+                this.f28962b.lock();
+                this.f28963c.remove(str);
+            } finally {
+                this.f28962b.unlock();
+            }
+        }
+    }
+
+    private void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2) == null) {
+            File[] listFiles = new File(CacheDirConstants.getBrandCacheDir()).listFiles();
+            int O = o.h().O();
+            if (listFiles == null || listFiles.length <= O - i2) {
+                return;
+            }
+            for (int i3 = 0; i3 < listFiles.length; i3++) {
+                String a2 = a(listFiles[i3]);
+                if (!this.f28961a.containsKey(a2) && listFiles[i3].exists()) {
+                    listFiles[i3].delete();
+                    j.d("BrandVideoCacheManager", "delete not need:" + a2);
+                }
+            }
+        }
+    }
+
+    private String a(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, file)) == null) {
+            String name = file.getName();
+            int lastIndexOf = name.lastIndexOf(".");
+            return lastIndexOf != -1 ? name.substring(0, lastIndexOf) : name;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private void a(@NonNull Map<String, com.bytedance.sdk.openadsdk.a.a> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, this, map) == null) {
+            for (String str : map.keySet()) {
+                com.bytedance.sdk.openadsdk.a.a aVar = map.get(str);
+                boolean b2 = aVar.b(CacheDirConstants.getBrandCacheDir());
+                j.b("BrandVideoCacheManager", "try delete: " + aVar.b() + " ,result " + b2);
+            }
+        }
+    }
+
+    private void a(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, this, str, str2, str3) == null) {
+            DownloadExecutor downloadExecutor = b().getDownloadExecutor();
+            downloadExecutor.setUrl(str);
+            downloadExecutor.setFileInfo(str2, str3);
+            downloadExecutor.enqueue(new NetCallback(this, str, str3) { // from class: com.bytedance.sdk.openadsdk.a.b.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ String f28967a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ String f28968b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ b f28969c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, str3};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f28969c = this;
+                    this.f28967a = str;
+                    this.f28968b = str3;
+                }
+
+                @Override // com.bytedance.sdk.component.net.callback.NetCallback
+                public void onFailure(NetExecutor netExecutor, IOException iOException) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
+                        j.d("BrandVideoCacheManager", "download " + this.f28967a + " failed: " + iOException);
+                        this.f28969c.b(this.f28968b);
+                    }
+                }
+
+                @Override // com.bytedance.sdk.component.net.callback.NetCallback
+                public void onResponse(NetExecutor netExecutor, NetResponse netResponse) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
+                        j.b("BrandVideoCacheManager", "download " + this.f28967a + " finish: code = " + netResponse.getCode());
+                        this.f28969c.b(this.f28968b);
+                    }
+                }
+            });
+        }
+    }
+
+    private com.bytedance.sdk.openadsdk.o.f.b a(com.bytedance.sdk.openadsdk.a.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, aVar)) == null) {
+            if (aVar == null) {
+                return null;
+            }
+            com.bytedance.sdk.openadsdk.o.f.b bVar = new com.bytedance.sdk.openadsdk.o.f.b();
+            bVar.a(aVar.a());
+            String b2 = aVar.b();
+            if (TextUtils.isEmpty(b2)) {
+                b2 = e.a(aVar.a());
+            }
+            bVar.b(b2);
+            bVar.b(true);
+            bVar.c(CacheDirConstants.getBrandCacheDir());
+            bVar.a(5242880);
+            return bVar;
+        }
+        return (com.bytedance.sdk.openadsdk.o.f.b) invokeL.objValue;
+    }
+
+    public static File a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? new File(CacheDirConstants.getBrandCacheDir(), str) : (File) invokeL.objValue;
+    }
 }

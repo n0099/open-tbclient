@@ -3,74 +3,138 @@ package com.baidu.tbadk.widget;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class TbClipImageView extends TbImageView {
-    public boolean B0;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean x0;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbClipImageView(Context context) {
         this(context, null, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    public final void b0(Context context, AttributeSet attributeSet, int i2) {
+    public final void S(Context context, AttributeSet attributeSet, int i2) {
         boolean z;
         boolean z2;
-        String trim = Build.MODEL.trim();
-        if (trim != null) {
-            String[] strArr = {"M040", "M045"};
-            int i3 = 0;
-            while (true) {
-                if (i3 >= 2) {
-                    z2 = false;
-                    break;
-                } else if (strArr[i3].equalsIgnoreCase(trim)) {
-                    z2 = true;
-                    break;
-                } else {
-                    i3++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i2) == null) {
+            String trim = Build.MODEL.trim();
+            if (trim != null) {
+                String[] strArr = {"M040", "M045"};
+                int i3 = 0;
+                while (true) {
+                    if (i3 >= 2) {
+                        z2 = false;
+                        break;
+                    } else if (strArr[i3].equalsIgnoreCase(trim)) {
+                        z2 = true;
+                        break;
+                    } else {
+                        i3++;
+                    }
                 }
-            }
-            String[] strArr2 = {"HTC T329D"};
-            int i4 = 0;
-            while (true) {
-                if (i4 >= 1) {
-                    z = false;
-                    break;
-                } else if (strArr2[i4].equalsIgnoreCase(trim)) {
-                    z = true;
-                    break;
-                } else {
-                    i4++;
+                String[] strArr2 = {"HTC T329D"};
+                int i4 = 0;
+                while (true) {
+                    if (i4 >= 1) {
+                        z = false;
+                        break;
+                    } else if (strArr2[i4].equalsIgnoreCase(trim)) {
+                        z = true;
+                        break;
+                    } else {
+                        i4++;
+                    }
                 }
+            } else {
+                z = false;
+                z2 = false;
             }
-        } else {
-            z = false;
-            z2 = false;
-        }
-        if (!z2 && !z) {
-            this.B0 = true;
-        } else {
-            this.B0 = false;
+            if (!z2 && !z) {
+                this.x0 = true;
+            } else {
+                this.x0 = false;
+            }
         }
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public void setDrawerType(int i2) {
-        if (i2 == 0) {
-            super.setDrawerType(i2);
-        } else if (i2 == 1) {
-            super.setDrawerType(this.B0 ? 4 : 5);
-        } else {
-            super.setDrawerType(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (i2 == 0) {
+                super.setDrawerType(i2);
+            } else if (i2 == 1) {
+                super.setDrawerType(this.x0 ? 4 : 5);
+            } else {
+                super.setDrawerType(i2);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TbClipImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.B0 = false;
-        b0(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.x0 = false;
+        S(context, attributeSet, i2);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbClipImageView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

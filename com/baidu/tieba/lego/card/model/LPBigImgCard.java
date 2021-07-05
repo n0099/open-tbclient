@@ -1,15 +1,24 @@
 package com.baidu.tieba.lego.card.model;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.o0.k1.o.i.a;
-import d.a.o0.k1.o.k.b;
-import d.a.o0.k1.o.k.d;
+import d.a.s0.n1.o.i.a;
+import d.a.s0.n1.o.k.b;
+import d.a.s0.n1.o.k.d;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
     public final int btnColor;
@@ -24,8 +33,24 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     public final String picUrl;
     public final int picWidth;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LPBigImgCard(JSONObject jSONObject) {
         super(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.picUrl = jSONObject.optString("pic_url");
         this.picWidth = d.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
         this.picHeight = d.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
@@ -42,70 +67,102 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     }
 
     public int getBgColor() {
-        return this.bgColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bgColor : invokeV.intValue;
     }
 
     public int getBgColorNight() {
-        return this.bgColorNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bgColorNight : invokeV.intValue;
     }
 
     public int getBtnColor() {
-        return this.btnColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.btnColor : invokeV.intValue;
     }
 
     public int getBtnColorNight() {
-        return this.btnColorNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.btnColorNight : invokeV.intValue;
     }
 
     public int getBtnHeight() {
-        return this.btnHeight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.btnHeight : invokeV.intValue;
     }
 
     public String getBtnImgUrl() {
-        return this.btnImgUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.btnImgUrl : (String) invokeV.objValue;
     }
 
     public String getBtnLink() {
-        return this.btnLink;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.btnLink : (String) invokeV.objValue;
     }
 
     public double getBtnPosRatio() {
-        return this.btnPosRatio;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.btnPosRatio : invokeV.doubleValue;
     }
 
     public String getBtnText() {
-        return this.btnText;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.btnText : (String) invokeV.objValue;
     }
 
     public int getBtnWidth() {
-        return this.btnWidth;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.btnWidth : invokeV.intValue;
     }
 
     public int getPicHeight() {
-        return this.picHeight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.picHeight : invokeV.intValue;
     }
 
     public String getPicUrl() {
-        return this.picUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.picUrl : (String) invokeV.objValue;
     }
 
     public int getPicWidth() {
-        return this.picWidth;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.picWidth : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
-        int i2 = this.picWidth;
-        if (i2 > 0) {
-            return this.picHeight / i2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            int i2 = this.picWidth;
+            if (i2 > 0) {
+                return this.picHeight / i2;
+            }
+            return super.getRatio();
         }
-        return super.getRatio();
+        return invokeV.doubleValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.o0.k1.o.i.a
+    @Override // d.a.s0.n1.o.i.a
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
-        if (lPBigImgCard == null || tbPageContext == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) || lPBigImgCard == null || tbPageContext == null) {
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());

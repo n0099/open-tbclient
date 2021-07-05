@@ -1,5 +1,16 @@
 package com.squareup.wire;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.UnknownFieldMap;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,60 +23,114 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public abstract class Message {
-    public static final Wire WIRE = new Wire(new Class[0]);
+    public static /* synthetic */ Interceptable $ic;
+    public static final Wire WIRE;
+    public transient /* synthetic */ FieldHolder $fh;
     public transient int cachedSerializedSize;
-    public transient int hashCode = 0;
+    public transient int hashCode;
     public transient boolean haveCachedSerializedSize;
     public transient UnknownFieldMap unknownFields;
 
     /* loaded from: classes7.dex */
     public static abstract class Builder<T extends Message> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public UnknownFieldMap unknownFieldMap;
 
         public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         public static <T> List<T> checkForNulls(List<T> list) {
-            if (list != null && !list.isEmpty()) {
-                for (T t : list) {
-                    if (t == null) {
-                        throw null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+                if (list != null && !list.isEmpty()) {
+                    for (T t : list) {
+                        if (t == null) {
+                            throw null;
+                        }
                     }
                 }
+                return list;
             }
-            return list;
+            return (List) invokeL.objValue;
         }
 
         private UnknownFieldMap ensureUnknownFieldMap() {
-            if (this.unknownFieldMap == null) {
-                this.unknownFieldMap = new UnknownFieldMap();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+                if (this.unknownFieldMap == null) {
+                    this.unknownFieldMap = new UnknownFieldMap();
+                }
+                return this.unknownFieldMap;
             }
-            return this.unknownFieldMap;
+            return (UnknownFieldMap) invokeV.objValue;
         }
 
         public void addFixed32(int i2, int i3) {
-            ensureUnknownFieldMap().addFixed32(i2, Integer.valueOf(i3));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+                ensureUnknownFieldMap().addFixed32(i2, Integer.valueOf(i3));
+            }
         }
 
         public void addFixed64(int i2, long j) {
-            ensureUnknownFieldMap().addFixed64(i2, Long.valueOf(j));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                ensureUnknownFieldMap().addFixed64(i2, Long.valueOf(j));
+            }
         }
 
         public void addLengthDelimited(int i2, ByteString byteString) {
-            ensureUnknownFieldMap().addLengthDelimited(i2, byteString);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, byteString) == null) {
+                ensureUnknownFieldMap().addLengthDelimited(i2, byteString);
+            }
         }
 
         public void addVarint(int i2, long j) {
-            ensureUnknownFieldMap().addVarint(i2, Long.valueOf(j));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                ensureUnknownFieldMap().addVarint(i2, Long.valueOf(j));
+            }
         }
 
         public abstract T build(boolean z);
 
         public void checkRequiredFields() {
-            Message.WIRE.builderAdapter(getClass()).checkRequiredFields(this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                Message.WIRE.builderAdapter(getClass()).checkRequiredFields(this);
+            }
         }
 
         public Builder(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {message};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             if (message == null || message.unknownFields == null) {
                 return;
             }
@@ -73,35 +138,32 @@ public abstract class Message {
         }
     }
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public enum Datatype {
-        INT32(1),
-        INT64(2),
-        UINT32(3),
-        UINT64(4),
-        SINT32(5),
-        SINT64(6),
-        BOOL(7),
-        ENUM(8),
-        STRING(9),
-        BYTES(10),
-        MESSAGE(11),
-        FIXED32(12),
-        SFIXED32(13),
-        FIXED64(14),
-        SFIXED64(15),
-        FLOAT(16),
-        DOUBLE(17);
-        
+    public static final class Datatype {
         public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
-        public static final Comparator<Datatype> ORDER_BY_NAME = new Comparator<Datatype>() { // from class: com.squareup.wire.Message.Datatype.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            public int compare(Datatype datatype, Datatype datatype2) {
-                return datatype.name().compareTo(datatype2.name());
-            }
-        };
+        public static /* synthetic */ Interceptable $ic;
+        public static final Datatype BOOL;
+        public static final Datatype BYTES;
+        public static final Datatype DOUBLE;
+        public static final Datatype ENUM;
+        public static final /* synthetic */ Datatype[] ENUM$VALUES;
+        public static final Datatype FIXED32;
+        public static final Datatype FIXED64;
+        public static final Datatype FLOAT;
+        public static final Datatype INT32;
+        public static final Datatype INT64;
+        public static final Datatype MESSAGE;
+        public static final Comparator<Datatype> ORDER_BY_NAME;
+        public static final Datatype SFIXED32;
+        public static final Datatype SFIXED64;
+        public static final Datatype SINT32;
+        public static final Datatype SINT64;
+        public static final Datatype STRING;
         public static final Map<String, Datatype> TYPES_BY_NAME;
+        public static final Datatype UINT32;
+        public static final Datatype UINT64;
+        public transient /* synthetic */ FieldHolder $fh;
         public final int value;
 
         public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype() {
@@ -109,7 +171,7 @@ public abstract class Message {
             if (iArr != null) {
                 return iArr;
             }
-            int[] iArr2 = new int[valuesCustom().length];
+            int[] iArr2 = new int[values().length];
             try {
                 iArr2[BOOL.ordinal()] = 7;
             } catch (NoSuchFieldError unused) {
@@ -183,6 +245,63 @@ public abstract class Message {
         }
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-658930099, "Lcom/squareup/wire/Message$Datatype;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-658930099, "Lcom/squareup/wire/Message$Datatype;");
+                    return;
+                }
+            }
+            INT32 = new Datatype("INT32", 0, 1);
+            INT64 = new Datatype("INT64", 1, 2);
+            UINT32 = new Datatype("UINT32", 2, 3);
+            UINT64 = new Datatype("UINT64", 3, 4);
+            SINT32 = new Datatype("SINT32", 4, 5);
+            SINT64 = new Datatype("SINT64", 5, 6);
+            BOOL = new Datatype("BOOL", 6, 7);
+            ENUM = new Datatype("ENUM", 7, 8);
+            STRING = new Datatype("STRING", 8, 9);
+            BYTES = new Datatype("BYTES", 9, 10);
+            MESSAGE = new Datatype("MESSAGE", 10, 11);
+            FIXED32 = new Datatype("FIXED32", 11, 12);
+            SFIXED32 = new Datatype("SFIXED32", 12, 13);
+            FIXED64 = new Datatype("FIXED64", 13, 14);
+            SFIXED64 = new Datatype("SFIXED64", 14, 15);
+            FLOAT = new Datatype("FLOAT", 15, 16);
+            Datatype datatype = new Datatype("DOUBLE", 16, 17);
+            DOUBLE = datatype;
+            ENUM$VALUES = new Datatype[]{INT32, INT64, UINT32, UINT64, SINT32, SINT64, BOOL, ENUM, STRING, BYTES, MESSAGE, FIXED32, SFIXED32, FIXED64, SFIXED64, FLOAT, datatype};
+            ORDER_BY_NAME = new Comparator<Datatype>() { // from class: com.squareup.wire.Message.Datatype.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                public int compare(Datatype datatype2, Datatype datatype3) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, datatype2, datatype3)) == null) ? datatype2.name().compareTo(datatype3.name()) : invokeLL.intValue;
+                }
+            };
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             TYPES_BY_NAME = linkedHashMap;
             linkedHashMap.put("int32", INT32);
@@ -200,105 +319,247 @@ public abstract class Message {
             TYPES_BY_NAME.put("sfixed32", SFIXED32);
             TYPES_BY_NAME.put("fixed64", FIXED64);
             TYPES_BY_NAME.put("sfixed64", SFIXED64);
-            TYPES_BY_NAME.put("float", FLOAT);
+            TYPES_BY_NAME.put(ShaderParams.VALUE_TYPE_FLOAT, FLOAT);
             TYPES_BY_NAME.put("double", DOUBLE);
         }
 
-        Datatype(int i2) {
-            this.value = i2;
+        public Datatype(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.value = i3;
         }
 
         public static Datatype of(String str) {
-            return TYPES_BY_NAME.get(str);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TYPES_BY_NAME.get(str) : (Datatype) invokeL.objValue;
         }
 
-        /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static Datatype[] valuesCustom() {
-            Datatype[] valuesCustom = values();
-            int length = valuesCustom.length;
-            Datatype[] datatypeArr = new Datatype[length];
-            System.arraycopy(valuesCustom, 0, datatypeArr, 0, length);
-            return datatypeArr;
+        public static Datatype valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (Datatype) Enum.valueOf(Datatype.class, str) : (Datatype) invokeL.objValue;
+        }
+
+        public static Datatype[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+                Datatype[] datatypeArr = ENUM$VALUES;
+                int length = datatypeArr.length;
+                Datatype[] datatypeArr2 = new Datatype[length];
+                System.arraycopy(datatypeArr, 0, datatypeArr2, 0, length);
+                return datatypeArr2;
+            }
+            return (Datatype[]) invokeV.objValue;
         }
 
         public int value() {
-            return this.value;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
         }
 
         public WireType wireType() {
-            switch ($SWITCH_TABLE$com$squareup$wire$Message$Datatype()[ordinal()]) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                    return WireType.VARINT;
-                case 9:
-                case 10:
-                case 11:
-                    return WireType.LENGTH_DELIMITED;
-                case 12:
-                case 13:
-                case 16:
-                    return WireType.FIXED32;
-                case 14:
-                case 15:
-                case 17:
-                    return WireType.FIXED64;
-                default:
-                    throw new AssertionError("No wiretype for datatype " + this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                switch ($SWITCH_TABLE$com$squareup$wire$Message$Datatype()[ordinal()]) {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        return WireType.VARINT;
+                    case 9:
+                    case 10:
+                    case 11:
+                        return WireType.LENGTH_DELIMITED;
+                    case 12:
+                    case 13:
+                    case 16:
+                        return WireType.FIXED32;
+                    case 14:
+                    case 15:
+                    case 17:
+                        return WireType.FIXED64;
+                    default:
+                        throw new AssertionError("No wiretype for datatype " + this);
+                }
             }
+            return (WireType) invokeV.objValue;
         }
     }
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public enum Label {
-        REQUIRED(32),
-        OPTIONAL(64),
-        REPEATED(128),
-        PACKED(256);
-        
-        public static final Comparator<Label> ORDER_BY_NAME = new Comparator<Label>() { // from class: com.squareup.wire.Message.Label.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            public int compare(Label label, Label label2) {
-                return label.name().compareTo(label2.name());
-            }
-        };
+    public static final class Label {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ Label[] ENUM$VALUES;
+        public static final Label OPTIONAL;
+        public static final Comparator<Label> ORDER_BY_NAME;
+        public static final Label PACKED;
+        public static final Label REPEATED;
+        public static final Label REQUIRED;
+        public transient /* synthetic */ FieldHolder $fh;
         public final int value;
 
-        Label(int i2) {
-            this.value = i2;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1839063023, "Lcom/squareup/wire/Message$Label;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1839063023, "Lcom/squareup/wire/Message$Label;");
+                    return;
+                }
+            }
+            REQUIRED = new Label("REQUIRED", 0, 32);
+            OPTIONAL = new Label("OPTIONAL", 1, 64);
+            REPEATED = new Label("REPEATED", 2, 128);
+            Label label = new Label("PACKED", 3, 256);
+            PACKED = label;
+            ENUM$VALUES = new Label[]{REQUIRED, OPTIONAL, REPEATED, label};
+            ORDER_BY_NAME = new Comparator<Label>() { // from class: com.squareup.wire.Message.Label.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                public int compare(Label label2, Label label3) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, label2, label3)) == null) ? label2.name().compareTo(label3.name()) : invokeLL.intValue;
+                }
+            };
         }
 
-        /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static Label[] valuesCustom() {
-            Label[] valuesCustom = values();
-            int length = valuesCustom.length;
-            Label[] labelArr = new Label[length];
-            System.arraycopy(valuesCustom, 0, labelArr, 0, length);
-            return labelArr;
+        public Label(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.value = i3;
+        }
+
+        public static Label valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Label) Enum.valueOf(Label.class, str) : (Label) invokeL.objValue;
+        }
+
+        public static Label[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                Label[] labelArr = ENUM$VALUES;
+                int length = labelArr.length;
+                Label[] labelArr2 = new Label[length];
+                System.arraycopy(labelArr, 0, labelArr2, 0, length);
+                return labelArr2;
+            }
+            return (Label[]) invokeV.objValue;
         }
 
         public boolean isPacked() {
-            return this == PACKED;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == PACKED : invokeV.booleanValue;
         }
 
         public boolean isRepeated() {
-            return this == REPEATED || this == PACKED;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this == REPEATED || this == PACKED : invokeV.booleanValue;
         }
 
         public int value() {
-            return this.value;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.value : invokeV.intValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-775832639, "Lcom/squareup/wire/Message;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-775832639, "Lcom/squareup/wire/Message;");
+                return;
+            }
+        }
+        WIRE = new Wire(new Class[0]);
+    }
+
     public Message(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.hashCode = 0;
         UnknownFieldMap unknownFieldMap = builder.unknownFieldMap;
         if (unknownFieldMap != null) {
             this.unknownFields = new UnknownFieldMap(unknownFieldMap);
@@ -306,100 +567,156 @@ public abstract class Message {
     }
 
     public static <T> List<T> asList(T... tArr) {
-        return Arrays.asList(tArr);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, tArr)) == null) ? Arrays.asList(tArr) : (List) invokeL.objValue;
     }
 
     public static <T> List<T> copyOf(List<T> list) {
-        if (list == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            return new ArrayList(list);
         }
-        return new ArrayList(list);
+        return (List) invokeL.objValue;
     }
 
     public static <E extends Enum & ProtoEnum> E enumFromInt(Class<E> cls, int i2) {
-        return (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i2));
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, cls, i2)) == null) ? (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i2)) : (E) ((Enum) invokeLI.objValue);
     }
 
     public static <T> List<T> immutableCopyOf(List<T> list) {
-        if (list == null) {
-            return Collections.emptyList();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
+            if (list == null) {
+                return Collections.emptyList();
+            }
+            return Collections.unmodifiableList(new ArrayList(list));
         }
-        return Collections.unmodifiableList(new ArrayList(list));
+        return (List) invokeL.objValue;
     }
 
     public static <E extends Enum & ProtoEnum> int intFromEnum(E e2) {
-        return WIRE.enumAdapter(e2.getClass()).toInt(e2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, e2)) == null) ? WIRE.enumAdapter(e2.getClass()).toInt(e2) : invokeL.intValue;
     }
 
     private void write(WireOutput wireOutput) {
-        try {
-            WIRE.messageAdapter(getClass()).write(this, wireOutput);
-        } catch (IOException e2) {
-            throw new RuntimeException(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, wireOutput) == null) {
+            try {
+                WIRE.messageAdapter(getClass()).write(this, wireOutput);
+            } catch (IOException e2) {
+                throw new RuntimeException(e2);
+            }
         }
     }
 
     public boolean equals(Object obj, Object obj2) {
-        if (obj != obj2) {
-            return obj != null && obj.equals(obj2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+            if (obj != obj2) {
+                return obj != null && obj.equals(obj2);
+            }
+            return true;
         }
-        return true;
+        return invokeLL.booleanValue;
     }
 
     public int getSerializedSize() {
-        if (!this.haveCachedSerializedSize) {
-            this.cachedSerializedSize = WIRE.messageAdapter(getClass()).getSerializedSize(this);
-            this.haveCachedSerializedSize = true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!this.haveCachedSerializedSize) {
+                this.cachedSerializedSize = WIRE.messageAdapter(getClass()).getSerializedSize(this);
+                this.haveCachedSerializedSize = true;
+            }
+            return this.cachedSerializedSize;
         }
-        return this.cachedSerializedSize;
+        return invokeV.intValue;
     }
 
     public int getUnknownFieldsSerializedSize() {
-        UnknownFieldMap unknownFieldMap = this.unknownFields;
-        if (unknownFieldMap == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            UnknownFieldMap unknownFieldMap = this.unknownFields;
+            if (unknownFieldMap == null) {
+                return 0;
+            }
+            return unknownFieldMap.getSerializedSize();
         }
-        return unknownFieldMap.getSerializedSize();
+        return invokeV.intValue;
     }
 
     public byte[] toByteArray() {
-        return WIRE.messageAdapter(getClass()).toByteArray(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? WIRE.messageAdapter(getClass()).toByteArray(this) : (byte[]) invokeV.objValue;
     }
 
     public String toString() {
-        return WIRE.messageAdapter(getClass()).toString(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? WIRE.messageAdapter(getClass()).toString(this) : (String) invokeV.objValue;
     }
 
     public Collection<List<UnknownFieldMap.FieldValue>> unknownFields() {
-        UnknownFieldMap unknownFieldMap = this.unknownFields;
-        return unknownFieldMap == null ? Collections.emptySet() : unknownFieldMap.fieldMap.values();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            UnknownFieldMap unknownFieldMap = this.unknownFields;
+            return unknownFieldMap == null ? Collections.emptySet() : unknownFieldMap.fieldMap.values();
+        }
+        return (Collection) invokeV.objValue;
     }
 
     public void writeTo(byte[] bArr) {
-        writeTo(bArr, 0, bArr.length);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            writeTo(bArr, 0, bArr.length);
+        }
     }
 
     public void writeUnknownFieldMap(WireOutput wireOutput) throws IOException {
-        UnknownFieldMap unknownFieldMap = this.unknownFields;
-        if (unknownFieldMap != null) {
-            unknownFieldMap.write(wireOutput);
+        UnknownFieldMap unknownFieldMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, wireOutput) == null) || (unknownFieldMap = this.unknownFields) == null) {
+            return;
         }
+        unknownFieldMap.write(wireOutput);
     }
 
     public boolean equals(List<?> list, List<?> list2) {
-        if (list != null && list.isEmpty()) {
-            list = null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2)) == null) {
+            if (list != null && list.isEmpty()) {
+                list = null;
+            }
+            if (list2 != null && list2.isEmpty()) {
+                list2 = null;
+            }
+            if (list != list2) {
+                return list != null && list.equals(list2);
+            }
+            return true;
         }
-        if (list2 != null && list2.isEmpty()) {
-            list2 = null;
-        }
-        if (list != list2) {
-            return list != null && list.equals(list2);
-        }
-        return true;
+        return invokeLL.booleanValue;
     }
 
     public void writeTo(byte[] bArr, int i2, int i3) {
-        write(WireOutput.newInstance(bArr, i2, i3));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3) == null) {
+            write(WireOutput.newInstance(bArr, i2, i3));
+        }
     }
 }

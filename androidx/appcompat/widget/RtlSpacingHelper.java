@@ -1,46 +1,90 @@
 package androidx.appcompat.widget;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class RtlSpacingHelper {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int UNDEFINED = Integer.MIN_VALUE;
-    public int mLeft = 0;
-    public int mRight = 0;
-    public int mStart = Integer.MIN_VALUE;
-    public int mEnd = Integer.MIN_VALUE;
-    public int mExplicitLeft = 0;
-    public int mExplicitRight = 0;
-    public boolean mIsRtl = false;
-    public boolean mIsRelative = false;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int mEnd;
+    public int mExplicitLeft;
+    public int mExplicitRight;
+    public boolean mIsRelative;
+    public boolean mIsRtl;
+    public int mLeft;
+    public int mRight;
+    public int mStart;
+
+    public RtlSpacingHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mLeft = 0;
+        this.mRight = 0;
+        this.mStart = Integer.MIN_VALUE;
+        this.mEnd = Integer.MIN_VALUE;
+        this.mExplicitLeft = 0;
+        this.mExplicitRight = 0;
+        this.mIsRtl = false;
+        this.mIsRelative = false;
+    }
 
     public int getEnd() {
-        return this.mIsRtl ? this.mLeft : this.mRight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIsRtl ? this.mLeft : this.mRight : invokeV.intValue;
     }
 
     public int getLeft() {
-        return this.mLeft;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLeft : invokeV.intValue;
     }
 
     public int getRight() {
-        return this.mRight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRight : invokeV.intValue;
     }
 
     public int getStart() {
-        return this.mIsRtl ? this.mRight : this.mLeft;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsRtl ? this.mRight : this.mLeft : invokeV.intValue;
     }
 
     public void setAbsolute(int i2, int i3) {
-        this.mIsRelative = false;
-        if (i2 != Integer.MIN_VALUE) {
-            this.mExplicitLeft = i2;
-            this.mLeft = i2;
-        }
-        if (i3 != Integer.MIN_VALUE) {
-            this.mExplicitRight = i3;
-            this.mRight = i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+            this.mIsRelative = false;
+            if (i2 != Integer.MIN_VALUE) {
+                this.mExplicitLeft = i2;
+                this.mLeft = i2;
+            }
+            if (i3 != Integer.MIN_VALUE) {
+                this.mExplicitRight = i3;
+                this.mRight = i3;
+            }
         }
     }
 
     public void setDirection(boolean z) {
-        if (z == this.mIsRtl) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || z == this.mIsRtl) {
             return;
         }
         this.mIsRtl = z;
@@ -73,24 +117,27 @@ public class RtlSpacingHelper {
     }
 
     public void setRelative(int i2, int i3) {
-        this.mStart = i2;
-        this.mEnd = i3;
-        this.mIsRelative = true;
-        if (this.mIsRtl) {
-            if (i3 != Integer.MIN_VALUE) {
-                this.mLeft = i3;
-            }
-            if (i2 != Integer.MIN_VALUE) {
-                this.mRight = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+            this.mStart = i2;
+            this.mEnd = i3;
+            this.mIsRelative = true;
+            if (this.mIsRtl) {
+                if (i3 != Integer.MIN_VALUE) {
+                    this.mLeft = i3;
+                }
+                if (i2 != Integer.MIN_VALUE) {
+                    this.mRight = i2;
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        if (i2 != Integer.MIN_VALUE) {
-            this.mLeft = i2;
-        }
-        if (i3 != Integer.MIN_VALUE) {
-            this.mRight = i3;
+            if (i2 != Integer.MIN_VALUE) {
+                this.mLeft = i2;
+            }
+            if (i3 != Integer.MIN_VALUE) {
+                this.mRight = i3;
+            }
         }
     }
 }

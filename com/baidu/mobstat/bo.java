@@ -5,6 +5,12 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -17,24 +23,53 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class bo {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Proxy f8782a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+    public static final Proxy f8855a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f8783b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+    public static final Proxy f8856b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581658245, "Lcom/baidu/mobstat/bo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(581658245, "Lcom/baidu/mobstat/bo;");
+                return;
+            }
+        }
+        f8855a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+        f8856b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+    }
 
     public static String a() {
-        try {
-            return Environment.getExternalStorageState();
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                return Environment.getExternalStorageState();
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65544, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
         File a2 = a(str);
         if (a2 == null || !a2.exists()) {
             return "";
@@ -68,54 +103,74 @@ public final class bo {
     }
 
     public static boolean c(String str) {
-        File a2 = a(str);
-        if (a2 == null || !a2.isFile()) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            File a2 = a(str);
+            if (a2 == null || !a2.isFile()) {
+                return false;
+            }
+            return a2.delete();
         }
-        return a2.delete();
+        return invokeL.booleanValue;
     }
 
     public static HttpURLConnection d(Context context, String str) throws IOException {
-        return a(context, str, 50000, 50000);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) ? a(context, str, 50000, 50000) : (HttpURLConnection) invokeLL.objValue;
     }
 
     public static boolean e(Context context, String str) {
-        boolean z = false;
-        try {
-            if (context.checkCallingOrSelfPermission(str) == 0) {
-                z = true;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) {
+            boolean z = false;
+            try {
+                if (context.checkCallingOrSelfPermission(str) == 0) {
+                    z = true;
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
+            if (!z) {
+                bc c2 = bc.c();
+                c2.b("[WARNING] not have permission " + str + ", please add it in AndroidManifest.xml according our developer doc");
+            }
+            return z;
         }
-        if (!z) {
-            bc c2 = bc.c();
-            c2.b("[WARNING] not have permission " + str + ", please add it in AndroidManifest.xml according our developer doc");
-        }
-        return z;
+        return invokeLL.booleanValue;
     }
 
     public static File a(String str) {
+        InterceptResult invokeL;
         File file;
-        if ("mounted".equals(a())) {
-            try {
-                file = Environment.getExternalStorageDirectory();
-            } catch (Exception unused) {
-                file = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if ("mounted".equals(a())) {
+                try {
+                    file = Environment.getExternalStorageDirectory();
+                } catch (Exception unused) {
+                    file = null;
+                }
+                if (file == null) {
+                    return null;
+                }
+                return new File(file, str);
             }
-            if (file == null) {
-                return null;
-            }
-            return new File(file, str);
+            return null;
         }
-        return null;
+        return (File) invokeL.objValue;
     }
 
     public static boolean c(Context context, String str) {
-        return context.getFileStreamPath(str).exists();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? context.getFileStreamPath(str).exists() : invokeLL.booleanValue;
     }
 
     public static void a(Context context, String str, String str2, boolean z) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) || context == null) {
             return;
         }
         FileOutputStream fileOutputStream = null;
@@ -131,92 +186,112 @@ public final class bo {
     }
 
     public static boolean b(Context context, String str) {
-        return context.deleteFile(str);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) ? context.deleteFile(str) : invokeLL.booleanValue;
     }
 
     public static void a(String str, String str2, boolean z) {
         File parentFile;
-        FileOutputStream fileOutputStream = null;
-        try {
-            File a2 = a(str);
-            if (a2 != null) {
-                if (!a2.exists() && (parentFile = a2.getParentFile()) != null) {
-                    parentFile.mkdirs();
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(a2, z);
-                try {
-                    bu.a(new ByteArrayInputStream(str2.getBytes("utf-8")), fileOutputStream2);
-                } catch (Exception unused) {
-                } catch (Throwable th) {
-                    th = th;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, z) == null) {
+            FileOutputStream fileOutputStream = null;
+            try {
+                File a2 = a(str);
+                if (a2 != null) {
+                    if (!a2.exists() && (parentFile = a2.getParentFile()) != null) {
+                        parentFile.mkdirs();
+                    }
+                    FileOutputStream fileOutputStream2 = new FileOutputStream(a2, z);
+                    try {
+                        bu.a(new ByteArrayInputStream(str2.getBytes("utf-8")), fileOutputStream2);
+                    } catch (Exception unused) {
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = fileOutputStream2;
+                        bu.a(fileOutputStream);
+                        throw th;
+                    }
                     fileOutputStream = fileOutputStream2;
-                    bu.a(fileOutputStream);
-                    throw th;
                 }
-                fileOutputStream = fileOutputStream2;
+            } catch (Exception unused2) {
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception unused2) {
-        } catch (Throwable th2) {
-            th = th2;
+            bu.a(fileOutputStream);
         }
-        bu.a(fileOutputStream);
     }
 
     public static String a(Context context, String str) {
-        FileInputStream fileInputStream = null;
-        try {
-            fileInputStream = context.openFileInput(str);
-            byte[] a2 = a(fileInputStream);
-            if (a2 != null) {
-                String str2 = new String(a2, "utf-8");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            FileInputStream fileInputStream = null;
+            try {
+                fileInputStream = context.openFileInput(str);
+                byte[] a2 = a(fileInputStream);
+                if (a2 != null) {
+                    String str2 = new String(a2, "utf-8");
+                    bu.a(fileInputStream);
+                    return str2;
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
                 bu.a(fileInputStream);
-                return str2;
+                throw th;
             }
-        } catch (Exception unused) {
-        } catch (Throwable th) {
             bu.a(fileInputStream);
-            throw th;
+            return "";
         }
-        bu.a(fileInputStream);
-        return "";
+        return (String) invokeLL.objValue;
     }
 
     public static byte[] a(InputStream inputStream) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        if (bu.a(inputStream, byteArrayOutputStream)) {
-            return byteArrayOutputStream.toByteArray();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, inputStream)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            if (bu.a(inputStream, byteArrayOutputStream)) {
+                return byteArrayOutputStream.toByteArray();
+            }
+            return null;
         }
-        return null;
+        return (byte[]) invokeL.objValue;
     }
 
     @SuppressLint({"DefaultLocale"})
     public static HttpURLConnection a(Context context, String str, int i2, int i3) throws IOException {
+        InterceptResult invokeLLII;
         HttpURLConnection httpURLConnection;
-        URL url = new URL(str);
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
-        NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
-        if (networkInfo2 != null && networkInfo2.isAvailable()) {
-            httpURLConnection = (HttpURLConnection) url.openConnection();
-        } else {
-            if (networkInfo != null && networkInfo.isAvailable()) {
-                String extraInfo = networkInfo.getExtraInfo();
-                String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
-                if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(f8783b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65540, null, context, str, i2, i3)) == null) {
+            URL url = new URL(str);
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
+            NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
+            if (networkInfo2 != null && networkInfo2.isAvailable()) {
+                httpURLConnection = (HttpURLConnection) url.openConnection();
+            } else {
+                if (networkInfo != null && networkInfo.isAvailable()) {
+                    String extraInfo = networkInfo.getExtraInfo();
+                    String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
+                    if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
+                        if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
+                            httpURLConnection = (HttpURLConnection) url.openConnection(f8856b);
+                        }
+                    } else {
+                        httpURLConnection = (HttpURLConnection) url.openConnection(f8855a);
                     }
-                } else {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(f8782a);
                 }
+                httpURLConnection = null;
             }
-            httpURLConnection = null;
+            if (httpURLConnection == null) {
+                httpURLConnection = (HttpURLConnection) url.openConnection();
+            }
+            httpURLConnection.setConnectTimeout(i2);
+            httpURLConnection.setReadTimeout(i3);
+            return httpURLConnection;
         }
-        if (httpURLConnection == null) {
-            httpURLConnection = (HttpURLConnection) url.openConnection();
-        }
-        httpURLConnection.setConnectTimeout(i2);
-        httpURLConnection.setReadTimeout(i3);
-        return httpURLConnection;
+        return (HttpURLConnection) invokeLLII.objValue;
     }
 }

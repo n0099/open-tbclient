@@ -9,75 +9,128 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.ala.utils.AlaStringHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import d.a.o0.v.j.g.c.c.d;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.v.j.g.c.c.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MarkLevelGroup extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f14171e;
+    public LinearLayout f14258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<View> f14172f;
+    public List<View> f14259f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f14173g;
+    public b f14260g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f14174e;
+        public final /* synthetic */ d f14261e;
 
-        public a(d dVar) {
-            this.f14174e = dVar;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ MarkLevelGroup f14262f;
+
+        public a(MarkLevelGroup markLevelGroup, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {markLevelGroup, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14262f = markLevelGroup;
+            this.f14261e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            for (View view2 : MarkLevelGroup.this.f14172f) {
-                if (view == view2) {
-                    MarkLevelGroup.this.e((FrameLayout) view2.findViewById(R.id.mark_level_layout), true);
-                } else {
-                    MarkLevelGroup.this.e((FrameLayout) view2.findViewById(R.id.mark_level_layout), false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                for (View view2 : this.f14262f.f14259f) {
+                    if (view == view2) {
+                        this.f14262f.e((FrameLayout) view2.findViewById(R.id.mark_level_layout), true);
+                    } else {
+                        this.f14262f.e((FrameLayout) view2.findViewById(R.id.mark_level_layout), false);
+                    }
                 }
-            }
-            if (MarkLevelGroup.this.f14173g != null) {
-                MarkLevelGroup.this.f14173g.a(this.f14174e.b(), this.f14174e.a());
+                if (this.f14262f.f14260g != null) {
+                    this.f14262f.f14260g.a(this.f14261e.b(), this.f14261e.a());
+                }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(String str, String str2);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MarkLevelGroup(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         d();
     }
 
     public final void d() {
-        setOrientation(0);
-        setGravity(1);
-        LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_layout, (ViewGroup) this, true);
-        this.f14171e = (LinearLayout) findViewById(R.id.mark_level_list_container);
-    }
-
-    public final void e(FrameLayout frameLayout, boolean z) {
-        if (z) {
-            frameLayout.setBackgroundResource(R.drawable.pic_live_honor_show_s);
-        } else {
-            frameLayout.setBackgroundResource(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOrientation(0);
+            setGravity(1);
+            LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_layout, (ViewGroup) this, true);
+            this.f14258e = (LinearLayout) findViewById(R.id.mark_level_list_container);
         }
     }
 
-    public void f(d.a.o0.v.j.g.c.c.b bVar) {
-        if (bVar == null) {
+    public final void e(FrameLayout frameLayout, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout, z) == null) {
+            if (z) {
+                frameLayout.setBackgroundResource(R.drawable.pic_live_honor_show_s);
+            } else {
+                frameLayout.setBackgroundResource(0);
+            }
+        }
+    }
+
+    public void f(d.a.s0.v.j.g.c.c.b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
             return;
         }
         List<d> c2 = bVar.c();
@@ -91,10 +144,10 @@ public class MarkLevelGroup extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.f14171e.removeAllViews();
-        List<View> list = this.f14172f;
+        this.f14258e.removeAllViews();
+        List<View> list = this.f14259f;
         if (list == null) {
-            this.f14172f = new ArrayList();
+            this.f14259f = new ArrayList();
         } else {
             list.clear();
         }
@@ -107,7 +160,7 @@ public class MarkLevelGroup extends LinearLayout {
                 TextView textView = (TextView) inflate.findViewById(R.id.mark_level_tv);
                 textView.setText(String.valueOf(i2 + 1));
                 ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.d()));
-                this.f14172f.add(inflate);
+                this.f14259f.add(inflate);
                 boolean z = bVar.j() == 0;
                 if (bVar.g() == dVar.c()) {
                     e(frameLayout, true);
@@ -127,7 +180,7 @@ public class MarkLevelGroup extends LinearLayout {
                     e(frameLayout, false);
                     textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                 }
-                inflate.setOnClickListener(new a(dVar));
+                inflate.setOnClickListener(new a(this, dVar));
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) inflate.getLayoutParams();
                 if (layoutParams2 == null) {
                     layoutParams2 = new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds82), -2);
@@ -135,22 +188,59 @@ public class MarkLevelGroup extends LinearLayout {
                     layoutParams2.width = getContext().getResources().getDimensionPixelSize(R.dimen.ds82);
                     layoutParams2.height = -2;
                 }
-                this.f14171e.addView(inflate, layoutParams2);
+                this.f14258e.addView(inflate, layoutParams2);
             }
         }
     }
 
     public void setCallback(b bVar) {
-        this.f14173g = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.f14260g = bVar;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MarkLevelGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         d();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MarkLevelGroup(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         d();
     }
 }

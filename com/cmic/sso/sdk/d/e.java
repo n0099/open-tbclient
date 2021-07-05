@@ -1,30 +1,66 @@
 package com.cmic.sso.sdk.d;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.cmic.sso.sdk.auth.TokenListener;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentHashMap<String, TokenListener> f30742a = new ConcurrentHashMap<>(16);
+    public static ConcurrentHashMap<String, TokenListener> f32535a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1436819961, "Lcom/cmic/sso/sdk/d/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1436819961, "Lcom/cmic/sso/sdk/d/e;");
+                return;
+            }
+        }
+        f32535a = new ConcurrentHashMap<>(16);
+    }
 
     public static boolean a(String str) {
-        return !f30742a.containsKey(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !f32535a.containsKey(str) : invokeL.booleanValue;
     }
 
     public static void b(String str) {
-        f30742a.remove(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+            f32535a.remove(str);
+        }
     }
 
     public static TokenListener c(String str) {
-        return f30742a.get(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? f32535a.get(str) : (TokenListener) invokeL.objValue;
     }
 
     public static void a(String str, TokenListener tokenListener) {
-        f30742a.put(str, tokenListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, tokenListener) == null) {
+            f32535a.put(str, tokenListener);
+        }
     }
 
     public static boolean a() {
-        return f30742a.isEmpty();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f32535a.isEmpty() : invokeV.booleanValue;
     }
 }

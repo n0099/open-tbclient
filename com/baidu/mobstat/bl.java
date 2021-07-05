@@ -6,57 +6,114 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bl {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8774a;
+    public static String f8847a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<WebView> f8775b;
+    public WeakReference<WebView> f8848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f8776c;
+    public WeakReference<Activity> f8849c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f8777d;
+    public JSONObject f8850d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8778e;
+    public boolean f8851e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f8779f;
+    public boolean f8852f;
 
-    public static void b(Activity activity, final WebView webView, Rect rect) {
+    public bl() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void b(Activity activity, WebView webView, Rect rect) {
         int i2;
         int i3;
         int i4;
-        int i5 = 0;
-        if (rect != null) {
-            i5 = ah.a(activity, rect.left);
-            i3 = ah.a(activity, rect.top);
-            i4 = ah.a(activity, rect.width());
-            i2 = ah.a(activity, rect.height());
-        } else {
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-        }
-        final String str = "javascript:window._automtj.getViewportTree('android', '" + ("{\"x\": " + i5 + ", \"y\": " + i3 + ", \"w\": " + i4 + ", \"h\": " + i2 + ", \"sw\": " + ah.a(activity, bj.c(activity)) + ", \"sh\": " + ah.a(activity, bj.d(activity)) + "}") + "', 'window.WebViewInterface.setViewportTreeToNative')";
-        activity.runOnUiThread(new Runnable() { // from class: com.baidu.mobstat.bl.1
-            @Override // java.lang.Runnable
-            public void run() {
-                webView.loadUrl(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, activity, webView, rect) == null) {
+            int i5 = 0;
+            if (rect != null) {
+                i5 = ah.a(activity, rect.left);
+                i3 = ah.a(activity, rect.top);
+                i4 = ah.a(activity, rect.width());
+                i2 = ah.a(activity, rect.height());
+            } else {
+                i2 = 0;
+                i3 = 0;
+                i4 = 0;
             }
-        });
+            activity.runOnUiThread(new Runnable(webView, "javascript:window._automtj.getViewportTree('android', '" + ("{\"x\": " + i5 + ", \"y\": " + i3 + ", \"w\": " + i4 + ", \"h\": " + i2 + ", \"sw\": " + ah.a(activity, bj.c(activity)) + ", \"sh\": " + ah.a(activity, bj.d(activity)) + "}") + "', 'window.WebViewInterface.setViewportTreeToNative')") { // from class: com.baidu.mobstat.bl.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ WebView f8853a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ String f8854b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {webView, r7};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i6 = newInitContext.flag;
+                        if ((i6 & 1) != 0) {
+                            int i7 = i6 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f8853a = webView;
+                    this.f8854b = r7;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f8853a.loadUrl(this.f8854b);
+                    }
+                }
+            });
+        }
     }
 
     public void a(WebView webView, String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         webView.loadUrl("javascript:" + str);
@@ -67,32 +124,43 @@ public class bl {
         Activity activity;
         WeakReference<WebView> weakReference;
         WebView webView;
-        if (bd.c().b() && this.f8779f) {
-            bd c2 = bd.c();
-            c2.a("setEventToNative: " + str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (bd.c().b() && this.f8852f) {
+                bd c2 = bd.c();
+                c2.a("setEventToNative: " + str);
+            }
+            if (bh.c().b()) {
+                bh c3 = bh.c();
+                c3.a("setEventToNative: " + str);
+            }
+            WeakReference<Activity> weakReference2 = this.f8849c;
+            if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f8848b) == null || (webView = weakReference.get()) == null) {
+                return;
+            }
+            a(str, activity, webView);
         }
-        if (bh.c().b()) {
-            bh c3 = bh.c();
-            c3.a("setEventToNative: " + str);
-        }
-        WeakReference<Activity> weakReference2 = this.f8776c;
-        if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f8775b) == null || (webView = weakReference.get()) == null) {
-            return;
-        }
-        a(str, activity, webView);
     }
 
     @JavascriptInterface
     public void setViewportTreeToNative(String str) {
-        if (bd.c().b()) {
-            bd c2 = bd.c();
-            c2.a("setViewportTreeToNative " + str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (bd.c().b()) {
+                bd c2 = bd.c();
+                c2.a("setViewportTreeToNative " + str);
+            }
+            f8847a = str;
         }
-        f8774a = str;
     }
 
     public static String a(Activity activity, WebView webView, Rect rect) {
-        f8774a = "";
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, activity, webView, rect)) != null) {
+            return (String) invokeLLL.objValue;
+        }
+        f8847a = "";
         b(activity, webView, rect);
         int i2 = 0;
         while (true) {
@@ -104,20 +172,21 @@ public class bl {
                 Thread.sleep(20L);
             } catch (Exception unused) {
             }
-            if (!TextUtils.isEmpty(f8774a)) {
-                return f8774a;
+            if (!TextUtils.isEmpty(f8847a)) {
+                return f8847a;
             }
             i2 = i3;
         }
     }
 
     public void a(Activity activity, WebView webView, String str, JSONObject jSONObject, boolean z) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, webView, str, jSONObject, Boolean.valueOf(z)}) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         if (z) {
-            this.f8779f = z;
-            this.f8777d = jSONObject;
+            this.f8852f = z;
+            this.f8850d = jSONObject;
         }
         if (z) {
             bd.c().a("injectTrackJs circleConfig: " + jSONObject);
@@ -132,17 +201,17 @@ public class bl {
             }
         }
         if (activity != null) {
-            this.f8776c = new WeakReference<>(activity);
+            this.f8849c = new WeakReference<>(activity);
         }
         if (webView != null) {
-            this.f8775b = new WeakReference<>(webView);
+            this.f8848b = new WeakReference<>(webView);
         }
-        this.f8778e = z;
+        this.f8851e = z;
         String a2 = a();
         if (TextUtils.isEmpty(a2)) {
             a2 = new JSONObject().toString();
         }
-        if (bd.c().b() && this.f8779f) {
+        if (bd.c().b() && this.f8852f) {
             bd.c().a("injectTrackJs h5Config: " + a2);
         }
         if (bh.c().b()) {
@@ -155,24 +224,34 @@ public class bl {
     }
 
     private boolean a(WebView webView, boolean z) {
-        WeakReference<WebView> weakReference = this.f8775b;
-        return (weakReference == null || weakReference.get() != webView || this.f8778e == z) ? false : true;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, this, webView, z)) == null) {
+            WeakReference<WebView> weakReference = this.f8848b;
+            return (weakReference == null || weakReference.get() != webView || this.f8851e == z) ? false : true;
+        }
+        return invokeLZ.booleanValue;
     }
 
     private String a() {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("matchAll", 1);
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("meta", jSONObject);
-            return jSONObject2.toString();
-        } catch (Exception unused) {
-            return new JSONObject().toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("matchAll", 1);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("meta", jSONObject);
+                return jSONObject2.toString();
+            } catch (Exception unused) {
+                return new JSONObject().toString();
+            }
         }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0034 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0035  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0038 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0039  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -182,67 +261,75 @@ public class bl {
         String str3;
         boolean z;
         JSONObject jSONObject;
-        JSONObject jSONObject2 = null;
-        try {
-            jSONObject = new JSONObject(str);
-            jSONArray = jSONObject.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
-        } catch (Exception unused) {
-            jSONArray = null;
-            str2 = null;
-        }
-        try {
-            str2 = jSONObject.optString("p2");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, this, str, activity, webView) == null) {
+            JSONObject jSONObject2 = null;
             try {
-                str3 = jSONObject.optString("l");
+                jSONObject = new JSONObject(str);
+                jSONArray = jSONObject.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
+            } catch (Exception unused) {
+                jSONArray = null;
+                str2 = null;
+            }
+            try {
+                str2 = jSONObject.optString("p2");
                 try {
-                    jSONObject2 = jSONObject.optJSONObject(Config.EVENT_HEAT_POINT);
-                    z = true;
-                } catch (Exception unused2) {
-                    z = false;
-                    JSONObject jSONObject3 = jSONObject2;
-                    JSONArray jSONArray2 = jSONArray;
-                    String str4 = str3;
-                    if (z) {
+                    str3 = jSONObject.optString("l");
+                    try {
+                        jSONObject2 = jSONObject.optJSONObject(Config.EVENT_HEAT_POINT);
+                        z = true;
+                    } catch (Exception unused2) {
+                        z = false;
+                        JSONObject jSONObject3 = jSONObject2;
+                        JSONArray jSONArray2 = jSONArray;
+                        String str4 = str3;
+                        if (z) {
+                        }
                     }
+                } catch (Exception unused3) {
+                    str3 = null;
                 }
-            } catch (Exception unused3) {
-                str3 = null;
+            } catch (Exception unused4) {
+                str2 = null;
+                str3 = str2;
+                z = false;
+                JSONObject jSONObject32 = jSONObject2;
+                JSONArray jSONArray22 = jSONArray;
+                String str42 = str3;
+                if (z) {
+                }
             }
-        } catch (Exception unused4) {
-            str2 = null;
-            str3 = str2;
-            z = false;
-            JSONObject jSONObject32 = jSONObject2;
-            JSONArray jSONArray22 = jSONArray;
-            String str42 = str3;
+            JSONObject jSONObject322 = jSONObject2;
+            JSONArray jSONArray222 = jSONArray;
+            String str422 = str3;
             if (z) {
+                String str5 = TextUtils.isEmpty(str2) ? "/" : str2;
+                JSONArray a2 = bj.a(activity, webView);
+                String name = activity.getClass().getName();
+                String a3 = bj.a(a2);
+                String b2 = bj.b(jSONArray222);
+                String f2 = bj.f(webView);
+                Map<String, String> g2 = bj.g(webView);
+                Context applicationContext = activity.getApplicationContext();
+                long currentTimeMillis = System.currentTimeMillis();
+                if (a(this.f8850d, activity.getClass().getName(), str5, a3, b2)) {
+                    BDStatCore.instance().onEvent(applicationContext, "", str422, 1, System.currentTimeMillis(), a2, jSONArray222, name, str5, f2, g2, true);
+                } else if (bd.c().b() && this.f8852f) {
+                    bd.c().a("setEventToNative: not circle event, will not take effect");
+                }
+                aw.a().a(applicationContext, "", str422, 1, currentTimeMillis, name, a2, str5, jSONArray222, f2, g2, true, jSONObject322, "");
             }
-        }
-        JSONObject jSONObject322 = jSONObject2;
-        JSONArray jSONArray222 = jSONArray;
-        String str422 = str3;
-        if (z) {
-            String str5 = TextUtils.isEmpty(str2) ? "/" : str2;
-            JSONArray a2 = bj.a(activity, webView);
-            String name = activity.getClass().getName();
-            String a3 = bj.a(a2);
-            String b2 = bj.b(jSONArray222);
-            String f2 = bj.f(webView);
-            Map<String, String> g2 = bj.g(webView);
-            Context applicationContext = activity.getApplicationContext();
-            long currentTimeMillis = System.currentTimeMillis();
-            if (a(this.f8777d, activity.getClass().getName(), str5, a3, b2)) {
-                BDStatCore.instance().onEvent(applicationContext, "", str422, 1, System.currentTimeMillis(), a2, jSONArray222, name, str5, f2, g2, true);
-            } else if (bd.c().b() && this.f8779f) {
-                bd.c().a("setEventToNative: not circle event, will not take effect");
-            }
-            aw.a().a(applicationContext, "", str422, 1, currentTimeMillis, name, a2, str5, jSONArray222, f2, g2, true, jSONObject322, "");
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     private boolean a(JSONObject jSONObject, String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.AD_TEXT_ID, this, jSONObject, str, str2, str3, str4)) != null) {
+            return invokeLLLLL.booleanValue;
+        }
         int i2 = 0;
         if (jSONObject == null || jSONObject.toString().equals(new JSONObject().toString()) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             return false;

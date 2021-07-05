@@ -3,41 +3,67 @@ package com.baidu.mapapi.map;
 import android.content.Context;
 import android.os.Bundle;
 import com.baidu.mapsdkplatform.comapi.map.ai;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements ai {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f7118a;
+    public final /* synthetic */ BaiduMap f7148a;
 
     public e(BaiduMap baiduMap) {
-        this.f7118a = baiduMap;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f7148a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.ai
     public Bundle a(int i2, int i3, int i4, Context context) {
+        InterceptResult invokeCommon;
         Lock lock;
         Lock lock2;
         TileOverlay tileOverlay;
         Lock lock3;
         TileOverlay tileOverlay2;
-        lock = this.f7118a.J;
-        lock.lock();
-        try {
-            tileOverlay = this.f7118a.G;
-            if (tileOverlay != null) {
-                tileOverlay2 = this.f7118a.G;
-                Tile a2 = tileOverlay2.a(i2, i3, i4);
-                if (a2 != null) {
-                    return a2.toBundle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), context})) == null) {
+            lock = this.f7148a.J;
+            lock.lock();
+            try {
+                tileOverlay = this.f7148a.G;
+                if (tileOverlay != null) {
+                    tileOverlay2 = this.f7148a.G;
+                    Tile a2 = tileOverlay2.a(i2, i3, i4);
+                    if (a2 != null) {
+                        return a2.toBundle();
+                    }
                 }
+                lock3 = this.f7148a.J;
+                lock3.unlock();
+                return null;
+            } finally {
+                lock2 = this.f7148a.J;
+                lock2.unlock();
             }
-            lock3 = this.f7118a.J;
-            lock3.unlock();
-            return null;
-        } finally {
-            lock2 = this.f7118a.J;
-            lock2.unlock();
         }
+        return (Bundle) invokeCommon.objValue;
     }
 }

@@ -8,65 +8,102 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import android.widget.ImageView;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class n extends Handler {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f22713a;
+    public ImageView f23229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f22714b;
+    public Handler f23230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f22715c;
+    public Context f23231c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f22716d;
+    public TextView f23232d;
 
     public n(Context context, ImageView imageView, Handler handler) {
-        this.f22716d = null;
-        this.f22713a = imageView;
-        this.f22714b = handler;
-        this.f22715c = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, imageView, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23232d = null;
+        this.f23229a = imageView;
+        this.f23230b = handler;
+        this.f23231c = context;
     }
 
     public n(Context context, TextView textView, Handler handler) {
-        this.f22716d = null;
-        this.f22716d = textView;
-        this.f22714b = handler;
-        this.f22715c = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, textView, handler};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f23232d = null;
+        this.f23232d = textView;
+        this.f23230b = handler;
+        this.f23231c = context;
     }
 
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         ImageView imageView;
         int a2;
-        super.handleMessage(message);
-        Object obj = message.obj;
-        if (obj != null) {
-            Bitmap bitmap = (Bitmap) obj;
-            if (this.f22716d != null) {
-                ImageSpan imageSpan = new ImageSpan(this.f22715c, bitmap);
-                SpannableString spannableString = new SpannableString("icon");
-                spannableString.setSpan(imageSpan, 0, 4, 33);
-                this.f22716d.setText(spannableString.toString());
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            Object obj = message.obj;
+            if (obj != null) {
+                Bitmap bitmap = (Bitmap) obj;
+                if (this.f23232d != null) {
+                    ImageSpan imageSpan = new ImageSpan(this.f23231c, bitmap);
+                    SpannableString spannableString = new SpannableString("icon");
+                    spannableString.setSpan(imageSpan, 0, 4, 33);
+                    this.f23232d.setText(spannableString.toString());
+                    return;
+                }
+                this.f23229a.setImageBitmap(bitmap);
+                if (bitmap.getHeight() > bitmap.getWidth()) {
+                    this.f23229a.setMaxWidth(i.a(this.f23231c, 80.0f));
+                    imageView = this.f23229a;
+                    a2 = i.a(this.f23231c, 120.0f);
+                } else {
+                    this.f23229a.setMaxWidth(i.a(this.f23231c, 120.0f));
+                    imageView = this.f23229a;
+                    a2 = i.a(this.f23231c, 80.0f);
+                }
+                imageView.setMaxHeight(a2);
             }
-            this.f22713a.setImageBitmap(bitmap);
-            if (bitmap.getHeight() > bitmap.getWidth()) {
-                this.f22713a.setMaxWidth(i.a(this.f22715c, 80.0f));
-                imageView = this.f22713a;
-                a2 = i.a(this.f22715c, 120.0f);
-            } else {
-                this.f22713a.setMaxWidth(i.a(this.f22715c, 120.0f));
-                imageView = this.f22713a;
-                a2 = i.a(this.f22715c, 80.0f);
+            Handler handler = this.f23230b;
+            if (handler != null) {
+                handler.obtainMessage(6).sendToTarget();
             }
-            imageView.setMaxHeight(a2);
-        }
-        Handler handler = this.f22714b;
-        if (handler != null) {
-            handler.obtainMessage(6).sendToTarget();
         }
     }
 }

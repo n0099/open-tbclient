@@ -1,10 +1,12 @@
 package com.baidu.tieba.newfaceshop.nativemotionmanager.model;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -12,6 +14,11 @@ import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.MyEmotionGroupData;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.NativeManageEmotionModel;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.SingleThreadEmotionResponseMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.e;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -19,32 +26,58 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.o0.z1.h.e.a.a f18802e;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f18804g = new a(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD);
+    public d.a.s0.c2.h.e.a.a f18930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f18803f = new ArrayList();
+    public List<String> f18931f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final HttpMessageListener f18932g;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ SingleThreadEmotionModel f18933a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(SingleThreadEmotionModel singleThreadEmotionModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {singleThreadEmotionModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18933a = singleThreadEmotionModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003386 && (httpResponsedMessage instanceof SingleThreadEmotionResponseMessage)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003386 && (httpResponsedMessage instanceof SingleThreadEmotionResponseMessage)) {
                 SingleThreadEmotionResponseMessage singleThreadEmotionResponseMessage = (SingleThreadEmotionResponseMessage) httpResponsedMessage;
-                if (SingleThreadEmotionModel.this.f18802e != null) {
+                if (this.f18933a.f18930e != null) {
                     if (singleThreadEmotionResponseMessage.data != null) {
-                        SingleThreadEmotionModel.this.f18802e.onSuccess(SingleThreadEmotionModel.this.A(singleThreadEmotionResponseMessage.data.pkg_list));
+                        this.f18933a.f18930e.onSuccess(this.f18933a.A(singleThreadEmotionResponseMessage.data.pkg_list));
                     } else {
-                        SingleThreadEmotionModel.this.f18802e.onFail();
+                        this.f18933a.f18930e.onFail();
                     }
                 }
             }
@@ -53,114 +86,215 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
 
     /* loaded from: classes5.dex */
     public class b implements Runnable {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ SingleThreadEmotionModel f18934e;
+
+        public b(SingleThreadEmotionModel singleThreadEmotionModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {singleThreadEmotionModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18934e = singleThreadEmotionModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SingleThreadEmotionModel.this.E();
-            List<MyEmotionGroupData> f2 = d.a.o0.z1.c.i().f();
-            JSONArray jSONArray = new JSONArray();
-            if (f2 != null && !f2.isEmpty()) {
-                for (MyEmotionGroupData myEmotionGroupData : f2) {
-                    if (myEmotionGroupData != null) {
-                        jSONArray.put(myEmotionGroupData.getGroupId());
-                        SingleThreadEmotionModel.this.G(myEmotionGroupData.getGroupId());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f18934e.E();
+                List<MyEmotionGroupData> f2 = d.a.s0.c2.c.i().f();
+                JSONArray jSONArray = new JSONArray();
+                if (f2 != null && !f2.isEmpty()) {
+                    for (MyEmotionGroupData myEmotionGroupData : f2) {
+                        if (myEmotionGroupData != null) {
+                            jSONArray.put(myEmotionGroupData.getGroupId());
+                            this.f18934e.G(myEmotionGroupData.getGroupId());
+                        }
                     }
                 }
+                SingleThreadEmotionModel singleThreadEmotionModel = this.f18934e;
+                e.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
             }
-            SingleThreadEmotionModel singleThreadEmotionModel = SingleThreadEmotionModel.this;
-            e.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
         }
     }
 
     /* loaded from: classes5.dex */
     public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<SingleThreadEmotionModel> f18807e;
+        public WeakReference<SingleThreadEmotionModel> f18935e;
 
         public c(SingleThreadEmotionModel singleThreadEmotionModel, SingleThreadEmotionModel singleThreadEmotionModel2) {
-            this.f18807e = new WeakReference<>(singleThreadEmotionModel2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {singleThreadEmotionModel, singleThreadEmotionModel2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18935e = new WeakReference<>(singleThreadEmotionModel2);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SingleThreadEmotionModel singleThreadEmotionModel = this.f18807e.get();
-            if (singleThreadEmotionModel != null) {
-                singleThreadEmotionModel.sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD));
+            SingleThreadEmotionModel singleThreadEmotionModel;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (singleThreadEmotionModel = this.f18935e.get()) == null) {
+                return;
             }
+            singleThreadEmotionModel.sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD));
         }
     }
 
     public SingleThreadEmotionModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f18932g = new a(this, CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD);
+        this.f18931f = new ArrayList();
         registerTask();
-        this.f18804g.setTag(getUniqueId());
-        this.f18804g.setSelfListener(true);
-        registerListener(this.f18804g);
+        this.f18932g.setTag(getUniqueId());
+        this.f18932g.setSelfListener(true);
+        registerListener(this.f18932g);
     }
 
     public final List<EmotionPackageData> A(List<EmotionPackageData> list) {
-        ArrayList arrayList = new ArrayList();
-        if (list != null) {
-            List<String> B = B();
-            for (EmotionPackageData emotionPackageData : list) {
-                int i2 = emotionPackageData.status;
-                if (i2 == 5 || i2 == 1) {
-                    if (emotionPackageData.status == 1 && B.contains(String.valueOf(emotionPackageData.id))) {
-                        emotionPackageData.ishasdownload = true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null) {
+                List<String> B = B();
+                for (EmotionPackageData emotionPackageData : list) {
+                    int i2 = emotionPackageData.status;
+                    if (i2 == 5 || i2 == 1) {
+                        if (emotionPackageData.status == 1 && B.contains(String.valueOf(emotionPackageData.id))) {
+                            emotionPackageData.ishasdownload = true;
+                        }
+                        arrayList.add(emotionPackageData);
                     }
-                    arrayList.add(emotionPackageData);
                 }
             }
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeL.objValue;
     }
 
     public final synchronized List<String> B() {
-        return new ArrayList(this.f18803f);
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList(this.f18931f);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public void C() {
-        LoadData();
-    }
-
-    public void D() {
-        if (this.f18804g != null) {
-            MessageManager.getInstance().unRegisterListener(this.f18804g);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LoadData();
         }
     }
 
-    public final synchronized void E() {
-        this.f18803f.clear();
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f18932g == null) {
+            return;
+        }
+        MessageManager.getInstance().unRegisterListener(this.f18932g);
     }
 
-    public void F(d.a.o0.z1.h.e.a.a aVar) {
-        this.f18802e = aVar;
+    public final synchronized void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                this.f18931f.clear();
+            }
+        }
+    }
+
+    public void F(d.a.s0.c2.h.e.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.f18930e = aVar;
+        }
     }
 
     public final synchronized void G(String str) {
-        this.f18803f.add(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            synchronized (this) {
+                this.f18931f.add(str);
+            }
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        d.a.o0.z1.a.b().a(new b());
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            d.a.s0.c2.a.b().a(new b(this));
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD, TbConfig.SERVER_ADDRESS + "c/e/meme/getMyForumPackage");
-        tbHttpMessageTask.setResponsedClass(SingleThreadEmotionResponseMessage.class);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD, TbConfig.SERVER_ADDRESS + "c/e/meme/getMyForumPackage");
+            tbHttpMessageTask.setResponsedClass(SingleThreadEmotionResponseMessage.class);
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 }

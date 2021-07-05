@@ -1,52 +1,107 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoTypeReader;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {0})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public int sizeBytes;
     public int sizeOfInstance;
     public int tag;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1436115951, "Lcom/googlecode/mp4parser/boxes/mp4/objectdescriptors/BaseDescriptor;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1436115951, "Lcom/googlecode/mp4parser/boxes/mp4/objectdescriptors/BaseDescriptor;");
+        }
+    }
+
+    public BaseDescriptor() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public int getSize() {
-        return this.sizeOfInstance + 1 + this.sizeBytes;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sizeOfInstance + 1 + this.sizeBytes : invokeV.intValue;
     }
 
     public int getSizeBytes() {
-        return this.sizeBytes;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sizeBytes : invokeV.intValue;
     }
 
     public int getSizeOfInstance() {
-        return this.sizeOfInstance;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sizeOfInstance : invokeV.intValue;
     }
 
     public int getTag() {
-        return this.tag;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tag : invokeV.intValue;
     }
 
     public final void parse(int i2, ByteBuffer byteBuffer) throws IOException {
-        this.tag = i2;
-        int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-        this.sizeOfInstance = readUInt8 & 127;
-        int i3 = 1;
-        while ((readUInt8 >>> 7) == 1) {
-            readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            i3++;
-            this.sizeOfInstance = (this.sizeOfInstance << 7) | (readUInt8 & 127);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, byteBuffer) == null) {
+            this.tag = i2;
+            int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
+            this.sizeOfInstance = readUInt8 & 127;
+            int i3 = 1;
+            while ((readUInt8 >>> 7) == 1) {
+                readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
+                i3++;
+                this.sizeOfInstance = (this.sizeOfInstance << 7) | (readUInt8 & 127);
+            }
+            this.sizeBytes = i3;
+            ByteBuffer slice = byteBuffer.slice();
+            slice.limit(this.sizeOfInstance);
+            parseDetail(slice);
+            byteBuffer.position(byteBuffer.position() + this.sizeOfInstance);
         }
-        this.sizeBytes = i3;
-        ByteBuffer slice = byteBuffer.slice();
-        slice.limit(this.sizeOfInstance);
-        parseDetail(slice);
-        byteBuffer.position(byteBuffer.position() + this.sizeOfInstance);
     }
 
     public abstract void parseDetail(ByteBuffer byteBuffer) throws IOException;
 
     public String toString() {
-        return "BaseDescriptor{tag=" + this.tag + ", sizeOfInstance=" + this.sizeOfInstance + '}';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "BaseDescriptor{tag=" + this.tag + ", sizeOfInstance=" + this.sizeOfInstance + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

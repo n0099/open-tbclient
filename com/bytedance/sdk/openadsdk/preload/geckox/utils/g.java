@@ -1,19 +1,28 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class g {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f30316a;
+    public static Context f32166a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
-        if (context != null) {
-            f30316a = context;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, context) == null) || context == null) {
+            return;
         }
+        f32166a = context;
     }
 
     public static void a(String str) {
-        System.loadLibrary(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            System.loadLibrary(str);
+        }
     }
 }

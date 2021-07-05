@@ -1,5 +1,12 @@
 package com.facebook.imagepipeline.producers;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
@@ -24,6 +31,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class ResizeAndRotateProducer implements Producer<EncodedImage> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String INPUT_IMAGE_FORMAT = "Image format";
     @VisibleForTesting
     public static final int MIN_TRANSFORM_INTERVAL_MS = 100;
@@ -32,6 +40,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static final String REQUESTED_SIZE_KEY = "Requested size";
     public static final String TRANSCODER_ID = "Transcoder id";
     public static final String TRANSCODING_RESULT = "Transcoding result";
+    public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
     public final ImageTranscoderFactory mImageTranscoderFactory;
     public final Producer<EncodedImage> mInputProducer;
@@ -40,38 +49,115 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
 
     /* loaded from: classes6.dex */
     public class TransformingConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ImageTranscoderFactory mImageTranscoderFactory;
         public boolean mIsCancelled;
         public final boolean mIsResizingEnabled;
         public final JobScheduler mJobScheduler;
         public final ProducerContext mProducerContext;
+        public final /* synthetic */ ResizeAndRotateProducer this$0;
 
-        public TransformingConsumer(final Consumer<EncodedImage> consumer, ProducerContext producerContext, boolean z, ImageTranscoderFactory imageTranscoderFactory) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public TransformingConsumer(ResizeAndRotateProducer resizeAndRotateProducer, Consumer<EncodedImage> consumer, ProducerContext producerContext, boolean z, ImageTranscoderFactory imageTranscoderFactory) {
             super(consumer);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {resizeAndRotateProducer, consumer, producerContext, Boolean.valueOf(z), imageTranscoderFactory};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Consumer) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = resizeAndRotateProducer;
             this.mIsCancelled = false;
             this.mProducerContext = producerContext;
             Boolean resizingAllowedOverride = producerContext.getImageRequest().getResizingAllowedOverride();
             this.mIsResizingEnabled = resizingAllowedOverride != null ? resizingAllowedOverride.booleanValue() : z;
             this.mImageTranscoderFactory = imageTranscoderFactory;
-            this.mJobScheduler = new JobScheduler(ResizeAndRotateProducer.this.mExecutor, new JobScheduler.JobRunnable() { // from class: com.facebook.imagepipeline.producers.ResizeAndRotateProducer.TransformingConsumer.1
+            this.mJobScheduler = new JobScheduler(resizeAndRotateProducer.mExecutor, new JobScheduler.JobRunnable(this, resizeAndRotateProducer) { // from class: com.facebook.imagepipeline.producers.ResizeAndRotateProducer.TransformingConsumer.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TransformingConsumer this$1;
+                public final /* synthetic */ ResizeAndRotateProducer val$this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext2 = TitanRuntime.newInitContext();
+                        newInitContext2.initArgs = r2;
+                        Object[] objArr2 = {this, resizeAndRotateProducer};
+                        interceptable2.invokeUnInit(65536, newInitContext2);
+                        int i4 = newInitContext2.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext2.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext2);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                    this.val$this$0 = resizeAndRotateProducer;
+                }
+
                 @Override // com.facebook.imagepipeline.producers.JobScheduler.JobRunnable
-                public void run(EncodedImage encodedImage, int i2) {
-                    TransformingConsumer transformingConsumer = TransformingConsumer.this;
-                    transformingConsumer.doTransform(encodedImage, i2, (ImageTranscoder) Preconditions.checkNotNull(transformingConsumer.mImageTranscoderFactory.createImageTranscoder(encodedImage.getImageFormat(), TransformingConsumer.this.mIsResizingEnabled)));
+                public void run(EncodedImage encodedImage, int i4) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, encodedImage, i4) == null) {
+                        TransformingConsumer transformingConsumer = this.this$1;
+                        transformingConsumer.doTransform(encodedImage, i4, (ImageTranscoder) Preconditions.checkNotNull(transformingConsumer.mImageTranscoderFactory.createImageTranscoder(encodedImage.getImageFormat(), this.this$1.mIsResizingEnabled)));
+                    }
                 }
             }, 100);
-            this.mProducerContext.addCallbacks(new BaseProducerContextCallbacks() { // from class: com.facebook.imagepipeline.producers.ResizeAndRotateProducer.TransformingConsumer.2
+            this.mProducerContext.addCallbacks(new BaseProducerContextCallbacks(this, resizeAndRotateProducer, consumer) { // from class: com.facebook.imagepipeline.producers.ResizeAndRotateProducer.TransformingConsumer.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TransformingConsumer this$1;
+                public final /* synthetic */ Consumer val$consumer;
+                public final /* synthetic */ ResizeAndRotateProducer val$this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext2 = TitanRuntime.newInitContext();
+                        newInitContext2.initArgs = r2;
+                        Object[] objArr2 = {this, resizeAndRotateProducer, consumer};
+                        interceptable2.invokeUnInit(65536, newInitContext2);
+                        int i4 = newInitContext2.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext2.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext2);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                    this.val$this$0 = resizeAndRotateProducer;
+                    this.val$consumer = consumer;
+                }
+
                 @Override // com.facebook.imagepipeline.producers.BaseProducerContextCallbacks, com.facebook.imagepipeline.producers.ProducerContextCallbacks
                 public void onCancellationRequested() {
-                    TransformingConsumer.this.mJobScheduler.clearJob();
-                    TransformingConsumer.this.mIsCancelled = true;
-                    consumer.onCancellation();
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$1.mJobScheduler.clearJob();
+                        this.this$1.mIsCancelled = true;
+                        this.val$consumer.onCancellation();
+                    }
                 }
 
                 @Override // com.facebook.imagepipeline.producers.BaseProducerContextCallbacks, com.facebook.imagepipeline.producers.ProducerContextCallbacks
                 public void onIsIntermediateResultExpectedChanged() {
-                    if (TransformingConsumer.this.mProducerContext.isIntermediateResultExpected()) {
-                        TransformingConsumer.this.mJobScheduler.scheduleJob();
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.this$1.mProducerContext.isIntermediateResultExpected()) {
+                        this.this$1.mJobScheduler.scheduleJob();
                     }
                 }
             });
@@ -79,97 +165,121 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void doTransform(EncodedImage encodedImage, int i2, ImageTranscoder imageTranscoder) {
-            this.mProducerContext.getListener().onProducerStart(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME);
-            ImageRequest imageRequest = this.mProducerContext.getImageRequest();
-            PooledByteBufferOutputStream newOutputStream = ResizeAndRotateProducer.this.mPooledByteBufferFactory.newOutputStream();
-            try {
-                ImageTranscodeResult transcode = imageTranscoder.transcode(encodedImage, newOutputStream, imageRequest.getRotationOptions(), imageRequest.getResizeOptions(), null, 85);
-                if (transcode.getTranscodeStatus() != 2) {
-                    Map<String, String> extraMap = getExtraMap(encodedImage, imageRequest.getResizeOptions(), transcode, imageTranscoder.getIdentifier());
-                    CloseableReference of = CloseableReference.of(newOutputStream.toByteBuffer());
-                    try {
-                        EncodedImage encodedImage2 = new EncodedImage(of);
-                        encodedImage2.setImageFormat(DefaultImageFormats.JPEG);
-                        encodedImage2.parseMetaData();
-                        this.mProducerContext.getListener().onProducerFinishWithSuccess(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, extraMap);
-                        if (transcode.getTranscodeStatus() != 1) {
-                            i2 |= 16;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(65543, this, encodedImage, i2, imageTranscoder) == null) {
+                this.mProducerContext.getListener().onProducerStart(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME);
+                ImageRequest imageRequest = this.mProducerContext.getImageRequest();
+                PooledByteBufferOutputStream newOutputStream = this.this$0.mPooledByteBufferFactory.newOutputStream();
+                try {
+                    ImageTranscodeResult transcode = imageTranscoder.transcode(encodedImage, newOutputStream, imageRequest.getRotationOptions(), imageRequest.getResizeOptions(), null, 85);
+                    if (transcode.getTranscodeStatus() != 2) {
+                        Map<String, String> extraMap = getExtraMap(encodedImage, imageRequest.getResizeOptions(), transcode, imageTranscoder.getIdentifier());
+                        CloseableReference of = CloseableReference.of(newOutputStream.toByteBuffer());
+                        try {
+                            EncodedImage encodedImage2 = new EncodedImage(of);
+                            encodedImage2.setImageFormat(DefaultImageFormats.JPEG);
+                            encodedImage2.parseMetaData();
+                            this.mProducerContext.getListener().onProducerFinishWithSuccess(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, extraMap);
+                            if (transcode.getTranscodeStatus() != 1) {
+                                i2 |= 16;
+                            }
+                            getConsumer().onNewResult(encodedImage2, i2);
+                            EncodedImage.closeSafely(encodedImage2);
+                            return;
+                        } finally {
+                            CloseableReference.closeSafely(of);
                         }
-                        getConsumer().onNewResult(encodedImage2, i2);
-                        EncodedImage.closeSafely(encodedImage2);
-                        return;
-                    } finally {
-                        CloseableReference.closeSafely(of);
                     }
+                    throw new RuntimeException("Error while transcoding the image");
+                } catch (Exception e2) {
+                    this.mProducerContext.getListener().onProducerFinishWithFailure(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, e2, null);
+                    if (BaseConsumer.isLast(i2)) {
+                        getConsumer().onFailure(e2);
+                    }
+                } finally {
+                    newOutputStream.close();
                 }
-                throw new RuntimeException("Error while transcoding the image");
-            } catch (Exception e2) {
-                this.mProducerContext.getListener().onProducerFinishWithFailure(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, e2, null);
-                if (BaseConsumer.isLast(i2)) {
-                    getConsumer().onFailure(e2);
-                }
-            } finally {
-                newOutputStream.close();
             }
         }
 
         private void forwardNewResult(EncodedImage encodedImage, int i2, ImageFormat imageFormat) {
             EncodedImage newResultsForJpegOrHeif;
-            if (imageFormat != DefaultImageFormats.JPEG && imageFormat != DefaultImageFormats.HEIF) {
-                newResultsForJpegOrHeif = getNewResultForImagesWithoutExifData(encodedImage);
-            } else {
-                newResultsForJpegOrHeif = getNewResultsForJpegOrHeif(encodedImage);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(65544, this, encodedImage, i2, imageFormat) == null) {
+                if (imageFormat != DefaultImageFormats.JPEG && imageFormat != DefaultImageFormats.HEIF) {
+                    newResultsForJpegOrHeif = getNewResultForImagesWithoutExifData(encodedImage);
+                } else {
+                    newResultsForJpegOrHeif = getNewResultsForJpegOrHeif(encodedImage);
+                }
+                getConsumer().onNewResult(newResultsForJpegOrHeif, i2);
             }
-            getConsumer().onNewResult(newResultsForJpegOrHeif, i2);
         }
 
         @Nullable
         private EncodedImage getCloneWithRotationApplied(EncodedImage encodedImage, int i2) {
-            EncodedImage cloneOrNull = EncodedImage.cloneOrNull(encodedImage);
-            encodedImage.close();
-            if (cloneOrNull != null) {
-                cloneOrNull.setRotationAngle(i2);
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, this, encodedImage, i2)) == null) {
+                EncodedImage cloneOrNull = EncodedImage.cloneOrNull(encodedImage);
+                encodedImage.close();
+                if (cloneOrNull != null) {
+                    cloneOrNull.setRotationAngle(i2);
+                }
+                return cloneOrNull;
             }
-            return cloneOrNull;
+            return (EncodedImage) invokeLI.objValue;
         }
 
         @Nullable
         private Map<String, String> getExtraMap(EncodedImage encodedImage, @Nullable ResizeOptions resizeOptions, @Nullable ImageTranscodeResult imageTranscodeResult, @Nullable String str) {
+            InterceptResult invokeLLLL;
             String str2;
-            if (this.mProducerContext.getListener().requiresExtraMap(this.mProducerContext.getId())) {
-                String str3 = encodedImage.getWidth() + "x" + encodedImage.getHeight();
-                if (resizeOptions != null) {
-                    str2 = resizeOptions.width + "x" + resizeOptions.height;
-                } else {
-                    str2 = "Unspecified";
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, this, encodedImage, resizeOptions, imageTranscodeResult, str)) == null) {
+                if (this.mProducerContext.getListener().requiresExtraMap(this.mProducerContext.getId())) {
+                    String str3 = encodedImage.getWidth() + "x" + encodedImage.getHeight();
+                    if (resizeOptions != null) {
+                        str2 = resizeOptions.width + "x" + resizeOptions.height;
+                    } else {
+                        str2 = "Unspecified";
+                    }
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(ResizeAndRotateProducer.INPUT_IMAGE_FORMAT, String.valueOf(encodedImage.getImageFormat()));
+                    hashMap.put(ResizeAndRotateProducer.ORIGINAL_SIZE_KEY, str3);
+                    hashMap.put(ResizeAndRotateProducer.REQUESTED_SIZE_KEY, str2);
+                    hashMap.put(JobScheduler.QUEUE_TIME_KEY, String.valueOf(this.mJobScheduler.getQueuedTime()));
+                    hashMap.put(ResizeAndRotateProducer.TRANSCODER_ID, str);
+                    hashMap.put(ResizeAndRotateProducer.TRANSCODING_RESULT, String.valueOf(imageTranscodeResult));
+                    return ImmutableMap.copyOf((Map) hashMap);
                 }
-                HashMap hashMap = new HashMap();
-                hashMap.put(ResizeAndRotateProducer.INPUT_IMAGE_FORMAT, String.valueOf(encodedImage.getImageFormat()));
-                hashMap.put(ResizeAndRotateProducer.ORIGINAL_SIZE_KEY, str3);
-                hashMap.put(ResizeAndRotateProducer.REQUESTED_SIZE_KEY, str2);
-                hashMap.put(JobScheduler.QUEUE_TIME_KEY, String.valueOf(this.mJobScheduler.getQueuedTime()));
-                hashMap.put(ResizeAndRotateProducer.TRANSCODER_ID, str);
-                hashMap.put(ResizeAndRotateProducer.TRANSCODING_RESULT, String.valueOf(imageTranscodeResult));
-                return ImmutableMap.copyOf((Map) hashMap);
+                return null;
             }
-            return null;
+            return (Map) invokeLLLL.objValue;
         }
 
         @Nullable
         private EncodedImage getNewResultForImagesWithoutExifData(EncodedImage encodedImage) {
-            RotationOptions rotationOptions = this.mProducerContext.getImageRequest().getRotationOptions();
-            return (rotationOptions.useImageMetadata() || !rotationOptions.rotationEnabled()) ? encodedImage : getCloneWithRotationApplied(encodedImage, rotationOptions.getForcedAngle());
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, encodedImage)) == null) {
+                RotationOptions rotationOptions = this.mProducerContext.getImageRequest().getRotationOptions();
+                return (rotationOptions.useImageMetadata() || !rotationOptions.rotationEnabled()) ? encodedImage : getCloneWithRotationApplied(encodedImage, rotationOptions.getForcedAngle());
+            }
+            return (EncodedImage) invokeL.objValue;
         }
 
         @Nullable
         private EncodedImage getNewResultsForJpegOrHeif(EncodedImage encodedImage) {
-            return (this.mProducerContext.getImageRequest().getRotationOptions().canDeferUntilRendered() || encodedImage.getRotationAngle() == 0 || encodedImage.getRotationAngle() == -1) ? encodedImage : getCloneWithRotationApplied(encodedImage, 0);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, encodedImage)) == null) ? (this.mProducerContext.getImageRequest().getRotationOptions().canDeferUntilRendered() || encodedImage.getRotationAngle() == 0 || encodedImage.getRotationAngle() == -1) ? encodedImage : getCloneWithRotationApplied(encodedImage, 0) : (EncodedImage) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
         public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i2) {
-            if (this.mIsCancelled) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i2) == null) || this.mIsCancelled) {
                 return;
             }
             boolean isLast = BaseConsumer.isLast(i2);
@@ -195,6 +305,20 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     }
 
     public ResizeAndRotateProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, Producer<EncodedImage> producer, boolean z, ImageTranscoderFactory imageTranscoderFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, pooledByteBufferFactory, producer, Boolean.valueOf(z), imageTranscoderFactory};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mExecutor = (Executor) Preconditions.checkNotNull(executor);
         this.mPooledByteBufferFactory = (PooledByteBufferFactory) Preconditions.checkNotNull(pooledByteBufferFactory);
         this.mInputProducer = (Producer) Preconditions.checkNotNull(producer);
@@ -203,29 +327,44 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     }
 
     public static boolean shouldRotate(RotationOptions rotationOptions, EncodedImage encodedImage) {
-        return !rotationOptions.canDeferUntilRendered() && (JpegTranscoderUtils.getRotationAngle(rotationOptions, encodedImage) != 0 || shouldRotateUsingExifOrientation(rotationOptions, encodedImage));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, rotationOptions, encodedImage)) == null) ? !rotationOptions.canDeferUntilRendered() && (JpegTranscoderUtils.getRotationAngle(rotationOptions, encodedImage) != 0 || shouldRotateUsingExifOrientation(rotationOptions, encodedImage)) : invokeLL.booleanValue;
     }
 
     public static boolean shouldRotateUsingExifOrientation(RotationOptions rotationOptions, EncodedImage encodedImage) {
-        if (rotationOptions.rotationEnabled() && !rotationOptions.canDeferUntilRendered()) {
-            return JpegTranscoderUtils.INVERTED_EXIF_ORIENTATIONS.contains(Integer.valueOf(encodedImage.getExifOrientation()));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, rotationOptions, encodedImage)) == null) {
+            if (rotationOptions.rotationEnabled() && !rotationOptions.canDeferUntilRendered()) {
+                return JpegTranscoderUtils.INVERTED_EXIF_ORIENTATIONS.contains(Integer.valueOf(encodedImage.getExifOrientation()));
+            }
+            encodedImage.setExifOrientation(0);
+            return false;
         }
-        encodedImage.setExifOrientation(0);
-        return false;
+        return invokeLL.booleanValue;
     }
 
     public static TriState shouldTransform(ImageRequest imageRequest, EncodedImage encodedImage, ImageTranscoder imageTranscoder) {
-        if (encodedImage != null && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
-            if (!imageTranscoder.canTranscode(encodedImage.getImageFormat())) {
-                return TriState.NO;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, imageRequest, encodedImage, imageTranscoder)) == null) {
+            if (encodedImage != null && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
+                if (!imageTranscoder.canTranscode(encodedImage.getImageFormat())) {
+                    return TriState.NO;
+                }
+                return TriState.valueOf(shouldRotate(imageRequest.getRotationOptions(), encodedImage) || imageTranscoder.canResize(encodedImage, imageRequest.getRotationOptions(), imageRequest.getResizeOptions()));
             }
-            return TriState.valueOf(shouldRotate(imageRequest.getRotationOptions(), encodedImage) || imageTranscoder.canResize(encodedImage, imageRequest.getRotationOptions(), imageRequest.getResizeOptions()));
+            return TriState.UNSET;
         }
-        return TriState.UNSET;
+        return (TriState) invokeLLL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
     public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
-        this.mInputProducer.produceResults(new TransformingConsumer(consumer, producerContext, this.mIsResizingEnabled, this.mImageTranscoderFactory), producerContext);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
+            this.mInputProducer.produceResults(new TransformingConsumer(this, consumer, producerContext, this.mIsResizingEnabled, this.mImageTranscoderFactory), producerContext);
+        }
     }
 }

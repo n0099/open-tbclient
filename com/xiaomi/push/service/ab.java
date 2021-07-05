@@ -1,24 +1,47 @@
 package com.xiaomi.push.service;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.service.av;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ab implements av.b.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f41817a;
+    public final /* synthetic */ XMPushService f43560a;
 
     public ab(XMPushService xMPushService) {
-        this.f41817a = xMPushService;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xMPushService};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43560a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.av.b.a
     public void a(av.c cVar, av.c cVar2, int i2) {
-        if (cVar2 == av.c.binded) {
-            p.a(this.f41817a);
-            p.b(this.f41817a);
-        } else if (cVar2 == av.c.unbind) {
-            p.a(this.f41817a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i2) == null) {
+            if (cVar2 == av.c.f43604c) {
+                p.a(this.f43560a);
+                p.b(this.f43560a);
+            } else if (cVar2 == av.c.f43602a) {
+                p.a(this.f43560a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
+            }
         }
     }
 }

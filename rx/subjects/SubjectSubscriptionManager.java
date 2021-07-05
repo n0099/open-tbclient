@@ -1,5 +1,14 @@
 package rx.subjects;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.e;
 import h.j;
@@ -8,234 +17,348 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements d.a<T> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6035251036011671568L;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean active;
     public volatile Object latest;
     public h.n.b<c<T>> onAdded;
     public h.n.b<c<T>> onStart;
     public h.n.b<c<T>> onTerminated;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements h.n.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f72625e;
+        public final /* synthetic */ c f76295e;
 
-        public a(c cVar) {
-            this.f72625e = cVar;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ SubjectSubscriptionManager f76296f;
+
+        public a(SubjectSubscriptionManager subjectSubscriptionManager, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subjectSubscriptionManager, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f76296f = subjectSubscriptionManager;
+            this.f76295e = cVar;
         }
 
         @Override // h.n.a
         public void call() {
-            SubjectSubscriptionManager.this.remove(this.f72625e);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f76296f.remove(this.f76295e);
+            }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class b<T> {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c[] f72627c;
+        public static final c[] f76297c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f72628d;
+        public static final b f76298d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f72629e;
+        public static final b f76299e;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f72630a;
+        public final boolean f76300a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final c[] f72631b;
+        public final c[] f76301b;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2042411886, "Lrx/subjects/SubjectSubscriptionManager$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(2042411886, "Lrx/subjects/SubjectSubscriptionManager$b;");
+                    return;
+                }
+            }
             c[] cVarArr = new c[0];
-            f72627c = cVarArr;
-            f72628d = new b(true, cVarArr);
-            f72629e = new b(false, f72627c);
+            f76297c = cVarArr;
+            f76298d = new b(true, cVarArr);
+            f76299e = new b(false, f76297c);
         }
 
         public b(boolean z, c[] cVarArr) {
-            this.f72630a = z;
-            this.f72631b = cVarArr;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), cVarArr};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f76300a = z;
+            this.f76301b = cVarArr;
         }
 
         public b a(c cVar) {
-            c[] cVarArr = this.f72631b;
-            int length = cVarArr.length;
-            c[] cVarArr2 = new c[length + 1];
-            System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
-            cVarArr2[length] = cVar;
-            return new b(this.f72630a, cVarArr2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+                c[] cVarArr = this.f76301b;
+                int length = cVarArr.length;
+                c[] cVarArr2 = new c[length + 1];
+                System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
+                cVarArr2[length] = cVar;
+                return new b(this.f76300a, cVarArr2);
+            }
+            return (b) invokeL.objValue;
         }
 
         public b b(c cVar) {
-            c[] cVarArr = this.f72631b;
-            int length = cVarArr.length;
-            if (length == 1 && cVarArr[0] == cVar) {
-                return f72629e;
-            }
-            if (length == 0) {
-                return this;
-            }
-            int i2 = length - 1;
-            c[] cVarArr2 = new c[i2];
-            int i3 = 0;
-            for (c cVar2 : cVarArr) {
-                if (cVar2 != cVar) {
-                    if (i3 == i2) {
-                        return this;
-                    }
-                    cVarArr2[i3] = cVar2;
-                    i3++;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                c[] cVarArr = this.f76301b;
+                int length = cVarArr.length;
+                if (length == 1 && cVarArr[0] == cVar) {
+                    return f76299e;
                 }
+                if (length == 0) {
+                    return this;
+                }
+                int i2 = length - 1;
+                c[] cVarArr2 = new c[i2];
+                int i3 = 0;
+                for (c cVar2 : cVarArr) {
+                    if (cVar2 != cVar) {
+                        if (i3 == i2) {
+                            return this;
+                        }
+                        cVarArr2[i3] = cVar2;
+                        i3++;
+                    }
+                }
+                if (i3 == 0) {
+                    return f76299e;
+                }
+                if (i3 < i2) {
+                    c[] cVarArr3 = new c[i3];
+                    System.arraycopy(cVarArr2, 0, cVarArr3, 0, i3);
+                    cVarArr2 = cVarArr3;
+                }
+                return new b(this.f76300a, cVarArr2);
             }
-            if (i3 == 0) {
-                return f72629e;
-            }
-            if (i3 < i2) {
-                c[] cVarArr3 = new c[i3];
-                System.arraycopy(cVarArr2, 0, cVarArr3, 0, i3);
-                cVarArr2 = cVarArr3;
-            }
-            return new b(this.f72630a, cVarArr2);
+            return (b) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class c<T> implements e<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final j<? super T> f72632e;
+        public final j<? super T> f76302e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f72633f = true;
+        public boolean f76303f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f72634g;
+        public boolean f76304g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<Object> f72635h;
+        public List<Object> f76305h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f72636i;
+        public boolean f76306i;
 
         public c(j<? super T> jVar) {
-            this.f72632e = jVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f76303f = true;
+            this.f76302e = jVar;
         }
 
         public void a(Object obj) {
-            if (obj != null) {
-                NotificationLite.a(this.f72632e, obj);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null) {
+                return;
             }
+            NotificationLite.a(this.f76302e, obj);
         }
 
         public void b(Object obj) {
-            synchronized (this) {
-                if (this.f72633f && !this.f72634g) {
-                    this.f72633f = false;
-                    this.f72634g = obj != null;
-                    if (obj != null) {
-                        c(null, obj);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                synchronized (this) {
+                    if (this.f76303f && !this.f76304g) {
+                        this.f76303f = false;
+                        this.f76304g = obj != null;
+                        if (obj != null) {
+                            c(null, obj);
+                        }
                     }
                 }
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:30:0x0038  */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x003c  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void c(List<Object> list, Object obj) {
-            boolean z = true;
-            boolean z2 = true;
-            while (true) {
-                if (list != null) {
-                    try {
-                        for (Object obj2 : list) {
-                            a(obj2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, obj) == null) {
+                boolean z = true;
+                boolean z2 = true;
+                while (true) {
+                    if (list != null) {
+                        try {
+                            for (Object obj2 : list) {
+                                a(obj2);
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            z = false;
+                            if (!z) {
+                            }
+                            throw th;
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        z = false;
+                    }
+                    if (z2) {
+                        a(obj);
+                        z2 = false;
+                    }
+                    try {
+                        synchronized (this) {
+                            try {
+                                list = this.f76305h;
+                                this.f76305h = null;
+                                if (list == null) {
+                                    this.f76304g = false;
+                                    return;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                z = false;
+                            }
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                    try {
+                        throw th;
+                    } catch (Throwable th4) {
+                        th = th4;
                         if (!z) {
+                            synchronized (this) {
+                                this.f76304g = false;
+                            }
                         }
                         throw th;
                     }
-                }
-                if (z2) {
-                    a(obj);
-                    z2 = false;
-                }
-                try {
-                    synchronized (this) {
-                        try {
-                            list = this.f72635h;
-                            this.f72635h = null;
-                            if (list == null) {
-                                this.f72634g = false;
-                                return;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            z = false;
-                        }
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
-                }
-                try {
-                    throw th;
-                } catch (Throwable th4) {
-                    th = th4;
-                    if (!z) {
-                        synchronized (this) {
-                            this.f72634g = false;
-                        }
-                    }
-                    throw th;
                 }
             }
         }
 
         public void d(Object obj) {
-            if (!this.f72636i) {
-                synchronized (this) {
-                    this.f72633f = false;
-                    if (this.f72634g) {
-                        if (this.f72635h == null) {
-                            this.f72635h = new ArrayList();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                if (!this.f76306i) {
+                    synchronized (this) {
+                        this.f76303f = false;
+                        if (this.f76304g) {
+                            if (this.f76305h == null) {
+                                this.f76305h = new ArrayList();
+                            }
+                            this.f76305h.add(obj);
+                            return;
                         }
-                        this.f72635h.add(obj);
-                        return;
+                        this.f76306i = true;
                     }
-                    this.f72636i = true;
                 }
+                NotificationLite.a(this.f76302e, obj);
             }
-            NotificationLite.a(this.f72632e, obj);
         }
 
         @Override // h.e
         public void onCompleted() {
-            this.f72632e.onCompleted();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.f76302e.onCompleted();
+            }
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f72632e.onError(th);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+                this.f76302e.onError(th);
+            }
         }
 
         @Override // h.e
         public void onNext(T t) {
-            this.f72632e.onNext(t);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                this.f76302e.onNext(t);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SubjectSubscriptionManager() {
-        super(b.f72629e);
+        super(b.f76299e);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.active = true;
         this.onStart = Actions.a();
         this.onAdded = Actions.a();
@@ -244,19 +367,27 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
 
     public boolean add(c<T> cVar) {
         b<T> bVar;
-        do {
-            bVar = get();
-            if (bVar.f72630a) {
-                this.onTerminated.call(cVar);
-                return false;
-            }
-        } while (!compareAndSet(bVar, bVar.a(cVar)));
-        this.onAdded.call(cVar);
-        return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            do {
+                bVar = get();
+                if (bVar.f76300a) {
+                    this.onTerminated.call(cVar);
+                    return false;
+                }
+            } while (!compareAndSet(bVar, bVar.a(cVar)));
+            this.onAdded.call(cVar);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public void addUnsubscriber(j<? super T> jVar, c<T> cVar) {
-        jVar.add(h.u.e.a(new a(cVar)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar, cVar) == null) {
+            jVar.add(h.u.e.a(new a(this, cVar)));
+        }
     }
 
     @Override // h.n.b
@@ -265,48 +396,71 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     public Object getLatest() {
-        return this.latest;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.latest : invokeV.objValue;
     }
 
     public c<T>[] next(Object obj) {
-        setLatest(obj);
-        return get().f72631b;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            setLatest(obj);
+            return get().f76301b;
+        }
+        return (c[]) invokeL.objValue;
     }
 
     public c<T>[] observers() {
-        return get().f72631b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? get().f76301b : (c[]) invokeV.objValue;
     }
 
     public void remove(c<T> cVar) {
         b<T> bVar;
         b<T> b2;
-        do {
-            bVar = get();
-            if (bVar.f72630a || (b2 = bVar.b(cVar)) == bVar) {
-                return;
-            }
-        } while (!compareAndSet(bVar, b2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            do {
+                bVar = get();
+                if (bVar.f76300a || (b2 = bVar.b(cVar)) == bVar) {
+                    return;
+                }
+            } while (!compareAndSet(bVar, b2));
+        }
     }
 
     public void setLatest(Object obj) {
-        this.latest = obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
+            this.latest = obj;
+        }
     }
 
     public c<T>[] terminate(Object obj) {
-        setLatest(obj);
-        this.active = false;
-        if (get().f72630a) {
-            return b.f72627c;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
+            setLatest(obj);
+            this.active = false;
+            if (get().f76300a) {
+                return b.f76297c;
+            }
+            return getAndSet(b.f76298d).f76301b;
         }
-        return getAndSet(b.f72628d).f72631b;
+        return (c[]) invokeL.objValue;
     }
 
     public void call(j<? super T> jVar) {
-        c<T> cVar = new c<>(jVar);
-        addUnsubscriber(jVar, cVar);
-        this.onStart.call(cVar);
-        if (!jVar.isUnsubscribed() && add(cVar) && jVar.isUnsubscribed()) {
-            remove(cVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) {
+            c<T> cVar = new c<>(jVar);
+            addUnsubscriber(jVar, cVar);
+            this.onStart.call(cVar);
+            if (!jVar.isUnsubscribed() && add(cVar) && jVar.isUnsubscribed()) {
+                remove(cVar);
+            }
         }
     }
 }

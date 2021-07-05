@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.parser;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
@@ -66,6 +67,15 @@ import com.alibaba.fastjson.util.ParameterizedTypeImpl;
 import com.alibaba.fastjson.util.ServiceLoader;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import java.io.Closeable;
 import java.io.File;
@@ -126,14 +136,24 @@ import javax.sql.RowSet;
 import javax.xml.datatype.XMLGregorianCalendar;
 /* loaded from: classes.dex */
 public class ParserConfig {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTOTYPE_ACCEPT = "fastjson.parser.autoTypeAccept";
+    public static final String AUTOTYPE_SUPPORT_PROPERTY = "fastjson.parser.autoTypeSupport";
+    public static final boolean AUTO_SUPPORT;
     public static final String[] AUTO_TYPE_ACCEPT_LIST;
+    public static final String[] DENYS;
+    public static final String[] DENYS_INTERNAL;
+    public static final String DENY_PROPERTY = "fastjson.parser.deny";
+    public static final String DENY_PROPERTY_INTERNAL = "fastjson.parser.deny.internal";
     public static final long[] INTERNAL_WHITELIST_HASHCODES;
+    public static final boolean SAFE_MODE;
+    public static final String SAFE_MODE_PROPERTY = "fastjson.parser.safeMode";
     public static boolean awtError;
     public static ParserConfig global;
     public static boolean guavaError;
     public static boolean jdk8Error;
     public static boolean jodaError;
+    public transient /* synthetic */ FieldHolder $fh;
     public long[] acceptHashCodes;
     public boolean asmEnable;
     public ASMDeserializerFactory asmFactory;
@@ -152,14 +172,6 @@ public class ParserConfig {
     public boolean safeMode;
     public final SymbolTable symbolTable;
     public final ConcurrentMap<String, Class<?>> typeMapping;
-    public static final String DENY_PROPERTY_INTERNAL = "fastjson.parser.deny.internal";
-    public static final String[] DENYS_INTERNAL = splitItemsFormProperty(IOUtils.getStringProperty(DENY_PROPERTY_INTERNAL));
-    public static final String DENY_PROPERTY = "fastjson.parser.deny";
-    public static final String[] DENYS = splitItemsFormProperty(IOUtils.getStringProperty(DENY_PROPERTY));
-    public static final String AUTOTYPE_SUPPORT_PROPERTY = "fastjson.parser.autoTypeSupport";
-    public static final boolean AUTO_SUPPORT = "true".equals(IOUtils.getStringProperty(AUTOTYPE_SUPPORT_PROPERTY));
-    public static final String SAFE_MODE_PROPERTY = "fastjson.parser.safeMode";
-    public static final boolean SAFE_MODE = "true".equals(IOUtils.getStringProperty(SAFE_MODE_PROPERTY));
 
     /* loaded from: classes.dex */
     public interface AutoTypeCheckHandler {
@@ -167,6 +179,22 @@ public class ParserConfig {
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1601444952, "Lcom/alibaba/fastjson/parser/ParserConfig;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1601444952, "Lcom/alibaba/fastjson/parser/ParserConfig;");
+                return;
+            }
+        }
+        DENYS_INTERNAL = splitItemsFormProperty(IOUtils.getStringProperty(DENY_PROPERTY_INTERNAL));
+        DENYS = splitItemsFormProperty(IOUtils.getStringProperty(DENY_PROPERTY));
+        AUTO_SUPPORT = "true".equals(IOUtils.getStringProperty(AUTOTYPE_SUPPORT_PROPERTY));
+        SAFE_MODE = "true".equals(IOUtils.getStringProperty(SAFE_MODE_PROPERTY));
         String[] splitItemsFormProperty = splitItemsFormProperty(IOUtils.getStringProperty(AUTOTYPE_ACCEPT));
         if (splitItemsFormProperty == null) {
             splitItemsFormProperty = new String[0];
@@ -180,12 +208,27 @@ public class ParserConfig {
         guavaError = false;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ParserConfig() {
         this(false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this(((Boolean) newInitContext.callArgs[0]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     private void addItemsToAccept(String[] strArr) {
-        if (strArr == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, strArr) == null) || strArr == null) {
             return;
         }
         for (String str : strArr) {
@@ -194,7 +237,8 @@ public class ParserConfig {
     }
 
     private void addItemsToDeny(String[] strArr) {
-        if (strArr == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, this, strArr) == null) || strArr == null) {
             return;
         }
         for (String str : strArr) {
@@ -203,7 +247,8 @@ public class ParserConfig {
     }
 
     private void addItemsToDeny0(String[] strArr) {
-        if (strArr == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, this, strArr) == null) || strArr == null) {
             return;
         }
         for (String str : strArr) {
@@ -212,151 +257,177 @@ public class ParserConfig {
     }
 
     public static Method getEnumCreator(Class cls, Class cls2) {
+        InterceptResult invokeLL;
         Method[] methods;
-        for (Method method : cls.getMethods()) {
-            if (Modifier.isStatic(method.getModifiers()) && method.getReturnType() == cls2 && method.getParameterTypes().length == 1 && ((JSONCreator) method.getAnnotation(JSONCreator.class)) != null) {
-                return method;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, cls, cls2)) == null) {
+            for (Method method : cls.getMethods()) {
+                if (Modifier.isStatic(method.getModifiers()) && method.getReturnType() == cls2 && method.getParameterTypes().length == 1 && ((JSONCreator) method.getAnnotation(JSONCreator.class)) != null) {
+                    return method;
+                }
             }
+            return null;
         }
-        return null;
+        return (Method) invokeLL.objValue;
     }
 
     public static Field getFieldFromCache(String str, Map<String, Field> map) {
-        Field field = map.get(str);
-        if (field == null) {
-            field = map.get("_" + str);
-        }
-        if (field == null) {
-            field = map.get("m_" + str);
-        }
-        if (field == null) {
-            char charAt = str.charAt(0);
-            if (charAt >= 'a' && charAt <= 'z') {
-                char[] charArray = str.toCharArray();
-                charArray[0] = (char) (charArray[0] - ' ');
-                field = map.get(new String(charArray));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, map)) == null) {
+            Field field = map.get(str);
+            if (field == null) {
+                field = map.get("_" + str);
             }
-            if (str.length() > 2) {
-                char charAt2 = str.charAt(1);
-                if (str.length() <= 2 || charAt < 'a' || charAt > 'z' || charAt2 < 'A' || charAt2 > 'Z') {
-                    return field;
+            if (field == null) {
+                field = map.get("m_" + str);
+            }
+            if (field == null) {
+                char charAt = str.charAt(0);
+                if (charAt >= 'a' && charAt <= 'z') {
+                    char[] charArray = str.toCharArray();
+                    charArray[0] = (char) (charArray[0] - ' ');
+                    field = map.get(new String(charArray));
                 }
-                for (Map.Entry<String, Field> entry : map.entrySet()) {
-                    if (str.equalsIgnoreCase(entry.getKey())) {
-                        return entry.getValue();
+                if (str.length() > 2) {
+                    char charAt2 = str.charAt(1);
+                    if (str.length() <= 2 || charAt < 'a' || charAt > 'z' || charAt2 < 'A' || charAt2 > 'Z') {
+                        return field;
                     }
+                    for (Map.Entry<String, Field> entry : map.entrySet()) {
+                        if (str.equalsIgnoreCase(entry.getKey())) {
+                            return entry.getValue();
+                        }
+                    }
+                    return field;
                 }
                 return field;
             }
             return field;
         }
-        return field;
+        return (Field) invokeLL.objValue;
     }
 
     public static ParserConfig getGlobalInstance() {
-        return global;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? global : (ParserConfig) invokeV.objValue;
     }
 
     private void initDeserializers() {
-        this.deserializers.put(SimpleDateFormat.class, MiscCodec.instance);
-        this.deserializers.put(Timestamp.class, SqlDateDeserializer.instance_timestamp);
-        this.deserializers.put(Date.class, SqlDateDeserializer.instance);
-        this.deserializers.put(Time.class, TimeDeserializer.instance);
-        this.deserializers.put(java.util.Date.class, DateCodec.instance);
-        this.deserializers.put(Calendar.class, CalendarCodec.instance);
-        this.deserializers.put(XMLGregorianCalendar.class, CalendarCodec.instance);
-        this.deserializers.put(JSONObject.class, MapDeserializer.instance);
-        this.deserializers.put(JSONArray.class, CollectionCodec.instance);
-        this.deserializers.put(Map.class, MapDeserializer.instance);
-        this.deserializers.put(HashMap.class, MapDeserializer.instance);
-        this.deserializers.put(LinkedHashMap.class, MapDeserializer.instance);
-        this.deserializers.put(TreeMap.class, MapDeserializer.instance);
-        this.deserializers.put(ConcurrentMap.class, MapDeserializer.instance);
-        this.deserializers.put(ConcurrentHashMap.class, MapDeserializer.instance);
-        this.deserializers.put(Collection.class, CollectionCodec.instance);
-        this.deserializers.put(List.class, CollectionCodec.instance);
-        this.deserializers.put(ArrayList.class, CollectionCodec.instance);
-        this.deserializers.put(Object.class, JavaObjectDeserializer.instance);
-        this.deserializers.put(String.class, StringCodec.instance);
-        this.deserializers.put(StringBuffer.class, StringCodec.instance);
-        this.deserializers.put(StringBuilder.class, StringCodec.instance);
-        this.deserializers.put(Character.TYPE, CharacterCodec.instance);
-        this.deserializers.put(Character.class, CharacterCodec.instance);
-        this.deserializers.put(Byte.TYPE, NumberDeserializer.instance);
-        this.deserializers.put(Byte.class, NumberDeserializer.instance);
-        this.deserializers.put(Short.TYPE, NumberDeserializer.instance);
-        this.deserializers.put(Short.class, NumberDeserializer.instance);
-        this.deserializers.put(Integer.TYPE, IntegerCodec.instance);
-        this.deserializers.put(Integer.class, IntegerCodec.instance);
-        this.deserializers.put(Long.TYPE, LongCodec.instance);
-        this.deserializers.put(Long.class, LongCodec.instance);
-        this.deserializers.put(BigInteger.class, BigIntegerCodec.instance);
-        this.deserializers.put(BigDecimal.class, BigDecimalCodec.instance);
-        this.deserializers.put(Float.TYPE, FloatCodec.instance);
-        this.deserializers.put(Float.class, FloatCodec.instance);
-        this.deserializers.put(Double.TYPE, NumberDeserializer.instance);
-        this.deserializers.put(Double.class, NumberDeserializer.instance);
-        this.deserializers.put(Boolean.TYPE, BooleanCodec.instance);
-        this.deserializers.put(Boolean.class, BooleanCodec.instance);
-        this.deserializers.put(Class.class, MiscCodec.instance);
-        this.deserializers.put(char[].class, new CharArrayCodec());
-        this.deserializers.put(AtomicBoolean.class, BooleanCodec.instance);
-        this.deserializers.put(AtomicInteger.class, IntegerCodec.instance);
-        this.deserializers.put(AtomicLong.class, LongCodec.instance);
-        this.deserializers.put(AtomicReference.class, ReferenceCodec.instance);
-        this.deserializers.put(WeakReference.class, ReferenceCodec.instance);
-        this.deserializers.put(SoftReference.class, ReferenceCodec.instance);
-        this.deserializers.put(UUID.class, MiscCodec.instance);
-        this.deserializers.put(TimeZone.class, MiscCodec.instance);
-        this.deserializers.put(Locale.class, MiscCodec.instance);
-        this.deserializers.put(Currency.class, MiscCodec.instance);
-        this.deserializers.put(Inet4Address.class, MiscCodec.instance);
-        this.deserializers.put(Inet6Address.class, MiscCodec.instance);
-        this.deserializers.put(InetSocketAddress.class, MiscCodec.instance);
-        this.deserializers.put(File.class, MiscCodec.instance);
-        this.deserializers.put(URI.class, MiscCodec.instance);
-        this.deserializers.put(URL.class, MiscCodec.instance);
-        this.deserializers.put(Pattern.class, MiscCodec.instance);
-        this.deserializers.put(Charset.class, MiscCodec.instance);
-        this.deserializers.put(JSONPath.class, MiscCodec.instance);
-        this.deserializers.put(Number.class, NumberDeserializer.instance);
-        this.deserializers.put(AtomicIntegerArray.class, AtomicCodec.instance);
-        this.deserializers.put(AtomicLongArray.class, AtomicCodec.instance);
-        this.deserializers.put(StackTraceElement.class, StackTraceElementDeserializer.instance);
-        this.deserializers.put(Serializable.class, JavaObjectDeserializer.instance);
-        this.deserializers.put(Cloneable.class, JavaObjectDeserializer.instance);
-        this.deserializers.put(Comparable.class, JavaObjectDeserializer.instance);
-        this.deserializers.put(Closeable.class, JavaObjectDeserializer.instance);
-        this.deserializers.put(JSONPObject.class, new JSONPDeserializer());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            this.deserializers.put(SimpleDateFormat.class, MiscCodec.instance);
+            this.deserializers.put(Timestamp.class, SqlDateDeserializer.instance_timestamp);
+            this.deserializers.put(Date.class, SqlDateDeserializer.instance);
+            this.deserializers.put(Time.class, TimeDeserializer.instance);
+            this.deserializers.put(java.util.Date.class, DateCodec.instance);
+            this.deserializers.put(Calendar.class, CalendarCodec.instance);
+            this.deserializers.put(XMLGregorianCalendar.class, CalendarCodec.instance);
+            this.deserializers.put(JSONObject.class, MapDeserializer.instance);
+            this.deserializers.put(JSONArray.class, CollectionCodec.instance);
+            this.deserializers.put(Map.class, MapDeserializer.instance);
+            this.deserializers.put(HashMap.class, MapDeserializer.instance);
+            this.deserializers.put(LinkedHashMap.class, MapDeserializer.instance);
+            this.deserializers.put(TreeMap.class, MapDeserializer.instance);
+            this.deserializers.put(ConcurrentMap.class, MapDeserializer.instance);
+            this.deserializers.put(ConcurrentHashMap.class, MapDeserializer.instance);
+            this.deserializers.put(Collection.class, CollectionCodec.instance);
+            this.deserializers.put(List.class, CollectionCodec.instance);
+            this.deserializers.put(ArrayList.class, CollectionCodec.instance);
+            this.deserializers.put(Object.class, JavaObjectDeserializer.instance);
+            this.deserializers.put(String.class, StringCodec.instance);
+            this.deserializers.put(StringBuffer.class, StringCodec.instance);
+            this.deserializers.put(StringBuilder.class, StringCodec.instance);
+            this.deserializers.put(Character.TYPE, CharacterCodec.instance);
+            this.deserializers.put(Character.class, CharacterCodec.instance);
+            this.deserializers.put(Byte.TYPE, NumberDeserializer.instance);
+            this.deserializers.put(Byte.class, NumberDeserializer.instance);
+            this.deserializers.put(Short.TYPE, NumberDeserializer.instance);
+            this.deserializers.put(Short.class, NumberDeserializer.instance);
+            this.deserializers.put(Integer.TYPE, IntegerCodec.instance);
+            this.deserializers.put(Integer.class, IntegerCodec.instance);
+            this.deserializers.put(Long.TYPE, LongCodec.instance);
+            this.deserializers.put(Long.class, LongCodec.instance);
+            this.deserializers.put(BigInteger.class, BigIntegerCodec.instance);
+            this.deserializers.put(BigDecimal.class, BigDecimalCodec.instance);
+            this.deserializers.put(Float.TYPE, FloatCodec.instance);
+            this.deserializers.put(Float.class, FloatCodec.instance);
+            this.deserializers.put(Double.TYPE, NumberDeserializer.instance);
+            this.deserializers.put(Double.class, NumberDeserializer.instance);
+            this.deserializers.put(Boolean.TYPE, BooleanCodec.instance);
+            this.deserializers.put(Boolean.class, BooleanCodec.instance);
+            this.deserializers.put(Class.class, MiscCodec.instance);
+            this.deserializers.put(char[].class, new CharArrayCodec());
+            this.deserializers.put(AtomicBoolean.class, BooleanCodec.instance);
+            this.deserializers.put(AtomicInteger.class, IntegerCodec.instance);
+            this.deserializers.put(AtomicLong.class, LongCodec.instance);
+            this.deserializers.put(AtomicReference.class, ReferenceCodec.instance);
+            this.deserializers.put(WeakReference.class, ReferenceCodec.instance);
+            this.deserializers.put(SoftReference.class, ReferenceCodec.instance);
+            this.deserializers.put(UUID.class, MiscCodec.instance);
+            this.deserializers.put(TimeZone.class, MiscCodec.instance);
+            this.deserializers.put(Locale.class, MiscCodec.instance);
+            this.deserializers.put(Currency.class, MiscCodec.instance);
+            this.deserializers.put(Inet4Address.class, MiscCodec.instance);
+            this.deserializers.put(Inet6Address.class, MiscCodec.instance);
+            this.deserializers.put(InetSocketAddress.class, MiscCodec.instance);
+            this.deserializers.put(File.class, MiscCodec.instance);
+            this.deserializers.put(URI.class, MiscCodec.instance);
+            this.deserializers.put(URL.class, MiscCodec.instance);
+            this.deserializers.put(Pattern.class, MiscCodec.instance);
+            this.deserializers.put(Charset.class, MiscCodec.instance);
+            this.deserializers.put(JSONPath.class, MiscCodec.instance);
+            this.deserializers.put(Number.class, NumberDeserializer.instance);
+            this.deserializers.put(AtomicIntegerArray.class, AtomicCodec.instance);
+            this.deserializers.put(AtomicLongArray.class, AtomicCodec.instance);
+            this.deserializers.put(StackTraceElement.class, StackTraceElementDeserializer.instance);
+            this.deserializers.put(Serializable.class, JavaObjectDeserializer.instance);
+            this.deserializers.put(Cloneable.class, JavaObjectDeserializer.instance);
+            this.deserializers.put(Comparable.class, JavaObjectDeserializer.instance);
+            this.deserializers.put(Closeable.class, JavaObjectDeserializer.instance);
+            this.deserializers.put(JSONPObject.class, new JSONPDeserializer());
+        }
     }
 
     public static boolean isPrimitive2(Class<?> cls) {
-        return cls.isPrimitive() || cls == Boolean.class || cls == Character.class || cls == Byte.class || cls == Short.class || cls == Integer.class || cls == Long.class || cls == Float.class || cls == Double.class || cls == BigInteger.class || cls == BigDecimal.class || cls == String.class || cls == java.util.Date.class || cls == Date.class || cls == Time.class || cls == Timestamp.class || cls.isEnum();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, cls)) == null) ? cls.isPrimitive() || cls == Boolean.class || cls == Character.class || cls == Byte.class || cls == Short.class || cls == Integer.class || cls == Long.class || cls == Float.class || cls == Double.class || cls == BigInteger.class || cls == BigDecimal.class || cls == String.class || cls == java.util.Date.class || cls == Date.class || cls == Time.class || cls == Timestamp.class || cls.isEnum() : invokeL.booleanValue;
     }
 
     public static void parserAllFieldToCache(Class<?> cls, Map<String, Field> map) {
         Field[] declaredFields;
-        for (Field field : cls.getDeclaredFields()) {
-            String name = field.getName();
-            if (!map.containsKey(name)) {
-                map.put(name, field);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, cls, map) == null) {
+            for (Field field : cls.getDeclaredFields()) {
+                String name = field.getName();
+                if (!map.containsKey(name)) {
+                    map.put(name, field);
+                }
             }
+            if (cls.getSuperclass() == null || cls.getSuperclass() == Object.class) {
+                return;
+            }
+            parserAllFieldToCache(cls.getSuperclass(), map);
         }
-        if (cls.getSuperclass() == null || cls.getSuperclass() == Object.class) {
-            return;
-        }
-        parserAllFieldToCache(cls.getSuperclass(), map);
     }
 
     public static String[] splitItemsFormProperty(String str) {
-        if (str == null || str.length() <= 0) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            if (str == null || str.length() <= 0) {
+                return null;
+            }
+            return str.split(",");
         }
-        return str.split(",");
+        return (String[]) invokeL.objValue;
     }
 
     public void addAccept(String str) {
-        if (str == null || str.length() == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.length() == 0) {
             return;
         }
         long fnv1a_64 = TypeUtils.fnv1a_64(str);
@@ -373,16 +444,20 @@ public class ParserConfig {
     }
 
     public void addAutoTypeCheckHandler(AutoTypeCheckHandler autoTypeCheckHandler) {
-        List list = this.autoTypeCheckHandlers;
-        if (list == null) {
-            list = new CopyOnWriteArrayList();
-            this.autoTypeCheckHandlers = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, autoTypeCheckHandler) == null) {
+            List list = this.autoTypeCheckHandlers;
+            if (list == null) {
+                list = new CopyOnWriteArrayList();
+                this.autoTypeCheckHandlers = list;
+            }
+            list.add(autoTypeCheckHandler);
         }
-        list.add(autoTypeCheckHandler);
     }
 
     public void addDeny(String str) {
-        if (str == null || str.length() == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null || str.length() == 0) {
             return;
         }
         long fnv1a_64 = TypeUtils.fnv1a_64(str);
@@ -399,7 +474,8 @@ public class ParserConfig {
     }
 
     public void addDenyInternal(String str) {
-        if (str == null || str.length() == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null || str.length() == 0) {
             return;
         }
         long fnv1a_64 = TypeUtils.fnv1a_64(str);
@@ -419,189 +495,226 @@ public class ParserConfig {
     }
 
     public Class<?> checkAutoType(Class cls) {
-        return get(cls) != null ? cls : checkAutoType(cls.getName(), null, JSON.DEFAULT_PARSER_FEATURE);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) ? get(cls) != null ? cls : checkAutoType(cls.getName(), null, JSON.DEFAULT_PARSER_FEATURE) : (Class) invokeL.objValue;
     }
 
     public void clearDeserializers() {
-        this.deserializers.clear();
-        initDeserializers();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.deserializers.clear();
+            initDeserializers();
+        }
     }
 
     public void configFromPropety(Properties properties) {
-        addItemsToDeny(splitItemsFormProperty(properties.getProperty(DENY_PROPERTY)));
-        addItemsToAccept(splitItemsFormProperty(properties.getProperty(AUTOTYPE_ACCEPT)));
-        String property = properties.getProperty(AUTOTYPE_SUPPORT_PROPERTY);
-        if ("true".equals(property)) {
-            this.autoTypeSupport = true;
-        } else if ("false".equals(property)) {
-            this.autoTypeSupport = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, properties) == null) {
+            addItemsToDeny(splitItemsFormProperty(properties.getProperty(DENY_PROPERTY)));
+            addItemsToAccept(splitItemsFormProperty(properties.getProperty(AUTOTYPE_ACCEPT)));
+            String property = properties.getProperty(AUTOTYPE_SUPPORT_PROPERTY);
+            if ("true".equals(property)) {
+                this.autoTypeSupport = true;
+            } else if ("false".equals(property)) {
+                this.autoTypeSupport = false;
+            }
         }
     }
 
     public FieldDeserializer createFieldDeserializer(ParserConfig parserConfig, JavaBeanInfo javaBeanInfo, FieldInfo fieldInfo) {
+        InterceptResult invokeLLL;
         Class<?> deserializeUsing;
-        Class<?> cls = javaBeanInfo.clazz;
-        Class<?> cls2 = fieldInfo.fieldClass;
-        JSONField annotation = fieldInfo.getAnnotation();
-        Class<?> cls3 = null;
-        if (annotation != null && (deserializeUsing = annotation.deserializeUsing()) != Void.class) {
-            cls3 = deserializeUsing;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, parserConfig, javaBeanInfo, fieldInfo)) == null) {
+            Class<?> cls = javaBeanInfo.clazz;
+            Class<?> cls2 = fieldInfo.fieldClass;
+            JSONField annotation = fieldInfo.getAnnotation();
+            Class<?> cls3 = null;
+            if (annotation != null && (deserializeUsing = annotation.deserializeUsing()) != Void.class) {
+                cls3 = deserializeUsing;
+            }
+            if (cls3 == null && (cls2 == List.class || cls2 == ArrayList.class)) {
+                return new ArrayListTypeFieldDeserializer(parserConfig, cls, fieldInfo);
+            }
+            return new DefaultFieldDeserializer(parserConfig, cls, fieldInfo);
         }
-        if (cls3 == null && (cls2 == List.class || cls2 == ArrayList.class)) {
-            return new ArrayListTypeFieldDeserializer(parserConfig, cls, fieldInfo);
-        }
-        return new DefaultFieldDeserializer(parserConfig, cls, fieldInfo);
+        return (FieldDeserializer) invokeLLL.objValue;
     }
 
     public ObjectDeserializer createJavaBeanDeserializer(Class<?> cls, Type type) {
+        InterceptResult invokeLL;
         FieldInfo[] fieldInfoArr;
         JSONField annotation;
         Method method;
         ASMDeserializerFactory aSMDeserializerFactory;
-        boolean z = this.asmEnable & (!this.fieldBased);
-        boolean z2 = false;
-        if (z) {
-            JSONType jSONType = (JSONType) TypeUtils.getAnnotation(cls, JSONType.class);
-            if (jSONType != null) {
-                Class<?> deserializer = jSONType.deserializer();
-                if (deserializer != Void.class) {
-                    try {
-                        Object newInstance = deserializer.newInstance();
-                        if (newInstance instanceof ObjectDeserializer) {
-                            return (ObjectDeserializer) newInstance;
-                        }
-                    } catch (Throwable unused) {
-                    }
-                }
-                z = jSONType.asm() && jSONType.parseFeatures().length == 0;
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, cls, type)) == null) {
+            boolean z = this.asmEnable & (!this.fieldBased);
+            boolean z2 = false;
             if (z) {
-                Class<?> builderClass = JavaBeanInfo.getBuilderClass(cls, jSONType);
-                if (builderClass == null) {
-                    builderClass = cls;
-                }
-                while (true) {
-                    if (!Modifier.isPublic(builderClass.getModifiers())) {
-                        z = false;
-                        break;
+                JSONType jSONType = (JSONType) TypeUtils.getAnnotation(cls, JSONType.class);
+                if (jSONType != null) {
+                    Class<?> deserializer = jSONType.deserializer();
+                    if (deserializer != Void.class) {
+                        try {
+                            Object newInstance = deserializer.newInstance();
+                            if (newInstance instanceof ObjectDeserializer) {
+                                return (ObjectDeserializer) newInstance;
+                            }
+                        } catch (Throwable unused) {
+                        }
                     }
-                    builderClass = builderClass.getSuperclass();
-                    if (builderClass != Object.class) {
-                        if (builderClass == null) {
+                    z = jSONType.asm() && jSONType.parseFeatures().length == 0;
+                }
+                if (z) {
+                    Class<?> builderClass = JavaBeanInfo.getBuilderClass(cls, jSONType);
+                    if (builderClass == null) {
+                        builderClass = cls;
+                    }
+                    while (true) {
+                        if (!Modifier.isPublic(builderClass.getModifiers())) {
+                            z = false;
                             break;
                         }
-                    } else {
-                        break;
+                        builderClass = builderClass.getSuperclass();
+                        if (builderClass != Object.class) {
+                            if (builderClass == null) {
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
                     }
                 }
             }
-        }
-        if (cls.getTypeParameters().length != 0) {
-            z = false;
-        }
-        if (z && (aSMDeserializerFactory = this.asmFactory) != null && aSMDeserializerFactory.classLoader.isExternalClass(cls)) {
-            z = false;
-        }
-        if (z) {
-            z = ASMUtils.checkName(cls.getSimpleName());
-        }
-        if (z) {
-            if (cls.isInterface()) {
+            if (cls.getTypeParameters().length != 0) {
                 z = false;
             }
-            JavaBeanInfo build = JavaBeanInfo.build(cls, type, this.propertyNamingStrategy, false, TypeUtils.compatibleWithJavaBean, this.jacksonCompatible);
-            if (z && build.fields.length > 200) {
+            if (z && (aSMDeserializerFactory = this.asmFactory) != null && aSMDeserializerFactory.classLoader.isExternalClass(cls)) {
                 z = false;
             }
-            Constructor<?> constructor = build.defaultConstructor;
-            if (z && constructor == null && !cls.isInterface()) {
-                z = false;
+            if (z) {
+                z = ASMUtils.checkName(cls.getSimpleName());
             }
-            for (FieldInfo fieldInfo : build.fields) {
-                if (!fieldInfo.getOnly) {
-                    Class<?> cls2 = fieldInfo.fieldClass;
-                    if (Modifier.isPublic(cls2.getModifiers()) && ((!cls2.isMemberClass() || Modifier.isStatic(cls2.getModifiers())) && ((fieldInfo.getMember() == null || ASMUtils.checkName(fieldInfo.getMember().getName())) && (((annotation = fieldInfo.getAnnotation()) == null || (ASMUtils.checkName(annotation.name()) && annotation.format().length() == 0 && annotation.deserializeUsing() == Void.class && annotation.parseFeatures().length == 0 && !annotation.unwrapped())) && (((method = fieldInfo.method) == null || method.getParameterTypes().length <= 1) && (!cls2.isEnum() || (getDeserializer(cls2) instanceof EnumDeserializer))))))) {
-                    }
+            if (z) {
+                if (cls.isInterface()) {
+                    z = false;
                 }
+                JavaBeanInfo build = JavaBeanInfo.build(cls, type, this.propertyNamingStrategy, false, TypeUtils.compatibleWithJavaBean, this.jacksonCompatible);
+                if (z && build.fields.length > 200) {
+                    z = false;
+                }
+                Constructor<?> constructor = build.defaultConstructor;
+                if (z && constructor == null && !cls.isInterface()) {
+                    z = false;
+                }
+                for (FieldInfo fieldInfo : build.fields) {
+                    if (!fieldInfo.getOnly) {
+                        Class<?> cls2 = fieldInfo.fieldClass;
+                        if (Modifier.isPublic(cls2.getModifiers()) && ((!cls2.isMemberClass() || Modifier.isStatic(cls2.getModifiers())) && ((fieldInfo.getMember() == null || ASMUtils.checkName(fieldInfo.getMember().getName())) && (((annotation = fieldInfo.getAnnotation()) == null || (ASMUtils.checkName(annotation.name()) && annotation.format().length() == 0 && annotation.deserializeUsing() == Void.class && annotation.parseFeatures().length == 0 && !annotation.unwrapped())) && (((method = fieldInfo.method) == null || method.getParameterTypes().length <= 1) && (!cls2.isEnum() || (getDeserializer(cls2) instanceof EnumDeserializer))))))) {
+                        }
+                    }
+                    z = false;
+                    break;
+                }
+            }
+            if (z && cls.isMemberClass() && !Modifier.isStatic(cls.getModifiers())) {
                 z = false;
-                break;
+            }
+            if (!z || !TypeUtils.isXmlField(cls)) {
+                z2 = z;
+            }
+            if (!z2) {
+                return new JavaBeanDeserializer(this, cls, type);
+            }
+            JavaBeanInfo build2 = JavaBeanInfo.build(cls, type, this.propertyNamingStrategy);
+            try {
+                return this.asmFactory.createJavaBeanDeserializer(this, build2);
+            } catch (JSONException unused2) {
+                return new JavaBeanDeserializer(this, build2);
+            } catch (NoSuchMethodException unused3) {
+                return new JavaBeanDeserializer(this, cls, type);
+            } catch (Exception e2) {
+                throw new JSONException("create asm deserializer error, " + cls.getName(), e2);
             }
         }
-        if (z && cls.isMemberClass() && !Modifier.isStatic(cls.getModifiers())) {
-            z = false;
-        }
-        if (!z || !TypeUtils.isXmlField(cls)) {
-            z2 = z;
-        }
-        if (!z2) {
-            return new JavaBeanDeserializer(this, cls, type);
-        }
-        JavaBeanInfo build2 = JavaBeanInfo.build(cls, type, this.propertyNamingStrategy);
-        try {
-            return this.asmFactory.createJavaBeanDeserializer(this, build2);
-        } catch (JSONException unused2) {
-            return new JavaBeanDeserializer(this, build2);
-        } catch (NoSuchMethodException unused3) {
-            return new JavaBeanDeserializer(this, cls, type);
-        } catch (Exception e2) {
-            throw new JSONException("create asm deserializer error, " + cls.getName(), e2);
-        }
+        return (ObjectDeserializer) invokeLL.objValue;
     }
 
     public ObjectDeserializer get(Type type) {
-        Type mixInAnnotations = JSON.getMixInAnnotations(type);
-        if (mixInAnnotations == null) {
-            return this.deserializers.get(type);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, type)) == null) {
+            Type mixInAnnotations = JSON.getMixInAnnotations(type);
+            if (mixInAnnotations == null) {
+                return this.deserializers.get(type);
+            }
+            IdentityHashMap<Type, ObjectDeserializer> identityHashMap = this.mixInDeserializers.get(type);
+            if (identityHashMap == null) {
+                return null;
+            }
+            return identityHashMap.get(mixInAnnotations);
         }
-        IdentityHashMap<Type, ObjectDeserializer> identityHashMap = this.mixInDeserializers.get(type);
-        if (identityHashMap == null) {
-            return null;
-        }
-        return identityHashMap.get(mixInAnnotations);
+        return (ObjectDeserializer) invokeL.objValue;
     }
 
     public ClassLoader getDefaultClassLoader() {
-        return this.defaultClassLoader;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.defaultClassLoader : (ClassLoader) invokeV.objValue;
     }
 
     public IdentityHashMap<Type, ObjectDeserializer> getDerializers() {
-        return this.deserializers;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.deserializers : (IdentityHashMap) invokeV.objValue;
     }
 
     public ObjectDeserializer getDeserializer(Type type) {
-        ObjectDeserializer objectDeserializer = get(type);
-        if (objectDeserializer != null) {
-            return objectDeserializer;
-        }
-        if (type instanceof Class) {
-            return getDeserializer((Class) type, type);
-        }
-        if (type instanceof ParameterizedType) {
-            Type rawType = ((ParameterizedType) type).getRawType();
-            if (rawType instanceof Class) {
-                return getDeserializer((Class) rawType, type);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, type)) == null) {
+            ObjectDeserializer objectDeserializer = get(type);
+            if (objectDeserializer != null) {
+                return objectDeserializer;
             }
-            return getDeserializer(rawType);
-        }
-        if (type instanceof WildcardType) {
-            Type[] upperBounds = ((WildcardType) type).getUpperBounds();
-            if (upperBounds.length == 1) {
-                return getDeserializer(upperBounds[0]);
+            if (type instanceof Class) {
+                return getDeserializer((Class) type, type);
             }
+            if (type instanceof ParameterizedType) {
+                Type rawType = ((ParameterizedType) type).getRawType();
+                if (rawType instanceof Class) {
+                    return getDeserializer((Class) rawType, type);
+                }
+                return getDeserializer(rawType);
+            }
+            if (type instanceof WildcardType) {
+                Type[] upperBounds = ((WildcardType) type).getUpperBounds();
+                if (upperBounds.length == 1) {
+                    return getDeserializer(upperBounds[0]);
+                }
+            }
+            return JavaObjectDeserializer.instance;
         }
-        return JavaObjectDeserializer.instance;
+        return (ObjectDeserializer) invokeL.objValue;
     }
 
     public IdentityHashMap<Type, ObjectDeserializer> getDeserializers() {
-        return this.deserializers;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.deserializers : (IdentityHashMap) invokeV.objValue;
     }
 
     public ObjectDeserializer getEnumDeserializer(Class<?> cls) {
-        return new EnumDeserializer(cls);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, cls)) == null) ? new EnumDeserializer(cls) : (ObjectDeserializer) invokeL.objValue;
     }
 
     public void initJavaBeanDeserializers(Class<?>... clsArr) {
-        if (clsArr == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, clsArr) == null) || clsArr == null) {
             return;
         }
         for (Class<?> cls : clsArr) {
@@ -612,95 +725,183 @@ public class ParserConfig {
     }
 
     public boolean isAsmEnable() {
-        return this.asmEnable;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.asmEnable : invokeV.booleanValue;
     }
 
     public boolean isAutoTypeSupport() {
-        return this.autoTypeSupport;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.autoTypeSupport : invokeV.booleanValue;
     }
 
     public boolean isJacksonCompatible() {
-        return this.jacksonCompatible;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.jacksonCompatible : invokeV.booleanValue;
     }
 
     public boolean isPrimitive(Class<?> cls) {
-        return isPrimitive2(cls);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, cls)) == null) ? isPrimitive2(cls) : invokeL.booleanValue;
     }
 
     public boolean isSafeMode() {
-        return this.safeMode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.safeMode : invokeV.booleanValue;
     }
 
     public void putDeserializer(Type type, ObjectDeserializer objectDeserializer) {
-        Type mixInAnnotations = JSON.getMixInAnnotations(type);
-        if (mixInAnnotations != null) {
-            IdentityHashMap<Type, ObjectDeserializer> identityHashMap = this.mixInDeserializers.get(type);
-            if (identityHashMap == null) {
-                identityHashMap = new IdentityHashMap<>(4);
-                this.mixInDeserializers.put(type, identityHashMap);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048601, this, type, objectDeserializer) == null) {
+            Type mixInAnnotations = JSON.getMixInAnnotations(type);
+            if (mixInAnnotations != null) {
+                IdentityHashMap<Type, ObjectDeserializer> identityHashMap = this.mixInDeserializers.get(type);
+                if (identityHashMap == null) {
+                    identityHashMap = new IdentityHashMap<>(4);
+                    this.mixInDeserializers.put(type, identityHashMap);
+                }
+                identityHashMap.put(mixInAnnotations, objectDeserializer);
+                return;
             }
-            identityHashMap.put(mixInAnnotations, objectDeserializer);
-            return;
+            this.deserializers.put(type, objectDeserializer);
         }
-        this.deserializers.put(type, objectDeserializer);
     }
 
     public void register(String str, Class cls) {
-        this.typeMapping.putIfAbsent(str, cls);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048603, this, str, cls) == null) {
+            this.typeMapping.putIfAbsent(str, cls);
+        }
     }
 
     public void setAsmEnable(boolean z) {
-        this.asmEnable = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+            this.asmEnable = z;
+        }
     }
 
     public void setAutoTypeSupport(boolean z) {
-        this.autoTypeSupport = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.autoTypeSupport = z;
+        }
     }
 
     public void setDefaultClassLoader(ClassLoader classLoader) {
-        this.defaultClassLoader = classLoader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, classLoader) == null) {
+            this.defaultClassLoader = classLoader;
+        }
     }
 
     public void setJacksonCompatible(boolean z) {
-        this.jacksonCompatible = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            this.jacksonCompatible = z;
+        }
     }
 
     public void setSafeMode(boolean z) {
-        this.safeMode = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.safeMode = z;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ParserConfig(boolean z) {
         this(null, null, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((ASMDeserializerFactory) objArr2[0], (ClassLoader) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                return;
+            }
+        }
     }
 
     public void register(Module module) {
-        this.modules.add(module);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, module) == null) {
+            this.modules.add(module);
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ParserConfig(ClassLoader classLoader) {
         this(null, classLoader, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {classLoader};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((ASMDeserializerFactory) objArr2[0], (ClassLoader) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
     }
 
     public Class<?> checkAutoType(String str, Class<?> cls) {
-        return checkAutoType(str, cls, JSON.DEFAULT_PARSER_FEATURE);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, cls)) == null) ? checkAutoType(str, cls, JSON.DEFAULT_PARSER_FEATURE) : (Class) invokeLL.objValue;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ParserConfig(ASMDeserializerFactory aSMDeserializerFactory) {
         this(aSMDeserializerFactory, null, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aSMDeserializerFactory};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((ASMDeserializerFactory) objArr2[0], (ClassLoader) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:158:0x02ee  */
-    /* JADX WARN: Removed duplicated region for block: B:166:0x02fc A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:169:0x0302 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:175:0x0310  */
-    /* JADX WARN: Removed duplicated region for block: B:200:0x0392  */
-    /* JADX WARN: Removed duplicated region for block: B:203:0x0398  */
-    /* JADX WARN: Removed duplicated region for block: B:207:0x03c4  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00de  */
+    /* JADX WARN: Removed duplicated region for block: B:160:0x02f2  */
+    /* JADX WARN: Removed duplicated region for block: B:168:0x0300 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:171:0x0306 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x0314  */
+    /* JADX WARN: Removed duplicated region for block: B:202:0x0396  */
+    /* JADX WARN: Removed duplicated region for block: B:205:0x039c  */
+    /* JADX WARN: Removed duplicated region for block: B:209:0x03c8  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00e2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Class<?> checkAutoType(String str, Class<?> cls, int i2) {
+        InterceptResult invokeLLI;
         boolean z;
         long charAt;
         InputStream inputStream;
@@ -709,6 +910,10 @@ public class ParserConfig {
         boolean z3;
         InputStream resourceAsStream;
         Class<?> loadClass;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(1048582, this, str, cls, i2)) != null) {
+            return (Class) invokeLLI.objValue;
+        }
         if (str == null) {
             return null;
         }
@@ -811,32 +1016,16 @@ public class ParserConfig {
                                     if (resourceAsStream != null) {
                                         try {
                                             try {
+                                                ClassReader classReader = new ClassReader(resourceAsStream, true);
                                                 try {
-                                                    ClassReader classReader = new ClassReader(resourceAsStream, true);
-                                                    try {
-                                                        TypeCollector typeCollector = new TypeCollector("<clinit>", new Class[0]);
-                                                        classReader.accept(typeCollector);
-                                                        z2 = typeCollector.hasJsonType();
-                                                    } catch (Exception unused) {
-                                                        inputStream2 = resourceAsStream;
-                                                        IOUtils.close(inputStream2);
-                                                        z2 = false;
-                                                        int i7 = Feature.SupportAutoType.mask;
-                                                        if (this.autoTypeSupport) {
-                                                        }
-                                                        if (!z3) {
-                                                        }
-                                                        classFromMapping = TypeUtils.loadClass(str, this.defaultClassLoader, !z3 || z2);
-                                                        if (classFromMapping != null) {
-                                                        }
-                                                        if (z3) {
-                                                        }
-                                                    }
-                                                } catch (Exception unused2) {
+                                                    TypeCollector typeCollector = new TypeCollector("<clinit>", new Class[0]);
+                                                    classReader.accept(typeCollector);
+                                                    z2 = typeCollector.hasJsonType();
+                                                } catch (Exception unused) {
                                                     inputStream2 = resourceAsStream;
                                                     IOUtils.close(inputStream2);
                                                     z2 = false;
-                                                    int i72 = Feature.SupportAutoType.mask;
+                                                    int i7 = Feature.SupportAutoType.mask;
                                                     if (this.autoTypeSupport) {
                                                     }
                                                     if (!z3) {
@@ -847,7 +1036,20 @@ public class ParserConfig {
                                                     if (z3) {
                                                     }
                                                 }
-                                            } catch (Exception unused3) {
+                                            } catch (Exception unused2) {
+                                                inputStream2 = resourceAsStream;
+                                                IOUtils.close(inputStream2);
+                                                z2 = false;
+                                                int i72 = Feature.SupportAutoType.mask;
+                                                if (this.autoTypeSupport) {
+                                                }
+                                                if (!z3) {
+                                                }
+                                                classFromMapping = TypeUtils.loadClass(str, this.defaultClassLoader, !z3 || z2);
+                                                if (classFromMapping != null) {
+                                                }
+                                                if (z3) {
+                                                }
                                             }
                                         } catch (Throwable th) {
                                             th = th;
@@ -859,7 +1061,7 @@ public class ParserConfig {
                                         z2 = false;
                                     }
                                     IOUtils.close(resourceAsStream);
-                                } catch (Exception unused4) {
+                                } catch (Exception unused3) {
                                     inputStream2 = null;
                                 } catch (Throwable th2) {
                                     th = th2;
@@ -913,6 +1115,20 @@ public class ParserConfig {
     }
 
     public ParserConfig(ASMDeserializerFactory aSMDeserializerFactory, ClassLoader classLoader, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aSMDeserializerFactory, classLoader, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.deserializers = new IdentityHashMap<>();
         this.mixInDeserializers = new IdentityHashMap<>(16);
         this.typeMapping = new ConcurrentHashMap(16, 0.75f, 1);
@@ -925,14 +1141,14 @@ public class ParserConfig {
         this.safeMode = SAFE_MODE;
         this.denyHashCodes = new long[]{-9164606388214699518L, -8720046426850100497L, -8649961213709896794L, -8165637398350707645L, -8109300701639721088L, -7966123100503199569L, -7921218830998286408L, -7775351613326101303L, -7768608037458185275L, -7766605818834748097L, -6835437086156813536L, -6316154655839304624L, -6179589609550493385L, -6149093380703242441L, -6025144546313590215L, -5939269048541779808L, -5885964883385605994L, -5764804792063216819L, -5472097725414717105L, -5194641081268104286L, -5076846148177416215L, -4837536971810737970L, -4703320437989596122L, -4608341446948126581L, -4537258998789938600L, -4438775680185074100L, -4314457471973557243L, -4150995715611818742L, -4082057040235125754L, -3975378478825053783L, -3935185854875733362L, -3319207949486691020L, -3077205613010077203L, -3053747177772160511L, -2995060141064716555L, -2825378362173150292L, -2533039401923731906L, -2439930098895578154L, -2378990704010641148L, -2364987994247679115L, -2262244760619952081L, -2192804397019347313L, -2095516571388852610L, -1872417015366588117L, -1650485814983027158L, -1589194880214235129L, -965955008570215305L, -905177026366752536L, -831789045734283466L, -582813228520337988L, -254670111376247151L, -219577392946377768L, -190281065685395680L, -26639035867733124L, -9822483067882491L, 4750336058574309L, 33238344207745342L, 156405680656087946L, 218512992947536312L, 313864100207897507L, 386461436234701831L, 823641066473609950L, 1073634739308289776L, 1153291637701043748L, 1203232727967308606L, 1214780596910349029L, 1459860845934817624L, 1502845958873959152L, 1534439610567445754L, 1698504441317515818L, 1818089308493370394L, 2078113382421334967L, 2164696723069287854L, 2622551729063269307L, 2653453629929770569L, 2660670623866180977L, 2731823439467737506L, 2836431254737891113L, 2930861374593775110L, 3085473968517218653L, 3089451460101527857L, 3114862868117605599L, 3129395579983849527L, 3256258368248066264L, 3452379460455804429L, 3547627781654598988L, 3637939656440441093L, 3688179072722109200L, 3718352661124136681L, 3730752432285826863L, 3794316665763266033L, 4000049462512838776L, 4046190361520671643L, 4147696707147271408L, 4193204392725694463L, 4241163808635564644L, 4254584350247334433L, 4814658433570175913L, 4841947709850912914L, 4904007817188630457L, 5100336081510080343L, 5274044858141538265L, 5347909877633654828L, 5450448828334921485L, 5474268165959054640L, 5545425291794704408L, 5596129856135573697L, 5688200883751798389L, 5751393439502795295L, 5944107969236155580L, 6007332606592876737L, 6280357960959217660L, 6456855723474196908L, 6511035576063254270L, 6534946468240507089L, 6584624952928234050L, 6734240326434096246L, 6742705432718011780L, 6854854816081053523L, 7045245923763966215L, 7123326897294507060L, 7179336928365889465L, 7240293012336844478L, 7347653049056829645L, 7375862386996623731L, 7442624256860549330L, 7617522210483516279L, 7658177784286215602L, 8055461369741094911L, 8389032537095247355L, 8409640769019589119L, 8488266005336625107L, 8537233257283452655L, 8838294710098435315L, 9140390920032557669L, 9140416208800006522L};
         long[] jArr = new long[AUTO_TYPE_ACCEPT_LIST.length];
-        int i2 = 0;
+        int i4 = 0;
         while (true) {
             String[] strArr = AUTO_TYPE_ACCEPT_LIST;
-            if (i2 >= strArr.length) {
+            if (i4 >= strArr.length) {
                 break;
             }
-            jArr[i2] = TypeUtils.fnv1a_64(strArr[i2]);
-            i2++;
+            jArr[i4] = TypeUtils.fnv1a_64(strArr[i4]);
+            i4++;
         }
         Arrays.sort(jArr);
         this.acceptHashCodes = jArr;
@@ -958,217 +1174,224 @@ public class ParserConfig {
     }
 
     public ObjectDeserializer getDeserializer(Class<?> cls, Type type) {
+        InterceptResult invokeLL;
         ObjectDeserializer objectDeserializer;
         ObjectDeserializer propertyProcessableDeserializer;
         Class<?> mappingTo;
-        Type type2 = type;
-        ObjectDeserializer objectDeserializer2 = get(type2);
-        if (objectDeserializer2 == null && (type2 instanceof ParameterizedTypeImpl)) {
-            objectDeserializer2 = get(TypeReference.intern((ParameterizedTypeImpl) type2));
-        }
-        if (objectDeserializer2 != null) {
-            return objectDeserializer2;
-        }
-        if (type2 == null) {
-            type2 = cls;
-        }
-        ObjectDeserializer objectDeserializer3 = get(type2);
-        if (objectDeserializer3 != null) {
-            return objectDeserializer3;
-        }
-        JSONType jSONType = (JSONType) TypeUtils.getAnnotation(cls, JSONType.class);
-        if (jSONType != null && (mappingTo = jSONType.mappingTo()) != Void.class) {
-            return getDeserializer(mappingTo, mappingTo);
-        }
-        if ((type2 instanceof WildcardType) || (type2 instanceof TypeVariable) || (type2 instanceof ParameterizedType)) {
-            objectDeserializer3 = get(cls);
-        }
-        if (objectDeserializer3 != null) {
-            return objectDeserializer3;
-        }
-        for (Module module : this.modules) {
-            objectDeserializer3 = module.createDeserializer(this, cls);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, cls, type)) == null) {
+            Type type2 = type;
+            ObjectDeserializer objectDeserializer2 = get(type2);
+            if (objectDeserializer2 == null && (type2 instanceof ParameterizedTypeImpl)) {
+                objectDeserializer2 = get(TypeReference.intern((ParameterizedTypeImpl) type2));
+            }
+            if (objectDeserializer2 != null) {
+                return objectDeserializer2;
+            }
+            if (type2 == null) {
+                type2 = cls;
+            }
+            ObjectDeserializer objectDeserializer3 = get(type2);
             if (objectDeserializer3 != null) {
-                putDeserializer(type2, objectDeserializer3);
                 return objectDeserializer3;
             }
-        }
-        String replace = cls.getName().replace('$', IStringUtil.EXTENSION_SEPARATOR);
-        if (replace.startsWith("java.awt.") && AwtCodec.support(cls) && !awtError) {
-            String[] strArr = {"java.awt.Point", "java.awt.Font", "java.awt.Rectangle", "java.awt.Color"};
-            for (int i2 = 0; i2 < 4; i2++) {
+            JSONType jSONType = (JSONType) TypeUtils.getAnnotation(cls, JSONType.class);
+            if (jSONType != null && (mappingTo = jSONType.mappingTo()) != Void.class) {
+                return getDeserializer(mappingTo, mappingTo);
+            }
+            if ((type2 instanceof WildcardType) || (type2 instanceof TypeVariable) || (type2 instanceof ParameterizedType)) {
+                objectDeserializer3 = get(cls);
+            }
+            if (objectDeserializer3 != null) {
+                return objectDeserializer3;
+            }
+            for (Module module : this.modules) {
+                objectDeserializer3 = module.createDeserializer(this, cls);
+                if (objectDeserializer3 != null) {
+                    putDeserializer(type2, objectDeserializer3);
+                    return objectDeserializer3;
+                }
+            }
+            String replace = cls.getName().replace('$', IStringUtil.EXTENSION_SEPARATOR);
+            if (replace.startsWith("java.awt.") && AwtCodec.support(cls) && !awtError) {
+                String[] strArr = {"java.awt.Point", "java.awt.Font", "java.awt.Rectangle", "java.awt.Color"};
+                for (int i2 = 0; i2 < 4; i2++) {
+                    try {
+                        String str = strArr[i2];
+                        if (str.equals(replace)) {
+                            Type cls2 = Class.forName(str);
+                            ObjectDeserializer objectDeserializer4 = AwtCodec.instance;
+                            putDeserializer(cls2, objectDeserializer4);
+                            return objectDeserializer4;
+                        }
+                    } catch (Throwable unused) {
+                        awtError = true;
+                    }
+                }
+                objectDeserializer3 = AwtCodec.instance;
+            }
+            if (!jdk8Error) {
                 try {
-                    String str = strArr[i2];
-                    if (str.equals(replace)) {
-                        Type cls2 = Class.forName(str);
-                        ObjectDeserializer objectDeserializer4 = AwtCodec.instance;
-                        putDeserializer(cls2, objectDeserializer4);
-                        return objectDeserializer4;
-                    }
-                } catch (Throwable unused) {
-                    awtError = true;
-                }
-            }
-            objectDeserializer3 = AwtCodec.instance;
-        }
-        if (!jdk8Error) {
-            try {
-                if (replace.startsWith("java.time.")) {
-                    String[] strArr2 = {"java.time.LocalDateTime", "java.time.LocalDate", "java.time.LocalTime", "java.time.ZonedDateTime", "java.time.OffsetDateTime", "java.time.OffsetTime", "java.time.ZoneOffset", "java.time.ZoneRegion", "java.time.ZoneId", "java.time.Period", "java.time.Duration", "java.time.Instant"};
-                    for (int i3 = 0; i3 < 12; i3++) {
-                        String str2 = strArr2[i3];
-                        if (str2.equals(replace)) {
-                            Type cls3 = Class.forName(str2);
-                            ObjectDeserializer objectDeserializer5 = Jdk8DateCodec.instance;
-                            putDeserializer(cls3, objectDeserializer5);
-                            return objectDeserializer5;
+                    if (replace.startsWith("java.time.")) {
+                        String[] strArr2 = {"java.time.LocalDateTime", "java.time.LocalDate", "java.time.LocalTime", "java.time.ZonedDateTime", "java.time.OffsetDateTime", "java.time.OffsetTime", "java.time.ZoneOffset", "java.time.ZoneRegion", "java.time.ZoneId", "java.time.Period", "java.time.Duration", "java.time.Instant"};
+                        for (int i3 = 0; i3 < 12; i3++) {
+                            String str2 = strArr2[i3];
+                            if (str2.equals(replace)) {
+                                Type cls3 = Class.forName(str2);
+                                ObjectDeserializer objectDeserializer5 = Jdk8DateCodec.instance;
+                                putDeserializer(cls3, objectDeserializer5);
+                                return objectDeserializer5;
+                            }
+                        }
+                    } else if (replace.startsWith("java.util.Optional")) {
+                        String[] strArr3 = {"java.util.Optional", "java.util.OptionalDouble", "java.util.OptionalInt", "java.util.OptionalLong"};
+                        for (int i4 = 0; i4 < 4; i4++) {
+                            String str3 = strArr3[i4];
+                            if (str3.equals(replace)) {
+                                Type cls4 = Class.forName(str3);
+                                ObjectDeserializer objectDeserializer6 = OptionalCodec.instance;
+                                putDeserializer(cls4, objectDeserializer6);
+                                return objectDeserializer6;
+                            }
                         }
                     }
-                } else if (replace.startsWith("java.util.Optional")) {
-                    String[] strArr3 = {"java.util.Optional", "java.util.OptionalDouble", "java.util.OptionalInt", "java.util.OptionalLong"};
-                    for (int i4 = 0; i4 < 4; i4++) {
-                        String str3 = strArr3[i4];
-                        if (str3.equals(replace)) {
-                            Type cls4 = Class.forName(str3);
-                            ObjectDeserializer objectDeserializer6 = OptionalCodec.instance;
-                            putDeserializer(cls4, objectDeserializer6);
-                            return objectDeserializer6;
+                } catch (Throwable unused2) {
+                    jdk8Error = true;
+                }
+            }
+            if (!jodaError) {
+                try {
+                    if (replace.startsWith("org.joda.time.")) {
+                        String[] strArr4 = {"org.joda.time.DateTime", "org.joda.time.LocalDate", "org.joda.time.LocalDateTime", "org.joda.time.LocalTime", "org.joda.time.Instant", "org.joda.time.Period", "org.joda.time.Duration", "org.joda.time.DateTimeZone", "org.joda.time.format.DateTimeFormatter"};
+                        for (int i5 = 0; i5 < 9; i5++) {
+                            String str4 = strArr4[i5];
+                            if (str4.equals(replace)) {
+                                Type cls5 = Class.forName(str4);
+                                objectDeserializer3 = JodaCodec.instance;
+                                putDeserializer(cls5, objectDeserializer3);
+                                return objectDeserializer3;
+                            }
                         }
                     }
+                } catch (Throwable unused3) {
+                    jodaError = true;
                 }
-            } catch (Throwable unused2) {
-                jdk8Error = true;
             }
-        }
-        if (!jodaError) {
-            try {
-                if (replace.startsWith("org.joda.time.")) {
-                    String[] strArr4 = {"org.joda.time.DateTime", "org.joda.time.LocalDate", "org.joda.time.LocalDateTime", "org.joda.time.LocalTime", "org.joda.time.Instant", "org.joda.time.Period", "org.joda.time.Duration", "org.joda.time.DateTimeZone", "org.joda.time.format.DateTimeFormatter"};
-                    for (int i5 = 0; i5 < 9; i5++) {
-                        String str4 = strArr4[i5];
-                        if (str4.equals(replace)) {
-                            Type cls5 = Class.forName(str4);
-                            objectDeserializer3 = JodaCodec.instance;
-                            putDeserializer(cls5, objectDeserializer3);
+            if (!guavaError && replace.startsWith("com.google.common.collect.")) {
+                try {
+                    String[] strArr5 = {"com.google.common.collect.HashMultimap", "com.google.common.collect.LinkedListMultimap", "com.google.common.collect.LinkedHashMultimap", "com.google.common.collect.ArrayListMultimap", "com.google.common.collect.TreeMultimap"};
+                    for (int i6 = 0; i6 < 5; i6++) {
+                        String str5 = strArr5[i6];
+                        if (str5.equals(replace)) {
+                            Type cls6 = Class.forName(str5);
+                            objectDeserializer3 = GuavaCodec.instance;
+                            putDeserializer(cls6, objectDeserializer3);
                             return objectDeserializer3;
                         }
                     }
+                } catch (ClassNotFoundException unused4) {
+                    guavaError = true;
                 }
-            } catch (Throwable unused3) {
-                jodaError = true;
             }
-        }
-        if (!guavaError && replace.startsWith("com.google.common.collect.")) {
+            if (replace.equals("java.nio.ByteBuffer")) {
+                objectDeserializer3 = ByteBufferCodec.instance;
+                putDeserializer(cls, objectDeserializer3);
+            }
+            if (replace.equals("java.nio.file.Path")) {
+                objectDeserializer3 = MiscCodec.instance;
+                putDeserializer(cls, objectDeserializer3);
+            }
+            if (cls == Map.Entry.class) {
+                objectDeserializer3 = MiscCodec.instance;
+                putDeserializer(cls, objectDeserializer3);
+            }
+            if (replace.equals("org.javamoney.moneta.Money")) {
+                objectDeserializer3 = MonetaCodec.instance;
+                putDeserializer(cls, objectDeserializer3);
+            }
             try {
-                String[] strArr5 = {"com.google.common.collect.HashMultimap", "com.google.common.collect.LinkedListMultimap", "com.google.common.collect.LinkedHashMultimap", "com.google.common.collect.ArrayListMultimap", "com.google.common.collect.TreeMultimap"};
-                for (int i6 = 0; i6 < 5; i6++) {
-                    String str5 = strArr5[i6];
-                    if (str5.equals(replace)) {
-                        Type cls6 = Class.forName(str5);
-                        objectDeserializer3 = GuavaCodec.instance;
-                        putDeserializer(cls6, objectDeserializer3);
-                        return objectDeserializer3;
+                for (AutowiredObjectDeserializer autowiredObjectDeserializer : ServiceLoader.load(AutowiredObjectDeserializer.class, Thread.currentThread().getContextClassLoader())) {
+                    for (Type type3 : autowiredObjectDeserializer.getAutowiredFor()) {
+                        putDeserializer(type3, autowiredObjectDeserializer);
                     }
                 }
-            } catch (ClassNotFoundException unused4) {
-                guavaError = true;
+            } catch (Exception unused5) {
             }
-        }
-        if (replace.equals("java.nio.ByteBuffer")) {
-            objectDeserializer3 = ByteBufferCodec.instance;
-            putDeserializer(cls, objectDeserializer3);
-        }
-        if (replace.equals("java.nio.file.Path")) {
-            objectDeserializer3 = MiscCodec.instance;
-            putDeserializer(cls, objectDeserializer3);
-        }
-        if (cls == Map.Entry.class) {
-            objectDeserializer3 = MiscCodec.instance;
-            putDeserializer(cls, objectDeserializer3);
-        }
-        if (replace.equals("org.javamoney.moneta.Money")) {
-            objectDeserializer3 = MonetaCodec.instance;
-            putDeserializer(cls, objectDeserializer3);
-        }
-        try {
-            for (AutowiredObjectDeserializer autowiredObjectDeserializer : ServiceLoader.load(AutowiredObjectDeserializer.class, Thread.currentThread().getContextClassLoader())) {
-                for (Type type3 : autowiredObjectDeserializer.getAutowiredFor()) {
-                    putDeserializer(type3, autowiredObjectDeserializer);
-                }
+            if (objectDeserializer3 == null) {
+                objectDeserializer3 = get(type2);
             }
-        } catch (Exception unused5) {
-        }
-        if (objectDeserializer3 == null) {
-            objectDeserializer3 = get(type2);
-        }
-        if (objectDeserializer3 != null) {
-            return objectDeserializer3;
-        }
-        if (cls.isEnum()) {
-            if (this.jacksonCompatible) {
-                for (Method method : cls.getMethods()) {
-                    if (TypeUtils.isJacksonCreator(method)) {
-                        ObjectDeserializer createJavaBeanDeserializer = createJavaBeanDeserializer(cls, type2);
-                        putDeserializer(type2, createJavaBeanDeserializer);
-                        return createJavaBeanDeserializer;
+            if (objectDeserializer3 != null) {
+                return objectDeserializer3;
+            }
+            if (cls.isEnum()) {
+                if (this.jacksonCompatible) {
+                    for (Method method : cls.getMethods()) {
+                        if (TypeUtils.isJacksonCreator(method)) {
+                            ObjectDeserializer createJavaBeanDeserializer = createJavaBeanDeserializer(cls, type2);
+                            putDeserializer(type2, createJavaBeanDeserializer);
+                            return createJavaBeanDeserializer;
+                        }
                     }
                 }
-            }
-            Class<?> cls7 = (Class) JSON.getMixInAnnotations(cls);
-            JSONType jSONType2 = (JSONType) TypeUtils.getAnnotation(cls7 != null ? cls7 : cls, JSONType.class);
-            if (jSONType2 != null) {
-                try {
-                    ObjectDeserializer objectDeserializer7 = (ObjectDeserializer) jSONType2.deserializer().newInstance();
-                    putDeserializer(cls, objectDeserializer7);
-                    return objectDeserializer7;
-                } catch (Throwable unused6) {
-                }
-            }
-            Method method2 = null;
-            if (cls7 != null) {
-                Method enumCreator = getEnumCreator(cls7, cls);
-                if (enumCreator != null) {
+                Class<?> cls7 = (Class) JSON.getMixInAnnotations(cls);
+                JSONType jSONType2 = (JSONType) TypeUtils.getAnnotation(cls7 != null ? cls7 : cls, JSONType.class);
+                if (jSONType2 != null) {
                     try {
-                        method2 = cls.getMethod(enumCreator.getName(), enumCreator.getParameterTypes());
-                    } catch (Exception unused7) {
+                        ObjectDeserializer objectDeserializer7 = (ObjectDeserializer) jSONType2.deserializer().newInstance();
+                        putDeserializer(cls, objectDeserializer7);
+                        return objectDeserializer7;
+                    } catch (Throwable unused6) {
                     }
                 }
-            } else {
-                method2 = getEnumCreator(cls, cls);
-            }
-            if (method2 != null) {
-                ObjectDeserializer enumCreatorDeserializer = new EnumCreatorDeserializer(method2);
-                putDeserializer(cls, enumCreatorDeserializer);
-                return enumCreatorDeserializer;
-            }
-            objectDeserializer = getEnumDeserializer(cls);
-        } else if (cls.isArray()) {
-            objectDeserializer = ObjectArrayCodec.instance;
-        } else if (cls != Set.class && cls != HashSet.class && cls != Collection.class && cls != List.class && cls != ArrayList.class) {
-            if (Collection.class.isAssignableFrom(cls)) {
-                objectDeserializer = CollectionCodec.instance;
-            } else if (Map.class.isAssignableFrom(cls)) {
-                objectDeserializer = MapDeserializer.instance;
-            } else {
-                if (Throwable.class.isAssignableFrom(cls)) {
-                    propertyProcessableDeserializer = new ThrowableDeserializer(this, cls);
-                } else if (PropertyProcessable.class.isAssignableFrom(cls)) {
-                    propertyProcessableDeserializer = new PropertyProcessableDeserializer(cls);
-                } else if (cls == InetAddress.class) {
-                    objectDeserializer = MiscCodec.instance;
+                Method method2 = null;
+                if (cls7 != null) {
+                    Method enumCreator = getEnumCreator(cls7, cls);
+                    if (enumCreator != null) {
+                        try {
+                            method2 = cls.getMethod(enumCreator.getName(), enumCreator.getParameterTypes());
+                        } catch (Exception unused7) {
+                        }
+                    }
                 } else {
-                    objectDeserializer = createJavaBeanDeserializer(cls, type2);
+                    method2 = getEnumCreator(cls, cls);
                 }
-                objectDeserializer = propertyProcessableDeserializer;
+                if (method2 != null) {
+                    ObjectDeserializer enumCreatorDeserializer = new EnumCreatorDeserializer(method2);
+                    putDeserializer(cls, enumCreatorDeserializer);
+                    return enumCreatorDeserializer;
+                }
+                objectDeserializer = getEnumDeserializer(cls);
+            } else if (cls.isArray()) {
+                objectDeserializer = ObjectArrayCodec.instance;
+            } else if (cls != Set.class && cls != HashSet.class && cls != Collection.class && cls != List.class && cls != ArrayList.class) {
+                if (Collection.class.isAssignableFrom(cls)) {
+                    objectDeserializer = CollectionCodec.instance;
+                } else if (Map.class.isAssignableFrom(cls)) {
+                    objectDeserializer = MapDeserializer.instance;
+                } else {
+                    if (Throwable.class.isAssignableFrom(cls)) {
+                        propertyProcessableDeserializer = new ThrowableDeserializer(this, cls);
+                    } else if (PropertyProcessable.class.isAssignableFrom(cls)) {
+                        propertyProcessableDeserializer = new PropertyProcessableDeserializer(cls);
+                    } else if (cls == InetAddress.class) {
+                        objectDeserializer = MiscCodec.instance;
+                    } else {
+                        objectDeserializer = createJavaBeanDeserializer(cls, type2);
+                    }
+                    objectDeserializer = propertyProcessableDeserializer;
+                }
+            } else {
+                objectDeserializer = CollectionCodec.instance;
             }
-        } else {
-            objectDeserializer = CollectionCodec.instance;
+            putDeserializer(type2, objectDeserializer);
+            return objectDeserializer;
         }
-        putDeserializer(type2, objectDeserializer);
-        return objectDeserializer;
+        return (ObjectDeserializer) invokeLL.objValue;
     }
 
     public ObjectDeserializer getDeserializer(FieldInfo fieldInfo) {
-        return getDeserializer(fieldInfo.fieldClass, fieldInfo.fieldType);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, fieldInfo)) == null) ? getDeserializer(fieldInfo.fieldClass, fieldInfo.fieldType) : (ObjectDeserializer) invokeL.objValue;
     }
 }

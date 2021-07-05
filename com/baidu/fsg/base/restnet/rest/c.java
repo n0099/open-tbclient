@@ -1,44 +1,67 @@
 package com.baidu.fsg.base.restnet.rest;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.restnet.RestRequestCallbacker;
 import com.baidu.fsg.base.restnet.http.HttpStatus;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements b {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5198a = 30000;
+    public static final int f5228a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5199b = 30000;
+    public static final int f5229b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5200c = 10;
+    public static final int f5230c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5201d = 10;
+    public static final int f5231d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5202e = 8192;
+    public static final int f5232e = 8192;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5203f = 3;
+    public static final int f5233f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5204g = 1000;
+    public static final int f5234g = 1000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5205h = "RestHttpNetwork";
+    public static final String f5235h = "RestHttpNetwork";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final b f5206i;
-    public final g j = new g(3, 1000);
+    public final b f5236i;
+    public final g j;
 
     public c(b bVar) {
-        this.f5206i = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = objArr;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f5236i = bVar;
+        this.j = new g(3, 1000);
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -58,6 +81,14 @@ public class c implements b {
         	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
         	at jadx.core.dex.regions.Region.generate(Region.java:35)
         	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
+        	at jadx.core.codegen.RegionGen.makeRegionIndent(RegionGen.java:80)
+        	at jadx.core.codegen.RegionGen.makeIf(RegionGen.java:123)
+        	at jadx.core.dex.regions.conditions.IfRegion.generate(IfRegion.java:90)
+        	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
+        	at jadx.core.dex.regions.Region.generate(Region.java:35)
+        	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
+        	at jadx.core.dex.regions.Region.generate(Region.java:35)
+        	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
         	at jadx.core.codegen.MethodGen.addRegionInsns(MethodGen.java:296)
         	at jadx.core.codegen.MethodGen.addInstructions(MethodGen.java:275)
         	at jadx.core.codegen.ClassGen.addMethodCode(ClassGen.java:377)
@@ -68,7 +99,7 @@ public class c implements b {
         	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
         	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
         */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00b2 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00b6 A[SYNTHETIC] */
     @Override // com.baidu.fsg.base.restnet.rest.b
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -76,6 +107,9 @@ public class c implements b {
     public com.baidu.fsg.base.restnet.rest.e a(com.baidu.fsg.base.restnet.rest.d r11) throws java.lang.Exception {
         /*
             r10 = this;
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.fsg.base.restnet.rest.c.$ic
+            if (r0 != 0) goto Le3
+        L4:
             java.lang.String r0 = r11.k()
             com.baidu.fsg.base.restnet.RestRequestCallbacker$IRestRequestCallback r1 = com.baidu.fsg.base.restnet.RestRequestCallbacker.getRequestCallback()
             r2 = 0
@@ -83,27 +117,27 @@ public class c implements b {
             r4 = 0
             r5 = 1
             r6 = 0
-        Ld:
-            if (r5 == 0) goto Lde
-            com.baidu.fsg.base.restnet.rest.b r4 = r10.f5206i     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
-            com.baidu.fsg.base.restnet.rest.e r4 = r4.a(r11)     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
-            if (r4 == 0) goto L2c
-            com.baidu.fsg.base.restnet.http.HttpStatus r5 = r4.e()     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
-            com.baidu.fsg.base.restnet.http.HttpStatus r7 = com.baidu.fsg.base.restnet.http.HttpStatus.OK     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
-            if (r5 != r7) goto L2c
-            if (r1 == 0) goto L2c
-            java.lang.String r5 = r11.k()     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
-            java.lang.String r7 = r11.d()     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
-            r1.onSuccess(r5, r7)     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
-        L2c:
+        L11:
+            if (r5 == 0) goto Le2
+            com.baidu.fsg.base.restnet.rest.b r4 = r10.f5236i     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            com.baidu.fsg.base.restnet.rest.e r4 = r4.a(r11)     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            if (r4 == 0) goto L30
+            com.baidu.fsg.base.restnet.http.HttpStatus r5 = r4.e()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            com.baidu.fsg.base.restnet.http.HttpStatus r7 = com.baidu.fsg.base.restnet.http.HttpStatus.OK     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            if (r5 != r7) goto L30
+            if (r1 == 0) goto L30
+            java.lang.String r5 = r11.k()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            java.lang.String r7 = r11.d()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            r1.onSuccess(r5, r7)     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+        L30:
             return r4
-        L2d:
+        L31:
             r4 = move-exception
             com.baidu.fsg.base.restnet.rest.g r5 = r10.j
             int r6 = r6 + 1
             boolean r5 = r5.a(r4, r6)
-            goto Lae
-        L38:
+            goto Lb2
+        L3c:
             r4 = move-exception
             java.util.concurrent.TimeoutException r5 = new java.util.concurrent.TimeoutException
             java.lang.StringBuilder r7 = new java.lang.StringBuilder
@@ -117,8 +151,8 @@ public class c implements b {
             com.baidu.fsg.base.restnet.rest.g r7 = r10.j
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
-            goto L7f
-        L5c:
+            goto L83
+        L60:
             r4 = move-exception
             java.lang.NullPointerException r5 = new java.lang.NullPointerException
             java.lang.StringBuilder r7 = new java.lang.StringBuilder
@@ -132,12 +166,12 @@ public class c implements b {
             com.baidu.fsg.base.restnet.rest.g r4 = r10.j
             int r6 = r6 + 1
             boolean r4 = r4.a(r5, r6)
-        L7f:
+        L83:
             r9 = r5
             r5 = r4
             r4 = r9
-            goto Lae
-        L83:
+            goto Lb2
+        L87:
             r4 = move-exception
             java.net.UnknownHostException r5 = new java.net.UnknownHostException
             java.lang.StringBuilder r7 = new java.lang.StringBuilder
@@ -148,21 +182,21 @@ public class c implements b {
             r7.append(r8)
             java.lang.String r7 = r7.toString()
             r5.<init>(r7)
-            if (r6 <= 0) goto Lac
+            if (r6 <= 0) goto Lb0
             com.baidu.fsg.base.restnet.rest.g r7 = r10.j
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
-            if (r4 == 0) goto Lac
+            if (r4 == 0) goto Lb0
             r4 = 1
-            goto L7f
-        Lac:
+            goto L83
+        Lb0:
             r4 = 0
-            goto L7f
-        Lae:
-            if (r5 == 0) goto Lb2
-            goto Ld
+            goto L83
         Lb2:
-            if (r1 == 0) goto Lde
+            if (r5 == 0) goto Lb6
+            goto L11
+        Lb6:
+            if (r1 == 0) goto Le2
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
             java.lang.String r2 = "RestHttpNetwork performRequest retry count:"
@@ -178,14 +212,25 @@ public class c implements b {
             java.lang.String r11 = r1.toString()
             java.lang.String r0 = "RestHttpNetwork"
             com.baidu.fsg.base.utils.LogUtil.errord(r0, r11)
-        Lde:
+        Le2:
             throw r4
+        Le3:
+            r8 = r0
+            r9 = 1048576(0x100000, float:1.469368E-39)
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r8.invokeL(r9, r10, r11)
+            if (r0 == 0) goto L4
+            java.lang.Object r1 = r0.objValue
+            com.baidu.fsg.base.restnet.rest.e r1 = (com.baidu.fsg.base.restnet.rest.e) r1
+            return r1
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.fsg.base.restnet.rest.c.a(com.baidu.fsg.base.restnet.rest.d):com.baidu.fsg.base.restnet.rest.e");
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.b
     public void a() {
-        this.f5206i.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f5236i.a();
+        }
     }
 }

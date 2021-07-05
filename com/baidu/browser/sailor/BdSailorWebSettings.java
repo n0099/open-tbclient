@@ -1,6 +1,16 @@
 package com.baidu.browser.sailor;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.INoProGuard;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
@@ -10,1010 +20,1867 @@ import com.baidu.webkit.sdk.dumper.ZeusLogRecorder;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
 /* loaded from: classes.dex */
 public class BdSailorWebSettings implements INoProGuard {
-    public static boolean lastNightModeEnabled = false;
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean lastNightModeEnabled;
     public static BdJsCheckPolicy sDefaultJsCheckPolicy;
+    public transient /* synthetic */ FieldHolder $fh;
     public WebSettings mWebSettings;
 
     /* loaded from: classes.dex */
     public class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String ENABLE_LOG_RECORD = "enable_log_record";
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdSailorWebSettings this$0;
 
-        public BdSailorWebSettingsExt() {
+        public BdSailorWebSettingsExt(BdSailorWebSettings bdSailorWebSettings) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorWebSettings};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = bdSailorWebSettings;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getAdBlockEnabledExt() {
-            return BdSailorWebSettings.this.mWebSettings.getADblockEnabled();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.mWebSettings.getADblockEnabled() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getCustomFocusEnabledExt() {
-            return BdSailorWebSettings.this.mWebSettings.getCustomFocusEnabled();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.mWebSettings.getCustomFocusEnabled() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getEnableFileSchemaOnPrivate() {
-            return BdSailorWebSettings.this.mWebSettings.getEnableFileSchemaOnPrivate();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.mWebSettings.getEnableFileSchemaOnPrivate() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getEnableVSyncOpt() {
-            return BdSailorWebSettings.this.mWebSettings.getEnableVSyncOpt();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.this$0.mWebSettings.getEnableVSyncOpt() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized float getFastFlingDampFactorExt() {
-            return BdSailorWebSettings.this.mWebSettings.getFastFlingDampFactor();
+            InterceptResult invokeV;
+            float fastFlingDampFactor;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                synchronized (this) {
+                    fastFlingDampFactor = this.this$0.mWebSettings.getFastFlingDampFactor();
+                }
+                return fastFlingDampFactor;
+            }
+            return invokeV.floatValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized WebSettings.FlingAlgorithm getFlingAlgorithmExt() {
-            return BdSailorWebSettings.this.mWebSettings.getFlingAlgorithm();
+            InterceptResult invokeV;
+            WebSettings.FlingAlgorithm flingAlgorithm;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                synchronized (this) {
+                    flingAlgorithm = this.this$0.mWebSettings.getFlingAlgorithm();
+                }
+                return flingAlgorithm;
+            }
+            return (WebSettings.FlingAlgorithm) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getHookH5NavigationEnabled() {
-            return BdSailorWebSettings.this.mWebSettings.getHookH5NavigationEnabled();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.this$0.mWebSettings.getHookH5NavigationEnabled() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getHtml5VideoEnabledExt() {
-            return BdSailorWebSettings.this.mWebSettings.getHtml5VideoEnabled();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.this$0.mWebSettings.getHtml5VideoEnabled() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getMagicFilterEnabledExt() {
-            return BdSailorWebSettings.this.mWebSettings.getMagicFilterEnabledExt();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.this$0.mWebSettings.getMagicFilterEnabledExt() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getNightModeEnabledExt() {
-            return BdSailorWebSettings.this.mWebSettings.getNightModeEnabled();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.this$0.mWebSettings.getNightModeEnabled() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized boolean getPauseAudioEnabledExt() {
-            return BdSailorWebSettings.this.mWebSettings.getPauseAudioEnabled();
+            InterceptResult invokeV;
+            boolean pauseAudioEnabled;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                synchronized (this) {
+                    pauseAudioEnabled = this.this$0.mWebSettings.getPauseAudioEnabled();
+                }
+                return pauseAudioEnabled;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized boolean getPlayVideoInFullScreenModeExt() {
-            return BdSailorWebSettings.this.mWebSettings.getPlayVideoInFullScreenMode();
+            InterceptResult invokeV;
+            boolean playVideoInFullScreenMode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                synchronized (this) {
+                    playVideoInFullScreenMode = this.this$0.mWebSettings.getPlayVideoInFullScreenMode();
+                }
+                return playVideoInFullScreenMode;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getPrerenderEnabledExt() {
-            return BdSailorWebSettings.this.mWebSettings.getPrerenderEnabled();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.this$0.mWebSettings.getPrerenderEnabled() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getShowUnderLineExt() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized boolean getUrlSecurityCheckEnabledExt() {
-            return BdSailorWebSettings.this.mWebSettings.getUrlSecurityCheckEnabled();
+            InterceptResult invokeV;
+            boolean urlSecurityCheckEnabled;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                synchronized (this) {
+                    urlSecurityCheckEnabled = this.this$0.mWebSettings.getUrlSecurityCheckEnabled();
+                }
+                return urlSecurityCheckEnabled;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized boolean getUseGLRenderingExt() {
-            return BdSailorWebSettings.this.mWebSettings.getUseGLRendering();
+            InterceptResult invokeV;
+            boolean useGLRendering;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                synchronized (this) {
+                    useGLRendering = this.this$0.mWebSettings.getUseGLRendering();
+                }
+                return useGLRendering;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getUseScaleStoreExt() {
-            return BdSailorWebSettings.this.mWebSettings.getUseScaleStore();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.this$0.mWebSettings.getUseScaleStore() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean getUserSelectEnabled() {
-            return BdSailorWebSettings.this.mWebSettings.getUserSelectEnabled();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.this$0.mWebSettings.getUserSelectEnabled() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean isFullScreenMode() {
-            return BdSailorWebSettings.this.mWebSettings.isFullScreenMode();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.this$0.mWebSettings.isFullScreenMode() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean isLPLoadingAnimationEnable() {
-            return BdSailorWebSettings.this.mWebSettings.isLPLoadingAnimationEnable();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.this$0.mWebSettings.isLPLoadingAnimationEnable() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean isLoadingAnimationEnable() {
-            return BdSailorWebSettings.this.mWebSettings.isLoadingAnimationEnable();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.this$0.mWebSettings.isLoadingAnimationEnable() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public boolean isSkeletonEnable() {
-            return BdSailorWebSettings.this.mWebSettings.getSkeletonViewEnable();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.this$0.mWebSettings.getSkeletonViewEnable() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setAdBlockEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setADblockEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setADblockEnabled(z);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setAntiHackInfoEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setAntiHackInfoEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+                this.this$0.mWebSettings.setAntiHackInfoEnabled(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setCustomFocusEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setCustomFocusEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+                this.this$0.mWebSettings.setCustomFocusEnabled(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setEnableFileSchemaOnPrivate(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setEnableFileSchemaOnPrivate(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+                this.this$0.mWebSettings.setEnableFileSchemaOnPrivate(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setEnableLPLoadingAnimation(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setEnableLPLoadingAnimation(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+                this.this$0.mWebSettings.setEnableLPLoadingAnimation(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setEnableLoadingAnimation(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setEnableLoadingAnimation(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+                this.this$0.mWebSettings.setEnableLoadingAnimation(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setEnableSkeletonView(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setSkeletonViewEnable(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+                this.this$0.mWebSettings.setSkeletonViewEnable(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setEnableVSyncOpt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setEnableVSyncOpt(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+                this.this$0.mWebSettings.setEnableVSyncOpt(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setFastFlingDampFactorExt(float f2) {
-            BdSailorWebSettings.this.mWebSettings.setFastFlingDampFactor(f2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048606, this, f2) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setFastFlingDampFactor(f2);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setFeatureDatabasePathExt(String str) {
-            BdSailorWebSettings.this.mWebSettings.setFeatureDatabasePath(str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setFeatureDatabasePath(str);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setFeedNewsFirstScreenOptEnabledEX(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setFeedNewsFirstScreenOptEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+                this.this$0.mWebSettings.setFeedNewsFirstScreenOptEnabled(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setFlingAlgorithmExt(WebSettings.FlingAlgorithm flingAlgorithm) {
-            BdSailorWebSettings.this.mWebSettings.setFlingAlgorithm(flingAlgorithm);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048609, this, flingAlgorithm) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setFlingAlgorithm(flingAlgorithm);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setFullScreenMode(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setFullScreenMode(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+                this.this$0.mWebSettings.setFullScreenMode(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setHookH5NavigationEnabled(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setHookH5NavigationEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+                this.this$0.mWebSettings.setHookH5NavigationEnabled(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setHtml5VideoEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setHtml5VideoEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+                this.this$0.mWebSettings.setHtml5VideoEnabled(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setImageMaxWidthExt(int i2) {
-            BdSailorWebSettings.this.mWebSettings.setImageMaxWidth(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
+                this.this$0.mWebSettings.setImageMaxWidth(i2);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setImagesEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setImagesEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setImagesEnabled(z);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setMagicFilterEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setMagicFilterEnabledExt(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+                this.this$0.mWebSettings.setMagicFilterEnabledExt(z);
+            }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:27:0x006b, code lost:
-            if (com.baidu.browser.sailor.BdSailorWebSettings.lastNightModeEnabled == r5) goto L30;
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x0071, code lost:
+            if (com.baidu.browser.sailor.BdSailorWebSettings.lastNightModeEnabled == r5) goto L32;
          */
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void setNightModeEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setNightModeEnabled(z);
-            if (WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD).equals("true")) {
-                return;
-            }
-            Log.i("zwsettings.setNightMode", z + " " + BdSailorWebSettings.lastNightModeEnabled);
-            if (!z || BdSailorWebSettings.lastNightModeEnabled == z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+                this.this$0.mWebSettings.setNightModeEnabled(z);
+                if (WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD).equals("true")) {
+                    return;
+                }
+                Log.i("zwsettings.setNightMode", z + " " + BdSailorWebSettings.lastNightModeEnabled);
+                if (!z || BdSailorWebSettings.lastNightModeEnabled == z) {
+                    synchronized (BdSailorWebSettings.class) {
+                        if (z) {
+                        }
+                        boolean unused = BdSailorWebSettings.lastNightModeEnabled = z;
+                    }
+                    return;
+                }
                 synchronized (BdSailorWebSettings.class) {
                     if (z) {
-                    }
-                    boolean unused = BdSailorWebSettings.lastNightModeEnabled = z;
-                }
-                return;
-            }
-            synchronized (BdSailorWebSettings.class) {
-                if (z) {
-                    if (BdSailorWebSettings.lastNightModeEnabled != z) {
-                        boolean unused2 = BdSailorWebSettings.lastNightModeEnabled = z;
+                        if (BdSailorWebSettings.lastNightModeEnabled != z) {
+                            boolean unused2 = BdSailorWebSettings.lastNightModeEnabled = z;
+                        }
                     }
                 }
-            }
-            try {
-                ZeusLogRecorder.getInstance().initAndUpload();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                try {
+                    ZeusLogRecorder.getInstance().initAndUpload();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setPageFreezeDisableExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setPageFreezeDisable(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setPageFreezeDisable(z);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setPauseAudioEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setPauseAudioEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setPauseAudioEnabled(z);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setPlayVideoInFullScreenModeExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setPlayVideoInFullScreenMode(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setPlayVideoInFullScreenMode(z);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setPrerenderEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setPrerenderEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+                this.this$0.mWebSettings.setPrerenderEnabled(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setSafePageEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setSafePageEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
+                this.this$0.mWebSettings.setSafePageEnabled(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setShouldDispatchBeforeunloadEX(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setShouldDispatchBeforeunload(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
+                this.this$0.mWebSettings.setShouldDispatchBeforeunload(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setShowUnderLineExt(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setShrinksStandaloneImagesToFitExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setShrinksStandaloneImagesToFit(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+                this.this$0.mWebSettings.setShrinksStandaloneImagesToFit(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setUrlSecurityCheckEnabledExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setUrlSecurityCheckEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setUrlSecurityCheckEnabled(z);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public synchronized void setUseGLRenderingExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setUseGLRendering(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
+                synchronized (this) {
+                    this.this$0.mWebSettings.setUseGLRendering(z);
+                }
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setUseScaleStoreExt(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setUseScaleStore(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048627, this, z) == null) {
+                this.this$0.mWebSettings.setUseScaleStore(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setUserSelectEnabled(boolean z) {
-            BdSailorWebSettings.this.mWebSettings.setUserSelectEnabled(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048628, this, z) == null) {
+                this.this$0.mWebSettings.setUserSelectEnabled(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         public void setWiseSearchFirstScreenOptTypeEX(int i2) {
-            BdSailorWebSettings.this.mWebSettings.setWiseSearchFirstScreenOptType(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+                this.this$0.mWebSettings.setWiseSearchFirstScreenOptType(i2);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1322228576, "Lcom/baidu/browser/sailor/BdSailorWebSettings;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1322228576, "Lcom/baidu/browser/sailor/BdSailorWebSettings;");
         }
     }
 
     public BdSailorWebSettings(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webSettings};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mWebSettings = webSettings;
     }
 
     public static void clearNetworkFlowExt() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        }
     }
 
     public static synchronized void clearSavingBytesExt() {
-        synchronized (BdSailorWebSettings.class) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+            synchronized (BdSailorWebSettings.class) {
+            }
         }
     }
 
     public static BdJsCheckPolicy getDefaultJsCheckPolicy() {
-        try {
-            if (WebViewFactory.hasProvider()) {
-                Object staticWebSeting = WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_JS_CHECK_POLICY);
-                if (staticWebSeting instanceof BdJsCheckPolicy) {
-                    return (BdJsCheckPolicy) staticWebSeting;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            try {
+                if (WebViewFactory.hasProvider()) {
+                    Object staticWebSeting = WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_JS_CHECK_POLICY);
+                    if (staticWebSeting instanceof BdJsCheckPolicy) {
+                        return (BdJsCheckPolicy) staticWebSeting;
+                    }
+                    return null;
                 }
-                return null;
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+            } catch (Throwable th) {
+                Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
+            return null;
         }
-        return null;
+        return (BdJsCheckPolicy) invokeV.objValue;
     }
 
     public static boolean getEnableOverSeasExt() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean getEnableProxyExt() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean getEnableSpdyExt() {
-        try {
-            if (WebViewFactory.hasProvider()) {
-                return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_SPDY)).booleanValue();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            try {
+                if (WebViewFactory.hasProvider()) {
+                    return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_SPDY)).booleanValue();
+                }
+                return false;
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+                return false;
+            } catch (Throwable th) {
+                Log.e(Log.LOG_TAG, "getEnableSpdyExt error:".concat(String.valueOf(th)));
+                return false;
             }
-            return false;
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-            return false;
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "getEnableSpdyExt error:".concat(String.valueOf(th)));
-            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public static boolean getGifOneFrameEnabledExt() {
-        try {
-            if (WebViewFactory.hasProvider()) {
-                return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_GIF_FIRST_FRAME)).booleanValue();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            try {
+                if (WebViewFactory.hasProvider()) {
+                    return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_GIF_FIRST_FRAME)).booleanValue();
+                }
+                return false;
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+                return false;
+            } catch (Throwable th) {
+                Log.e(Log.LOG_TAG, "getGifOneFrameEnabledExt error:".concat(String.valueOf(th)));
+                return false;
             }
-            return false;
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-            return false;
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "getGifOneFrameEnabledExt error:".concat(String.valueOf(th)));
-            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public static int getNetworkFlowExt() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public static boolean getSaveNetworkTrafficExt() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static int getSavingBytesExt() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public static boolean getSpdyNPNEnabled() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isNA2WebEnable() {
-        try {
-            if (WebViewFactory.hasProvider()) {
-                return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE)).booleanValue();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            try {
+                if (WebViewFactory.hasProvider()) {
+                    return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE)).booleanValue();
+                }
+                return false;
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+                return false;
+            } catch (Throwable th) {
+                Log.e(Log.LOG_TAG, "getEnableSpdyExt error:".concat(String.valueOf(th)));
+                return false;
             }
-            return false;
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-            return false;
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "getEnableSpdyExt error:".concat(String.valueOf(th)));
-            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public static void setDefaultEnableJsPromptSailor(boolean z) {
-        try {
-            if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_ENABLE_JS_PROMPT, Boolean.valueOf(z));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
+            try {
+                if (WebViewFactory.hasProvider()) {
+                    WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_ENABLE_JS_PROMPT, Boolean.valueOf(z));
+                }
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+            } catch (Throwable th) {
+                Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
         }
     }
 
     public static void setDefaultJsCheckPolicySailor(BdJsCheckPolicy bdJsCheckPolicy) {
-        try {
-            if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_JS_CHECK_POLICY, bdJsCheckPolicy);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65554, null, bdJsCheckPolicy) == null) {
+            try {
+                if (WebViewFactory.hasProvider()) {
+                    WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_JS_CHECK_POLICY, bdJsCheckPolicy);
+                }
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+            } catch (Throwable th) {
+                Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
         }
     }
 
     public static void setEnableNA2Web(boolean z) {
-        try {
-            if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE, Boolean.valueOf(z));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65555, null, z) == null) {
+            try {
+                if (WebViewFactory.hasProvider()) {
+                    WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE, Boolean.valueOf(z));
+                }
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+            } catch (Throwable th) {
+                Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
         }
     }
 
     public static void setEnableOverSeasProxyExt(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65556, null, z) == null) {
+        }
     }
 
     public static void setEnableProxyExt(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65557, null, z) == null) {
+        }
     }
 
     public static void setEnableSpdyExt(boolean z) {
-        try {
-            if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_SPDY, Boolean.valueOf(z));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
+            try {
+                if (WebViewFactory.hasProvider()) {
+                    WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_SPDY, Boolean.valueOf(z));
+                }
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+            } catch (Throwable th) {
+                Log.e(Log.LOG_TAG, "setEnableSpdyExt error:".concat(String.valueOf(th)));
             }
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setEnableSpdyExt error:".concat(String.valueOf(th)));
         }
     }
 
     public static void setGifOneFrameEnabledExt(boolean z) {
-        try {
-            if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_GIF_FIRST_FRAME, Boolean.valueOf(z));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65559, null, z) == null) {
+            try {
+                if (WebViewFactory.hasProvider()) {
+                    WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_GIF_FIRST_FRAME, Boolean.valueOf(z));
+                }
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+            } catch (Throwable th) {
+                Log.e(Log.LOG_TAG, "setGifOneFrameEnabledExt error:".concat(String.valueOf(th)));
             }
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setGifOneFrameEnabledExt error:".concat(String.valueOf(th)));
         }
     }
 
     public static void setHijackEnv(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65560, null, z) == null) {
+        }
     }
 
     public static void setNavigationInterceptionEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65561, null, z) == null) {
+        }
     }
 
     public static void setSaveNetworkTrafficExt(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65562, null, z) == null) {
+        }
     }
 
     public static void setSpdyNPNEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65563, null, z) == null) {
+        }
     }
 
     public boolean enableSmoothTransition() {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            return webSettings.enableSmoothTransition();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WebSettings webSettings = this.mWebSettings;
+            if (webSettings != null) {
+                return webSettings.enableSmoothTransition();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public boolean getAllowContentAccess() {
-        return this.mWebSettings.getAllowFileAccess();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mWebSettings.getAllowFileAccess() : invokeV.booleanValue;
     }
 
     public boolean getAllowFileAccess() {
-        return this.mWebSettings.getAllowFileAccess();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mWebSettings.getAllowFileAccess() : invokeV.booleanValue;
     }
 
     public boolean getAllowFileAccessFromFileURLs() {
-        return this.mWebSettings.getAllowFileAccessFromFileURLs();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mWebSettings.getAllowFileAccessFromFileURLs() : invokeV.booleanValue;
     }
 
     public boolean getAllowUniversalAccessFromFileURLs() {
-        return this.mWebSettings.getAllowUniversalAccessFromFileURLs();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mWebSettings.getAllowUniversalAccessFromFileURLs() : invokeV.booleanValue;
     }
 
     public synchronized boolean getBlockNetworkImage() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getBlockNetworkImage();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    return this.mWebSettings.getBlockNetworkImage();
+                }
+                return false;
+            }
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public synchronized boolean getBlockNetworkLoads() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getBlockNetworkLoads();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    return this.mWebSettings.getBlockNetworkLoads();
+                }
+                return false;
+            }
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public boolean getBuiltInZoomControls() {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            return webSettings.getBuiltInZoomControls();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            WebSettings webSettings = this.mWebSettings;
+            if (webSettings != null) {
+                return webSettings.getBuiltInZoomControls();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public int getCacheMode() {
-        return this.mWebSettings.getCacheMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mWebSettings.getCacheMode() : invokeV.intValue;
     }
 
     public synchronized String getCursiveFontFamily() {
-        return this.mWebSettings.getCursiveFontFamily();
+        InterceptResult invokeV;
+        String cursiveFontFamily;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (this) {
+                cursiveFontFamily = this.mWebSettings.getCursiveFontFamily();
+            }
+            return cursiveFontFamily;
+        }
+        return (String) invokeV.objValue;
     }
 
     public synchronized boolean getDatabaseEnabled() {
-        return this.mWebSettings.getDatabaseEnabled();
+        InterceptResult invokeV;
+        boolean databaseEnabled;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            synchronized (this) {
+                databaseEnabled = this.mWebSettings.getDatabaseEnabled();
+            }
+            return databaseEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public synchronized String getDatabasePath() {
-        return this.mWebSettings.getDatabasePath();
+        InterceptResult invokeV;
+        String databasePath;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this) {
+                databasePath = this.mWebSettings.getDatabasePath();
+            }
+            return databasePath;
+        }
+        return (String) invokeV.objValue;
     }
 
     public synchronized int getDefaultFixedFontSize() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getDefaultFixedFontSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    return this.mWebSettings.getDefaultFixedFontSize();
+                }
+                return 1;
+            }
         }
-        return 1;
+        return invokeV.intValue;
     }
 
     public synchronized int getDefaultFontSize() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getDefaultFontSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    return this.mWebSettings.getDefaultFontSize();
+                }
+                return 1;
+            }
         }
-        return 1;
+        return invokeV.intValue;
     }
 
     public synchronized String getDefaultTextEncodingName() {
-        return this.mWebSettings.getDefaultTextEncodingName();
+        InterceptResult invokeV;
+        String defaultTextEncodingName;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            synchronized (this) {
+                defaultTextEncodingName = this.mWebSettings.getDefaultTextEncodingName();
+            }
+            return defaultTextEncodingName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public WebSettings.ZoomDensity getDefaultZoom() {
-        return WebSettings.ZoomDensity.MEDIUM;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? WebSettings.ZoomDensity.MEDIUM : (WebSettings.ZoomDensity) invokeV.objValue;
     }
 
     public int getDisabledActionModeMenuItems() {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            return webSettings.getDisabledActionModeMenuItems();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            WebSettings webSettings = this.mWebSettings;
+            if (webSettings != null) {
+                return webSettings.getDisabledActionModeMenuItems();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     public boolean getDisplayZoomControls() {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            return webSettings.getDisplayZoomControls();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            WebSettings webSettings = this.mWebSettings;
+            if (webSettings != null) {
+                return webSettings.getDisplayZoomControls();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public synchronized boolean getDomStorageEnabled() {
-        return this.mWebSettings.getDomStorageEnabled();
+        InterceptResult invokeV;
+        boolean domStorageEnabled;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            synchronized (this) {
+                domStorageEnabled = this.mWebSettings.getDomStorageEnabled();
+            }
+            return domStorageEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean getEnableJsPromptSailor() {
-        return this.mWebSettings.getEnableJsPrompt();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mWebSettings.getEnableJsPrompt() : invokeV.booleanValue;
     }
 
     public synchronized String getFantasyFontFamily() {
-        return this.mWebSettings.getFantasyFontFamily();
+        InterceptResult invokeV;
+        String fantasyFontFamily;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            synchronized (this) {
+                fantasyFontFamily = this.mWebSettings.getFantasyFontFamily();
+            }
+            return fantasyFontFamily;
+        }
+        return (String) invokeV.objValue;
     }
 
     public synchronized String getFixedFontFamily() {
-        return this.mWebSettings.getFixedFontFamily();
+        InterceptResult invokeV;
+        String fixedFontFamily;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            synchronized (this) {
+                fixedFontFamily = this.mWebSettings.getFixedFontFamily();
+            }
+            return fixedFontFamily;
+        }
+        return (String) invokeV.objValue;
     }
 
     public synchronized boolean getJavaScriptCanOpenWindowsAutomatically() {
-        return this.mWebSettings.getJavaScriptCanOpenWindowsAutomatically();
+        InterceptResult invokeV;
+        boolean javaScriptCanOpenWindowsAutomatically;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            synchronized (this) {
+                javaScriptCanOpenWindowsAutomatically = this.mWebSettings.getJavaScriptCanOpenWindowsAutomatically();
+            }
+            return javaScriptCanOpenWindowsAutomatically;
+        }
+        return invokeV.booleanValue;
     }
 
     public synchronized boolean getJavaScriptEnabled() {
-        return this.mWebSettings.getJavaScriptEnabled();
+        InterceptResult invokeV;
+        boolean javaScriptEnabled;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            synchronized (this) {
+                javaScriptEnabled = this.mWebSettings.getJavaScriptEnabled();
+            }
+            return javaScriptEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public synchronized WebSettings.LayoutAlgorithm getLayoutAlgorithm() {
-        return this.mWebSettings.getLayoutAlgorithm();
+        InterceptResult invokeV;
+        WebSettings.LayoutAlgorithm layoutAlgorithm;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            synchronized (this) {
+                layoutAlgorithm = this.mWebSettings.getLayoutAlgorithm();
+            }
+            return layoutAlgorithm;
+        }
+        return (WebSettings.LayoutAlgorithm) invokeV.objValue;
     }
 
     public boolean getLightTouchEnabled() {
-        return this.mWebSettings.getLightTouchEnabled();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mWebSettings.getLightTouchEnabled() : invokeV.booleanValue;
     }
 
     public boolean getLoadWithOverviewMode() {
-        return this.mWebSettings.getLoadsImagesAutomatically();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mWebSettings.getLoadsImagesAutomatically() : invokeV.booleanValue;
     }
 
     public synchronized boolean getLoadsImagesAutomatically() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getLoadsImagesAutomatically();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    return this.mWebSettings.getLoadsImagesAutomatically();
+                }
+                return false;
+            }
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public boolean getMediaPlaybackRequiresUserGesture() {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            return webSettings.getMediaPlaybackRequiresUserGesture();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            WebSettings webSettings = this.mWebSettings;
+            if (webSettings != null) {
+                return webSettings.getMediaPlaybackRequiresUserGesture();
+            }
+            return true;
         }
-        return true;
+        return invokeV.booleanValue;
     }
 
     public synchronized int getMinimumFontSize() {
-        return this.mWebSettings.getMinimumFontSize();
+        InterceptResult invokeV;
+        int minimumFontSize;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            synchronized (this) {
+                minimumFontSize = this.mWebSettings.getMinimumFontSize();
+            }
+            return minimumFontSize;
+        }
+        return invokeV.intValue;
     }
 
     public synchronized int getMinimumLogicalFontSize() {
-        return this.mWebSettings.getMinimumLogicalFontSize();
+        InterceptResult invokeV;
+        int minimumLogicalFontSize;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            synchronized (this) {
+                minimumLogicalFontSize = this.mWebSettings.getMinimumLogicalFontSize();
+            }
+            return minimumLogicalFontSize;
+        }
+        return invokeV.intValue;
     }
 
     public int getMixedContentMode() {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            return webSettings.getMixedContentMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            WebSettings webSettings = this.mWebSettings;
+            if (webSettings != null) {
+                return webSettings.getMixedContentMode();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     public synchronized String getSansSerifFontFamily() {
-        return this.mWebSettings.getSansSerifFontFamily();
+        InterceptResult invokeV;
+        String sansSerifFontFamily;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            synchronized (this) {
+                sansSerifFontFamily = this.mWebSettings.getSansSerifFontFamily();
+            }
+            return sansSerifFontFamily;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean getSaveFormData() {
-        return this.mWebSettings.getSaveFormData();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mWebSettings.getSaveFormData() : invokeV.booleanValue;
     }
 
     public boolean getSavePassword() {
-        return this.mWebSettings.getSavePassword();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mWebSettings.getSavePassword() : invokeV.booleanValue;
     }
 
     public synchronized String getSerifFontFamily() {
-        return this.mWebSettings.getSerifFontFamily();
+        InterceptResult invokeV;
+        String serifFontFamily;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            synchronized (this) {
+                serifFontFamily = this.mWebSettings.getSerifFontFamily();
+            }
+            return serifFontFamily;
+        }
+        return (String) invokeV.objValue;
     }
 
     public synchronized String getStandardFontFamily() {
-        return this.mWebSettings.getStandardFontFamily();
+        InterceptResult invokeV;
+        String standardFontFamily;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            synchronized (this) {
+                standardFontFamily = this.mWebSettings.getStandardFontFamily();
+            }
+            return standardFontFamily;
+        }
+        return (String) invokeV.objValue;
     }
 
     public synchronized int getTextZoom() {
-        return this.mWebSettings.getTextZoom();
+        InterceptResult invokeV;
+        int textZoom;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            synchronized (this) {
+                textZoom = this.mWebSettings.getTextZoom();
+            }
+            return textZoom;
+        }
+        return invokeV.intValue;
     }
 
     public synchronized boolean getUseWideViewPort() {
-        return this.mWebSettings.getUseWideViewPort();
+        InterceptResult invokeV;
+        boolean useWideViewPort;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            synchronized (this) {
+                useWideViewPort = this.mWebSettings.getUseWideViewPort();
+            }
+            return useWideViewPort;
+        }
+        return invokeV.booleanValue;
     }
 
     public synchronized String getUserAgentString() {
-        return this.mWebSettings.getUserAgentString();
+        InterceptResult invokeV;
+        String userAgentString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            synchronized (this) {
+                userAgentString = this.mWebSettings.getUserAgentString();
+            }
+            return userAgentString;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getWebViewFrameNameSailor() {
-        return this.mWebSettings.getWebViewFrameName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mWebSettings.getWebViewFrameName() : (String) invokeV.objValue;
     }
 
     public boolean isGestrueBackForwardEnabled() {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            return webSettings.getBackForwardAnimationEnable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            WebSettings webSettings = this.mWebSettings;
+            if (webSettings != null) {
+                return webSettings.getBackForwardAnimationEnable();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public boolean isGestrueBackForwardEnabledInternal() {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            return webSettings.getBackForwardAnimationEnableInternal();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            WebSettings webSettings = this.mWebSettings;
+            if (webSettings != null) {
+                return webSettings.getBackForwardAnimationEnableInternal();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public void setAllowContentAccess(boolean z) {
-        this.mWebSettings.setAllowFileAccess(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+            this.mWebSettings.setAllowFileAccess(z);
+        }
     }
 
     public void setAllowFileAccess(boolean z) {
-        this.mWebSettings.setAllowFileAccess(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+            this.mWebSettings.setAllowFileAccess(z);
+        }
     }
 
     public void setAllowFileAccessFromFileURLs(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setAllowFileAccess(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048621, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setAllowFileAccess(z);
     }
 
     public void setAllowUniversalAccessFromFileURLs(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setAllowUniversalAccessFromFileURLs(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048622, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setAllowUniversalAccessFromFileURLs(z);
     }
 
     public synchronized void setAppCacheEnabled(boolean z) {
-        this.mWebSettings.setAppCacheEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+            synchronized (this) {
+                this.mWebSettings.setAppCacheEnabled(z);
+            }
+        }
     }
 
     public synchronized void setAppCacheMaxSize(long j) {
-        this.mWebSettings.setAppCacheMaxSize(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
+            synchronized (this) {
+                this.mWebSettings.setAppCacheMaxSize(j);
+            }
+        }
     }
 
     public synchronized void setAppCachePath(String str) {
-        this.mWebSettings.setAppCachePath(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setAppCachePath(str);
+            }
+        }
     }
 
     public void setBackForwardGesture(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setBackForwardAnimationEnable(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048626, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setBackForwardAnimationEnable(z);
     }
 
     public void setBackForwardGestureInternal(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setBackForwardAnimationEnableInternal(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048627, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setBackForwardAnimationEnableInternal(z);
     }
 
     public synchronized void setBlockNetworkImage(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setBlockNetworkImage(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048628, this, z) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    this.mWebSettings.setBlockNetworkImage(z);
+                }
+            }
         }
     }
 
     public synchronized void setBlockNetworkLoads(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setBlockNetworkLoads(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    this.mWebSettings.setBlockNetworkLoads(z);
+                }
+            }
         }
     }
 
     public void setBuiltInZoomControls(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setBuiltInZoomControls(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048630, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setBuiltInZoomControls(z);
     }
 
     public void setCacheMode(int i2) {
-        this.mWebSettings.setCacheMode(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
+            this.mWebSettings.setCacheMode(i2);
+        }
     }
 
     @Deprecated
     public synchronized void setCodeCacheSetting(WebSettings.CodeCacheSetting codeCacheSetting) {
-        this.mWebSettings.setCodeCacheSetting(codeCacheSetting);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048632, this, codeCacheSetting) == null) {
+            synchronized (this) {
+                this.mWebSettings.setCodeCacheSetting(codeCacheSetting);
+            }
+        }
     }
 
     public synchronized void setCursiveFontFamily(String str) {
-        this.mWebSettings.setCursiveFontFamily(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setCursiveFontFamily(str);
+            }
+        }
     }
 
     public synchronized void setDatabaseEnabled(boolean z) {
-        this.mWebSettings.setDatabaseEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
+            synchronized (this) {
+                this.mWebSettings.setDatabaseEnabled(z);
+            }
+        }
     }
 
     public synchronized void setDatabasePath(String str) {
-        this.mWebSettings.setDatabasePath(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setDatabasePath(str);
+            }
+        }
     }
 
     public synchronized void setDefaultFixedFontSize(int i2) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setDefaultFontSize(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    this.mWebSettings.setDefaultFontSize(i2);
+                }
+            }
         }
     }
 
     public synchronized void setDefaultFontSize(int i2) {
-        this.mWebSettings.setDefaultFontSize(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
+            synchronized (this) {
+                this.mWebSettings.setDefaultFontSize(i2);
+            }
+        }
     }
 
     public synchronized void setDefaultTextEncodingName(String str) {
-        this.mWebSettings.setDefaultTextEncodingName(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setDefaultTextEncodingName(str);
+            }
+        }
     }
 
     public void setDefaultZoom(WebSettings.ZoomDensity zoomDensity) {
-        this.mWebSettings.setDefaultZoom(zoomDensity);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048639, this, zoomDensity) == null) {
+            this.mWebSettings.setDefaultZoom(zoomDensity);
+        }
     }
 
     public void setDisabledActionModeMenuItems(int i2) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setDisabledActionModeMenuItems(i2);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048640, this, i2) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setDisabledActionModeMenuItems(i2);
     }
 
     public void setDisplayZoomControls(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setDisplayZoomControls(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048641, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setDisplayZoomControls(z);
     }
 
     public synchronized void setDomStorageEnabled(boolean z) {
-        this.mWebSettings.setDomStorageEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+            synchronized (this) {
+                this.mWebSettings.setDomStorageEnabled(z);
+            }
+        }
     }
 
     public void setEnableJsPromptSailor(boolean z) {
-        this.mWebSettings.setEnableJsPrompt(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048643, this, z) == null) {
+            this.mWebSettings.setEnableJsPrompt(z);
+        }
     }
 
     public void setEnableSmoothTransition(boolean z) {
-        this.mWebSettings.setEnableSmoothTransition(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048644, this, z) == null) {
+            this.mWebSettings.setEnableSmoothTransition(z);
+        }
     }
 
     public synchronized void setFantasyFontFamily(String str) {
-        this.mWebSettings.setFantasyFontFamily(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048645, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setFantasyFontFamily(str);
+            }
+        }
     }
 
     public synchronized void setFixedFontFamily(String str) {
-        this.mWebSettings.setFixedFontFamily(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048646, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setFixedFontFamily(str);
+            }
+        }
     }
 
     public synchronized void setGeolocationDatabasePath(String str) {
-        this.mWebSettings.setGeolocationDatabasePath(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048647, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setGeolocationDatabasePath(str);
+            }
+        }
     }
 
     public void setGeolocationEnabled(boolean z) {
-        this.mWebSettings.setGeolocationEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048648, this, z) == null) {
+            this.mWebSettings.setGeolocationEnabled(z);
+        }
     }
 
     public synchronized void setJavaScriptCanOpenWindowsAutomatically(boolean z) {
-        this.mWebSettings.setJavaScriptCanOpenWindowsAutomatically(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048649, this, z) == null) {
+            synchronized (this) {
+                this.mWebSettings.setJavaScriptCanOpenWindowsAutomatically(z);
+            }
+        }
     }
 
     public synchronized void setJavaScriptEnabled(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setJavaScriptEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048650, this, z) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    this.mWebSettings.setJavaScriptEnabled(z);
+                }
+            }
         }
     }
 
     public void setJsCallFullscreenEnable(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setJsCallFullscreenEnable(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048651, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setJsCallFullscreenEnable(z);
     }
 
     public synchronized void setLayoutAlgorithm(WebSettings.LayoutAlgorithm layoutAlgorithm) {
-        this.mWebSettings.setLayoutAlgorithm(layoutAlgorithm);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048652, this, layoutAlgorithm) == null) {
+            synchronized (this) {
+                this.mWebSettings.setLayoutAlgorithm(layoutAlgorithm);
+            }
+        }
     }
 
     public void setLightTouchEnabled(boolean z) {
-        this.mWebSettings.setLightTouchEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048653, this, z) == null) {
+            this.mWebSettings.setLightTouchEnabled(z);
+        }
     }
 
     public void setLoadWithOverviewMode(boolean z) {
-        this.mWebSettings.setLoadWithOverviewMode(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048654, this, z) == null) {
+            this.mWebSettings.setLoadWithOverviewMode(z);
+        }
     }
 
     public synchronized void setLoadsImagesAutomatically(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setLoadsImagesAutomatically(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048655, this, z) == null) {
+            synchronized (this) {
+                if (this.mWebSettings != null) {
+                    this.mWebSettings.setLoadsImagesAutomatically(z);
+                }
+            }
         }
     }
 
     public void setMediaPlaybackRequiresUserGesture(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setMediaPlaybackRequiresUserGesture(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048656, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setMediaPlaybackRequiresUserGesture(z);
     }
 
     public synchronized void setMinimumFontSize(int i2) {
-        this.mWebSettings.setMinimumFontSize(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048657, this, i2) == null) {
+            synchronized (this) {
+                this.mWebSettings.setMinimumFontSize(i2);
+            }
+        }
     }
 
     public synchronized void setMinimumLogicalFontSize(int i2) {
-        this.mWebSettings.setMinimumLogicalFontSize(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048658, this, i2) == null) {
+            synchronized (this) {
+                this.mWebSettings.setMinimumLogicalFontSize(i2);
+            }
+        }
     }
 
     public void setMixedContentMode(int i2) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setMixedContentMode(i2);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048659, this, i2) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setMixedContentMode(i2);
     }
 
     public void setNeedInitialFocus(boolean z) {
-        this.mWebSettings.setNeedInitialFocus(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048660, this, z) == null) {
+            this.mWebSettings.setNeedInitialFocus(z);
+        }
     }
 
     public synchronized void setPageCacheCapacity(int i2) {
-        this.mWebSettings.setPageCacheCapacity(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
+            synchronized (this) {
+                this.mWebSettings.setPageCacheCapacity(i2);
+            }
+        }
     }
 
     public synchronized void setPluginState(WebSettings.PluginState pluginState) {
-        this.mWebSettings.setPluginState(pluginState);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048662, this, pluginState) == null) {
+            synchronized (this) {
+                this.mWebSettings.setPluginState(pluginState);
+            }
+        }
     }
 
     public synchronized void setPrivateBrowsingEnabled(boolean z) {
-        this.mWebSettings.setPrivateBrowsingEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048663, this, z) == null) {
+            synchronized (this) {
+                this.mWebSettings.setPrivateBrowsingEnabled(z);
+            }
+        }
     }
 
     public synchronized void setRenderPriority(WebSettings.RenderPriority renderPriority) {
-        this.mWebSettings.setRenderPriority(renderPriority);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048664, this, renderPriority) == null) {
+            synchronized (this) {
+                this.mWebSettings.setRenderPriority(renderPriority);
+            }
+        }
     }
 
     public synchronized void setSansSerifFontFamily(String str) {
-        this.mWebSettings.setSansSerifFontFamily(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048665, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setSansSerifFontFamily(str);
+            }
+        }
     }
 
     public void setSaveFormData(boolean z) {
-        this.mWebSettings.setSaveFormData(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048666, this, z) == null) {
+            this.mWebSettings.setSaveFormData(z);
+        }
     }
 
     public void setSavePassword(boolean z) {
-        this.mWebSettings.setSavePassword(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048667, this, z) == null) {
+            this.mWebSettings.setSavePassword(z);
+        }
     }
 
     public synchronized void setSerifFontFamily(String str) {
-        this.mWebSettings.setSerifFontFamily(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048668, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setSerifFontFamily(str);
+            }
+        }
     }
 
     public synchronized void setStandardFontFamily(String str) {
-        this.mWebSettings.setStandardFontFamily(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048669, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setStandardFontFamily(str);
+            }
+        }
     }
 
     public synchronized void setSupportMultipleWindows(boolean z) {
-        this.mWebSettings.setSupportMultipleWindows(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048670, this, z) == null) {
+            synchronized (this) {
+                this.mWebSettings.setSupportMultipleWindows(z);
+            }
+        }
     }
 
     public void setSupportZoom(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setSupportZoom(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048671, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setSupportZoom(z);
     }
 
     public synchronized void setTextZoom(int i2) {
-        this.mWebSettings.setTextZoom(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048672, this, i2) == null) {
+            synchronized (this) {
+                this.mWebSettings.setTextZoom(i2);
+            }
+        }
     }
 
     public synchronized void setUseWideViewPort(boolean z) {
-        this.mWebSettings.setUseWideViewPort(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048673, this, z) == null) {
+            synchronized (this) {
+                this.mWebSettings.setUseWideViewPort(z);
+            }
+        }
     }
 
     public synchronized void setUserAgentString(String str) {
-        this.mWebSettings.setUserAgentString(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048674, this, str) == null) {
+            synchronized (this) {
+                this.mWebSettings.setUserAgentString(str);
+            }
+        }
     }
 
     public void setWebSettings(WebSettings webSettings) {
-        if (webSettings != null) {
-            this.mWebSettings = webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048675, this, webSettings) == null) || webSettings == null) {
+            return;
         }
+        this.mWebSettings = webSettings;
     }
 
     public void setWebViewFrameNameSailor(String str) {
-        this.mWebSettings.setWebViewFrameName(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048676, this, str) == null) {
+            this.mWebSettings.setWebViewFrameName(str);
+        }
     }
 
     public void setZeusMutedEnable(boolean z) {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            webSettings.setZeusMutedEnable(z);
+        WebSettings webSettings;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048677, this, z) == null) || (webSettings = this.mWebSettings) == null) {
+            return;
         }
+        webSettings.setZeusMutedEnable(z);
     }
 
     public synchronized boolean supportMultipleWindows() {
-        return this.mWebSettings.supportMultipleWindows();
+        InterceptResult invokeV;
+        boolean supportMultipleWindows;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
+            synchronized (this) {
+                supportMultipleWindows = this.mWebSettings.supportMultipleWindows();
+            }
+            return supportMultipleWindows;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean supportZoom() {
-        WebSettings webSettings = this.mWebSettings;
-        if (webSettings != null) {
-            return webSettings.supportZoom();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) {
+            WebSettings webSettings = this.mWebSettings;
+            if (webSettings != null) {
+                return webSettings.supportZoom();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public synchronized boolean useCodeCacheSetting(WebSettings.CodeCacheSetting codeCacheSetting) {
-        return this.mWebSettings.useCodeCacheSetting(codeCacheSetting);
+        InterceptResult invokeL;
+        boolean useCodeCacheSetting;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048680, this, codeCacheSetting)) == null) {
+            synchronized (this) {
+                useCodeCacheSetting = this.mWebSettings.useCodeCacheSetting(codeCacheSetting);
+            }
+            return useCodeCacheSetting;
+        }
+        return invokeL.booleanValue;
     }
 }

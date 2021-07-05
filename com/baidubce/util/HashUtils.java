@@ -1,5 +1,13 @@
 package com.baidubce.util;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.BceClientException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,10 +18,47 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
 public class HashUtils {
-    public static final Charset UTF8 = Charset.forName("UTF-8");
+    public static /* synthetic */ Interceptable $ic;
+    public static final Charset UTF8;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1222054393, "Lcom/baidubce/util/HashUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1222054393, "Lcom/baidubce/util/HashUtils;");
+                return;
+            }
+        }
+        UTF8 = Charset.forName("UTF-8");
+    }
+
+    public HashUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static byte[] computeHash(InputStream inputStream, MessageDigest messageDigest) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65538, null, inputStream, messageDigest)) != null) {
+            return (byte[]) invokeLL.objValue;
+        }
         try {
             byte[] bArr = new byte[16384];
             while (true) {
@@ -41,20 +86,29 @@ public class HashUtils {
     }
 
     public static byte[] computeMd5Hash(InputStream inputStream) throws NoSuchAlgorithmException, IOException {
-        return computeHash(inputStream, MessageDigest.getInstance("MD5"));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) ? computeHash(inputStream, MessageDigest.getInstance("MD5")) : (byte[]) invokeL.objValue;
     }
 
     public static byte[] computeSha256Hash(InputStream inputStream) throws NoSuchAlgorithmException, IOException {
-        return computeHash(inputStream, MessageDigest.getInstance("SHA-256"));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, inputStream)) == null) ? computeHash(inputStream, MessageDigest.getInstance("SHA-256")) : (byte[]) invokeL.objValue;
     }
 
     public static String sha256Hex(String str, String str2) {
-        try {
-            Mac mac = Mac.getInstance("HmacSHA256");
-            mac.init(new SecretKeySpec(str.getBytes(UTF8), "HmacSHA256"));
-            return new String(ConvertUtils.encodeHex(mac.doFinal(str2.getBytes(UTF8))));
-        } catch (Exception e2) {
-            throw new BceClientException("Fail to generate the signature", e2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+            try {
+                Mac mac = Mac.getInstance("HmacSHA256");
+                mac.init(new SecretKeySpec(str.getBytes(UTF8), "HmacSHA256"));
+                return new String(ConvertUtils.encodeHex(mac.doFinal(str2.getBytes(UTF8))));
+            } catch (Exception e2) {
+                throw new BceClientException("Fail to generate the signature", e2);
+            }
         }
+        return (String) invokeLL.objValue;
     }
 }

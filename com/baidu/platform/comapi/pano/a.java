@@ -5,85 +5,122 @@ import android.text.TextUtils;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AsyncHttpClient f9326a = new AsyncHttpClient();
+    public AsyncHttpClient f9400a;
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0118a<T> {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0136a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
     }
 
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f9400a = new AsyncHttpClient();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public c a(String str) {
-        if (str == null || str.equals("")) {
-            return new c(PanoStateError.PANO_NOT_FOUND);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("result");
-            if (optJSONObject == null) {
-                return new c(PanoStateError.PANO_NOT_FOUND);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            if (str == null || str.equals("")) {
+                return new c(PanoStateError.f9397c);
             }
-            if (optJSONObject.optInt("error") == 0) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("content");
-                if (optJSONArray == null) {
-                    return new c(PanoStateError.PANO_NOT_FOUND);
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                JSONObject optJSONObject = jSONObject.optJSONObject("result");
+                if (optJSONObject == null) {
+                    return new c(PanoStateError.f9397c);
                 }
-                c cVar = null;
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("poiinfo");
-                    if (optJSONObject2 != null) {
-                        cVar = new c(PanoStateError.PANO_NO_ERROR);
-                        cVar.a(optJSONObject2.optString("PID"));
-                        cVar.a(optJSONObject2.optInt("hasstreet"));
+                if (optJSONObject.optInt("error") == 0) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("content");
+                    if (optJSONArray == null) {
+                        return new c(PanoStateError.f9397c);
                     }
+                    c cVar = null;
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("poiinfo");
+                        if (optJSONObject2 != null) {
+                            cVar = new c(PanoStateError.f9395a);
+                            cVar.a(optJSONObject2.optString("PID"));
+                            cVar.a(optJSONObject2.optInt("hasstreet"));
+                        }
+                    }
+                    return cVar;
                 }
-                return cVar;
+                return new c(PanoStateError.f9396b);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return new c(PanoStateError.f9397c);
             }
-            return new c(PanoStateError.PANO_UID_ERROR);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return new c(PanoStateError.PANO_NOT_FOUND);
         }
+        return (c) invokeL.objValue;
     }
 
     private String a(Uri.Builder builder) {
-        String uri = builder.build().toString();
-        Uri.Builder buildUpon = Uri.parse(uri + HttpClient.getPhoneInfo()).buildUpon();
-        buildUpon.appendQueryParameter("sign", AppMD5.getSignMD5String(buildUpon.build().getEncodedQuery()));
-        return buildUpon.build().toString();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, builder)) == null) {
+            String uri = builder.build().toString();
+            Uri.Builder buildUpon = Uri.parse(uri + HttpClient.getPhoneInfo()).buildUpon();
+            buildUpon.appendQueryParameter("sign", AppMD5.getSignMD5String(buildUpon.build().getEncodedQuery()));
+            return buildUpon.build().toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     private void a(Uri.Builder builder, String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65540, this, builder, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC0118a<c> interfaceC0118a) {
-        Uri.Builder builder = new Uri.Builder();
-        builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
-        builder.encodedAuthority("api.map.baidu.com");
-        builder.path("/sdkproxy/lbs_androidsdk/pano/v1/");
-        a(builder, "qt", "poi");
-        a(builder, "uid", str);
-        a(builder, "action", "0");
-        String authToken = HttpClient.getAuthToken();
-        if (authToken == null) {
-            interfaceC0118a.a((InterfaceC0118a<c>) new c(PanoStateError.PANO_NO_TOKEN));
-            return;
+    public void a(String str, InterfaceC0136a<c> interfaceC0136a) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0136a) == null) {
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
+            builder.encodedAuthority("api.map.baidu.com");
+            builder.path("/sdkproxy/lbs_androidsdk/pano/v1/");
+            a(builder, "qt", "poi");
+            a(builder, "uid", str);
+            a(builder, "action", "0");
+            String authToken = HttpClient.getAuthToken();
+            if (authToken == null) {
+                interfaceC0136a.a((InterfaceC0136a<c>) new c(PanoStateError.f9398d));
+                return;
+            }
+            a(builder, "token", authToken);
+            this.f9400a.get(a(builder), new b(this, interfaceC0136a));
         }
-        a(builder, "token", authToken);
-        this.f9326a.get(a(builder), new b(this, interfaceC0118a));
     }
 }

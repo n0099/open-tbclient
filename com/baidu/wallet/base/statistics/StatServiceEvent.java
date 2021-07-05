@@ -1,6 +1,15 @@
 package com.baidu.wallet.base.statistics;
-/* loaded from: classes5.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class StatServiceEvent {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESS_WALLET_ENTRY_EVENT = "accessWalletEntryEvent";
     public static final String ACTIVE_BIND = "activeBinkCard";
     public static final String ADD_NEW_BANK_CARD = "clickAddCard";
@@ -499,4 +508,34 @@ public final class StatServiceEvent {
     public static final String WALLET_COLLECTIONCODE_SHOW_REALNAME_WINDOW_GO = "collectioncodeShowRealnameWindowGo";
     public static final String WEB_VIEW_SSL_ERROR = "#web_view_ssl_error";
     public static final String WELCOME_ACTIVITY_LOGIN_STATUS = "welcomeActivityLoginStatus";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2026560236, "Lcom/baidu/wallet/base/statistics/StatServiceEvent;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(2026560236, "Lcom/baidu/wallet/base/statistics/StatServiceEvent;");
+        }
+    }
+
+    public StatServiceEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

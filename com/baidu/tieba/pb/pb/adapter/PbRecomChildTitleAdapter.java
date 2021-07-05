@@ -6,76 +6,142 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.n0.r.u.c;
-import d.a.o0.e2.k.e.o;
-import d.a.o0.e2.o.i;
-import d.a.o0.z.f0.e;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.u.c;
+import d.a.s0.a0.f0.e;
+import d.a.s0.h2.k.e.o;
+import d.a.s0.h2.o.b;
 /* loaded from: classes5.dex */
 public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ViewHolder s;
 
     /* loaded from: classes5.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18996a;
+        public int f19119a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f18997b;
+        public TextView f19120b;
 
-        /* renamed from: c  reason: collision with root package name */
-        public View f18998c;
-
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
             super(view);
-            this.f18996a = 3;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19119a = 3;
             c(view);
         }
 
         public void b(e eVar) {
-            this.f18997b.setText(eVar.f67342e);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
+                this.f19120b.setText(eVar.f57090e);
+            }
         }
 
         public final void c(View view) {
-            this.f18997b = (TextView) view.findViewById(R.id.tv_title);
-            this.f18998c = view.findViewById(R.id.title_top_line);
-            c.d(this.f18997b).x(R.string.F_X02);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+                TextView textView = (TextView) view.findViewById(R.id.tv_title);
+                this.f19120b = textView;
+                c.d(textView).y(R.string.F_X02);
+            }
         }
 
         public void d() {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (this.f18996a != skinType) {
-                SkinManager.setBackgroundColor(a(), R.color.CAM_X0204);
-                SkinManager.setBackgroundColor(this.f18998c, R.color.CAM_X0204);
-                SkinManager.setViewTextColor(this.f18997b, R.color.CAM_X0105);
-                this.f18996a = skinType;
+            int skinType;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f19119a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+                return;
+            }
+            SkinManager.setBackgroundColor(a(), R.color.CAM_X0202);
+            SkinManager.setViewTextColor(this.f19120b, R.color.CAM_X0105);
+            this.f19119a = skinType;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PbRecomChildTitleAdapter(b bVar, BdUniqueId bdUniqueId) {
+        super(bVar, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((b) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public PbRecomChildTitleAdapter(i iVar, BdUniqueId bdUniqueId) {
-        super(iVar, bdUniqueId);
+    @Override // d.a.s0.h2.k.e.o, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        j0(i2, view, viewGroup, (e) obj, (ViewHolder) viewHolder);
+        return view;
     }
 
-    @Override // d.a.o0.e2.k.e.o, d.a.c.k.e.a
-    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        i0(i2, view, viewGroup, (e) obj, (ViewHolder) viewHolder);
-        return view;
+    public ViewHolder h0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.s : (ViewHolder) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
-    /* renamed from: h0 */
+    /* renamed from: i0 */
     public ViewHolder Q(ViewGroup viewGroup) {
-        return new ViewHolder(LayoutInflater.from(this.f43012e).inflate(R.layout.pb_reclist_title, viewGroup, false));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f44821e).inflate(R.layout.pb_reclist_title, viewGroup, false));
+            this.s = viewHolder;
+            return viewHolder;
+        }
+        return (ViewHolder) invokeL.objValue;
     }
 
-    public View i0(int i2, View view, ViewGroup viewGroup, e eVar, ViewHolder viewHolder) {
-        super.X(i2, view, viewGroup, eVar, viewHolder);
-        viewHolder.b(eVar);
-        viewHolder.d();
-        return view;
+    public View j0(int i2, View view, ViewGroup viewGroup, e eVar, ViewHolder viewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, eVar, viewHolder})) == null) {
+            super.X(i2, view, viewGroup, eVar, viewHolder);
+            viewHolder.b(eVar);
+            viewHolder.d();
+            return view;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

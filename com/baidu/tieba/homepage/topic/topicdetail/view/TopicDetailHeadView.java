@@ -9,124 +9,191 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.o0.b1.k.a.c.b;
-import d.a.o0.b1.k.a.c.f;
-/* loaded from: classes4.dex */
+import d.a.s0.e1.k.a.c.b;
+import d.a.s0.e1.k.a.c.f;
+/* loaded from: classes5.dex */
 public class TopicDetailHeadView extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16742e;
+    public int f16878e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f16743f;
+    public TbImageView f16879f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16744g;
+    public TextView f16880g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f16745h;
+    public LinearLayout f16881h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f16746i;
+    public TbImageView f16882i;
     public View j;
     public TopicPkView k;
     public TopicTimelineView l;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicDetailHeadView(Context context) {
         super(context);
-        this.f16742e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f16878e = 3;
         a(context);
     }
 
     public final void a(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.topic_detail_head_view_layout, (ViewGroup) this, true);
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.topic_detail_head_bg);
-        this.f16743f = tbImageView;
-        tbImageView.setDrawingCacheEnabled(true);
-        this.f16744g = (TextView) findViewById(R.id.topic_detail_head_des);
-        this.f16745h = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
-        this.f16746i = (TbImageView) findViewById(R.id.topic_detail_head_img);
-        this.j = findViewById(R.id.topic_detail_head_img_placeholder);
-        this.k = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
-        this.l = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
-        ViewGroup.LayoutParams layoutParams = this.f16746i.getLayoutParams();
-        layoutParams.height = ((l.k(getContext()) - l.g(getContext(), R.dimen.tbds88)) * 9) / 16;
-        this.f16746i.setLayoutParams(layoutParams);
-        this.f16746i.setRadius(l.g(context, R.dimen.tbds10));
-        this.f16746i.setConrers(15);
-        this.f16746i.setPlaceHolder(3);
-        b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.topic_detail_head_view_layout, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.topic_detail_head_bg);
+            this.f16879f = tbImageView;
+            tbImageView.setDrawingCacheEnabled(true);
+            this.f16880g = (TextView) findViewById(R.id.topic_detail_head_des);
+            this.f16881h = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
+            this.f16882i = (TbImageView) findViewById(R.id.topic_detail_head_img);
+            this.j = findViewById(R.id.topic_detail_head_img_placeholder);
+            this.k = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
+            this.l = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
+            ViewGroup.LayoutParams layoutParams = this.f16882i.getLayoutParams();
+            layoutParams.height = ((l.k(getContext()) - l.g(getContext(), R.dimen.tbds88)) * 9) / 16;
+            this.f16882i.setLayoutParams(layoutParams);
+            this.f16882i.setRadius(l.g(context, R.dimen.tbds10));
+            this.f16882i.setConrers(15);
+            this.f16882i.setPlaceHolder(3);
+            b();
+        }
     }
 
     public void b() {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f16742e) {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f16878e) {
             return;
         }
-        this.f16742e = skinType;
-        this.f16743f.setIsNight(skinType == 1);
-        SkinManager.setViewTextColor(this.f16744g, R.color.CAM_X0101);
-        this.f16746i.setIsNight(this.f16742e == 1);
+        this.f16878e = skinType;
+        this.f16879f.setIsNight(skinType == 1);
+        SkinManager.setViewTextColor(this.f16880g, R.color.CAM_X0101);
+        this.f16882i.setIsNight(this.f16878e == 1);
         this.k.q();
         this.l.b();
     }
 
     public TbImageView getmBgImg() {
-        return this.f16743f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16879f : (TbImageView) invokeV.objValue;
     }
 
     public void setData(b bVar) {
-        if (bVar == null) {
-            setVisibility(8);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            if (bVar == null) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            if (bVar.f59024e == null && StringUtils.isNull(bVar.f59022c)) {
+                ((LinearLayout.LayoutParams) this.f16880g.getLayoutParams()).bottomMargin = l.g(getContext(), R.dimen.tbds130);
+            }
+            this.f16880g.setText(bVar.f59021b);
+            if (StringUtils.isNull(bVar.f59022c)) {
+                this.f16881h.setVisibility(8);
+                this.f16879f.setDefaultBgResource(R.drawable.topic_detail_default_bg);
+            } else {
+                this.f16881h.setVisibility(0);
+                this.f16882i.M(bVar.f59022c, 10, false);
+                this.f16879f.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
+            }
+            if (bVar.f59024e == null) {
+                this.j.setVisibility(8);
+                this.k.setVisibility(8);
+            } else {
+                this.j.setVisibility(0);
+                this.k.setVisibility(0);
+                this.k.setData(bVar.f59024e);
+            }
+            f fVar = bVar.f59025f;
+            if (fVar != null && !ListUtils.isEmpty(fVar.f59043b)) {
+                this.l.setVisibility(0);
+                this.l.setData(bVar.f59025f);
+            } else {
+                this.l.setVisibility(8);
+            }
+            this.f16879f.M(bVar.f59023d, 10, false);
         }
-        setVisibility(0);
-        if (bVar.f55758e == null && StringUtils.isNull(bVar.f55756c)) {
-            ((LinearLayout.LayoutParams) this.f16744g.getLayoutParams()).bottomMargin = l.g(getContext(), R.dimen.tbds130);
-        }
-        this.f16744g.setText(bVar.f55755b);
-        if (StringUtils.isNull(bVar.f55756c)) {
-            this.f16745h.setVisibility(8);
-            this.f16743f.setDefaultBgResource(R.drawable.topic_detail_default_bg);
-        } else {
-            this.f16745h.setVisibility(0);
-            this.f16746i.U(bVar.f55756c, 10, false);
-            this.f16743f.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
-        }
-        if (bVar.f55758e == null) {
-            this.j.setVisibility(8);
-            this.k.setVisibility(8);
-        } else {
-            this.j.setVisibility(0);
-            this.k.setVisibility(0);
-            this.k.setData(bVar.f55758e);
-        }
-        f fVar = bVar.f55759f;
-        if (fVar != null && !ListUtils.isEmpty(fVar.f55777b)) {
-            this.l.setVisibility(0);
-            this.l.setData(bVar.f55759f);
-        } else {
-            this.l.setVisibility(8);
-        }
-        this.f16743f.U(bVar.f55757d, 10, false);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicDetailHeadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16742e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f16878e = 3;
         a(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicDetailHeadView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f16742e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f16878e = 3;
         a(context);
     }
 }

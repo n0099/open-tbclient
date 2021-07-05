@@ -1,40 +1,104 @@
 package org.apache.http.conn.scheme;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class Scheme {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public Scheme(String str, SocketFactory socketFactory, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, socketFactory, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         throw new RuntimeException("Stub!");
     }
 
     public final boolean equals(Object obj) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 
     public final int getDefaultPort() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
     }
 
     public final String getName() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public final SocketFactory getSocketFactory() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (SocketFactory) invokeV.objValue;
     }
 
     public int hashCode() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
     }
 
     public final boolean isLayered() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
     }
 
     public final int resolvePort(int i2) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeI.intValue;
     }
 
     public final String toString() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 }

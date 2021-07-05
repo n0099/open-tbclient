@@ -6,20 +6,30 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.searchbox.player.utils.BdBatteryUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class VideoReceiver extends BroadcastReceiver {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
     public static String TAG = "BdVideoReceiver";
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean mHeadsetConnected;
-    public NetUtils.NetStatus mLastStatus = NetUtils.NetStatus.NET_DOWN;
-    public int mLastVolume = -1;
+    public NetUtils.NetStatus mLastStatus;
+    public int mLastVolume;
     public VideoReceiverListener mListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface VideoReceiverListener {
         void onBatteryChanged(int i2);
 
@@ -34,26 +44,61 @@ public class VideoReceiver extends BroadcastReceiver {
         void onVolumeChanged(int i2);
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(158919002, "Lcom/baidu/searchbox/player/event/VideoReceiver;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(158919002, "Lcom/baidu/searchbox/player/event/VideoReceiver;");
+        }
+    }
+
     public VideoReceiver(@NonNull VideoReceiverListener videoReceiverListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {videoReceiverListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mLastStatus = NetUtils.NetStatus.NET_DOWN;
+        this.mLastVolume = -1;
         this.mListener = videoReceiverListener;
     }
 
     private void onConnectChanged() {
-        BdVideoLog.d(TAG, "connectivity action");
-        if (isInitialStickyBroadcast()) {
-            BdVideoLog.d(TAG, "NetChanged: StickBroadcast");
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            BdVideoLog.d(TAG, "connectivity action");
+            if (isInitialStickyBroadcast()) {
+                BdVideoLog.d(TAG, "NetChanged: StickBroadcast");
+                return;
+            }
+            NetUtils.NetStatus netStatus = NetUtils.getNetStatus();
+            String str = TAG;
+            BdVideoLog.d(str, "net status " + netStatus);
+            this.mListener.onConnectChanged(this.mLastStatus, netStatus);
+            this.mLastStatus = netStatus;
         }
-        NetUtils.NetStatus netStatus = NetUtils.getNetStatus();
-        String str = TAG;
-        BdVideoLog.d(str, "net status " + netStatus);
-        this.mListener.onConnectChanged(this.mLastStatus, netStatus);
-        this.mLastStatus = netStatus;
     }
 
     private void onVolumeChanged(@NonNull Context context) {
-        AudioManager audioManager = (AudioManager) context.getApplicationContext().getSystemService("audio");
-        if (audioManager == null) {
+        AudioManager audioManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, this, context) == null) || (audioManager = (AudioManager) context.getApplicationContext().getSystemService("audio")) == null) {
             return;
         }
         int i2 = this.mLastVolume;
@@ -71,7 +116,8 @@ public class VideoReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         String action;
-        if (intent == null || this.mListener == null || (action = intent.getAction()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || this.mListener == null || (action = intent.getAction()) == null) {
             return;
         }
         char c2 = 65535;
@@ -189,23 +235,29 @@ public class VideoReceiver extends BroadcastReceiver {
     }
 
     public void registerReceiver() {
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        intentFilter.addAction("android.intent.action.DATE_CHANGED");
-        intentFilter.addAction("android.intent.action.SCREEN_OFF");
-        intentFilter.addAction("android.intent.action.USER_PRESENT");
-        intentFilter.addAction("android.intent.action.DEVICE_STORAGE_LOW");
-        intentFilter.addAction("android.intent.action.SCREEN_ON");
-        intentFilter.addAction("android.intent.action.BATTERY_CHANGED");
-        intentFilter.addAction("android.intent.action.HEADSET_PLUG");
-        intentFilter.addAction("android.media.AUDIO_BECOMING_NOISY");
-        intentFilter.addAction("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED");
-        intentFilter.addAction(ACTION_VOLUME_CHANGED);
-        BDPlayerConfig.getAppContext().registerReceiver(this, intentFilter);
-        this.mLastStatus = NetUtils.getNetStatus();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            intentFilter.addAction("android.intent.action.DATE_CHANGED");
+            intentFilter.addAction("android.intent.action.SCREEN_OFF");
+            intentFilter.addAction("android.intent.action.USER_PRESENT");
+            intentFilter.addAction("android.intent.action.DEVICE_STORAGE_LOW");
+            intentFilter.addAction("android.intent.action.SCREEN_ON");
+            intentFilter.addAction("android.intent.action.BATTERY_CHANGED");
+            intentFilter.addAction("android.intent.action.HEADSET_PLUG");
+            intentFilter.addAction("android.media.AUDIO_BECOMING_NOISY");
+            intentFilter.addAction("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED");
+            intentFilter.addAction(ACTION_VOLUME_CHANGED);
+            BDPlayerConfig.getAppContext().registerReceiver(this, intentFilter);
+            this.mLastStatus = NetUtils.getNetStatus();
+        }
     }
 
     public void unregisterReceiver() {
-        BDPlayerConfig.getAppContext().unregisterReceiver(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            BDPlayerConfig.getAppContext().unregisterReceiver(this);
+        }
     }
 }

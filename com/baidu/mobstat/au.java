@@ -1,139 +1,250 @@
 package com.baidu.mobstat;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class au {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final au f8657a = new au();
+    public static final au f8730a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f8658b = new HashMap<>();
+    public HashMap<String, String> f8731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<Character, Integer> f8659c = new HashMap<>();
+    public HashMap<Character, Integer> f8732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f8660d = new HashMap<>();
+    public HashMap<String, String> f8733d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<Character, Integer> f8661e = new HashMap<>();
+    public HashMap<Character, Integer> f8734e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, String> f8662f = new HashMap<>();
+    public HashMap<String, String> f8735f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<Character, Integer> f8663g = new HashMap<>();
+    public HashMap<Character, Integer> f8736g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f8665a = 0;
+        public static int f8738a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f8666b = 1;
+        public static int f8739b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f8667c = 2;
+        public static int f8740c = 2;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(627061153, "Lcom/baidu/mobstat/au$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(627061153, "Lcom/baidu/mobstat/au$a;");
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581657470, "Lcom/baidu/mobstat/au;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(581657470, "Lcom/baidu/mobstat/au;");
+                return;
+            }
+        }
+        f8730a = new au();
+    }
+
+    public au() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f8731b = new HashMap<>();
+        this.f8732c = new HashMap<>();
+        this.f8733d = new HashMap<>();
+        this.f8734e = new HashMap<>();
+        this.f8735f = new HashMap<>();
+        this.f8736g = new HashMap<>();
     }
 
     public static au a() {
-        return f8657a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8730a : (au) invokeV.objValue;
     }
 
     public void b(int i2) {
-        if (i2 == a.f8665a) {
-            this.f8659c.clear();
-            this.f8658b.clear();
-        } else if (i2 == a.f8667c) {
-            this.f8663g.clear();
-            this.f8662f.clear();
-        } else {
-            this.f8661e.clear();
-            this.f8660d.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            if (i2 == a.f8738a) {
+                this.f8732c.clear();
+                this.f8731b.clear();
+            } else if (i2 == a.f8740c) {
+                this.f8736g.clear();
+                this.f8735f.clear();
+            } else {
+                this.f8734e.clear();
+                this.f8733d.clear();
+            }
         }
     }
 
     public String a(String str, int i2) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (i2 == a.f8738a) {
+                String str2 = this.f8731b.get(str);
+                if (TextUtils.isEmpty(str2)) {
+                    a(str, this.f8732c, this.f8731b);
+                    return this.f8731b.get(str);
+                }
+                return str2;
+            } else if (i2 == a.f8740c) {
+                String str3 = this.f8735f.get(str);
+                if (TextUtils.isEmpty(str3)) {
+                    a(str, this.f8736g, this.f8735f);
+                    return this.f8735f.get(str);
+                }
+                return str3;
+            } else {
+                String str4 = this.f8733d.get(str);
+                if (TextUtils.isEmpty(str4)) {
+                    a(str, this.f8734e, this.f8733d);
+                    return this.f8733d.get(str);
+                }
+                return str4;
+            }
         }
-        if (i2 == a.f8665a) {
-            String str2 = this.f8658b.get(str);
-            if (TextUtils.isEmpty(str2)) {
-                a(str, this.f8659c, this.f8658b);
-                return this.f8658b.get(str);
-            }
-            return str2;
-        } else if (i2 == a.f8667c) {
-            String str3 = this.f8662f.get(str);
-            if (TextUtils.isEmpty(str3)) {
-                a(str, this.f8663g, this.f8662f);
-                return this.f8662f.get(str);
-            }
-            return str3;
-        } else {
-            String str4 = this.f8660d.get(str);
-            if (TextUtils.isEmpty(str4)) {
-                a(str, this.f8661e, this.f8660d);
-                return this.f8660d.get(str);
-            }
-            return str4;
-        }
+        return (String) invokeLI.objValue;
     }
 
     public void b() {
-        b(a.f8665a);
-        b(a.f8667c);
-        b(a.f8666b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b(a.f8738a);
+            b(a.f8740c);
+            b(a.f8739b);
+        }
     }
 
     private void a(String str, HashMap<Character, Integer> hashMap, HashMap<String, String> hashMap2) {
-        char lowerCase = Character.toLowerCase(str.charAt(0));
-        Integer num = hashMap.get(Character.valueOf(lowerCase));
-        int intValue = num != null ? num.intValue() + 1 : 0;
-        hashMap.put(Character.valueOf(lowerCase), Integer.valueOf(intValue));
-        hashMap2.put(str, Character.toString(lowerCase) + intValue);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, this, str, hashMap, hashMap2) == null) {
+            char lowerCase = Character.toLowerCase(str.charAt(0));
+            Integer num = hashMap.get(Character.valueOf(lowerCase));
+            int intValue = num != null ? num.intValue() + 1 : 0;
+            hashMap.put(Character.valueOf(lowerCase), Integer.valueOf(intValue));
+            hashMap2.put(str, Character.toString(lowerCase) + intValue);
+        }
     }
 
     public JSONObject a(int i2) {
+        InterceptResult invokeI;
         HashMap<String, String> hashMap;
-        if (i2 == a.f8665a) {
-            hashMap = this.f8658b;
-        } else if (i2 == a.f8667c) {
-            hashMap = this.f8662f;
-        } else {
-            hashMap = this.f8660d;
-        }
-        JSONObject jSONObject = new JSONObject();
-        if (hashMap == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            if (i2 == a.f8738a) {
+                hashMap = this.f8731b;
+            } else if (i2 == a.f8740c) {
+                hashMap = this.f8735f;
+            } else {
+                hashMap = this.f8733d;
+            }
+            JSONObject jSONObject = new JSONObject();
+            if (hashMap == null) {
+                return jSONObject;
+            }
+            ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
+            try {
+                Collections.sort(arrayList, new Comparator<Map.Entry<String, String>>(this) { // from class: com.baidu.mobstat.au.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ au f8737a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f8737a = this;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // java.util.Comparator
+                    /* renamed from: a */
+                    public int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
+                        InterceptResult invokeLL;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, entry, entry2)) == null) ? entry.getValue().compareTo(entry2.getValue()) : invokeLL.intValue;
+                    }
+                });
+            } catch (Exception unused) {
+            }
+            for (Map.Entry entry : arrayList) {
+                try {
+                    jSONObject.put((String) entry.getValue(), (String) entry.getKey());
+                } catch (Exception unused2) {
+                }
+            }
             return jSONObject;
         }
-        ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-        try {
-            Collections.sort(arrayList, new Comparator<Map.Entry<String, String>>() { // from class: com.baidu.mobstat.au.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // java.util.Comparator
-                /* renamed from: a */
-                public int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
-                    return entry.getValue().compareTo(entry2.getValue());
-                }
-            });
-        } catch (Exception unused) {
-        }
-        for (Map.Entry entry : arrayList) {
-            try {
-                jSONObject.put((String) entry.getValue(), (String) entry.getKey());
-            } catch (Exception unused2) {
-            }
-        }
-        return jSONObject;
+        return (JSONObject) invokeI.objValue;
     }
 }

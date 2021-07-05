@@ -1,33 +1,64 @@
 package com.xiaomi.push;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ft extends XMPushService.i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f41393a;
+    public final /* synthetic */ long f43136a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ fs f410a;
+    public final /* synthetic */ fs f413a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ft(fs fsVar, int i2, long j) {
         super(i2);
-        this.f410a = fsVar;
-        this.f41393a = j;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fsVar, Integer.valueOf(i2), Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f413a = fsVar;
+        this.f43136a = j;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public String a() {
-        return "check the ping-pong." + this.f41393a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "check the ping-pong." + this.f43136a;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        Thread.yield();
-        if (!this.f410a.m313c() || this.f410a.a(this.f41393a)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Thread.yield();
+            if (!this.f413a.m327c() || this.f413a.a(this.f43136a)) {
+                return;
+            }
+            this.f413a.f43130b.a(22, (Exception) null);
         }
-        this.f410a.f41387b.a(22, (Exception) null);
     }
 }

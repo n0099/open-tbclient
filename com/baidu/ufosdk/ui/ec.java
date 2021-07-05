@@ -7,16 +7,36 @@ import android.text.style.ForegroundColorSpan;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ec implements d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f22969a;
+    public final /* synthetic */ FeedbackReportActivity f23485a;
 
     public ec(FeedbackReportActivity feedbackReportActivity) {
-        this.f22969a = feedbackReportActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackReportActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23485a = feedbackReportActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.d
@@ -39,65 +59,68 @@ public final class ec implements d {
         LinearLayout linearLayout3;
         LinearLayout linearLayout4;
         TextView textView3;
-        this.f22969a.p = i2;
-        i3 = this.f22969a.p;
-        if (i3 == 1) {
-            this.f22969a.q = true;
-            linearLayout4 = this.f22969a.o;
-            linearLayout4.setVisibility(0);
-            SpannableString spannableString = new SpannableString("上传截图*(请上传该视频在其他平台带发布时间的截图)");
-            spannableString.setSpan(new ForegroundColorSpan(com.baidu.ufosdk.b.K), 4, 5, 34);
-            spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#999999")), 5, 26, 34);
-            spannableString.setSpan(new AbsoluteSizeSpan(12, true), 5, 26, 34);
-            textView3 = this.f22969a.r;
-            textView3.setText(spannableString);
-        }
-        i4 = this.f22969a.p;
-        if (i4 == 2) {
-            linearLayout3 = this.f22969a.O;
-            linearLayout3.setVisibility(0);
-        }
-        i5 = this.f22969a.p;
-        if (i5 == 3) {
-            this.f22969a.q = false;
-            linearLayout2 = this.f22969a.o;
-            linearLayout2.setVisibility(8);
-            SpannableString spannableString2 = new SpannableString("问题截图（系统自动截取）");
-            spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#999999")), 4, spannableString2.length(), 34);
-            spannableString2.setSpan(new AbsoluteSizeSpan(12, true), 4, spannableString2.length(), 34);
-            bArr = this.f22969a.j;
-            if (bArr != null) {
-                list = this.f22969a.x;
-                bArr2 = this.f22969a.j;
-                if (list.contains(bArr2)) {
-                    textView2 = this.f22969a.r;
-                    textView2.setText(spannableString2);
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, arrayList, i2) == null) {
+            this.f23485a.p = i2;
+            i3 = this.f23485a.p;
+            if (i3 == 1) {
+                this.f23485a.q = true;
+                linearLayout4 = this.f23485a.o;
+                linearLayout4.setVisibility(0);
+                SpannableString spannableString = new SpannableString("上传截图*(请上传该视频在其他平台带发布时间的截图)");
+                spannableString.setSpan(new ForegroundColorSpan(com.baidu.ufosdk.b.K), 4, 5, 34);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#999999")), 5, 26, 34);
+                spannableString.setSpan(new AbsoluteSizeSpan(12, true), 5, 26, 34);
+                textView3 = this.f23485a.r;
+                textView3.setText(spannableString);
             }
-            textView = this.f22969a.r;
-            textView.setText("上传截图");
-        }
-        i6 = this.f22969a.p;
-        if (i6 == 4) {
-            linearLayout = this.f22969a.O;
-            linearLayout.setVisibility(8);
-        }
-        com.baidu.ufosdk.f.c.a("CheckGroup回调函数：selectedData.size() = " + arrayList.size());
-        if (arrayList.size() > 0) {
-            button3 = this.f22969a.m;
-            int i7 = com.baidu.ufosdk.b.v;
-            int i8 = com.baidu.ufosdk.b.y;
-            int i9 = com.baidu.ufosdk.b.v;
-            button3.setTextColor(com.baidu.ufosdk.f.i.a(i7, i8, i9, i9));
-        } else {
-            button = this.f22969a.m;
-            button.setTextColor(com.baidu.ufosdk.b.y);
-        }
-        if (arrayList.contains("播放问题")) {
-            str = this.f22969a.F;
-            if (str.length() <= 0) {
-                button2 = this.f22969a.m;
-                button2.setTextColor(com.baidu.ufosdk.b.y);
+            i4 = this.f23485a.p;
+            if (i4 == 2) {
+                linearLayout3 = this.f23485a.O;
+                linearLayout3.setVisibility(0);
+            }
+            i5 = this.f23485a.p;
+            if (i5 == 3) {
+                this.f23485a.q = false;
+                linearLayout2 = this.f23485a.o;
+                linearLayout2.setVisibility(8);
+                SpannableString spannableString2 = new SpannableString("问题截图（系统自动截取）");
+                spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#999999")), 4, spannableString2.length(), 34);
+                spannableString2.setSpan(new AbsoluteSizeSpan(12, true), 4, spannableString2.length(), 34);
+                bArr = this.f23485a.j;
+                if (bArr != null) {
+                    list = this.f23485a.x;
+                    bArr2 = this.f23485a.j;
+                    if (list.contains(bArr2)) {
+                        textView2 = this.f23485a.r;
+                        textView2.setText(spannableString2);
+                    }
+                }
+                textView = this.f23485a.r;
+                textView.setText("上传截图");
+            }
+            i6 = this.f23485a.p;
+            if (i6 == 4) {
+                linearLayout = this.f23485a.O;
+                linearLayout.setVisibility(8);
+            }
+            com.baidu.ufosdk.f.c.a("CheckGroup回调函数：selectedData.size() = " + arrayList.size());
+            if (arrayList.size() > 0) {
+                button3 = this.f23485a.m;
+                int i7 = com.baidu.ufosdk.b.v;
+                int i8 = com.baidu.ufosdk.b.y;
+                int i9 = com.baidu.ufosdk.b.v;
+                button3.setTextColor(com.baidu.ufosdk.f.i.a(i7, i8, i9, i9));
+            } else {
+                button = this.f23485a.m;
+                button.setTextColor(com.baidu.ufosdk.b.y);
+            }
+            if (arrayList.contains("播放问题")) {
+                str = this.f23485a.F;
+                if (str.length() <= 0) {
+                    button2 = this.f23485a.m;
+                    button2.setTextColor(com.baidu.ufosdk.b.y);
+                }
             }
         }
     }

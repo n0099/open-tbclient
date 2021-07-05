@@ -7,36 +7,44 @@ import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.face.base.d.h;
-/* loaded from: classes2.dex */
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class DynamicWaveView extends View {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f6084a = 1715238655;
+    public static final int f6114a = 1715238655;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f6085b = 30.0f;
+    public static final float f6115b = 30.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f6086c = 0;
+    public static final int f6116c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f6087d = 3;
+    public static final int f6117d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f6088e = 5;
+    public static final int f6118e = 5;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f6089f;
+    public float f6119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6090g;
+    public int f6120g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6091h;
+    public int f6121h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f6092i;
+    public int f6122i;
     public int j;
     public int k;
     public float[] l;
@@ -51,123 +59,222 @@ public class DynamicWaveView extends View {
     public Thread u;
     public volatile boolean v;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DynamicWaveView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private void b() {
-        float[] fArr = this.l;
-        int length = fArr.length;
-        int i2 = this.q;
-        int i3 = length - i2;
-        System.arraycopy(fArr, i2, this.m, 0, i3);
-        System.arraycopy(this.l, 0, this.m, i3, this.q);
-        float[] fArr2 = this.l;
-        int length2 = fArr2.length;
-        int i4 = this.r;
-        int i5 = length2 - i4;
-        System.arraycopy(fArr2, i4, this.n, 0, i5);
-        System.arraycopy(this.l, 0, this.n, i5, this.r);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            float[] fArr = this.l;
+            int length = fArr.length;
+            int i2 = this.q;
+            int i3 = length - i2;
+            System.arraycopy(fArr, i2, this.m, 0, i3);
+            System.arraycopy(this.l, 0, this.m, i3, this.q);
+            float[] fArr2 = this.l;
+            int length2 = fArr2.length;
+            int i4 = this.r;
+            int i5 = length2 - i4;
+            System.arraycopy(fArr2, i4, this.n, 0, i5);
+            System.arraycopy(this.l, 0, this.n, i5, this.r);
+        }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.setDrawFilter(this.t);
-        b();
-        int i2 = this.j;
-        int i3 = this.f6090g - i2;
-        while (i2 < i3) {
-            int i4 = (int) ((this.f6091h - this.m[i2]) - this.k);
-            int i5 = this.f6092i;
-            int sqrt = (int) (i5 + Math.sqrt(Math.pow(i5, 2.0d) - Math.pow(Math.abs(this.f6092i - i2), 2.0d)));
-            if (sqrt >= i4) {
-                float f2 = i2;
-                canvas.drawLine(f2, i4, f2, sqrt, this.s);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            canvas.setDrawFilter(this.t);
+            b();
+            int i2 = this.j;
+            int i3 = this.f6120g - i2;
+            while (i2 < i3) {
+                int i4 = (int) ((this.f6121h - this.m[i2]) - this.k);
+                int i5 = this.f6122i;
+                int sqrt = (int) (i5 + Math.sqrt(Math.pow(i5, 2.0d) - Math.pow(Math.abs(this.f6122i - i2), 2.0d)));
+                if (sqrt >= i4) {
+                    float f2 = i2;
+                    canvas.drawLine(f2, i4, f2, sqrt, this.s);
+                }
+                int i6 = (int) ((this.f6121h - this.n[i2]) - this.k);
+                if (sqrt >= i6) {
+                    float f3 = i2;
+                    canvas.drawLine(f3, i6, f3, sqrt, this.s);
+                }
+                i2++;
             }
-            int i6 = (int) ((this.f6091h - this.n[i2]) - this.k);
-            if (sqrt >= i6) {
-                float f3 = i2;
-                canvas.drawLine(f3, i6, f3, sqrt, this.s);
+            int i7 = this.q + this.o;
+            this.q = i7;
+            this.r += this.p;
+            if (i7 >= this.f6120g) {
+                this.q = 0;
             }
-            i2++;
-        }
-        int i7 = this.q + this.o;
-        this.q = i7;
-        this.r += this.p;
-        if (i7 >= this.f6090g) {
-            this.q = 0;
-        }
-        if (this.r > this.f6090g) {
-            this.r = 0;
+            if (this.r > this.f6120g) {
+                this.r = 0;
+            }
         }
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        this.f6090g = i2;
-        this.f6091h = i3;
-        this.f6092i = i2 / 2;
-        this.l = new float[i2];
-        this.m = new float[i2];
-        this.n = new float[i2];
-        this.f6089f = (float) (6.283185307179586d / i2);
-        for (int i6 = 0; i6 < this.f6090g; i6++) {
-            this.l[i6] = (float) ((Math.sin(this.f6089f * i6) * 30.0d) + 0.0d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            this.f6120g = i2;
+            this.f6121h = i3;
+            this.f6122i = i2 / 2;
+            this.l = new float[i2];
+            this.m = new float[i2];
+            this.n = new float[i2];
+            this.f6119f = (float) (6.283185307179586d / i2);
+            for (int i6 = 0; i6 < this.f6120g; i6++) {
+                this.l[i6] = (float) ((Math.sin(this.f6119f * i6) * 30.0d) + 0.0d);
+            }
         }
     }
 
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
-        super.onWindowVisibilityChanged(i2);
-        if (i2 == 8) {
-            stopAnim();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            super.onWindowVisibilityChanged(i2);
+            if (i2 == 8) {
+                stopAnim();
+            }
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
-        super.setVisibility(i2);
-        if (i2 == 0) {
-            this.v = true;
-            a();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            super.setVisibility(i2);
+            if (i2 == 0) {
+                this.v = true;
+                a();
+                return;
+            }
+            this.v = false;
         }
-        this.v = false;
     }
 
     public void stopAnim() {
-        this.v = false;
-        Thread thread = this.u;
-        if (thread != null) {
-            thread.interrupt();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.v = false;
+            Thread thread = this.u;
+            if (thread != null) {
+                thread.interrupt();
+            }
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DynamicWaveView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     private void a() {
-        Thread thread = new Thread(new Runnable() { // from class: com.baidu.fsg.face.liveness.view.DynamicWaveView.1
-            @Override // java.lang.Runnable
-            public void run() {
-                while (DynamicWaveView.this.v) {
-                    try {
-                        Thread.sleep(20L);
-                        DynamicWaveView.this.postInvalidate();
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            Thread thread = new Thread(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.view.DynamicWaveView.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ DynamicWaveView f6123a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f6123a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        while (this.f6123a.v) {
+                            try {
+                                Thread.sleep(20L);
+                                this.f6123a.postInvalidate();
+                            } catch (InterruptedException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
                     }
                 }
-            }
-        });
-        this.u = thread;
-        thread.start();
+            });
+            this.u = thread;
+            thread.start();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DynamicWaveView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.v = true;
         this.o = h.a(context, 3.0f);
         this.p = h.a(context, 5.0f);
@@ -175,7 +282,7 @@ public class DynamicWaveView extends View {
         this.s = paint;
         paint.setAntiAlias(true);
         this.s.setStyle(Paint.Style.FILL);
-        this.s.setColor(f6084a);
+        this.s.setColor(f6114a);
         this.t = new PaintFlagsDrawFilter(0, 3);
         this.j = h.a(context, 5.0f);
         this.k = h.a(context, 30.0f);

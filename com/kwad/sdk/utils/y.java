@@ -10,102 +10,128 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
 /* loaded from: classes7.dex */
 public class y {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static String a(String str) {
+        InterceptResult invokeL;
         PackageInfo packageArchiveInfo;
-        if (!new File(str).exists()) {
-            com.kwad.sdk.core.d.a.c("PackageUtil", "cannot save package, download apk is not exists.");
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!new File(str).exists()) {
+                com.kwad.sdk.core.d.a.c("PackageUtil", "cannot save package, download apk is not exists.");
+                return null;
+            }
+            Context context = KsAdSDKImpl.get().getContext();
+            if (context == null || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
+                return null;
+            }
+            return packageArchiveInfo.applicationInfo.packageName;
         }
-        Context context = KsAdSDKImpl.get().getContext();
-        if (context == null || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
-            return null;
-        }
-        return packageArchiveInfo.applicationInfo.packageName;
+        return (String) invokeL.objValue;
     }
 
     public static void a(String str, String str2) {
         String str3;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            str3 = "cannot save package, has no download apk info.";
-        } else {
-            File file = new File(str);
-            if (file.exists()) {
-                Context context = KsAdSDKImpl.get().getContext();
-                if (context == null) {
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                str3 = "cannot save package, has no download apk info.";
+            } else {
+                File file = new File(str);
+                if (file.exists()) {
+                    Context context = KsAdSDKImpl.get().getContext();
+                    if (context == null) {
+                        return;
+                    }
+                    ae.b(context, str2, file.length());
+                    try {
+                        ae.a(context, str2, c.b(file));
+                        return;
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
+                        return;
+                    }
                 }
-                ae.b(context, str2, file.length());
-                try {
-                    ae.a(context, str2, c.b(file));
-                    return;
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    return;
-                }
+                str3 = "cannot save package, download apk is not exists.";
             }
-            str3 = "cannot save package, download apk is not exists.";
+            com.kwad.sdk.core.d.a.c("PackageUtil", str3);
         }
-        com.kwad.sdk.core.d.a.c("PackageUtil", str3);
     }
 
     public static boolean a(Context context, String str) {
-        try {
-            return context.getPackageManager().getPackageInfo(str, 0) != null;
-        } catch (Exception unused) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(str, 0) != null;
+            } catch (Exception unused) {
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
     }
 
     public static int b(String str) {
+        InterceptResult invokeL;
         String str2;
         ApplicationInfo applicationInfo;
-        Context context = KsAdSDKImpl.get().getContext();
-        if (context == null) {
-            return 0;
-        }
-        long b2 = ae.b(context, str);
-        String c2 = ae.c(context, str);
-        if (TextUtils.isEmpty(c2) || b2 <= 0) {
-            str2 = "cannot judge package, has no download apk info.";
-        } else {
-            try {
-                PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(str, 0);
-                if (TextUtils.isEmpty(str) || packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null || TextUtils.isEmpty(applicationInfo.publicSourceDir)) {
-                    str2 = "cannot judge package, cannot get installed apk info.";
-                } else {
-                    File file = new File(packageInfo.applicationInfo.publicSourceDir);
-                    if (!file.exists()) {
-                        str2 = "cannot judge package, insgtalled apk is not exists.";
-                    } else if (b2 != file.length()) {
-                        return 1;
-                    } else {
-                        if (TextUtils.isEmpty(c2)) {
-                            str2 = "cannot judge package, cannot calculate md5 of download file.";
-                        } else {
-                            String b3 = c.b(file);
-                            if (!TextUtils.isEmpty(b3)) {
-                                return c2.equalsIgnoreCase(b3) ? 2 : 1;
-                            }
-                            str2 = "cannot judge package, cannot calculate md5 of installed file.";
-                        }
-                    }
-                }
-            } catch (PackageManager.NameNotFoundException e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Context context = KsAdSDKImpl.get().getContext();
+            if (context == null) {
                 return 0;
             }
+            long b2 = ae.b(context, str);
+            String c2 = ae.c(context, str);
+            if (TextUtils.isEmpty(c2) || b2 <= 0) {
+                str2 = "cannot judge package, has no download apk info.";
+            } else {
+                try {
+                    PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(str, 0);
+                    if (TextUtils.isEmpty(str) || packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null || TextUtils.isEmpty(applicationInfo.publicSourceDir)) {
+                        str2 = "cannot judge package, cannot get installed apk info.";
+                    } else {
+                        File file = new File(packageInfo.applicationInfo.publicSourceDir);
+                        if (!file.exists()) {
+                            str2 = "cannot judge package, insgtalled apk is not exists.";
+                        } else if (b2 != file.length()) {
+                            return 1;
+                        } else {
+                            if (TextUtils.isEmpty(c2)) {
+                                str2 = "cannot judge package, cannot calculate md5 of download file.";
+                            } else {
+                                String b3 = c.b(file);
+                                if (!TextUtils.isEmpty(b3)) {
+                                    return c2.equalsIgnoreCase(b3) ? 2 : 1;
+                                }
+                                str2 = "cannot judge package, cannot calculate md5 of installed file.";
+                            }
+                        }
+                    }
+                } catch (PackageManager.NameNotFoundException e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
+                    return 0;
+                }
+            }
+            com.kwad.sdk.core.d.a.c("PackageUtil", str2);
+            return 0;
         }
-        com.kwad.sdk.core.d.a.c("PackageUtil", str2);
-        return 0;
+        return invokeL.intValue;
     }
 
     public static void b(Context context, String str) {
-        if (context != null && !TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65540, null, context, str) == null) && context != null && !TextUtils.isEmpty(str)) {
             try {
                 Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                 if (launchIntentForPackage == null) {
@@ -119,7 +145,8 @@ public class y {
     }
 
     public static void c(Context context, String str) {
-        if (context != null && !TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) && context != null && !TextUtils.isEmpty(str)) {
             try {
                 File file = new File(str);
                 Intent intent = new Intent("android.intent.action.VIEW");

@@ -1,5 +1,12 @@
 package com.facebook.imagepipeline.producers;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.common.Priority;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.ArrayList;
@@ -8,9 +15,15 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes6.dex */
 public class BaseProducerContext implements ProducerContext {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("this")
+    public final List<ProducerContextCallbacks> mCallbacks;
     public final Object mCallerContext;
     public final String mId;
     public final ImageRequest mImageRequest;
+    @GuardedBy("this")
+    public boolean mIsCancelled;
     @GuardedBy("this")
     public boolean mIsIntermediateResultExpected;
     @GuardedBy("this")
@@ -19,12 +32,22 @@ public class BaseProducerContext implements ProducerContext {
     @GuardedBy("this")
     public Priority mPriority;
     public final ProducerListener mProducerListener;
-    @GuardedBy("this")
-    public boolean mIsCancelled = false;
-    @GuardedBy("this")
-    public final List<ProducerContextCallbacks> mCallbacks = new ArrayList();
 
     public BaseProducerContext(ImageRequest imageRequest, String str, ProducerListener producerListener, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageRequest, str, producerListener, obj, requestLevel, Boolean.valueOf(z), Boolean.valueOf(z2), priority};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mImageRequest = imageRequest;
         this.mId = str;
         this.mProducerListener = producerListener;
@@ -33,10 +56,13 @@ public class BaseProducerContext implements ProducerContext {
         this.mIsPrefetch = z;
         this.mPriority = priority;
         this.mIsIntermediateResultExpected = z2;
+        this.mIsCancelled = false;
+        this.mCallbacks = new ArrayList();
     }
 
     public static void callOnCancellationRequested(@Nullable List<ProducerContextCallbacks> list) {
-        if (list == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || list == null) {
             return;
         }
         for (ProducerContextCallbacks producerContextCallbacks : list) {
@@ -45,7 +71,8 @@ public class BaseProducerContext implements ProducerContext {
     }
 
     public static void callOnIsIntermediateResultExpectedChanged(@Nullable List<ProducerContextCallbacks> list) {
-        if (list == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || list == null) {
             return;
         }
         for (ProducerContextCallbacks producerContextCallbacks : list) {
@@ -54,7 +81,8 @@ public class BaseProducerContext implements ProducerContext {
     }
 
     public static void callOnIsPrefetchChanged(@Nullable List<ProducerContextCallbacks> list) {
-        if (list == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, list) == null) || list == null) {
             return;
         }
         for (ProducerContextCallbacks producerContextCallbacks : list) {
@@ -63,7 +91,8 @@ public class BaseProducerContext implements ProducerContext {
     }
 
     public static void callOnPriorityChanged(@Nullable List<ProducerContextCallbacks> list) {
-        if (list == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, null, list) == null) || list == null) {
             return;
         }
         for (ProducerContextCallbacks producerContextCallbacks : list) {
@@ -74,96 +103,176 @@ public class BaseProducerContext implements ProducerContext {
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     public void addCallbacks(ProducerContextCallbacks producerContextCallbacks) {
         boolean z;
-        synchronized (this) {
-            this.mCallbacks.add(producerContextCallbacks);
-            z = this.mIsCancelled;
-        }
-        if (z) {
-            producerContextCallbacks.onCancellationRequested();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, producerContextCallbacks) == null) {
+            synchronized (this) {
+                this.mCallbacks.add(producerContextCallbacks);
+                z = this.mIsCancelled;
+            }
+            if (z) {
+                producerContextCallbacks.onCancellationRequested();
+            }
         }
     }
 
     public void cancel() {
-        callOnCancellationRequested(cancelNoCallbacks());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            callOnCancellationRequested(cancelNoCallbacks());
+        }
     }
 
     @Nullable
     public synchronized List<ProducerContextCallbacks> cancelNoCallbacks() {
-        if (this.mIsCancelled) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.mIsCancelled) {
+                    return null;
+                }
+                this.mIsCancelled = true;
+                return new ArrayList(this.mCallbacks);
+            }
         }
-        this.mIsCancelled = true;
-        return new ArrayList(this.mCallbacks);
+        return (List) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     public Object getCallerContext() {
-        return this.mCallerContext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCallerContext : invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     public String getId() {
-        return this.mId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mId : (String) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     public ImageRequest getImageRequest() {
-        return this.mImageRequest;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mImageRequest : (ImageRequest) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     public ProducerListener getListener() {
-        return this.mProducerListener;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mProducerListener : (ProducerListener) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     public ImageRequest.RequestLevel getLowestPermittedRequestLevel() {
-        return this.mLowestPermittedRequestLevel;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mLowestPermittedRequestLevel : (ImageRequest.RequestLevel) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     public synchronized Priority getPriority() {
-        return this.mPriority;
+        InterceptResult invokeV;
+        Priority priority;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this) {
+                priority = this.mPriority;
+            }
+            return priority;
+        }
+        return (Priority) invokeV.objValue;
     }
 
     public synchronized boolean isCancelled() {
-        return this.mIsCancelled;
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (this) {
+                z = this.mIsCancelled;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     public synchronized boolean isIntermediateResultExpected() {
-        return this.mIsIntermediateResultExpected;
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            synchronized (this) {
+                z = this.mIsIntermediateResultExpected;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     public synchronized boolean isPrefetch() {
-        return this.mIsPrefetch;
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this) {
+                z = this.mIsPrefetch;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 
     @Nullable
     public synchronized List<ProducerContextCallbacks> setIsIntermediateResultExpectedNoCallbacks(boolean z) {
-        if (z == this.mIsIntermediateResultExpected) {
-            return null;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+            synchronized (this) {
+                if (z == this.mIsIntermediateResultExpected) {
+                    return null;
+                }
+                this.mIsIntermediateResultExpected = z;
+                return new ArrayList(this.mCallbacks);
+            }
         }
-        this.mIsIntermediateResultExpected = z;
-        return new ArrayList(this.mCallbacks);
+        return (List) invokeZ.objValue;
     }
 
     @Nullable
     public synchronized List<ProducerContextCallbacks> setIsPrefetchNoCallbacks(boolean z) {
-        if (z == this.mIsPrefetch) {
-            return null;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
+            synchronized (this) {
+                if (z == this.mIsPrefetch) {
+                    return null;
+                }
+                this.mIsPrefetch = z;
+                return new ArrayList(this.mCallbacks);
+            }
         }
-        this.mIsPrefetch = z;
-        return new ArrayList(this.mCallbacks);
+        return (List) invokeZ.objValue;
     }
 
     @Nullable
     public synchronized List<ProducerContextCallbacks> setPriorityNoCallbacks(Priority priority) {
-        if (priority == this.mPriority) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, priority)) == null) {
+            synchronized (this) {
+                if (priority == this.mPriority) {
+                    return null;
+                }
+                this.mPriority = priority;
+                return new ArrayList(this.mCallbacks);
+            }
         }
-        this.mPriority = priority;
-        return new ArrayList(this.mCallbacks);
+        return (List) invokeL.objValue;
     }
 }

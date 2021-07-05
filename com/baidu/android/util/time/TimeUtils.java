@@ -1,9 +1,17 @@
 package com.baidu.android.util.time;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
 /* loaded from: classes.dex */
 public class TimeUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String MD = "MM-dd";
     public static long MSEC_OF_ONE_DAY = 86400000;
     public static long MSEC_OF_ONE_HOUR = 3600000;
@@ -11,12 +19,46 @@ public class TimeUtils {
     public static long MSEC_OF_ONE_SEC = 1000;
     public static final String Y4MD = "yyyy-MM-dd";
     public static final String Y4MD_HM = "yyyy-MM-dd HH:mm";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1290121498, "Lcom/baidu/android/util/time/TimeUtils;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1290121498, "Lcom/baidu/android/util/time/TimeUtils;");
+        }
+    }
+
+    public TimeUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static String getFormatTeletextTime(Context context, long j) {
-        return getFormatTeletextTime(context, j, true);
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) ? getFormatTeletextTime(context, j, true) : (String) invokeLJ.objValue;
     }
 
     public static String getFormatTeletextTime(Context context, long j, boolean z) {
-        return DateTimeUtil.getFormatTeletextTime(context, j, z);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z)})) == null) ? DateTimeUtil.getFormatTeletextTime(context, j, z) : (String) invokeCommon.objValue;
     }
 }

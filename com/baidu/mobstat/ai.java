@@ -11,158 +11,307 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.video.player.NativeErrorCode;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ai {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     @SuppressLint({"NewApi"})
-    public static void b(final Activity activity) {
-        final ViewGroup viewGroup;
-        try {
-            viewGroup = (ViewGroup) bj.a(activity).findViewById(16908290);
-        } catch (Exception unused) {
-            viewGroup = null;
-        }
-        if (viewGroup == null || viewGroup == null || a(viewGroup) != null) {
-            return;
-        }
-        final ag agVar = new ag(activity);
-        agVar.setBackgroundColor(-16745729);
-        agVar.setGravity(17);
-        agVar.setText("连接中");
-        agVar.setTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE, "baidu_mtj_edit_txtview");
-        viewGroup.post(new Runnable() { // from class: com.baidu.mobstat.ai.1
-            @Override // java.lang.Runnable
-            public void run() {
-                int width = viewGroup.getWidth();
-                int height = viewGroup.getHeight();
-                int c2 = ah.c(activity, 55.0f);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, c2);
-                layoutParams.leftMargin = (width - c2) / 6;
-                layoutParams.topMargin = ((height - c2) * 5) / 6;
-                agVar.setLayoutParams(layoutParams);
+    public static void b(Activity activity) {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, activity) == null) {
+            try {
+                viewGroup = (ViewGroup) bj.a(activity).findViewById(16908290);
+            } catch (Exception unused) {
+                viewGroup = null;
             }
-        });
-        viewGroup.addView(agVar);
-        a(activity, agVar);
+            if (viewGroup == null || viewGroup == null || a(viewGroup) != null) {
+                return;
+            }
+            ag agVar = new ag(activity);
+            agVar.setBackgroundColor(-16745729);
+            agVar.setGravity(17);
+            agVar.setText("连接中");
+            agVar.setTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE, "baidu_mtj_edit_txtview");
+            viewGroup.post(new Runnable(viewGroup, activity, agVar) { // from class: com.baidu.mobstat.ai.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ View f8615a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ Activity f8616b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ TextView f8617c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {viewGroup, activity, agVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f8615a = viewGroup;
+                    this.f8616b = activity;
+                    this.f8617c = agVar;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        int width = this.f8615a.getWidth();
+                        int height = this.f8615a.getHeight();
+                        int c2 = ah.c(this.f8616b, 55.0f);
+                        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, c2);
+                        layoutParams.leftMargin = (width - c2) / 6;
+                        layoutParams.topMargin = ((height - c2) * 5) / 6;
+                        this.f8617c.setLayoutParams(layoutParams);
+                    }
+                }
+            });
+            viewGroup.addView(agVar);
+            a(activity, agVar);
+        }
     }
 
     public static boolean a(View view) {
-        Object tag = view.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE);
-        return tag != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, view)) == null) {
+            Object tag = view.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE);
+            return tag != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview");
+        }
+        return invokeL.booleanValue;
     }
 
     public static void a(Activity activity, boolean z) {
         ViewGroup viewGroup;
         View a2;
-        try {
-            viewGroup = (ViewGroup) bj.a(activity).findViewById(16908290);
-        } catch (Exception unused) {
-            viewGroup = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, activity, z) == null) {
+            try {
+                viewGroup = (ViewGroup) bj.a(activity).findViewById(16908290);
+            } catch (Exception unused) {
+                viewGroup = null;
+            }
+            if (viewGroup == null || (a2 = a(viewGroup)) == null) {
+                return;
+            }
+            a2.setVisibility(z ? 0 : 4);
         }
-        if (viewGroup == null || (a2 = a(viewGroup)) == null) {
-            return;
-        }
-        a2.setVisibility(z ? 0 : 4);
     }
 
     public static void a(Activity activity) {
         ViewGroup viewGroup;
         View a2;
-        try {
-            viewGroup = (ViewGroup) bj.a(activity).findViewById(16908290);
-        } catch (Exception unused) {
-            viewGroup = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, activity) == null) {
+            try {
+                viewGroup = (ViewGroup) bj.a(activity).findViewById(16908290);
+            } catch (Exception unused) {
+                viewGroup = null;
+            }
+            if (viewGroup == null || (a2 = a(viewGroup)) == null) {
+                return;
+            }
+            viewGroup.removeView(a2);
         }
-        if (viewGroup == null || (a2 = a(viewGroup)) == null) {
-            return;
-        }
-        viewGroup.removeView(a2);
     }
 
     public static boolean b(float f2, float f3, float f4, float f5) {
-        return Math.abs(f2 - f3) <= 5.0f && Math.abs(f4 - f5) <= 5.0f;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+            return Math.abs(f2 - f3) <= 5.0f && Math.abs(f4 - f5) <= 5.0f;
+        }
+        return invokeCommon.booleanValue;
     }
 
     public static void b(Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage("是否确认退出连接?");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ai.3
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i2) {
-                dialogInterface.dismiss();
-                am.a().c();
-                bc.c().a("autotrace: connect close, app close");
-                am.a().a(4);
-                am.a().d();
-            }
-        });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ai.4
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i2) {
-                dialogInterface.dismiss();
-            }
-        });
-        builder.create().show();
-    }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("是否确认退出连接?");
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ai.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(final Activity activity, TextView textView) {
-        final View view = (View) textView.getParent();
-        textView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.mobstat.ai.2
-
-            /* renamed from: a  reason: collision with root package name */
-            public int f8545a = 0;
-
-            /* renamed from: b  reason: collision with root package name */
-            public int f8546b = 0;
-
-            /* renamed from: c  reason: collision with root package name */
-            public int f8547c = 0;
-
-            /* renamed from: d  reason: collision with root package name */
-            public int f8548d = 0;
-
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view2, MotionEvent motionEvent) {
-                int rawX = (int) motionEvent.getRawX();
-                int rawY = (int) motionEvent.getRawY();
-                int action = motionEvent.getAction();
-                if (action == 0) {
-                    this.f8545a = rawX;
-                    this.f8546b = rawY;
-                    this.f8547c = rawX - view2.getLeft();
-                    this.f8548d = rawY - view2.getTop();
-                } else if (action != 1) {
-                    if (action == 2) {
-                        int i2 = rawX - this.f8547c;
-                        int i3 = rawY - this.f8548d;
-                        Rect rect = new Rect();
-                        view.getLocalVisibleRect(rect);
-                        if (rect.contains(new Rect(i2, i3, view2.getWidth() + i2, view2.getHeight() + i3))) {
-                            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-                            marginLayoutParams.leftMargin = i2;
-                            marginLayoutParams.topMargin = i3;
-                            view2.setLayoutParams(marginLayoutParams);
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
                         }
                     }
-                } else if (ai.b(this.f8545a, (int) motionEvent.getRawX(), this.f8546b, (int) motionEvent.getRawY())) {
-                    ai.b((Context) activity);
                 }
-                return true;
-            }
-        });
+
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                        dialogInterface.dismiss();
+                        am.a().c();
+                        bc.c().a("autotrace: connect close, app close");
+                        am.a().a(4);
+                        am.a().d();
+                    }
+                }
+            });
+            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ai.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                        dialogInterface.dismiss();
+                    }
+                }
+            });
+            builder.create().show();
+        }
+    }
+
+    public static void a(Activity activity, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, textView) == null) {
+            textView.setOnTouchListener(new View.OnTouchListener((View) textView.getParent(), activity) { // from class: com.baidu.mobstat.ai.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public int f8618a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public int f8619b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public int f8620c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public int f8621d;
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ View f8622e;
+
+                /* renamed from: f  reason: collision with root package name */
+                public final /* synthetic */ Activity f8623f;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r6, activity};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f8622e = r6;
+                    this.f8623f = activity;
+                    this.f8618a = 0;
+                    this.f8619b = 0;
+                    this.f8620c = 0;
+                    this.f8621d = 0;
+                }
+
+                @Override // android.view.View.OnTouchListener
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
+                        int rawX = (int) motionEvent.getRawX();
+                        int rawY = (int) motionEvent.getRawY();
+                        int action = motionEvent.getAction();
+                        if (action == 0) {
+                            this.f8618a = rawX;
+                            this.f8619b = rawY;
+                            this.f8620c = rawX - view.getLeft();
+                            this.f8621d = rawY - view.getTop();
+                        } else if (action != 1) {
+                            if (action == 2) {
+                                int i2 = rawX - this.f8620c;
+                                int i3 = rawY - this.f8621d;
+                                Rect rect = new Rect();
+                                this.f8622e.getLocalVisibleRect(rect);
+                                if (rect.contains(new Rect(i2, i3, view.getWidth() + i2, view.getHeight() + i3))) {
+                                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+                                    marginLayoutParams.leftMargin = i2;
+                                    marginLayoutParams.topMargin = i3;
+                                    view.setLayoutParams(marginLayoutParams);
+                                }
+                            }
+                        } else if (ai.b(this.f8618a, (int) motionEvent.getRawX(), this.f8619b, (int) motionEvent.getRawY())) {
+                            ai.b((Context) this.f8623f);
+                        }
+                        return true;
+                    }
+                    return invokeLL.booleanValue;
+                }
+            });
+        }
     }
 
     public static View a(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Object tag;
-        if (viewGroup == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, viewGroup)) == null) {
+            if (viewGroup == null) {
+                return null;
+            }
+            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+                View childAt = viewGroup.getChildAt(i2);
+                if (childAt != null && (tag = childAt.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
+                    return childAt;
+                }
+            }
             return null;
         }
-        for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-            View childAt = viewGroup.getChildAt(i2);
-            if (childAt != null && (tag = childAt.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
-                return childAt;
-            }
-        }
-        return null;
+        return (View) invokeL.objValue;
     }
 }

@@ -11,19 +11,19 @@ import java.util.concurrent.atomic.AtomicLong;
 public class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38640a;
+    public int f40403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicLong f38641b = new AtomicLong(0);
+    public AtomicLong f40404b = new AtomicLong(0);
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Long, byte[]> f38642c = new ConcurrentHashMap();
+    public Map<Long, byte[]> f40405c = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<Long> f38643d = new CopyOnWriteArrayList();
+    public List<Long> f40406d = new CopyOnWriteArrayList();
 
     public c(int i2) {
-        this.f38640a = i2;
+        this.f40403a = i2;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
@@ -38,20 +38,20 @@ public class c implements d {
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public boolean a(long j) {
-        return this.f38643d.remove(Long.valueOf(j)) && this.f38642c.remove(Long.valueOf(j)) != null;
+        return this.f40406d.remove(Long.valueOf(j)) && this.f40405c.remove(Long.valueOf(j)) != null;
     }
 
     public long b(com.meizu.cloud.pushsdk.c.a.a aVar) {
         byte[] a2 = a.a(aVar.a());
-        long andIncrement = this.f38641b.getAndIncrement();
-        this.f38643d.add(Long.valueOf(andIncrement));
-        this.f38642c.put(Long.valueOf(andIncrement), a2);
+        long andIncrement = this.f40404b.getAndIncrement();
+        this.f40406d.add(Long.valueOf(andIncrement));
+        this.f40405c.put(Long.valueOf(andIncrement), a2);
         return andIncrement;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public long c() {
-        return this.f38643d.size();
+        return this.f40406d.size();
     }
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
@@ -59,15 +59,15 @@ public class c implements d {
         LinkedList linkedList = new LinkedList();
         ArrayList arrayList = new ArrayList();
         int c2 = (int) c();
-        int i2 = this.f38640a;
+        int i2 = this.f40403a;
         if (c2 > i2) {
             c2 = i2;
         }
         for (int i3 = 0; i3 < c2; i3++) {
-            Long l = this.f38643d.get(i3);
+            Long l = this.f40406d.get(i3);
             if (l != null) {
                 com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-                cVar.a(a.a(this.f38642c.get(l)));
+                cVar.a(a.a(this.f40405c.get(l)));
                 com.meizu.cloud.pushsdk.c.f.c.c("MemoryStore", " current key " + l + " payload " + cVar, new Object[0]);
                 linkedList.add(l);
                 arrayList.add(cVar);

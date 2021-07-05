@@ -11,9 +11,15 @@ public interface a<T extends View> {
 
     void c();
 
+    void d();
+
+    View getCloseButton();
+
+    void setCloseButtonAlpha(float f2);
+
     void setListener(b bVar);
 
-    void setShowCountDown(boolean z);
+    void setShowClose(boolean z);
 
     void setShowDislike(boolean z);
 

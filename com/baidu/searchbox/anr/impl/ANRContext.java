@@ -11,41 +11,102 @@ import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import d.a.f0.a.b.d;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.j0.a.b.d;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ANRContext {
-    public static final IANRContext ANR_CONTEXT_DEFAULT = new IANRContext() { // from class: com.baidu.searchbox.anr.impl.ANRContext.1
-        @Override // com.baidu.searchbox.anr.ioc.IANRContext
-        public void onAppNotResponding(Context context, ANRInfo aNRInfo) {
-            if (AppConfig.isDebug()) {
-                Log.d("Ruka", "onAppNotResponding");
+    public static /* synthetic */ Interceptable $ic;
+    public static final IANRContext ANR_CONTEXT_DEFAULT;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-249372474, "Lcom/baidu/searchbox/anr/impl/ANRContext;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            d<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
-            if (iANRUploadList == null || iANRUploadList.getList() == null || aNRInfo == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-249372474, "Lcom/baidu/searchbox/anr/impl/ANRContext;");
                 return;
             }
-            if (AppConfig.isDebug()) {
-                Log.i("Ruka", "ANRInfo = " + aNRInfo.getStackTrace());
-            }
-            TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
-            if (lastTrackUI != null) {
-                if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
-                    aNRInfo.setCurrentPage(lastTrackUI.getFragmentPage());
-                } else if (!TextUtils.isEmpty(lastTrackUI.getActivityPage())) {
-                    aNRInfo.setCurrentPage(lastTrackUI.getActivityPage());
+        }
+        ANR_CONTEXT_DEFAULT = new IANRContext() { // from class: com.baidu.searchbox.anr.impl.ANRContext.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
                 }
             }
-            aNRInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
-            aNRInfo.setLogId(CommonUtils.getLogId());
-            for (IANRRegister iANRRegister : iANRUploadList.getList()) {
-                iANRRegister.onANR(context, aNRInfo);
+
+            @Override // com.baidu.searchbox.anr.ioc.IANRContext
+            public void onAppNotResponding(Context context, ANRInfo aNRInfo) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, aNRInfo) == null) {
+                    if (AppConfig.isDebug()) {
+                        Log.d("Ruka", "onAppNotResponding");
+                    }
+                    d<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
+                    if (iANRUploadList == null || iANRUploadList.getList() == null || aNRInfo == null) {
+                        return;
+                    }
+                    if (AppConfig.isDebug()) {
+                        Log.i("Ruka", "ANRInfo = " + aNRInfo.getStackTrace());
+                    }
+                    TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
+                    if (lastTrackUI != null) {
+                        if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
+                            aNRInfo.setCurrentPage(lastTrackUI.getFragmentPage());
+                        } else if (!TextUtils.isEmpty(lastTrackUI.getActivityPage())) {
+                            aNRInfo.setCurrentPage(lastTrackUI.getActivityPage());
+                        }
+                    }
+                    aNRInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
+                    aNRInfo.setLogId(CommonUtils.getLogId());
+                    for (IANRRegister iANRRegister : iANRUploadList.getList()) {
+                        iANRRegister.onANR(context, aNRInfo);
+                    }
+                }
+            }
+        };
+    }
+
+    public ANRContext() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    };
+    }
 
     @Inject(force = false)
     public static IANRContext getANRContext() {
-        return ANR_CONTEXT_DEFAULT;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ANR_CONTEXT_DEFAULT : (IANRContext) invokeV.objValue;
     }
 }

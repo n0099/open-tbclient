@@ -1,8 +1,13 @@
 package com.baidu.android.imsdk.db;
 
 import android.provider.BaseColumns;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class TableDefine {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME_PREFIX = "bdimsdk_";
     public static final String DB_TABLE_CHAT_SESSION = "chatrecord";
     public static final String DB_TABLE_CRASH_LOG = "crash";
@@ -40,9 +45,11 @@ public class TableDefine {
     public static final String SQL_CREATE_TABLE_PA_SUBSCRIBE = "CREATE TABLE paSubscribe(_id LONG PRIMARY KEY, paid LONG, nickname TEXT, avatar TEXT, description TEXT, url TEXT,acceptpush INTEGER, timestamp LONG, tpl LONG, detail TEXT, disturb INTEGER, pasubtype INTEGER, classtype INTEGER DEFAULT 0, classshow INTEGER DEFAULT 0, status INTEGER DEFAULT 0, classtitle TEXT, marktop INTEGER DEFAULT 0, marktoptime LONG, classavatar TEXT, replies TEXT, refreshtime LONG, subset_type INTEGER DEFAULT 0, pa_ext TEXT, v_portrait TEXT, vip_id TEXT, identity TEXT, has_identity INTEGER, shield INTEGER, shield_time LONG, subscribe INTEGER, has_reject_menu INTEGER DEFAULT 0, third_ext TEXT);";
     public static final String SQL_CREATE_TABLE_USERINFO = "CREATE TABLE userinfo (_id INTEGER PRIMARY KEY AUTOINCREMENT , uid LONG, buid LONG, username TEXT, sex INTEGER, phone INTEGER, user_detail TEXT, tiny_url TEXT, head_url TEXT, account_type INTEGER, ip_exsit INTEGER, ip TEXT, ip_isp TEXT, ip_country TEXT, ip_province TEXT, ip_city TEXT, ip_county TEXT, disturb INTEGER, blacklist INTEGER, v_portrait INTEGER, identity TEXT, last_update_time LONG, shield INTEGER, shield_time LONG, marktop INTEGER, marktop_time LONG, subscribe_status INTEGER, has_special_identity INTEGER, vip_id TEXT, special_identity TEXT, user_ext TEXT, phone_relation INTEGER);";
     public static final String SQL_CREATE_TABLE_ZHIDAINFO = "CREATE TABLE zhida_info ( zhidaid LONG PRIMARY KEY, apikey TEXT,description TEXT, entry_url TEXT,icon_url TEXT,is_subscribe INTEGER,paid LONG,name TEXT,acceptpush INTEGER, sfot_ttl LONG,status INTEGER);";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static final class DRColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
         public static final String COLUMN_DAILOGUE_MSGID = "dialogueMsgid";
@@ -50,40 +57,120 @@ public class TableDefine {
         public static final String COLUMN_MAXMSGID = "localmsgid";
         public static final String COLUMN_STATE = "state";
         public static final String COLUMN_UPDATE_TIME = "update_time";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public DRColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class FriendGroupColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_FRIEND_GROUP_ID = "friend_group_id";
         public static final String COLUMN_FRIEND_GROUP_NAME = "friend_group_name";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public FriendGroupColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class FriendRelationColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_FRIEND_GROUP_ID = "friend_group_id";
         public static final String COLUMN_REVERSE_STATUS = "friend_status_reverse";
         public static final String COLUMN_STATUS = "friend_status";
         public static final String COLUMN_UID = "uid";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public FriendRelationColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class GroupInfoColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_DESCRIPTION = "description";
         public static final String COLUMN_GROUP_ID = "group_id";
         public static final String COLUMN_GROUP_TYPE = "group_type";
         public static final String COLUMN_NAME = "group_name";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GroupInfoColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class GroupMemberColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_GROUP_ID = "group_id";
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_ROLE = "role";
         public static final String COLUMN_UID = "uid";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GroupMemberColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class MessageColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUME_EXPIRES_TIME = "expires_time";
         public static final String COLUME_SERVICE_TYPE = "service_type";
         public static final String COLUME_TEMPLATE = "template_type";
@@ -108,10 +195,26 @@ public class TableDefine {
         public static final String COLUMN_STATUS = "status";
         public static final String COLUMN_TIME = "time";
         public static final String COLUMN_TYPE = "type";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public MessageColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class NoDuplicateMessageColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
         public static final String COLUMN_FROM_USER = "from_user";
@@ -119,10 +222,26 @@ public class TableDefine {
         public static final String COLUMN_MSGID = "msgid";
         public static final String COLUMN_MSG_KEY = "msg_key";
         public static final String COLUMN_MSG_TYPE = "type";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public NoDuplicateMessageColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class PaCmdQueueColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_EXTRA_DATA = "extra";
         public static final String COLUMN_METHOD_ID = "methodId";
         public static final String COLUMN_PARAM = "msg_body";
@@ -130,10 +249,26 @@ public class TableDefine {
         public static final String COLUMN_SEND_STATUS = "send_status";
         public static final String COLUMN_TYPE = "type";
         public static final String COLUMN_UUID = "uuid";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public PaCmdQueueColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class PaSubscribeColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACCEPT_PUSH = "acceptpush";
         public static final String COLUMN_AVATAR = "avatar";
         public static final String COLUMN_CLASSAVATAR = "classavatar";
@@ -165,10 +300,26 @@ public class TableDefine {
         public static final String COLUMN_URL = "url";
         public static final String COLUMN_VIP_ID = "vip_id";
         public static final String COLUMN_V_PORTRAIT = "v_portrait";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public PaSubscribeColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class ReliableMessageColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
         public static final String COLUMN_CONTENT = "content";
@@ -180,10 +331,26 @@ public class TableDefine {
         public static final String COLUMN_MSG_KEY = "msg_key";
         public static final String COLUMN_PRIORITY = "priority";
         public static final String COLUMN_TYPE = "type";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public ReliableMessageColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class SessionColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CERTIFICATION = "certification";
         public static final String COLUMN_CHAT_TYPE = "chat_type";
@@ -215,10 +382,26 @@ public class TableDefine {
         public static final String COLUMN_VIP_ID = "vip_id";
         public static final String COLUMN_V_PORTRAIT = "v_portrait";
         public static final String COLUMN_WEIGHT = "weight";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public SessionColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class StudioUsePaMessageColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
         public static final String COLUMN_CONTENT = "content";
@@ -228,10 +411,26 @@ public class TableDefine {
         public static final String COLUMN_MSGID = "msgid";
         public static final String COLUMN_MSG_KEY = "msg_key";
         public static final String COLUMN_MSG_TYPE = "type";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public StudioUsePaMessageColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class UserInfoColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACCOUNTTYPE = "account_type";
         public static final String COLUMN_BAIDU_UID = "buid";
         public static final String COLUMN_BLACKLIST = "blacklist";
@@ -263,10 +462,26 @@ public class TableDefine {
         public static final String COLUMN_USER_EXT = "user_ext";
         public static final String COLUMN_VIP_ID = "vip_id";
         public static final String COLUMN_V_PORTRAIT = "v_portrait";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public UserInfoColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class ZhiDaColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACCEPT_PUSH = "acceptpush";
         public static final String COLUMN_APIKEY = "apikey";
         public static final String COLUMN_APPID = "zhidaid";
@@ -278,5 +493,34 @@ public class TableDefine {
         public static final String COLUMN_PA_ID = "paid";
         public static final String COLUMN_SOFTTTL = "sfot_ttl";
         public static final String COLUMN_STATUS = "status";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public ZhiDaColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public TableDefine() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

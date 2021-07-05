@@ -1,25 +1,48 @@
 package com.baidu.lbsapi.auth;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f6341a;
+    public final /* synthetic */ c f6371a;
 
     public d(c cVar) {
-        this.f6341a = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f6371a = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
         HashMap<String, String> hashMap;
-        a.a("postWithHttps start Thread id = " + String.valueOf(Thread.currentThread().getId()));
-        context = this.f6341a.f6338a;
-        g gVar = new g(context);
-        hashMap = this.f6341a.f6339b;
-        this.f6341a.a(gVar.a(hashMap));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            a.a("postWithHttps start Thread id = " + String.valueOf(Thread.currentThread().getId()));
+            context = this.f6371a.f6368a;
+            g gVar = new g(context);
+            hashMap = this.f6371a.f6369b;
+            this.f6371a.a(gVar.a(hashMap));
+        }
     }
 }

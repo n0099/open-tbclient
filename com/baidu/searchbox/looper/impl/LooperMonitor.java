@@ -1,24 +1,66 @@
 package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
-import d.f.b.a.b;
-import d.f.b.a.c;
-import d.f.b.a.d;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.e.b.a.b;
+import d.e.b.a.c;
+import d.e.b.a.d;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LooperMonitor implements ILooperMonitor {
-    public static volatile boolean sIsStartTrack = false;
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile boolean sIsStartTrack;
     public static LooperContextDispatcher sLooperContextDispatcher;
+    public transient /* synthetic */ FieldHolder $fh;
     public c mBlockCanaryCore;
-    public boolean mMonitorStarted = false;
+    public boolean mMonitorStarted;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1032636733, "Lcom/baidu/searchbox/looper/impl/LooperMonitor;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1032636733, "Lcom/baidu/searchbox/looper/impl/LooperMonitor;");
+        }
+    }
+
+    public LooperMonitor() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mMonitorStarted = false;
+    }
 
     private void startLooperPrint() {
-        if (this.mMonitorStarted) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.mMonitorStarted) {
             return;
         }
         this.mMonitorStarted = true;
@@ -26,7 +68,8 @@ public class LooperMonitor implements ILooperMonitor {
     }
 
     public static void startTrack(Context context) {
-        if (sIsStartTrack) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || sIsStartTrack) {
             return;
         }
         sIsStartTrack = true;
@@ -34,38 +77,48 @@ public class LooperMonitor implements ILooperMonitor {
     }
 
     public void addBlockInterceptor(d dVar) {
-        if (dVar != null) {
-            this.mBlockCanaryCore.b(dVar);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || dVar == null) {
+            return;
         }
+        this.mBlockCanaryCore.b(dVar);
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
     public boolean enableMonitor() {
-        return LooperRuntime.getInstance().enableLooper();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? LooperRuntime.getInstance().enableLooper() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
     public boolean isMonitorStarted() {
-        return this.mMonitorStarted;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMonitorStarted : invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
     public void startLooperMonitor(Context context, int i2) {
-        if (sLooperContextDispatcher == null) {
-            sLooperContextDispatcher = new LooperContextDispatcher();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, context, i2) == null) {
+            if (sLooperContextDispatcher == null) {
+                sLooperContextDispatcher = new LooperContextDispatcher();
+            }
+            b.init(context, sLooperContextDispatcher, i2);
+            c.l(b.get());
+            c f2 = c.f();
+            this.mBlockCanaryCore = f2;
+            f2.b(b.get());
+            startLooperPrint();
+            startTrack(context);
         }
-        b.init(context, sLooperContextDispatcher, i2);
-        c.l(b.get());
-        c f2 = c.f();
-        this.mBlockCanaryCore = f2;
-        f2.b(b.get());
-        startLooperPrint();
-        startTrack(context);
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
     public void stopLooperMonitor() {
-        if (this.mMonitorStarted) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.mMonitorStarted) {
             this.mMonitorStarted = false;
             sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.h());
             this.mBlockCanaryCore.k().d();

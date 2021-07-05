@@ -1,13 +1,22 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import d.a.o0.k1.o.k.b;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.n1.o.k.b;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ButtonCard extends BaseCardInfo {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int BUTTON_COLOR_FILL = 2;
     public static final int BUTTON_COLOR_FRAME = 1;
     public static final int DEFAULT_BUTTON_COLOR_STYLE = -1;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final String bgPicUrl;
     public final int btnColorStyle;
@@ -21,8 +30,24 @@ public class ButtonCard extends BaseCardInfo {
     public final String title;
     public final int titleColor;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ButtonCard(JSONObject jSONObject) {
         super(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.defaultWidth = 750;
         this.defaultHeight = 80;
         this.title = jSONObject.optString("title", "");
@@ -38,68 +63,103 @@ public class ButtonCard extends BaseCardInfo {
     }
 
     private void extractPhoneNumber(String str) {
-        if (TextUtils.isEmpty(str)) {
-            this.phoneNumber = "";
-        } else {
-            this.phoneNumber = str.substring(4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.phoneNumber = "";
+            } else {
+                this.phoneNumber = str.substring(4);
+            }
         }
     }
 
     public int getBgColor() {
-        return this.bgColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bgColor : invokeV.intValue;
     }
 
     public String getBtnScheme() {
-        return this.btnScheme;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.btnScheme : (String) invokeV.objValue;
     }
 
     public int getButtonColor() {
-        return this.buttonColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.buttonColor : invokeV.intValue;
     }
 
     public int getCardHeight() {
-        return this.cardHeight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cardHeight : invokeV.intValue;
     }
 
     public int getCardWidth() {
-        return this.cardWidth;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cardWidth : invokeV.intValue;
     }
 
     public String getPhoneNumber() {
-        return this.phoneNumber;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.phoneNumber : (String) invokeV.objValue;
     }
 
     public String getPicUrl() {
-        return this.bgPicUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.bgPicUrl : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
-        int i2 = this.cardWidth;
-        if (i2 > 0) {
-            return this.cardHeight / i2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i2 = this.cardWidth;
+            if (i2 > 0) {
+                return this.cardHeight / i2;
+            }
+            return super.getRatio();
         }
-        return super.getRatio();
+        return invokeV.doubleValue;
     }
 
     public int getStyle() {
-        return this.btnColorStyle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.btnColorStyle : invokeV.intValue;
     }
 
     public String getText() {
-        return this.title;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 
     public int getTextColor() {
-        return this.titleColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.titleColor : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.btnScheme);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? !TextUtils.isEmpty(this.btnScheme) : invokeV.booleanValue;
     }
 
     public String toString() {
-        return super.toString() + this.bgPicUrl + this.btnScheme;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return super.toString() + this.bgPicUrl + this.btnScheme;
+        }
+        return (String) invokeV.objValue;
     }
 }

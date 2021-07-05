@@ -1,5 +1,12 @@
 package com.facebook.datasource;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
@@ -10,45 +17,110 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes6.dex */
 public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<T>> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
+
+    /* renamed from: com.facebook.datasource.FirstAvailableDataSourceSupplier$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     @ThreadSafe
     /* loaded from: classes6.dex */
     public class FirstAvailableDataSource extends AbstractDataSource<T> {
-        public int mIndex = 0;
-        public DataSource<T> mCurrentDataSource = null;
-        public DataSource<T> mDataSourceWithResult = null;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public DataSource<T> mCurrentDataSource;
+        public DataSource<T> mDataSourceWithResult;
+        public int mIndex;
+        public final /* synthetic */ FirstAvailableDataSourceSupplier this$0;
 
         /* loaded from: classes6.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
-            public InternalDataSubscriber() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ FirstAvailableDataSource this$1;
+
+            public InternalDataSubscriber(FirstAvailableDataSource firstAvailableDataSource) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {firstAvailableDataSource};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$1 = firstAvailableDataSource;
             }
 
             @Override // com.facebook.datasource.DataSubscriber
             public void onCancellation(DataSource<T> dataSource) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                }
             }
 
             @Override // com.facebook.datasource.DataSubscriber
             public void onFailure(DataSource<T> dataSource) {
-                FirstAvailableDataSource.this.onDataSourceFailed(dataSource);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
+                    this.this$1.onDataSourceFailed(dataSource);
+                }
             }
 
             @Override // com.facebook.datasource.DataSubscriber
             public void onNewResult(DataSource<T> dataSource) {
-                if (dataSource.hasResult()) {
-                    FirstAvailableDataSource.this.onDataSourceNewResult(dataSource);
-                } else if (dataSource.isFinished()) {
-                    FirstAvailableDataSource.this.onDataSourceFailed(dataSource);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource) == null) {
+                    if (dataSource.hasResult()) {
+                        this.this$1.onDataSourceNewResult(dataSource);
+                    } else if (dataSource.isFinished()) {
+                        this.this$1.onDataSourceFailed(dataSource);
+                    }
                 }
             }
 
             @Override // com.facebook.datasource.DataSubscriber
             public void onProgressUpdate(DataSource<T> dataSource) {
-                FirstAvailableDataSource.this.setProgress(Math.max(FirstAvailableDataSource.this.getProgress(), dataSource.getProgress()));
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
+                    this.this$1.setProgress(Math.max(this.this$1.getProgress(), dataSource.getProgress()));
+                }
+            }
+
+            public /* synthetic */ InternalDataSubscriber(FirstAvailableDataSource firstAvailableDataSource, AnonymousClass1 anonymousClass1) {
+                this(firstAvailableDataSource);
             }
         }
 
-        public FirstAvailableDataSource() {
+        public FirstAvailableDataSource(FirstAvailableDataSourceSupplier firstAvailableDataSourceSupplier) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {firstAvailableDataSourceSupplier};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = firstAvailableDataSourceSupplier;
+            this.mIndex = 0;
+            this.mCurrentDataSource = null;
+            this.mDataSourceWithResult = null;
             if (startNextDataSource()) {
                 return;
             }
@@ -56,54 +128,83 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
         }
 
         private synchronized boolean clearCurrentDataSource(DataSource<T> dataSource) {
-            if (!isClosed() && dataSource == this.mCurrentDataSource) {
-                this.mCurrentDataSource = null;
-                return true;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, dataSource)) == null) {
+                synchronized (this) {
+                    if (!isClosed() && dataSource == this.mCurrentDataSource) {
+                        this.mCurrentDataSource = null;
+                        return true;
+                    }
+                    return false;
+                }
             }
-            return false;
+            return invokeL.booleanValue;
         }
 
         private void closeSafely(DataSource<T> dataSource) {
-            if (dataSource != null) {
-                dataSource.close();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(65540, this, dataSource) == null) || dataSource == null) {
+                return;
             }
+            dataSource.close();
         }
 
         @Nullable
         private synchronized DataSource<T> getDataSourceWithResult() {
-            return this.mDataSourceWithResult;
+            InterceptResult invokeV;
+            DataSource<T> dataSource;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+                synchronized (this) {
+                    dataSource = this.mDataSourceWithResult;
+                }
+                return dataSource;
+            }
+            return (DataSource) invokeV.objValue;
         }
 
         @Nullable
         private synchronized Supplier<DataSource<T>> getNextSupplier() {
-            if (isClosed() || this.mIndex >= FirstAvailableDataSourceSupplier.this.mDataSourceSuppliers.size()) {
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+                synchronized (this) {
+                    if (isClosed() || this.mIndex >= this.this$0.mDataSourceSuppliers.size()) {
+                        return null;
+                    }
+                    List list = this.this$0.mDataSourceSuppliers;
+                    int i2 = this.mIndex;
+                    this.mIndex = i2 + 1;
+                    return (Supplier) list.get(i2);
+                }
             }
-            List list = FirstAvailableDataSourceSupplier.this.mDataSourceSuppliers;
-            int i2 = this.mIndex;
-            this.mIndex = i2 + 1;
-            return (Supplier) list.get(i2);
+            return (Supplier) invokeV.objValue;
         }
 
         private void maybeSetDataSourceWithResult(DataSource<T> dataSource, boolean z) {
             DataSource<T> dataSource2;
-            synchronized (this) {
-                if (dataSource == this.mCurrentDataSource && dataSource != this.mDataSourceWithResult) {
-                    if (this.mDataSourceWithResult != null && !z) {
-                        dataSource2 = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65543, this, dataSource, z) == null) {
+                synchronized (this) {
+                    if (dataSource == this.mCurrentDataSource && dataSource != this.mDataSourceWithResult) {
+                        if (this.mDataSourceWithResult != null && !z) {
+                            dataSource2 = null;
+                            closeSafely(dataSource2);
+                        }
+                        DataSource<T> dataSource3 = this.mDataSourceWithResult;
+                        this.mDataSourceWithResult = dataSource;
+                        dataSource2 = dataSource3;
                         closeSafely(dataSource2);
                     }
-                    DataSource<T> dataSource3 = this.mDataSourceWithResult;
-                    this.mDataSourceWithResult = dataSource;
-                    dataSource2 = dataSource3;
-                    closeSafely(dataSource2);
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void onDataSourceFailed(DataSource<T> dataSource) {
-            if (clearCurrentDataSource(dataSource)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(65544, this, dataSource) == null) && clearCurrentDataSource(dataSource)) {
                 if (dataSource != getDataSourceWithResult()) {
                     closeSafely(dataSource);
                 }
@@ -116,96 +217,158 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
 
         /* JADX INFO: Access modifiers changed from: private */
         public void onDataSourceNewResult(DataSource<T> dataSource) {
-            maybeSetDataSourceWithResult(dataSource, dataSource.isFinished());
-            if (dataSource == getDataSourceWithResult()) {
-                setResult(null, dataSource.isFinished());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65545, this, dataSource) == null) {
+                maybeSetDataSourceWithResult(dataSource, dataSource.isFinished());
+                if (dataSource == getDataSourceWithResult()) {
+                    setResult(null, dataSource.isFinished());
+                }
             }
         }
 
         private synchronized boolean setCurrentDataSource(DataSource<T> dataSource) {
-            if (isClosed()) {
-                return false;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, dataSource)) == null) {
+                synchronized (this) {
+                    if (isClosed()) {
+                        return false;
+                    }
+                    this.mCurrentDataSource = dataSource;
+                    return true;
+                }
             }
-            this.mCurrentDataSource = dataSource;
-            return true;
+            return invokeL.booleanValue;
         }
 
         private boolean startNextDataSource() {
-            Supplier<DataSource<T>> nextSupplier = getNextSupplier();
-            DataSource<T> dataSource = nextSupplier != null ? nextSupplier.get() : null;
-            if (setCurrentDataSource(dataSource) && dataSource != null) {
-                dataSource.subscribe(new InternalDataSubscriber(), CallerThreadExecutor.getInstance());
-                return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+                Supplier<DataSource<T>> nextSupplier = getNextSupplier();
+                DataSource<T> dataSource = nextSupplier != null ? nextSupplier.get() : null;
+                if (setCurrentDataSource(dataSource) && dataSource != null) {
+                    dataSource.subscribe(new InternalDataSubscriber(this, null), CallerThreadExecutor.getInstance());
+                    return true;
+                }
+                closeSafely(dataSource);
+                return false;
             }
-            closeSafely(dataSource);
-            return false;
+            return invokeV.booleanValue;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
         public boolean close() {
-            synchronized (this) {
-                if (super.close()) {
-                    DataSource<T> dataSource = this.mCurrentDataSource;
-                    this.mCurrentDataSource = null;
-                    DataSource<T> dataSource2 = this.mDataSourceWithResult;
-                    this.mDataSourceWithResult = null;
-                    closeSafely(dataSource2);
-                    closeSafely(dataSource);
-                    return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                synchronized (this) {
+                    if (super.close()) {
+                        DataSource<T> dataSource = this.mCurrentDataSource;
+                        this.mCurrentDataSource = null;
+                        DataSource<T> dataSource2 = this.mDataSourceWithResult;
+                        this.mDataSourceWithResult = null;
+                        closeSafely(dataSource2);
+                        closeSafely(dataSource);
+                        return true;
+                    }
+                    return false;
                 }
-                return false;
             }
+            return invokeV.booleanValue;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
         @Nullable
         public synchronized T getResult() {
-            DataSource<T> dataSourceWithResult;
-            dataSourceWithResult = getDataSourceWithResult();
-            return dataSourceWithResult != null ? dataSourceWithResult.getResult() : null;
+            InterceptResult invokeV;
+            T result;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                synchronized (this) {
+                    DataSource<T> dataSourceWithResult = getDataSourceWithResult();
+                    result = dataSourceWithResult != null ? dataSourceWithResult.getResult() : null;
+                }
+                return result;
+            }
+            return (T) invokeV.objValue;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
         public synchronized boolean hasResult() {
+            InterceptResult invokeV;
             boolean z;
-            DataSource<T> dataSourceWithResult = getDataSourceWithResult();
-            if (dataSourceWithResult != null) {
-                z = dataSourceWithResult.hasResult();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                synchronized (this) {
+                    DataSource<T> dataSourceWithResult = getDataSourceWithResult();
+                    if (dataSourceWithResult != null) {
+                        z = dataSourceWithResult.hasResult();
+                    }
+                }
+                return z;
             }
-            return z;
+            return invokeV.booleanValue;
         }
     }
 
     public FirstAvailableDataSourceSupplier(List<Supplier<DataSource<T>>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         Preconditions.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
         this.mDataSourceSuppliers = list;
     }
 
     public static <T> FirstAvailableDataSourceSupplier<T> create(List<Supplier<DataSource<T>>> list) {
-        return new FirstAvailableDataSourceSupplier<>(list);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) ? new FirstAvailableDataSourceSupplier<>(list) : (FirstAvailableDataSourceSupplier) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj instanceof FirstAvailableDataSourceSupplier) {
+                return Objects.equal(this.mDataSourceSuppliers, ((FirstAvailableDataSourceSupplier) obj).mDataSourceSuppliers);
+            }
+            return false;
         }
-        if (obj instanceof FirstAvailableDataSourceSupplier) {
-            return Objects.equal(this.mDataSourceSuppliers, ((FirstAvailableDataSourceSupplier) obj).mDataSourceSuppliers);
-        }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public int hashCode() {
-        return this.mDataSourceSuppliers.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDataSourceSuppliers.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
-        return Objects.toStringHelper(this).add("list", this.mDataSourceSuppliers).toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Objects.toStringHelper(this).add("list", this.mDataSourceSuppliers).toString() : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.Supplier
     public DataSource<T> get() {
-        return new FirstAvailableDataSource();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new FirstAvailableDataSource(this) : (DataSource) invokeV.objValue;
     }
 }

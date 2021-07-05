@@ -4,79 +4,135 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class AlaPlayAnimationView extends ImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f21711e;
+    public ObjectAnimator f21941e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21712f;
+    public boolean f21942f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21713g;
+    public boolean f21943g;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.f21712f = false;
-        this.f21713g = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f21942f = false;
+        this.f21943g = false;
         a();
     }
 
     public final void a() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.f21711e = ofFloat;
-        ofFloat.setRepeatMode(1);
-        this.f21711e.setRepeatCount(-1);
-        this.f21711e.setDuration(700L);
-        setVisibility(8);
-        this.f21712f = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+            this.f21941e = ofFloat;
+            ofFloat.setRepeatMode(1);
+            this.f21941e.setRepeatCount(-1);
+            this.f21941e.setDuration(700L);
+            setVisibility(8);
+            this.f21942f = false;
+        }
     }
 
     public void b() {
-        if (this.f21712f) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f21942f) {
             return;
         }
-        this.f21712f = true;
-        if (this.f21711e != null) {
+        this.f21942f = true;
+        if (this.f21941e != null) {
             setVisibility(0);
-            this.f21711e.start();
+            this.f21941e.start();
         }
     }
 
     public void c() {
-        ObjectAnimator objectAnimator = this.f21711e;
-        if (objectAnimator != null) {
-            objectAnimator.setRepeatCount(-1);
-            this.f21711e.cancel();
-            clearAnimation();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ObjectAnimator objectAnimator = this.f21941e;
+            if (objectAnimator != null) {
+                objectAnimator.setRepeatCount(-1);
+                this.f21941e.cancel();
+                clearAnimation();
+            }
+            this.f21942f = false;
+            setVisibility(8);
         }
-        this.f21712f = false;
-        setVisibility(8);
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        if (this.f21713g) {
-            b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onAttachedToWindow();
+            if (this.f21943g) {
+                b();
+            }
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        c();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDetachedFromWindow();
+            c();
+        }
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.f21713g = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f21943g = z;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21712f = false;
-        this.f21713g = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f21942f = false;
+        this.f21943g = false;
         a();
     }
 }

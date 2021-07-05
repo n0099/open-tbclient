@@ -3,60 +3,97 @@ package d.a.c.k.e;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public abstract class c implements BdSwipeRefreshLayout.i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f43018e;
-
-    /* renamed from: i  reason: collision with root package name */
-    public a f43022i;
+    public Context f44827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f43019f = null;
+    public View f44828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f43020g = true;
+    public boolean f44829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43021h = 0;
-    public boolean j = false;
+    public int f44830h;
 
-    /* loaded from: classes.dex */
+    /* renamed from: i  reason: collision with root package name */
+    public a f44831i;
+    public boolean j;
+
+    /* loaded from: classes8.dex */
     public interface a {
         void a(c cVar, int i2, int i3, int i4, int i5);
     }
 
     public c(Context context) {
-        this.f43018e = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44827e = null;
+        this.f44828f = null;
+        this.f44829g = true;
+        this.f44830h = 0;
+        this.j = false;
         if (context != null) {
-            this.f43018e = context;
+            this.f44827e = context;
             return;
         }
         throw new InvalidParameterException("BdIListPullView context is null");
     }
 
     public void A() {
-        this.j = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.j = false;
+        }
     }
 
     public void B(boolean z) {
-        this.f43020g = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f44829g = z;
+        }
     }
 
     public void C(a aVar) {
-        this.f43022i = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.f44831i = aVar;
+        }
     }
 
     public void D(int i2, int i3, int i4, int i5) {
-        View view = this.f43019f;
-        if (view == null || this.j) {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) || (view = this.f44828f) == null || this.j) {
             return;
         }
         view.setPadding(i2, i3, i4, i5);
-        a aVar = this.f43022i;
+        a aVar = this.f44831i;
         if (aVar != null) {
             aVar.a(this, i2, i4, i3 + q(), i5);
         }
@@ -64,7 +101,8 @@ public abstract class c implements BdSwipeRefreshLayout.i {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void c() {
-        if (this.j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.j) {
             return;
         }
         x(false);
@@ -72,7 +110,8 @@ public abstract class c implements BdSwipeRefreshLayout.i {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void d() {
-        if (this.j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.j) {
             return;
         }
         z();
@@ -80,32 +119,46 @@ public abstract class c implements BdSwipeRefreshLayout.i {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void e(float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public long getCompleteAnimTime() {
-        return 0L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public final View getView() {
-        if (this.f43019f == null) {
-            View n = n();
-            this.f43019f = n;
-            if (n != null) {
-                t(n);
-                this.f43021h = this.f43019f.getMeasuredHeight();
-                this.f43019f.getMeasuredWidth();
-            } else {
-                throw new IllegalStateException("BdIListPullView getView is null");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.f44828f == null) {
+                View n = n();
+                this.f44828f = n;
+                if (n != null) {
+                    t(n);
+                    this.f44830h = this.f44828f.getMeasuredHeight();
+                    this.f44828f.getMeasuredWidth();
+                } else {
+                    throw new IllegalStateException("BdIListPullView getView is null");
+                }
             }
+            return this.f44828f;
         }
-        return this.f43019f;
+        return (View) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void k() {
-        if (this.j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.j) {
             return;
         }
         u();
@@ -113,7 +166,8 @@ public abstract class c implements BdSwipeRefreshLayout.i {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void m() {
-        if (this.j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.j) {
             return;
         }
         y();
@@ -126,42 +180,54 @@ public abstract class c implements BdSwipeRefreshLayout.i {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void onFinish() {
-        if (this.j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.j) {
             return;
         }
         o(true);
     }
 
     public Context p() {
-        return this.f43018e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f44827e : (Context) invokeV.objValue;
     }
 
     public int q() {
-        return this.f43021h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f44830h : invokeV.intValue;
     }
 
     public boolean r() {
-        return this.f43020g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f44829g : invokeV.booleanValue;
     }
 
     public boolean s() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
     public final void t(View view) {
         int makeMeasureSpec;
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(-1, -2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, view) == null) {
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
+            }
+            int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
+            int i2 = layoutParams.height;
+            if (i2 > 0) {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i2, 1073741824);
+            } else {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
+            }
+            view.measure(childMeasureSpec, makeMeasureSpec);
         }
-        int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
-        int i2 = layoutParams.height;
-        if (i2 > 0) {
-            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i2, 1073741824);
-        } else {
-            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        }
-        view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
     public abstract void u();
@@ -169,7 +235,10 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     public abstract void v(boolean z);
 
     public void w() {
-        this.j = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.j = true;
+        }
     }
 
     public abstract void x(boolean z);

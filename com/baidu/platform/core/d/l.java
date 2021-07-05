@@ -1,25 +1,44 @@
 package com.baidu.platform.core.d;
 
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
 public /* synthetic */ class l {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f9349a;
+    public static final /* synthetic */ int[] f9423a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2056793028, "Lcom/baidu/platform/core/d/l;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2056793028, "Lcom/baidu/platform/core/d/l;");
+                return;
+            }
+        }
         int[] iArr = new int[SearchType.values().length];
-        f9349a = iArr;
+        f9423a = iArr;
         try {
-            iArr[SearchType.TRANSIT_ROUTE.ordinal()] = 1;
+            iArr[SearchType.j.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f9349a[SearchType.DRIVE_ROUTE.ordinal()] = 2;
+            f9423a[SearchType.k.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f9349a[SearchType.WALK_ROUTE.ordinal()] = 3;
+            f9423a[SearchType.m.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
     }

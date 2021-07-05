@@ -1,43 +1,92 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.f.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class JPushSdkSwitch extends a {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String JPUSH_SDK_KEY = "android_jpush_switch";
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public JPushSdkSwitch() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static boolean isOn() {
-        return SwitchManager.getInstance().findType(JPUSH_SDK_KEY) == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType(JPUSH_SDK_KEY) == 1 : invokeV.booleanValue;
     }
 
     @Override // d.a.c.e.f.a
     public void changeSettingByType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        }
     }
 
     @Override // d.a.c.e.f.a
     public String[] getCrashKeys() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
     }
 
     @Override // d.a.c.e.f.a
     public int getDefaultType() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // d.a.c.e.f.a
     public int getMaxCrashTimes() {
-        return 10;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
     }
 
     @Override // d.a.c.e.f.a
     public String getName() {
-        return JPUSH_SDK_KEY;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? JPUSH_SDK_KEY : (String) invokeV.objValue;
     }
 
     @Override // d.a.c.e.f.a
     public int getOffType() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

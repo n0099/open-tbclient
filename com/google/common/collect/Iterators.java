@@ -1,15 +1,24 @@
 package com.google.common.collect;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Ints;
-import d.g.c.a.k;
-import d.g.c.a.n;
-import d.g.c.a.o;
-import d.g.c.c.a1;
-import d.g.c.c.c1;
-import d.g.c.c.d1;
-import d.g.c.c.m;
-import d.g.c.c.m0;
+import d.f.d.a.k;
+import d.f.d.a.n;
+import d.f.d.a.o;
+import d.f.d.c.m;
+import d.f.d.c.m1;
+import d.f.d.c.o1;
+import d.f.d.c.p1;
+import d.f.d.c.x0;
 import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Comparator;
@@ -20,534 +29,988 @@ import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import kotlin.text.Typography;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Iterators {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public enum EmptyModifiableIterator implements Iterator<Object> {
-        INSTANCE;
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static final class EmptyModifiableIterator implements Iterator<Object> {
+        public static final /* synthetic */ EmptyModifiableIterator[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final EmptyModifiableIterator INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-430420216, "Lcom/google/common/collect/Iterators$EmptyModifiableIterator;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-430420216, "Lcom/google/common/collect/Iterators$EmptyModifiableIterator;");
+                    return;
+                }
+            }
+            EmptyModifiableIterator emptyModifiableIterator = new EmptyModifiableIterator("INSTANCE", 0);
+            INSTANCE = emptyModifiableIterator;
+            $VALUES = new EmptyModifiableIterator[]{emptyModifiableIterator};
+        }
+
+        public EmptyModifiableIterator(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static EmptyModifiableIterator valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EmptyModifiableIterator) Enum.valueOf(EmptyModifiableIterator.class, str) : (EmptyModifiableIterator) invokeL.objValue;
+        }
+
+        public static EmptyModifiableIterator[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EmptyModifiableIterator[]) $VALUES.clone() : (EmptyModifiableIterator[]) invokeV.objValue;
+        }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public Object next() {
-            throw new NoSuchElementException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                throw new NoSuchElementException();
+            }
+            return invokeV.objValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                m.e(false);
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class a extends c1<T> {
+    /* loaded from: classes7.dex */
+    public static class a extends o1<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterator f31265e;
+        public final /* synthetic */ Iterator f33145e;
 
         public a(Iterator it) {
-            this.f31265e = it;
-        }
-
-        @Override // java.util.Iterator
-        public boolean hasNext() {
-            return this.f31265e.hasNext();
-        }
-
-        /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
-        @Override // java.util.Iterator
-        public T next() {
-            return this.f31265e.next();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends AbstractIterator<T> {
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Iterator f31266g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ o f31267h;
-
-        public b(Iterator it, o oVar) {
-            this.f31266g = it;
-            this.f31267h = oVar;
-        }
-
-        /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
-        @Override // com.google.common.collect.AbstractIterator
-        public T a() {
-            while (this.f31266g.hasNext()) {
-                ?? next = this.f31266g.next();
-                if (this.f31267h.apply(next)) {
-                    return next;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {it};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return b();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends a1<F, T> {
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.g.c.a.g f31268f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(Iterator it, d.g.c.a.g gVar) {
-            super(it);
-            this.f31268f = gVar;
-        }
-
-        /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Object] */
-        @Override // d.g.c.c.a1
-        public T a(F f2) {
-            return this.f31268f.apply(f2);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends c1<T> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public boolean f31269e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f31270f;
-
-        public d(Object obj) {
-            this.f31270f = obj;
+            this.f33145e = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return !this.f31269e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33145e.hasNext() : invokeV.booleanValue;
         }
 
         /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
+        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
         @Override // java.util.Iterator
         public T next() {
-            if (!this.f31269e) {
-                this.f31269e = true;
-                return this.f31270f;
-            }
-            throw new NoSuchElementException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33145e.next() : invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class e<T> extends d.g.c.c.a<T> {
-
-        /* renamed from: i  reason: collision with root package name */
-        public static final d1<Object> f31271i = new e(new Object[0], 0, 0, 0);
+    /* loaded from: classes7.dex */
+    public static class b extends AbstractIterator<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final T[] f31272g;
+        public final /* synthetic */ Iterator f33146g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f31273h;
+        public final /* synthetic */ o f33147h;
 
-        public e(T[] tArr, int i2, int i3, int i4) {
-            super(i3, i4);
-            this.f31272g = tArr;
-            this.f31273h = i2;
+        public b(Iterator it, o oVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {it, oVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33146g = it;
+            this.f33147h = oVar;
         }
 
-        @Override // d.g.c.c.a
-        public T a(int i2) {
-            return this.f31272g[this.f31273h + i2];
+        /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
+        /* JADX WARN: Type inference failed for: r1v2, types: [T, java.lang.Object] */
+        @Override // com.google.common.collect.AbstractIterator
+        public T a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                while (this.f33146g.hasNext()) {
+                    ?? next = this.f33146g.next();
+                    if (this.f33147h.apply(next)) {
+                        return next;
+                    }
+                }
+                return b();
+            }
+            return invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class f<T> implements Iterator<T> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public Iterator<? extends T> f31274e;
+    /* loaded from: classes7.dex */
+    public static class c extends m1<F, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public Iterator<? extends T> f31275f = Iterators.h();
+        public final /* synthetic */ d.f.d.a.g f33148f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(Iterator it, d.f.d.a.g gVar) {
+            super(it);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {it, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Iterator) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33148f = gVar;
+        }
+
+        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
+        /* JADX WARN: Type inference failed for: r5v1, types: [T, java.lang.Object] */
+        @Override // d.f.d.c.m1
+        public T a(F f2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f33148f.apply(f2) : invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d extends o1<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f33149e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ Object f33150f;
+
+        public d(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33150f = obj;
+        }
+
+        @Override // java.util.Iterator
+        public boolean hasNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f33149e : invokeV.booleanValue;
+        }
+
+        /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
+        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
+        @Override // java.util.Iterator
+        public T next() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (!this.f33149e) {
+                    this.f33149e = true;
+                    return this.f33150f;
+                }
+                throw new NoSuchElementException();
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class e<T> extends d.f.d.c.a<T> {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: i  reason: collision with root package name */
+        public static final p1<Object> f33151i;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public Iterator<? extends Iterator<? extends T>> f31276g;
+        public final T[] f33152g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Deque<Iterator<? extends Iterator<? extends T>>> f31277h;
+        public final int f33153h;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(907880962, "Lcom/google/common/collect/Iterators$e;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(907880962, "Lcom/google/common/collect/Iterators$e;");
+                    return;
+                }
+            }
+            f33151i = new e(new Object[0], 0, 0, 0);
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(T[] tArr, int i2, int i3, int i4) {
+            super(i3, i4);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f33152g = tArr;
+            this.f33153h = i2;
+        }
+
+        @Override // d.f.d.c.a
+        public T a(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33152g[this.f33153h + i2] : (T) invokeI.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class f<T> implements Iterator<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public Iterator<? extends T> f33154e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public Iterator<? extends T> f33155f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public Iterator<? extends Iterator<? extends T>> f33156g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public Deque<Iterator<? extends Iterator<? extends T>>> f33157h;
 
         public f(Iterator<? extends Iterator<? extends T>> it) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {it};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33155f = Iterators.i();
             n.p(it);
-            this.f31276g = it;
+            this.f33156g = it;
         }
 
         public final Iterator<? extends Iterator<? extends T>> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (Iterator) invokeV.objValue;
+            }
             while (true) {
-                Iterator<? extends Iterator<? extends T>> it = this.f31276g;
+                Iterator<? extends Iterator<? extends T>> it = this.f33156g;
                 if (it != null && it.hasNext()) {
-                    return this.f31276g;
+                    return this.f33156g;
                 }
-                Deque<Iterator<? extends Iterator<? extends T>>> deque = this.f31277h;
+                Deque<Iterator<? extends Iterator<? extends T>>> deque = this.f33157h;
                 if (deque == null || deque.isEmpty()) {
                     return null;
                 }
-                this.f31276g = this.f31277h.removeFirst();
+                this.f33156g = this.f33157h.removeFirst();
             }
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+                return invokeV.booleanValue;
+            }
             while (true) {
-                Iterator<? extends T> it = this.f31275f;
+                Iterator<? extends T> it = this.f33155f;
                 n.p(it);
                 if (it.hasNext()) {
                     return true;
                 }
                 Iterator<? extends Iterator<? extends T>> a2 = a();
-                this.f31276g = a2;
+                this.f33156g = a2;
                 if (a2 == null) {
                     return false;
                 }
                 Iterator<? extends T> next = a2.next();
-                this.f31275f = next;
+                this.f33155f = next;
                 if (next instanceof f) {
                     f fVar = (f) next;
-                    this.f31275f = fVar.f31275f;
-                    if (this.f31277h == null) {
-                        this.f31277h = new ArrayDeque();
+                    this.f33155f = fVar.f33155f;
+                    if (this.f33157h == null) {
+                        this.f33157h = new ArrayDeque();
                     }
-                    this.f31277h.addFirst(this.f31276g);
-                    if (fVar.f31277h != null) {
-                        while (!fVar.f31277h.isEmpty()) {
-                            this.f31277h.addFirst(fVar.f31277h.removeLast());
+                    this.f33157h.addFirst(this.f33156g);
+                    if (fVar.f33157h != null) {
+                        while (!fVar.f33157h.isEmpty()) {
+                            this.f33157h.addFirst(fVar.f33157h.removeLast());
                         }
                     }
-                    this.f31276g = fVar.f31276g;
+                    this.f33156g = fVar.f33156g;
                 }
             }
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (hasNext()) {
-                Iterator<? extends T> it = this.f31275f;
-                this.f31274e = it;
-                return it.next();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (hasNext()) {
+                    Iterator<? extends T> it = this.f33155f;
+                    this.f33154e = it;
+                    return it.next();
+                }
+                throw new NoSuchElementException();
             }
-            throw new NoSuchElementException();
+            return (T) invokeV.objValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f31274e != null);
-            this.f31274e.remove();
-            this.f31274e = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                m.e(this.f33154e != null);
+                this.f33154e.remove();
+                this.f33154e = null;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class g<T> extends c1<T> {
+    /* loaded from: classes7.dex */
+    public static class g<T> extends o1<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Queue<m0<T>> f31278e;
+        public final Queue<x0<T>> f33158e;
 
-        /* loaded from: classes6.dex */
-        public class a implements Comparator<m0<T>> {
+        /* loaded from: classes7.dex */
+        public class a implements Comparator<x0<T>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Comparator f31279e;
+            public final /* synthetic */ Comparator f33159e;
 
             public a(g gVar, Comparator comparator) {
-                this.f31279e = comparator;
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {gVar, comparator};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f33159e = comparator;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
-            public int compare(m0<T> m0Var, m0<T> m0Var2) {
-                return this.f31279e.compare(m0Var.peek(), m0Var2.peek());
+            public int compare(x0<T> x0Var, x0<T> x0Var2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, x0Var, x0Var2)) == null) ? this.f33159e.compare(x0Var.peek(), x0Var2.peek()) : invokeLL.intValue;
             }
         }
 
         public g(Iterable<? extends Iterator<? extends T>> iterable, Comparator<? super T> comparator) {
-            this.f31278e = new PriorityQueue(2, new a(this, comparator));
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iterable, comparator};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33158e = new PriorityQueue(2, new a(this, comparator));
             for (Iterator<? extends T> it : iterable) {
                 if (it.hasNext()) {
-                    this.f31278e.add(Iterators.p(it));
+                    this.f33158e.add(Iterators.s(it));
                 }
             }
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return !this.f31278e.isEmpty();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f33158e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            m0<T> remove = this.f31278e.remove();
-            T next = remove.next();
-            if (remove.hasNext()) {
-                this.f31278e.add(remove);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                x0<T> remove = this.f33158e.remove();
+                T next = remove.next();
+                if (remove.hasNext()) {
+                    this.f33158e.add(remove);
+                }
+                return next;
             }
-            return next;
+            return (T) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class h<E> implements m0<E> {
+    /* loaded from: classes7.dex */
+    public static class h<E> implements x0<E> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<? extends E> f31280e;
+        public final Iterator<? extends E> f33160e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f31281f;
+        public boolean f33161f;
 
         /* renamed from: g  reason: collision with root package name */
-        public E f31282g;
+        public E f33162g;
 
         public h(Iterator<? extends E> it) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {it};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             n.p(it);
-            this.f31280e = it;
+            this.f33160e = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31281f || this.f31280e.hasNext();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33161f || this.f33160e.hasNext() : invokeV.booleanValue;
         }
 
-        @Override // d.g.c.c.m0, java.util.Iterator
+        @Override // d.f.d.c.x0, java.util.Iterator
         public E next() {
-            if (!this.f31281f) {
-                return this.f31280e.next();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (!this.f33161f) {
+                    return this.f33160e.next();
+                }
+                E e2 = this.f33162g;
+                this.f33161f = false;
+                this.f33162g = null;
+                return e2;
             }
-            E e2 = this.f31282g;
-            this.f31281f = false;
-            this.f31282g = null;
-            return e2;
+            return (E) invokeV.objValue;
         }
 
-        @Override // d.g.c.c.m0
+        @Override // d.f.d.c.x0
         public E peek() {
-            if (!this.f31281f) {
-                this.f31282g = this.f31280e.next();
-                this.f31281f = true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (!this.f33161f) {
+                    this.f33162g = this.f33160e.next();
+                    this.f33161f = true;
+                }
+                return this.f33162g;
             }
-            return this.f31282g;
+            return (E) invokeV.objValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            n.x(!this.f31281f, "Can't remove after you've peeked at next");
-            this.f31280e.remove();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                n.x(!this.f33161f, "Can't remove after you've peeked at next");
+                this.f33160e.remove();
+            }
         }
+    }
+
+    public static <F, T> Iterator<T> A(Iterator<F> it, d.f.d.a.g<? super F, ? extends T> gVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, it, gVar)) == null) {
+            n.p(gVar);
+            return new c(it, gVar);
+        }
+        return (Iterator) invokeLL.objValue;
+    }
+
+    public static <T> o1<T> B(Iterator<? extends T> it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, it)) == null) {
+            n.p(it);
+            if (it instanceof o1) {
+                return (o1) it;
+            }
+            return new a(it);
+        }
+        return (o1) invokeL.objValue;
     }
 
     public static <T> boolean a(Collection<T> collection, Iterator<? extends T> it) {
-        n.p(collection);
-        n.p(it);
-        boolean z = false;
-        while (it.hasNext()) {
-            z |= collection.add(it.next());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, collection, it)) == null) {
+            n.p(collection);
+            n.p(it);
+            boolean z = false;
+            while (it.hasNext()) {
+                z |= collection.add(it.next());
+            }
+            return z;
         }
-        return z;
+        return invokeLL.booleanValue;
     }
 
     public static int b(Iterator<?> it, int i2) {
-        n.p(it);
-        int i3 = 0;
-        n.e(i2 >= 0, "numberToAdvance must be nonnegative");
-        while (i3 < i2 && it.hasNext()) {
-            it.next();
-            i3++;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, it, i2)) == null) {
+            n.p(it);
+            int i3 = 0;
+            n.e(i2 >= 0, "numberToAdvance must be nonnegative");
+            while (i3 < i2 && it.hasNext()) {
+                it.next();
+                i3++;
+            }
+            return i3;
         }
-        return i3;
+        return invokeLI.intValue;
     }
 
-    public static <T> ListIterator<T> c(Iterator<T> it) {
-        return (ListIterator) it;
+    public static <T> boolean c(Iterator<T> it, o<? super T> oVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, it, oVar)) == null) ? q(it, oVar) != -1 : invokeLL.booleanValue;
     }
 
-    public static void d(Iterator<?> it) {
-        n.p(it);
-        while (it.hasNext()) {
-            it.next();
-            it.remove();
-        }
+    public static <T> ListIterator<T> d(Iterator<T> it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, it)) == null) ? (ListIterator) it : (ListIterator) invokeL.objValue;
     }
 
-    public static <T> Iterator<T> e(Iterator<? extends Iterator<? extends T>> it) {
-        return new f(it);
-    }
-
-    public static boolean f(Iterator<?> it, Object obj) {
-        if (obj == null) {
+    public static void e(Iterator<?> it) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, it) == null) {
+            n.p(it);
             while (it.hasNext()) {
-                if (it.next() == null) {
+                it.next();
+                it.remove();
+            }
+        }
+    }
+
+    public static <T> Iterator<T> f(Iterator<? extends Iterator<? extends T>> it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, it)) == null) ? new f(it) : (Iterator) invokeL.objValue;
+    }
+
+    public static boolean g(Iterator<?> it, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, it, obj)) == null) {
+            if (obj == null) {
+                while (it.hasNext()) {
+                    if (it.next() == null) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            while (it.hasNext()) {
+                if (obj.equals(it.next())) {
                     return true;
                 }
             }
             return false;
         }
-        while (it.hasNext()) {
-            if (obj.equals(it.next())) {
-                return true;
-            }
-        }
-        return false;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:4:0x0006  */
+    /* JADX WARN: Removed duplicated region for block: B:6:0x000a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean g(Iterator<?> it, Iterator<?> it2) {
-        while (it.hasNext()) {
-            if (!it2.hasNext() || !k.a(it.next(), it2.next())) {
-                return false;
-            }
+    public static boolean h(Iterator<?> it, Iterator<?> it2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, it, it2)) == null) {
             while (it.hasNext()) {
+                if (!it2.hasNext() || !k.a(it.next(), it2.next())) {
+                    return false;
+                }
+                while (it.hasNext()) {
+                }
             }
+            return !it2.hasNext();
         }
-        return !it2.hasNext();
+        return invokeLL.booleanValue;
     }
 
-    public static <T> c1<T> h() {
-        return i();
+    public static <T> o1<T> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? j() : (o1) invokeV.objValue;
     }
 
-    public static <T> d1<T> i() {
-        return (d1<T>) e.f31271i;
+    public static <T> p1<T> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? (p1<T>) e.f33151i : (p1) invokeV.objValue;
     }
 
-    public static <T> Iterator<T> j() {
-        return EmptyModifiableIterator.INSTANCE;
+    public static <T> Iterator<T> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? EmptyModifiableIterator.INSTANCE : (Iterator) invokeV.objValue;
     }
 
-    public static <T> c1<T> k(Iterator<T> it, o<? super T> oVar) {
-        n.p(it);
-        n.p(oVar);
-        return new b(it, oVar);
+    public static <T> o1<T> l(Iterator<T> it, o<? super T> oVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, it, oVar)) == null) {
+            n.p(it);
+            n.p(oVar);
+            return new b(it, oVar);
+        }
+        return (o1) invokeLL.objValue;
     }
 
-    public static <T> T l(Iterator<T> it) {
-        T next;
-        do {
-            next = it.next();
-        } while (it.hasNext());
-        return next;
-    }
-
-    public static <T> T m(Iterator<? extends T> it, T t) {
-        return it.hasNext() ? it.next() : t;
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
+    public static <T> T m(Iterator<T> it, o<? super T> oVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, it, oVar)) == null) {
+            n.p(it);
+            n.p(oVar);
+            while (it.hasNext()) {
+                ?? next = it.next();
+                if (oVar.apply(next)) {
+                    return next;
+                }
+            }
+            throw new NoSuchElementException();
+        }
+        return (T) invokeLL.objValue;
     }
 
     public static <T> T n(Iterator<T> it) {
-        T next = it.next();
-        if (it.hasNext()) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("expected one element but was: <");
-            sb.append(next);
-            for (int i2 = 0; i2 < 4 && it.hasNext(); i2++) {
-                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(it.next());
-            }
-            if (it.hasNext()) {
-                sb.append(", ...");
-            }
-            sb.append(Typography.greater);
-            throw new IllegalArgumentException(sb.toString());
-        }
-        return next;
-    }
-
-    public static <T> c1<T> o(Iterable<? extends Iterator<? extends T>> iterable, Comparator<? super T> comparator) {
-        n.q(iterable, "iterators");
-        n.q(comparator, "comparator");
-        return new g(iterable, comparator);
-    }
-
-    public static <T> m0<T> p(Iterator<? extends T> it) {
-        if (it instanceof h) {
-            return (h) it;
-        }
-        return new h(it);
-    }
-
-    public static <T> T q(Iterator<T> it) {
-        if (it.hasNext()) {
-            T next = it.next();
-            it.remove();
+        T next;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, it)) == null) {
+            do {
+                next = it.next();
+            } while (it.hasNext());
             return next;
         }
-        return null;
+        return (T) invokeL.objValue;
     }
 
-    public static boolean r(Iterator<?> it, Collection<?> collection) {
-        n.p(collection);
-        boolean z = false;
-        while (it.hasNext()) {
-            if (collection.contains(it.next())) {
+    public static <T> T o(Iterator<? extends T> it, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, it, t)) == null) ? it.hasNext() ? it.next() : t : (T) invokeLL.objValue;
+    }
+
+    public static <T> T p(Iterator<T> it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, it)) == null) {
+            T next = it.next();
+            if (it.hasNext()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("expected one element but was: <");
+                sb.append(next);
+                for (int i2 = 0; i2 < 4 && it.hasNext(); i2++) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(it.next());
+                }
+                if (it.hasNext()) {
+                    sb.append(", ...");
+                }
+                sb.append(Typography.greater);
+                throw new IllegalArgumentException(sb.toString());
+            }
+            return next;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static <T> int q(Iterator<T> it, o<? super T> oVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, it, oVar)) == null) {
+            n.q(oVar, "predicate");
+            int i2 = 0;
+            while (it.hasNext()) {
+                if (oVar.apply(it.next())) {
+                    return i2;
+                }
+                i2++;
+            }
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static <T> o1<T> r(Iterable<? extends Iterator<? extends T>> iterable, Comparator<? super T> comparator) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, iterable, comparator)) == null) {
+            n.q(iterable, "iterators");
+            n.q(comparator, "comparator");
+            return new g(iterable, comparator);
+        }
+        return (o1) invokeLL.objValue;
+    }
+
+    public static <T> x0<T> s(Iterator<? extends T> it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, it)) == null) {
+            if (it instanceof h) {
+                return (h) it;
+            }
+            return new h(it);
+        }
+        return (x0) invokeL.objValue;
+    }
+
+    public static <T> T t(Iterator<T> it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, it)) == null) {
+            if (it.hasNext()) {
+                T next = it.next();
                 it.remove();
-                z = true;
+                return next;
             }
+            return null;
         }
-        return z;
+        return (T) invokeL.objValue;
     }
 
-    public static boolean s(Iterator<?> it, Collection<?> collection) {
-        n.p(collection);
-        boolean z = false;
-        while (it.hasNext()) {
-            if (!collection.contains(it.next())) {
-                it.remove();
-                z = true;
+    public static boolean u(Iterator<?> it, Collection<?> collection) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, it, collection)) == null) {
+            n.p(collection);
+            boolean z = false;
+            while (it.hasNext()) {
+                if (collection.contains(it.next())) {
+                    it.remove();
+                    z = true;
+                }
             }
+            return z;
         }
-        return z;
+        return invokeLL.booleanValue;
     }
 
-    public static <T> c1<T> t(T t) {
-        return new d(t);
-    }
-
-    public static int u(Iterator<?> it) {
-        long j = 0;
-        while (it.hasNext()) {
-            it.next();
-            j++;
-        }
-        return Ints.j(j);
-    }
-
-    public static String v(Iterator<?> it) {
-        StringBuilder sb = new StringBuilder();
-        sb.append('[');
-        boolean z = true;
-        while (it.hasNext()) {
-            if (!z) {
-                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+    public static <T> boolean v(Iterator<T> it, o<? super T> oVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, it, oVar)) == null) {
+            n.p(oVar);
+            boolean z = false;
+            while (it.hasNext()) {
+                if (oVar.apply(it.next())) {
+                    it.remove();
+                    z = true;
+                }
             }
-            z = false;
-            sb.append(it.next());
+            return z;
         }
-        sb.append(']');
-        return sb.toString();
+        return invokeLL.booleanValue;
     }
 
-    public static <F, T> Iterator<T> w(Iterator<F> it, d.g.c.a.g<? super F, ? extends T> gVar) {
-        n.p(gVar);
-        return new c(it, gVar);
+    public static boolean w(Iterator<?> it, Collection<?> collection) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, it, collection)) == null) {
+            n.p(collection);
+            boolean z = false;
+            while (it.hasNext()) {
+                if (!collection.contains(it.next())) {
+                    it.remove();
+                    z = true;
+                }
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static <T> c1<T> x(Iterator<? extends T> it) {
-        n.p(it);
-        if (it instanceof c1) {
-            return (c1) it;
+    public static <T> o1<T> x(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, t)) == null) ? new d(t) : (o1) invokeL.objValue;
+    }
+
+    public static int y(Iterator<?> it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, it)) == null) {
+            long j = 0;
+            while (it.hasNext()) {
+                it.next();
+                j++;
+            }
+            return Ints.j(j);
         }
-        return new a(it);
+        return invokeL.intValue;
+    }
+
+    public static String z(Iterator<?> it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, it)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            boolean z = true;
+            while (it.hasNext()) {
+                if (!z) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+                z = false;
+                sb.append(it.next());
+            }
+            sb.append(']');
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,0 +1,120 @@
+package d.b.c.b.h;
+
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.b.c.b.l;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes10.dex */
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f71882a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public d.b.c.b.g f71883b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Map<String, Object> f71884c;
+
+    public b(@NonNull Context context, @NonNull d.b.c.b.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, gVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f71882a = context;
+        this.f71883b = gVar;
+    }
+
+    public static boolean b(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) ? map == null || map.isEmpty() || !((map.containsKey("app_version") || map.containsKey("version_name")) && map.containsKey("version_code") && map.containsKey("update_version_code")) : invokeL.booleanValue;
+    }
+
+    @Nullable
+    public Map<String, Object> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Map<String, Object> a2 = this.f71883b.a();
+            if (a2 == null) {
+                a2 = new HashMap<>(4);
+            }
+            if (b(a2)) {
+                try {
+                    PackageInfo packageInfo = this.f71882a.getPackageManager().getPackageInfo(this.f71882a.getPackageName(), 128);
+                    a2.put("version_name", packageInfo.versionName);
+                    a2.put("version_code", Integer.valueOf(packageInfo.versionCode));
+                    if (a2.get("update_version_code") == null) {
+                        Object obj = packageInfo.applicationInfo.metaData != null ? packageInfo.applicationInfo.metaData.get("UPDATE_VERSION_CODE") : null;
+                        if (obj == null) {
+                            obj = a2.get("version_code");
+                        }
+                        a2.put("update_version_code", obj);
+                    }
+                } catch (Throwable unused) {
+                    a2.put("version_name", l.b.l(this.f71882a));
+                    a2.put("version_code", Integer.valueOf(l.b.m(this.f71882a)));
+                    if (a2.get("update_version_code") == null) {
+                        a2.put("update_version_code", a2.get("version_code"));
+                    }
+                }
+            }
+            return a2;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Nullable
+    public Map<String, Object> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f71884c == null) {
+                this.f71884c = this.f71883b.g();
+            }
+            return this.f71884c;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @NonNull
+    public d.b.c.b.g d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71883b : (d.b.c.b.g) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? l.b.k(this.f71882a) : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71883b.b() : (String) invokeV.objValue;
+    }
+}

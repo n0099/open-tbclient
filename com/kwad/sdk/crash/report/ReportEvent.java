@@ -1,12 +1,20 @@
 package com.kwad.sdk.crash.report;
 
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 8652448382850235426L;
+    public transient /* synthetic */ FieldHolder $fh;
     public long clientIncrementId;
     public long clientTimeStamp;
     public String sessionId;
@@ -15,14 +23,31 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
 
     /* loaded from: classes7.dex */
     public static class ExceptionEvent implements com.kwad.sdk.core.b, Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5177557263564436344L;
+        public transient /* synthetic */ FieldHolder $fh;
         public String flag;
         public String message;
         public int type;
         public UrlPackage urlPackage;
 
+        public ExceptionEvent() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void parseJson(@Nullable JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.type = jSONObject.optInt("type");
@@ -33,22 +58,44 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "type", this.type);
-            o.a(jSONObject, "message", this.message);
-            o.a(jSONObject, "urlPackage", this.urlPackage);
-            o.a(jSONObject, "flag", this.flag);
-            return jSONObject;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                o.a(jSONObject, "type", this.type);
+                o.a(jSONObject, "message", this.message);
+                o.a(jSONObject, "urlPackage", this.urlPackage);
+                o.a(jSONObject, "flag", this.flag);
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
     public static class StatPackage implements com.kwad.sdk.core.b, Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6225392281821567840L;
+        public transient /* synthetic */ FieldHolder $fh;
         public ExceptionEvent exceptionEvent;
 
+        public StatPackage() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void parseJson(@Nullable JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.exceptionEvent.parseJson(jSONObject.optJSONObject("exceptionEvent"));
@@ -56,22 +103,44 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "exceptionEvent", this.exceptionEvent);
-            return jSONObject;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                o.a(jSONObject, "exceptionEvent", this.exceptionEvent);
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
     public static class UrlPackage implements com.kwad.sdk.core.b, Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2535768638193007414L;
+        public transient /* synthetic */ FieldHolder $fh;
         public String identity;
         public String page;
         public int pageType;
         public String params;
 
+        public UrlPackage() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void parseJson(@Nullable JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.page = jSONObject.optString("page");
@@ -82,17 +151,37 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "page", this.page);
-            o.a(jSONObject, "params", this.params);
-            o.a(jSONObject, "identity", this.identity);
-            o.a(jSONObject, "pageType", this.pageType);
-            return jSONObject;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                o.a(jSONObject, "page", this.page);
+                o.a(jSONObject, "params", this.params);
+                o.a(jSONObject, "identity", this.identity);
+                o.a(jSONObject, "pageType", this.pageType);
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+    }
+
+    public ReportEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public void parseJson(@Nullable JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.clientTimeStamp = jSONObject.optLong("clientTimeStamp");
@@ -104,12 +193,17 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "clientTimeStamp", this.clientTimeStamp);
-        o.a(jSONObject, "clientIncrementId", this.clientIncrementId);
-        o.a(jSONObject, "sessionId", this.sessionId);
-        o.a(jSONObject, "statPackage", this.statPackage);
-        o.a(jSONObject, "timeZone", this.timeZone);
-        return jSONObject;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            o.a(jSONObject, "clientTimeStamp", this.clientTimeStamp);
+            o.a(jSONObject, "clientIncrementId", this.clientIncrementId);
+            o.a(jSONObject, "sessionId", this.sessionId);
+            o.a(jSONObject, "statPackage", this.statPackage);
+            o.a(jSONObject, "timeZone", this.timeZone);
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

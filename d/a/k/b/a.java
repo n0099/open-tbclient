@@ -1,210 +1,399 @@
 package d.a.k.b;
 
-import a.a.a.c.b.ac;
-import a.a.a.c.b.shuoy;
-import a.a.a.c.b.trw;
-import a.a.a.c.bv;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import d.a.k.b.b;
-import d.a.k.b.c.d;
-import java.io.File;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
-public class a implements d.a {
-
-    /* renamed from: f  reason: collision with root package name */
-    public static a f44040f;
-
-    /* renamed from: a  reason: collision with root package name */
-    public bv f44041a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public d.a.k.b.c.c f44042b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f44044d;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.k.g.a;
+import d.a.k.l;
+import java.util.Comparator;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public abstract class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f44045e = new Handler(Looper.getMainLooper());
+    public static Comparator<a> f45854e;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public b f45855a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public a.C0649a f45856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, d> f44043c = new LinkedHashMap();
+    public final String f45857c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f45858d;
 
     /* renamed from: d.a.k.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class RunnableC0608a implements Runnable {
+    /* loaded from: classes8.dex */
+    public static class C0646a implements Comparator<a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44047f;
-
-        public RunnableC0608a(String str) {
-            this.f44047f = str;
+        public C0646a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            if (a.this.f44043c.containsKey(this.f44047f)) {
-                a.this.f44043c.remove(this.f44047f);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(a aVar, a aVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
+                int i2 = ((aVar.f() - aVar2.f()) > 0L ? 1 : ((aVar.f() - aVar2.f()) == 0L ? 0 : -1));
+                return i2 != 0 ? i2 > 0 ? -1 : 1 : aVar.c().compareTo(aVar2.c());
             }
+            return invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class b implements Runnable {
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public Context f45859a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public d.a.k.g.a f45860b;
+
         public b() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            for (d dVar : a.this.f44043c.values()) {
-                if (dVar != null && dVar.isRunning()) {
-                    dVar.pause();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c implements Runnable {
-        public c() {
+    /* loaded from: classes8.dex */
+    public static abstract class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public a.C0649a f45861a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f45862b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f45863c;
+
+        public c(a.C0649a c0649a, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c0649a, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f45863c = true;
+            this.f45861a = c0649a;
+            this.f45862b = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            for (d dVar : a.this.f44043c.values()) {
-                if (dVar != null && dVar.isRunning()) {
-                    dVar.cancel();
+        public abstract void a(JSONObject jSONObject);
+
+        public void b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.f45863c = z;
+            }
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String c2 = this.f45861a.c(this.f45862b, true);
+                if (!TextUtils.isEmpty(c2)) {
+                    try {
+                        a(new JSONObject(c2));
+                        b(false);
+                        return true;
+                    } catch (Exception unused) {
+                    }
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public abstract void d(JSONObject jSONObject);
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.f45863c) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        d(jSONObject);
+                        this.f45861a.e(this.f45862b, jSONObject.toString(), true);
+                        b(false);
+                        return true;
+                    } catch (Exception unused) {
+                    }
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
     }
 
-    public a() {
-        j(new bv());
-    }
+    /* loaded from: classes8.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static a i() {
-        if (f44040f == null) {
-            synchronized (a.class) {
-                if (f44040f == null) {
-                    f44040f = new a();
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
-        return f44040f;
     }
 
-    @Override // d.a.k.b.c.d.a
-    public void a(String str, d dVar) {
-        this.f44045e.post(new RunnableC0608a(str));
-    }
+    /* loaded from: classes8.dex */
+    public static class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public void c(String str) {
-        String e2 = e(str);
-        if (this.f44043c.containsKey(e2)) {
-            d dVar = this.f44043c.get(e2);
-            if (dVar != null) {
-                dVar.cancel();
+        public f(int i2, int i3, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), exc};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            this.f44043c.remove(e2);
+        }
+
+        public static f a(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? new f(-1, i2, null) : (f) invokeI.objValue;
+        }
+
+        public static f b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new f(0, 0, null) : (f) invokeV.objValue;
+        }
+
+        public static f c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(0) : (f) invokeV.objValue;
         }
     }
 
-    public void d() {
-        this.f44045e.post(new c());
-    }
+    /* loaded from: classes8.dex */
+    public static class g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public final String e(String str) {
-        if (str != null) {
-            return String.valueOf(str.hashCode());
-        }
-        throw new IllegalArgumentException("Tag can't be null!");
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f45864a;
 
-    public void f(d.a.k.b.b bVar, String str, d.a.k.b.c.a aVar) {
-        String e2 = e(str);
-        if (k(e2)) {
-            return;
-        }
-        shuoy shuoyVar = new shuoy(bVar, new ac(this.f44042b, aVar), this.f44044d, e2, this.f44041a, this);
-        this.f44043c.put(e2, shuoyVar);
-        shuoyVar.start();
-    }
-
-    public final void g(d.a.k.b.b bVar, String str, d.a.k.b.c.a aVar, d.a.k.b.c.c cVar) {
-        Log.d("RtcDownSo", "start down judge is downloading");
-        String e2 = e(str);
-        if (k(e2)) {
-            return;
-        }
-        Log.d("RtcDownSo", "real start down ...");
-        shuoy shuoyVar = new shuoy(bVar, new ac(cVar, aVar), this.f44044d, e2, this.f44041a, this);
-        this.f44043c.put(e2, shuoyVar);
-        shuoyVar.start();
-    }
-
-    public void h(String str, String str2, String str3, Looper looper, d.a.k.b.c.a aVar) {
-        if (looper == null) {
-            looper = Looper.getMainLooper();
-        }
-        b.a aVar2 = new b.a();
-        aVar2.d(str);
-        aVar2.b(new File(str2));
-        aVar2.c(str3);
-        g(aVar2.a(), str, aVar, new trw(new Handler(looper)));
-    }
-
-    public final void j(@NonNull bv bvVar) {
-        int i2 = bvVar.f1457b;
-        int i3 = bvVar.f1456a;
-        if (i2 > i3) {
-            throw new IllegalArgumentException("thread num must < max thread num");
-        }
-        this.f44041a = bvVar;
-        this.f44044d = Executors.newFixedThreadPool(i3);
-        this.f44042b = new trw(this.f44045e);
-    }
-
-    public final boolean k(String str) {
-        d dVar;
-        if (!this.f44043c.containsKey(str) || (dVar = this.f44043c.get(str)) == null) {
-            return false;
-        }
-        if (dVar.isRunning()) {
-            d.a.k.b.d.c.c("DownloadInfo has been started!");
-            return true;
-        }
-        d.a.k.b.d.c.c("DownloadInfo not started!");
-        return false;
-    }
-
-    public boolean l(String str) {
-        d dVar;
-        String e2 = e(str);
-        if (!this.f44043c.containsKey(e2) || (dVar = this.f44043c.get(e2)) == null) {
-            return false;
-        }
-        return dVar.isRunning();
-    }
-
-    public void m(String str) {
-        String e2 = e(str);
-        if (this.f44043c.containsKey(e2)) {
-            d dVar = this.f44043c.get(e2);
-            if (dVar != null && dVar.isRunning()) {
-                dVar.pause();
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            this.f44043c.remove(e2);
         }
     }
 
-    public void n() {
-        this.f44045e.post(new b());
+    /* loaded from: classes8.dex */
+    public static class h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public l.a f45865a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f45866b;
+
+        public h(int i2, l.a aVar, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), aVar, exc};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f45866b = i2;
+            this.f45865a = aVar;
+        }
+
+        public static h a(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? new h(i2, null, null) : (h) invokeI.objValue;
+        }
+
+        public static h b(l.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) ? new h(0, aVar, null) : (h) invokeL.objValue;
+        }
+
+        public static h d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new h(-1, null, null) : (h) invokeV.objValue;
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45866b == 0 : invokeV.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1525241872, "Ld/a/k/b/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1525241872, "Ld/a/k/b/a;");
+                return;
+            }
+        }
+        f45854e = new C0646a();
+    }
+
+    public a(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f45857c = str;
+        this.f45858d = j;
+    }
+
+    public abstract f a(e eVar, l.a aVar);
+
+    public abstract h b(String str, g gVar);
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45857c : (String) invokeV.objValue;
+    }
+
+    public final void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.f45855a = bVar;
+            this.f45856b = bVar.f45860b.e().b("cs");
+        }
+    }
+
+    public abstract void e(d dVar);
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f45858d : invokeV.longValue;
     }
 }

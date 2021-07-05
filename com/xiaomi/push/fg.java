@@ -1,9 +1,30 @@
 package com.xiaomi.push;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class fg extends fa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public fg() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a("PING", (String) null);
         a("0");
         a(0);
@@ -11,15 +32,22 @@ public final class fg extends fa {
 
     @Override // com.xiaomi.push.fa
     /* renamed from: a */
-    public ByteBuffer mo289a(ByteBuffer byteBuffer) {
-        return m292a().length == 0 ? byteBuffer : super.mo289a(byteBuffer);
+    public ByteBuffer mo303a(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m306a().length == 0 ? byteBuffer : super.mo303a(byteBuffer) : (ByteBuffer) invokeL.objValue;
     }
 
     @Override // com.xiaomi.push.fa
     public int c() {
-        if (m292a().length == 0) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (m306a().length == 0) {
+                return 0;
+            }
+            return super.c();
         }
-        return super.c();
+        return invokeV.intValue;
     }
 }

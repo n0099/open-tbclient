@@ -35,7 +35,16 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.view.ViewCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -43,8 +52,9 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class VectorDrawableCompat extends VectorDrawableCommon {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DBG_VECTOR_DRAWABLE = false;
-    public static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
+    public static final PorterDuff.Mode DEFAULT_TINT_MODE;
     public static final int LINECAP_BUTT = 0;
     public static final int LINECAP_ROUND = 1;
     public static final int LINECAP_SQUARE = 2;
@@ -57,6 +67,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     public static final String SHAPE_GROUP = "group";
     public static final String SHAPE_PATH = "path";
     public static final String SHAPE_VECTOR = "vector";
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean mAllowCaching;
     public Drawable.ConstantState mCachedConstantStateDelegate;
     public ColorFilter mColorFilter;
@@ -67,25 +78,50 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     public final Matrix mTmpMatrix;
     public VectorDrawableCompatState mVectorState;
 
+    /* renamed from: androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$1  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
     /* loaded from: classes.dex */
     public static class VClipPath extends VPath {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public VClipPath() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         private void updateStateFromTypedArray(TypedArray typedArray, XmlPullParser xmlPullParser) {
-            String string = typedArray.getString(0);
-            if (string != null) {
-                this.mPathName = string;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65538, this, typedArray, xmlPullParser) == null) {
+                String string = typedArray.getString(0);
+                if (string != null) {
+                    this.mPathName = string;
+                }
+                String string2 = typedArray.getString(1);
+                if (string2 != null) {
+                    this.mNodes = PathParser.createNodesFromPathData(string2);
+                }
+                this.mFillRule = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "fillType", 2, 0);
             }
-            String string2 = typedArray.getString(1);
-            if (string2 != null) {
-                this.mNodes = PathParser.createNodesFromPathData(string2);
-            }
-            this.mFillRule = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "fillType", 2, 0);
         }
 
         public void inflate(Resources resources, AttributeSet attributeSet, Resources.Theme theme, XmlPullParser xmlPullParser) {
-            if (TypedArrayUtils.hasAttribute(xmlPullParser, "pathData")) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLLL(1048576, this, resources, attributeSet, theme, xmlPullParser) == null) && TypedArrayUtils.hasAttribute(xmlPullParser, "pathData")) {
                 TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH);
                 updateStateFromTypedArray(obtainAttributes, xmlPullParser);
                 obtainAttributes.recycle();
@@ -94,30 +130,81 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
         @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.VPath
         public boolean isClipPath() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VClipPath(VClipPath vClipPath) {
             super(vClipPath);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vClipPath};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((VPath) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public static abstract class VObject {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public VObject() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         public boolean isStateful() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean onStateChanged(int[] iArr) {
-            return false;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public /* synthetic */ VObject(AnonymousClass1 anonymousClass1) {
+            this();
         }
     }
 
     /* loaded from: classes.dex */
     public static class VectorDrawableCompatState extends Drawable.ConstantState {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public boolean mAutoMirrored;
         public boolean mCacheDirty;
         public boolean mCachedAutoMirrored;
@@ -133,6 +220,20 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         public VPathRenderer mVPathRenderer;
 
         public VectorDrawableCompatState(VectorDrawableCompatState vectorDrawableCompatState) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vectorDrawableCompatState};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.mTint = null;
             this.mTintMode = VectorDrawableCompat.DEFAULT_TINT_MODE;
             if (vectorDrawableCompatState != null) {
@@ -152,90 +253,166 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
 
         public boolean canReuseBitmap(int i2, int i3) {
-            return i2 == this.mCachedBitmap.getWidth() && i3 == this.mCachedBitmap.getHeight();
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) ? i2 == this.mCachedBitmap.getWidth() && i3 == this.mCachedBitmap.getHeight() : invokeII.booleanValue;
         }
 
         public boolean canReuseCache() {
-            return !this.mCacheDirty && this.mCachedTint == this.mTint && this.mCachedTintMode == this.mTintMode && this.mCachedAutoMirrored == this.mAutoMirrored && this.mCachedRootAlpha == this.mVPathRenderer.getRootAlpha();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !this.mCacheDirty && this.mCachedTint == this.mTint && this.mCachedTintMode == this.mTintMode && this.mCachedAutoMirrored == this.mAutoMirrored && this.mCachedRootAlpha == this.mVPathRenderer.getRootAlpha() : invokeV.booleanValue;
         }
 
         public void createCachedBitmapIfNeeded(int i2, int i3) {
-            if (this.mCachedBitmap == null || !canReuseBitmap(i2, i3)) {
-                this.mCachedBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
-                this.mCacheDirty = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+                if (this.mCachedBitmap == null || !canReuseBitmap(i2, i3)) {
+                    this.mCachedBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+                    this.mCacheDirty = true;
+                }
             }
         }
 
         public void drawCachedBitmapWithRootAlpha(Canvas canvas, ColorFilter colorFilter, Rect rect) {
-            canvas.drawBitmap(this.mCachedBitmap, (Rect) null, rect, getPaint(colorFilter));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, canvas, colorFilter, rect) == null) {
+                canvas.drawBitmap(this.mCachedBitmap, (Rect) null, rect, getPaint(colorFilter));
+            }
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {
-            return this.mChangingConfigurations;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mChangingConfigurations : invokeV.intValue;
         }
 
         public Paint getPaint(ColorFilter colorFilter) {
-            if (hasTranslucentRoot() || colorFilter != null) {
-                if (this.mTempPaint == null) {
-                    Paint paint = new Paint();
-                    this.mTempPaint = paint;
-                    paint.setFilterBitmap(true);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, colorFilter)) == null) {
+                if (hasTranslucentRoot() || colorFilter != null) {
+                    if (this.mTempPaint == null) {
+                        Paint paint = new Paint();
+                        this.mTempPaint = paint;
+                        paint.setFilterBitmap(true);
+                    }
+                    this.mTempPaint.setAlpha(this.mVPathRenderer.getRootAlpha());
+                    this.mTempPaint.setColorFilter(colorFilter);
+                    return this.mTempPaint;
                 }
-                this.mTempPaint.setAlpha(this.mVPathRenderer.getRootAlpha());
-                this.mTempPaint.setColorFilter(colorFilter);
-                return this.mTempPaint;
+                return null;
             }
-            return null;
+            return (Paint) invokeL.objValue;
         }
 
         public boolean hasTranslucentRoot() {
-            return this.mVPathRenderer.getRootAlpha() < 255;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mVPathRenderer.getRootAlpha() < 255 : invokeV.booleanValue;
         }
 
         public boolean isStateful() {
-            return this.mVPathRenderer.isStateful();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mVPathRenderer.isStateful() : invokeV.booleanValue;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         @NonNull
         public Drawable newDrawable() {
-            return new VectorDrawableCompat(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new VectorDrawableCompat(this) : (Drawable) invokeV.objValue;
         }
 
         public boolean onStateChanged(int[] iArr) {
-            boolean onStateChanged = this.mVPathRenderer.onStateChanged(iArr);
-            this.mCacheDirty |= onStateChanged;
-            return onStateChanged;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, iArr)) == null) {
+                boolean onStateChanged = this.mVPathRenderer.onStateChanged(iArr);
+                this.mCacheDirty |= onStateChanged;
+                return onStateChanged;
+            }
+            return invokeL.booleanValue;
         }
 
         public void updateCacheStates() {
-            this.mCachedTint = this.mTint;
-            this.mCachedTintMode = this.mTintMode;
-            this.mCachedRootAlpha = this.mVPathRenderer.getRootAlpha();
-            this.mCachedAutoMirrored = this.mAutoMirrored;
-            this.mCacheDirty = false;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                this.mCachedTint = this.mTint;
+                this.mCachedTintMode = this.mTintMode;
+                this.mCachedRootAlpha = this.mVPathRenderer.getRootAlpha();
+                this.mCachedAutoMirrored = this.mAutoMirrored;
+                this.mCacheDirty = false;
+            }
         }
 
         public void updateCachedBitmap(int i2, int i3) {
-            this.mCachedBitmap.eraseColor(0);
-            this.mVPathRenderer.draw(new Canvas(this.mCachedBitmap), i2, i3, null);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
+                this.mCachedBitmap.eraseColor(0);
+                this.mVPathRenderer.draw(new Canvas(this.mCachedBitmap), i2, i3, null);
+            }
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         @NonNull
         public Drawable newDrawable(Resources resources) {
-            return new VectorDrawableCompat(this);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, resources)) == null) ? new VectorDrawableCompat(this) : (Drawable) invokeL.objValue;
         }
 
         public VectorDrawableCompatState() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mTint = null;
             this.mTintMode = VectorDrawableCompat.DEFAULT_TINT_MODE;
             this.mVPathRenderer = new VPathRenderer();
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(585184727, "Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(585184727, "Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat;");
+                return;
+            }
+        }
+        DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
+    }
+
     public VectorDrawableCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mAllowCaching = true;
         this.mTmpFloats = new float[9];
         this.mTmpMatrix = new Matrix();
@@ -244,174 +421,202 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     public static int applyAlpha(int i2, float f2) {
-        return (i2 & ViewCompat.MEASURED_SIZE_MASK) | (((int) (Color.alpha(i2) * f2)) << 24);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? (i2 & 16777215) | (((int) (Color.alpha(i2) * f2)) << 24) : invokeCommon.intValue;
     }
 
     @Nullable
     public static VectorDrawableCompat create(@NonNull Resources resources, @DrawableRes int i2, @Nullable Resources.Theme theme) {
+        InterceptResult invokeLIL;
         int next;
-        if (Build.VERSION.SDK_INT >= 24) {
-            VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
-            vectorDrawableCompat.mDelegateDrawable = ResourcesCompat.getDrawable(resources, i2, theme);
-            vectorDrawableCompat.mCachedConstantStateDelegate = new VectorDrawableDelegateState(vectorDrawableCompat.mDelegateDrawable.getConstantState());
-            return vectorDrawableCompat;
-        }
-        try {
-            XmlResourceParser xml = resources.getXml(i2);
-            AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
-            while (true) {
-                next = xml.next();
-                if (next == 2 || next == 1) {
-                    break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65540, null, resources, i2, theme)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
+                vectorDrawableCompat.mDelegateDrawable = ResourcesCompat.getDrawable(resources, i2, theme);
+                vectorDrawableCompat.mCachedConstantStateDelegate = new VectorDrawableDelegateState(vectorDrawableCompat.mDelegateDrawable.getConstantState());
+                return vectorDrawableCompat;
+            }
+            try {
+                XmlResourceParser xml = resources.getXml(i2);
+                AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
+                while (true) {
+                    next = xml.next();
+                    if (next == 2 || next == 1) {
+                        break;
+                    }
                 }
+                if (next == 2) {
+                    return createFromXmlInner(resources, (XmlPullParser) xml, asAttributeSet, theme);
+                }
+                throw new XmlPullParserException("No start tag found");
+            } catch (IOException e2) {
+                Log.e(LOGTAG, "parser error", e2);
+                return null;
+            } catch (XmlPullParserException e3) {
+                Log.e(LOGTAG, "parser error", e3);
+                return null;
             }
-            if (next == 2) {
-                return createFromXmlInner(resources, (XmlPullParser) xml, asAttributeSet, theme);
-            }
-            throw new XmlPullParserException("No start tag found");
-        } catch (IOException e2) {
-            Log.e(LOGTAG, "parser error", e2);
-            return null;
-        } catch (XmlPullParserException e3) {
-            Log.e(LOGTAG, "parser error", e3);
-            return null;
         }
+        return (VectorDrawableCompat) invokeLIL.objValue;
     }
 
     public static VectorDrawableCompat createFromXmlInner(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
-        VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
-        vectorDrawableCompat.inflate(resources, xmlPullParser, attributeSet, theme);
-        return vectorDrawableCompat;
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, resources, xmlPullParser, attributeSet, theme)) == null) {
+            VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
+            vectorDrawableCompat.inflate(resources, xmlPullParser, attributeSet, theme);
+            return vectorDrawableCompat;
+        }
+        return (VectorDrawableCompat) invokeLLLL.objValue;
     }
 
     private void inflateInternal(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
-        VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
-        VPathRenderer vPathRenderer = vectorDrawableCompatState.mVPathRenderer;
-        ArrayDeque arrayDeque = new ArrayDeque();
-        arrayDeque.push(vPathRenderer.mRootGroup);
-        int eventType = xmlPullParser.getEventType();
-        int depth = xmlPullParser.getDepth() + 1;
-        boolean z = true;
-        while (eventType != 1 && (xmlPullParser.getDepth() >= depth || eventType != 3)) {
-            if (eventType == 2) {
-                String name = xmlPullParser.getName();
-                VGroup vGroup = (VGroup) arrayDeque.peek();
-                if ("path".equals(name)) {
-                    VFullPath vFullPath = new VFullPath();
-                    vFullPath.inflate(resources, attributeSet, theme, xmlPullParser);
-                    vGroup.mChildren.add(vFullPath);
-                    if (vFullPath.getPathName() != null) {
-                        vPathRenderer.mVGTargetsMap.put(vFullPath.getPathName(), vFullPath);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, this, resources, xmlPullParser, attributeSet, theme) == null) {
+            VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
+            VPathRenderer vPathRenderer = vectorDrawableCompatState.mVPathRenderer;
+            ArrayDeque arrayDeque = new ArrayDeque();
+            arrayDeque.push(vPathRenderer.mRootGroup);
+            int eventType = xmlPullParser.getEventType();
+            int depth = xmlPullParser.getDepth() + 1;
+            boolean z = true;
+            while (eventType != 1 && (xmlPullParser.getDepth() >= depth || eventType != 3)) {
+                if (eventType == 2) {
+                    String name = xmlPullParser.getName();
+                    VGroup vGroup = (VGroup) arrayDeque.peek();
+                    if ("path".equals(name)) {
+                        VFullPath vFullPath = new VFullPath();
+                        vFullPath.inflate(resources, attributeSet, theme, xmlPullParser);
+                        vGroup.mChildren.add(vFullPath);
+                        if (vFullPath.getPathName() != null) {
+                            vPathRenderer.mVGTargetsMap.put(vFullPath.getPathName(), vFullPath);
+                        }
+                        z = false;
+                        vectorDrawableCompatState.mChangingConfigurations = vFullPath.mChangingConfigurations | vectorDrawableCompatState.mChangingConfigurations;
+                    } else if (SHAPE_CLIP_PATH.equals(name)) {
+                        VClipPath vClipPath = new VClipPath();
+                        vClipPath.inflate(resources, attributeSet, theme, xmlPullParser);
+                        vGroup.mChildren.add(vClipPath);
+                        if (vClipPath.getPathName() != null) {
+                            vPathRenderer.mVGTargetsMap.put(vClipPath.getPathName(), vClipPath);
+                        }
+                        vectorDrawableCompatState.mChangingConfigurations = vClipPath.mChangingConfigurations | vectorDrawableCompatState.mChangingConfigurations;
+                    } else if ("group".equals(name)) {
+                        VGroup vGroup2 = new VGroup();
+                        vGroup2.inflate(resources, attributeSet, theme, xmlPullParser);
+                        vGroup.mChildren.add(vGroup2);
+                        arrayDeque.push(vGroup2);
+                        if (vGroup2.getGroupName() != null) {
+                            vPathRenderer.mVGTargetsMap.put(vGroup2.getGroupName(), vGroup2);
+                        }
+                        vectorDrawableCompatState.mChangingConfigurations = vGroup2.mChangingConfigurations | vectorDrawableCompatState.mChangingConfigurations;
                     }
-                    z = false;
-                    vectorDrawableCompatState.mChangingConfigurations = vFullPath.mChangingConfigurations | vectorDrawableCompatState.mChangingConfigurations;
-                } else if (SHAPE_CLIP_PATH.equals(name)) {
-                    VClipPath vClipPath = new VClipPath();
-                    vClipPath.inflate(resources, attributeSet, theme, xmlPullParser);
-                    vGroup.mChildren.add(vClipPath);
-                    if (vClipPath.getPathName() != null) {
-                        vPathRenderer.mVGTargetsMap.put(vClipPath.getPathName(), vClipPath);
-                    }
-                    vectorDrawableCompatState.mChangingConfigurations = vClipPath.mChangingConfigurations | vectorDrawableCompatState.mChangingConfigurations;
-                } else if ("group".equals(name)) {
-                    VGroup vGroup2 = new VGroup();
-                    vGroup2.inflate(resources, attributeSet, theme, xmlPullParser);
-                    vGroup.mChildren.add(vGroup2);
-                    arrayDeque.push(vGroup2);
-                    if (vGroup2.getGroupName() != null) {
-                        vPathRenderer.mVGTargetsMap.put(vGroup2.getGroupName(), vGroup2);
-                    }
-                    vectorDrawableCompatState.mChangingConfigurations = vGroup2.mChangingConfigurations | vectorDrawableCompatState.mChangingConfigurations;
+                } else if (eventType == 3 && "group".equals(xmlPullParser.getName())) {
+                    arrayDeque.pop();
                 }
-            } else if (eventType == 3 && "group".equals(xmlPullParser.getName())) {
-                arrayDeque.pop();
+                eventType = xmlPullParser.next();
             }
-            eventType = xmlPullParser.next();
-        }
-        if (z) {
-            throw new XmlPullParserException("no path defined");
+            if (z) {
+                throw new XmlPullParserException("no path defined");
+            }
         }
     }
 
     private boolean needMirroring() {
-        return Build.VERSION.SDK_INT >= 17 && isAutoMirrored() && DrawableCompat.getLayoutDirection(this) == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? Build.VERSION.SDK_INT >= 17 && isAutoMirrored() && DrawableCompat.getLayoutDirection(this) == 1 : invokeV.booleanValue;
     }
 
     public static PorterDuff.Mode parseTintModeCompat(int i2, PorterDuff.Mode mode) {
-        if (i2 != 3) {
-            if (i2 != 5) {
-                if (i2 != 9) {
-                    switch (i2) {
-                        case 14:
-                            return PorterDuff.Mode.MULTIPLY;
-                        case 15:
-                            return PorterDuff.Mode.SCREEN;
-                        case 16:
-                            return PorterDuff.Mode.ADD;
-                        default:
-                            return mode;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i2, mode)) == null) {
+            if (i2 != 3) {
+                if (i2 != 5) {
+                    if (i2 != 9) {
+                        switch (i2) {
+                            case 14:
+                                return PorterDuff.Mode.MULTIPLY;
+                            case 15:
+                                return PorterDuff.Mode.SCREEN;
+                            case 16:
+                                return PorterDuff.Mode.ADD;
+                            default:
+                                return mode;
+                        }
                     }
+                    return PorterDuff.Mode.SRC_ATOP;
                 }
-                return PorterDuff.Mode.SRC_ATOP;
+                return PorterDuff.Mode.SRC_IN;
             }
-            return PorterDuff.Mode.SRC_IN;
+            return PorterDuff.Mode.SRC_OVER;
         }
-        return PorterDuff.Mode.SRC_OVER;
+        return (PorterDuff.Mode) invokeIL.objValue;
     }
 
     private void printGroupTree(VGroup vGroup, int i2) {
-        String str = "";
-        for (int i3 = 0; i3 < i2; i3++) {
-            str = str + "    ";
-        }
-        Log.v(LOGTAG, str + "current group is :" + vGroup.getGroupName() + " rotation is " + vGroup.mRotate);
-        StringBuilder sb = new StringBuilder();
-        sb.append(str);
-        sb.append("matrix is :");
-        sb.append(vGroup.getLocalMatrix().toString());
-        Log.v(LOGTAG, sb.toString());
-        for (int i4 = 0; i4 < vGroup.mChildren.size(); i4++) {
-            VObject vObject = vGroup.mChildren.get(i4);
-            if (vObject instanceof VGroup) {
-                printGroupTree((VGroup) vObject, i2 + 1);
-            } else {
-                ((VPath) vObject).printVPath(i2 + 1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65545, this, vGroup, i2) == null) {
+            String str = "";
+            for (int i3 = 0; i3 < i2; i3++) {
+                str = str + "    ";
+            }
+            Log.v(LOGTAG, str + "current group is :" + vGroup.getGroupName() + " rotation is " + vGroup.mRotate);
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            sb.append("matrix is :");
+            sb.append(vGroup.getLocalMatrix().toString());
+            Log.v(LOGTAG, sb.toString());
+            for (int i4 = 0; i4 < vGroup.mChildren.size(); i4++) {
+                VObject vObject = vGroup.mChildren.get(i4);
+                if (vObject instanceof VGroup) {
+                    printGroupTree((VGroup) vObject, i2 + 1);
+                } else {
+                    ((VPath) vObject).printVPath(i2 + 1);
+                }
             }
         }
     }
 
     private void updateStateFromTypedArray(TypedArray typedArray, XmlPullParser xmlPullParser, Resources.Theme theme) throws XmlPullParserException {
-        VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
-        VPathRenderer vPathRenderer = vectorDrawableCompatState.mVPathRenderer;
-        vectorDrawableCompatState.mTintMode = parseTintModeCompat(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "tintMode", 6, -1), PorterDuff.Mode.SRC_IN);
-        ColorStateList namedColorStateList = TypedArrayUtils.getNamedColorStateList(typedArray, xmlPullParser, theme, "tint", 1);
-        if (namedColorStateList != null) {
-            vectorDrawableCompatState.mTint = namedColorStateList;
-        }
-        vectorDrawableCompatState.mAutoMirrored = TypedArrayUtils.getNamedBoolean(typedArray, xmlPullParser, "autoMirrored", 5, vectorDrawableCompatState.mAutoMirrored);
-        vPathRenderer.mViewportWidth = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "viewportWidth", 7, vPathRenderer.mViewportWidth);
-        float namedFloat = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "viewportHeight", 8, vPathRenderer.mViewportHeight);
-        vPathRenderer.mViewportHeight = namedFloat;
-        if (vPathRenderer.mViewportWidth <= 0.0f) {
-            throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires viewportWidth > 0");
-        } else if (namedFloat > 0.0f) {
-            vPathRenderer.mBaseWidth = typedArray.getDimension(3, vPathRenderer.mBaseWidth);
-            float dimension = typedArray.getDimension(2, vPathRenderer.mBaseHeight);
-            vPathRenderer.mBaseHeight = dimension;
-            if (vPathRenderer.mBaseWidth <= 0.0f) {
-                throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires width > 0");
-            } else if (dimension > 0.0f) {
-                vPathRenderer.setAlpha(TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "alpha", 4, vPathRenderer.getAlpha()));
-                String string = typedArray.getString(0);
-                if (string != null) {
-                    vPathRenderer.mRootName = string;
-                    vPathRenderer.mVGTargetsMap.put(string, vPathRenderer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, this, typedArray, xmlPullParser, theme) == null) {
+            VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
+            VPathRenderer vPathRenderer = vectorDrawableCompatState.mVPathRenderer;
+            vectorDrawableCompatState.mTintMode = parseTintModeCompat(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "tintMode", 6, -1), PorterDuff.Mode.SRC_IN);
+            ColorStateList namedColorStateList = TypedArrayUtils.getNamedColorStateList(typedArray, xmlPullParser, theme, "tint", 1);
+            if (namedColorStateList != null) {
+                vectorDrawableCompatState.mTint = namedColorStateList;
+            }
+            vectorDrawableCompatState.mAutoMirrored = TypedArrayUtils.getNamedBoolean(typedArray, xmlPullParser, "autoMirrored", 5, vectorDrawableCompatState.mAutoMirrored);
+            vPathRenderer.mViewportWidth = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "viewportWidth", 7, vPathRenderer.mViewportWidth);
+            float namedFloat = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "viewportHeight", 8, vPathRenderer.mViewportHeight);
+            vPathRenderer.mViewportHeight = namedFloat;
+            if (vPathRenderer.mViewportWidth <= 0.0f) {
+                throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires viewportWidth > 0");
+            } else if (namedFloat > 0.0f) {
+                vPathRenderer.mBaseWidth = typedArray.getDimension(3, vPathRenderer.mBaseWidth);
+                float dimension = typedArray.getDimension(2, vPathRenderer.mBaseHeight);
+                vPathRenderer.mBaseHeight = dimension;
+                if (vPathRenderer.mBaseWidth <= 0.0f) {
+                    throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires width > 0");
+                } else if (dimension > 0.0f) {
+                    vPathRenderer.setAlpha(TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "alpha", 4, vPathRenderer.getAlpha()));
+                    String string = typedArray.getString(0);
+                    if (string != null) {
+                        vPathRenderer.mRootName = string;
+                        vPathRenderer.mVGTargetsMap.put(string, vPathRenderer);
+                    }
+                } else {
+                    throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires height > 0");
                 }
             } else {
-                throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires height > 0");
+                throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires viewportHeight > 0");
             }
-        } else {
-            throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires viewportHeight > 0");
         }
     }
 
@@ -422,12 +627,17 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @Override // android.graphics.drawable.Drawable
     public boolean canApplyTheme() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            DrawableCompat.canApplyTheme(drawable);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                DrawableCompat.canApplyTheme(drawable);
+                return false;
+            }
             return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -437,87 +647,110 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            drawable.draw(canvas);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                drawable.draw(canvas);
+                return;
+            }
+            copyBounds(this.mTmpBounds);
+            if (this.mTmpBounds.width() <= 0 || this.mTmpBounds.height() <= 0) {
+                return;
+            }
+            ColorFilter colorFilter = this.mColorFilter;
+            if (colorFilter == null) {
+                colorFilter = this.mTintFilter;
+            }
+            canvas.getMatrix(this.mTmpMatrix);
+            this.mTmpMatrix.getValues(this.mTmpFloats);
+            float abs = Math.abs(this.mTmpFloats[0]);
+            float abs2 = Math.abs(this.mTmpFloats[4]);
+            float abs3 = Math.abs(this.mTmpFloats[1]);
+            float abs4 = Math.abs(this.mTmpFloats[3]);
+            if (abs3 != 0.0f || abs4 != 0.0f) {
+                abs = 1.0f;
+                abs2 = 1.0f;
+            }
+            int min = Math.min(2048, (int) (this.mTmpBounds.width() * abs));
+            int min2 = Math.min(2048, (int) (this.mTmpBounds.height() * abs2));
+            if (min <= 0 || min2 <= 0) {
+                return;
+            }
+            int save = canvas.save();
+            Rect rect = this.mTmpBounds;
+            canvas.translate(rect.left, rect.top);
+            if (needMirroring()) {
+                canvas.translate(this.mTmpBounds.width(), 0.0f);
+                canvas.scale(-1.0f, 1.0f);
+            }
+            this.mTmpBounds.offsetTo(0, 0);
+            this.mVectorState.createCachedBitmapIfNeeded(min, min2);
+            if (!this.mAllowCaching) {
+                this.mVectorState.updateCachedBitmap(min, min2);
+            } else if (!this.mVectorState.canReuseCache()) {
+                this.mVectorState.updateCachedBitmap(min, min2);
+                this.mVectorState.updateCacheStates();
+            }
+            this.mVectorState.drawCachedBitmapWithRootAlpha(canvas, colorFilter, this.mTmpBounds);
+            canvas.restoreToCount(save);
         }
-        copyBounds(this.mTmpBounds);
-        if (this.mTmpBounds.width() <= 0 || this.mTmpBounds.height() <= 0) {
-            return;
-        }
-        ColorFilter colorFilter = this.mColorFilter;
-        if (colorFilter == null) {
-            colorFilter = this.mTintFilter;
-        }
-        canvas.getMatrix(this.mTmpMatrix);
-        this.mTmpMatrix.getValues(this.mTmpFloats);
-        float abs = Math.abs(this.mTmpFloats[0]);
-        float abs2 = Math.abs(this.mTmpFloats[4]);
-        float abs3 = Math.abs(this.mTmpFloats[1]);
-        float abs4 = Math.abs(this.mTmpFloats[3]);
-        if (abs3 != 0.0f || abs4 != 0.0f) {
-            abs = 1.0f;
-            abs2 = 1.0f;
-        }
-        int min = Math.min(2048, (int) (this.mTmpBounds.width() * abs));
-        int min2 = Math.min(2048, (int) (this.mTmpBounds.height() * abs2));
-        if (min <= 0 || min2 <= 0) {
-            return;
-        }
-        int save = canvas.save();
-        Rect rect = this.mTmpBounds;
-        canvas.translate(rect.left, rect.top);
-        if (needMirroring()) {
-            canvas.translate(this.mTmpBounds.width(), 0.0f);
-            canvas.scale(-1.0f, 1.0f);
-        }
-        this.mTmpBounds.offsetTo(0, 0);
-        this.mVectorState.createCachedBitmapIfNeeded(min, min2);
-        if (!this.mAllowCaching) {
-            this.mVectorState.updateCachedBitmap(min, min2);
-        } else if (!this.mVectorState.canReuseCache()) {
-            this.mVectorState.updateCachedBitmap(min, min2);
-            this.mVectorState.updateCacheStates();
-        }
-        this.mVectorState.drawCachedBitmapWithRootAlpha(canvas, colorFilter, this.mTmpBounds);
-        canvas.restoreToCount(save);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return DrawableCompat.getAlpha(drawable);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return DrawableCompat.getAlpha(drawable);
+            }
+            return this.mVectorState.mVPathRenderer.getRootAlpha();
         }
-        return this.mVectorState.mVPathRenderer.getRootAlpha();
+        return invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getChangingConfigurations() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return drawable.getChangingConfigurations();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return drawable.getChangingConfigurations();
+            }
+            return super.getChangingConfigurations() | this.mVectorState.getChangingConfigurations();
         }
-        return super.getChangingConfigurations() | this.mVectorState.getChangingConfigurations();
+        return invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public ColorFilter getColorFilter() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return DrawableCompat.getColorFilter(drawable);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return DrawableCompat.getColorFilter(drawable);
+            }
+            return this.mColorFilter;
         }
-        return this.mColorFilter;
+        return (ColorFilter) invokeV.objValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable.ConstantState getConstantState() {
-        if (this.mDelegateDrawable != null && Build.VERSION.SDK_INT >= 24) {
-            return new VectorDrawableDelegateState(this.mDelegateDrawable.getConstantState());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.mDelegateDrawable != null && Build.VERSION.SDK_INT >= 24) {
+                return new VectorDrawableDelegateState(this.mDelegateDrawable.getConstantState());
+            }
+            this.mVectorState.mChangingConfigurations = getChangingConfigurations();
+            return this.mVectorState;
         }
-        this.mVectorState.mChangingConfigurations = getChangingConfigurations();
-        return this.mVectorState;
+        return (Drawable.ConstantState) invokeV.objValue;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -527,20 +760,30 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return drawable.getIntrinsicHeight();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return drawable.getIntrinsicHeight();
+            }
+            return (int) this.mVectorState.mVPathRenderer.mBaseHeight;
         }
-        return (int) this.mVectorState.mVPathRenderer.mBaseHeight;
+        return invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return drawable.getIntrinsicWidth();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return drawable.getIntrinsicWidth();
+            }
+            return (int) this.mVectorState.mVPathRenderer.mBaseWidth;
         }
-        return (int) this.mVectorState.mVPathRenderer.mBaseWidth;
+        return invokeV.intValue;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -555,11 +798,16 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return drawable.getOpacity();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return drawable.getOpacity();
+            }
+            return -3;
         }
-        return -3;
+        return invokeV.intValue;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -569,28 +817,33 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public float getPixelSize() {
+        InterceptResult invokeV;
         VPathRenderer vPathRenderer;
-        VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
-        if (vectorDrawableCompatState == null || (vPathRenderer = vectorDrawableCompatState.mVPathRenderer) == null) {
-            return 1.0f;
-        }
-        float f2 = vPathRenderer.mBaseWidth;
-        if (f2 != 0.0f) {
-            float f3 = vPathRenderer.mBaseHeight;
-            if (f3 != 0.0f) {
-                float f4 = vPathRenderer.mViewportHeight;
-                if (f4 != 0.0f) {
-                    float f5 = vPathRenderer.mViewportWidth;
-                    if (f5 == 0.0f) {
-                        return 1.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
+            if (vectorDrawableCompatState == null || (vPathRenderer = vectorDrawableCompatState.mVPathRenderer) == null) {
+                return 1.0f;
+            }
+            float f2 = vPathRenderer.mBaseWidth;
+            if (f2 != 0.0f) {
+                float f3 = vPathRenderer.mBaseHeight;
+                if (f3 != 0.0f) {
+                    float f4 = vPathRenderer.mViewportHeight;
+                    if (f4 != 0.0f) {
+                        float f5 = vPathRenderer.mViewportWidth;
+                        if (f5 == 0.0f) {
+                            return 1.0f;
+                        }
+                        return Math.min(f5 / f2, f4 / f3);
                     }
-                    return Math.min(f5 / f2, f4 / f3);
+                    return 1.0f;
                 }
                 return 1.0f;
             }
             return 1.0f;
         }
-        return 1.0f;
+        return invokeV.floatValue;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -599,7 +852,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     public Object getTargetByName(String str) {
-        return this.mVectorState.mVPathRenderer.mVGTargetsMap.get(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? this.mVectorState.mVPathRenderer.mVGTargetsMap.get(str) : invokeL.objValue;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -609,42 +864,58 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @Override // android.graphics.drawable.Drawable
     public void inflate(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet) throws XmlPullParserException, IOException {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            drawable.inflate(resources, xmlPullParser, attributeSet);
-        } else {
-            inflate(resources, xmlPullParser, attributeSet, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048595, this, resources, xmlPullParser, attributeSet) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                drawable.inflate(resources, xmlPullParser, attributeSet);
+            } else {
+                inflate(resources, xmlPullParser, attributeSet, null);
+            }
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            drawable.invalidateSelf();
-        } else {
-            super.invalidateSelf();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                drawable.invalidateSelf();
+            } else {
+                super.invalidateSelf();
+            }
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isAutoMirrored() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return DrawableCompat.isAutoMirrored(drawable);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return DrawableCompat.isAutoMirrored(drawable);
+            }
+            return this.mVectorState.mAutoMirrored;
         }
-        return this.mVectorState.mAutoMirrored;
+        return invokeV.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
+        InterceptResult invokeV;
         VectorDrawableCompatState vectorDrawableCompatState;
         ColorStateList colorStateList;
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return drawable.isStateful();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return drawable.isStateful();
+            }
+            return super.isStateful() || ((vectorDrawableCompatState = this.mVectorState) != null && (vectorDrawableCompatState.isStateful() || ((colorStateList = this.mVectorState.mTint) != null && colorStateList.isStateful())));
         }
-        return super.isStateful() || ((vectorDrawableCompatState = this.mVectorState) != null && (vectorDrawableCompatState.isStateful() || ((colorStateList = this.mVectorState.mTint) != null && colorStateList.isStateful())));
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -654,80 +925,104 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @Override // android.graphics.drawable.Drawable
     public Drawable mutate() {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            drawable.mutate();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                drawable.mutate();
+                return this;
+            }
+            if (!this.mMutated && super.mutate() == this) {
+                this.mVectorState = new VectorDrawableCompatState(this.mVectorState);
+                this.mMutated = true;
+            }
             return this;
         }
-        if (!this.mMutated && super.mutate() == this) {
-            this.mVectorState = new VectorDrawableCompatState(this.mVectorState);
-            this.mMutated = true;
-        }
-        return this;
+        return (Drawable) invokeV.objValue;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            drawable.setBounds(rect);
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048602, this, rect) == null) || (drawable = this.mDelegateDrawable) == null) {
+            return;
         }
+        drawable.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean onStateChange(int[] iArr) {
+        InterceptResult invokeL;
         PorterDuff.Mode mode;
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return drawable.setState(iArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, iArr)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return drawable.setState(iArr);
+            }
+            boolean z = false;
+            VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
+            ColorStateList colorStateList = vectorDrawableCompatState.mTint;
+            if (colorStateList != null && (mode = vectorDrawableCompatState.mTintMode) != null) {
+                this.mTintFilter = updateTintFilter(this.mTintFilter, colorStateList, mode);
+                invalidateSelf();
+                z = true;
+            }
+            if (vectorDrawableCompatState.isStateful() && vectorDrawableCompatState.onStateChanged(iArr)) {
+                invalidateSelf();
+                return true;
+            }
+            return z;
         }
-        boolean z = false;
-        VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
-        ColorStateList colorStateList = vectorDrawableCompatState.mTint;
-        if (colorStateList != null && (mode = vectorDrawableCompatState.mTintMode) != null) {
-            this.mTintFilter = updateTintFilter(this.mTintFilter, colorStateList, mode);
-            invalidateSelf();
-            z = true;
-        }
-        if (vectorDrawableCompatState.isStateful() && vectorDrawableCompatState.onStateChanged(iArr)) {
-            invalidateSelf();
-            return true;
-        }
-        return z;
+        return invokeL.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void scheduleSelf(Runnable runnable, long j) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            drawable.scheduleSelf(runnable, j);
-        } else {
-            super.scheduleSelf(runnable, j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048604, this, runnable, j) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                drawable.scheduleSelf(runnable, j);
+            } else {
+                super.scheduleSelf(runnable, j);
+            }
         }
     }
 
     public void setAllowCaching(boolean z) {
-        this.mAllowCaching = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.mAllowCaching = z;
+        }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i2) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            drawable.setAlpha(i2);
-        } else if (this.mVectorState.mVPathRenderer.getRootAlpha() != i2) {
-            this.mVectorState.mVPathRenderer.setRootAlpha(i2);
-            invalidateSelf();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                drawable.setAlpha(i2);
+            } else if (this.mVectorState.mVPathRenderer.getRootAlpha() != i2) {
+                this.mVectorState.mVPathRenderer.setRootAlpha(i2);
+                invalidateSelf();
+            }
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAutoMirrored(boolean z) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            DrawableCompat.setAutoMirrored(drawable, z);
-        } else {
-            this.mVectorState.mAutoMirrored = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                DrawableCompat.setAutoMirrored(drawable, z);
+            } else {
+                this.mVectorState.mAutoMirrored = z;
+            }
         }
     }
 
@@ -763,193 +1058,316 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
     public void setTint(int i2) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            DrawableCompat.setTint(drawable, i2);
-        } else {
-            setTintList(ColorStateList.valueOf(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                DrawableCompat.setTint(drawable, i2);
+            } else {
+                setTintList(ColorStateList.valueOf(i2));
+            }
         }
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
     public void setTintList(ColorStateList colorStateList) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            DrawableCompat.setTintList(drawable, colorStateList);
-            return;
-        }
-        VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
-        if (vectorDrawableCompatState.mTint != colorStateList) {
-            vectorDrawableCompatState.mTint = colorStateList;
-            this.mTintFilter = updateTintFilter(this.mTintFilter, colorStateList, vectorDrawableCompatState.mTintMode);
-            invalidateSelf();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, colorStateList) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                DrawableCompat.setTintList(drawable, colorStateList);
+                return;
+            }
+            VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
+            if (vectorDrawableCompatState.mTint != colorStateList) {
+                vectorDrawableCompatState.mTint = colorStateList;
+                this.mTintFilter = updateTintFilter(this.mTintFilter, colorStateList, vectorDrawableCompatState.mTintMode);
+                invalidateSelf();
+            }
         }
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
     public void setTintMode(PorterDuff.Mode mode) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            DrawableCompat.setTintMode(drawable, mode);
-            return;
-        }
-        VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
-        if (vectorDrawableCompatState.mTintMode != mode) {
-            vectorDrawableCompatState.mTintMode = mode;
-            this.mTintFilter = updateTintFilter(this.mTintFilter, vectorDrawableCompatState.mTint, mode);
-            invalidateSelf();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, mode) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                DrawableCompat.setTintMode(drawable, mode);
+                return;
+            }
+            VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
+            if (vectorDrawableCompatState.mTintMode != mode) {
+                vectorDrawableCompatState.mTintMode = mode;
+                this.mTintFilter = updateTintFilter(this.mTintFilter, vectorDrawableCompatState.mTint, mode);
+                invalidateSelf();
+            }
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            return drawable.setVisible(z, z2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return drawable.setVisible(z, z2);
+            }
+            return super.setVisible(z, z2);
         }
-        return super.setVisible(z, z2);
+        return invokeCommon.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void unscheduleSelf(Runnable runnable) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            drawable.unscheduleSelf(runnable);
-        } else {
-            super.unscheduleSelf(runnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, runnable) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                drawable.unscheduleSelf(runnable);
+            } else {
+                super.unscheduleSelf(runnable);
+            }
         }
     }
 
     public PorterDuffColorFilter updateTintFilter(PorterDuffColorFilter porterDuffColorFilter, ColorStateList colorStateList, PorterDuff.Mode mode) {
-        if (colorStateList == null || mode == null) {
-            return null;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048620, this, porterDuffColorFilter, colorStateList, mode)) == null) {
+            if (colorStateList == null || mode == null) {
+                return null;
+            }
+            return new PorterDuffColorFilter(colorStateList.getColorForState(getState(), 0), mode);
         }
-        return new PorterDuffColorFilter(colorStateList.getColorForState(getState(), 0), mode);
+        return (PorterDuffColorFilter) invokeLLL.objValue;
     }
 
     @RequiresApi(24)
     /* loaded from: classes.dex */
     public static class VectorDrawableDelegateState extends Drawable.ConstantState {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Drawable.ConstantState mDelegateState;
 
         public VectorDrawableDelegateState(Drawable.ConstantState constantState) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {constantState};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mDelegateState = constantState;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public boolean canApplyTheme() {
-            return this.mDelegateState.canApplyTheme();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDelegateState.canApplyTheme() : invokeV.booleanValue;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {
-            return this.mDelegateState.getChangingConfigurations();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegateState.getChangingConfigurations() : invokeV.intValue;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public Drawable newDrawable() {
-            VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
-            vectorDrawableCompat.mDelegateDrawable = (VectorDrawable) this.mDelegateState.newDrawable();
-            return vectorDrawableCompat;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
+                vectorDrawableCompat.mDelegateDrawable = (VectorDrawable) this.mDelegateState.newDrawable();
+                return vectorDrawableCompat;
+            }
+            return (Drawable) invokeV.objValue;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public Drawable newDrawable(Resources resources) {
-            VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
-            vectorDrawableCompat.mDelegateDrawable = (VectorDrawable) this.mDelegateState.newDrawable(resources);
-            return vectorDrawableCompat;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, resources)) == null) {
+                VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
+                vectorDrawableCompat.mDelegateDrawable = (VectorDrawable) this.mDelegateState.newDrawable(resources);
+                return vectorDrawableCompat;
+            }
+            return (Drawable) invokeL.objValue;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public Drawable newDrawable(Resources resources, Resources.Theme theme) {
-            VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
-            vectorDrawableCompat.mDelegateDrawable = (VectorDrawable) this.mDelegateState.newDrawable(resources, theme);
-            return vectorDrawableCompat;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, resources, theme)) == null) {
+                VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
+                vectorDrawableCompat.mDelegateDrawable = (VectorDrawable) this.mDelegateState.newDrawable(resources, theme);
+                return vectorDrawableCompat;
+            }
+            return (Drawable) invokeLL.objValue;
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            drawable.setColorFilter(colorFilter);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, colorFilter) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                drawable.setColorFilter(colorFilter);
+                return;
+            }
+            this.mColorFilter = colorFilter;
+            invalidateSelf();
         }
-        this.mColorFilter = colorFilter;
-        invalidateSelf();
     }
 
     /* loaded from: classes.dex */
     public static abstract class VPath extends VObject {
+        public static /* synthetic */ Interceptable $ic;
         public static final int FILL_TYPE_WINDING = 0;
+        public transient /* synthetic */ FieldHolder $fh;
         public int mChangingConfigurations;
         public int mFillRule;
         public PathParser.PathDataNode[] mNodes;
         public String mPathName;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VPath() {
-            super();
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((AnonymousClass1) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mNodes = null;
             this.mFillRule = 0;
         }
 
         public void applyTheme(Resources.Theme theme) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, theme) == null) {
+            }
         }
 
         public boolean canApplyTheme() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public PathParser.PathDataNode[] getPathData() {
-            return this.mNodes;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mNodes : (PathParser.PathDataNode[]) invokeV.objValue;
         }
 
         public String getPathName() {
-            return this.mPathName;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPathName : (String) invokeV.objValue;
         }
 
         public boolean isClipPath() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public String nodesToString(PathParser.PathDataNode[] pathDataNodeArr) {
+            InterceptResult invokeL;
             float[] fArr;
-            String str = " ";
-            for (int i2 = 0; i2 < pathDataNodeArr.length; i2++) {
-                str = str + pathDataNodeArr[i2].mType + ":";
-                for (int i3 = 0; i3 < pathDataNodeArr[i2].mParams.length; i3++) {
-                    str = str + fArr[i3] + ",";
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pathDataNodeArr)) == null) {
+                String str = " ";
+                for (int i2 = 0; i2 < pathDataNodeArr.length; i2++) {
+                    str = str + pathDataNodeArr[i2].mType + ":";
+                    for (int i3 = 0; i3 < pathDataNodeArr[i2].mParams.length; i3++) {
+                        str = str + fArr[i3] + ",";
+                    }
                 }
+                return str;
             }
-            return str;
+            return (String) invokeL.objValue;
         }
 
         public void printVPath(int i2) {
-            String str = "";
-            for (int i3 = 0; i3 < i2; i3++) {
-                str = str + "    ";
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+                String str = "";
+                for (int i3 = 0; i3 < i2; i3++) {
+                    str = str + "    ";
+                }
+                Log.v(VectorDrawableCompat.LOGTAG, str + "current path is :" + this.mPathName + " pathData is " + nodesToString(this.mNodes));
             }
-            Log.v(VectorDrawableCompat.LOGTAG, str + "current path is :" + this.mPathName + " pathData is " + nodesToString(this.mNodes));
         }
 
         public void setPathData(PathParser.PathDataNode[] pathDataNodeArr) {
-            if (!PathParser.canMorph(this.mNodes, pathDataNodeArr)) {
-                this.mNodes = PathParser.deepCopyNodes(pathDataNodeArr);
-            } else {
-                PathParser.updateNodes(this.mNodes, pathDataNodeArr);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, pathDataNodeArr) == null) {
+                if (!PathParser.canMorph(this.mNodes, pathDataNodeArr)) {
+                    this.mNodes = PathParser.deepCopyNodes(pathDataNodeArr);
+                } else {
+                    PathParser.updateNodes(this.mNodes, pathDataNodeArr);
+                }
             }
         }
 
         public void toPath(Path path) {
-            path.reset();
-            PathParser.PathDataNode[] pathDataNodeArr = this.mNodes;
-            if (pathDataNodeArr != null) {
-                PathParser.PathDataNode.nodesToPath(pathDataNodeArr, path);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, path) == null) {
+                path.reset();
+                PathParser.PathDataNode[] pathDataNodeArr = this.mNodes;
+                if (pathDataNodeArr != null) {
+                    PathParser.PathDataNode.nodesToPath(pathDataNodeArr, path);
+                }
             }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VPath(VPath vPath) {
-            super();
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vPath};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((AnonymousClass1) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.mNodes = null;
             this.mFillRule = 0;
             this.mPathName = vPath.mPathName;
@@ -960,23 +1378,40 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @Override // android.graphics.drawable.Drawable
     public void inflate(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
-        Drawable drawable = this.mDelegateDrawable;
-        if (drawable != null) {
-            DrawableCompat.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048596, this, resources, xmlPullParser, attributeSet, theme) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                DrawableCompat.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
+                return;
+            }
+            VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
+            vectorDrawableCompatState.mVPathRenderer = new VPathRenderer();
+            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_TYPE_ARRAY);
+            updateStateFromTypedArray(obtainAttributes, xmlPullParser, theme);
+            obtainAttributes.recycle();
+            vectorDrawableCompatState.mChangingConfigurations = getChangingConfigurations();
+            vectorDrawableCompatState.mCacheDirty = true;
+            inflateInternal(resources, xmlPullParser, attributeSet, theme);
+            this.mTintFilter = updateTintFilter(this.mTintFilter, vectorDrawableCompatState.mTint, vectorDrawableCompatState.mTintMode);
         }
-        VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
-        vectorDrawableCompatState.mVPathRenderer = new VPathRenderer();
-        TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_TYPE_ARRAY);
-        updateStateFromTypedArray(obtainAttributes, xmlPullParser, theme);
-        obtainAttributes.recycle();
-        vectorDrawableCompatState.mChangingConfigurations = getChangingConfigurations();
-        vectorDrawableCompatState.mCacheDirty = true;
-        inflateInternal(resources, xmlPullParser, attributeSet, theme);
-        this.mTintFilter = updateTintFilter(this.mTintFilter, vectorDrawableCompatState.mTint, vectorDrawableCompatState.mTintMode);
     }
 
     public VectorDrawableCompat(@NonNull VectorDrawableCompatState vectorDrawableCompatState) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vectorDrawableCompatState};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mAllowCaching = true;
         this.mTmpFloats = new float[9];
         this.mTmpMatrix = new Matrix();
@@ -987,6 +1422,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     /* loaded from: classes.dex */
     public static class VFullPath extends VPath {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public float mFillAlpha;
         public ComplexColorCompat mFillColor;
         public float mStrokeAlpha;
@@ -1001,6 +1438,18 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         public float mTrimPathStart;
 
         public VFullPath() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mStrokeWidth = 0.0f;
             this.mStrokeAlpha = 1.0f;
             this.mFillAlpha = 1.0f;
@@ -1013,146 +1462,225 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
 
         private Paint.Cap getStrokeLineCap(int i2, Paint.Cap cap) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    return i2 != 2 ? cap : Paint.Cap.SQUARE;
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, this, i2, cap)) == null) {
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        return i2 != 2 ? cap : Paint.Cap.SQUARE;
+                    }
+                    return Paint.Cap.ROUND;
                 }
-                return Paint.Cap.ROUND;
+                return Paint.Cap.BUTT;
             }
-            return Paint.Cap.BUTT;
+            return (Paint.Cap) invokeIL.objValue;
         }
 
         private Paint.Join getStrokeLineJoin(int i2, Paint.Join join) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    return i2 != 2 ? join : Paint.Join.BEVEL;
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i2, join)) == null) {
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        return i2 != 2 ? join : Paint.Join.BEVEL;
+                    }
+                    return Paint.Join.ROUND;
                 }
-                return Paint.Join.ROUND;
+                return Paint.Join.MITER;
             }
-            return Paint.Join.MITER;
+            return (Paint.Join) invokeIL.objValue;
         }
 
         private void updateStateFromTypedArray(TypedArray typedArray, XmlPullParser xmlPullParser, Resources.Theme theme) {
-            this.mThemeAttrs = null;
-            if (TypedArrayUtils.hasAttribute(xmlPullParser, "pathData")) {
-                String string = typedArray.getString(0);
-                if (string != null) {
-                    this.mPathName = string;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65540, this, typedArray, xmlPullParser, theme) == null) {
+                this.mThemeAttrs = null;
+                if (TypedArrayUtils.hasAttribute(xmlPullParser, "pathData")) {
+                    String string = typedArray.getString(0);
+                    if (string != null) {
+                        this.mPathName = string;
+                    }
+                    String string2 = typedArray.getString(2);
+                    if (string2 != null) {
+                        this.mNodes = PathParser.createNodesFromPathData(string2);
+                    }
+                    this.mFillColor = TypedArrayUtils.getNamedComplexColor(typedArray, xmlPullParser, theme, "fillColor", 1, 0);
+                    this.mFillAlpha = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "fillAlpha", 12, this.mFillAlpha);
+                    this.mStrokeLineCap = getStrokeLineCap(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "strokeLineCap", 8, -1), this.mStrokeLineCap);
+                    this.mStrokeLineJoin = getStrokeLineJoin(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "strokeLineJoin", 9, -1), this.mStrokeLineJoin);
+                    this.mStrokeMiterlimit = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "strokeMiterLimit", 10, this.mStrokeMiterlimit);
+                    this.mStrokeColor = TypedArrayUtils.getNamedComplexColor(typedArray, xmlPullParser, theme, "strokeColor", 3, 0);
+                    this.mStrokeAlpha = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "strokeAlpha", 11, this.mStrokeAlpha);
+                    this.mStrokeWidth = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "strokeWidth", 4, this.mStrokeWidth);
+                    this.mTrimPathEnd = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "trimPathEnd", 6, this.mTrimPathEnd);
+                    this.mTrimPathOffset = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "trimPathOffset", 7, this.mTrimPathOffset);
+                    this.mTrimPathStart = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "trimPathStart", 5, this.mTrimPathStart);
+                    this.mFillRule = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "fillType", 13, this.mFillRule);
                 }
-                String string2 = typedArray.getString(2);
-                if (string2 != null) {
-                    this.mNodes = PathParser.createNodesFromPathData(string2);
-                }
-                this.mFillColor = TypedArrayUtils.getNamedComplexColor(typedArray, xmlPullParser, theme, "fillColor", 1, 0);
-                this.mFillAlpha = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "fillAlpha", 12, this.mFillAlpha);
-                this.mStrokeLineCap = getStrokeLineCap(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "strokeLineCap", 8, -1), this.mStrokeLineCap);
-                this.mStrokeLineJoin = getStrokeLineJoin(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "strokeLineJoin", 9, -1), this.mStrokeLineJoin);
-                this.mStrokeMiterlimit = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "strokeMiterLimit", 10, this.mStrokeMiterlimit);
-                this.mStrokeColor = TypedArrayUtils.getNamedComplexColor(typedArray, xmlPullParser, theme, "strokeColor", 3, 0);
-                this.mStrokeAlpha = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "strokeAlpha", 11, this.mStrokeAlpha);
-                this.mStrokeWidth = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "strokeWidth", 4, this.mStrokeWidth);
-                this.mTrimPathEnd = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "trimPathEnd", 6, this.mTrimPathEnd);
-                this.mTrimPathOffset = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "trimPathOffset", 7, this.mTrimPathOffset);
-                this.mTrimPathStart = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "trimPathStart", 5, this.mTrimPathStart);
-                this.mFillRule = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "fillType", 13, this.mFillRule);
             }
         }
 
         @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.VPath
         public void applyTheme(Resources.Theme theme) {
-            if (this.mThemeAttrs == null) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, theme) != null) || this.mThemeAttrs == null) {
             }
         }
 
         @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.VPath
         public boolean canApplyTheme() {
-            return this.mThemeAttrs != null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mThemeAttrs != null : invokeV.booleanValue;
         }
 
         public float getFillAlpha() {
-            return this.mFillAlpha;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFillAlpha : invokeV.floatValue;
         }
 
         @ColorInt
         public int getFillColor() {
-            return this.mFillColor.getColor();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFillColor.getColor() : invokeV.intValue;
         }
 
         public float getStrokeAlpha() {
-            return this.mStrokeAlpha;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStrokeAlpha : invokeV.floatValue;
         }
 
         @ColorInt
         public int getStrokeColor() {
-            return this.mStrokeColor.getColor();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStrokeColor.getColor() : invokeV.intValue;
         }
 
         public float getStrokeWidth() {
-            return this.mStrokeWidth;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mStrokeWidth : invokeV.floatValue;
         }
 
         public float getTrimPathEnd() {
-            return this.mTrimPathEnd;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mTrimPathEnd : invokeV.floatValue;
         }
 
         public float getTrimPathOffset() {
-            return this.mTrimPathOffset;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mTrimPathOffset : invokeV.floatValue;
         }
 
         public float getTrimPathStart() {
-            return this.mTrimPathStart;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mTrimPathStart : invokeV.floatValue;
         }
 
         public void inflate(Resources resources, AttributeSet attributeSet, Resources.Theme theme, XmlPullParser xmlPullParser) {
-            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_PATH);
-            updateStateFromTypedArray(obtainAttributes, xmlPullParser, theme);
-            obtainAttributes.recycle();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048586, this, resources, attributeSet, theme, xmlPullParser) == null) {
+                TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_PATH);
+                updateStateFromTypedArray(obtainAttributes, xmlPullParser, theme);
+                obtainAttributes.recycle();
+            }
         }
 
         @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.VObject
         public boolean isStateful() {
-            return this.mFillColor.isStateful() || this.mStrokeColor.isStateful();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mFillColor.isStateful() || this.mStrokeColor.isStateful() : invokeV.booleanValue;
         }
 
         @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.VObject
         public boolean onStateChanged(int[] iArr) {
-            return this.mStrokeColor.onStateChanged(iArr) | this.mFillColor.onStateChanged(iArr);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, iArr)) == null) ? this.mStrokeColor.onStateChanged(iArr) | this.mFillColor.onStateChanged(iArr) : invokeL.booleanValue;
         }
 
         public void setFillAlpha(float f2) {
-            this.mFillAlpha = f2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
+                this.mFillAlpha = f2;
+            }
         }
 
         public void setFillColor(int i2) {
-            this.mFillColor.setColor(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+                this.mFillColor.setColor(i2);
+            }
         }
 
         public void setStrokeAlpha(float f2) {
-            this.mStrokeAlpha = f2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
+                this.mStrokeAlpha = f2;
+            }
         }
 
         public void setStrokeColor(int i2) {
-            this.mStrokeColor.setColor(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+                this.mStrokeColor.setColor(i2);
+            }
         }
 
         public void setStrokeWidth(float f2) {
-            this.mStrokeWidth = f2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
+                this.mStrokeWidth = f2;
+            }
         }
 
         public void setTrimPathEnd(float f2) {
-            this.mTrimPathEnd = f2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
+                this.mTrimPathEnd = f2;
+            }
         }
 
         public void setTrimPathOffset(float f2) {
-            this.mTrimPathOffset = f2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
+                this.mTrimPathOffset = f2;
+            }
         }
 
         public void setTrimPathStart(float f2) {
-            this.mTrimPathStart = f2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
+                this.mTrimPathStart = f2;
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VFullPath(VFullPath vFullPath) {
             super(vFullPath);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vFullPath};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((VPath) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.mStrokeWidth = 0.0f;
             this.mStrokeAlpha = 1.0f;
             this.mFillAlpha = 1.0f;
@@ -1180,7 +1708,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     /* loaded from: classes.dex */
     public static class VPathRenderer {
-        public static final Matrix IDENTITY_MATRIX = new Matrix();
+        public static /* synthetic */ Interceptable $ic;
+        public static final Matrix IDENTITY_MATRIX;
+        public transient /* synthetic */ FieldHolder $fh;
         public float mBaseHeight;
         public float mBaseWidth;
         public int mChangingConfigurations;
@@ -1198,7 +1728,35 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         public float mViewportHeight;
         public float mViewportWidth;
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-989626819, "Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-989626819, "Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;");
+                    return;
+                }
+            }
+            IDENTITY_MATRIX = new Matrix();
+        }
+
         public VPathRenderer() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.mFinalPathMatrix = new Matrix();
             this.mBaseWidth = 0.0f;
             this.mBaseHeight = 0.0f;
@@ -1214,165 +1772,212 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
 
         public static float cross(float f2, float f3, float f4, float f5) {
-            return (f2 * f5) - (f3 * f4);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? (f2 * f5) - (f3 * f4) : invokeCommon.floatValue;
         }
 
         private void drawGroupTree(VGroup vGroup, Matrix matrix, Canvas canvas, int i2, int i3, ColorFilter colorFilter) {
-            vGroup.mStackedMatrix.set(matrix);
-            vGroup.mStackedMatrix.preConcat(vGroup.mLocalMatrix);
-            canvas.save();
-            for (int i4 = 0; i4 < vGroup.mChildren.size(); i4++) {
-                VObject vObject = vGroup.mChildren.get(i4);
-                if (vObject instanceof VGroup) {
-                    drawGroupTree((VGroup) vObject, vGroup.mStackedMatrix, canvas, i2, i3, colorFilter);
-                } else if (vObject instanceof VPath) {
-                    drawPath(vGroup, (VPath) vObject, canvas, i2, i3, colorFilter);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{vGroup, matrix, canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
+                vGroup.mStackedMatrix.set(matrix);
+                vGroup.mStackedMatrix.preConcat(vGroup.mLocalMatrix);
+                canvas.save();
+                for (int i4 = 0; i4 < vGroup.mChildren.size(); i4++) {
+                    VObject vObject = vGroup.mChildren.get(i4);
+                    if (vObject instanceof VGroup) {
+                        drawGroupTree((VGroup) vObject, vGroup.mStackedMatrix, canvas, i2, i3, colorFilter);
+                    } else if (vObject instanceof VPath) {
+                        drawPath(vGroup, (VPath) vObject, canvas, i2, i3, colorFilter);
+                    }
                 }
+                canvas.restore();
             }
-            canvas.restore();
         }
 
         private void drawPath(VGroup vGroup, VPath vPath, Canvas canvas, int i2, int i3, ColorFilter colorFilter) {
-            float f2 = i2 / this.mViewportWidth;
-            float f3 = i3 / this.mViewportHeight;
-            float min = Math.min(f2, f3);
-            Matrix matrix = vGroup.mStackedMatrix;
-            this.mFinalPathMatrix.set(matrix);
-            this.mFinalPathMatrix.postScale(f2, f3);
-            float matrixScale = getMatrixScale(matrix);
-            if (matrixScale == 0.0f) {
-                return;
-            }
-            vPath.toPath(this.mPath);
-            Path path = this.mPath;
-            this.mRenderPath.reset();
-            if (vPath.isClipPath()) {
-                this.mRenderPath.setFillType(vPath.mFillRule == 0 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{vGroup, vPath, canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
+                float f2 = i2 / this.mViewportWidth;
+                float f3 = i3 / this.mViewportHeight;
+                float min = Math.min(f2, f3);
+                Matrix matrix = vGroup.mStackedMatrix;
+                this.mFinalPathMatrix.set(matrix);
+                this.mFinalPathMatrix.postScale(f2, f3);
+                float matrixScale = getMatrixScale(matrix);
+                if (matrixScale == 0.0f) {
+                    return;
+                }
+                vPath.toPath(this.mPath);
+                Path path = this.mPath;
+                this.mRenderPath.reset();
+                if (vPath.isClipPath()) {
+                    this.mRenderPath.setFillType(vPath.mFillRule == 0 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD);
+                    this.mRenderPath.addPath(path, this.mFinalPathMatrix);
+                    canvas.clipPath(this.mRenderPath);
+                    return;
+                }
+                VFullPath vFullPath = (VFullPath) vPath;
+                if (vFullPath.mTrimPathStart != 0.0f || vFullPath.mTrimPathEnd != 1.0f) {
+                    float f4 = vFullPath.mTrimPathStart;
+                    float f5 = vFullPath.mTrimPathOffset;
+                    float f6 = (f4 + f5) % 1.0f;
+                    float f7 = (vFullPath.mTrimPathEnd + f5) % 1.0f;
+                    if (this.mPathMeasure == null) {
+                        this.mPathMeasure = new PathMeasure();
+                    }
+                    this.mPathMeasure.setPath(this.mPath, false);
+                    float length = this.mPathMeasure.getLength();
+                    float f8 = f6 * length;
+                    float f9 = f7 * length;
+                    path.reset();
+                    if (f8 > f9) {
+                        this.mPathMeasure.getSegment(f8, length, path, true);
+                        this.mPathMeasure.getSegment(0.0f, f9, path, true);
+                    } else {
+                        this.mPathMeasure.getSegment(f8, f9, path, true);
+                    }
+                    path.rLineTo(0.0f, 0.0f);
+                }
                 this.mRenderPath.addPath(path, this.mFinalPathMatrix);
-                canvas.clipPath(this.mRenderPath);
-                return;
-            }
-            VFullPath vFullPath = (VFullPath) vPath;
-            if (vFullPath.mTrimPathStart != 0.0f || vFullPath.mTrimPathEnd != 1.0f) {
-                float f4 = vFullPath.mTrimPathStart;
-                float f5 = vFullPath.mTrimPathOffset;
-                float f6 = (f4 + f5) % 1.0f;
-                float f7 = (vFullPath.mTrimPathEnd + f5) % 1.0f;
-                if (this.mPathMeasure == null) {
-                    this.mPathMeasure = new PathMeasure();
+                if (vFullPath.mFillColor.willDraw()) {
+                    ComplexColorCompat complexColorCompat = vFullPath.mFillColor;
+                    if (this.mFillPaint == null) {
+                        Paint paint = new Paint(1);
+                        this.mFillPaint = paint;
+                        paint.setStyle(Paint.Style.FILL);
+                    }
+                    Paint paint2 = this.mFillPaint;
+                    if (complexColorCompat.isGradient()) {
+                        Shader shader = complexColorCompat.getShader();
+                        shader.setLocalMatrix(this.mFinalPathMatrix);
+                        paint2.setShader(shader);
+                        paint2.setAlpha(Math.round(vFullPath.mFillAlpha * 255.0f));
+                    } else {
+                        paint2.setShader(null);
+                        paint2.setAlpha(255);
+                        paint2.setColor(VectorDrawableCompat.applyAlpha(complexColorCompat.getColor(), vFullPath.mFillAlpha));
+                    }
+                    paint2.setColorFilter(colorFilter);
+                    this.mRenderPath.setFillType(vFullPath.mFillRule == 0 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD);
+                    canvas.drawPath(this.mRenderPath, paint2);
                 }
-                this.mPathMeasure.setPath(this.mPath, false);
-                float length = this.mPathMeasure.getLength();
-                float f8 = f6 * length;
-                float f9 = f7 * length;
-                path.reset();
-                if (f8 > f9) {
-                    this.mPathMeasure.getSegment(f8, length, path, true);
-                    this.mPathMeasure.getSegment(0.0f, f9, path, true);
-                } else {
-                    this.mPathMeasure.getSegment(f8, f9, path, true);
+                if (vFullPath.mStrokeColor.willDraw()) {
+                    ComplexColorCompat complexColorCompat2 = vFullPath.mStrokeColor;
+                    if (this.mStrokePaint == null) {
+                        Paint paint3 = new Paint(1);
+                        this.mStrokePaint = paint3;
+                        paint3.setStyle(Paint.Style.STROKE);
+                    }
+                    Paint paint4 = this.mStrokePaint;
+                    Paint.Join join = vFullPath.mStrokeLineJoin;
+                    if (join != null) {
+                        paint4.setStrokeJoin(join);
+                    }
+                    Paint.Cap cap = vFullPath.mStrokeLineCap;
+                    if (cap != null) {
+                        paint4.setStrokeCap(cap);
+                    }
+                    paint4.setStrokeMiter(vFullPath.mStrokeMiterlimit);
+                    if (complexColorCompat2.isGradient()) {
+                        Shader shader2 = complexColorCompat2.getShader();
+                        shader2.setLocalMatrix(this.mFinalPathMatrix);
+                        paint4.setShader(shader2);
+                        paint4.setAlpha(Math.round(vFullPath.mStrokeAlpha * 255.0f));
+                    } else {
+                        paint4.setShader(null);
+                        paint4.setAlpha(255);
+                        paint4.setColor(VectorDrawableCompat.applyAlpha(complexColorCompat2.getColor(), vFullPath.mStrokeAlpha));
+                    }
+                    paint4.setColorFilter(colorFilter);
+                    paint4.setStrokeWidth(vFullPath.mStrokeWidth * min * matrixScale);
+                    canvas.drawPath(this.mRenderPath, paint4);
                 }
-                path.rLineTo(0.0f, 0.0f);
-            }
-            this.mRenderPath.addPath(path, this.mFinalPathMatrix);
-            if (vFullPath.mFillColor.willDraw()) {
-                ComplexColorCompat complexColorCompat = vFullPath.mFillColor;
-                if (this.mFillPaint == null) {
-                    Paint paint = new Paint(1);
-                    this.mFillPaint = paint;
-                    paint.setStyle(Paint.Style.FILL);
-                }
-                Paint paint2 = this.mFillPaint;
-                if (complexColorCompat.isGradient()) {
-                    Shader shader = complexColorCompat.getShader();
-                    shader.setLocalMatrix(this.mFinalPathMatrix);
-                    paint2.setShader(shader);
-                    paint2.setAlpha(Math.round(vFullPath.mFillAlpha * 255.0f));
-                } else {
-                    paint2.setShader(null);
-                    paint2.setAlpha(255);
-                    paint2.setColor(VectorDrawableCompat.applyAlpha(complexColorCompat.getColor(), vFullPath.mFillAlpha));
-                }
-                paint2.setColorFilter(colorFilter);
-                this.mRenderPath.setFillType(vFullPath.mFillRule == 0 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD);
-                canvas.drawPath(this.mRenderPath, paint2);
-            }
-            if (vFullPath.mStrokeColor.willDraw()) {
-                ComplexColorCompat complexColorCompat2 = vFullPath.mStrokeColor;
-                if (this.mStrokePaint == null) {
-                    Paint paint3 = new Paint(1);
-                    this.mStrokePaint = paint3;
-                    paint3.setStyle(Paint.Style.STROKE);
-                }
-                Paint paint4 = this.mStrokePaint;
-                Paint.Join join = vFullPath.mStrokeLineJoin;
-                if (join != null) {
-                    paint4.setStrokeJoin(join);
-                }
-                Paint.Cap cap = vFullPath.mStrokeLineCap;
-                if (cap != null) {
-                    paint4.setStrokeCap(cap);
-                }
-                paint4.setStrokeMiter(vFullPath.mStrokeMiterlimit);
-                if (complexColorCompat2.isGradient()) {
-                    Shader shader2 = complexColorCompat2.getShader();
-                    shader2.setLocalMatrix(this.mFinalPathMatrix);
-                    paint4.setShader(shader2);
-                    paint4.setAlpha(Math.round(vFullPath.mStrokeAlpha * 255.0f));
-                } else {
-                    paint4.setShader(null);
-                    paint4.setAlpha(255);
-                    paint4.setColor(VectorDrawableCompat.applyAlpha(complexColorCompat2.getColor(), vFullPath.mStrokeAlpha));
-                }
-                paint4.setColorFilter(colorFilter);
-                paint4.setStrokeWidth(vFullPath.mStrokeWidth * min * matrixScale);
-                canvas.drawPath(this.mRenderPath, paint4);
             }
         }
 
         private float getMatrixScale(Matrix matrix) {
-            float[] fArr = {0.0f, 1.0f, 1.0f, 0.0f};
-            matrix.mapVectors(fArr);
-            float cross = cross(fArr[0], fArr[1], fArr[2], fArr[3]);
-            float max = Math.max((float) Math.hypot(fArr[0], fArr[1]), (float) Math.hypot(fArr[2], fArr[3]));
-            if (max > 0.0f) {
-                return Math.abs(cross) / max;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, matrix)) == null) {
+                float[] fArr = {0.0f, 1.0f, 1.0f, 0.0f};
+                matrix.mapVectors(fArr);
+                float cross = cross(fArr[0], fArr[1], fArr[2], fArr[3]);
+                float max = Math.max((float) Math.hypot(fArr[0], fArr[1]), (float) Math.hypot(fArr[2], fArr[3]));
+                if (max > 0.0f) {
+                    return Math.abs(cross) / max;
+                }
+                return 0.0f;
             }
-            return 0.0f;
+            return invokeL.floatValue;
         }
 
         public void draw(Canvas canvas, int i2, int i3, ColorFilter colorFilter) {
-            drawGroupTree(this.mRootGroup, IDENTITY_MATRIX, canvas, i2, i3, colorFilter);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
+                drawGroupTree(this.mRootGroup, IDENTITY_MATRIX, canvas, i2, i3, colorFilter);
+            }
         }
 
         public float getAlpha() {
-            return getRootAlpha() / 255.0f;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getRootAlpha() / 255.0f : invokeV.floatValue;
         }
 
         public int getRootAlpha() {
-            return this.mRootAlpha;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRootAlpha : invokeV.intValue;
         }
 
         public boolean isStateful() {
-            if (this.mIsStateful == null) {
-                this.mIsStateful = Boolean.valueOf(this.mRootGroup.isStateful());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.mIsStateful == null) {
+                    this.mIsStateful = Boolean.valueOf(this.mRootGroup.isStateful());
+                }
+                return this.mIsStateful.booleanValue();
             }
-            return this.mIsStateful.booleanValue();
+            return invokeV.booleanValue;
         }
 
         public boolean onStateChanged(int[] iArr) {
-            return this.mRootGroup.onStateChanged(iArr);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iArr)) == null) ? this.mRootGroup.onStateChanged(iArr) : invokeL.booleanValue;
         }
 
         public void setAlpha(float f2) {
-            setRootAlpha((int) (f2 * 255.0f));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
+                setRootAlpha((int) (f2 * 255.0f));
+            }
         }
 
         public void setRootAlpha(int i2) {
-            this.mRootAlpha = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+                this.mRootAlpha = i2;
+            }
         }
 
         public VPathRenderer(VPathRenderer vPathRenderer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vPathRenderer};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
             this.mFinalPathMatrix = new Matrix();
             this.mBaseWidth = 0.0f;
             this.mBaseHeight = 0.0f;
@@ -1403,6 +2008,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     /* loaded from: classes.dex */
     public static class VGroup extends VObject {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int mChangingConfigurations;
         public final ArrayList<VObject> mChildren;
         public String mGroupName;
@@ -1417,9 +2024,25 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         public float mTranslateX;
         public float mTranslateY;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VGroup(VGroup vGroup, ArrayMap<String, Object> arrayMap) {
-            super();
+            super(null);
             VPath vClipPath;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vGroup, arrayMap};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((AnonymousClass1) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.mStackedMatrix = new Matrix();
             this.mChildren = new ArrayList<>();
             this.mRotate = 0.0f;
@@ -1447,8 +2070,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             }
             this.mLocalMatrix.set(vGroup.mLocalMatrix);
             ArrayList<VObject> arrayList = vGroup.mChildren;
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                VObject vObject = arrayList.get(i2);
+            for (int i4 = 0; i4 < arrayList.size(); i4++) {
+                VObject vObject = arrayList.get(i4);
                 if (vObject instanceof VGroup) {
                     this.mChildren.add(new VGroup((VGroup) vObject, arrayMap));
                 } else {
@@ -1469,141 +2092,206 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
 
         private void updateLocalMatrix() {
-            this.mLocalMatrix.reset();
-            this.mLocalMatrix.postTranslate(-this.mPivotX, -this.mPivotY);
-            this.mLocalMatrix.postScale(this.mScaleX, this.mScaleY);
-            this.mLocalMatrix.postRotate(this.mRotate, 0.0f, 0.0f);
-            this.mLocalMatrix.postTranslate(this.mTranslateX + this.mPivotX, this.mTranslateY + this.mPivotY);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+                this.mLocalMatrix.reset();
+                this.mLocalMatrix.postTranslate(-this.mPivotX, -this.mPivotY);
+                this.mLocalMatrix.postScale(this.mScaleX, this.mScaleY);
+                this.mLocalMatrix.postRotate(this.mRotate, 0.0f, 0.0f);
+                this.mLocalMatrix.postTranslate(this.mTranslateX + this.mPivotX, this.mTranslateY + this.mPivotY);
+            }
         }
 
         private void updateStateFromTypedArray(TypedArray typedArray, XmlPullParser xmlPullParser) {
-            this.mThemeAttrs = null;
-            this.mRotate = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "rotation", 5, this.mRotate);
-            this.mPivotX = typedArray.getFloat(1, this.mPivotX);
-            this.mPivotY = typedArray.getFloat(2, this.mPivotY);
-            this.mScaleX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "scaleX", 3, this.mScaleX);
-            this.mScaleY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "scaleY", 4, this.mScaleY);
-            this.mTranslateX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "translateX", 6, this.mTranslateX);
-            this.mTranslateY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "translateY", 7, this.mTranslateY);
-            String string = typedArray.getString(0);
-            if (string != null) {
-                this.mGroupName = string;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65539, this, typedArray, xmlPullParser) == null) {
+                this.mThemeAttrs = null;
+                this.mRotate = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "rotation", 5, this.mRotate);
+                this.mPivotX = typedArray.getFloat(1, this.mPivotX);
+                this.mPivotY = typedArray.getFloat(2, this.mPivotY);
+                this.mScaleX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "scaleX", 3, this.mScaleX);
+                this.mScaleY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "scaleY", 4, this.mScaleY);
+                this.mTranslateX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "translateX", 6, this.mTranslateX);
+                this.mTranslateY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "translateY", 7, this.mTranslateY);
+                String string = typedArray.getString(0);
+                if (string != null) {
+                    this.mGroupName = string;
+                }
+                updateLocalMatrix();
             }
-            updateLocalMatrix();
         }
 
         public String getGroupName() {
-            return this.mGroupName;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mGroupName : (String) invokeV.objValue;
         }
 
         public Matrix getLocalMatrix() {
-            return this.mLocalMatrix;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLocalMatrix : (Matrix) invokeV.objValue;
         }
 
         public float getPivotX() {
-            return this.mPivotX;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPivotX : invokeV.floatValue;
         }
 
         public float getPivotY() {
-            return this.mPivotY;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPivotY : invokeV.floatValue;
         }
 
         public float getRotation() {
-            return this.mRotate;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRotate : invokeV.floatValue;
         }
 
         public float getScaleX() {
-            return this.mScaleX;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mScaleX : invokeV.floatValue;
         }
 
         public float getScaleY() {
-            return this.mScaleY;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mScaleY : invokeV.floatValue;
         }
 
         public float getTranslateX() {
-            return this.mTranslateX;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mTranslateX : invokeV.floatValue;
         }
 
         public float getTranslateY() {
-            return this.mTranslateY;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mTranslateY : invokeV.floatValue;
         }
 
         public void inflate(Resources resources, AttributeSet attributeSet, Resources.Theme theme, XmlPullParser xmlPullParser) {
-            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_GROUP);
-            updateStateFromTypedArray(obtainAttributes, xmlPullParser);
-            obtainAttributes.recycle();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048585, this, resources, attributeSet, theme, xmlPullParser) == null) {
+                TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_GROUP);
+                updateStateFromTypedArray(obtainAttributes, xmlPullParser);
+                obtainAttributes.recycle();
+            }
         }
 
         @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.VObject
         public boolean isStateful() {
-            for (int i2 = 0; i2 < this.mChildren.size(); i2++) {
-                if (this.mChildren.get(i2).isStateful()) {
-                    return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                for (int i2 = 0; i2 < this.mChildren.size(); i2++) {
+                    if (this.mChildren.get(i2).isStateful()) {
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            return invokeV.booleanValue;
         }
 
         @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.VObject
         public boolean onStateChanged(int[] iArr) {
-            boolean z = false;
-            for (int i2 = 0; i2 < this.mChildren.size(); i2++) {
-                z |= this.mChildren.get(i2).onStateChanged(iArr);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, iArr)) == null) {
+                boolean z = false;
+                for (int i2 = 0; i2 < this.mChildren.size(); i2++) {
+                    z |= this.mChildren.get(i2).onStateChanged(iArr);
+                }
+                return z;
             }
-            return z;
+            return invokeL.booleanValue;
         }
 
         public void setPivotX(float f2) {
-            if (f2 != this.mPivotX) {
-                this.mPivotX = f2;
-                updateLocalMatrix();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeF(1048588, this, f2) == null) || f2 == this.mPivotX) {
+                return;
             }
+            this.mPivotX = f2;
+            updateLocalMatrix();
         }
 
         public void setPivotY(float f2) {
-            if (f2 != this.mPivotY) {
-                this.mPivotY = f2;
-                updateLocalMatrix();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeF(1048589, this, f2) == null) || f2 == this.mPivotY) {
+                return;
             }
+            this.mPivotY = f2;
+            updateLocalMatrix();
         }
 
         public void setRotation(float f2) {
-            if (f2 != this.mRotate) {
-                this.mRotate = f2;
-                updateLocalMatrix();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeF(1048590, this, f2) == null) || f2 == this.mRotate) {
+                return;
             }
+            this.mRotate = f2;
+            updateLocalMatrix();
         }
 
         public void setScaleX(float f2) {
-            if (f2 != this.mScaleX) {
-                this.mScaleX = f2;
-                updateLocalMatrix();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeF(1048591, this, f2) == null) || f2 == this.mScaleX) {
+                return;
             }
+            this.mScaleX = f2;
+            updateLocalMatrix();
         }
 
         public void setScaleY(float f2) {
-            if (f2 != this.mScaleY) {
-                this.mScaleY = f2;
-                updateLocalMatrix();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeF(1048592, this, f2) == null) || f2 == this.mScaleY) {
+                return;
             }
+            this.mScaleY = f2;
+            updateLocalMatrix();
         }
 
         public void setTranslateX(float f2) {
-            if (f2 != this.mTranslateX) {
-                this.mTranslateX = f2;
-                updateLocalMatrix();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeF(1048593, this, f2) == null) || f2 == this.mTranslateX) {
+                return;
             }
+            this.mTranslateX = f2;
+            updateLocalMatrix();
         }
 
         public void setTranslateY(float f2) {
-            if (f2 != this.mTranslateY) {
-                this.mTranslateY = f2;
-                updateLocalMatrix();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeF(1048594, this, f2) == null) || f2 == this.mTranslateY) {
+                return;
             }
+            this.mTranslateY = f2;
+            updateLocalMatrix();
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VGroup() {
-            super();
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((AnonymousClass1) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mStackedMatrix = new Matrix();
             this.mChildren = new ArrayList<>();
             this.mRotate = 0.0f;

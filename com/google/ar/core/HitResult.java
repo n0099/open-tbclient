@@ -1,9 +1,34 @@
 package com.google.ar.core;
-/* loaded from: classes6.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class HitResult {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30938a = 0;
+    public long f32851a;
+
+    public HitResult() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32851a = 0L;
+    }
 
     private native long nativeCreateAnchor(long j, long j2);
 
@@ -11,22 +36,29 @@ public class HitResult {
 
     private native float nativeGetDistance(long j, long j2);
 
-    private native d.g.b.a.a nativeGetPose(long j, long j2);
+    private native d.f.c.a.a nativeGetPose(long j, long j2);
 
     public boolean equals(Object obj) {
-        return obj != null && obj.getClass() == HitResult.class && ((HitResult) obj).f30938a == this.f30938a;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == HitResult.class && ((HitResult) obj).f32851a == this.f32851a : invokeL.booleanValue;
     }
 
     public void finalize() {
-        long j = this.f30938a;
-        if (j != 0) {
-            nativeDestroyHitResult(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            long j = this.f32851a;
+            if (j != 0) {
+                nativeDestroyHitResult(j);
+            }
+            super.finalize();
         }
-        super.finalize();
     }
 
     public int hashCode() {
-        return Long.valueOf(this.f30938a).hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f32851a).hashCode() : invokeV.intValue;
     }
 
     public native long nativeAcquireTrackable(long j, long j2);

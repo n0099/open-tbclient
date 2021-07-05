@@ -1,6 +1,15 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes3.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class TbadkCoreStatisticKey {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_CLICK = "c12677";
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_SHOW = "c12676";
     public static final String ALA_FOLLOW_LIVE_SQUARE_ITEM_CLICK = "c12679";
@@ -123,6 +132,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_VIDEO_ACCOUNT_ADD_COLLECTION_CLICK = "c14182";
     public static final String KEY_VIDEO_ACCOUNT_ATTENTION_CLICK = "c14185";
     public static final String KEY_VIDEO_ACCOUNT_CLICK = "c14183";
+    public static final String KEY_VIDEO_ACCOUNT_EXPOSURE = "c14198";
     public static final String KEY_VIDEO_ACCOUNT_PROGRESS_CLICK = "c14184";
     public static final String KEY_VIDEO_SHARE_SUCCESS = "c14181";
     public static final String KEY_VIDEO_SPLASH_SKIP = "c12946";
@@ -174,9 +184,11 @@ public class TbadkCoreStatisticKey {
     public static final String YULE_GAME_EAST_EGG_CLICK = "c10853";
     public static final String YULE_GAME_EAST_EGG_PB_CLICK = "c10854";
     public static final String YULE_GAME_EAST_EGG_VIEW = "c10852";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AntiLocateValue {
+        public static /* synthetic */ Interceptable $ic = null;
         public static int LOCATE_CHAT = 6;
         public static int LOCATE_COLD_BOOT = 8;
         public static int LOCATE_HOT_BOOT = 9;
@@ -186,5 +198,49 @@ public class TbadkCoreStatisticKey {
         public static int LOCATE_REPLY_SUB_PB = 3;
         public static int LOCATE_SIGN = 5;
         public static int LOCATE_WRITE = 1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(709551034, "Lcom/baidu/tbadk/core/util/TbadkCoreStatisticKey$AntiLocateValue;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(709551034, "Lcom/baidu/tbadk/core/util/TbadkCoreStatisticKey$AntiLocateValue;");
+            }
+        }
+
+        public AntiLocateValue() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    public TbadkCoreStatisticKey() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

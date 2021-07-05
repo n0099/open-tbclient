@@ -1,19 +1,42 @@
 package plugin.writeSettings;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class Plugin_setting extends Message {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ABANDON_APK_PATH = "";
     public static final String DEFAULT_APK_PATH = "";
     public static final String DEFAULT_CMD_RANGE = "";
     public static final String DEFAULT_DISPLAY_NAME = "";
+    public static final Integer DEFAULT_ENABLE;
+    public static final Integer DEFAULT_FORBIDDEN;
+    public static final Integer DEFAULT_HAS_RES;
+    public static final Integer DEFAULT_INSTALL_FAIL_COUNT;
+    public static final Integer DEFAULT_INSTALL_STATUS;
+    public static final Integer DEFAULT_IS_INJECT_CLASSLOADER;
+    public static final Integer DEFAULT_IS_PATCH;
+    public static final Integer DEFAULT_IS_THIRD;
+    public static final Integer DEFAULT_LOAD_PRIORITY;
     public static final String DEFAULT_MD5 = "";
     public static final String DEFAULT_PACKAGE_NAME = "";
+    public static final Integer DEFAULT_PRIORITY;
     public static final String DEFAULT_REQUIRELOAD = "";
+    public static final Integer DEFAULT_SIZE;
     public static final String DEFAULT_TEMP_MD5 = "";
+    public static final Integer DEFAULT_TEMP_VERSION_CODE;
     public static final String DEFAULT_URL = "";
     public static final String DEFAULT_VERSION = "";
+    public static final Integer DEFAULT_VERSION_CODE;
+    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 17, type = Message.Datatype.STRING)
     public final String abandon_apk_path;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
@@ -66,22 +89,11 @@ public final class Plugin_setting extends Message {
     public final String version;
     @ProtoField(tag = 15, type = Message.Datatype.UINT32)
     public final Integer version_code;
-    public static final Integer DEFAULT_ENABLE = 0;
-    public static final Integer DEFAULT_FORBIDDEN = 0;
-    public static final Integer DEFAULT_SIZE = 0;
-    public static final Integer DEFAULT_INSTALL_STATUS = 0;
-    public static final Integer DEFAULT_TEMP_VERSION_CODE = 0;
-    public static final Integer DEFAULT_VERSION_CODE = 0;
-    public static final Integer DEFAULT_IS_INJECT_CLASSLOADER = 0;
-    public static final Integer DEFAULT_INSTALL_FAIL_COUNT = 0;
-    public static final Integer DEFAULT_PRIORITY = 1000;
-    public static final Integer DEFAULT_HAS_RES = 0;
-    public static final Integer DEFAULT_IS_THIRD = 0;
-    public static final Integer DEFAULT_LOAD_PRIORITY = 1000;
-    public static final Integer DEFAULT_IS_PATCH = 0;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<Plugin_setting> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String abandon_apk_path;
         public String apk_path;
         public String cmd_range;
@@ -110,10 +122,37 @@ public final class Plugin_setting extends Message {
         public Integer version_code;
 
         public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(Plugin_setting plugin_setting) {
             super(plugin_setting);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {plugin_setting};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Message) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             if (plugin_setting == null) {
                 return;
             }
@@ -148,12 +187,68 @@ public final class Plugin_setting extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public Plugin_setting build(boolean z) {
-            return new Plugin_setting(this, z);
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new Plugin_setting(this, z, null) : (Plugin_setting) invokeZ.objValue;
         }
     }
 
+    /* loaded from: classes10.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(752705754, "Lplugin/writeSettings/Plugin_setting;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(752705754, "Lplugin/writeSettings/Plugin_setting;");
+                return;
+            }
+        }
+        DEFAULT_ENABLE = 0;
+        DEFAULT_FORBIDDEN = 0;
+        DEFAULT_SIZE = 0;
+        DEFAULT_INSTALL_STATUS = 0;
+        DEFAULT_TEMP_VERSION_CODE = 0;
+        DEFAULT_VERSION_CODE = 0;
+        DEFAULT_IS_INJECT_CLASSLOADER = 0;
+        DEFAULT_INSTALL_FAIL_COUNT = 0;
+        DEFAULT_PRIORITY = 1000;
+        DEFAULT_HAS_RES = 0;
+        DEFAULT_IS_THIRD = 0;
+        DEFAULT_LOAD_PRIORITY = 1000;
+        DEFAULT_IS_PATCH = 0;
+    }
+
+    public /* synthetic */ Plugin_setting(Builder builder, boolean z, a aVar) {
+        this(builder, z);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Plugin_setting(Builder builder, boolean z) {
         super(builder);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Message.Builder) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         if (z) {
             String str = builder.package_name;
             if (str == null) {

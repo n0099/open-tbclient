@@ -6,26 +6,33 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CircleProgressView extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18370e;
+    public Context f18505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f18371f;
+    public Paint f18506f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f18372g;
+    public Paint f18507g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f18373h;
+    public RectF f18508h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18374i;
+    public int f18509i;
     public int j;
     public int k;
     public int l;
@@ -33,86 +40,148 @@ public class CircleProgressView extends View {
     public int n;
     public int o;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CircleProgressView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f18374i = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f18509i = 0;
         this.l = 0;
         this.m = 0;
         this.n = 0;
         this.o = 0;
-        this.f18370e = context;
+        this.f18505e = context;
         a();
     }
 
     public final void a() {
-        this.l = l.g(this.f18370e, R.dimen.ds4);
-        this.f18373h = new RectF();
-        Paint paint = new Paint();
-        this.f18371f = paint;
-        paint.setAntiAlias(true);
-        this.f18371f.setStrokeWidth(this.l);
-        this.f18371f.setStyle(Paint.Style.STROKE);
-        Paint paint2 = new Paint();
-        this.f18372g = paint2;
-        paint2.setAntiAlias(true);
-        this.f18372g.setStrokeWidth(this.l);
-        this.f18372g.setStyle(Paint.Style.STROKE);
-        this.j = R.color.common_color_10184;
-        this.k = R.color.common_color_10162;
-        b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.l = l.g(this.f18505e, R.dimen.ds4);
+            this.f18508h = new RectF();
+            Paint paint = new Paint();
+            this.f18506f = paint;
+            paint.setAntiAlias(true);
+            this.f18506f.setStrokeWidth(this.l);
+            this.f18506f.setStyle(Paint.Style.STROKE);
+            Paint paint2 = new Paint();
+            this.f18507g = paint2;
+            paint2.setAntiAlias(true);
+            this.f18507g.setStrokeWidth(this.l);
+            this.f18507g.setStyle(Paint.Style.STROKE);
+            this.j = R.color.common_color_10184;
+            this.k = R.color.common_color_10162;
+            b();
+        }
     }
 
     public void b() {
-        this.f18371f.setColor(SkinManager.getColor(this.j));
-        this.f18372g.setColor(SkinManager.getColor(this.k));
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f18506f.setColor(SkinManager.getColor(this.j));
+            this.f18507g.setColor(SkinManager.getColor(this.k));
+            invalidate();
+        }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        this.m = getWidth();
-        int height = getHeight();
-        this.n = height;
-        int i2 = this.m;
-        if (i2 > height) {
-            height = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            this.m = getWidth();
+            int height = getHeight();
+            this.n = height;
+            int i2 = this.m;
+            if (i2 > height) {
+                height = i2;
+            }
+            this.o = height;
+            RectF rectF = this.f18508h;
+            int i3 = this.l;
+            rectF.left = i3 / 2.0f;
+            rectF.top = i3 / 2.0f;
+            rectF.right = height - (i3 / 2);
+            rectF.bottom = height - (i3 / 2);
+            canvas.drawArc(rectF, 150.0f, 360.0f, false, this.f18507g);
+            canvas.drawArc(this.f18508h, 150.0f, this.f18509i, false, this.f18506f);
         }
-        this.o = height;
-        RectF rectF = this.f18373h;
-        int i3 = this.l;
-        rectF.left = i3 / 2.0f;
-        rectF.top = i3 / 2.0f;
-        rectF.right = height - (i3 / 2);
-        rectF.bottom = height - (i3 / 2);
-        canvas.drawArc(rectF, 150.0f, 360.0f, false, this.f18372g);
-        canvas.drawArc(this.f18373h, 150.0f, this.f18374i, false, this.f18371f);
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CircleProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18374i = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f18509i = 0;
         this.l = 0;
         this.m = 0;
         this.n = 0;
         this.o = 0;
-        this.f18370e = context;
+        this.f18505e = context;
         a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CircleProgressView(Context context) {
         super(context);
-        this.f18374i = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f18509i = 0;
         this.l = 0;
         this.m = 0;
         this.n = 0;
         this.o = 0;
-        this.f18370e = context;
+        this.f18505e = context;
         a();
     }
 }

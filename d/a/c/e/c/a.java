@@ -6,11 +6,20 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import android.util.SparseIntArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -21,536 +30,856 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class a implements Executor {
+    public static /* synthetic */ Interceptable $ic;
     public static a o;
-    public static final ThreadFactory p = new ThreadFactoryC0540a();
-    public static final BlockingQueue<Runnable> q = new SynchronousQueue();
-    public static final Executor r = new ThreadPoolExecutor(7, 256, 30, TimeUnit.SECONDS, q, p, new ThreadPoolExecutor.DiscardPolicy());
+    public static final ThreadFactory p;
+    public static final BlockingQueue<Runnable> q;
+    public static final Executor r;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f42255e = 0;
+    public volatile int f44064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f42256f = 0;
+    public volatile int f44065f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f42257g = 0;
+    public volatile int f44066g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f42258h = 0;
+    public volatile int f44067h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final SparseIntArray f42259i = new SparseIntArray();
-    public final LinkedList<d> j = new LinkedList<>();
-    public final LinkedList<d> k = new LinkedList<>();
-    public final LinkedList<d> l = new LinkedList<>();
+    public final SparseIntArray f44068i;
+    public final LinkedList<d> j;
+    public final LinkedList<d> k;
+    public final LinkedList<d> l;
     public HandlerThread m;
     public Handler n;
 
     /* renamed from: d.a.c.e.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class ThreadFactoryC0540a implements ThreadFactory {
+    /* loaded from: classes8.dex */
+    public static class ThreadFactoryC0585a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f42260e = new AtomicInteger(1);
+        public final AtomicInteger f44069e;
+
+        public ThreadFactoryC0585a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44069e = new AtomicInteger(1);
+        }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            String str = "BdAsyncTask #" + String.valueOf(this.f42260e.getAndIncrement());
-            BdLog.i(str);
-            return new Thread(runnable, str);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                String str = "BdAsyncTask #" + String.valueOf(this.f44069e.getAndIncrement());
+                BdLog.i(str);
+                return new Thread(runnable, str);
+            }
+            return (Thread) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public class b extends Handler {
-        public b(Looper looper) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f44070a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(a aVar, Looper looper) {
             super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44070a = aVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Object obj;
-            super.handleMessage(message);
-            int i2 = message.what;
-            if (i2 == 1) {
-                Object obj2 = message.obj;
-                if (obj2 == null || !(obj2 instanceof d)) {
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                int i2 = message.what;
+                if (i2 == 1) {
+                    Object obj2 = message.obj;
+                    if (obj2 == null || !(obj2 instanceof d)) {
+                        return;
+                    }
+                    this.f44070a.y((d) obj2);
+                } else if (i2 == 2 && (obj = message.obj) != null && (obj instanceof d)) {
+                    this.f44070a.p((d) obj);
+                    BdBaseApplication.getInst().isDebugMode();
                 }
-                a.this.y((d) obj2);
-            } else if (i2 == 2 && (obj = message.obj) != null && (obj instanceof d)) {
-                a.this.p((d) obj);
-                BdBaseApplication.getInst().isDebugMode();
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public class c extends d {
-        public c(d.a.c.e.c.b bVar) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ a f44071f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(a aVar, d.a.c.e.c.b bVar) {
             super(bVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((d.a.c.e.c.b) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44071f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            try {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (g() == 4) {
-                        Process.setThreadPriority(-2);
-                    } else if (g() == 3) {
-                        Process.setThreadPriority(-1);
-                    } else if (g() == 2) {
-                        Process.setThreadPriority(0);
-                    } else {
-                        Process.setThreadPriority(10);
+                    try {
+                        if (g() == 4) {
+                            Process.setThreadPriority(-2);
+                        } else if (g() == 3) {
+                            Process.setThreadPriority(-1);
+                        } else if (g() == 2) {
+                            Process.setThreadPriority(0);
+                        } else {
+                            Process.setThreadPriority(10);
+                        }
+                    } catch (Exception e2) {
+                        BdLog.e(e2.getMessage());
                     }
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
-                }
-                l();
-            } finally {
-                if (!k()) {
-                    a.this.n.sendMessageDelayed(a.this.n.obtainMessage(2, this), 1L);
+                    l();
+                } finally {
+                    if (!k()) {
+                        this.f44071f.n.sendMessageDelayed(this.f44071f.n.obtainMessage(2, this), 1L);
+                    }
                 }
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public static abstract class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.c.e.c.b<?> f42263e;
+        public d.a.c.e.c.b<?> f44072e;
 
         public d(d.a.c.e.c.b<?> bVar) {
-            this.f42263e = null;
-            if (bVar != null && bVar.c() != null) {
-                this.f42263e = bVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44072e = null;
+            if (bVar != null && bVar.b() != null) {
+                this.f44072e = bVar;
                 return;
             }
             throw new InvalidParameterException("parameter is null");
         }
 
         public boolean a() {
-            return this.f42263e.c().isTimeout();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44072e.b().isTimeout() : invokeV.booleanValue;
         }
 
         public void b() {
-            this.f42263e.b();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.f44072e.a();
+            }
         }
 
         public int c() {
-            if (this.f42263e.c().getParallel() != null) {
-                return this.f42263e.c().getParallel().a();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.f44072e.b().getParallel() != null) {
+                    return this.f44072e.b().getParallel().a();
+                }
+                return 1;
             }
-            return 1;
+            return invokeV.intValue;
         }
 
         public String d() {
-            return this.f42263e.c().getKey();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44072e.b().getKey() : (String) invokeV.objValue;
         }
 
         public int e() {
-            if (this.f42263e.c().getParallel() != null) {
-                return this.f42263e.c().getParallel().b();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.f44072e.b().getParallel() != null) {
+                    return this.f44072e.b().getParallel().b();
+                }
+                return 0;
             }
-            return 0;
+            return invokeV.intValue;
         }
 
         public BdAsyncTaskParallel.BdAsyncTaskParallelType f() {
-            if (this.f42263e.c().getParallel() != null) {
-                return this.f42263e.c().getParallel().c();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.f44072e.b().getParallel() != null) {
+                    return this.f44072e.b().getParallel().c();
+                }
+                return BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
             }
-            return BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+            return (BdAsyncTaskParallel.BdAsyncTaskParallelType) invokeV.objValue;
         }
 
         public int g() {
-            return this.f42263e.c().getPriority();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44072e.b().getPriority() : invokeV.intValue;
         }
 
         public int h() {
-            return this.f42263e.c().getTag();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44072e.b().getTag() : invokeV.intValue;
         }
 
         public BdAsyncTask<?, ?, ?> i() {
-            return this.f42263e.c();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f44072e.b() : (BdAsyncTask) invokeV.objValue;
         }
 
         public boolean j() {
-            return this.f42263e.isCancelled();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f44072e.isCancelled() : invokeV.booleanValue;
         }
 
         public boolean k() {
-            return this.f42263e.c().isSelfExecute();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f44072e.b().isSelfExecute() : invokeV.booleanValue;
         }
 
         public void l() {
-            try {
-                this.f42263e.run();
-            } catch (OutOfMemoryError unused) {
-                BdBaseApplication.getInst().onAppMemoryLow();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                try {
+                    this.f44072e.run();
+                } catch (OutOfMemoryError unused) {
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                }
             }
         }
 
         public void m(boolean z) {
-            this.f42263e.c().setTimeout(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+                this.f44072e.b().setTimeout(z);
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2145233279, "Ld/a/c/e/c/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2145233279, "Ld/a/c/e/c/a;");
+                return;
+            }
+        }
+        p = new ThreadFactoryC0585a();
+        q = new SynchronousQueue();
+        r = new ThreadPoolExecutor(7, 256, 30L, TimeUnit.SECONDS, q, p, new ThreadPoolExecutor.DiscardPolicy());
+    }
+
     public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f44064e = 0;
+        this.f44065f = 0;
+        this.f44066g = 0;
+        this.f44067h = 0;
+        this.f44068i = new SparseIntArray();
+        this.j = new LinkedList<>();
+        this.k = new LinkedList<>();
+        this.l = new LinkedList<>();
         this.m = null;
         this.n = null;
         HandlerThread handlerThread = new HandlerThread("BdAsyncTaskExecutor");
         this.m = handlerThread;
         handlerThread.start();
-        this.n = new b(this.m.getLooper());
+        this.n = new b(this, this.m.getLooper());
     }
 
     public static a e() {
-        if (o == null) {
-            synchronized (a.class) {
-                if (o == null) {
-                    o = new a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            if (o == null) {
+                synchronized (a.class) {
+                    if (o == null) {
+                        o = new a();
+                    }
                 }
             }
+            return o;
         }
-        return o;
+        return (a) invokeV.objValue;
     }
 
     public final boolean c(int i2, d dVar) {
-        if (dVar == null) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, dVar)) == null) {
+            if (dVar == null) {
+                return false;
+            }
+            BdAsyncTaskParallel.BdAsyncTaskParallelType f2 = dVar.f();
+            if (f2 == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL) {
+                if (i2 < 1) {
+                    return true;
+                }
+            } else if (f2 == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL) {
+                if (i2 < 2) {
+                    return true;
+                }
+            } else if (f2 == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL) {
+                if (i2 < 3) {
+                    return true;
+                }
+            } else if (f2 == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL) {
+                if (i2 < 4) {
+                    return true;
+                }
+            } else if (f2 != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i2 < dVar.c()) {
+                return true;
+            }
             return false;
         }
-        BdAsyncTaskParallel.BdAsyncTaskParallelType f2 = dVar.f();
-        if (f2 == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL) {
-            if (i2 < 1) {
-                return true;
-            }
-        } else if (f2 == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL) {
-            if (i2 < 2) {
-                return true;
-            }
-        } else if (f2 == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL) {
-            if (i2 < 3) {
-                return true;
-            }
-        } else if (f2 == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL) {
-            if (i2 < 4) {
-                return true;
-            }
-        } else if (f2 != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i2 < dVar.c()) {
-            return true;
-        }
-        return false;
+        return invokeIL.booleanValue;
     }
 
     public final synchronized void d(d dVar) {
-        if (dVar == null) {
-            return;
-        }
-        this.k.add(dVar);
-        this.j.remove(dVar);
-        r.execute(dVar);
-        this.n.sendMessageDelayed(this.n.obtainMessage(1, dVar), 180000L);
-        int g2 = dVar.g();
-        if (g2 == 1) {
-            this.f42258h++;
-        } else if (g2 == 2) {
-            this.f42257g++;
-        } else if (g2 == 3) {
-            this.f42256f++;
-        } else if (g2 == 4) {
-            this.f42255e++;
-            if (this.f42255e >= 7) {
-                BdLog.e("SuperHight Task too much num = " + this.f42255e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            synchronized (this) {
+                if (dVar == null) {
+                    return;
+                }
+                this.k.add(dVar);
+                this.j.remove(dVar);
+                r.execute(dVar);
+                this.n.sendMessageDelayed(this.n.obtainMessage(1, dVar), 180000L);
+                int g2 = dVar.g();
+                if (g2 == 1) {
+                    this.f44067h++;
+                } else if (g2 == 2) {
+                    this.f44066g++;
+                } else if (g2 == 3) {
+                    this.f44065f++;
+                } else if (g2 == 4) {
+                    this.f44064e++;
+                    if (this.f44064e >= 7) {
+                        BdLog.e("SuperHight Task too much num = " + this.f44064e);
+                    }
+                }
+                int e2 = dVar.e();
+                if (e2 != 0) {
+                    this.f44068i.put(e2, this.f44068i.get(e2, 0) + 1);
+                }
             }
-        }
-        int e2 = dVar.e();
-        if (e2 != 0) {
-            this.f42259i.put(e2, this.f42259i.get(e2, 0) + 1);
         }
     }
 
     @Override // java.util.concurrent.Executor
     public synchronized void execute(Runnable runnable) {
-        if (runnable instanceof d.a.c.e.c.b) {
-            c cVar = new c((d.a.c.e.c.b) runnable);
-            if (cVar.k()) {
-                new Thread(cVar).start();
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            synchronized (this) {
+                if (runnable instanceof d.a.c.e.c.b) {
+                    c cVar = new c(this, (d.a.c.e.c.b) runnable);
+                    if (cVar.k()) {
+                        new Thread(cVar).start();
+                        return;
+                    }
+                    h(cVar);
+                    p(null);
+                    BdBaseApplication.getInst().isDebugMode();
+                }
             }
-            h(cVar);
-            p(null);
-            BdBaseApplication.getInst().isDebugMode();
         }
     }
 
     public final synchronized int f(LinkedList<d> linkedList, String str, BdUniqueId bdUniqueId) {
-        int i2 = 0;
-        if (linkedList == null || bdUniqueId == null) {
-            return 0;
-        }
-        int id = bdUniqueId.getId();
-        Iterator<d> it = linkedList.iterator();
-        while (it.hasNext()) {
-            d next = it.next();
-            int h2 = next.h();
-            String d2 = next.d();
-            if ((str != null && h2 == id && str.equals(d2)) || (str == null && id != 0 && h2 == id)) {
-                if (next.i() != null && !next.i().isCancelled()) {
-                    i2++;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, linkedList, str, bdUniqueId)) == null) {
+            synchronized (this) {
+                int i2 = 0;
+                if (linkedList == null || bdUniqueId == null) {
+                    return 0;
                 }
+                int id = bdUniqueId.getId();
+                Iterator<d> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    d next = it.next();
+                    int h2 = next.h();
+                    String d2 = next.d();
+                    if ((str != null && h2 == id && str.equals(d2)) || (str == null && id != 0 && h2 == id)) {
+                        if (next.i() != null && !next.i().isCancelled()) {
+                            i2++;
+                        }
+                    }
+                }
+                return i2;
             }
         }
-        return i2;
+        return invokeLLL.intValue;
     }
 
     public int g(String str, BdUniqueId bdUniqueId) {
-        return f(this.j, str, bdUniqueId) + f(this.k, str, bdUniqueId) + f(this.l, str, bdUniqueId);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bdUniqueId)) == null) ? f(this.j, str, bdUniqueId) + f(this.k, str, bdUniqueId) + f(this.l, str, bdUniqueId) : invokeLL.intValue;
     }
 
     public final synchronized void h(d dVar) {
-        if (dVar == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            synchronized (this) {
+                if (dVar == null) {
+                    return;
+                }
+                int size = this.j.size();
+                int i2 = 0;
+                while (i2 < size && this.j.get(i2).g() >= dVar.g()) {
+                    i2++;
+                }
+                this.j.add(i2, dVar);
+            }
         }
-        int size = this.j.size();
-        int i2 = 0;
-        while (i2 < size && this.j.get(i2).g() >= dVar.g()) {
-            i2++;
-        }
-        this.j.add(i2, dVar);
     }
 
     public synchronized void i(BdUniqueId bdUniqueId) {
-        j(bdUniqueId, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
+            synchronized (this) {
+                j(bdUniqueId, null);
+            }
+        }
     }
 
     public synchronized void j(BdUniqueId bdUniqueId, String str) {
-        l(bdUniqueId, str);
-        n(this.k, false, bdUniqueId, str);
-        n(this.l, false, bdUniqueId, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, bdUniqueId, str) == null) {
+            synchronized (this) {
+                l(bdUniqueId, str);
+                n(this.k, false, bdUniqueId, str);
+                n(this.l, false, bdUniqueId, str);
+            }
+        }
     }
 
     public synchronized void k(BdUniqueId bdUniqueId) {
-        l(bdUniqueId, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            synchronized (this) {
+                l(bdUniqueId, null);
+            }
+        }
     }
 
     public synchronized void l(BdUniqueId bdUniqueId, String str) {
-        n(this.j, true, bdUniqueId, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, bdUniqueId, str) == null) {
+            synchronized (this) {
+                n(this.j, true, bdUniqueId, str);
+            }
+        }
     }
 
     public final synchronized void m(d dVar) {
-        if (dVar == null) {
-            return;
-        }
-        if (dVar.a()) {
-            this.l.remove(dVar);
-        } else {
-            this.k.remove(dVar);
-            this.n.removeMessages(1, dVar);
-            int g2 = dVar.g();
-            if (g2 == 1) {
-                this.f42258h--;
-            } else if (g2 == 2) {
-                this.f42257g--;
-            } else if (g2 == 3) {
-                this.f42256f--;
-            } else if (g2 == 4) {
-                this.f42255e--;
-            }
-            int e2 = dVar.e();
-            if (e2 != 0) {
-                int i2 = this.f42259i.get(e2) - 1;
-                if (i2 <= 0) {
-                    this.f42259i.delete(e2);
-                } else {
-                    this.f42259i.put(e2, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
+            synchronized (this) {
+                if (dVar == null) {
+                    return;
                 }
-                if (i2 < 0) {
-                    BdLog.e("removeTask error < 0");
+                if (dVar.a()) {
+                    this.l.remove(dVar);
+                } else {
+                    this.k.remove(dVar);
+                    this.n.removeMessages(1, dVar);
+                    int g2 = dVar.g();
+                    if (g2 == 1) {
+                        this.f44067h--;
+                    } else if (g2 == 2) {
+                        this.f44066g--;
+                    } else if (g2 == 3) {
+                        this.f44065f--;
+                    } else if (g2 == 4) {
+                        this.f44064e--;
+                    }
+                    int e2 = dVar.e();
+                    if (e2 != 0) {
+                        int i2 = this.f44068i.get(e2) - 1;
+                        if (i2 <= 0) {
+                            this.f44068i.delete(e2);
+                        } else {
+                            this.f44068i.put(e2, i2);
+                        }
+                        if (i2 < 0) {
+                            BdLog.e("removeTask error < 0");
+                        }
+                    }
                 }
             }
         }
     }
 
     public final synchronized void n(LinkedList<d> linkedList, boolean z, BdUniqueId bdUniqueId, String str) {
-        if (bdUniqueId == null) {
-            return;
-        }
-        int id = bdUniqueId.getId();
-        Iterator<d> it = linkedList.iterator();
-        while (it.hasNext()) {
-            d next = it.next();
-            int h2 = next.h();
-            String d2 = next.d();
-            if ((str != null && h2 == id && str.equals(d2)) || (str == null && id != 0 && h2 == id)) {
-                if (z) {
-                    it.remove();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{linkedList, Boolean.valueOf(z), bdUniqueId, str}) == null) {
+            synchronized (this) {
+                if (bdUniqueId == null) {
+                    return;
                 }
-                next.b();
+                int id = bdUniqueId.getId();
+                Iterator<d> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    d next = it.next();
+                    int h2 = next.h();
+                    String d2 = next.d();
+                    if ((str != null && h2 == id && str.equals(d2)) || (str == null && id != 0 && h2 == id)) {
+                        if (z) {
+                            it.remove();
+                        }
+                        next.b();
+                    }
+                }
             }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x001b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
         r0.remove();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void o(BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        Iterator<d> it = this.j.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            d next = it.next();
-            if (next != null && next.i() == bdAsyncTask) {
-                break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bdAsyncTask) == null) {
+            synchronized (this) {
+                Iterator<d> it = this.j.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    d next = it.next();
+                    if (next != null && next.i() == bdAsyncTask) {
+                        break;
+                    }
+                }
             }
         }
     }
 
     public synchronized void p(d dVar) {
-        m(dVar);
-        for (int i2 = 0; i2 < this.j.size(); i2++) {
-            d dVar2 = this.j.get(i2);
-            if (dVar2 != null) {
-                int e2 = dVar2.e();
-                int g2 = dVar2.g();
-                if (g2 != 1) {
-                    if (g2 != 2) {
-                        if (g2 != 3) {
-                            if (g2 == 4 && e2 == 0) {
-                                d(dVar2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
+            synchronized (this) {
+                m(dVar);
+                for (int i2 = 0; i2 < this.j.size(); i2++) {
+                    d dVar2 = this.j.get(i2);
+                    if (dVar2 != null) {
+                        int e2 = dVar2.e();
+                        int g2 = dVar2.g();
+                        if (g2 != 1) {
+                            if (g2 != 2) {
+                                if (g2 != 3) {
+                                    if (g2 == 4 && e2 == 0) {
+                                        d(dVar2);
+                                        return;
+                                    }
+                                } else if (this.f44065f + this.f44066g + this.f44067h >= 7) {
+                                    return;
+                                }
+                            } else if (this.f44065f + this.f44066g + this.f44067h >= 6) {
                                 return;
                             }
-                        } else if (this.f42256f + this.f42257g + this.f42258h >= 7) {
+                        } else if (this.f44065f + this.f44066g + this.f44067h >= 5) {
                             return;
                         }
-                    } else if (this.f42256f + this.f42257g + this.f42258h >= 6) {
-                        return;
+                        if (c(this.f44068i.get(e2), dVar2)) {
+                            d(dVar2);
+                            return;
+                        }
                     }
-                } else if (this.f42256f + this.f42257g + this.f42258h >= 5) {
-                    return;
-                }
-                if (c(this.f42259i.get(e2), dVar2)) {
-                    d(dVar2);
-                    return;
                 }
             }
         }
     }
 
     public synchronized BdAsyncTask<?, ?, ?> q(String str) {
-        return v(this.k, str);
+        InterceptResult invokeL;
+        BdAsyncTask<?, ?, ?> v;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            synchronized (this) {
+                v = v(this.k, str);
+            }
+            return v;
+        }
+        return (BdAsyncTask) invokeL.objValue;
     }
 
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> r(BdUniqueId bdUniqueId) {
-        return s(bdUniqueId, null);
+        InterceptResult invokeL;
+        LinkedList<BdAsyncTask<?, ?, ?>> s;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, bdUniqueId)) == null) {
+            synchronized (this) {
+                s = s(bdUniqueId, null);
+            }
+            return s;
+        }
+        return (LinkedList) invokeL.objValue;
     }
 
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> s(BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLL;
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
-        linkedList = new LinkedList<>();
-        LinkedList<BdAsyncTask<?, ?, ?>> t = t(this.j, bdUniqueId, str);
-        if (t != null) {
-            linkedList.addAll(t);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, bdUniqueId, str)) == null) {
+            synchronized (this) {
+                linkedList = new LinkedList<>();
+                LinkedList<BdAsyncTask<?, ?, ?>> t = t(this.j, bdUniqueId, str);
+                if (t != null) {
+                    linkedList.addAll(t);
+                }
+                LinkedList<BdAsyncTask<?, ?, ?>> t2 = t(this.k, bdUniqueId, str);
+                if (t2 != null) {
+                    linkedList.addAll(t2);
+                }
+                LinkedList<BdAsyncTask<?, ?, ?>> t3 = t(this.l, bdUniqueId, str);
+                if (t3 != null) {
+                    linkedList.addAll(t3);
+                }
+            }
+            return linkedList;
         }
-        LinkedList<BdAsyncTask<?, ?, ?>> t2 = t(this.k, bdUniqueId, str);
-        if (t2 != null) {
-            linkedList.addAll(t2);
-        }
-        LinkedList<BdAsyncTask<?, ?, ?>> t3 = t(this.l, bdUniqueId, str);
-        if (t3 != null) {
-            linkedList.addAll(t3);
-        }
-        return linkedList;
+        return (LinkedList) invokeLL.objValue;
     }
 
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> t(LinkedList<d> linkedList, BdUniqueId bdUniqueId, String str) {
-        if (linkedList == null || bdUniqueId == null) {
-            return null;
-        }
-        int id = bdUniqueId.getId();
-        LinkedList<BdAsyncTask<?, ?, ?>> linkedList2 = new LinkedList<>();
-        Iterator<d> it = linkedList.iterator();
-        while (it.hasNext()) {
-            d next = it.next();
-            int h2 = next.h();
-            String d2 = next.d();
-            if ((str != null && h2 == id && str.equals(d2)) || (str == null && id != 0 && h2 == id)) {
-                if (next.i() != null && !next.i().isCancelled()) {
-                    linkedList2.add(next.i());
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048593, this, linkedList, bdUniqueId, str)) == null) {
+            synchronized (this) {
+                if (linkedList == null || bdUniqueId == null) {
+                    return null;
                 }
+                int id = bdUniqueId.getId();
+                LinkedList<BdAsyncTask<?, ?, ?>> linkedList2 = new LinkedList<>();
+                Iterator<d> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    d next = it.next();
+                    int h2 = next.h();
+                    String d2 = next.d();
+                    if ((str != null && h2 == id && str.equals(d2)) || (str == null && id != 0 && h2 == id)) {
+                        if (next.i() != null && !next.i().isCancelled()) {
+                            linkedList2.add(next.i());
+                        }
+                    }
+                }
+                return linkedList2;
             }
         }
-        return linkedList2;
+        return (LinkedList) invokeLLL.objValue;
     }
 
     public String toString() {
-        return "mWaitingTasks = " + this.j.size() + " mRunningTasks = " + this.k.size() + " mTimeOutTasks = " + this.l.size();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return "mWaitingTasks = " + this.j.size() + " mRunningTasks = " + this.k.size() + " mTimeOutTasks = " + this.l.size();
+        }
+        return (String) invokeV.objValue;
     }
 
     public synchronized BdAsyncTask<?, ?, ?> u(String str) {
+        InterceptResult invokeL;
         BdAsyncTask<?, ?, ?> v;
-        v = v(this.j, str);
-        if (v == null) {
-            v = v(this.k, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            synchronized (this) {
+                v = v(this.j, str);
+                if (v == null) {
+                    v = v(this.k, str);
+                }
+                if (v == null) {
+                    v = v(this.l, str);
+                }
+            }
+            return v;
         }
-        if (v == null) {
-            v = v(this.l, str);
-        }
-        return v;
+        return (BdAsyncTask) invokeL.objValue;
     }
 
     public synchronized BdAsyncTask<?, ?, ?> v(LinkedList<d> linkedList, String str) {
-        if (linkedList == null || str == null) {
-            return null;
-        }
-        Iterator<d> it = linkedList.iterator();
-        while (it.hasNext()) {
-            d next = it.next();
-            String d2 = next.d();
-            if (d2 != null && d2.equals(str) && !next.i().isCancelled()) {
-                return next.i();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, linkedList, str)) == null) {
+            synchronized (this) {
+                if (linkedList == null || str == null) {
+                    return null;
+                }
+                Iterator<d> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    d next = it.next();
+                    String d2 = next.d();
+                    if (d2 != null && d2.equals(str) && !next.i().isCancelled()) {
+                        return next.i();
+                    }
+                }
+                return null;
             }
         }
-        return null;
+        return (BdAsyncTask) invokeLL.objValue;
     }
 
     public synchronized BdAsyncTask<?, ?, ?> w(String str) {
-        return v(this.j, str);
+        InterceptResult invokeL;
+        BdAsyncTask<?, ?, ?> v;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+            synchronized (this) {
+                v = v(this.j, str);
+            }
+            return v;
+        }
+        return (BdAsyncTask) invokeL.objValue;
     }
 
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> x(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
-        linkedList = new LinkedList<>();
-        LinkedList<BdAsyncTask<?, ?, ?>> t = t(this.j, bdUniqueId, null);
-        if (t != null) {
-            linkedList.addAll(t);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, bdUniqueId)) == null) {
+            synchronized (this) {
+                linkedList = new LinkedList<>();
+                LinkedList<BdAsyncTask<?, ?, ?>> t = t(this.j, bdUniqueId, null);
+                if (t != null) {
+                    linkedList.addAll(t);
+                }
+            }
+            return linkedList;
         }
-        return linkedList;
+        return (LinkedList) invokeL.objValue;
     }
 
     public final synchronized void y(d dVar) {
         d poll;
-        m(dVar);
-        if (!dVar.j()) {
-            dVar.m(true);
-            this.l.add(dVar);
-            if (this.l.size() > 242 && (poll = this.l.poll()) != null) {
-                poll.b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, dVar) == null) {
+            synchronized (this) {
+                m(dVar);
+                if (!dVar.j()) {
+                    dVar.m(true);
+                    this.l.add(dVar);
+                    if (this.l.size() > 242 && (poll = this.l.poll()) != null) {
+                        poll.b();
+                    }
+                } else {
+                    BdLog.e("task TimeOut but it's cancelled()");
+                }
+                p(null);
             }
-        } else {
-            BdLog.e("task TimeOut but it's cancelled()");
         }
-        p(null);
     }
 
     public String z() {
-        return this.j.size() + "/" + this.k.size() + "/" + this.l.size();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.j.size() + "/" + this.k.size() + "/" + this.l.size();
+        }
+        return (String) invokeV.objValue;
     }
 }

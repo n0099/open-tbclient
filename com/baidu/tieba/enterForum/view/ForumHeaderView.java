@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -18,101 +19,178 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.o0.j0.d.c;
-/* loaded from: classes4.dex */
+import d.a.s0.l0.d.c;
+/* loaded from: classes5.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f14714e;
+    public LinearLayout f14801e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f14715f;
+    public TextView f14802f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f14716g;
+    public ImageView f14803g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f14717h;
+    public c f14804h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14718i;
+    public int f14805i;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumHeaderView(Context context) {
         super(context);
-        this.f14718i = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f14805i = 0;
         a();
     }
 
     public void a() {
-        setOrientation(1);
-        LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-        this.f14714e = (LinearLayout) findViewById(R.id.search_container);
-        this.f14715f = (TextView) findViewById(R.id.search_text);
-        this.f14716g = (ImageView) findViewById(R.id.search_icon);
-        setDescendantFocusability(262144);
-        this.f14714e.setOnClickListener(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOrientation(1);
+            LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
+            this.f14801e = (LinearLayout) findViewById(R.id.search_container);
+            this.f14802f = (TextView) findViewById(R.id.search_text);
+            this.f14803g = (ImageView) findViewById(R.id.search_icon);
+            setDescendantFocusability(262144);
+            this.f14801e.setOnClickListener(this);
+        }
     }
 
     public void b() {
-        c cVar = this.f14717h;
-        if (cVar != null && cVar.f59649a) {
-            if (cVar.f59651c > 0) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14716g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                SkinManager.setViewTextColor(this.f14715f, R.color.white_alpha50);
-                SkinManager.setBackgroundResource(this.f14714e, R.drawable.enter_forum_search_ad_bg);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c cVar = this.f14804h;
+            if (cVar != null && cVar.f62780a) {
+                if (cVar.f62782c > 0) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14803g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                    SkinManager.setViewTextColor(this.f14802f, R.color.white_alpha50);
+                    SkinManager.setBackgroundResource(this.f14801e, R.drawable.enter_forum_search_ad_bg);
+                    return;
+                }
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14803g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.f14802f, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f14801e, R.drawable.enter_forum_search_bg);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14716g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f14715f, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f14714e, R.drawable.enter_forum_search_bg);
-            return;
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14803g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f14802f, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f14801e, R.drawable.enter_forum_search_bg);
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14716g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f14715f, R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(this.f14714e, R.drawable.enter_forum_search_bg);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TbadkCoreApplication.isLogin()) {
-            TiebaStatic.eventStat(getContext(), "notlogin_8", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                TiebaStatic.eventStat(getContext(), "notlogin_8", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            }
+            if (this.f14805i != 1) {
+                TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
+            } else {
+                TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(getContext())));
         }
-        if (this.f14718i != 1) {
-            TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
-        } else {
-            TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(getContext())));
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.g(getContext(), R.dimen.tbds114), 1073741824));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.g(getContext(), R.dimen.tbds114), 1073741824));
+        }
     }
 
     public void setAdState(c cVar) {
-        this.f14717h = cVar;
-        b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.f14804h = cVar;
+            b();
+        }
     }
 
     public void setFrom(int i2) {
-        this.f14718i = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.f14805i = i2;
+        }
     }
 
     public void setSearchHint(String str) {
-        this.f14715f.setText(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f14802f.setText(str);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14718i = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f14805i = 0;
         a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumHeaderView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f14718i = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f14805i = 0;
         a();
     }
 }

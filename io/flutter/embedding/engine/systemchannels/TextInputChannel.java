@@ -2,6 +2,16 @@ package io.flutter.embedding.engine.systemchannels;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.adrequest.AdParamInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.JSONMethodCodec;
@@ -12,97 +22,21 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class TextInputChannel {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextInputChannel";
+    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final MethodChannel channel;
-    public final MethodChannel.MethodCallHandler parsingMethodHandler = new MethodChannel.MethodCallHandler() { // from class: io.flutter.embedding.engine.systemchannels.TextInputChannel.1
-        @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
-        public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
-            if (TextInputChannel.this.textInputMethodHandler == null) {
-                return;
-            }
-            String str = methodCall.method;
-            Object obj = methodCall.arguments;
-            Log.v(TextInputChannel.TAG, "Received '" + str + "' message.");
-            char c2 = 65535;
-            switch (str.hashCode()) {
-                case -1779068172:
-                    if (str.equals("TextInput.setPlatformViewClient")) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case -1015421462:
-                    if (str.equals("TextInput.setEditingState")) {
-                        c2 = 4;
-                        break;
-                    }
-                    break;
-                case -37561188:
-                    if (str.equals("TextInput.setClient")) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 270476819:
-                    if (str.equals("TextInput.hide")) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 270803918:
-                    if (str.equals("TextInput.show")) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case 1904427655:
-                    if (str.equals("TextInput.clearClient")) {
-                        c2 = 5;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 == 0) {
-                TextInputChannel.this.textInputMethodHandler.show();
-                result.success(null);
-            } else if (c2 == 1) {
-                TextInputChannel.this.textInputMethodHandler.hide();
-                result.success(null);
-            } else if (c2 == 2) {
-                try {
-                    JSONArray jSONArray = (JSONArray) obj;
-                    TextInputChannel.this.textInputMethodHandler.setClient(jSONArray.getInt(0), Configuration.fromJson(jSONArray.getJSONObject(1)));
-                    result.success(null);
-                } catch (NoSuchFieldException | JSONException e2) {
-                    result.error("error", e2.getMessage(), null);
-                }
-            } else if (c2 == 3) {
-                TextInputChannel.this.textInputMethodHandler.setPlatformViewClient(((Integer) obj).intValue());
-            } else if (c2 != 4) {
-                if (c2 == 5) {
-                    TextInputChannel.this.textInputMethodHandler.clearClient();
-                    result.success(null);
-                    return;
-                }
-                result.notImplemented();
-            } else {
-                try {
-                    TextInputChannel.this.textInputMethodHandler.setEditingState(TextEditState.fromJson((JSONObject) obj));
-                    result.success(null);
-                } catch (JSONException e3) {
-                    result.error("error", e3.getMessage(), null);
-                }
-            }
-        }
-    };
+    public final MethodChannel.MethodCallHandler parsingMethodHandler;
     @Nullable
     public TextInputMethodHandler textInputMethodHandler;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class Configuration {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public final String actionLabel;
         public final boolean autocorrect;
@@ -116,6 +50,20 @@ public class TextInputChannel {
         public final TextCapitalization textCapitalization;
 
         public Configuration(boolean z, boolean z2, boolean z3, @NonNull TextCapitalization textCapitalization, @NonNull InputType inputType, @Nullable Integer num, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), textCapitalization, inputType, num, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.obscureText = z;
             this.autocorrect = z2;
             this.enableSuggestions = z3;
@@ -126,118 +74,144 @@ public class TextInputChannel {
         }
 
         public static Configuration fromJson(@NonNull JSONObject jSONObject) throws JSONException, NoSuchFieldException {
-            String string = jSONObject.getString("inputAction");
-            if (string != null) {
-                return new Configuration(jSONObject.optBoolean("obscureText"), jSONObject.optBoolean("autocorrect", true), jSONObject.optBoolean("enableSuggestions"), TextCapitalization.fromValue(jSONObject.getString("textCapitalization")), InputType.fromJson(jSONObject.getJSONObject("inputType")), inputActionFromTextInputAction(string), jSONObject.isNull("actionLabel") ? null : jSONObject.getString("actionLabel"));
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                String string = jSONObject.getString("inputAction");
+                if (string != null) {
+                    return new Configuration(jSONObject.optBoolean("obscureText"), jSONObject.optBoolean("autocorrect", true), jSONObject.optBoolean("enableSuggestions"), TextCapitalization.fromValue(jSONObject.getString("textCapitalization")), InputType.fromJson(jSONObject.getJSONObject("inputType")), inputActionFromTextInputAction(string), jSONObject.isNull("actionLabel") ? null : jSONObject.getString("actionLabel"));
+                }
+                throw new JSONException("Configuration JSON missing 'inputAction' property.");
             }
-            throw new JSONException("Configuration JSON missing 'inputAction' property.");
+            return (Configuration) invokeL.objValue;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        /* JADX WARN: Code restructure failed: missing block: B:9:0x0029, code lost:
-            if (r11.equals("TextInputAction.newline") != false) goto L6;
+        /* JADX WARN: Code restructure failed: missing block: B:11:0x002d, code lost:
+            if (r11.equals("TextInputAction.newline") != false) goto L8;
          */
         @NonNull
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public static Integer inputActionFromTextInputAction(@NonNull String str) {
-            char c2 = 0;
-            switch (str.hashCode()) {
-                case -810971940:
-                    if (str.equals("TextInputAction.unspecified")) {
-                        c2 = 2;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                char c2 = 0;
+                switch (str.hashCode()) {
+                    case -810971940:
+                        if (str.equals("TextInputAction.unspecified")) {
+                            c2 = 2;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -737377923:
-                    if (str.equals("TextInputAction.done")) {
-                        c2 = 3;
+                    case -737377923:
+                        if (str.equals("TextInputAction.done")) {
+                            c2 = 3;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -737089298:
-                    if (str.equals("TextInputAction.next")) {
-                        c2 = 7;
+                    case -737089298:
+                        if (str.equals("TextInputAction.next")) {
+                            c2 = 7;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -737080013:
-                    if (str.equals("TextInputAction.none")) {
-                        c2 = 1;
+                    case -737080013:
+                        if (str.equals("TextInputAction.none")) {
+                            c2 = 1;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -736940669:
-                    if (str.equals("TextInputAction.send")) {
-                        c2 = 6;
+                    case -736940669:
+                        if (str.equals("TextInputAction.send")) {
+                            c2 = 6;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 469250275:
-                    if (str.equals("TextInputAction.search")) {
-                        c2 = 5;
+                    case 469250275:
+                        if (str.equals("TextInputAction.search")) {
+                            c2 = 5;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1241689507:
-                    if (str.equals("TextInputAction.go")) {
-                        c2 = 4;
+                    case 1241689507:
+                        if (str.equals("TextInputAction.go")) {
+                            c2 = 4;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1539450297:
-                    break;
-                case 2110497650:
-                    if (str.equals("TextInputAction.previous")) {
-                        c2 = '\b';
+                    case 1539450297:
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
+                    case 2110497650:
+                        if (str.equals("TextInputAction.previous")) {
+                            c2 = '\b';
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    default:
+                        c2 = 65535;
+                        break;
+                }
+                switch (c2) {
+                    case 0:
+                    case 1:
+                        return 1;
+                    case 2:
+                        return 0;
+                    case 3:
+                        return 6;
+                    case 4:
+                        return 2;
+                    case 5:
+                        return 3;
+                    case 6:
+                        return 4;
+                    case 7:
+                        return 5;
+                    case '\b':
+                        return 7;
+                    default:
+                        return 0;
+                }
             }
-            switch (c2) {
-                case 0:
-                case 1:
-                    return 1;
-                case 2:
-                    return 0;
-                case 3:
-                    return 6;
-                case 4:
-                    return 2;
-                case 5:
-                    return 3;
-                case 6:
-                    return 4;
-                case 7:
-                    return 5;
-                case '\b':
-                    return 7;
-                default:
-                    return 0;
-            }
+            return (Integer) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class InputType {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final boolean isDecimal;
         public final boolean isSigned;
         @NonNull
         public final TextInputType type;
 
         public InputType(@NonNull TextInputType textInputType, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {textInputType, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.type = textInputType;
             this.isSigned = z;
             this.isDecimal = z2;
@@ -245,54 +219,132 @@ public class TextInputChannel {
 
         @NonNull
         public static InputType fromJson(@NonNull JSONObject jSONObject) throws JSONException, NoSuchFieldException {
-            return new InputType(TextInputType.fromValue(jSONObject.getString("name")), jSONObject.optBoolean("signed", false), jSONObject.optBoolean("decimal", false));
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new InputType(TextInputType.fromValue(jSONObject.getString("name")), jSONObject.optBoolean("signed", false), jSONObject.optBoolean("decimal", false)) : (InputType) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public enum TextCapitalization {
-        CHARACTERS("TextCapitalization.characters"),
-        WORDS("TextCapitalization.words"),
-        SENTENCES("TextCapitalization.sentences"),
-        NONE("TextCapitalization.none");
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes10.dex */
+    public static final class TextCapitalization {
+        public static final /* synthetic */ TextCapitalization[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final TextCapitalization CHARACTERS;
+        public static final TextCapitalization NONE;
+        public static final TextCapitalization SENTENCES;
+        public static final TextCapitalization WORDS;
+        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public final String encodedName;
 
-        TextCapitalization(@NonNull String str) {
-            this.encodedName = str;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1667979041, "Lio/flutter/embedding/engine/systemchannels/TextInputChannel$TextCapitalization;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1667979041, "Lio/flutter/embedding/engine/systemchannels/TextInputChannel$TextCapitalization;");
+                    return;
+                }
+            }
+            CHARACTERS = new TextCapitalization("CHARACTERS", 0, "TextCapitalization.characters");
+            WORDS = new TextCapitalization("WORDS", 1, "TextCapitalization.words");
+            SENTENCES = new TextCapitalization("SENTENCES", 2, "TextCapitalization.sentences");
+            TextCapitalization textCapitalization = new TextCapitalization("NONE", 3, "TextCapitalization.none");
+            NONE = textCapitalization;
+            $VALUES = new TextCapitalization[]{CHARACTERS, WORDS, SENTENCES, textCapitalization};
+        }
+
+        public TextCapitalization(@NonNull String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.encodedName = str2;
         }
 
         public static TextCapitalization fromValue(@NonNull String str) throws NoSuchFieldException {
+            InterceptResult invokeL;
             TextCapitalization[] values;
-            for (TextCapitalization textCapitalization : values()) {
-                if (textCapitalization.encodedName.equals(str)) {
-                    return textCapitalization;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                for (TextCapitalization textCapitalization : values()) {
+                    if (textCapitalization.encodedName.equals(str)) {
+                        return textCapitalization;
+                    }
                 }
+                throw new NoSuchFieldException("No such TextCapitalization: " + str);
             }
-            throw new NoSuchFieldException("No such TextCapitalization: " + str);
+            return (TextCapitalization) invokeL.objValue;
+        }
+
+        public static TextCapitalization valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TextCapitalization) Enum.valueOf(TextCapitalization.class, str) : (TextCapitalization) invokeL.objValue;
+        }
+
+        public static TextCapitalization[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (TextCapitalization[]) $VALUES.clone() : (TextCapitalization[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class TextEditState {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final int selectionEnd;
         public final int selectionStart;
         @NonNull
         public final String text;
 
         public TextEditState(@NonNull String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.text = str;
             this.selectionStart = i2;
             this.selectionEnd = i3;
         }
 
         public static TextEditState fromJson(@NonNull JSONObject jSONObject) throws JSONException {
-            return new TextEditState(jSONObject.getString("text"), jSONObject.getInt("selectionBase"), jSONObject.getInt("selectionExtent"));
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new TextEditState(jSONObject.getString("text"), jSONObject.getInt("selectionBase"), jSONObject.getInt("selectionExtent")) : (TextEditState) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public interface TextInputMethodHandler {
         void clearClient();
 
@@ -307,97 +359,310 @@ public class TextInputChannel {
         void show();
     }
 
-    /* loaded from: classes7.dex */
-    public enum TextInputType {
-        TEXT("TextInputType.text"),
-        DATETIME("TextInputType.datetime"),
-        NUMBER("TextInputType.number"),
-        PHONE("TextInputType.phone"),
-        MULTILINE("TextInputType.multiline"),
-        EMAIL_ADDRESS("TextInputType.emailAddress"),
-        URL("TextInputType.url"),
-        VISIBLE_PASSWORD("TextInputType.visiblePassword");
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes10.dex */
+    public static final class TextInputType {
+        public static final /* synthetic */ TextInputType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final TextInputType DATETIME;
+        public static final TextInputType EMAIL_ADDRESS;
+        public static final TextInputType MULTILINE;
+        public static final TextInputType NUMBER;
+        public static final TextInputType PHONE;
+        public static final TextInputType TEXT;
+        public static final TextInputType URL;
+        public static final TextInputType VISIBLE_PASSWORD;
+        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public final String encodedName;
 
-        TextInputType(@NonNull String str) {
-            this.encodedName = str;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1387160439, "Lio/flutter/embedding/engine/systemchannels/TextInputChannel$TextInputType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1387160439, "Lio/flutter/embedding/engine/systemchannels/TextInputChannel$TextInputType;");
+                    return;
+                }
+            }
+            TEXT = new TextInputType("TEXT", 0, "TextInputType.text");
+            DATETIME = new TextInputType("DATETIME", 1, "TextInputType.datetime");
+            NUMBER = new TextInputType("NUMBER", 2, "TextInputType.number");
+            PHONE = new TextInputType(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_PHONE, 3, "TextInputType.phone");
+            MULTILINE = new TextInputType("MULTILINE", 4, "TextInputType.multiline");
+            EMAIL_ADDRESS = new TextInputType("EMAIL_ADDRESS", 5, "TextInputType.emailAddress");
+            URL = new TextInputType("URL", 6, "TextInputType.url");
+            TextInputType textInputType = new TextInputType("VISIBLE_PASSWORD", 7, "TextInputType.visiblePassword");
+            VISIBLE_PASSWORD = textInputType;
+            $VALUES = new TextInputType[]{TEXT, DATETIME, NUMBER, PHONE, MULTILINE, EMAIL_ADDRESS, URL, textInputType};
+        }
+
+        public TextInputType(@NonNull String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.encodedName = str2;
         }
 
         public static TextInputType fromValue(@NonNull String str) throws NoSuchFieldException {
+            InterceptResult invokeL;
             TextInputType[] values;
-            for (TextInputType textInputType : values()) {
-                if (textInputType.encodedName.equals(str)) {
-                    return textInputType;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                for (TextInputType textInputType : values()) {
+                    if (textInputType.encodedName.equals(str)) {
+                        return textInputType;
+                    }
                 }
+                throw new NoSuchFieldException("No such TextInputType: " + str);
             }
-            throw new NoSuchFieldException("No such TextInputType: " + str);
+            return (TextInputType) invokeL.objValue;
+        }
+
+        public static TextInputType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TextInputType) Enum.valueOf(TextInputType.class, str) : (TextInputType) invokeL.objValue;
+        }
+
+        public static TextInputType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (TextInputType[]) $VALUES.clone() : (TextInputType[]) invokeV.objValue;
         }
     }
 
     public TextInputChannel(@NonNull DartExecutor dartExecutor) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dartExecutor};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.parsingMethodHandler = new MethodChannel.MethodCallHandler(this) { // from class: io.flutter.embedding.engine.systemchannels.TextInputChannel.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ TextInputChannel this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
+            public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, methodCall, result) == null) || this.this$0.textInputMethodHandler == null) {
+                    return;
+                }
+                String str = methodCall.method;
+                Object obj = methodCall.arguments;
+                Log.v(TextInputChannel.TAG, "Received '" + str + "' message.");
+                char c2 = 65535;
+                switch (str.hashCode()) {
+                    case -1779068172:
+                        if (str.equals("TextInput.setPlatformViewClient")) {
+                            c2 = 3;
+                            break;
+                        }
+                        break;
+                    case -1015421462:
+                        if (str.equals("TextInput.setEditingState")) {
+                            c2 = 4;
+                            break;
+                        }
+                        break;
+                    case -37561188:
+                        if (str.equals("TextInput.setClient")) {
+                            c2 = 2;
+                            break;
+                        }
+                        break;
+                    case 270476819:
+                        if (str.equals("TextInput.hide")) {
+                            c2 = 1;
+                            break;
+                        }
+                        break;
+                    case 270803918:
+                        if (str.equals("TextInput.show")) {
+                            c2 = 0;
+                            break;
+                        }
+                        break;
+                    case 1904427655:
+                        if (str.equals("TextInput.clearClient")) {
+                            c2 = 5;
+                            break;
+                        }
+                        break;
+                }
+                if (c2 == 0) {
+                    this.this$0.textInputMethodHandler.show();
+                    result.success(null);
+                } else if (c2 == 1) {
+                    this.this$0.textInputMethodHandler.hide();
+                    result.success(null);
+                } else if (c2 == 2) {
+                    try {
+                        JSONArray jSONArray = (JSONArray) obj;
+                        this.this$0.textInputMethodHandler.setClient(jSONArray.getInt(0), Configuration.fromJson(jSONArray.getJSONObject(1)));
+                        result.success(null);
+                    } catch (NoSuchFieldException | JSONException e2) {
+                        result.error("error", e2.getMessage(), null);
+                    }
+                } else if (c2 == 3) {
+                    this.this$0.textInputMethodHandler.setPlatformViewClient(((Integer) obj).intValue());
+                } else if (c2 != 4) {
+                    if (c2 == 5) {
+                        this.this$0.textInputMethodHandler.clearClient();
+                        result.success(null);
+                        return;
+                    }
+                    result.notImplemented();
+                } else {
+                    try {
+                        this.this$0.textInputMethodHandler.setEditingState(TextEditState.fromJson((JSONObject) obj));
+                        result.success(null);
+                    } catch (JSONException e3) {
+                        result.error("error", e3.getMessage(), null);
+                    }
+                }
+            }
+        };
         MethodChannel methodChannel = new MethodChannel(dartExecutor, "flutter/textinput", JSONMethodCodec.INSTANCE);
         this.channel = methodChannel;
         methodChannel.setMethodCallHandler(this.parsingMethodHandler);
     }
 
     public void done(int i2) {
-        Log.v(TAG, "Sending 'done' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.done"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            Log.v(TAG, "Sending 'done' message.");
+            this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.done"));
+        }
     }
 
     public void go(int i2) {
-        Log.v(TAG, "Sending 'go' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.go"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            Log.v(TAG, "Sending 'go' message.");
+            this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.go"));
+        }
     }
 
     public void newline(int i2) {
-        Log.v(TAG, "Sending 'newline' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.newline"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            Log.v(TAG, "Sending 'newline' message.");
+            this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.newline"));
+        }
     }
 
     public void next(int i2) {
-        Log.v(TAG, "Sending 'next' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.next"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            Log.v(TAG, "Sending 'next' message.");
+            this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.next"));
+        }
     }
 
     public void previous(int i2) {
-        Log.v(TAG, "Sending 'previous' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.previous"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            Log.v(TAG, "Sending 'previous' message.");
+            this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.previous"));
+        }
     }
 
     public void requestExistingInputState() {
-        this.channel.invokeMethod("TextInputClient.requestExistingInputState", null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.channel.invokeMethod("TextInputClient.requestExistingInputState", null);
+        }
     }
 
     public void search(int i2) {
-        Log.v(TAG, "Sending 'search' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.search"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            Log.v(TAG, "Sending 'search' message.");
+            this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.search"));
+        }
     }
 
     public void send(int i2) {
-        Log.v(TAG, "Sending 'send' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.send"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            Log.v(TAG, "Sending 'send' message.");
+            this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.send"));
+        }
     }
 
     public void setTextInputMethodHandler(@Nullable TextInputMethodHandler textInputMethodHandler) {
-        this.textInputMethodHandler = textInputMethodHandler;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textInputMethodHandler) == null) {
+            this.textInputMethodHandler = textInputMethodHandler;
+        }
     }
 
     public void unspecifiedAction(int i2) {
-        Log.v(TAG, "Sending 'unspecified' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.unspecified"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            Log.v(TAG, "Sending 'unspecified' message.");
+            this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.unspecified"));
+        }
     }
 
     public void updateEditingState(int i2, String str, int i3, int i4, int i5, int i6) {
-        Log.v(TAG, "Sending message to update editing state: \nText: " + str + "\nSelection start: " + i3 + "\nSelection end: " + i4 + "\nComposing start: " + i5 + "\nComposing end: " + i6);
-        HashMap hashMap = new HashMap();
-        hashMap.put("text", str);
-        hashMap.put("selectionBase", Integer.valueOf(i3));
-        hashMap.put("selectionExtent", Integer.valueOf(i4));
-        hashMap.put("composingBase", Integer.valueOf(i5));
-        hashMap.put("composingExtent", Integer.valueOf(i6));
-        this.channel.invokeMethod("TextInputClient.updateEditingState", Arrays.asList(Integer.valueOf(i2), hashMap));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+            Log.v(TAG, "Sending message to update editing state: \nText: " + str + "\nSelection start: " + i3 + "\nSelection end: " + i4 + "\nComposing start: " + i5 + "\nComposing end: " + i6);
+            HashMap hashMap = new HashMap();
+            hashMap.put("text", str);
+            hashMap.put("selectionBase", Integer.valueOf(i3));
+            hashMap.put("selectionExtent", Integer.valueOf(i4));
+            hashMap.put("composingBase", Integer.valueOf(i5));
+            hashMap.put("composingExtent", Integer.valueOf(i6));
+            this.channel.invokeMethod("TextInputClient.updateEditingState", Arrays.asList(Integer.valueOf(i2), hashMap));
+        }
     }
 }

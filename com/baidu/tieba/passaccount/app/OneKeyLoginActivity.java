@@ -4,63 +4,96 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
 import com.baidu.tieba.R;
-import d.a.o0.c2.b.a;
-import d.a.o0.c2.b.b;
-import d.a.o0.c2.b.c;
-import d.a.o0.c2.b.d;
-import d.a.o0.c2.b.e;
-import d.a.o0.c2.b.f;
-import d.a.o0.c2.b.g;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.f2.b.a;
+import d.a.s0.f2.b.b;
+import d.a.s0.f2.b.c;
+import d.a.s0.f2.b.d;
+import d.a.s0.f2.b.e;
+import d.a.s0.f2.b.f;
+import d.a.s0.f2.b.g;
 /* loaded from: classes5.dex */
 public class OneKeyLoginActivity extends BaseActivity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public a controller;
     public c oneKeyLoginData;
     public String shareModelJSONStr;
     public b view;
 
+    public OneKeyLoginActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     private void initData() {
-        this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-        c cVar = new c();
-        this.oneKeyLoginData = cVar;
-        cVar.f56184a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-        this.oneKeyLoginData.f56185b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-        this.oneKeyLoginData.f56186c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-        this.oneKeyLoginData.f56187d = this.shareModelJSONStr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
+            c cVar = new c();
+            this.oneKeyLoginData = cVar;
+            cVar.f59500a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            this.oneKeyLoginData.f59501b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+            this.oneKeyLoginData.f59502c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+            this.oneKeyLoginData.f59503d = this.shareModelJSONStr;
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
-        if (i2 == 25061) {
-            this.controller.c(i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
+            super.onActivityResult(i2, i3, intent);
+            if (i2 == 25061) {
+                this.controller.c(i3);
+            }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        this.view.a(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            this.view.a(i2);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.activity_one_key_login);
-        View findViewById = findViewById(R.id.root_view);
-        initData();
-        if (TextUtils.isEmpty(this.shareModelJSONStr)) {
-            this.view = new e(getPageContext(), findViewById);
-            this.controller = new d(getPageContext(), this.view);
-        } else {
-            this.view = new g(getPageContext(), findViewById);
-            this.controller = new f(getPageContext(), this.view);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.activity_one_key_login);
+            View findViewById = findViewById(R.id.root_view);
+            initData();
+            if (TextUtils.isEmpty(this.shareModelJSONStr)) {
+                this.view = new e(getPageContext(), findViewById);
+                this.controller = new d(getPageContext(), this.view);
+            } else {
+                this.view = new g(getPageContext(), findViewById);
+                this.controller = new f(getPageContext(), this.view);
+            }
+            this.view.c(this.oneKeyLoginData);
+            this.controller.j(this.oneKeyLoginData);
+            this.controller.i(false);
+            this.controller.k(d.a.r0.b.d.l());
         }
-        this.view.c(this.oneKeyLoginData);
-        this.controller.j(this.oneKeyLoginData);
-        this.controller.i(false);
-        this.controller.k(d.a.n0.b.d.l());
     }
 }

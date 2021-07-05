@@ -1,7 +1,7 @@
 package com.baidu.mobads.sdk.api;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ICommonModuleObj {
     public static final String KEY_NOTIFICATION = "key_notification";
 

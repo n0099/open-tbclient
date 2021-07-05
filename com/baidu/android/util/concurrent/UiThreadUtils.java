@@ -2,46 +2,84 @@ package com.baidu.android.util.concurrent;
 
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class UiThreadUtils {
+    public static /* synthetic */ Interceptable $ic;
     public static volatile Handler sMainHandler;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static Handler getMainHandler() {
-        if (sMainHandler == null) {
-            synchronized (UiThreadUtils.class) {
-                if (sMainHandler == null) {
-                    sMainHandler = new Handler(Looper.getMainLooper());
-                }
+    public UiThreadUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return sMainHandler;
+    }
+
+    public static Handler getMainHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (sMainHandler == null) {
+                synchronized (UiThreadUtils.class) {
+                    if (sMainHandler == null) {
+                        sMainHandler = new Handler(Looper.getMainLooper());
+                    }
+                }
+            }
+            return sMainHandler;
+        }
+        return (Handler) invokeV.objValue;
     }
 
     public static boolean isOnUiThread() {
-        return Looper.getMainLooper().getThread() == Thread.currentThread();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Looper.getMainLooper().getThread() == Thread.currentThread() : invokeV.booleanValue;
     }
 
     public static void runOnUiThread(Runnable runnable) {
-        if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            getMainHandler().post(runnable);
-        } else {
-            runnable.run();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                getMainHandler().post(runnable);
+            } else {
+                runnable.run();
+            }
         }
     }
 
     public static void runOnUiThreadAtFrontOfQueue(Runnable runnable) {
-        if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            getMainHandler().postAtFrontOfQueue(runnable);
-        } else {
-            runnable.run();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                getMainHandler().postAtFrontOfQueue(runnable);
+            } else {
+                runnable.run();
+            }
         }
     }
 
     public static void runOnUiThread(Runnable runnable, long j) {
-        if (j > 0) {
-            getMainHandler().postDelayed(runnable, j);
-        } else {
-            runOnUiThread(runnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65540, null, runnable, j) == null) {
+            if (j > 0) {
+                getMainHandler().postDelayed(runnable, j);
+            } else {
+                runOnUiThread(runnable);
+            }
         }
     }
 }

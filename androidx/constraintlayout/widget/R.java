@@ -1,9 +1,20 @@
 package androidx.constraintlayout.widget;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static final class attr {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int barrierAllowsGoneWidgets = 0x7f04006c;
         public static final int barrierDirection = 0x7f04006d;
         public static final int chainUseRtl = 0x7f0400bb;
@@ -61,28 +72,61 @@ public final class R {
         public static final int layout_goneMarginStart = 0x7f04024e;
         public static final int layout_goneMarginTop = 0x7f04024f;
         public static final int layout_optimizationLevel = 0x7f040255;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public attr() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int bottom = 0x7f090461;
-        public static final int end = 0x7f090a6f;
-        public static final int gone = 0x7f090e6c;
-        public static final int invisible = 0x7f091100;
-        public static final int left = 0x7f091425;
-        public static final int packed = 0x7f0917f0;
-        public static final int parent = 0x7f0917f8;
-        public static final int percent = 0x7f091967;
-        public static final int right = 0x7f091c9c;
-        public static final int spread = 0x7f091fae;
-        public static final int spread_inside = 0x7f091fb0;
-        public static final int start = 0x7f091feb;
-        public static final int top = 0x7f0922ff;
-        public static final int wrap = 0x7f09285a;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int bottom = 0x7f090468;
+        public static final int end = 0x7f090aaf;
+        public static final int gone = 0x7f090ecf;
+        public static final int invisible = 0x7f09116e;
+        public static final int left = 0x7f0914a0;
+        public static final int packed = 0x7f09187a;
+        public static final int parent = 0x7f091882;
+        public static final int percent = 0x7f0919f1;
+        public static final int right = 0x7f091d3d;
+        public static final int spread = 0x7f092057;
+        public static final int spread_inside = 0x7f092059;
+        public static final int start = 0x7f092094;
+        public static final int top = 0x7f0923ae;
+        public static final int wrap = 0x7f09293a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public id() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class styleable {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int[] ConstraintLayout_Layout;
         public static final int ConstraintLayout_Layout_android_maxHeight = 0x00000002;
         public static final int ConstraintLayout_Layout_android_maxWidth = 0x00000001;
         public static final int ConstraintLayout_Layout_android_minHeight = 0x00000004;
@@ -143,8 +187,10 @@ public final class R {
         public static final int ConstraintLayout_Layout_layout_goneMarginStart = 0x00000039;
         public static final int ConstraintLayout_Layout_layout_goneMarginTop = 0x0000003a;
         public static final int ConstraintLayout_Layout_layout_optimizationLevel = 0x0000003b;
+        public static final int[] ConstraintLayout_placeholder;
         public static final int ConstraintLayout_placeholder_content = 0x00000000;
         public static final int ConstraintLayout_placeholder_emptyVisibility = 0x00000001;
+        public static final int[] ConstraintSet;
         public static final int ConstraintSet_android_alpha = 0x0000000d;
         public static final int ConstraintSet_android_elevation = 0x0000001a;
         public static final int ConstraintSet_android_id = 0x00000001;
@@ -225,10 +271,55 @@ public final class R {
         public static final int ConstraintSet_layout_goneMarginRight = 0x0000004d;
         public static final int ConstraintSet_layout_goneMarginStart = 0x0000004e;
         public static final int ConstraintSet_layout_goneMarginTop = 0x0000004f;
+        public static final int[] LinearConstraintLayout;
         public static final int LinearConstraintLayout_android_orientation = 0;
-        public static final int[] ConstraintLayout_Layout = {16842948, 16843039, 16843040, 16843071, 16843072, com.baidu.tieba.R.attr.barrierAllowsGoneWidgets, com.baidu.tieba.R.attr.barrierDirection, com.baidu.tieba.R.attr.chainUseRtl, com.baidu.tieba.R.attr.constraintSet, com.baidu.tieba.R.attr.constraint_referenced_ids, com.baidu.tieba.R.attr.layout_constrainedHeight, com.baidu.tieba.R.attr.layout_constrainedWidth, com.baidu.tieba.R.attr.layout_constraintBaseline_creator, com.baidu.tieba.R.attr.layout_constraintBaseline_toBaselineOf, com.baidu.tieba.R.attr.layout_constraintBottom_creator, com.baidu.tieba.R.attr.layout_constraintBottom_toBottomOf, com.baidu.tieba.R.attr.layout_constraintBottom_toTopOf, com.baidu.tieba.R.attr.layout_constraintCircle, com.baidu.tieba.R.attr.layout_constraintCircleAngle, com.baidu.tieba.R.attr.layout_constraintCircleRadius, com.baidu.tieba.R.attr.layout_constraintDimensionRatio, com.baidu.tieba.R.attr.layout_constraintEnd_toEndOf, com.baidu.tieba.R.attr.layout_constraintEnd_toStartOf, com.baidu.tieba.R.attr.layout_constraintGuide_begin, com.baidu.tieba.R.attr.layout_constraintGuide_end, com.baidu.tieba.R.attr.layout_constraintGuide_percent, com.baidu.tieba.R.attr.layout_constraintHeight_default, com.baidu.tieba.R.attr.layout_constraintHeight_max, com.baidu.tieba.R.attr.layout_constraintHeight_min, com.baidu.tieba.R.attr.layout_constraintHeight_percent, com.baidu.tieba.R.attr.layout_constraintHorizontal_bias, com.baidu.tieba.R.attr.layout_constraintHorizontal_chainStyle, com.baidu.tieba.R.attr.layout_constraintHorizontal_weight, com.baidu.tieba.R.attr.layout_constraintLeft_creator, com.baidu.tieba.R.attr.layout_constraintLeft_toLeftOf, com.baidu.tieba.R.attr.layout_constraintLeft_toRightOf, com.baidu.tieba.R.attr.layout_constraintRight_creator, com.baidu.tieba.R.attr.layout_constraintRight_toLeftOf, com.baidu.tieba.R.attr.layout_constraintRight_toRightOf, com.baidu.tieba.R.attr.layout_constraintStart_toEndOf, com.baidu.tieba.R.attr.layout_constraintStart_toStartOf, com.baidu.tieba.R.attr.layout_constraintTop_creator, com.baidu.tieba.R.attr.layout_constraintTop_toBottomOf, com.baidu.tieba.R.attr.layout_constraintTop_toTopOf, com.baidu.tieba.R.attr.layout_constraintVertical_bias, com.baidu.tieba.R.attr.layout_constraintVertical_chainStyle, com.baidu.tieba.R.attr.layout_constraintVertical_weight, com.baidu.tieba.R.attr.layout_constraintWidth_default, com.baidu.tieba.R.attr.layout_constraintWidth_max, com.baidu.tieba.R.attr.layout_constraintWidth_min, com.baidu.tieba.R.attr.layout_constraintWidth_percent, com.baidu.tieba.R.attr.layout_editor_absoluteX, com.baidu.tieba.R.attr.layout_editor_absoluteY, com.baidu.tieba.R.attr.layout_goneMarginBottom, com.baidu.tieba.R.attr.layout_goneMarginEnd, com.baidu.tieba.R.attr.layout_goneMarginLeft, com.baidu.tieba.R.attr.layout_goneMarginRight, com.baidu.tieba.R.attr.layout_goneMarginStart, com.baidu.tieba.R.attr.layout_goneMarginTop, com.baidu.tieba.R.attr.layout_optimizationLevel};
-        public static final int[] ConstraintLayout_placeholder = {com.baidu.tieba.R.attr.content, com.baidu.tieba.R.attr.emptyVisibility};
-        public static final int[] ConstraintSet = {16842948, 16842960, 16842972, 16842996, 16842997, 16842999, 16843000, 16843001, 16843002, 16843039, 16843040, 16843071, 16843072, 16843551, 16843552, 16843553, 16843554, 16843555, 16843556, 16843557, 16843558, 16843559, 16843560, 16843701, 16843702, 16843770, 16843840, com.baidu.tieba.R.attr.barrierAllowsGoneWidgets, com.baidu.tieba.R.attr.barrierDirection, com.baidu.tieba.R.attr.chainUseRtl, com.baidu.tieba.R.attr.constraint_referenced_ids, com.baidu.tieba.R.attr.layout_constrainedHeight, com.baidu.tieba.R.attr.layout_constrainedWidth, com.baidu.tieba.R.attr.layout_constraintBaseline_creator, com.baidu.tieba.R.attr.layout_constraintBaseline_toBaselineOf, com.baidu.tieba.R.attr.layout_constraintBottom_creator, com.baidu.tieba.R.attr.layout_constraintBottom_toBottomOf, com.baidu.tieba.R.attr.layout_constraintBottom_toTopOf, com.baidu.tieba.R.attr.layout_constraintCircle, com.baidu.tieba.R.attr.layout_constraintCircleAngle, com.baidu.tieba.R.attr.layout_constraintCircleRadius, com.baidu.tieba.R.attr.layout_constraintDimensionRatio, com.baidu.tieba.R.attr.layout_constraintEnd_toEndOf, com.baidu.tieba.R.attr.layout_constraintEnd_toStartOf, com.baidu.tieba.R.attr.layout_constraintGuide_begin, com.baidu.tieba.R.attr.layout_constraintGuide_end, com.baidu.tieba.R.attr.layout_constraintGuide_percent, com.baidu.tieba.R.attr.layout_constraintHeight_default, com.baidu.tieba.R.attr.layout_constraintHeight_max, com.baidu.tieba.R.attr.layout_constraintHeight_min, com.baidu.tieba.R.attr.layout_constraintHeight_percent, com.baidu.tieba.R.attr.layout_constraintHorizontal_bias, com.baidu.tieba.R.attr.layout_constraintHorizontal_chainStyle, com.baidu.tieba.R.attr.layout_constraintHorizontal_weight, com.baidu.tieba.R.attr.layout_constraintLeft_creator, com.baidu.tieba.R.attr.layout_constraintLeft_toLeftOf, com.baidu.tieba.R.attr.layout_constraintLeft_toRightOf, com.baidu.tieba.R.attr.layout_constraintRight_creator, com.baidu.tieba.R.attr.layout_constraintRight_toLeftOf, com.baidu.tieba.R.attr.layout_constraintRight_toRightOf, com.baidu.tieba.R.attr.layout_constraintStart_toEndOf, com.baidu.tieba.R.attr.layout_constraintStart_toStartOf, com.baidu.tieba.R.attr.layout_constraintTop_creator, com.baidu.tieba.R.attr.layout_constraintTop_toBottomOf, com.baidu.tieba.R.attr.layout_constraintTop_toTopOf, com.baidu.tieba.R.attr.layout_constraintVertical_bias, com.baidu.tieba.R.attr.layout_constraintVertical_chainStyle, com.baidu.tieba.R.attr.layout_constraintVertical_weight, com.baidu.tieba.R.attr.layout_constraintWidth_default, com.baidu.tieba.R.attr.layout_constraintWidth_max, com.baidu.tieba.R.attr.layout_constraintWidth_min, com.baidu.tieba.R.attr.layout_constraintWidth_percent, com.baidu.tieba.R.attr.layout_editor_absoluteX, com.baidu.tieba.R.attr.layout_editor_absoluteY, com.baidu.tieba.R.attr.layout_goneMarginBottom, com.baidu.tieba.R.attr.layout_goneMarginEnd, com.baidu.tieba.R.attr.layout_goneMarginLeft, com.baidu.tieba.R.attr.layout_goneMarginRight, com.baidu.tieba.R.attr.layout_goneMarginStart, com.baidu.tieba.R.attr.layout_goneMarginTop};
-        public static final int[] LinearConstraintLayout = {16842948};
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(412303199, "Landroidx/constraintlayout/widget/R$styleable;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(412303199, "Landroidx/constraintlayout/widget/R$styleable;");
+                    return;
+                }
+            }
+            ConstraintLayout_Layout = new int[]{16842948, 16843039, 16843040, 16843071, 16843072, com.baidu.tieba.R.attr.barrierAllowsGoneWidgets, com.baidu.tieba.R.attr.barrierDirection, com.baidu.tieba.R.attr.chainUseRtl, com.baidu.tieba.R.attr.constraintSet, com.baidu.tieba.R.attr.constraint_referenced_ids, com.baidu.tieba.R.attr.layout_constrainedHeight, com.baidu.tieba.R.attr.layout_constrainedWidth, com.baidu.tieba.R.attr.layout_constraintBaseline_creator, com.baidu.tieba.R.attr.layout_constraintBaseline_toBaselineOf, com.baidu.tieba.R.attr.layout_constraintBottom_creator, com.baidu.tieba.R.attr.layout_constraintBottom_toBottomOf, com.baidu.tieba.R.attr.layout_constraintBottom_toTopOf, com.baidu.tieba.R.attr.layout_constraintCircle, com.baidu.tieba.R.attr.layout_constraintCircleAngle, com.baidu.tieba.R.attr.layout_constraintCircleRadius, com.baidu.tieba.R.attr.layout_constraintDimensionRatio, com.baidu.tieba.R.attr.layout_constraintEnd_toEndOf, com.baidu.tieba.R.attr.layout_constraintEnd_toStartOf, com.baidu.tieba.R.attr.layout_constraintGuide_begin, com.baidu.tieba.R.attr.layout_constraintGuide_end, com.baidu.tieba.R.attr.layout_constraintGuide_percent, com.baidu.tieba.R.attr.layout_constraintHeight_default, com.baidu.tieba.R.attr.layout_constraintHeight_max, com.baidu.tieba.R.attr.layout_constraintHeight_min, com.baidu.tieba.R.attr.layout_constraintHeight_percent, com.baidu.tieba.R.attr.layout_constraintHorizontal_bias, com.baidu.tieba.R.attr.layout_constraintHorizontal_chainStyle, com.baidu.tieba.R.attr.layout_constraintHorizontal_weight, com.baidu.tieba.R.attr.layout_constraintLeft_creator, com.baidu.tieba.R.attr.layout_constraintLeft_toLeftOf, com.baidu.tieba.R.attr.layout_constraintLeft_toRightOf, com.baidu.tieba.R.attr.layout_constraintRight_creator, com.baidu.tieba.R.attr.layout_constraintRight_toLeftOf, com.baidu.tieba.R.attr.layout_constraintRight_toRightOf, com.baidu.tieba.R.attr.layout_constraintStart_toEndOf, com.baidu.tieba.R.attr.layout_constraintStart_toStartOf, com.baidu.tieba.R.attr.layout_constraintTop_creator, com.baidu.tieba.R.attr.layout_constraintTop_toBottomOf, com.baidu.tieba.R.attr.layout_constraintTop_toTopOf, com.baidu.tieba.R.attr.layout_constraintVertical_bias, com.baidu.tieba.R.attr.layout_constraintVertical_chainStyle, com.baidu.tieba.R.attr.layout_constraintVertical_weight, com.baidu.tieba.R.attr.layout_constraintWidth_default, com.baidu.tieba.R.attr.layout_constraintWidth_max, com.baidu.tieba.R.attr.layout_constraintWidth_min, com.baidu.tieba.R.attr.layout_constraintWidth_percent, com.baidu.tieba.R.attr.layout_editor_absoluteX, com.baidu.tieba.R.attr.layout_editor_absoluteY, com.baidu.tieba.R.attr.layout_goneMarginBottom, com.baidu.tieba.R.attr.layout_goneMarginEnd, com.baidu.tieba.R.attr.layout_goneMarginLeft, com.baidu.tieba.R.attr.layout_goneMarginRight, com.baidu.tieba.R.attr.layout_goneMarginStart, com.baidu.tieba.R.attr.layout_goneMarginTop, com.baidu.tieba.R.attr.layout_optimizationLevel};
+            ConstraintLayout_placeholder = new int[]{com.baidu.tieba.R.attr.content, com.baidu.tieba.R.attr.emptyVisibility};
+            ConstraintSet = new int[]{16842948, 16842960, 16842972, 16842996, 16842997, 16842999, 16843000, 16843001, 16843002, 16843039, 16843040, 16843071, 16843072, 16843551, 16843552, 16843553, 16843554, 16843555, 16843556, 16843557, 16843558, 16843559, 16843560, 16843701, 16843702, 16843770, 16843840, com.baidu.tieba.R.attr.barrierAllowsGoneWidgets, com.baidu.tieba.R.attr.barrierDirection, com.baidu.tieba.R.attr.chainUseRtl, com.baidu.tieba.R.attr.constraint_referenced_ids, com.baidu.tieba.R.attr.layout_constrainedHeight, com.baidu.tieba.R.attr.layout_constrainedWidth, com.baidu.tieba.R.attr.layout_constraintBaseline_creator, com.baidu.tieba.R.attr.layout_constraintBaseline_toBaselineOf, com.baidu.tieba.R.attr.layout_constraintBottom_creator, com.baidu.tieba.R.attr.layout_constraintBottom_toBottomOf, com.baidu.tieba.R.attr.layout_constraintBottom_toTopOf, com.baidu.tieba.R.attr.layout_constraintCircle, com.baidu.tieba.R.attr.layout_constraintCircleAngle, com.baidu.tieba.R.attr.layout_constraintCircleRadius, com.baidu.tieba.R.attr.layout_constraintDimensionRatio, com.baidu.tieba.R.attr.layout_constraintEnd_toEndOf, com.baidu.tieba.R.attr.layout_constraintEnd_toStartOf, com.baidu.tieba.R.attr.layout_constraintGuide_begin, com.baidu.tieba.R.attr.layout_constraintGuide_end, com.baidu.tieba.R.attr.layout_constraintGuide_percent, com.baidu.tieba.R.attr.layout_constraintHeight_default, com.baidu.tieba.R.attr.layout_constraintHeight_max, com.baidu.tieba.R.attr.layout_constraintHeight_min, com.baidu.tieba.R.attr.layout_constraintHeight_percent, com.baidu.tieba.R.attr.layout_constraintHorizontal_bias, com.baidu.tieba.R.attr.layout_constraintHorizontal_chainStyle, com.baidu.tieba.R.attr.layout_constraintHorizontal_weight, com.baidu.tieba.R.attr.layout_constraintLeft_creator, com.baidu.tieba.R.attr.layout_constraintLeft_toLeftOf, com.baidu.tieba.R.attr.layout_constraintLeft_toRightOf, com.baidu.tieba.R.attr.layout_constraintRight_creator, com.baidu.tieba.R.attr.layout_constraintRight_toLeftOf, com.baidu.tieba.R.attr.layout_constraintRight_toRightOf, com.baidu.tieba.R.attr.layout_constraintStart_toEndOf, com.baidu.tieba.R.attr.layout_constraintStart_toStartOf, com.baidu.tieba.R.attr.layout_constraintTop_creator, com.baidu.tieba.R.attr.layout_constraintTop_toBottomOf, com.baidu.tieba.R.attr.layout_constraintTop_toTopOf, com.baidu.tieba.R.attr.layout_constraintVertical_bias, com.baidu.tieba.R.attr.layout_constraintVertical_chainStyle, com.baidu.tieba.R.attr.layout_constraintVertical_weight, com.baidu.tieba.R.attr.layout_constraintWidth_default, com.baidu.tieba.R.attr.layout_constraintWidth_max, com.baidu.tieba.R.attr.layout_constraintWidth_min, com.baidu.tieba.R.attr.layout_constraintWidth_percent, com.baidu.tieba.R.attr.layout_editor_absoluteX, com.baidu.tieba.R.attr.layout_editor_absoluteY, com.baidu.tieba.R.attr.layout_goneMarginBottom, com.baidu.tieba.R.attr.layout_goneMarginEnd, com.baidu.tieba.R.attr.layout_goneMarginLeft, com.baidu.tieba.R.attr.layout_goneMarginRight, com.baidu.tieba.R.attr.layout_goneMarginStart, com.baidu.tieba.R.attr.layout_goneMarginTop};
+            LinearConstraintLayout = new int[]{16842948};
+        }
+
+        public styleable() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    public R() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

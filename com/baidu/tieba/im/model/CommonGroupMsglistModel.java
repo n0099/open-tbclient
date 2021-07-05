@@ -7,6 +7,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tieba.im.chat.MsglistActivity;
@@ -17,40 +19,115 @@ import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.c.g.c;
-import d.a.n0.z0.f0;
-import d.a.n0.z0.h0;
-import d.a.o0.f1.k.b;
+import d.a.r0.z0.f0;
+import d.a.r0.z0.i0;
+import d.a.s0.i1.k.b;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class CommonGroupMsglistModel extends MsglistModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener mCustomListener;
     public GroupData mGroup;
     public final c mSocketListener;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CommonGroupMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msglistActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((MsglistActivity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mGroup = null;
-        this.mSocketListener = new c(0) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.3
+        this.mSocketListener = new c(this, 0) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CommonGroupMsglistModel this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                if (socketResponsedMessage == null) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null) {
                     return;
                 }
                 if (socketResponsedMessage.getCmd() == 103112) {
-                    CommonGroupMsglistModel.this.removeMemeber(socketResponsedMessage);
+                    this.this$0.removeMemeber(socketResponsedMessage);
                 } else if (socketResponsedMessage.getCmd() == 103102) {
-                    CommonGroupMsglistModel.this.updataGroupInfo(socketResponsedMessage);
+                    this.this$0.updataGroupInfo(socketResponsedMessage);
                 }
             }
         };
-        this.mCustomListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.4
+        this.mCustomListener = new CustomMessageListener(this, 0) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CommonGroupMsglistModel this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage == null) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                     return;
                 }
                 if (customResponsedMessage.getCmd() == 2016012) {
@@ -60,17 +137,17 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                     SocketResponsedMessage socketResponsedMessage = (SocketResponsedMessage) customResponsedMessage.getData();
                     if (socketResponsedMessage.getCmd() == 202001 && (socketResponsedMessage instanceof ResponseCommitGroupMessage)) {
                         ResponseCommitGroupMessage responseCommitGroupMessage = (ResponseCommitGroupMessage) socketResponsedMessage;
-                        if (CommonGroupMsglistModel.this.checkAckMsg(responseCommitGroupMessage)) {
-                            CommonGroupMsglistModel.this.processMsgACK(responseCommitGroupMessage);
+                        if (this.this$0.checkAckMsg(responseCommitGroupMessage)) {
+                            this.this$0.processMsgACK(responseCommitGroupMessage);
                         }
                     }
                 } else if (customResponsedMessage.getCmd() == 2001215 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
-                    GroupData groupData = CommonGroupMsglistModel.this.mGroup;
-                    if (groupData == null || groupData.getGroupId() == 0 || chatMessage.getGroupId() == null || !chatMessage.getGroupId().equals(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()))) {
+                    GroupData groupData = this.this$0.mGroup;
+                    if (groupData == null || groupData.getGroupId() == 0 || chatMessage.getGroupId() == null || !chatMessage.getGroupId().equals(String.valueOf(this.this$0.mGroup.getGroupId()))) {
                         return;
                     }
-                    CommonGroupMsglistModel.this.sendMsgFail(chatMessage);
+                    this.this$0.sendMsgFail(chatMessage);
                 }
             }
         };
@@ -79,33 +156,42 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean checkAckMsg(ResponseCommitGroupMessage responseCommitGroupMessage) {
-        if (responseCommitGroupMessage == null || this.mGroup == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, responseCommitGroupMessage)) == null) {
+            if (responseCommitGroupMessage == null || this.mGroup == null) {
+                return false;
+            }
+            if (responseCommitGroupMessage.getError() == 0) {
+                return responseCommitGroupMessage.getGroupId() != null && responseCommitGroupMessage.getGroupId().equals(String.valueOf(this.mGroup.getGroupId()));
+            }
+            if (responseCommitGroupMessage.getOrginalMessage() != null && (responseCommitGroupMessage.getOrginalMessage() instanceof CommonGroupChatMessage)) {
+                CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) responseCommitGroupMessage.getOrginalMessage();
+                if (commonGroupChatMessage.getGroupId() != null && commonGroupChatMessage.getGroupId().equals(String.valueOf(this.mGroup.getGroupId()))) {
+                    return true;
+                }
+            }
             return false;
         }
-        if (responseCommitGroupMessage.getError() == 0) {
-            return responseCommitGroupMessage.getGroupId() != null && responseCommitGroupMessage.getGroupId().equals(String.valueOf(this.mGroup.getGroupId()));
-        }
-        if (responseCommitGroupMessage.getOrginalMessage() != null && (responseCommitGroupMessage.getOrginalMessage() instanceof CommonGroupChatMessage)) {
-            CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) responseCommitGroupMessage.getOrginalMessage();
-            if (commonGroupChatMessage.getGroupId() != null && commonGroupChatMessage.getGroupId().equals(String.valueOf(this.mGroup.getGroupId()))) {
-                return true;
-            }
-        }
-        return false;
+        return invokeL.booleanValue;
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(103112, this.mSocketListener);
-        MessageManager.getInstance().registerListener(103102, this.mSocketListener);
-        MessageManager.getInstance().registerListener(2016012, this.mCustomListener);
-        MessageManager.getInstance().registerListener(2001215, this.mCustomListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            MessageManager.getInstance().registerListener(103112, this.mSocketListener);
+            MessageManager.getInstance().registerListener(103102, this.mSocketListener);
+            MessageManager.getInstance().registerListener(2016012, this.mCustomListener);
+            MessageManager.getInstance().registerListener(2001215, this.mCustomListener);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void removeMemeber(ResponsedMessage<?> responsedMessage) {
         Message<?> orginalMessage;
         String[] split;
-        if (responsedMessage instanceof ResponseRemoveMembersMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, responsedMessage) == null) && (responsedMessage instanceof ResponseRemoveMembersMessage)) {
             ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) responsedMessage;
             if (responseRemoveMembersMessage.getError() == 0 && (orginalMessage = responseRemoveMembersMessage.getOrginalMessage()) != null && (orginalMessage instanceof RequestRemoveMembersMessage)) {
                 RequestRemoveMembersMessage requestRemoveMembersMessage = (RequestRemoveMembersMessage) orginalMessage;
@@ -132,13 +218,17 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.mSocketListener);
-        MessageManager.getInstance().unRegisterListener(this.mCustomListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.mSocketListener);
+            MessageManager.getInstance().unRegisterListener(this.mCustomListener);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updataGroupInfo(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage instanceof ResponseUpdateGroupMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, this, responsedMessage) == null) && (responsedMessage instanceof ResponseUpdateGroupMessage)) {
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) responsedMessage;
             if (responseUpdateGroupMessage.getError() == 0 && responseUpdateGroupMessage.getUpdateGroupInfo() != null) {
                 this.mLoadDataMode = 10;
@@ -148,70 +238,142 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public void deleteMsg(final ChatMessage chatMessage) {
-        if (this.mGroup == null || chatMessage == null) {
+    public void deleteMsg(ChatMessage chatMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) || this.mGroup == null || chatMessage == null) {
             return;
         }
-        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
+        i0.c(new f0<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CommonGroupMsglistModel this$0;
+            public final /* synthetic */ ChatMessage val$msg;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, chatMessage};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$msg = chatMessage;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.n0.z0.f0
+            @Override // d.a.r0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.a.o0.f1.h.c.h().c(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.s0.i1.h.c.h().c(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }
 
     public GroupData getGroup() {
-        return this.mGroup;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mGroup : (GroupData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
-        if (getGroup() != null) {
-            return b.o().p(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getGroup() != null) {
+                return b.o().p(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+            }
+            return 0L;
         }
-        return 0L;
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public void markDeleteMsg(final ChatMessage chatMessage) {
-        if (this.mGroup == null || chatMessage == null) {
+    public void markDeleteMsg(ChatMessage chatMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) || this.mGroup == null || chatMessage == null) {
             return;
         }
-        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
+        i0.c(new f0<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CommonGroupMsglistModel this$0;
+            public final /* synthetic */ ChatMessage val$msg;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, chatMessage};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$msg = chatMessage;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.n0.z0.f0
+            @Override // d.a.r0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.a.o0.f1.h.c.h().m(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.s0.i1.h.c.h().m(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void onDestroy() {
-        super.onDestroy();
-        unRegisterListener();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+            unRegisterListener();
+        }
     }
 
     public List<ChatMessage> processServerMsg(ResponsedMessage<?> responsedMessage) {
+        InterceptResult invokeL;
         LinkedList<ChatMessage> listMessage;
-        if (responsedMessage instanceof GroupMsgData) {
-            GroupMsgData groupMsgData = (GroupMsgData) responsedMessage;
-            if (getGroup() != null && groupMsgData.getGroupInfo() != null && groupMsgData.getGroupInfo().getGroupId() == getGroup().getGroupId() && (listMessage = groupMsgData.getListMessage()) != null) {
-                return processMsgFromServerCommon(listMessage);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, responsedMessage)) == null) {
+            if (responsedMessage instanceof GroupMsgData) {
+                GroupMsgData groupMsgData = (GroupMsgData) responsedMessage;
+                if (getGroup() != null && groupMsgData.getGroupInfo() != null && groupMsgData.getGroupInfo().getGroupId() == getGroup().getGroupId() && (listMessage = groupMsgData.getListMessage()) != null) {
+                    return processMsgFromServerCommon(listMessage);
+                }
             }
+            return null;
         }
-        return null;
+        return (List) invokeL.objValue;
     }
 
     public void setGroup(GroupData groupData) {
-        this.mGroup = groupData;
-        if (groupData != null) {
-            this.mId = groupData.getGroupId();
-        } else {
-            this.mId = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, groupData) == null) {
+            this.mGroup = groupData;
+            if (groupData != null) {
+                this.mId = groupData.getGroupId();
+            } else {
+                this.mId = 0L;
+            }
         }
     }
 }

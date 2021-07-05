@@ -5,52 +5,67 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30879a = false;
+    public static boolean f32650a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30880b = false;
+    public static boolean f32651b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {
-        String str = Build.BRAND;
-        if (FunOpenIDSdk.isLogEnabled()) {
-            Log.e(FunOpenIDSdk.TAG, "==========brand = " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String str = Build.BRAND;
+            if (FunOpenIDSdk.isLogEnabled()) {
+                Log.e(FunOpenIDSdk.TAG, "==========brand = " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_HUAWEI) || str.equalsIgnoreCase("honor") || str.equalsIgnoreCase("华为")) {
+                return new d();
+            }
+            if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI) || str.equalsIgnoreCase("redmi") || str.equalsIgnoreCase("meitu") || str.equalsIgnoreCase("小米")) {
+                return new h();
+            }
+            if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_VIVO)) {
+                return new l();
+            }
+            if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_OPPO) || str.equalsIgnoreCase("oneplus")) {
+                return new k();
+            }
+            if (str.equalsIgnoreCase("lenovo") || str.equalsIgnoreCase("zuk")) {
+                return new g();
+            }
             return null;
         }
-        if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_HUAWEI) || str.equalsIgnoreCase("honor") || str.equalsIgnoreCase("华为")) {
-            return new d();
-        }
-        if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI) || str.equalsIgnoreCase("redmi") || str.equalsIgnoreCase("meitu") || str.equalsIgnoreCase("小米")) {
-            return new h();
-        }
-        if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_VIVO)) {
-            return new l();
-        }
-        if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_OPPO) || str.equalsIgnoreCase("oneplus")) {
-            return new k();
-        }
-        if (str.equalsIgnoreCase("lenovo") || str.equalsIgnoreCase("zuk")) {
-            return new g();
-        }
-        return null;
+        return (f) invokeV.objValue;
     }
 
     public static boolean a(Context context, String str) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            try {
-                if (((Integer) Class.forName("android.content.Context").getMethod("checkSelfPermission", String.class).invoke(context, str)).intValue() == 0) {
-                    return true;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                try {
+                    if (((Integer) Class.forName("android.content.Context").getMethod("checkSelfPermission", String.class).invoke(context, str)).intValue() == 0) {
+                        return true;
+                    }
+                } catch (Throwable unused) {
                 }
-            } catch (Throwable unused) {
+            } else if (context.getPackageManager().checkPermission(str, context.getPackageName()) == 0) {
+                return true;
             }
-        } else if (context.getPackageManager().checkPermission(str, context.getPackageName()) == 0) {
-            return true;
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 }

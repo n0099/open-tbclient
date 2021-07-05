@@ -9,35 +9,69 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.ecommerce.R;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public abstract class BaseDialogFragment extends DialogFragment implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public BaseDialogFragment() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public abstract int getLayoutResId();
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(@Nullable Bundle bundle) {
-        Window window = getDialog().getWindow();
-        window.getDecorView().setPadding(0, 0, 0, 0);
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.width = -1;
-        attributes.height = -2;
-        attributes.dimAmount = 0.5f;
-        attributes.gravity = 80;
-        window.setAttributes(attributes);
-        super.onActivityCreated(bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            Window window = getDialog().getWindow();
+            window.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.width = -1;
+            attributes.height = -2;
+            attributes.dimAmount = 0.5f;
+            attributes.gravity = 80;
+            window.setAttributes(attributes);
+            super.onActivityCreated(bundle);
+        }
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onCreate(@Nullable Bundle bundle) {
-        super.onCreate(bundle);
-        setStyle(1, R.style.FullScreenDialog);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            setStyle(1, R.style.FullScreenDialog);
+        }
     }
 
     @Override // androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
-        getDialog().getWindow().getAttributes().windowAnimations = R.style.sapi_sdk_dialog_fragment_anim;
-        return inflate;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.sapi_sdk_dialog_fragment_anim;
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

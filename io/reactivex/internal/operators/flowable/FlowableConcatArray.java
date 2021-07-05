@@ -1,5 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.exceptions.CompositeException;
@@ -10,31 +15,51 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableConcatArray<T> extends Flowable<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayError;
     public final Publisher<? extends T>[] sources;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class ConcatArraySubscriber<T> extends SubscriptionArbiter implements FlowableSubscriber<T> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8158322871608889516L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super T> actual;
         public final boolean delayError;
         public List<Throwable> errors;
         public int index;
         public long produced;
         public final Publisher<? extends T>[] sources;
-        public final AtomicInteger wip = new AtomicInteger();
+        public final AtomicInteger wip;
 
         public ConcatArraySubscriber(Publisher<? extends T>[] publisherArr, boolean z, Subscriber<? super T> subscriber) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {publisherArr, Boolean.valueOf(z), subscriber};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
             this.sources = publisherArr;
             this.delayError = z;
+            this.wip = new AtomicInteger();
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            if (this.wip.getAndIncrement() == 0) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
                 Publisher<? extends T>[] publisherArr = this.sources;
                 int length = publisherArr.length;
                 int i2 = this.index;
@@ -84,40 +109,66 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            if (this.delayError) {
-                List list = this.errors;
-                if (list == null) {
-                    list = new ArrayList((this.sources.length - this.index) + 1);
-                    this.errors = list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (this.delayError) {
+                    List list = this.errors;
+                    if (list == null) {
+                        list = new ArrayList((this.sources.length - this.index) + 1);
+                        this.errors = list;
+                    }
+                    list.add(th);
+                    onComplete();
+                    return;
                 }
-                list.add(th);
-                onComplete();
-                return;
+                this.actual.onError(th);
             }
-            this.actual.onError(th);
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            this.produced++;
-            this.actual.onNext(t);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                this.produced++;
+                this.actual.onNext(t);
+            }
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            setSubscription(subscription);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, subscription) == null) {
+                setSubscription(subscription);
+            }
         }
     }
 
     public FlowableConcatArray(Publisher<? extends T>[] publisherArr, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {publisherArr, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.sources = publisherArr;
         this.delayError = z;
     }
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super T> subscriber) {
-        ConcatArraySubscriber concatArraySubscriber = new ConcatArraySubscriber(this.sources, this.delayError, subscriber);
-        subscriber.onSubscribe(concatArraySubscriber);
-        concatArraySubscriber.onComplete();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            ConcatArraySubscriber concatArraySubscriber = new ConcatArraySubscriber(this.sources, this.delayError, subscriber);
+            subscriber.onSubscribe(concatArraySubscriber);
+            concatArraySubscriber.onComplete();
+        }
     }
 }

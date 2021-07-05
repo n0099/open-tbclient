@@ -7,6 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -29,12 +30,15 @@ import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.tieba.im.message.chat.SystemMessage;
 import com.baidu.tieba.im.message.chat.YYMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import d.a.c.e.p.k;
-import d.a.n0.r.q.x0;
-import d.a.o0.f1.o.a;
-import d.a.o0.f1.w.b;
-import d.a.o0.f1.w.c;
+import d.a.r0.r.q.y0;
+import d.a.s0.i1.o.a;
+import d.a.s0.i1.w.b;
+import d.a.s0.i1.w.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -46,14 +50,18 @@ import protobuf.NewpushGroupRepair;
 import protobuf.NewpushRepair;
 import protobuf.TshowInfo;
 import protobuf.UserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MessageUtils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static void assignChatMessage(List<GroupMsgData> list, LinkedList<ChatMessage> linkedList, HashMap<String, GroupMsgData> hashMap, HashMap<String, GroupMsgData> hashMap2, ChatMessage chatMessage, MsgInfo msgInfo, GroupMsgData groupMsgData, Long l) {
         long longValue;
         long longValue2;
         int i2;
         VoiceMsgData n;
-        if (list == null || linkedList == null || hashMap == null || hashMap2 == null || chatMessage == null || msgInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{list, linkedList, hashMap, hashMap2, chatMessage, msgInfo, groupMsgData, l}) == null) || list == null || linkedList == null || hashMap == null || hashMap2 == null || chatMessage == null || msgInfo == null) {
             return;
         }
         long a2 = b.a(msgInfo.msgId.longValue());
@@ -149,23 +157,23 @@ public class MessageUtils {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                     groupMsgData.getGroupInfo().setGroupId(l.longValue());
                 }
-                if (d.a.o0.f1.o.c.e().c(chatMessage.getMsgId())) {
+                if (d.a.s0.i1.o.c.e().c(chatMessage.getMsgId())) {
                     return;
                 }
-                long d2 = d.a.o0.f1.o.c.e().d();
+                long d2 = d.a.s0.i1.o.c.e().d();
                 Long l2 = msgInfo.groupId;
                 if (l2 == null) {
                     return;
                 }
-                if (d2 != 0 && l2.longValue() != d.a.o0.f1.o.c.e().d()) {
+                if (d2 != 0 && l2.longValue() != d.a.s0.i1.o.c.e().d()) {
                     return;
                 }
-                Long f3 = d.a.o0.f1.o.c.e().f();
+                Long f3 = d.a.s0.i1.o.c.e().f();
                 if (f3 != null && msgInfo.msgId != null && f3.longValue() >= msgInfo.msgId.longValue()) {
                     return;
                 }
                 chatMessage.setIsPushForOperateAccount(true);
-                d.a.o0.f1.o.c.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                d.a.s0.i1.o.c.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
             }
             if (j != 0) {
                 if (linkedList.size() == 0) {
@@ -228,17 +236,24 @@ public class MessageUtils {
     }
 
     public static void createGroupChatMessage(int i2, String str, long j) {
-        createGroupChatMessage(d.a.o0.f1.k.b.o().t(String.valueOf(j), 1), i2, str, j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}) == null) {
+            createGroupChatMessage(d.a.s0.i1.k.b.o().t(String.valueOf(j), 1), i2, str, j);
+        }
     }
 
     public static void createPersonalChatMessage(int i2, String str, long j, String str2, String str3, String str4) {
-        createPersonalChatMessage(d.a.o0.f1.k.b.o().t(String.valueOf(j), 2), i2, str, j, str2, str3, str4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j), str2, str3, str4}) == null) {
+            createPersonalChatMessage(d.a.s0.i1.k.b.o().t(String.valueOf(j), 2), i2, str, j, str2, str3, str4);
+        }
     }
 
     public static void generatePushData(List<GroupMsgData> list, int i2, List<MsgInfo> list2, Long l) {
         int i3;
         ChatMessage obtainMessage;
-        if (list2 == null || list2.size() == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLILL(AdIconUtil.AD_TEXT_ID, null, list, i2, list2, l) == null) || list2 == null || list2.size() == 0) {
             return;
         }
         HashMap hashMap = new HashMap();
@@ -280,78 +295,89 @@ public class MessageUtils {
         }
     }
 
-    public static x0 generatePushNotifyData(MsgInfo msgInfo) {
+    public static y0 generatePushNotifyData(MsgInfo msgInfo) {
+        InterceptResult invokeL;
         String str;
         String str2;
         UserInfo userInfo;
         String str3;
         String str4;
-        String str5 = "";
-        if (msgInfo != null && !k.isEmpty(msgInfo.content)) {
-            try {
-                JSONArray jSONArray = new JSONArray(msgInfo.content);
-                if (jSONArray.length() == 1) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(0);
-                    str = jSONObject.optString("title", null);
-                    try {
-                        str4 = jSONObject.optString("url", null);
-                        str5 = str;
-                    } catch (Exception e2) {
-                        e = e2;
-                        BdLog.e(e);
-                        str2 = "";
-                        str5 = str;
-                        userInfo = msgInfo.userInfo;
-                        if (userInfo != null) {
-                            str5 = TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{msgInfo.userInfo.userName}) + ZeusCrashHandler.NAME_SEPERATOR + str5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, msgInfo)) == null) {
+            String str5 = "";
+            if (msgInfo != null && !k.isEmpty(msgInfo.content)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(msgInfo.content);
+                    if (jSONArray.length() == 1) {
+                        JSONObject jSONObject = jSONArray.getJSONObject(0);
+                        str = jSONObject.optString("title", null);
+                        try {
+                            str4 = jSONObject.optString("url", null);
+                            str5 = str;
+                        } catch (Exception e2) {
+                            e = e2;
+                            BdLog.e(e);
+                            str2 = "";
+                            str5 = str;
+                            userInfo = msgInfo.userInfo;
+                            if (userInfo != null) {
+                                str5 = TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{msgInfo.userInfo.userName}) + ZeusCrashHandler.NAME_SEPERATOR + str5;
+                            }
+                            str3 = str5;
+                            if (!k.isEmpty(str3)) {
+                                return new y0(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
+                            }
+                            return null;
                         }
-                        str3 = str5;
-                        if (!k.isEmpty(str3)) {
-                            return new x0(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
-                        }
-                        return null;
+                    } else {
+                        str4 = "";
                     }
-                } else {
-                    str4 = "";
+                    str2 = str4;
+                } catch (Exception e3) {
+                    e = e3;
+                    str = "";
                 }
-                str2 = str4;
-            } catch (Exception e3) {
-                e = e3;
-                str = "";
+                userInfo = msgInfo.userInfo;
+                if (userInfo != null && !k.isEmpty(userInfo.userName)) {
+                    str5 = TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{msgInfo.userInfo.userName}) + ZeusCrashHandler.NAME_SEPERATOR + str5;
+                }
+                str3 = str5;
+                if (!k.isEmpty(str3) && !k.isEmpty(str2)) {
+                    return new y0(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
+                }
             }
-            userInfo = msgInfo.userInfo;
-            if (userInfo != null && !k.isEmpty(userInfo.userName)) {
-                str5 = TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{msgInfo.userInfo.userName}) + ZeusCrashHandler.NAME_SEPERATOR + str5;
-            }
-            str3 = str5;
-            if (!k.isEmpty(str3) && !k.isEmpty(str2)) {
-                return new x0(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
-            }
+            return null;
         }
-        return null;
+        return (y0) invokeL.objValue;
     }
 
     public static long getTaskId(MsgInfo msgInfo) {
-        if (msgInfo == null) {
-            return 0L;
-        }
-        if (!TextUtils.isEmpty(msgInfo.content)) {
-            try {
-                JSONArray jSONArray = new JSONArray(msgInfo.content);
-                if (jSONArray.length() > 0) {
-                    long f2 = d.a.c.e.m.b.f(jSONArray.optJSONObject(0).optString("task_id"), 0L);
-                    if (f2 > 0) {
-                        return f2;
-                    }
-                }
-            } catch (Exception unused) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, msgInfo)) == null) {
+            if (msgInfo == null) {
+                return 0L;
             }
+            if (!TextUtils.isEmpty(msgInfo.content)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(msgInfo.content);
+                    if (jSONArray.length() > 0) {
+                        long f2 = d.a.c.e.m.b.f(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        if (f2 > 0) {
+                            return f2;
+                        }
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return msgInfo.taskId.longValue();
         }
-        return msgInfo.taskId.longValue();
+        return invokeL.longValue;
     }
 
     public static void makeNewServiceId(ImMessageCenterPojo imMessageCenterPojo, List<CommonMsgPojo> list) {
-        if (imMessageCenterPojo == null || list == null || list.size() == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, imMessageCenterPojo, list) == null) || imMessageCenterPojo == null || list == null || list.size() == 0) {
             return;
         }
         String serviceId = imMessageCenterPojo.getServiceId();
@@ -387,7 +413,8 @@ public class MessageUtils {
     }
 
     public static void makeNewTaskId(ImMessageCenterPojo imMessageCenterPojo, List<CommonMsgPojo> list) {
-        if (imMessageCenterPojo == null || list == null || list.size() == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, imMessageCenterPojo, list) == null) || imMessageCenterPojo == null || list == null || list.size() == 0) {
             return;
         }
         String taskId = imMessageCenterPojo.getTaskId();
@@ -423,117 +450,138 @@ public class MessageUtils {
     }
 
     public static NewpushGroupRepair makeNewpushGroupRepair(GroupMsgData groupMsgData) {
+        InterceptResult invokeL;
         LinkedList<ChatMessage> listMessage;
-        if (groupMsgData == null || groupMsgData.getGroupInfo() == null || (listMessage = groupMsgData.getListMessage()) == null || listMessage.size() == 0) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, groupMsgData)) == null) {
+            if (groupMsgData == null || groupMsgData.getGroupInfo() == null || (listMessage = groupMsgData.getListMessage()) == null || listMessage.size() == 0) {
+                return null;
+            }
+            return makeNewpushGroupRepair(groupMsgData.getGroupInfo().getGroupId(), groupMsgData.getGroupInfo().getUserType(), listMessage.get(0).getSid() - 1, 0L, listMessage.get(0).getMsgId());
         }
-        return makeNewpushGroupRepair(groupMsgData.getGroupInfo().getGroupId(), groupMsgData.getGroupInfo().getUserType(), listMessage.get(0).getSid() - 1, 0L, listMessage.get(0).getMsgId());
+        return (NewpushGroupRepair) invokeL.objValue;
     }
 
     public static NewpushRepair makeNewpushRepair(LongSparseArray<Long> longSparseArray) {
-        if (longSparseArray != null && longSparseArray.size() != 0) {
-            NewpushRepair.Builder builder = new NewpushRepair.Builder();
-            for (int i2 = 0; i2 < longSparseArray.size(); i2++) {
-                NewpushGroupRepair j = a.i().j(longSparseArray.keyAt(i2));
-                if (j != null) {
-                    if (builder.groups == null) {
-                        builder.groups = new ArrayList();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, longSparseArray)) == null) {
+            if (longSparseArray != null && longSparseArray.size() != 0) {
+                NewpushRepair.Builder builder = new NewpushRepair.Builder();
+                for (int i2 = 0; i2 < longSparseArray.size(); i2++) {
+                    NewpushGroupRepair j = a.i().j(longSparseArray.keyAt(i2));
+                    if (j != null) {
+                        if (builder.groups == null) {
+                            builder.groups = new ArrayList();
+                        }
+                        builder.groups.add(j);
                     }
-                    builder.groups.add(j);
+                }
+                List<NewpushGroupRepair> list = builder.groups;
+                if (list != null && list.size() > 0) {
+                    return builder.build(false);
                 }
             }
-            List<NewpushGroupRepair> list = builder.groups;
-            if (list != null && list.size() > 0) {
-                return builder.build(false);
-            }
+            return null;
         }
-        return null;
+        return (NewpushRepair) invokeL.objValue;
     }
 
     public static GroupMsgData obtainGroupData(int i2) {
+        InterceptResult invokeI;
         GroupMsgData groupMsgData;
-        if (i2 == 8) {
-            groupMsgData = new GroupMsgData(2012124);
-            groupMsgData.getGroupInfo().setCustomType(5);
-        } else if (i2 != 30) {
-            switch (i2) {
-                case 1:
-                    groupMsgData = new GroupMsgData(2012120);
-                    groupMsgData.getGroupInfo().setCustomType(-2);
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    groupMsgData = new GroupMsgData(2012125);
-                    groupMsgData.getGroupInfo().setCustomType(1);
-                    break;
-                case 6:
-                    groupMsgData = new GroupMsgData(2012128);
-                    groupMsgData.getGroupInfo().setCustomType(-1);
-                    break;
-                default:
-                    switch (i2) {
-                        case 10:
-                            groupMsgData = new GroupMsgData(2012126);
-                            groupMsgData.getGroupInfo().setCustomType(6);
-                            break;
-                        case 11:
-                            groupMsgData = new GroupMsgData(2012126);
-                            groupMsgData.getGroupInfo().setCustomType(7);
-                            break;
-                        case 12:
-                            GroupMsgData groupMsgData2 = new GroupMsgData(2012126);
-                            groupMsgData2.getGroupInfo().setCustomType(8);
-                            groupMsgData = groupMsgData2;
-                            break;
-                        default:
-                            groupMsgData = null;
-                            break;
-                    }
-            }
-        } else {
-            groupMsgData = new GroupMsgData(2012129);
-            groupMsgData.getGroupInfo().setCustomType(-9);
-        }
-        if (groupMsgData != null) {
-            groupMsgData.getGroupInfo().setGroupType(i2);
-        }
-        return groupMsgData;
-    }
-
-    public static ChatMessage obtainMessage(int i2) {
-        if (i2 != 8) {
-            if (i2 != 30) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i2)) == null) {
+            if (i2 == 8) {
+                groupMsgData = new GroupMsgData(2012124);
+                groupMsgData.getGroupInfo().setCustomType(5);
+            } else if (i2 != 30) {
                 switch (i2) {
                     case 1:
-                        return new SystemMessage();
+                        groupMsgData = new GroupMsgData(2012120);
+                        groupMsgData.getGroupInfo().setCustomType(-2);
+                        break;
                     case 2:
                     case 3:
                     case 4:
                     case 5:
-                        return new GroupChatMessage();
+                        groupMsgData = new GroupMsgData(2012125);
+                        groupMsgData.getGroupInfo().setCustomType(1);
+                        break;
                     case 6:
-                        return new PersonalChatMessage();
+                        groupMsgData = new GroupMsgData(2012128);
+                        groupMsgData.getGroupInfo().setCustomType(-1);
+                        break;
                     default:
                         switch (i2) {
                             case 10:
+                                groupMsgData = new GroupMsgData(2012126);
+                                groupMsgData.getGroupInfo().setCustomType(6);
+                                break;
                             case 11:
+                                groupMsgData = new GroupMsgData(2012126);
+                                groupMsgData.getGroupInfo().setCustomType(7);
+                                break;
                             case 12:
-                                return new YYMessage();
+                                GroupMsgData groupMsgData2 = new GroupMsgData(2012126);
+                                groupMsgData2.getGroupInfo().setCustomType(8);
+                                groupMsgData = groupMsgData2;
+                                break;
                             default:
-                                return null;
+                                groupMsgData = null;
+                                break;
                         }
                 }
+            } else {
+                groupMsgData = new GroupMsgData(2012129);
+                groupMsgData.getGroupInfo().setCustomType(-9);
             }
-            return new OfficialChatMessage();
+            if (groupMsgData != null) {
+                groupMsgData.getGroupInfo().setGroupType(i2);
+            }
+            return groupMsgData;
         }
-        return new NotifyChatMessage();
+        return (GroupMsgData) invokeI.objValue;
+    }
+
+    public static ChatMessage obtainMessage(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i2)) == null) {
+            if (i2 != 8) {
+                if (i2 != 30) {
+                    switch (i2) {
+                        case 1:
+                            return new SystemMessage();
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                            return new GroupChatMessage();
+                        case 6:
+                            return new PersonalChatMessage();
+                        default:
+                            switch (i2) {
+                                case 10:
+                                case 11:
+                                case 12:
+                                    return new YYMessage();
+                                default:
+                                    return null;
+                            }
+                    }
+                }
+                return new OfficialChatMessage();
+            }
+            return new NotifyChatMessage();
+        }
+        return (ChatMessage) invokeI.objValue;
     }
 
     public static void sendHasReadMessage(String str, int i2) {
         ImMessageCenterPojo i3;
-        if (StringUtils.isNull(str) || i2 != 2 || (i3 = d.a.o0.f1.k.b.o().i(str, 2)) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65551, null, str, i2) == null) || StringUtils.isNull(str) || i2 != 2 || (i3 = d.a.s0.i1.k.b.o().i(str, 2)) == null) {
             return;
         }
         long pulled_msgId = i3.getPulled_msgId();
@@ -547,7 +595,8 @@ public class MessageUtils {
     }
 
     public static void updateGroupNotExist(Bundle bundle) {
-        if (bundle != null && bundle.containsKey(TbEnum.SystemMessage.KEY_GROUP_ID) && bundle.containsKey("type")) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65552, null, bundle) == null) && bundle != null && bundle.containsKey(TbEnum.SystemMessage.KEY_GROUP_ID) && bundle.containsKey("type")) {
             long j = bundle.getLong(TbEnum.SystemMessage.KEY_GROUP_ID);
             int i2 = bundle.getInt("type");
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -562,7 +611,8 @@ public class MessageUtils {
 
     public static void createGroupChatMessage(long j, int i2, String str, long j2) {
         long j3;
-        if (StringUtils.isNull(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) || StringUtils.isNull(str)) {
             return;
         }
         GroupChatMessage groupChatMessage = new GroupChatMessage();
@@ -591,12 +641,13 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         groupChatMessage.setLocalData(msgLocalData);
-        d.a.o0.f1.s.a.j().t(groupChatMessage);
+        d.a.s0.i1.s.a.j().t(groupChatMessage);
     }
 
     public static void createPersonalChatMessage(long j, int i2, String str, long j2, String str2, String str3, String str4) {
         long j3;
-        if (StringUtils.isNull(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), str, Long.valueOf(j2), str2, str3, str4}) == null) || StringUtils.isNull(str)) {
             return;
         }
         PersonalChatMessage personalChatMessage = new PersonalChatMessage();
@@ -632,18 +683,23 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         personalChatMessage.setLocalData(msgLocalData);
-        d.a.o0.f1.s.a.j().t(personalChatMessage);
+        d.a.s0.i1.s.a.j().t(personalChatMessage);
     }
 
     public static NewpushGroupRepair makeNewpushGroupRepair(long j, int i2, long j2, long j3, long j4) {
-        NewpushGroupRepair.Builder builder = new NewpushGroupRepair.Builder();
-        builder.gid = Long.valueOf(j);
-        builder.gtype = Integer.valueOf(i2);
-        builder.startSid = Long.valueOf(j2);
-        builder.endSid = Long.valueOf(j3);
-        builder.fromUid = Long.valueOf(j);
-        builder.fromUType = Integer.valueOf(i2);
-        builder.lastMid = Long.valueOf(j4);
-        return builder.build(false);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+            NewpushGroupRepair.Builder builder = new NewpushGroupRepair.Builder();
+            builder.gid = Long.valueOf(j);
+            builder.gtype = Integer.valueOf(i2);
+            builder.startSid = Long.valueOf(j2);
+            builder.endSid = Long.valueOf(j3);
+            builder.fromUid = Long.valueOf(j);
+            builder.fromUType = Integer.valueOf(i2);
+            builder.lastMid = Long.valueOf(j4);
+            return builder.build(false);
+        }
+        return (NewpushGroupRepair) invokeCommon.objValue;
     }
 }

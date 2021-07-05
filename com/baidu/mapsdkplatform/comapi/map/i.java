@@ -10,20 +10,40 @@ import com.baidu.mapsdkplatform.comapi.commonutils.SysUpdateUtil;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
 import com.baidu.mapsdkplatform.comjni.engine.AppEngine;
 import com.baidu.mapsdkvi.VMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7683a;
+    public static int f7713a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f7684b = BMapManager.getContext();
+    public static Context f7714b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(724782251, "Lcom/baidu/mapsdkplatform/comapi/map/i;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(724782251, "Lcom/baidu/mapsdkplatform/comapi/map/i;");
+                return;
+            }
+        }
+        f7714b = BMapManager.getContext();
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
             throw new BaiduMapSDKException("the version of map is not match with base");
         }
@@ -36,20 +56,24 @@ public class i {
     }
 
     public static void a() {
-        if (f7683a == 0) {
-            if (f7684b == null) {
-                throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (f7713a == 0) {
+                if (f7714b == null) {
+                    throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
+                }
+                VMsg.init();
+                AppEngine.InitEngine(f7714b);
+                AppEngine.StartSocketProc();
+                NetworkUtil.updateNetworkProxy(f7714b);
             }
-            VMsg.init();
-            AppEngine.InitEngine(f7684b);
-            AppEngine.StartSocketProc();
-            NetworkUtil.updateNetworkProxy(f7684b);
+            f7713a++;
         }
-        f7683a++;
     }
 
     public static void a(Context context) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || context == null) {
             return;
         }
         try {
@@ -107,15 +131,21 @@ public class i {
     }
 
     public static void a(boolean z) {
-        e.m(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            e.m(z);
+        }
     }
 
     public static void b() {
-        int i2 = f7683a - 1;
-        f7683a = i2;
-        if (i2 == 0) {
-            AppEngine.UnInitEngine();
-            VMsg.destroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+            int i2 = f7713a - 1;
+            f7713a = i2;
+            if (i2 == 0) {
+                AppEngine.UnInitEngine();
+                VMsg.destroy();
+            }
         }
     }
 }

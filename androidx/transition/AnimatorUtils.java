@@ -4,9 +4,15 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Build;
 import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AnimatorUtils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface AnimatorPauseListenerCompat {
@@ -15,41 +21,63 @@ public class AnimatorUtils {
         void onAnimationResume(Animator animator);
     }
 
-    public static void addPauseListener(@NonNull Animator animator, @NonNull AnimatorListenerAdapter animatorListenerAdapter) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            animator.addPauseListener(animatorListenerAdapter);
+    public AnimatorUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void pause(@NonNull Animator animator) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            animator.pause();
+    public static void addPauseListener(@NonNull Animator animator, @NonNull AnimatorListenerAdapter animatorListenerAdapter) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, animator, animatorListenerAdapter) == null) || Build.VERSION.SDK_INT < 19) {
             return;
         }
-        ArrayList<Animator.AnimatorListener> listeners = animator.getListeners();
-        if (listeners != null) {
-            int size = listeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                Animator.AnimatorListener animatorListener = listeners.get(i2);
-                if (animatorListener instanceof AnimatorPauseListenerCompat) {
-                    ((AnimatorPauseListenerCompat) animatorListener).onAnimationPause(animator);
+        animator.addPauseListener(animatorListenerAdapter);
+    }
+
+    public static void pause(@NonNull Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, animator) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                animator.pause();
+                return;
+            }
+            ArrayList<Animator.AnimatorListener> listeners = animator.getListeners();
+            if (listeners != null) {
+                int size = listeners.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    Animator.AnimatorListener animatorListener = listeners.get(i2);
+                    if (animatorListener instanceof AnimatorPauseListenerCompat) {
+                        ((AnimatorPauseListenerCompat) animatorListener).onAnimationPause(animator);
+                    }
                 }
             }
         }
     }
 
     public static void resume(@NonNull Animator animator) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            animator.resume();
-            return;
-        }
-        ArrayList<Animator.AnimatorListener> listeners = animator.getListeners();
-        if (listeners != null) {
-            int size = listeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                Animator.AnimatorListener animatorListener = listeners.get(i2);
-                if (animatorListener instanceof AnimatorPauseListenerCompat) {
-                    ((AnimatorPauseListenerCompat) animatorListener).onAnimationResume(animator);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, animator) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                animator.resume();
+                return;
+            }
+            ArrayList<Animator.AnimatorListener> listeners = animator.getListeners();
+            if (listeners != null) {
+                int size = listeners.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    Animator.AnimatorListener animatorListener = listeners.get(i2);
+                    if (animatorListener instanceof AnimatorPauseListenerCompat) {
+                        ((AnimatorPauseListenerCompat) animatorListener).onAnimationResume(animator);
+                    }
                 }
             }
         }

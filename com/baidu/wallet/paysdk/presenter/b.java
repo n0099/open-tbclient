@@ -4,81 +4,179 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.StrikethroughSpan;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.controllers.PayController;
 import com.baidu.wallet.core.utils.StringUtils;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.AuthorizeSignActivity;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(AuthorizeSignActivity authorizeSignActivity) {
         super(authorizeSignActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {authorizeSignActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((AuthorizeSignActivity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
     public void a(boolean z) {
-        super.a(z);
-        if (z) {
-            this.f25568b = 1;
-        } else {
-            this.f25568b = 2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.a(z);
+            if (z) {
+                this.f26111b = 1;
+            } else {
+                this.f26111b = 2;
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
     public void b() {
         PayRequest payRequest;
-        super.b();
-        AuthorizeSignActivity authorizeSignActivity = this.f25567a;
-        if (authorizeSignActivity == null || (payRequest = authorizeSignActivity.getPayRequest()) == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.b();
+            AuthorizeSignActivity authorizeSignActivity = this.f26110a;
+            if (authorizeSignActivity == null || (payRequest = authorizeSignActivity.getPayRequest()) == null) {
+                return;
+            }
+            String needToPayAmount = payRequest.getNeedToPayAmount();
+            String orderPrice = payRequest.getOrderPrice();
+            String discountAmount = payRequest.getDiscountAmount();
+            String randomDiscountMsg = payRequest.getRandomDiscountMsg();
+            boolean z = (TextUtils.isEmpty(StringUtils.fen2Yuan(discountAmount)) || StringUtils.fen2Yuan(discountAmount).equals("0.00")) ? false : true;
+            SpannableString spannableString = new SpannableString(ResUtils.getString(this.f26110a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(orderPrice));
+            if (z) {
+                spannableString.setSpan(new StrikethroughSpan(), 0, spannableString.length(), 33);
+            }
+            String str = "-" + ResUtils.getString(this.f26110a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(discountAmount);
+            if (z) {
+                this.f26110a.updateDiscountTxt(h(), payRequest.getGoodsName(), spannableString, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.b.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ b f26120a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f26120a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            PayController.getInstance().gotoDiscountPage(this.f26120a.f26110a);
+                        }
+                    }
+                });
+            } else if (!TextUtils.isEmpty(randomDiscountMsg)) {
+                this.f26110a.updateDiscountTxt(true, payRequest.getGoodsName(), null, randomDiscountMsg, null, StringUtils.fen2Yuan(needToPayAmount), null);
+            } else {
+                this.f26110a.updateDiscountTxt(h(), payRequest.getGoodsName(), null, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.b.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ b f26121a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f26121a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            PayController.getInstance().gotoDiscountPage(this.f26121a.f26110a);
+                        }
+                    }
+                });
+            }
+            this.f26110a.updateDiscountTitle(payRequest.title_url);
         }
-        String needToPayAmount = payRequest.getNeedToPayAmount();
-        String orderPrice = payRequest.getOrderPrice();
-        String discountAmount = payRequest.getDiscountAmount();
-        String randomDiscountMsg = payRequest.getRandomDiscountMsg();
-        boolean z = (TextUtils.isEmpty(StringUtils.fen2Yuan(discountAmount)) || StringUtils.fen2Yuan(discountAmount).equals("0.00")) ? false : true;
-        SpannableString spannableString = new SpannableString(ResUtils.getString(this.f25567a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(orderPrice));
-        if (z) {
-            spannableString.setSpan(new StrikethroughSpan(), 0, spannableString.length(), 33);
-        }
-        String str = "-" + ResUtils.getString(this.f25567a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(discountAmount);
-        if (z) {
-            this.f25567a.updateDiscountTxt(h(), payRequest.getGoodsName(), spannableString, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.presenter.b.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    PayController.getInstance().gotoDiscountPage(b.this.f25567a);
-                }
-            });
-        } else if (!TextUtils.isEmpty(randomDiscountMsg)) {
-            this.f25567a.updateDiscountTxt(true, payRequest.getGoodsName(), null, randomDiscountMsg, null, StringUtils.fen2Yuan(needToPayAmount), null);
-        } else {
-            this.f25567a.updateDiscountTxt(h(), payRequest.getGoodsName(), null, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.presenter.b.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    PayController.getInstance().gotoDiscountPage(b.this.f25567a);
-                }
-            });
-        }
-        this.f25567a.updateDiscountTitle(payRequest.title_url);
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
     public boolean e() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean h() {
-        PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-        return payRequest != null && payRequest.showCouponListEntry();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+            return payRequest != null && payRequest.showCouponListEntry();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        super.onClick(view);
-        view.getId();
-        ResUtils.id(this.f25567a.getApplicationContext(), "sign_next_btn");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            super.onClick(view);
+            view.getId();
+            ResUtils.id(this.f26110a.getApplicationContext(), "sign_next_btn");
+        }
     }
 }

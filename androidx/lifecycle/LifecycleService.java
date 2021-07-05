@@ -6,48 +6,90 @@ import android.os.IBinder;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class LifecycleService extends Service implements LifecycleOwner {
-    public final ServiceLifecycleDispatcher mDispatcher = new ServiceLifecycleDispatcher(this);
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final ServiceLifecycleDispatcher mDispatcher;
+
+    public LifecycleService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mDispatcher = new ServiceLifecycleDispatcher(this);
+    }
 
     @Override // androidx.lifecycle.LifecycleOwner
     @NonNull
     public Lifecycle getLifecycle() {
-        return this.mDispatcher.getLifecycle();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDispatcher.getLifecycle() : (Lifecycle) invokeV.objValue;
     }
 
     @Override // android.app.Service
     @Nullable
     @CallSuper
     public IBinder onBind(@NonNull Intent intent) {
-        this.mDispatcher.onServicePreSuperOnBind();
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            this.mDispatcher.onServicePreSuperOnBind();
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
     @CallSuper
     public void onCreate() {
-        this.mDispatcher.onServicePreSuperOnCreate();
-        super.onCreate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.mDispatcher.onServicePreSuperOnCreate();
+            super.onCreate();
+        }
     }
 
     @Override // android.app.Service
     @CallSuper
     public void onDestroy() {
-        this.mDispatcher.onServicePreSuperOnDestroy();
-        super.onDestroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.mDispatcher.onServicePreSuperOnDestroy();
+            super.onDestroy();
+        }
     }
 
     @Override // android.app.Service
     @CallSuper
     public void onStart(@Nullable Intent intent, int i2) {
-        this.mDispatcher.onServicePreSuperOnStart();
-        super.onStart(intent, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i2) == null) {
+            this.mDispatcher.onServicePreSuperOnStart();
+            super.onStart(intent, i2);
+        }
     }
 
     @Override // android.app.Service
     @CallSuper
     public int onStartCommand(@Nullable Intent intent, int i2, int i3) {
-        return super.onStartCommand(intent, i2, i3);
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, intent, i2, i3)) == null) ? super.onStartCommand(intent, i2, i3) : invokeLII.intValue;
     }
 }

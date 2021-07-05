@@ -3,6 +3,7 @@ package com.qq.e.ads.nativ;
 import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import com.qq.e.comm.adevent.ADEvent;
@@ -35,6 +36,10 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     void bindCTAViews(List<View> list);
 
+    void bindImageViews(List<ImageView> list, int i2);
+
+    void bindImageViews(List<ImageView> list, byte[] bArr);
+
     void bindMediaView(MediaView mediaView, VideoOption videoOption, NativeADMediaListener nativeADMediaListener);
 
     void destroy();
@@ -61,8 +66,10 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     String getIconUrl();
 
+    @Deprecated
     List<String> getImgList();
 
+    @Deprecated
     String getImgUrl();
 
     int getPictureHeight();

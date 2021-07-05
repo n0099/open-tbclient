@@ -4,60 +4,76 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Debug;
 import android.os.Process;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class k {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4677a;
+    public static Context f4707a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityManager f4678b;
+    public static ActivityManager f4708b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
-        if (f4677a == null) {
-            f4677a = context;
-            f4678b = (ActivityManager) context.getSystemService("activity");
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, context) == null) && f4707a == null) {
+            f4707a = context;
+            f4708b = (ActivityManager) context.getSystemService("activity");
         }
     }
 
     public static String b() {
+        InterceptResult invokeV;
         Debug.MemoryInfo memoryInfo;
-        StringBuilder sb = new StringBuilder();
-        if (f4678b == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (f4708b == null) {
+                return sb.toString();
+            }
+            ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
+            f4708b.getMemoryInfo(memoryInfo2);
+            sb.append("isLowMem: ");
+            sb.append(memoryInfo2.lowMemory ? "yes" : "no");
+            sb.append("\navailMem: ");
+            sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo2.availMem));
+            sb.append("\nthreshold: ");
+            sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo2.threshold));
+            sb.append("\n");
+            if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4708b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+                sb.append("totalPrivateDirty: ");
+                sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalPrivateDirty() * 1024));
+                sb.append("\ntotalPss: ");
+                sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalPss() * 1024));
+                sb.append("\ntotalSharedDirty: ");
+                sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalSharedDirty() * 1024));
+                sb.append("\n");
+            }
             return sb.toString();
         }
-        ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-        f4678b.getMemoryInfo(memoryInfo2);
-        sb.append("isLowMem: ");
-        sb.append(memoryInfo2.lowMemory ? "yes" : "no");
-        sb.append("\navailMem: ");
-        sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo2.availMem));
-        sb.append("\nthreshold: ");
-        sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo2.threshold));
-        sb.append("\n");
-        if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4678b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
-            sb.append("totalPrivateDirty: ");
-            sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalPrivateDirty() * 1024));
-            sb.append("\ntotalPss: ");
-            sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalPss() * 1024));
-            sb.append("\ntotalSharedDirty: ");
-            sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalSharedDirty() * 1024));
-            sb.append("\n");
-        }
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 4, insn: 0x0076: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:48:0x0076 */
+    /* JADX WARN: Not initialized variable reg: 4, insn: 0x007a: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:50:0x007a */
     public static String c(String str) {
+        InterceptResult invokeL;
         BufferedReader bufferedReader;
         FileReader fileReader;
         BufferedReader bufferedReader2;
         IOException e2;
         FileNotFoundException e3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
         StringBuilder sb = new StringBuilder();
         BufferedReader bufferedReader3 = null;
         try {

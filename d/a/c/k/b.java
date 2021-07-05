@@ -8,61 +8,132 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class b extends ImageSpan {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42985e;
+    public int f44794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42986f;
+    public int f44795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WeakReference<Drawable> f42987g;
+    public WeakReference<Drawable> f44796g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42988h;
+    public int f44797h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, Bitmap bitmap, int i2) {
         super(context, bitmap, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bitmap, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Bitmap) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     public final Drawable a() {
-        WeakReference<Drawable> weakReference = this.f42987g;
-        Drawable drawable = weakReference != null ? weakReference.get() : null;
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.f42987g = new WeakReference<>(drawable2);
-            return drawable2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.f44796g;
+            Drawable drawable = weakReference != null ? weakReference.get() : null;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.f44796g = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
         }
-        return drawable;
+        return (Drawable) invokeV.objValue;
     }
 
     public void b(int i2) {
-        this.f42986f = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f44795f = i2;
+        }
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
-        Drawable a2 = a();
-        canvas.save();
-        int i7 = paint.getFontMetricsInt().top;
-        canvas.translate(f2 + this.f42986f, ((i6 - a2.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i7) / 2) - ((a2.getBounds().top + a2.getBounds().bottom) / 2))) + this.f42988h);
-        a2.draw(canvas);
-        canvas.restore();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
+            Drawable a2 = a();
+            canvas.save();
+            canvas.translate(f2 + this.f44795f, ((i6 - a2.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - paint.getFontMetricsInt().top) / 2) - ((a2.getBounds().top + a2.getBounds().bottom) / 2))) + this.f44797h);
+            a2.draw(canvas);
+            canvas.restore();
+        }
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i2, int i3, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        return super.getSize(paint, charSequence, i2, i3, fontMetricsInt) + this.f42986f + this.f42985e;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) ? super.getSize(paint, charSequence, i2, i3, fontMetricsInt) + this.f44795f + this.f44794e : invokeCommon.intValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Drawable drawable, int i2) {
         super(drawable, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, int i2) {
         super(context, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 }

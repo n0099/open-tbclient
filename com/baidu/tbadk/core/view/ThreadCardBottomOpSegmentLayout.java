@@ -7,133 +7,231 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public AgreeView.d p0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AgreeView.d {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ThreadCardBottomOpSegmentLayout f12532a;
+
+        public a(ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadCardBottomOpSegmentLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12532a = threadCardBottomOpSegmentLayout;
         }
 
         @Override // com.baidu.tbadk.core.view.AgreeView.d
         public void a(View view, boolean z) {
-            ThreadCardBottomOpSegmentLayout.this.R(ThreadCardBottomOpSegmentLayout.this.X(), z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
+                this.f12532a.R(this.f12532a.X(), z);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadCardBottomOpSegmentLayout(Context context) {
         super(context);
-        this.p0 = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.p0 = new a(this);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void I() {
-        this.f12494h.setVisibilityListener(this.p0);
-        boolean X = X();
-        if (V(X) || U(X)) {
-            this.f12494h.j(X);
-            S(X());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f12537h.setVisibilityListener(this.p0);
+            boolean X = X();
+            if (W(X) || U(X)) {
+                this.f12537h.j(X);
+                S(X());
+            }
         }
     }
 
     public final void R(boolean z, boolean z2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12494h.getLayoutParams();
-        int i2 = layoutParams.width;
-        float f2 = layoutParams.weight;
-        if (!z) {
-            if (f2 == 0.0f && i2 == -2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12537h.getLayoutParams();
+            int i2 = layoutParams.width;
+            float f2 = layoutParams.weight;
+            if (!z) {
+                if (f2 == 0.0f && i2 == -2) {
+                    return;
+                }
+                layoutParams.width = -2;
+                layoutParams.weight = 0.0f;
+                layoutParams.leftMargin = l.g(this.F, R.dimen.tbds50);
+                layoutParams.rightMargin = 0;
+                this.f12537h.setLayoutParams(layoutParams);
                 return;
             }
-            layoutParams.width = -2;
-            layoutParams.weight = 0.0f;
-            layoutParams.leftMargin = l.g(this.F, R.dimen.tbds50);
+            float f3 = z2 ? 1.0f : 2.0f;
+            if (f2 == f3 && i2 == 0) {
+                return;
+            }
+            layoutParams.width = 0;
+            layoutParams.weight = f3;
+            layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.f12494h.setLayoutParams(layoutParams);
-            return;
+            this.f12537h.setLayoutParams(layoutParams);
         }
-        float f3 = z2 ? 1.0f : 2.0f;
-        if (f2 == f3 && i2 == 0) {
-            return;
-        }
-        layoutParams.width = 0;
-        layoutParams.weight = f3;
-        layoutParams.leftMargin = 0;
-        layoutParams.rightMargin = 0;
-        this.f12494h.setLayoutParams(layoutParams);
     }
 
     public final void S(boolean z) {
-        if (z) {
-            T(0, -1, 0, 1.0f, true, this.f12494h.q());
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                T(0, -1, 0, 1.0f, true, this.f12537h.q());
+                return;
+            }
+            T(-2, -1, l.g(getContext(), R.dimen.tbds78), 0.0f, false, this.f12537h.q());
         }
-        T(-2, -1, l.g(getContext(), R.dimen.tbds78), 0.0f, false, this.f12494h.q());
     }
 
     public final void T(int i2, int i3, int i4, float f2, boolean z, boolean z2) {
-        this.o.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.C.getLayoutParams();
-        layoutParams.leftMargin = 0;
-        this.C.setLayoutParams(layoutParams);
-        this.l.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-        layoutParams2.leftMargin = i4;
-        this.j.setLayoutParams(layoutParams2);
-        this.t.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.s.getLayoutParams();
-        layoutParams3.leftMargin = i4;
-        this.s.setLayoutParams(layoutParams3);
-        this.D.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.B.getLayoutParams();
-        layoutParams4.leftMargin = i4;
-        this.B.setLayoutParams(layoutParams4);
-        R(z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.o.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.C.getLayoutParams();
+            layoutParams.leftMargin = 0;
+            this.C.setLayoutParams(layoutParams);
+            this.l.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams2.leftMargin = i4;
+            this.j.setLayoutParams(layoutParams2);
+            this.t.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.s.getLayoutParams();
+            layoutParams3.leftMargin = i4;
+            this.s.setLayoutParams(layoutParams3);
+            this.D.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
+            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.B.getLayoutParams();
+            layoutParams4.leftMargin = i4;
+            this.B.setLayoutParams(layoutParams4);
+            R(z, z2);
+        }
     }
 
     public final boolean U(boolean z) {
-        boolean q = this.f12494h.q();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12494h.getLayoutParams();
-        int i2 = layoutParams.width;
-        float f2 = layoutParams.weight;
-        if (z) {
-            return (f2 == (q ? 1.0f : 2.0f) && i2 == 0) ? false : true;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            boolean q = this.f12537h.q();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12537h.getLayoutParams();
+            int i2 = layoutParams.width;
+            float f2 = layoutParams.weight;
+            if (z) {
+                return (f2 == (q ? 1.0f : 2.0f) && i2 == 0) ? false : true;
+            }
+            return (f2 == 0.0f && i2 == -2) ? false : true;
         }
-        return (f2 == 0.0f && i2 == -2) ? false : true;
+        return invokeZ.booleanValue;
     }
 
-    public final boolean V(boolean z) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
-        float f2 = layoutParams.weight;
-        int i2 = layoutParams.width;
-        return z ? (f2 == 1.0f && i2 == 0) ? false : true : (f2 == 0.0f && i2 == -2) ? false : true;
+    public final boolean W(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
+            float f2 = layoutParams.weight;
+            int i2 = layoutParams.width;
+            return z ? (f2 == 1.0f && i2 == 0) ? false : true : (f2 == 0.0f && i2 == -2) ? false : true;
+        }
+        return invokeZ.booleanValue;
     }
 
     public final boolean X() {
-        return this.E != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.E != null : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public View i(Context context) {
-        return LayoutInflater.from(context).inflate(R.layout.new_thread_comment_and_praise_info_layout, (ViewGroup) this, true);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.new_thread_comment_and_praise_info_layout, (ViewGroup) this, true) : (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void p(View view) {
-        super.p(view);
-        this.f12494h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
+            super.p(view);
+            this.f12537h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+        }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void v() {
-        R(X(), this.f12494h.q());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            R(X(), this.f12537h.q());
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadCardBottomOpSegmentLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.p0 = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.p0 = new a(this);
     }
 }

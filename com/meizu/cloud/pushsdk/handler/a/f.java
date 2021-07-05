@@ -25,7 +25,7 @@ public class f extends a<Boolean> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        d.j.a.a.a.d("AbstractMessageHandler", "start UnRegisterMessageHandler match");
+        d.h.a.a.a.d("AbstractMessageHandler", "start UnRegisterMessageHandler match");
         return PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction()) || (PushConstants.REQUEST_UNREGISTRATION_INTENT.equals(intent.getAction()) && TextUtils.isEmpty(intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED)));
     }
 
@@ -36,7 +36,7 @@ public class f extends a<Boolean> {
         boolean booleanExtra = intent.getBooleanExtra(PushConstants.EXTRA_APP_IS_UNREGISTER_SUCCESS, false);
         String stringExtra = intent.getStringExtra(PushConstants.EXTRA_REGISTRATION_ERROR);
         String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED);
-        d.j.a.a.a.d("AbstractMessageHandler", "processUnRegisterCallback 5.0:" + booleanExtra + " 4.0:" + stringExtra + " 3.0:" + stringExtra2);
+        d.h.a.a.a.d("AbstractMessageHandler", "processUnRegisterCallback 5.0:" + booleanExtra + " 4.0:" + stringExtra + " 3.0:" + stringExtra2);
         if (TextUtils.isEmpty(stringExtra) || booleanExtra || !TextUtils.isEmpty(stringExtra2)) {
             com.meizu.cloud.pushsdk.util.b.g(c(), "", c().getPackageName());
             return Boolean.TRUE;

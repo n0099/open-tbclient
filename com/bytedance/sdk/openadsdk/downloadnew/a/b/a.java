@@ -2,95 +2,148 @@ package com.bytedance.sdk.openadsdk.downloadnew.a.b;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompatJellybean;
-import com.bytedance.sdk.openadsdk.core.c;
-import com.bytedance.sdk.openadsdk.core.d.l;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.core.e.m;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f29155a;
+    public m f31014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29156b;
+    public String f31015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29157c;
+    public String f31016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f29158d;
+    public JSONObject f31017d;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static a a() {
-        return new a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (a) invokeV.objValue;
     }
 
     public a b(String str) {
-        this.f29157c = str;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.f31016c = str;
+            return this;
+        }
+        return (a) invokeL.objValue;
     }
 
     public static a a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         String str;
         String str2;
         JSONObject jSONObject2;
-        l lVar = null;
-        if (jSONObject == null) {
-            return null;
-        }
-        try {
-            str = jSONObject.optString("tag", null);
-        } catch (Exception unused) {
-            str = null;
-            str2 = null;
-        }
-        try {
-            str2 = jSONObject.optString(NotificationCompatJellybean.KEY_LABEL, null);
-            try {
-                jSONObject2 = jSONObject.optJSONObject("extra");
-                try {
-                    lVar = c.a(jSONObject.optJSONObject("material_meta"));
-                } catch (Exception unused2) {
-                }
-            } catch (Exception unused3) {
-                jSONObject2 = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            m mVar = null;
+            if (jSONObject == null) {
+                return null;
             }
-        } catch (Exception unused4) {
-            str2 = null;
-            jSONObject2 = str2;
-            return a().a(str).b(str2).b(jSONObject2).a(lVar);
+            try {
+                str = jSONObject.optString("tag", null);
+            } catch (Exception unused) {
+                str = null;
+                str2 = null;
+            }
+            try {
+                str2 = jSONObject.optString(NotificationCompatJellybean.KEY_LABEL, null);
+                try {
+                    jSONObject2 = jSONObject.optJSONObject("extra");
+                    try {
+                        mVar = com.bytedance.sdk.openadsdk.core.b.a(jSONObject.optJSONObject("material_meta"));
+                    } catch (Exception unused2) {
+                    }
+                } catch (Exception unused3) {
+                    jSONObject2 = null;
+                }
+            } catch (Exception unused4) {
+                str2 = null;
+                jSONObject2 = str2;
+                return a().a(str).b(str2).b(jSONObject2).a(mVar);
+            }
+            return a().a(str).b(str2).b(jSONObject2).a(mVar);
         }
-        return a().a(str).b(str2).b(jSONObject2).a(lVar);
+        return (a) invokeL.objValue;
     }
 
     public a b(JSONObject jSONObject) {
-        this.f29158d = jSONObject;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            this.f31017d = jSONObject;
+            return this;
+        }
+        return (a) invokeL.objValue;
     }
 
     @NonNull
     public JSONObject b() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("tag", this.f29156b);
-            jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f29157c);
-            if (this.f29158d != null) {
-                jSONObject.put("extra", this.f29158d);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("tag", this.f31015b);
+                jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f31016c);
+                if (this.f31017d != null) {
+                    jSONObject.put("extra", this.f31017d);
+                }
+                if (this.f31014a != null) {
+                    jSONObject.put("material_meta", this.f31014a.aO());
+                }
+            } catch (Exception unused) {
             }
-            if (this.f29155a != null) {
-                jSONObject.put("material_meta", this.f29155a.aL());
-            }
-        } catch (Exception unused) {
+            return jSONObject;
         }
-        return jSONObject;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public a a(l lVar) {
-        this.f29155a = lVar;
-        return this;
+    public a a(m mVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mVar)) == null) {
+            this.f31014a = mVar;
+            return this;
+        }
+        return (a) invokeL.objValue;
     }
 
     public a a(String str) {
-        this.f29156b = str;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.f31015b = str;
+            return this;
+        }
+        return (a) invokeL.objValue;
     }
 }

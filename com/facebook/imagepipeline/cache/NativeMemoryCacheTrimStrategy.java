@@ -1,18 +1,41 @@
 package com.facebook.imagepipeline.cache;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
 /* loaded from: classes6.dex */
 public class NativeMemoryCacheTrimStrategy implements CountingMemoryCache.CacheTrimStrategy {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeMemoryCacheTrimStrategy";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.cache.NativeMemoryCacheTrimStrategy$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$memory$MemoryTrimType;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1269295395, "Lcom/facebook/imagepipeline/cache/NativeMemoryCacheTrimStrategy$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1269295395, "Lcom/facebook/imagepipeline/cache/NativeMemoryCacheTrimStrategy$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[MemoryTrimType.values().length];
             $SwitchMap$com$facebook$common$memory$MemoryTrimType = iArr;
             try {
@@ -38,16 +61,35 @@ public class NativeMemoryCacheTrimStrategy implements CountingMemoryCache.CacheT
         }
     }
 
+    public NativeMemoryCacheTrimStrategy() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.facebook.imagepipeline.cache.CountingMemoryCache.CacheTrimStrategy
     public double getTrimRatio(MemoryTrimType memoryTrimType) {
-        int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
-        if (i2 != 1) {
-            if (i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) {
-                return 1.0d;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, memoryTrimType)) == null) {
+            int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
+            if (i2 != 1) {
+                if (i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) {
+                    return 1.0d;
+                }
+                FLog.wtf(TAG, "unknown trim type: %s", memoryTrimType);
+                return 0.0d;
             }
-            FLog.wtf(TAG, "unknown trim type: %s", memoryTrimType);
             return 0.0d;
         }
-        return 0.0d;
+        return invokeL.doubleValue;
     }
 }

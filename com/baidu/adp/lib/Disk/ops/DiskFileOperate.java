@@ -1,13 +1,25 @@
 package com.baidu.adp.lib.Disk.ops;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.a.d;
 import d.a.c.e.a.e;
 import d.a.c.e.m.a;
 import java.io.File;
 import java.io.OutputStream;
+import org.apache.http.client.methods.HttpDelete;
 /* loaded from: classes.dex */
 public class DiskFileOperate {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Action mAction;
     public e.b mCustomOperate;
     public volatile byte[] mData;
@@ -26,27 +38,157 @@ public class DiskFileOperate {
     public boolean mSdCard;
     public int mTrySuccessWeight;
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public enum Action {
-        READ,
-        WRITE,
-        WRITE_FORCE,
-        APPEND,
-        APPEND_MORE,
-        DELETE,
-        DELETE_FILES,
-        INFO,
-        RENAME,
-        CUSTOM
+    public static final class Action {
+        public static final /* synthetic */ Action[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Action APPEND;
+        public static final Action APPEND_MORE;
+        public static final Action CUSTOM;
+        public static final Action DELETE;
+        public static final Action DELETE_FILES;
+        public static final Action INFO;
+        public static final Action READ;
+        public static final Action RENAME;
+        public static final Action WRITE;
+        public static final Action WRITE_FORCE;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1289743049, "Lcom/baidu/adp/lib/Disk/ops/DiskFileOperate$Action;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1289743049, "Lcom/baidu/adp/lib/Disk/ops/DiskFileOperate$Action;");
+                    return;
+                }
+            }
+            READ = new Action("READ", 0);
+            WRITE = new Action("WRITE", 1);
+            WRITE_FORCE = new Action("WRITE_FORCE", 2);
+            APPEND = new Action("APPEND", 3);
+            APPEND_MORE = new Action("APPEND_MORE", 4);
+            DELETE = new Action(HttpDelete.METHOD_NAME, 5);
+            DELETE_FILES = new Action("DELETE_FILES", 6);
+            INFO = new Action("INFO", 7);
+            RENAME = new Action("RENAME", 8);
+            Action action = new Action("CUSTOM", 9);
+            CUSTOM = action;
+            $VALUES = new Action[]{READ, WRITE, WRITE_FORCE, APPEND, APPEND_MORE, DELETE, DELETE_FILES, INFO, RENAME, action};
+        }
+
+        public Action(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static Action valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Action) Enum.valueOf(Action.class, str) : (Action) invokeL.objValue;
+        }
+
+        public static Action[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Action[]) $VALUES.clone() : (Action[]) invokeV.objValue;
+        }
     }
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public enum OperateType {
-        MUST_SUCCESS,
-        TRY_SUCCESS
+    public static final class OperateType {
+        public static final /* synthetic */ OperateType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final OperateType MUST_SUCCESS;
+        public static final OperateType TRY_SUCCESS;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(830921707, "Lcom/baidu/adp/lib/Disk/ops/DiskFileOperate$OperateType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(830921707, "Lcom/baidu/adp/lib/Disk/ops/DiskFileOperate$OperateType;");
+                    return;
+                }
+            }
+            MUST_SUCCESS = new OperateType("MUST_SUCCESS", 0);
+            OperateType operateType = new OperateType("TRY_SUCCESS", 1);
+            TRY_SUCCESS = operateType;
+            $VALUES = new OperateType[]{MUST_SUCCESS, operateType};
+        }
+
+        public OperateType(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static OperateType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (OperateType) Enum.valueOf(OperateType.class, str) : (OperateType) invokeL.objValue;
+        }
+
+        public static OperateType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OperateType[]) $VALUES.clone() : (OperateType[]) invokeV.objValue;
+        }
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, action};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mOperateType = OperateType.MUST_SUCCESS;
         this.mIsSubFolder = false;
         this.mAction = Action.READ;
@@ -70,219 +212,350 @@ public class DiskFileOperate {
     }
 
     public boolean asyncCall() {
-        return d.g().a(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.g().a(this) : invokeV.booleanValue;
     }
 
     public String buildDesPath() {
+        InterceptResult invokeV;
         String str;
-        if (this.mIsSubFolder && (str = this.mDesName) != null) {
-            int hashCode = str.hashCode();
-            if (hashCode < 0) {
-                hashCode *= -1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mIsSubFolder && (str = this.mDesName) != null) {
+                int hashCode = str.hashCode();
+                if (hashCode < 0) {
+                    hashCode *= -1;
+                }
+                int i2 = (hashCode % 100) + 1;
+                if (this.mDesPath == null) {
+                    return String.valueOf(i2);
+                }
+                return this.mDesPath + "/" + i2;
             }
-            int i2 = (hashCode % 100) + 1;
-            if (this.mDesPath == null) {
-                return String.valueOf(i2);
-            }
-            return this.mDesPath + "/" + i2;
+            return this.mDesPath;
         }
-        return this.mDesPath;
+        return (String) invokeV.objValue;
     }
 
     public byte[] buildFormatData() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public String buildPath() {
+        InterceptResult invokeV;
         String str;
-        if (this.mIsSubFolder && (str = this.mName) != null) {
-            int hashCode = str.hashCode();
-            if (hashCode < 0) {
-                hashCode *= -1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mIsSubFolder && (str = this.mName) != null) {
+                int hashCode = str.hashCode();
+                if (hashCode < 0) {
+                    hashCode *= -1;
+                }
+                int i2 = (hashCode % 100) + 1;
+                if (this.mPath == null) {
+                    return String.valueOf(i2);
+                }
+                return this.mPath + "/" + i2;
             }
-            int i2 = (hashCode % 100) + 1;
-            if (this.mPath == null) {
-                return String.valueOf(i2);
-            }
-            return this.mPath + "/" + i2;
+            return this.mPath;
         }
-        return this.mPath;
+        return (String) invokeV.objValue;
     }
 
     public boolean call() {
-        return d.g().d(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.g().d(this) : invokeV.booleanValue;
     }
 
     public void callback(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
     }
 
     public void cancelAsyncCall() {
-        d.g().e(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            d.g().e(this);
+        }
     }
 
     public void endLog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
     }
 
     public void finalize() throws Throwable {
-        super.finalize();
-        release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.finalize();
+            release();
+        }
     }
 
     public boolean formatData(byte[] bArr) {
-        return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bArr)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public Action getAction() {
-        return this.mAction;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mAction : (Action) invokeV.objValue;
     }
 
     public e.b getCustomOperate() {
-        return this.mCustomOperate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mCustomOperate : (e.b) invokeV.objValue;
     }
 
     public byte[] getData() {
-        return this.mData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mData : (byte[]) invokeV.objValue;
     }
 
     public String getDesName() {
-        return this.mDesName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mDesName : (String) invokeV.objValue;
     }
 
     public String getDesPath() {
-        return this.mDesPath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mDesPath : (String) invokeV.objValue;
     }
 
     public File getFileInfo() {
-        return this.mFileInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mFileInfo : (File) invokeV.objValue;
     }
 
     public Object getLock() {
-        return this.mLock;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mLock : invokeV.objValue;
     }
 
     public String getName() {
-        return this.mName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
     public OperateType getOperateType() {
-        return this.mOperateType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mOperateType : (OperateType) invokeV.objValue;
     }
 
     public OutputStream getOutputStream() {
+        InterceptResult invokeV;
         OutputStream outputStream;
-        synchronized (this) {
-            outputStream = this.mOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            synchronized (this) {
+                outputStream = this.mOutputStream;
+            }
+            return outputStream;
         }
-        return outputStream;
+        return (OutputStream) invokeV.objValue;
     }
 
     public String getPath() {
-        return this.mPath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mPath : (String) invokeV.objValue;
     }
 
     public int getTrySuccessWeight() {
-        return this.mTrySuccessWeight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTrySuccessWeight : invokeV.intValue;
     }
 
     public boolean isFormatData() {
-        return this.mFormatData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mFormatData : invokeV.booleanValue;
     }
 
     public boolean isSavedCache() {
-        return this.mSavedCache;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mSavedCache : invokeV.booleanValue;
     }
 
     public boolean isSdCard() {
-        return this.mSdCard;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mSdCard : invokeV.booleanValue;
     }
 
     public boolean isSubFolder() {
-        return this.mIsSubFolder;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mIsSubFolder : invokeV.booleanValue;
     }
 
     public boolean isSuccess() {
-        return this.mIsSuccess;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mIsSuccess : invokeV.booleanValue;
     }
 
     public void release() {
-        synchronized (this) {
-            if (this.mOutputStream != null) {
-                a.d(this.mOutputStream);
-                this.mOutputStream = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            synchronized (this) {
+                if (this.mOutputStream != null) {
+                    a.d(this.mOutputStream);
+                    this.mOutputStream = null;
+                }
             }
         }
     }
 
     public void setCustomOperate(e.b bVar) {
-        this.mCustomOperate = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, bVar) == null) {
+            this.mCustomOperate = bVar;
+        }
     }
 
     public void setData(byte[] bArr) {
-        this.mData = bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, bArr) == null) {
+            this.mData = bArr;
+        }
     }
 
     public void setFileInfo(File file) {
-        this.mFileInfo = file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, file) == null) {
+            this.mFileInfo = file;
+        }
     }
 
     public void setIsFormatData(boolean z) {
-        this.mFormatData = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            this.mFormatData = z;
+        }
     }
 
     public void setLock(Object obj) {
-        this.mLock = obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, obj) == null) {
+            this.mLock = obj;
+        }
     }
 
     public void setOperateType(OperateType operateType) {
-        this.mOperateType = operateType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, operateType) == null) {
+            this.mOperateType = operateType;
+        }
     }
 
     public void setOutputStream(OutputStream outputStream) {
-        synchronized (this) {
-            if (outputStream == this.mOutputStream) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, outputStream) == null) {
+            synchronized (this) {
+                if (outputStream == this.mOutputStream) {
+                    return;
+                }
+                release();
+                this.mOutputStream = outputStream;
             }
-            release();
-            this.mOutputStream = outputStream;
         }
     }
 
     public void setSavedCache(boolean z) {
-        this.mSavedCache = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+            this.mSavedCache = z;
+        }
     }
 
     public void setSdCard(boolean z) {
-        this.mSdCard = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+            this.mSdCard = z;
+        }
     }
 
     public void setSubFolder(boolean z) {
-        this.mIsSubFolder = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
+            this.mIsSubFolder = z;
+        }
     }
 
     public void setSuccess(boolean z) {
-        this.mIsSuccess = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+            this.mIsSuccess = z;
+        }
     }
 
     public void setTrySuccessWeight(int i2) {
-        this.mTrySuccessWeight = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+            this.mTrySuccessWeight = i2;
+        }
     }
 
     public void startLog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
+        }
     }
 
     public void unLock() {
-        if (this.mLock != null) {
-            try {
-                synchronized (this.mLock) {
-                    this.mLock.notifyAll();
-                }
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048617, this) == null) || this.mLock == null) {
+            return;
+        }
+        try {
+            synchronized (this.mLock) {
+                this.mLock.notifyAll();
             }
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, action};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mOperateType = OperateType.MUST_SUCCESS;
         this.mIsSubFolder = false;
         this.mAction = Action.READ;

@@ -1,5 +1,5 @@
 package com.baidu.down.common;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface TaskObserverInterface {
     void onDownloadMsgType(String str, long j, int i2, Object obj);
 

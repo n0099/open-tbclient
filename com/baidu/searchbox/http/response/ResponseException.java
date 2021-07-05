@@ -1,31 +1,66 @@
 package com.baidu.searchbox.http.response;
 
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ResponseException {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CANCELED = "Canceled";
     public static final String NO_NETWORK = " no network connected";
     public static final String ONLY_WIFI_EXECUTE = " only allow wifi connected";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ResponseException() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static boolean isCancel(Exception exc) {
-        return (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().contains(CANCELED)) ? false : true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) ? (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().contains(CANCELED)) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean isNoNetwork(Exception exc) {
-        return (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().startsWith(NO_NETWORK)) ? false : true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) ? (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().startsWith(NO_NETWORK)) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean isOnlyWifiException(Exception exc) {
-        return exc != null && ONLY_WIFI_EXECUTE.equals(exc.getMessage());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) ? exc != null && ONLY_WIFI_EXECUTE.equals(exc.getMessage()) : invokeL.booleanValue;
     }
 
     public static boolean isTimeoutException(Exception exc) {
-        return exc != null && (exc instanceof SocketTimeoutException);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, exc)) == null) ? exc != null && (exc instanceof SocketTimeoutException) : invokeL.booleanValue;
     }
 
     public static IOException wrapNoNetworkExceptionWithDetail(Exception exc) {
-        return new IOException(" no network connected\n" + exc.toString(), exc);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, exc)) == null) {
+            return new IOException(" no network connected\n" + exc.toString(), exc);
+        }
+        return (IOException) invokeL.objValue;
     }
 }

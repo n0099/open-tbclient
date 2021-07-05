@@ -5,18 +5,26 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.a.o0.f1.f.e;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.i1.f.e;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MsgActivityView extends e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView t;
     public TextView u;
     public TextView v;
@@ -25,57 +33,146 @@ public class MsgActivityView extends e {
     public d.a.c.e.h.a y;
     public d.a.c.e.h.b z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MsgActivityView f17260e;
+
+        public a(MsgActivityView msgActivityView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {msgActivityView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17260e = msgActivityView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (MsgActivityView.this.y != null) {
-                MsgActivityView.this.y.onItemViewClick(view, 8, MsgActivityView.this.x, 0L);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17260e.y == null) {
+                return;
             }
+            this.f17260e.y.onItemViewClick(view, 8, this.f17260e.x, 0L);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnLongClickListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MsgActivityView f17261e;
+
+        public b(MsgActivityView msgActivityView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {msgActivityView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17261e = msgActivityView;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            if (MsgActivityView.this.z != null) {
-                MsgActivityView.this.z.onItemViewLongClick(view, 8, MsgActivityView.this.x, 0L);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
+                if (this.f17261e.z != null) {
+                    this.f17261e.z.onItemViewLongClick(view, 8, this.f17261e.x, 0L);
+                    return true;
+                }
                 return true;
             }
-            return true;
+            return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17136e;
+        public final /* synthetic */ String f17262e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f17137f;
+        public final /* synthetic */ String f17263f;
 
-        public c(String str, String str2) {
-            this.f17136e = str;
-            this.f17137f = str2;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ MsgActivityView f17264g;
+
+        public c(MsgActivityView msgActivityView, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {msgActivityView, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17264g = msgActivityView;
+            this.f17262e = str;
+            this.f17263f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MsgActivityView.this.getPageContext().getPageActivity(), this.f17136e, this.f17137f)));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f17264g.getPageContext().getPageActivity(), this.f17262e, this.f17263f)));
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgActivityView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_msgactivity_view);
-        this.f58158h = (TextView) d(R.id.tex_msgitem_time);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f61501h = (TextView) d(R.id.tex_msgitem_time);
         this.u = (TextView) d(R.id.msg_msgactivity_title);
         this.v = (TextView) d(R.id.msg_msgactivity_time);
         this.w = (TextView) d(R.id.msg_msgactivity_address);
@@ -83,13 +180,14 @@ public class MsgActivityView extends e {
         this.t = headImageView;
         headImageView.setIsRound(false);
         this.t.setClickable(true);
-        e().setOnClickListener(new a());
-        e().setOnLongClickListener(new b());
+        e().setOnClickListener(new a(this));
+        e().setOnLongClickListener(new b(this));
     }
 
     public void I(ChatMessage chatMessage) {
         String string;
-        if (chatMessage == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) || chatMessage == null) {
             return;
         }
         x(chatMessage);
@@ -149,26 +247,35 @@ public class MsgActivityView extends e {
                     this.w.setText(optString3);
                 }
                 this.t.setTag(optString4);
-                this.t.setOnClickListener(new c(optString5, optString6));
-                this.t.U(optString4, 12, false);
+                this.t.setOnClickListener(new c(this, optString5, optString6));
+                this.t.M(optString4, 12, false);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
     }
 
-    @Override // d.a.o0.f1.f.e
+    @Override // d.a.s0.i1.f.e
     public void q(d.a.c.e.h.a aVar) {
-        this.y = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.y = aVar;
+        }
     }
 
-    @Override // d.a.o0.f1.f.e
+    @Override // d.a.s0.i1.f.e
     public void r(d.a.c.e.h.b bVar) {
-        this.z = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.z = bVar;
+        }
     }
 
-    @Override // d.a.o0.f1.f.e
+    @Override // d.a.s0.i1.f.e
     public void s(int i2) {
-        this.x = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.x = i2;
+        }
     }
 }

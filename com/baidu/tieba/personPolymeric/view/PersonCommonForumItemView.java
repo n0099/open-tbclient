@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,25 +17,31 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.o0.j2.e.f;
+import d.a.s0.m2.e.f;
 /* loaded from: classes5.dex */
 public class PersonCommonForumItemView extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BarImageView f20063e;
+    public BarImageView f20212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20064f;
+    public TextView f20213f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20065g;
+    public TextView f20214g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20066h;
+    public TextView f20215h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f20067i;
+    public TextView f20216i;
     public int j;
     public Context k;
     public f l;
@@ -42,25 +49,63 @@ public class PersonCommonForumItemView extends RelativeLayout {
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonCommonForumItemView f20217e;
+
+        public a(PersonCommonForumItemView personCommonForumItemView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personCommonForumItemView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20217e = personCommonForumItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == null || PersonCommonForumItemView.this.l == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f20217e.l == null) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "6"));
             TiebaStatic.log(new StatisticItem("c11594"));
-            String str = PersonCommonForumItemView.this.l.f60219f;
+            String str = this.f20217e.l.f63486f;
             if (k.isForumName(str)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(PersonCommonForumItemView.this.k).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f20217e.k).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCommonForumItemView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.j = 3;
         this.k = context;
         LayoutInflater.from(getContext()).inflate(R.layout.person_info_common_forum_item, (ViewGroup) this, true);
@@ -69,38 +114,50 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     public final void c() {
-        this.f20063e = (BarImageView) findViewById(R.id.forum_avatar);
-        this.f20064f = (TextView) findViewById(R.id.forum_name);
-        this.f20065g = (TextView) findViewById(R.id.forum_post_thread);
-        this.f20066h = (TextView) findViewById(R.id.forum_thread_num);
-        this.f20067i = (TextView) findViewById(R.id.forum_thread_str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f20212e = (BarImageView) findViewById(R.id.forum_avatar);
+            this.f20213f = (TextView) findViewById(R.id.forum_name);
+            this.f20214g = (TextView) findViewById(R.id.forum_post_thread);
+            this.f20215h = (TextView) findViewById(R.id.forum_thread_num);
+            this.f20216i = (TextView) findViewById(R.id.forum_thread_str);
+        }
     }
 
     public final void d() {
-        this.m = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.m = new a(this);
+        }
     }
 
     public void e() {
-        if (this.j != TbadkCoreApplication.getInst().getSkinType()) {
-            SkinManager.setViewTextColor(this.f20064f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f20065g, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f20067i, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f20066h, R.color.CAM_X0302);
-            SkinManager.setBackgroundResource(this, R.drawable.person_common_forum_item_bg);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.j != TbadkCoreApplication.getInst().getSkinType()) {
+                SkinManager.setViewTextColor(this.f20213f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f20214g, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.f20216i, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.f20215h, R.color.CAM_X0302);
+                SkinManager.setBackgroundResource(this, R.drawable.person_common_forum_item_bg);
+            }
+            this.j = TbadkCoreApplication.getInst().getSkinType();
         }
-        this.j = TbadkCoreApplication.getInst().getSkinType();
     }
 
     public void setData(f fVar) {
-        this.l = fVar;
-        this.f20063e.U(fVar.f60220g, 10, false);
-        TextView textView = this.f20064f;
-        textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f60219f, 7, StringHelper.STRING_MORE) + this.k.getString(R.string.forum));
-        this.f20066h.setText(StringHelper.numberUniformFormat((long) fVar.f60221h));
-        this.f20065g.setText(String.format(this.k.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.f60222i)));
-        if (getRootView() != null) {
-            getRootView().setOnClickListener(this.m);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
+            this.l = fVar;
+            this.f20212e.M(fVar.f63487g, 10, false);
+            TextView textView = this.f20213f;
+            textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f63486f, 7, StringHelper.STRING_MORE) + this.k.getString(R.string.forum));
+            this.f20215h.setText(StringHelper.numberUniformFormat((long) fVar.f63488h));
+            this.f20214g.setText(String.format(this.k.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.f63489i)));
+            if (getRootView() != null) {
+                getRootView().setOnClickListener(this.m);
+            }
+            e();
         }
-        e();
     }
 }

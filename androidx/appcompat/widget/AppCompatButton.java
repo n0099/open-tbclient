@@ -15,290 +15,440 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.AutoSizeableTextView;
 import androidx.core.widget.TextViewCompat;
 import androidx.core.widget.TintableCompoundDrawablesView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class AppCompatButton extends Button implements TintableBackgroundView, AutoSizeableTextView, TintableCompoundDrawablesView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final AppCompatBackgroundHelper mBackgroundTintHelper;
     public final AppCompatTextHelper mTextHelper;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatButton(@NonNull Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
     public void drawableStateChanged() {
-        super.drawableStateChanged();
-        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-        if (appCompatBackgroundHelper != null) {
-            appCompatBackgroundHelper.applySupportBackgroundTint();
-        }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            appCompatTextHelper.applyCompoundDrawablesTints();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.drawableStateChanged();
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.applySupportBackgroundTint();
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.applyCompoundDrawablesTints();
+            }
         }
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeMaxTextSize() {
-        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-            return super.getAutoSizeMaxTextSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                return super.getAutoSizeMaxTextSize();
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                return appCompatTextHelper.getAutoSizeMaxTextSize();
+            }
+            return -1;
         }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            return appCompatTextHelper.getAutoSizeMaxTextSize();
-        }
-        return -1;
+        return invokeV.intValue;
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeMinTextSize() {
-        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-            return super.getAutoSizeMinTextSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                return super.getAutoSizeMinTextSize();
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                return appCompatTextHelper.getAutoSizeMinTextSize();
+            }
+            return -1;
         }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            return appCompatTextHelper.getAutoSizeMinTextSize();
-        }
-        return -1;
+        return invokeV.intValue;
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeStepGranularity() {
-        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-            return super.getAutoSizeStepGranularity();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                return super.getAutoSizeStepGranularity();
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                return appCompatTextHelper.getAutoSizeStepGranularity();
+            }
+            return -1;
         }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            return appCompatTextHelper.getAutoSizeStepGranularity();
-        }
-        return -1;
+        return invokeV.intValue;
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int[] getAutoSizeTextAvailableSizes() {
-        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-            return super.getAutoSizeTextAvailableSizes();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                return super.getAutoSizeTextAvailableSizes();
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            return appCompatTextHelper != null ? appCompatTextHelper.getAutoSizeTextAvailableSizes() : new int[0];
         }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        return appCompatTextHelper != null ? appCompatTextHelper.getAutoSizeTextAvailableSizes() : new int[0];
+        return (int[]) invokeV.objValue;
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @SuppressLint({"WrongConstant"})
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeTextType() {
-        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-            return super.getAutoSizeTextType() == 1 ? 1 : 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                return super.getAutoSizeTextType() == 1 ? 1 : 0;
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                return appCompatTextHelper.getAutoSizeTextType();
+            }
+            return 0;
         }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            return appCompatTextHelper.getAutoSizeTextType();
-        }
-        return 0;
+        return invokeV.intValue;
     }
 
     @Override // androidx.core.view.TintableBackgroundView
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
-        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-        if (appCompatBackgroundHelper != null) {
-            return appCompatBackgroundHelper.getSupportBackgroundTintList();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                return appCompatBackgroundHelper.getSupportBackgroundTintList();
+            }
+            return null;
         }
-        return null;
+        return (ColorStateList) invokeV.objValue;
     }
 
     @Override // androidx.core.view.TintableBackgroundView
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
-        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-        if (appCompatBackgroundHelper != null) {
-            return appCompatBackgroundHelper.getSupportBackgroundTintMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                return appCompatBackgroundHelper.getSupportBackgroundTintMode();
+            }
+            return null;
         }
-        return null;
+        return (PorterDuff.Mode) invokeV.objValue;
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportCompoundDrawablesTintList() {
-        return this.mTextHelper.getCompoundDrawableTintList();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mTextHelper.getCompoundDrawableTintList() : (ColorStateList) invokeV.objValue;
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportCompoundDrawablesTintMode() {
-        return this.mTextHelper.getCompoundDrawableTintMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mTextHelper.getCompoundDrawableTintMode() : (PorterDuff.Mode) invokeV.objValue;
     }
 
     @Override // android.view.View
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        super.onInitializeAccessibilityEvent(accessibilityEvent);
-        accessibilityEvent.setClassName(Button.class.getName());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, accessibilityEvent) == null) {
+            super.onInitializeAccessibilityEvent(accessibilityEvent);
+            accessibilityEvent.setClassName(Button.class.getName());
+        }
     }
 
     @Override // android.view.View
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
-        super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-        accessibilityNodeInfo.setClassName(Button.class.getName());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, accessibilityNodeInfo) == null) {
+            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+            accessibilityNodeInfo.setClassName(Button.class.getName());
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            appCompatTextHelper.onLayout(z, i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.onLayout(z, i2, i3, i4, i5);
+            }
         }
     }
 
     @Override // android.widget.TextView
     public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-        super.onTextChanged(charSequence, i2, i3, i4);
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper == null || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE || !appCompatTextHelper.isAutoSizeEnabled()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048589, this, charSequence, i2, i3, i4) == null) {
+            super.onTextChanged(charSequence, i2, i3, i4);
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper == null || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE || !appCompatTextHelper.isAutoSizeEnabled()) {
+                return;
+            }
+            this.mTextHelper.autoSizeText();
         }
-        this.mTextHelper.autoSizeText();
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setAutoSizeTextTypeUniformWithConfiguration(int i2, int i3, int i4, int i5) throws IllegalArgumentException {
-        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-            super.setAutoSizeTextTypeUniformWithConfiguration(i2, i3, i4, i5);
-            return;
-        }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            appCompatTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048590, this, i2, i3, i4, i5) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                super.setAutoSizeTextTypeUniformWithConfiguration(i2, i3, i4, i5);
+                return;
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i2, i3, i4, i5);
+            }
         }
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i2) throws IllegalArgumentException {
-        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-            super.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i2);
-            return;
-        }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            appCompatTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048591, this, iArr, i2) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                super.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i2);
+                return;
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i2);
+            }
         }
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setAutoSizeTextTypeWithDefaults(int i2) {
-        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-            super.setAutoSizeTextTypeWithDefaults(i2);
-            return;
-        }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            appCompatTextHelper.setAutoSizeTextTypeWithDefaults(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                super.setAutoSizeTextTypeWithDefaults(i2);
+                return;
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.setAutoSizeTextTypeWithDefaults(i2);
+            }
         }
     }
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
-        super.setBackgroundDrawable(drawable);
-        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-        if (appCompatBackgroundHelper != null) {
-            appCompatBackgroundHelper.onSetBackgroundDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, drawable) == null) {
+            super.setBackgroundDrawable(drawable);
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.onSetBackgroundDrawable(drawable);
+            }
         }
     }
 
     @Override // android.view.View
     public void setBackgroundResource(@DrawableRes int i2) {
-        super.setBackgroundResource(i2);
-        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-        if (appCompatBackgroundHelper != null) {
-            appCompatBackgroundHelper.onSetBackgroundResource(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            super.setBackgroundResource(i2);
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.onSetBackgroundResource(i2);
+            }
         }
     }
 
     @Override // android.widget.TextView
     public void setCustomSelectionActionModeCallback(ActionMode.Callback callback) {
-        super.setCustomSelectionActionModeCallback(TextViewCompat.wrapCustomSelectionActionModeCallback(this, callback));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, callback) == null) {
+            super.setCustomSelectionActionModeCallback(TextViewCompat.wrapCustomSelectionActionModeCallback(this, callback));
+        }
     }
 
     public void setSupportAllCaps(boolean z) {
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            appCompatTextHelper.setAllCaps(z);
+        AppCompatTextHelper appCompatTextHelper;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || (appCompatTextHelper = this.mTextHelper) == null) {
+            return;
         }
+        appCompatTextHelper.setAllCaps(z);
     }
 
     @Override // androidx.core.view.TintableBackgroundView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
-        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-        if (appCompatBackgroundHelper != null) {
-            appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
+        AppCompatBackgroundHelper appCompatBackgroundHelper;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, colorStateList) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
+            return;
         }
+        appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
     }
 
     @Override // androidx.core.view.TintableBackgroundView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
-        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-        if (appCompatBackgroundHelper != null) {
-            appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
+        AppCompatBackgroundHelper appCompatBackgroundHelper;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, mode) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
+            return;
         }
+        appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportCompoundDrawablesTintList(@Nullable ColorStateList colorStateList) {
-        this.mTextHelper.setCompoundDrawableTintList(colorStateList);
-        this.mTextHelper.applyCompoundDrawablesTints();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, colorStateList) == null) {
+            this.mTextHelper.setCompoundDrawableTintList(colorStateList);
+            this.mTextHelper.applyCompoundDrawablesTints();
+        }
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportCompoundDrawablesTintMode(@Nullable PorterDuff.Mode mode) {
-        this.mTextHelper.setCompoundDrawableTintMode(mode);
-        this.mTextHelper.applyCompoundDrawablesTints();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, mode) == null) {
+            this.mTextHelper.setCompoundDrawableTintMode(mode);
+            this.mTextHelper.applyCompoundDrawablesTints();
+        }
     }
 
     @Override // android.widget.TextView
     public void setTextAppearance(Context context, int i2) {
-        super.setTextAppearance(context, i2);
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            appCompatTextHelper.onSetTextAppearance(context, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048601, this, context, i2) == null) {
+            super.setTextAppearance(context, i2);
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.onSetTextAppearance(context, i2);
+            }
         }
     }
 
     @Override // android.widget.TextView
     public void setTextSize(int i2, float f2) {
-        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-            super.setTextSize(i2, f2);
-            return;
-        }
-        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-        if (appCompatTextHelper != null) {
-            appCompatTextHelper.setTextSize(i2, f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                super.setTextSize(i2, f2);
+                return;
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.setTextSize(i2, f2);
+            }
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.buttonStyle);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AppCompatButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(TintContextWrapper.wrap(context), attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         ThemeUtils.checkAppCompatTheme(this, getContext());
         AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
         this.mBackgroundTintHelper = appCompatBackgroundHelper;

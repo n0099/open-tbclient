@@ -1,145 +1,231 @@
 package tv.danmaku.ijk.media.player;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tv.danmaku.ijk.media.player.b;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes8.dex */
+/* loaded from: classes2.dex */
 public abstract class a implements b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.f f73107a;
+    public b.f f76783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.InterfaceC2011b f73108b;
+    public b.InterfaceC2132b f76784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a f73109c;
+    public b.a f76785c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.g f73110d;
+    public b.g f76786d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.i f73111e;
+    public b.i f76787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.c f73112f;
+    public b.c f76788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.d f73113g;
+    public b.d f76789g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.h f73114h;
+    public b.h f76790h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.e f73115i;
+    public b.e f76791i;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public void a() {
-        this.f73107a = null;
-        this.f73109c = null;
-        this.f73108b = null;
-        this.f73110d = null;
-        this.f73111e = null;
-        this.f73112f = null;
-        this.f73113g = null;
-        this.f73114h = null;
-        this.f73115i = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f76783a = null;
+            this.f76785c = null;
+            this.f76784b = null;
+            this.f76786d = null;
+            this.f76787e = null;
+            this.f76788f = null;
+            this.f76789g = null;
+            this.f76790h = null;
+            this.f76791i = null;
+        }
     }
 
     public final void a(int i2) {
-        b.a aVar = this.f73109c;
-        if (aVar != null) {
-            aVar.a(this, i2);
+        b.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (aVar = this.f76785c) == null) {
+            return;
         }
+        aVar.a(this, i2);
     }
 
     public void a(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+        }
     }
 
     public final void a(int i2, int i3, int i4, int i5) {
-        b.i iVar = this.f73111e;
-        if (iVar != null) {
-            iVar.a(this, i2, i3, i4, i5);
+        b.i iVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) || (iVar = this.f76787e) == null) {
+            return;
         }
+        iVar.a(this, i2, i3, i4, i5);
     }
 
     public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
     }
 
     public final void a(b.a aVar) {
-        this.f73109c = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.f76785c = aVar;
+        }
     }
 
-    public final void a(b.InterfaceC2011b interfaceC2011b) {
-        this.f73108b = interfaceC2011b;
+    public final void a(b.InterfaceC2132b interfaceC2132b) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC2132b) == null) {
+            this.f76784b = interfaceC2132b;
+        }
     }
 
     public final void a(b.c cVar) {
-        this.f73112f = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            this.f76788f = cVar;
+        }
     }
 
     public final void a(b.d dVar) {
-        this.f73113g = dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
+            this.f76789g = dVar;
+        }
     }
 
     public final void a(b.e eVar) {
-        this.f73115i = eVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
+            this.f76791i = eVar;
+        }
     }
 
     public final void a(b.f fVar) {
-        this.f73107a = fVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
+            this.f76783a = fVar;
+        }
     }
 
     public final void a(b.g gVar) {
-        this.f73110d = gVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, gVar) == null) {
+            this.f76786d = gVar;
+        }
     }
 
     public final void a(b.i iVar) {
-        this.f73111e = iVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, iVar) == null) {
+            this.f76787e = iVar;
+        }
     }
 
     public final void a(c cVar) {
-        b.h hVar = this.f73114h;
-        if (hVar != null) {
-            hVar.a(this, cVar);
+        b.h hVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) || (hVar = this.f76790h) == null) {
+            return;
         }
+        hVar.a(this, cVar);
     }
 
     public final boolean a(int i2, int i3, Object obj) {
-        b.c cVar = this.f73112f;
-        return cVar != null && cVar.a(this, i2, i3, obj);
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048590, this, i2, i3, obj)) == null) {
+            b.c cVar = this.f76788f;
+            return cVar != null && cVar.a(this, i2, i3, obj);
+        }
+        return invokeIIL.booleanValue;
     }
 
     public final void b() {
-        b.f fVar = this.f73107a;
-        if (fVar != null) {
-            fVar.a(this);
+        b.f fVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (fVar = this.f76783a) == null) {
+            return;
         }
+        fVar.a(this);
     }
 
     public final boolean b(int i2, int i3, Object obj) {
-        b.d dVar = this.f73113g;
-        return dVar != null && dVar.b(this, i2, i3, obj);
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048592, this, i2, i3, obj)) == null) {
+            b.d dVar = this.f76789g;
+            return dVar != null && dVar.b(this, i2, i3, obj);
+        }
+        return invokeIIL.booleanValue;
     }
 
     public final void c() {
-        b.InterfaceC2011b interfaceC2011b = this.f73108b;
-        if (interfaceC2011b != null) {
-            interfaceC2011b.b(this);
+        b.InterfaceC2132b interfaceC2132b;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (interfaceC2132b = this.f76784b) == null) {
+            return;
         }
+        interfaceC2132b.b(this);
     }
 
     public final boolean c(int i2, int i3, Object obj) {
-        b.e eVar = this.f73115i;
-        return eVar != null && eVar.c(this, i2, i3, obj);
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048594, this, i2, i3, obj)) == null) {
+            b.e eVar = this.f76791i;
+            return eVar != null && eVar.c(this, i2, i3, obj);
+        }
+        return invokeIIL.booleanValue;
     }
 
     public final void d() {
-        b.g gVar = this.f73110d;
-        if (gVar != null) {
-            gVar.c(this);
+        b.g gVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (gVar = this.f76786d) == null) {
+            return;
         }
+        gVar.c(this);
     }
 
     public void setDataSource(IMediaDataSource iMediaDataSource) {
-        throw new UnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, iMediaDataSource) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 }

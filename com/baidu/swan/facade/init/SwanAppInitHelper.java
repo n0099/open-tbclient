@@ -3,177 +3,318 @@ package com.baidu.swan.facade.init;
 import android.app.Application;
 import android.content.Context;
 import androidx.annotation.Keep;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.ubc.OpenStatisticIPCManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import d.a.f0.b.a.e;
-import d.a.m0.a.a2.d;
-import d.a.m0.a.h0.m.i;
-import d.a.m0.a.h0.s.b;
-import d.a.m0.a.k;
-import d.a.m0.a.n0.f;
-import d.a.m0.a.v2.q;
-import d.a.m0.n.i.m.h;
-import d.a.m0.r.p;
+import d.a.j0.b.a.e;
+import d.a.q0.a.a2.d;
+import d.a.q0.a.h0.m.i;
+import d.a.q0.a.h0.s.b;
+import d.a.q0.a.k;
+import d.a.q0.a.n0.f;
+import d.a.q0.a.v2.q;
+import d.a.q0.n.i.m.h;
+import d.a.q0.r.p;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppInitHelper {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "SwanAppInitHelper";
-    public static boolean sIsDelayInit = false;
-    public static boolean sOnlyInitForLollipopAndAbove = false;
+    public static boolean sIsDelayInit;
+    public static boolean sOnlyInitForLollipopAndAbove;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11610e;
+        public final /* synthetic */ boolean f11677e;
 
         public a(boolean z) {
-            this.f11610e = z;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11677e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f11610e) {
-                d.a.m0.n.b.k(new h(0), new i(null), d.a.m0.a.c1.b.i().p(null));
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f11677e) {
+                d.a.q0.n.b.k(new h(0), new i(null), d.a.q0.a.c1.b.i().p(null));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements b.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
             public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                f.c().e(null);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    f.c().e(null);
+                }
             }
         }
 
-        @Override // d.a.m0.a.h0.s.b.c
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // d.a.q0.a.h0.s.b.c
         public void a() {
-            d.i().post(new a(this));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d.i().post(new a(this));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-387673689, "Lcom/baidu/swan/facade/init/SwanAppInitHelper;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-387673689, "Lcom/baidu/swan/facade/init/SwanAppInitHelper;");
+        }
+    }
+
+    public SwanAppInitHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
     public static void asyncUpdateSwanAppCore() {
-        boolean c2 = d.a.m0.n.n.a.c(0);
-        if (c2) {
+        boolean c2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (c2 = d.a.q0.n.n.a.c(0))) {
             q.j(new a(c2), "asyncUpdateSwanAppCore by PMS");
         }
     }
 
     public static void delayInit(boolean z) {
-        sIsDelayInit = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            sIsDelayInit = z;
+        }
     }
 
     public static void doWebViewInit(Context context, b.c... cVarArr) {
-        if (ProcessUtils.isMainProcess()) {
-            d.a.m0.a.h0.s.b.g(context).e(new b());
-        }
-        if (cVarArr != null && cVarArr.length > 0) {
-            for (b.c cVar : cVarArr) {
-                if (cVar != null) {
-                    d.a.m0.a.h0.s.b.g(context).e(cVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, context, cVarArr) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                d.a.q0.a.h0.s.b.g(context).e(new b());
+            }
+            if (cVarArr != null && cVarArr.length > 0) {
+                for (b.c cVar : cVarArr) {
+                    if (cVar != null) {
+                        d.a.q0.a.h0.s.b.g(context).e(cVar);
+                    }
                 }
             }
+            d.a.q0.a.h0.s.b.g(context).j(ProcessUtils.isMainProcess());
         }
-        d.a.m0.a.h0.s.b.g(context).j(ProcessUtils.isMainProcess());
     }
 
     public static boolean entranceOK() {
-        return !sOnlyInitForLollipopAndAbove || d.a.m0.a.v2.d.f();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? !sOnlyInitForLollipopAndAbove || d.a.q0.a.v2.d.f() : invokeV.booleanValue;
     }
 
     public static void initConfig() {
-        uploadLastData();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+            uploadLastData();
+        }
     }
 
     public static void initContext(Application application) {
-        initRuntimeContext(application);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, application) == null) {
+            initRuntimeContext(application);
+        }
     }
 
     public static void initModules(Application application) {
-        initModules(application, sIsDelayInit);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, application) == null) {
+            initModules(application, sIsDelayInit);
+        }
     }
 
     public static void initRuntimeContext(Application application) {
-        AppRuntimeInit.onApplicationattachBaseContext(application);
-        e.b(application);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, application) == null) {
+            AppRuntimeInit.onApplicationattachBaseContext(application);
+            e.b(application);
+        }
     }
 
     public static void initStatisticsModule(Application application) {
-        if (d.a.f0.b.a.a.g()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65548, null, application) == null) && d.a.j0.b.a.a.g()) {
             OpenStatisticIPCManager.a();
             initConfig();
         }
     }
 
     public static void initSwanAppModule(Application application) {
-        if (!Fresco.hasBeenInitialized()) {
-            Fresco.initialize(application);
-        }
-        if (ProcessUtils.isMainProcess()) {
-            d.a.m0.e.k.b.d(application).i();
-        }
-        initWebView(application);
-        if (ProcessUtils.isMainProcess()) {
-            asyncUpdateSwanAppCore();
-            if (k.f46983a) {
-                d.a.m0.a.t2.a.d(0, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, application) == null) {
+            if (!Fresco.hasBeenInitialized()) {
+                Fresco.initialize(application);
+            }
+            if (ProcessUtils.isMainProcess()) {
+                d.a.q0.e.k.b.d(application).i();
+            }
+            initWebView(application);
+            if (ProcessUtils.isMainProcess()) {
+                asyncUpdateSwanAppCore();
+                if (k.f49133a) {
+                    d.a.q0.a.t2.a.d(0, 1);
+                }
             }
         }
     }
 
     public static void initWebView(Context context) {
-        boolean d2 = d.a.m0.a.c1.a.n0().d();
-        WebViewFactory.setAbTestInterface(new DefaultSailorAbTest());
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), d2, false);
-        doWebViewInit(context, new b.c[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
+            boolean d2 = d.a.q0.a.c1.a.n0().d();
+            WebViewFactory.setAbTestInterface(new DefaultSailorAbTest());
+            WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), d2, false);
+            doWebViewInit(context, new b.c[0]);
+        }
     }
 
     public static boolean isDelayInit() {
-        return sIsDelayInit;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? sIsDelayInit : invokeV.booleanValue;
     }
 
     public static boolean isProcessNeedInit() {
-        return ProcessUtils.isMainProcess() || ProcessUtils.isSwanProcess();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? ProcessUtils.isMainProcess() || ProcessUtils.isSwanProcess() : invokeV.booleanValue;
     }
 
     public static void onTerminate() {
-        d.a.m0.a.h0.s.b.g(AppRuntime.getAppContext()).m();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
+            d.a.q0.a.h0.s.b.g(AppRuntime.getAppContext()).m();
+        }
     }
 
     public static void onlyInitForLollipopAndAbove(boolean z) {
-        sOnlyInitForLollipopAndAbove = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            sOnlyInitForLollipopAndAbove = z;
+        }
     }
 
     public static void uploadLastData() {
-        p b2 = p.b();
-        b2.h();
-        b2.i();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65555, null) == null) {
+            p b2 = p.b();
+            b2.h();
+            b2.i();
+        }
     }
 
     public static void initModules(Application application, boolean z) {
-        initModules(application, z, sOnlyInitForLollipopAndAbove);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65545, null, application, z) == null) {
+            initModules(application, z, sOnlyInitForLollipopAndAbove);
+        }
     }
 
     public static void initModules(Application application, boolean z, boolean z2) {
-        onlyInitForLollipopAndAbove(z2);
-        delayInit(z);
-        if (entranceOK() && !isDelayInit() && isProcessNeedInit()) {
-            initStatisticsModule(application);
-            initSwanAppModule(application);
-            d.a.m0.e.f.a().a(application);
-            d.a.m0.e.f.b().a(application, z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{application, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            onlyInitForLollipopAndAbove(z2);
+            delayInit(z);
+            if (entranceOK() && !isDelayInit() && isProcessNeedInit()) {
+                initStatisticsModule(application);
+                initSwanAppModule(application);
+                d.a.q0.e.f.a().a(application);
+                d.a.q0.e.f.b().a(application, z, z2);
+            }
         }
     }
 }

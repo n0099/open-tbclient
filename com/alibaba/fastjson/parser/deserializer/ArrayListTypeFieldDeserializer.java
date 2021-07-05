@@ -8,6 +8,12 @@ import com.alibaba.fastjson.parser.ParseContext;
 import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.ParameterizedTypeImpl;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
@@ -17,12 +23,31 @@ import java.util.Collection;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ObjectDeserializer deserializer;
     public int itemFastMatchToken;
     public final Type itemType;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ArrayListTypeFieldDeserializer(ParserConfig parserConfig, Class<?> cls, FieldInfo fieldInfo) {
         super(cls, fieldInfo);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parserConfig, cls, fieldInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Class) objArr2[0], (FieldInfo) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         Type type = fieldInfo.fieldType;
         if (type instanceof ParameterizedType) {
             Type type2 = ((ParameterizedType) type).getActualTypeArguments()[0];
@@ -40,7 +65,12 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
 
     @Override // com.alibaba.fastjson.parser.deserializer.FieldDeserializer
     public int getFastMatchToken() {
-        return 14;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 14;
+        }
+        return invokeV.intValue;
     }
 
     public final void parseArray(DefaultJSONParser defaultJSONParser, Type type, Collection collection) {
@@ -48,6 +78,10 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
         int i2;
         Type intern;
         int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, defaultJSONParser, type, collection) != null) {
+            return;
+        }
         Type type2 = this.itemType;
         ObjectDeserializer objectDeserializer = this.deserializer;
         int i4 = 0;
@@ -158,26 +192,29 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
 
     @Override // com.alibaba.fastjson.parser.deserializer.FieldDeserializer
     public void parseField(DefaultJSONParser defaultJSONParser, Object obj, Type type, Map<String, Object> map) {
-        JSONLexer jSONLexer = defaultJSONParser.lexer;
-        int i2 = jSONLexer.token();
-        if (i2 == 8 || (i2 == 4 && jSONLexer.stringVal().length() == 0)) {
-            if (obj == null) {
-                map.put(this.fieldInfo.name, null);
-                return;
-            } else {
-                setValue(obj, (String) null);
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, defaultJSONParser, obj, type, map) == null) {
+            JSONLexer jSONLexer = defaultJSONParser.lexer;
+            int i2 = jSONLexer.token();
+            if (i2 == 8 || (i2 == 4 && jSONLexer.stringVal().length() == 0)) {
+                if (obj == null) {
+                    map.put(this.fieldInfo.name, null);
+                    return;
+                } else {
+                    setValue(obj, (String) null);
+                    return;
+                }
             }
-        }
-        Collection arrayList = new ArrayList();
-        ParseContext context = defaultJSONParser.getContext();
-        defaultJSONParser.setContext(context, obj, this.fieldInfo.name);
-        parseArray(defaultJSONParser, type, arrayList);
-        defaultJSONParser.setContext(context);
-        if (obj == null) {
-            map.put(this.fieldInfo.name, arrayList);
-        } else {
-            setValue(obj, arrayList);
+            Collection arrayList = new ArrayList();
+            ParseContext context = defaultJSONParser.getContext();
+            defaultJSONParser.setContext(context, obj, this.fieldInfo.name);
+            parseArray(defaultJSONParser, type, arrayList);
+            defaultJSONParser.setContext(context);
+            if (obj == null) {
+                map.put(this.fieldInfo.name, arrayList);
+            } else {
+                setValue(obj, arrayList);
+            }
         }
     }
 }

@@ -7,28 +7,28 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import d.a.m0.n.c;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.n.c;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* JADX WARN: Enum visitor error
-jadx.core.utils.exceptions.JadxRuntimeException: Init of enum ARMEABI_V7A uses external variables
-	at jadx.core.dex.visitors.EnumVisitor.createEnumFieldByConstructor(EnumVisitor.java:444)
-	at jadx.core.dex.visitors.EnumVisitor.processEnumFieldByField(EnumVisitor.java:368)
-	at jadx.core.dex.visitors.EnumVisitor.processEnumFieldByWrappedInsn(EnumVisitor.java:333)
-	at jadx.core.dex.visitors.EnumVisitor.extractEnumFieldsFromFilledArray(EnumVisitor.java:318)
-	at jadx.core.dex.visitors.EnumVisitor.extractEnumFieldsFromInsn(EnumVisitor.java:258)
-	at jadx.core.dex.visitors.EnumVisitor.convertToEnum(EnumVisitor.java:151)
-	at jadx.core.dex.visitors.EnumVisitor.visit(EnumVisitor.java:100)
- */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class AbiType {
     public static final /* synthetic */ AbiType[] $VALUES;
+    public static /* synthetic */ Interceptable $ic = null;
     public static final AbiType ARM64_V8A;
     public static final AbiType ARMEABI;
     public static final AbiType ARMEABI_V7A;
@@ -38,10 +38,23 @@ public final class AbiType {
     public static final AbiType X86_64;
     public static AbiType sCurrent;
     public static Map<String, AbiType> sIndex;
+    public transient /* synthetic */ FieldHolder $fh;
     public final List<AbiType> compatible;
     public final String id;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1995991040, "Lcom/baidu/swan/pms/utils/AbiType;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1995991040, "Lcom/baidu/swan/pms/utils/AbiType;");
+                return;
+            }
+        }
         AbiType abiType = new AbiType("ARMEABI", 0, "armeabi", new AbiType[0]);
         ARMEABI = abiType;
         AbiType abiType2 = new AbiType("ARMEABI_V7A", 1, "armeabi-v7a", abiType);
@@ -52,11 +65,28 @@ public final class AbiType {
         AbiType abiType4 = new AbiType("X86_64", 4, "x86_64", abiType3, ARMEABI_V7A, ARMEABI);
         X86_64 = abiType4;
         $VALUES = new AbiType[]{ARMEABI, ARMEABI_V7A, ARM64_V8A, X86, abiType4};
-        DEBUG = c.f51766a;
+        DEBUG = c.f53910a;
         sIndex = new HashMap();
     }
 
     public AbiType(String str, int i2, String str2, AbiType... abiTypeArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), str2, abiTypeArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         ArrayList arrayList = new ArrayList();
         this.compatible = arrayList;
         this.id = str2;
@@ -66,88 +96,127 @@ public final class AbiType {
 
     @NonNull
     public static AbiType currentAbi() {
-        if (sCurrent == null) {
-            sCurrent = findById(getRuntimeAbiTypeStr(), ARMEABI);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (sCurrent == null) {
+                sCurrent = findById(getRuntimeAbiTypeStr(), ARMEABI);
+            }
+            if (DEBUG) {
+                Log.i(TAG, "ABI_CURRENT=" + sCurrent);
+            }
+            return sCurrent;
         }
-        if (DEBUG) {
-            Log.i(TAG, "ABI_CURRENT=" + sCurrent);
-        }
-        return sCurrent;
+        return (AbiType) invokeV.objValue;
     }
 
     public static AbiType findById(String str) {
-        return findById(str, null);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? findById(str, null) : (AbiType) invokeL.objValue;
     }
 
     @SuppressLint({"ObsoleteSdkInt"})
     public static String getRuntimeAbiTypeStr() {
-        if (Build.VERSION.SDK_INT < 21) {
-            return Build.CPU_ABI;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (Build.VERSION.SDK_INT < 21) {
+                return Build.CPU_ABI;
+            }
+            ApplicationInfo applicationInfo = AppRuntime.getAppContext().getApplicationInfo();
+            try {
+                Field declaredField = ApplicationInfo.class.getDeclaredField("primaryCpuAbi");
+                declaredField.setAccessible(true);
+                return (String) declaredField.get(applicationInfo);
+            } catch (IllegalAccessException | NoSuchFieldException unused) {
+                return null;
+            }
         }
-        ApplicationInfo applicationInfo = AppRuntime.getAppContext().getApplicationInfo();
-        try {
-            Field declaredField = ApplicationInfo.class.getDeclaredField("primaryCpuAbi");
-            declaredField.setAccessible(true);
-            return (String) declaredField.get(applicationInfo);
-        } catch (IllegalAccessException | NoSuchFieldException unused) {
-            return null;
-        }
+        return (String) invokeV.objValue;
     }
 
     public static AbiType valueOf(String str) {
-        return (AbiType) Enum.valueOf(AbiType.class, str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? (AbiType) Enum.valueOf(AbiType.class, str) : (AbiType) invokeL.objValue;
     }
 
     public static AbiType[] values() {
-        return (AbiType[]) $VALUES.clone();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (AbiType[]) $VALUES.clone() : (AbiType[]) invokeV.objValue;
     }
 
     public boolean compat(String str) {
-        return compat(findById(str));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? compat(findById(str)) : invokeL.booleanValue;
     }
 
     public boolean compatBy(String str) {
-        AbiType findById = findById(str);
-        return findById != null && compatBy(findById);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            AbiType findById = findById(str);
+            return findById != null && compatBy(findById);
+        }
+        return invokeL.booleanValue;
     }
 
     public List<AbiType> getCompatible() {
-        return new ArrayList(this.compatible);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new ArrayList(this.compatible) : (List) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     @NonNull
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        boolean z = true;
-        for (AbiType abiType : this.compatible) {
-            if (!z) {
-                sb.append(" ,");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            boolean z = true;
+            for (AbiType abiType : this.compatible) {
+                if (!z) {
+                    sb.append(" ,");
+                }
+                sb.append(abiType.id);
+                z = false;
             }
-            sb.append(abiType.id);
-            z = false;
+            return String.format("%s[%s]", super.toString(), this.id, sb);
         }
-        return String.format("%s[%s]", super.toString(), this.id, sb);
+        return (String) invokeV.objValue;
     }
 
     public static AbiType findById(String str, @Nullable AbiType abiType) {
+        InterceptResult invokeLL;
         AbiType[] values;
-        if (sIndex.isEmpty()) {
-            for (AbiType abiType2 : values()) {
-                if (abiType2 != null && !TextUtils.isEmpty(abiType2.id)) {
-                    sIndex.put(abiType2.id, abiType2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, abiType)) == null) {
+            if (sIndex.isEmpty()) {
+                for (AbiType abiType2 : values()) {
+                    if (abiType2 != null && !TextUtils.isEmpty(abiType2.id)) {
+                        sIndex.put(abiType2.id, abiType2);
+                    }
                 }
             }
+            AbiType abiType3 = sIndex.get(str);
+            return abiType3 == null ? abiType : abiType3;
         }
-        AbiType abiType3 = sIndex.get(str);
-        return abiType3 == null ? abiType : abiType3;
+        return (AbiType) invokeLL.objValue;
     }
 
     public boolean compat(AbiType abiType) {
-        return this.compatible.contains(abiType);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, abiType)) == null) ? this.compatible.contains(abiType) : invokeL.booleanValue;
     }
 
     public boolean compatBy(AbiType abiType) {
-        return abiType.compat(this);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, abiType)) == null) ? abiType.compat(this) : invokeL.booleanValue;
     }
 }

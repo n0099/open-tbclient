@@ -1,16 +1,25 @@
 package com.baidu.wallet.paysdk.datamodel;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.beans.IBeanResponse;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.PayData;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int SELECTION_NO_CHANGE = -1;
     public static final long serialVersionUID = 2906317784498976013L;
+    public transient /* synthetic */ FieldHolder $fh;
     public PayData.Discount[] activity_list;
     public PayData.ChannelDiscountMap[] activity_map;
     public String balance_amount;
@@ -27,12 +36,36 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
     public String total_discount_amount;
     public String total_discount_msg;
 
+    public CalcPaymentResponse() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.baidu.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public String getActivitiesJsonParams(int i2, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str)) != null) {
+            return (String) invokeIL.objValue;
+        }
         PayData.Discount[] discountArr = this.activity_list;
         if (discountArr == null || discountArr.length == 0) {
             return null;
@@ -63,6 +96,11 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
     }
 
     public String getCouponJsonParams(int i2, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeIL = interceptable.invokeIL(1048580, this, i2, str)) != null) {
+            return (String) invokeIL.objValue;
+        }
         PayData.Coupon[] couponArr = this.coupon_list;
         if (couponArr == null || couponArr.length == 0) {
             return null;
@@ -93,6 +131,11 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
     }
 
     public String getDiscountMapJsonParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048581, this)) != null) {
+            return (String) invokeV.objValue;
+        }
         PayData.ChannelDiscountMap[] channelDiscountMapArr = this.activity_map;
         if (channelDiscountMapArr == null || channelDiscountMapArr.length == 0) {
             return null;
@@ -119,60 +162,81 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
     }
 
     public String getSelectedCouponIds() {
-        return getSelectedCouponIds(this.coupon_list);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getSelectedCouponIds(this.coupon_list) : (String) invokeV.objValue;
     }
 
     public String getSelectedDiscountIds() {
-        return getSelectedDiscountIds(this.activity_list);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getSelectedDiscountIds(this.activity_list) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+        }
     }
 
     public String getSelectedCouponIds(PayData.Coupon[] couponArr) {
-        if (couponArr == null) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        boolean z = true;
-        for (PayData.Coupon coupon : couponArr) {
-            if (coupon.getSelected()) {
-                if (z) {
-                    z = false;
-                } else {
-                    sb.append(',');
-                }
-                sb.append(coupon.id);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, couponArr)) == null) {
+            if (couponArr == null) {
+                return "";
             }
+            StringBuilder sb = new StringBuilder();
+            boolean z = true;
+            for (PayData.Coupon coupon : couponArr) {
+                if (coupon.getSelected()) {
+                    if (z) {
+                        z = false;
+                    } else {
+                        sb.append(',');
+                    }
+                    sb.append(coupon.id);
+                }
+            }
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeL.objValue;
     }
 
     public String getSelectedDiscountIds(PayData.Discount[] discountArr) {
-        if (discountArr == null) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        boolean z = true;
-        for (PayData.Discount discount : discountArr) {
-            if (discount.getSelected()) {
-                if (z) {
-                    z = false;
-                } else {
-                    sb.append(',');
-                }
-                sb.append(discount.id);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, discountArr)) == null) {
+            if (discountArr == null) {
+                return "";
             }
+            StringBuilder sb = new StringBuilder();
+            boolean z = true;
+            for (PayData.Discount discount : discountArr) {
+                if (discount.getSelected()) {
+                    if (z) {
+                        z = false;
+                    } else {
+                        sb.append(',');
+                    }
+                    sb.append(discount.id);
+                }
+            }
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeL.objValue;
     }
 
     public String getActivitiesJsonParams() {
-        return getActivitiesJsonParams(-1, null);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getActivitiesJsonParams(-1, null) : (String) invokeV.objValue;
     }
 
     public String getCouponJsonParams() {
-        return getCouponJsonParams(-1, null);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getCouponJsonParams(-1, null) : (String) invokeV.objValue;
     }
 }

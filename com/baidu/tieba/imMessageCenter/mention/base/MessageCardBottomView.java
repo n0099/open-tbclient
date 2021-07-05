@@ -8,66 +8,118 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MessageCardBottomView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17772e;
+    public TextView f17898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f17773f;
+    public ViewGroup f17899f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f17774g;
+    public ImageView f17900g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17775h;
+    public TextView f17901h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MessageCardBottomView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
     public final void a(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
-        this.f17772e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
-        this.f17773f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
-        this.f17774g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
-        this.f17775h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
+            this.f17898e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
+            this.f17899f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
+            this.f17900g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
+            this.f17901h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+        }
     }
 
     public void b() {
-        SkinManager.setViewTextColor(this.f17772e, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f17775h, R.drawable.selector_comment_and_prise_item_text_color);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17774g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setViewTextColor(this.f17898e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f17901h, R.drawable.selector_comment_and_prise_item_text_color);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17900g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
+        }
     }
 
     public View getReplyContainer() {
-        return this.f17773f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17899f : (View) invokeV.objValue;
     }
 
     public void setData(String str, boolean z) {
-        if (!z && k.isEmpty(str)) {
-            setVisibility(8);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
+            if (!z && k.isEmpty(str)) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            this.f17899f.setVisibility(z ? 0 : 8);
+            if (k.isEmpty(str)) {
+                this.f17898e.setVisibility(8);
+                return;
+            }
+            this.f17898e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+            this.f17898e.setVisibility(0);
         }
-        setVisibility(0);
-        this.f17773f.setVisibility(z ? 0 : 8);
-        if (k.isEmpty(str)) {
-            this.f17772e.setVisibility(8);
-            return;
-        }
-        this.f17772e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-        this.f17772e.setVisibility(0);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MessageCardBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 }

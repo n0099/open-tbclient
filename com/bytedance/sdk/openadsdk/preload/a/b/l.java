@@ -1,5 +1,11 @@
 package com.bytedance.sdk.openadsdk.preload.a.b;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.b.a.n;
 import com.bytedance.sdk.openadsdk.preload.a.p;
 import com.bytedance.sdk.openadsdk.preload.a.t;
@@ -8,24 +14,32 @@ import java.io.IOException;
 import java.io.Writer;
 /* loaded from: classes6.dex */
 public final class l {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static com.bytedance.sdk.openadsdk.preload.a.l a(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws p {
         boolean z;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, aVar)) != null) {
+            return (com.bytedance.sdk.openadsdk.preload.a.l) invokeL.objValue;
+        }
         try {
             try {
                 aVar.f();
                 z = false;
-            } catch (EOFException e2) {
-                e = e2;
-                z = true;
-            }
-            try {
-                return n.X.b(aVar);
+                try {
+                    return n.X.b(aVar);
+                } catch (EOFException e2) {
+                    e = e2;
+                    if (z) {
+                        return com.bytedance.sdk.openadsdk.preload.a.n.f31952a;
+                    }
+                    throw new t(e);
+                }
             } catch (EOFException e3) {
                 e = e3;
-                if (z) {
-                    return com.bytedance.sdk.openadsdk.preload.a.n.f30102a;
-                }
-                throw new t(e);
+                z = true;
             }
         } catch (com.bytedance.sdk.openadsdk.preload.a.d.d e4) {
             throw new t(e4);
@@ -38,66 +52,122 @@ public final class l {
 
     /* loaded from: classes6.dex */
     public static final class a extends Writer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Appendable f30032a;
+        public final Appendable f31882a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final C0322a f30033b = new C0322a();
+        public final C0362a f31883b;
 
         /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0322a implements CharSequence {
+        public static class C0362a implements CharSequence {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public char[] f30034a;
+            public char[] f31884a;
+
+            public C0362a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
 
             @Override // java.lang.CharSequence
             public char charAt(int i2) {
-                return this.f30034a[i2];
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f31884a[i2] : invokeI.charValue;
             }
 
             @Override // java.lang.CharSequence
             public int length() {
-                return this.f30034a.length;
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31884a.length : invokeV.intValue;
             }
 
             @Override // java.lang.CharSequence
             public CharSequence subSequence(int i2, int i3) {
-                return new String(this.f30034a, i2, i3 - i2);
+                InterceptResult invokeII;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? new String(this.f31884a, i2, i3 - i2) : (CharSequence) invokeII.objValue;
             }
         }
 
         public a(Appendable appendable) {
-            this.f30032a = appendable;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {appendable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f31883b = new C0362a();
+            this.f31882a = appendable;
         }
 
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
         public void close() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
         }
 
         @Override // java.io.Writer, java.io.Flushable
         public void flush() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i2, int i3) throws IOException {
-            C0322a c0322a = this.f30033b;
-            c0322a.f30034a = cArr;
-            this.f30032a.append(c0322a, i2, i3 + i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i2, i3) == null) {
+                C0362a c0362a = this.f31883b;
+                c0362a.f31884a = cArr;
+                this.f31882a.append(c0362a, i2, i3 + i2);
+            }
         }
 
         @Override // java.io.Writer
         public void write(int i2) throws IOException {
-            this.f30032a.append((char) i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+                this.f31882a.append((char) i2);
+            }
         }
     }
 
     public static void a(com.bytedance.sdk.openadsdk.preload.a.l lVar, com.bytedance.sdk.openadsdk.preload.a.d.c cVar) throws IOException {
-        n.X.a(cVar, lVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, lVar, cVar) == null) {
+            n.X.a(cVar, lVar);
+        }
     }
 
     public static Writer a(Appendable appendable) {
-        return appendable instanceof Writer ? (Writer) appendable : new a(appendable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, appendable)) == null) ? appendable instanceof Writer ? (Writer) appendable : new a(appendable) : (Writer) invokeL.objValue;
     }
 }

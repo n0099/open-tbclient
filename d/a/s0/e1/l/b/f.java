@@ -1,0 +1,210 @@
+package d.a.s0.e1.l.b;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.Align;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.k.e.n;
+import d.a.c.k.e.s;
+import d.a.c.k.e.w;
+import d.a.j.l0;
+import d.a.j.n0;
+import d.a.j.v0.a;
+import d.a.s0.a0.b0;
+import d.a.s0.a0.e0.k;
+/* loaded from: classes9.dex */
+public class f extends d.a.c.k.e.a<k, ThreadCardViewHolder<k>> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext m;
+    public BdUniqueId n;
+    public s o;
+    public NEGFeedBackView.b p;
+    public b0<k> q;
+
+    /* loaded from: classes9.dex */
+    public class a extends b0<k> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.s0.a0.b0
+        /* renamed from: d */
+        public void a(View view, k kVar) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, kVar) == null) || view == null || kVar == null || kVar.getThreadData() == null) {
+                return;
+            }
+            int id = view.getId();
+            if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
+                d.a.s0.e1.l.d.a.f(kVar);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements w {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ f f59114e;
+
+        public b(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f59114e = fVar;
+        }
+
+        @Override // d.a.c.k.e.w
+        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof k) && (view.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
+                k kVar = (k) nVar;
+                kVar.k = 1;
+                if (this.f59114e.q != null) {
+                    this.f59114e.q.a(threadCardViewHolder.a(), kVar);
+                }
+                d.a.s0.e1.l.d.a.c(kVar, view.getContext(), 19, false, d.a.j.e.a((s) viewGroup, view, i2));
+                threadCardViewHolder.b().o(new a.C0645a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.q = new a(this);
+        this.m = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public ThreadCardViewHolder<k> Q(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            l0.b bVar = new l0.b(this.m.getPageActivity(), false);
+            n0 n0Var = new n0(this.m.getPageActivity());
+            d.a.r0.r.q.f fVar = new d.a.r0.r.q.f();
+            fVar.f55932b = 21;
+            fVar.f55933c = 2;
+            fVar.f55938h = 18;
+            n0Var.v(fVar);
+            n0Var.w(16);
+            n0Var.A(10);
+            n0Var.x(19);
+            n0Var.b(32);
+            bVar.m(n0Var);
+            l0 k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.o);
+            k.r(19);
+            ThreadCardViewHolder<k> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.k(this.n);
+            a0(new b(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View X(int i2, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f57050e == null) {
+                return null;
+            }
+            kVar.I(kVar.position + 1);
+            threadCardViewHolder.b().q(i2);
+            threadCardViewHolder.p(false).u(this.p);
+            threadCardViewHolder.q(false, Align.ALIGN_RIGHT_BOTTOM, this.p);
+            threadCardViewHolder.f(kVar);
+            threadCardViewHolder.b().onChangeSkinType(this.m, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.q);
+            return threadCardViewHolder.a();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void i0(NEGFeedBackView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.p = bVar;
+        }
+    }
+
+    public void j0(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.n = bdUniqueId;
+        }
+    }
+
+    public void k0(s sVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, sVar) == null) {
+            this.o = sVar;
+        }
+    }
+}

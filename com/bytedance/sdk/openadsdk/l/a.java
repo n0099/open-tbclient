@@ -1,203 +1,192 @@
 package com.bytedance.sdk.openadsdk.l;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
-import com.bytedance.sdk.openadsdk.utils.u;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.openadsdk.core.o;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.WeakHashMap;
 /* loaded from: classes6.dex */
-public class a extends ThreadPoolExecutor {
+public class a extends com.bytedance.sdk.component.adnet.b.a {
+    public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f29690a;
+    /* renamed from: b  reason: collision with root package name */
+    public static String f31284b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: com.bytedance.sdk.openadsdk.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0317a {
+    /* renamed from: c  reason: collision with root package name */
+    public WeakHashMap<String, String> f31285c;
 
-        /* renamed from: h  reason: collision with root package name */
-        public RejectedExecutionHandler f29705h;
+    /* renamed from: d  reason: collision with root package name */
+    public final com.bytedance.sdk.openadsdk.d.a f31286d;
 
-        /* renamed from: a  reason: collision with root package name */
-        public String f29698a = "io";
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f29699b = 1;
-
-        /* renamed from: c  reason: collision with root package name */
-        public long f29700c = 30;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TimeUnit f29701d = TimeUnit.SECONDS;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f29702e = 1;
-
-        /* renamed from: f  reason: collision with root package name */
-        public BlockingQueue<Runnable> f29703f = null;
-
-        /* renamed from: g  reason: collision with root package name */
-        public ThreadFactory f29704g = null;
-
-        /* renamed from: i  reason: collision with root package name */
-        public int f29706i = 5;
-
-        public C0317a a(String str) {
-            this.f29698a = str;
-            return this;
-        }
-
-        public C0317a b(int i2) {
-            this.f29702e = i2;
-            return this;
-        }
-
-        public C0317a a(int i2) {
-            this.f29699b = i2;
-            return this;
-        }
-
-        public C0317a a(long j) {
-            this.f29700c = j;
-            return this;
-        }
-
-        public C0317a a(TimeUnit timeUnit) {
-            this.f29701d = timeUnit;
-            return this;
-        }
-
-        public C0317a a(BlockingQueue<Runnable> blockingQueue) {
-            this.f29703f = blockingQueue;
-            return this;
-        }
-
-        public C0317a a(RejectedExecutionHandler rejectedExecutionHandler) {
-            this.f29705h = rejectedExecutionHandler;
-            return this;
-        }
-
-        public a a() {
-            if (this.f29704g == null) {
-                this.f29704g = new h(this.f29706i, this.f29698a);
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (this.f29705h == null) {
-                this.f29705h = e.f();
-            }
-            if (this.f29703f == null) {
-                this.f29703f = new LinkedBlockingQueue();
-            }
-            return new a(this.f29698a, this.f29699b, this.f29702e, this.f29700c, this.f29701d, this.f29703f, this.f29704g, this.f29705h);
         }
+        this.f31285c = new WeakHashMap<>();
+        this.f31286d = new com.bytedance.sdk.openadsdk.d.d();
     }
 
-    public a(String str, int i2, int i3, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory, RejectedExecutionHandler rejectedExecutionHandler) {
-        super(i2, i3, j, timeUnit, blockingQueue, threadFactory, rejectedExecutionHandler);
-        this.f29690a = str;
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (a) invokeV.objValue;
     }
 
-    public String a() {
-        return this.f29690a;
-    }
-
-    @Override // java.util.concurrent.ThreadPoolExecutor
-    public void afterExecute(Runnable runnable, Throwable th) {
-        BlockingQueue<Runnable> queue;
-        super.afterExecute(runnable, th);
-        if (!e.e() || TextUtils.isEmpty(this.f29690a) || (queue = getQueue()) == null) {
-            return;
-        }
-        String str = this.f29690a;
-        char c2 = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != 107332) {
-            if (hashCode == 2993840 && str.equals("aidl")) {
-                c2 = 0;
-            }
-        } else if (str.equals(TbConfig.TMP_LOG_DIR_NAME)) {
-            c2 = 1;
-        }
-        if (c2 != 0) {
-            if (c2 == 1 && queue.size() >= 4 && getCorePoolSize() != 2) {
-                setCorePoolSize(2);
-                setMaximumPoolSize(4);
-                u.b("ADThreadPoolExecutor", "afterExecute: reduce ", this.f29690a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
-            }
-        } else if (queue.size() >= 4 || getCorePoolSize() == 0) {
-        } else {
-            try {
-                setCorePoolSize(0);
-                setMaximumPoolSize(4);
-                u.b("ADThreadPoolExecutor", "afterExecute: reduce ", this.f29690a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
-            } catch (Exception e2) {
-                u.c("ADThreadPoolExecutor", e2.getMessage());
-            }
-        }
-    }
-
-    @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.Executor
-    public void execute(final Runnable runnable) {
-        BlockingQueue<Runnable> queue;
-        if (runnable instanceof g) {
-            super.execute(new b((g) runnable, this));
-        } else {
-            super.execute(new b(new g("unknown") { // from class: com.bytedance.sdk.openadsdk.l.a.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    runnable.run();
+    @Override // com.bytedance.sdk.component.adnet.b.a, com.bytedance.sdk.component.adnet.b.d.b
+    public Bitmap b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Bitmap b2 = super.b(str);
+            if (b2 == null) {
+                File file = new File(b(), str);
+                if (file.exists()) {
+                    FileInputStream fileInputStream = null;
+                    try {
+                        try {
+                            FileInputStream fileInputStream2 = new FileInputStream(file);
+                            try {
+                                b2 = BitmapFactory.decodeFileDescriptor(fileInputStream2.getFD(), null, null);
+                                if (b2 != null) {
+                                    super.a(str, b2, new byte[0]);
+                                }
+                                fileInputStream2.close();
+                            } catch (Throwable th) {
+                                th = th;
+                                fileInputStream = fileInputStream2;
+                                try {
+                                    j.c("DiskImageCache", "diskImageCache getBitmap error ", th);
+                                    if (fileInputStream != null) {
+                                        fileInputStream.close();
+                                    }
+                                    return b2;
+                                } catch (Throwable th2) {
+                                    if (fileInputStream != null) {
+                                        try {
+                                            fileInputStream.close();
+                                        } catch (IOException unused) {
+                                        }
+                                    }
+                                    throw th2;
+                                }
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                        }
+                    } catch (IOException unused2) {
+                    }
                 }
-            }, this));
+            }
+            return b2;
         }
-        if (!e.e() || TextUtils.isEmpty(this.f29690a) || (queue = getQueue()) == null) {
+        return (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.component.adnet.b.a, com.bytedance.sdk.component.adnet.b.d.b
+    public void a(String str, Bitmap bitmap, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap, bArr) == null) || bitmap == null) {
             return;
         }
-        String str = this.f29690a;
-        char c2 = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != 107332) {
-            if (hashCode == 2993840 && str.equals("aidl")) {
-                c2 = 0;
-            }
-        } else if (str.equals(TbConfig.TMP_LOG_DIR_NAME)) {
-            c2 = 1;
+        super.a(str, bitmap, bArr);
+        File file = new File(b(), str);
+        if (file.exists() && file.isFile() && file.length() > 0) {
+            return;
         }
-        if (c2 != 0) {
-            if (c2 == 1 && queue.size() >= 4 && getCorePoolSize() != 4) {
-                setMaximumPoolSize(e.f29724a + 4);
-                setCorePoolSize(4);
-                u.b("ADThreadPoolExecutor", "execute: increase poolType =  ", this.f29690a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
-            }
-        } else if (queue.size() < 4 || getCorePoolSize() == 4) {
-        } else {
+        File file2 = new File(file + ".tmp");
+        file2.delete();
+        FileOutputStream fileOutputStream = null;
+        try {
             try {
-                setMaximumPoolSize(e.f29724a + 4);
-                setCorePoolSize(4);
-                u.b("ADThreadPoolExecutor", "execute: increase poolType =  ", this.f29690a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
-            } catch (Exception e2) {
-                u.c("ADThreadPoolExecutor", e2.getMessage());
+                file2.createNewFile();
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
+                try {
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream2);
+                    fileOutputStream2.flush();
+                    if (file2.exists() && file2.length() > 0) {
+                        file2.renameTo(file);
+                    }
+                    this.f31286d.a(file);
+                    fileOutputStream2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    try {
+                        j.c("DiskImageCache", "diskImageCache putBitmap error ", th);
+                        file2.delete();
+                        file.delete();
+                        if (fileOutputStream != null) {
+                            fileOutputStream.close();
+                        }
+                    } catch (Throwable th2) {
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (IOException unused) {
+                            }
+                        }
+                        throw th2;
+                    }
+                }
+            } catch (Throwable th3) {
+                th = th3;
             }
+        } catch (IOException unused2) {
         }
     }
 
-    @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.ExecutorService
-    public void shutdown() {
-        if ("io".equals(this.f29690a) || "aidl".equals(this.f29690a)) {
-            return;
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TextUtils.isEmpty(f31284b)) {
+                File file = new File(com.bytedance.sdk.component.adnet.a.b(o.a()), "diskImage");
+                file.mkdirs();
+                f31284b = file.getAbsolutePath();
+            }
+            return f31284b;
         }
-        super.shutdown();
+        return (String) invokeV.objValue;
     }
 
-    @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.ExecutorService
-    public List<Runnable> shutdownNow() {
-        if (!"io".equals(this.f29690a) && !"aidl".equals(this.f29690a)) {
-            return super.shutdownNow();
+    @Override // com.bytedance.sdk.component.adnet.b.a, com.bytedance.sdk.component.adnet.b.d.b
+    public String a(String str, int i2, int i3, ImageView.ScaleType scaleType) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), scaleType})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String str2 = this.f31285c.get(str);
+            if (TextUtils.isEmpty(str2)) {
+                String a2 = com.bytedance.sdk.component.utils.e.a(str);
+                this.f31285c.put(str, a2);
+                return a2;
+            }
+            return str2;
         }
-        return Collections.emptyList();
+        return (String) invokeCommon.objValue;
     }
 }

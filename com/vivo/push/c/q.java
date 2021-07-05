@@ -1,28 +1,51 @@
 package com.vivo.push.c;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.sdk.PushMessageCallback;
 /* loaded from: classes7.dex */
 public final class q implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ UnvarnishedMessage f40382a;
+    public final /* synthetic */ UnvarnishedMessage f42125a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f40383b;
+    public final /* synthetic */ p f42126b;
 
     public q(p pVar, UnvarnishedMessage unvarnishedMessage) {
-        this.f40383b = pVar;
-        this.f40382a = unvarnishedMessage;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pVar, unvarnishedMessage};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42126b = pVar;
+        this.f42125a = unvarnishedMessage;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        p pVar = this.f40383b;
-        PushMessageCallback pushMessageCallback = ((ab) pVar).f40352b;
-        context = pVar.f40534a;
-        pushMessageCallback.onTransmissionMessage(context, this.f40382a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            p pVar = this.f42126b;
+            PushMessageCallback pushMessageCallback = ((ab) pVar).f42095b;
+            context = pVar.f42277a;
+            pushMessageCallback.onTransmissionMessage(context, this.f42125a);
+        }
     }
 }

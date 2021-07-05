@@ -1,6 +1,11 @@
 package com.sdk.base.framework.a.b;
 
 import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -8,51 +13,73 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 /* loaded from: classes7.dex */
 public final class b {
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0092, code lost:
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x0096, code lost:
         r14.flush();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0095, code lost:
-        if (r16 == null) goto L101;
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0099, code lost:
+        if (r16 == null) goto L103;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x0097, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x009b, code lost:
         r16.a(r11, r4, true);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x009e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00a2, code lost:
         r13.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00b4, code lost:
-        if (r14 == null) goto L40;
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00b8, code lost:
+        if (r14 == null) goto L42;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x00b6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x00ba, code lost:
         r14.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x00bf, code lost:
-        if (r8.exists() != false) goto L42;
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00c3, code lost:
+        if (r8.exists() != false) goto L44;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x00c7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00cb, code lost:
         r0 = new java.io.File(r8.getParent(), r19);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x00d4, code lost:
-        if (r0.exists() != false) goto L47;
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x00d8, code lost:
+        if (r0.exists() != false) goto L49;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x00d6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x00da, code lost:
         r0 = new java.io.File(r8.getParent(), java.lang.System.currentTimeMillis() + r19);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x00f7, code lost:
-        if (r8.renameTo(r0) != false) goto L51;
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x00fb, code lost:
+        if (r8.renameTo(r0) != false) goto L53;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x00f9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x00fd, code lost:
         return r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x00fa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x00fe, code lost:
         return r8;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static File a(HttpURLConnection httpURLConnection, c cVar, String str, boolean z, String str2) {
+        InterceptResult invokeCommon;
         BufferedOutputStream bufferedOutputStream;
         FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{httpURLConnection, cVar, str, Boolean.valueOf(z), str2})) != null) {
+            return (File) invokeCommon.objValue;
+        }
         BufferedInputStream bufferedInputStream = null;
         if (httpURLConnection == null || TextUtils.isEmpty(str)) {
             return null;

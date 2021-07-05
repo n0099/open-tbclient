@@ -3,89 +3,152 @@ package com.qq.e.comm.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
 public class ResourceUtil {
-    public static int getColorId(Context context, String str) {
-        Resources resources;
-        if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
-            return -1;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ResourceUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return resources.getIdentifier(str, "color", context.getPackageName());
+    }
+
+    public static int getColorId(Context context, String str) {
+        InterceptResult invokeLL;
+        Resources resources;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
+                return -1;
+            }
+            return resources.getIdentifier(str, "color", context.getPackageName());
+        }
+        return invokeLL.intValue;
     }
 
     public static int getDrawableId(Context context, String str) {
+        InterceptResult invokeLL;
         Resources resources;
-        if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
-            return -1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
+                return -1;
+            }
+            return resources.getIdentifier(str, "drawable", context.getPackageName());
         }
-        return resources.getIdentifier(str, "drawable", context.getPackageName());
+        return invokeLL.intValue;
     }
 
     public static int getId(Context context, String str) {
+        InterceptResult invokeLL;
         Resources resources;
-        if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
-            return -1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
+                return -1;
+            }
+            return resources.getIdentifier(str, "id", context.getPackageName());
         }
-        return resources.getIdentifier(str, "id", context.getPackageName());
+        return invokeLL.intValue;
     }
 
     public static int getLayoutId(Context context, String str) {
+        InterceptResult invokeLL;
         Resources resources;
-        if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
-            return -1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
+                return -1;
+            }
+            return resources.getIdentifier(str, "layout", context.getPackageName());
         }
-        return resources.getIdentifier(str, "layout", context.getPackageName());
+        return invokeLL.intValue;
     }
 
     public static int getStringId(Context context, String str) {
+        InterceptResult invokeLL;
         Resources resources;
-        if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
-            return -1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
+                return -1;
+            }
+            return resources.getIdentifier(str, "string", context.getPackageName());
         }
-        return resources.getIdentifier(str, "string", context.getPackageName());
+        return invokeLL.intValue;
     }
 
     public static int getStyleId(Context context, String str) {
+        InterceptResult invokeLL;
         Resources resources;
-        if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
-            return -1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
+                return -1;
+            }
+            return resources.getIdentifier(str, "style", context.getPackageName());
         }
-        return resources.getIdentifier(str, "style", context.getPackageName());
+        return invokeLL.intValue;
     }
 
     public static int getStyleableFieldId(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Class<?>[] classes;
         Field[] fields;
-        String str3 = str + "_" + str2;
-        try {
-            for (Class<?> cls : Class.forName(context.getPackageName() + ".R").getClasses()) {
-                if (cls.getSimpleName().equals("styleable")) {
-                    for (Field field : cls.getFields()) {
-                        if (field.getName().equals(str3)) {
-                            return ((Integer) field.get(null)).intValue();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, str2)) == null) {
+            String str3 = str + "_" + str2;
+            try {
+                for (Class<?> cls : Class.forName(context.getPackageName() + ".R").getClasses()) {
+                    if (cls.getSimpleName().equals("styleable")) {
+                        for (Field field : cls.getFields()) {
+                            if (field.getName().equals(str3)) {
+                                return ((Integer) field.get(null)).intValue();
+                            }
                         }
+                        continue;
                     }
-                    continue;
                 }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-        } catch (Throwable th) {
-            th.printStackTrace();
+            return 0;
         }
-        return 0;
+        return invokeLLL.intValue;
     }
 
     public static int[] getStyleableIntArray(Context context, String str) {
+        InterceptResult invokeLL;
         Field[] fields;
-        try {
-            for (Field field : Class.forName(context.getPackageName() + ".R$styleable").getFields()) {
-                if (field.getName().equals(str)) {
-                    return (int[]) field.get(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            try {
+                for (Field field : Class.forName(context.getPackageName() + ".R$styleable").getFields()) {
+                    if (field.getName().equals(str)) {
+                        return (int[]) field.get(null);
+                    }
                 }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-        } catch (Throwable th) {
-            th.printStackTrace();
+            return null;
         }
-        return null;
+        return (int[]) invokeLL.objValue;
     }
 }

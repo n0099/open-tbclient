@@ -1,7 +1,7 @@
 package com.baidu.platform.core.d;
 
 import com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg;
-import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.search.core.CityInfo;
 import com.baidu.mapapi.search.core.PoiInfo;
@@ -11,233 +11,291 @@ import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.platform.base.SearchType;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k extends com.baidu.platform.base.d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f9347b = null;
+    public SuggestAddrInfo f9421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9348c;
+    public boolean f9422c;
 
-    private SuggestAddrInfo a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONObject jSONObject2;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("traffic_pois")) == null) {
-            return null;
-        }
-        JSONObject optJSONObject2 = optJSONObject.optJSONObject("option");
-        JSONObject optJSONObject3 = optJSONObject.optJSONObject("content");
-        if (optJSONObject2 != null && optJSONObject3 != null) {
-            JSONObject optJSONObject4 = optJSONObject2.optJSONObject("start_city");
-            String optString = optJSONObject4 != null ? optJSONObject4.optString("cname") : null;
-            JSONArray optJSONArray = optJSONObject2.optJSONArray("end_city");
-            String optString2 = (optJSONArray == null || (jSONObject2 = (JSONObject) optJSONArray.opt(0)) == null) ? null : jSONObject2.optString("cname");
-            JSONArray optJSONArray2 = optJSONObject2.optJSONArray("city_list");
-            JSONArray optJSONArray3 = optJSONObject2.optJSONArray("prio_flag");
-            if (optJSONArray2 != null && optJSONArray3 != null) {
-                int length = optJSONArray2.length();
-                boolean[] zArr = new boolean[length];
-                boolean[] zArr2 = new boolean[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    int parseInt = Integer.parseInt(optJSONArray2.optString(i2));
-                    int parseInt2 = Integer.parseInt(optJSONArray3.optString(i2));
-                    boolean z = true;
-                    zArr[i2] = parseInt == 1;
-                    if (parseInt2 != 1) {
-                        z = false;
-                    }
-                    zArr2[i2] = z;
-                }
-                SuggestAddrInfo suggestAddrInfo = new SuggestAddrInfo();
-                for (int i3 = 0; i3 < length; i3++) {
-                    if (!zArr2[i3]) {
-                        if (zArr[i3]) {
-                            if (i3 == 0) {
-                                suggestAddrInfo.setSuggestStartCity(a(optJSONObject3.optJSONArray(IntentConfig.START)));
-                            } else if (i3 != length - 1 || i3 <= 0) {
-                                suggestAddrInfo.setSuggestWpCity(a(optJSONObject3, "multi_waypoints"));
-                            } else {
-                                suggestAddrInfo.setSuggestEndCity(a(optJSONObject3.optJSONArray(ProgressInfo.JSON_KEY_END)));
-                            }
-                        } else if (i3 == 0) {
-                            suggestAddrInfo.setSuggestStartNode(a(optJSONObject3.optJSONArray(IntentConfig.START), optString));
-                        } else if (i3 != length - 1 || i3 <= 0) {
-                            suggestAddrInfo.setSuggestWpNode(b(optJSONObject3, "multi_waypoints"));
-                        } else {
-                            suggestAddrInfo.setSuggestEndNode(a(optJSONObject3.optJSONArray(ProgressInfo.JSON_KEY_END), optString2));
-                        }
-                    }
-                }
-                return suggestAddrInfo;
+    public k() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return null;
+        this.f9421b = null;
+    }
+
+    private SuggestAddrInfo a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONObject jSONObject2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("traffic_pois")) == null) {
+                return null;
+            }
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject("option");
+            JSONObject optJSONObject3 = optJSONObject.optJSONObject("content");
+            if (optJSONObject2 != null && optJSONObject3 != null) {
+                JSONObject optJSONObject4 = optJSONObject2.optJSONObject("start_city");
+                String optString = optJSONObject4 != null ? optJSONObject4.optString("cname") : null;
+                JSONArray optJSONArray = optJSONObject2.optJSONArray("end_city");
+                String optString2 = (optJSONArray == null || (jSONObject2 = (JSONObject) optJSONArray.opt(0)) == null) ? null : jSONObject2.optString("cname");
+                JSONArray optJSONArray2 = optJSONObject2.optJSONArray("city_list");
+                JSONArray optJSONArray3 = optJSONObject2.optJSONArray("prio_flag");
+                if (optJSONArray2 != null && optJSONArray3 != null) {
+                    int length = optJSONArray2.length();
+                    boolean[] zArr = new boolean[length];
+                    boolean[] zArr2 = new boolean[length];
+                    for (int i2 = 0; i2 < length; i2++) {
+                        int parseInt = Integer.parseInt(optJSONArray2.optString(i2));
+                        int parseInt2 = Integer.parseInt(optJSONArray3.optString(i2));
+                        boolean z = true;
+                        zArr[i2] = parseInt == 1;
+                        if (parseInt2 != 1) {
+                            z = false;
+                        }
+                        zArr2[i2] = z;
+                    }
+                    SuggestAddrInfo suggestAddrInfo = new SuggestAddrInfo();
+                    for (int i3 = 0; i3 < length; i3++) {
+                        if (!zArr2[i3]) {
+                            if (zArr[i3]) {
+                                if (i3 == 0) {
+                                    suggestAddrInfo.setSuggestStartCity(a(optJSONObject3.optJSONArray("start")));
+                                } else if (i3 != length - 1 || i3 <= 0) {
+                                    suggestAddrInfo.setSuggestWpCity(a(optJSONObject3, "multi_waypoints"));
+                                } else {
+                                    suggestAddrInfo.setSuggestEndCity(a(optJSONObject3.optJSONArray("end")));
+                                }
+                            } else if (i3 == 0) {
+                                suggestAddrInfo.setSuggestStartNode(a(optJSONObject3.optJSONArray("start"), optString));
+                            } else if (i3 != length - 1 || i3 <= 0) {
+                                suggestAddrInfo.setSuggestWpNode(b(optJSONObject3, "multi_waypoints"));
+                            } else {
+                                suggestAddrInfo.setSuggestEndNode(a(optJSONObject3.optJSONArray("end"), optString2));
+                            }
+                        }
+                    }
+                    return suggestAddrInfo;
+                }
+            }
+            return null;
+        }
+        return (SuggestAddrInfo) invokeL.objValue;
     }
 
     private List<CityInfo> a(JSONArray jSONArray) {
-        if (jSONArray == null || jSONArray.length() <= 0) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-            JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
-            if (jSONObject != null) {
-                CityInfo cityInfo = new CityInfo();
-                cityInfo.num = jSONObject.optInt("num");
-                cityInfo.city = jSONObject.optString("name");
-                arrayList.add(cityInfo);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONArray)) == null) {
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return null;
             }
-        }
-        arrayList.trimToSize();
-        return arrayList;
-    }
-
-    private List<PoiInfo> a(JSONArray jSONArray, String str) {
-        if (jSONArray != null) {
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
                 if (jSONObject != null) {
-                    PoiInfo poiInfo = new PoiInfo();
-                    poiInfo.address = jSONObject.optString(DuPaBInfoMsg.B_ADDR);
-                    poiInfo.uid = jSONObject.optString("uid");
-                    poiInfo.name = jSONObject.optString("name");
-                    poiInfo.location = CoordUtil.decodeLocation(jSONObject.optString("geo"));
-                    poiInfo.city = str;
-                    arrayList.add(poiInfo);
+                    CityInfo cityInfo = new CityInfo();
+                    cityInfo.num = jSONObject.optInt("num");
+                    cityInfo.city = jSONObject.optString("name");
+                    arrayList.add(cityInfo);
                 }
             }
-            if (arrayList.size() > 0) {
-                return arrayList;
+            arrayList.trimToSize();
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    private List<PoiInfo> a(JSONArray jSONArray, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, jSONArray, str)) == null) {
+            if (jSONArray != null) {
+                ArrayList arrayList = new ArrayList();
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
+                    if (jSONObject != null) {
+                        PoiInfo poiInfo = new PoiInfo();
+                        poiInfo.address = jSONObject.optString(DuPaBInfoMsg.B_ADDR);
+                        poiInfo.uid = jSONObject.optString("uid");
+                        poiInfo.name = jSONObject.optString("name");
+                        poiInfo.location = CoordUtil.decodeLocation(jSONObject.optString("geo"));
+                        poiInfo.city = str;
+                        arrayList.add(poiInfo);
+                    }
+                }
+                if (arrayList.size() > 0) {
+                    return arrayList;
+                }
+                return null;
             }
             return null;
         }
-        return null;
+        return (List) invokeLL.objValue;
     }
 
     private List<List<CityInfo>> a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
         JSONArray optJSONArray;
-        ArrayList arrayList = new ArrayList();
-        if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray(str)) == null) {
-            return null;
-        }
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            List<CityInfo> a2 = a((JSONArray) optJSONArray.opt(i2));
-            if (a2 != null) {
-                arrayList.add(a2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, jSONObject, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray(str)) == null) {
+                return null;
             }
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                List<CityInfo> a2 = a((JSONArray) optJSONArray.opt(i2));
+                if (a2 != null) {
+                    arrayList.add(a2);
+                }
+            }
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeLL.objValue;
     }
 
     private List<List<PoiInfo>> b(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
         JSONArray optJSONArray;
-        ArrayList arrayList = new ArrayList();
-        if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray(str)) == null) {
-            return null;
-        }
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            List<PoiInfo> a2 = a(((JSONObject) optJSONArray.opt(i2)).optJSONArray("way_ponits"), "");
-            if (a2 != null) {
-                arrayList.add(a2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, jSONObject, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray(str)) == null) {
+                return null;
             }
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                List<PoiInfo> a2 = a(((JSONObject) optJSONArray.opt(i2)).optJSONArray("way_ponits"), "");
+                if (a2 != null) {
+                    arrayList.add(a2);
+                }
+            }
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeLL.objValue;
     }
 
     private boolean b(String str) {
-        if (str != null && str.length() > 0) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                JSONObject optJSONObject = jSONObject.optJSONObject("result");
-                if (optJSONObject != null && optJSONObject.optInt("type") == 23 && optJSONObject.optInt("error") == 0) {
-                    SuggestAddrInfo a2 = a(jSONObject);
-                    this.f9347b = a2;
-                    return a2 != null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+            if (str != null && str.length() > 0) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("result");
+                    if (optJSONObject != null && optJSONObject.optInt("type") == 23 && optJSONObject.optInt("error") == 0) {
+                        SuggestAddrInfo a2 = a(jSONObject);
+                        this.f9421b = a2;
+                        return a2 != null;
+                    }
+                    return false;
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
-                return false;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.mapapi.search.route.DrivingRouteResult */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: com.baidu.mapapi.search.route.WalkingRouteResult */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: com.baidu.mapapi.search.route.DrivingRouteResult */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: com.baidu.mapapi.search.route.WalkingRouteResult */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.platform.base.d
     public SearchResult a(String str) {
+        InterceptResult invokeL;
         WalkingRouteResult walkingRouteResult;
         WalkingRouteResult walkingRouteResult2;
-        SearchType a2 = a();
-        if (b(str)) {
-            this.f9348c = true;
-        } else {
-            this.f9348c = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            SearchType a2 = a();
+            if (b(str)) {
+                this.f9422c = true;
+            } else {
+                this.f9422c = false;
+            }
+            int i2 = l.f9423a[a2.ordinal()];
+            if (i2 == 1) {
+                TransitRouteResult transitRouteResult = new TransitRouteResult();
+                if (this.f9422c) {
+                    transitRouteResult.setSuggestAddrInfo(this.f9421b);
+                    walkingRouteResult = transitRouteResult;
+                    walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
+                    walkingRouteResult2 = walkingRouteResult;
+                } else {
+                    ((m) this).a(str, transitRouteResult);
+                    walkingRouteResult2 = transitRouteResult;
+                }
+            } else if (i2 == 2) {
+                DrivingRouteResult drivingRouteResult = new DrivingRouteResult();
+                if (this.f9422c) {
+                    drivingRouteResult.setSuggestAddrInfo(this.f9421b);
+                    walkingRouteResult = drivingRouteResult;
+                    walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
+                    walkingRouteResult2 = walkingRouteResult;
+                } else {
+                    ((c) this).a(str, drivingRouteResult);
+                    walkingRouteResult2 = drivingRouteResult;
+                }
+            } else if (i2 != 3) {
+                return null;
+            } else {
+                WalkingRouteResult walkingRouteResult3 = new WalkingRouteResult();
+                if (this.f9422c) {
+                    walkingRouteResult3.setSuggestAddrInfo(this.f9421b);
+                    walkingRouteResult = walkingRouteResult3;
+                    walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
+                    walkingRouteResult2 = walkingRouteResult;
+                } else {
+                    ((o) this).a(str, walkingRouteResult3);
+                    walkingRouteResult2 = walkingRouteResult3;
+                }
+            }
+            return walkingRouteResult2;
         }
-        int i2 = l.f9349a[a2.ordinal()];
-        if (i2 == 1) {
-            TransitRouteResult transitRouteResult = new TransitRouteResult();
-            if (this.f9348c) {
-                transitRouteResult.setSuggestAddrInfo(this.f9347b);
-                walkingRouteResult = transitRouteResult;
-                walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
-                walkingRouteResult2 = walkingRouteResult;
-            } else {
-                ((m) this).a(str, transitRouteResult);
-                walkingRouteResult2 = transitRouteResult;
-            }
-        } else if (i2 == 2) {
-            DrivingRouteResult drivingRouteResult = new DrivingRouteResult();
-            if (this.f9348c) {
-                drivingRouteResult.setSuggestAddrInfo(this.f9347b);
-                walkingRouteResult = drivingRouteResult;
-                walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
-                walkingRouteResult2 = walkingRouteResult;
-            } else {
-                ((c) this).a(str, drivingRouteResult);
-                walkingRouteResult2 = drivingRouteResult;
-            }
-        } else if (i2 != 3) {
-            return null;
-        } else {
-            WalkingRouteResult walkingRouteResult3 = new WalkingRouteResult();
-            if (this.f9348c) {
-                walkingRouteResult3.setSuggestAddrInfo(this.f9347b);
-                walkingRouteResult = walkingRouteResult3;
-                walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
-                walkingRouteResult2 = walkingRouteResult;
-            } else {
-                ((o) this).a(str, walkingRouteResult3);
-                walkingRouteResult2 = walkingRouteResult3;
-            }
-        }
-        return walkingRouteResult2;
+        return (SearchResult) invokeL.objValue;
     }
 
     @Override // com.baidu.platform.base.d
     public void a(SearchResult searchResult, Object obj) {
-        if (obj == null || !(obj instanceof OnGetRoutePlanResultListener)) {
-            return;
-        }
-        OnGetRoutePlanResultListener onGetRoutePlanResultListener = (OnGetRoutePlanResultListener) obj;
-        int i2 = l.f9349a[a().ordinal()];
-        if (i2 == 1) {
-            onGetRoutePlanResultListener.onGetTransitRouteResult((TransitRouteResult) searchResult);
-        } else if (i2 == 2) {
-            onGetRoutePlanResultListener.onGetDrivingRouteResult((DrivingRouteResult) searchResult);
-        } else if (i2 != 3) {
-        } else {
-            onGetRoutePlanResultListener.onGetWalkingRouteResult((WalkingRouteResult) searchResult);
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetRoutePlanResultListener)) {
+            OnGetRoutePlanResultListener onGetRoutePlanResultListener = (OnGetRoutePlanResultListener) obj;
+            int i2 = l.f9423a[a().ordinal()];
+            if (i2 == 1) {
+                onGetRoutePlanResultListener.onGetTransitRouteResult((TransitRouteResult) searchResult);
+            } else if (i2 == 2) {
+                onGetRoutePlanResultListener.onGetDrivingRouteResult((DrivingRouteResult) searchResult);
+            } else if (i2 != 3) {
+            } else {
+                onGetRoutePlanResultListener.onGetWalkingRouteResult((WalkingRouteResult) searchResult);
+            }
         }
     }
 }

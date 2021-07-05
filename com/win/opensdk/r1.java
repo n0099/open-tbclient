@@ -1,34 +1,44 @@
 package com.win.opensdk;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 /* loaded from: classes7.dex */
 public class r1 {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40892a;
+    public static boolean f42635a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
+        InterceptResult invokeV;
         String str;
-        boolean z = f40892a;
-        if (z) {
-            return z;
-        }
-        String[] split = System.getenv("PATH").split(":");
-        int length = split.length;
-        int i2 = 0;
-        while (true) {
-            if (i2 >= length) {
-                str = null;
-                break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            boolean z = f42635a;
+            if (z) {
+                return z;
             }
-            str = split[i2] + "/su";
-            if (new File(str).exists()) {
-                break;
+            String[] split = System.getenv("PATH").split(":");
+            int length = split.length;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= length) {
+                    str = null;
+                    break;
+                }
+                str = split[i2] + "/su";
+                if (new File(str).exists()) {
+                    break;
+                }
+                i2++;
             }
-            i2++;
+            boolean z2 = str != null;
+            f42635a = z2;
+            return z2;
         }
-        boolean z2 = str != null;
-        f40892a = z2;
-        return z2;
+        return invokeV.booleanValue;
     }
 }

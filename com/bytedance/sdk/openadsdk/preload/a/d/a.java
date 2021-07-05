@@ -1,7 +1,17 @@
 package com.bytedance.sdk.openadsdk.preload.a.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.b.a.e;
 import com.bytedance.sdk.openadsdk.preload.a.b.f;
 import java.io.Closeable;
@@ -12,12 +22,35 @@ import java.util.Arrays;
 import kotlin.text.Typography;
 /* loaded from: classes6.dex */
 public class a implements Closeable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f31901a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Reader f30052b;
+    public final Reader f31902b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f31903c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final char[] f31904d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f31905e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f31906f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f31907g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f31908h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f30059i;
+    public long f31909i;
     public int j;
     public String k;
     public int[] l;
@@ -25,53 +58,85 @@ public class a implements Closeable {
     public String[] n;
     public int[] o;
 
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f30053c = false;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final char[] f30054d = new char[1024];
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f30055e = 0;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f30056f = 0;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f30057g = 0;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f30058h = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f30051a = 0;
-
     static {
-        f.f30005a = new f() { // from class: com.bytedance.sdk.openadsdk.preload.a.d.a.1
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(639710222, "Lcom/bytedance/sdk/openadsdk/preload/a/d/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(639710222, "Lcom/bytedance/sdk/openadsdk/preload/a/d/a;");
+                return;
+            }
+        }
+        f.f31855a = new f() { // from class: com.bytedance.sdk.openadsdk.preload.a.d.a.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             @Override // com.bytedance.sdk.openadsdk.preload.a.b.f
             public void a(a aVar) throws IOException {
-                if (aVar instanceof e) {
-                    ((e) aVar).o();
-                    return;
-                }
-                int i2 = aVar.f30051a;
-                if (i2 == 0) {
-                    i2 = aVar.r();
-                }
-                if (i2 == 13) {
-                    aVar.f30051a = 9;
-                } else if (i2 == 12) {
-                    aVar.f30051a = 8;
-                } else if (i2 == 14) {
-                    aVar.f30051a = 10;
-                } else {
-                    throw new IllegalStateException("Expected a name but was " + aVar.f() + aVar.s());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
+                    if (aVar instanceof e) {
+                        ((e) aVar).o();
+                        return;
+                    }
+                    int i2 = aVar.f31901a;
+                    if (i2 == 0) {
+                        i2 = aVar.r();
+                    }
+                    if (i2 == 13) {
+                        aVar.f31901a = 9;
+                    } else if (i2 == 12) {
+                        aVar.f31901a = 8;
+                    } else if (i2 == 14) {
+                        aVar.f31901a = 10;
+                    } else {
+                        throw new IllegalStateException("Expected a name but was " + aVar.f() + aVar.s());
+                    }
                 }
             }
         };
     }
 
     public a(Reader reader) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {reader};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f31903c = false;
+        this.f31904d = new char[1024];
+        this.f31905e = 0;
+        this.f31906f = 0;
+        this.f31907g = 0;
+        this.f31908h = 0;
+        this.f31901a = 0;
         int[] iArr = new int[32];
         this.l = iArr;
         this.m = 0;
@@ -80,114 +145,124 @@ public class a implements Closeable {
         this.n = new String[32];
         this.o = new int[32];
         if (reader != null) {
-            this.f30052b = reader;
+            this.f31902b = reader;
             return;
         }
         throw new NullPointerException("in == null");
     }
 
     private int o() throws IOException {
+        InterceptResult invokeV;
         int i2;
         String str;
         String str2;
-        char c2 = this.f30054d[this.f30055e];
-        if (c2 == 't' || c2 == 'T') {
-            i2 = 5;
-            str = "true";
-            str2 = "TRUE";
-        } else if (c2 == 'f' || c2 == 'F') {
-            i2 = 6;
-            str = "false";
-            str2 = "FALSE";
-        } else if (c2 != 'n' && c2 != 'N') {
-            return 0;
-        } else {
-            i2 = 7;
-            str = StringUtil.NULL_STRING;
-            str2 = "NULL";
-        }
-        int length = str.length();
-        for (int i3 = 1; i3 < length; i3++) {
-            if (this.f30055e + i3 >= this.f30056f && !b(i3 + 1)) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            char c2 = this.f31904d[this.f31905e];
+            if (c2 == 't' || c2 == 'T') {
+                i2 = 5;
+                str = "true";
+                str2 = "TRUE";
+            } else if (c2 == 'f' || c2 == 'F') {
+                i2 = 6;
+                str = "false";
+                str2 = "FALSE";
+            } else if (c2 != 'n' && c2 != 'N') {
+                return 0;
+            } else {
+                i2 = 7;
+                str = StringUtil.NULL_STRING;
+                str2 = "NULL";
+            }
+            int length = str.length();
+            for (int i3 = 1; i3 < length; i3++) {
+                if (this.f31905e + i3 >= this.f31906f && !b(i3 + 1)) {
+                    return 0;
+                }
+                char c3 = this.f31904d[this.f31905e + i3];
+                if (c3 != str.charAt(i3) && c3 != str2.charAt(i3)) {
+                    return 0;
+                }
+            }
+            if ((this.f31905e + length < this.f31906f || b(length + 1)) && a(this.f31904d[this.f31905e + length])) {
                 return 0;
             }
-            char c3 = this.f30054d[this.f30055e + i3];
-            if (c3 != str.charAt(i3) && c3 != str2.charAt(i3)) {
-                return 0;
-            }
+            this.f31905e += length;
+            this.f31901a = i2;
+            return i2;
         }
-        if ((this.f30055e + length < this.f30056f || b(length + 1)) && a(this.f30054d[this.f30055e + length])) {
-            return 0;
-        }
-        this.f30055e += length;
-        this.f30051a = i2;
-        return i2;
+        return invokeV.intValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0095, code lost:
-        if (a(r14) != false) goto L76;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0097, code lost:
-        if (r9 != 2) goto L23;
-     */
     /* JADX WARN: Code restructure failed: missing block: B:57:0x0099, code lost:
-        if (r10 == false) goto L23;
+        if (a(r14) != false) goto L78;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x009f, code lost:
-        if (r11 != Long.MIN_VALUE) goto L15;
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x009b, code lost:
+        if (r9 != 2) goto L25;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x00a1, code lost:
-        if (r13 == false) goto L23;
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x009d, code lost:
+        if (r10 == false) goto L25;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x00a7, code lost:
-        if (r11 != 0) goto L18;
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x00a3, code lost:
+        if (r11 != Long.MIN_VALUE) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x00a9, code lost:
-        if (r13 != false) goto L23;
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00a5, code lost:
+        if (r13 == false) goto L25;
      */
     /* JADX WARN: Code restructure failed: missing block: B:64:0x00ab, code lost:
-        if (r13 == false) goto L19;
+        if (r11 != 0) goto L20;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x00ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00ad, code lost:
+        if (r13 != false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x00af, code lost:
+        if (r13 == false) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x00b2, code lost:
         r11 = -r11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x00af, code lost:
-        r18.f30059i = r11;
-        r18.f30055e += r8;
-        r18.f30051a = 15;
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x00b3, code lost:
+        r18.f31909i = r11;
+        r18.f31905e += r8;
+        r18.f31901a = 15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x00ba, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x00be, code lost:
         return 15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x00bb, code lost:
-        if (r9 == 2) goto L29;
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x00bf, code lost:
+        if (r9 == 2) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:71:0x00be, code lost:
-        if (r9 == 4) goto L29;
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x00c2, code lost:
+        if (r9 == 4) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x00c1, code lost:
-        if (r9 != 7) goto L28;
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x00c5, code lost:
+        if (r9 != 7) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x00c4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x00c8, code lost:
         return 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:77:0x00c6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x00ca, code lost:
         r18.j = r8;
-        r18.f30051a = 16;
+        r18.f31901a = 16;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x00cc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x00d0, code lost:
         return 16;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:79:0x00cd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x00d1, code lost:
         return 0;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private int t() throws IOException {
-        char[] cArr = this.f30054d;
-        int i2 = this.f30055e;
-        int i3 = this.f30056f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65547, this)) != null) {
+            return invokeV.intValue;
+        }
+        char[] cArr = this.f31904d;
+        int i2 = this.f31905e;
+        int i3 = this.f31906f;
         int i4 = 0;
         int i5 = 0;
         char c2 = 0;
@@ -202,8 +277,8 @@ public class a implements Closeable {
                 if (!b(i5 + 1)) {
                     break;
                 }
-                i2 = this.f30055e;
-                i3 = this.f30056f;
+                i2 = this.f31905e;
+                i3 = this.f31906f;
             }
             char c3 = cArr[i2 + i5];
             if (c3 != '+') {
@@ -263,1008 +338,1145 @@ public class a implements Closeable {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x004a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x004e, code lost:
         w();
      */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x008a  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x008e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private String u() throws IOException {
+        InterceptResult invokeV;
         String sb;
-        int i2 = 0;
-        StringBuilder sb2 = null;
-        do {
-            int i3 = 0;
-            while (true) {
-                int i4 = this.f30055e;
-                if (i4 + i3 < this.f30056f) {
-                    char c2 = this.f30054d[i4 + i3];
-                    if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
-                        if (c2 != '#') {
-                            if (c2 != ',') {
-                                if (c2 != '/' && c2 != '=') {
-                                    if (c2 != '{' && c2 != '}' && c2 != ':') {
-                                        if (c2 != ';') {
-                                            switch (c2) {
-                                                case '[':
-                                                case ']':
-                                                    break;
-                                                case '\\':
-                                                    break;
-                                                default:
-                                                    i3++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            int i2 = 0;
+            StringBuilder sb2 = null;
+            do {
+                int i3 = 0;
+                while (true) {
+                    int i4 = this.f31905e;
+                    if (i4 + i3 < this.f31906f) {
+                        char c2 = this.f31904d[i4 + i3];
+                        if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
+                            if (c2 != '#') {
+                                if (c2 != ',') {
+                                    if (c2 != '/' && c2 != '=') {
+                                        if (c2 != '{' && c2 != '}' && c2 != ':') {
+                                            if (c2 != ';') {
+                                                switch (c2) {
+                                                    case '[':
+                                                    case ']':
+                                                        break;
+                                                    case '\\':
+                                                        break;
+                                                    default:
+                                                        i3++;
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
                         }
+                    } else if (i3 < this.f31904d.length) {
+                        if (b(i3 + 1)) {
+                        }
+                    } else {
+                        if (sb2 == null) {
+                            sb2 = new StringBuilder(Math.max(i3, 16));
+                        }
+                        sb2.append(this.f31904d, this.f31905e, i3);
+                        this.f31905e += i3;
                     }
-                } else if (i3 < this.f30054d.length) {
-                    if (b(i3 + 1)) {
-                    }
-                } else {
-                    if (sb2 == null) {
-                        sb2 = new StringBuilder(Math.max(i3, 16));
-                    }
-                    sb2.append(this.f30054d, this.f30055e, i3);
-                    this.f30055e += i3;
                 }
-            }
-            i2 = i3;
+                i2 = i3;
+                if (sb2 != null) {
+                    sb = new String(this.f31904d, this.f31905e, i2);
+                } else {
+                    sb2.append(this.f31904d, this.f31905e, i2);
+                    sb = sb2.toString();
+                }
+                this.f31905e += i2;
+                return sb;
+            } while (b(1));
             if (sb2 != null) {
-                sb = new String(this.f30054d, this.f30055e, i2);
-            } else {
-                sb2.append(this.f30054d, this.f30055e, i2);
-                sb = sb2.toString();
             }
-            this.f30055e += i2;
+            this.f31905e += i2;
             return sb;
-        } while (b(1));
-        if (sb2 != null) {
         }
-        this.f30055e += i2;
-        return sb;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0048, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x004c, code lost:
         w();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void v() throws IOException {
-        do {
-            int i2 = 0;
-            while (true) {
-                int i3 = this.f30055e;
-                if (i3 + i2 < this.f30056f) {
-                    char c2 = this.f30054d[i3 + i2];
-                    if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
-                        if (c2 != '#') {
-                            if (c2 != ',') {
-                                if (c2 != '/' && c2 != '=') {
-                                    if (c2 != '{' && c2 != '}' && c2 != ':') {
-                                        if (c2 != ';') {
-                                            switch (c2) {
-                                                case '[':
-                                                case ']':
-                                                    break;
-                                                case '\\':
-                                                    break;
-                                                default:
-                                                    i2++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            do {
+                int i2 = 0;
+                while (true) {
+                    int i3 = this.f31905e;
+                    if (i3 + i2 < this.f31906f) {
+                        char c2 = this.f31904d[i3 + i2];
+                        if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
+                            if (c2 != '#') {
+                                if (c2 != ',') {
+                                    if (c2 != '/' && c2 != '=') {
+                                        if (c2 != '{' && c2 != '}' && c2 != ':') {
+                                            if (c2 != ';') {
+                                                switch (c2) {
+                                                    case '[':
+                                                    case ']':
+                                                        break;
+                                                    case '\\':
+                                                        break;
+                                                    default:
+                                                        i2++;
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
                         }
+                    } else {
+                        this.f31905e = i3 + i2;
                     }
-                } else {
-                    this.f30055e = i3 + i2;
                 }
-            }
-            this.f30055e += i2;
-            return;
-        } while (b(1));
+                this.f31905e += i2;
+                return;
+            } while (b(1));
+        }
     }
 
     private void w() throws IOException {
-        if (!this.f30053c) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && !this.f31903c) {
             throw b("Use JsonReader.setLenient(true) to accept malformed JSON");
         }
     }
 
     private void x() throws IOException {
         char c2;
-        do {
-            if (this.f30055e >= this.f30056f && !b(1)) {
-                return;
-            }
-            char[] cArr = this.f30054d;
-            int i2 = this.f30055e;
-            int i3 = i2 + 1;
-            this.f30055e = i3;
-            c2 = cArr[i2];
-            if (c2 == '\n') {
-                this.f30057g++;
-                this.f30058h = i3;
-                return;
-            }
-        } while (c2 != '\r');
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            do {
+                if (this.f31905e >= this.f31906f && !b(1)) {
+                    return;
+                }
+                char[] cArr = this.f31904d;
+                int i2 = this.f31905e;
+                int i3 = i2 + 1;
+                this.f31905e = i3;
+                c2 = cArr[i2];
+                if (c2 == '\n') {
+                    this.f31907g++;
+                    this.f31908h = i3;
+                    return;
+                }
+            } while (c2 != '\r');
+        }
     }
 
     private char y() throws IOException {
+        InterceptResult invokeV;
         int i2;
         int i3;
-        if (this.f30055e == this.f30056f && !b(1)) {
-            throw b("Unterminated escape sequence");
-        }
-        char[] cArr = this.f30054d;
-        int i4 = this.f30055e;
-        int i5 = i4 + 1;
-        this.f30055e = i5;
-        char c2 = cArr[i4];
-        if (c2 == '\n') {
-            this.f30057g++;
-            this.f30058h = i5;
-        } else if (c2 != '\"' && c2 != '\'' && c2 != '/' && c2 != '\\') {
-            if (c2 != 'b') {
-                if (c2 != 'f') {
-                    if (c2 != 'n') {
-                        if (c2 != 'r') {
-                            if (c2 != 't') {
-                                if (c2 == 'u') {
-                                    if (i5 + 4 > this.f30056f && !b(4)) {
-                                        throw b("Unterminated escape sequence");
-                                    }
-                                    char c3 = 0;
-                                    int i6 = this.f30055e;
-                                    int i7 = i6 + 4;
-                                    while (i6 < i7) {
-                                        char c4 = this.f30054d[i6];
-                                        char c5 = (char) (c3 << 4);
-                                        if (c4 < '0' || c4 > '9') {
-                                            if (c4 >= 'a' && c4 <= 'f') {
-                                                i2 = c4 - 'a';
-                                            } else if (c4 < 'A' || c4 > 'F') {
-                                                throw new NumberFormatException("\\u" + new String(this.f30054d, this.f30055e, 4));
-                                            } else {
-                                                i2 = c4 - 'A';
-                                            }
-                                            i3 = i2 + 10;
-                                        } else {
-                                            i3 = c4 - '0';
-                                        }
-                                        c3 = (char) (c5 + i3);
-                                        i6++;
-                                    }
-                                    this.f30055e += 4;
-                                    return c3;
-                                }
-                                throw b("Invalid escape sequence");
-                            }
-                            return '\t';
-                        }
-                        return '\r';
-                    }
-                    return '\n';
-                }
-                return '\f';
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            if (this.f31905e == this.f31906f && !b(1)) {
+                throw b("Unterminated escape sequence");
             }
-            return '\b';
+            char[] cArr = this.f31904d;
+            int i4 = this.f31905e;
+            int i5 = i4 + 1;
+            this.f31905e = i5;
+            char c2 = cArr[i4];
+            if (c2 == '\n') {
+                this.f31907g++;
+                this.f31908h = i5;
+            } else if (c2 != '\"' && c2 != '\'' && c2 != '/' && c2 != '\\') {
+                if (c2 != 'b') {
+                    if (c2 != 'f') {
+                        if (c2 != 'n') {
+                            if (c2 != 'r') {
+                                if (c2 != 't') {
+                                    if (c2 == 'u') {
+                                        if (i5 + 4 > this.f31906f && !b(4)) {
+                                            throw b("Unterminated escape sequence");
+                                        }
+                                        char c3 = 0;
+                                        int i6 = this.f31905e;
+                                        int i7 = i6 + 4;
+                                        while (i6 < i7) {
+                                            char c4 = this.f31904d[i6];
+                                            char c5 = (char) (c3 << 4);
+                                            if (c4 < '0' || c4 > '9') {
+                                                if (c4 >= 'a' && c4 <= 'f') {
+                                                    i2 = c4 - 'a';
+                                                } else if (c4 < 'A' || c4 > 'F') {
+                                                    throw new NumberFormatException("\\u" + new String(this.f31904d, this.f31905e, 4));
+                                                } else {
+                                                    i2 = c4 - 'A';
+                                                }
+                                                i3 = i2 + 10;
+                                            } else {
+                                                i3 = c4 - '0';
+                                            }
+                                            c3 = (char) (c5 + i3);
+                                            i6++;
+                                        }
+                                        this.f31905e += 4;
+                                        return c3;
+                                    }
+                                    throw b("Invalid escape sequence");
+                                }
+                                return '\t';
+                            }
+                            return '\r';
+                        }
+                        return '\n';
+                    }
+                    return '\f';
+                }
+                return '\b';
+            }
+            return c2;
         }
-        return c2;
+        return invokeV.charValue;
     }
 
     private void z() throws IOException {
-        b(true);
-        int i2 = this.f30055e - 1;
-        this.f30055e = i2;
-        if (i2 + 5 <= this.f30056f || b(5)) {
-            char[] cArr = this.f30054d;
-            if (cArr[i2] == ')' && cArr[i2 + 1] == ']' && cArr[i2 + 2] == '}' && cArr[i2 + 3] == '\'' && cArr[i2 + 4] == '\n') {
-                this.f30055e += 5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            b(true);
+            int i2 = this.f31905e - 1;
+            this.f31905e = i2;
+            if (i2 + 5 <= this.f31906f || b(5)) {
+                char[] cArr = this.f31904d;
+                if (cArr[i2] == ')' && cArr[i2 + 1] == ']' && cArr[i2 + 2] == '}' && cArr[i2 + 3] == '\'' && cArr[i2 + 4] == '\n') {
+                    this.f31905e += 5;
+                }
             }
         }
     }
 
     public final void a(boolean z) {
-        this.f30053c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f31903c = z;
+        }
     }
 
     public void b() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            if (i2 == 4) {
+                int i3 = this.m - 1;
+                this.m = i3;
+                int[] iArr = this.o;
+                int i4 = i3 - 1;
+                iArr[i4] = iArr[i4] + 1;
+                this.f31901a = 0;
+                return;
+            }
+            throw new IllegalStateException("Expected END_ARRAY but was " + f() + s());
         }
-        if (i2 == 4) {
-            int i3 = this.m - 1;
-            this.m = i3;
-            int[] iArr = this.o;
-            int i4 = i3 - 1;
-            iArr[i4] = iArr[i4] + 1;
-            this.f30051a = 0;
-            return;
-        }
-        throw new IllegalStateException("Expected END_ARRAY but was " + f() + s());
     }
 
     public void c() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            if (i2 == 1) {
+                a(3);
+                this.f31901a = 0;
+                return;
+            }
+            throw new IllegalStateException("Expected BEGIN_OBJECT but was " + f() + s());
         }
-        if (i2 == 1) {
-            a(3);
-            this.f30051a = 0;
-            return;
-        }
-        throw new IllegalStateException("Expected BEGIN_OBJECT but was " + f() + s());
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f30051a = 0;
-        this.l[0] = 8;
-        this.m = 1;
-        this.f30052b.close();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f31901a = 0;
+            this.l[0] = 8;
+            this.m = 1;
+            this.f31902b.close();
+        }
     }
 
     public void d() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            if (i2 == 2) {
+                int i3 = this.m - 1;
+                this.m = i3;
+                this.n[i3] = null;
+                int[] iArr = this.o;
+                int i4 = i3 - 1;
+                iArr[i4] = iArr[i4] + 1;
+                this.f31901a = 0;
+                return;
+            }
+            throw new IllegalStateException("Expected END_OBJECT but was " + f() + s());
         }
-        if (i2 == 2) {
-            int i3 = this.m - 1;
-            this.m = i3;
-            this.n[i3] = null;
-            int[] iArr = this.o;
-            int i4 = i3 - 1;
-            iArr[i4] = iArr[i4] + 1;
-            this.f30051a = 0;
-            return;
-        }
-        throw new IllegalStateException("Expected END_OBJECT but was " + f() + s());
     }
 
     public boolean e() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            return (i2 == 2 || i2 == 4) ? false : true;
         }
-        return (i2 == 2 || i2 == 4) ? false : true;
+        return invokeV.booleanValue;
     }
 
     public b f() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            switch (i2) {
+                case 1:
+                    return b.f31912c;
+                case 2:
+                    return b.f31913d;
+                case 3:
+                    return b.f31910a;
+                case 4:
+                    return b.f31911b;
+                case 5:
+                case 6:
+                    return b.f31917h;
+                case 7:
+                    return b.f31918i;
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                    return b.f31915f;
+                case 12:
+                case 13:
+                case 14:
+                    return b.f31914e;
+                case 15:
+                case 16:
+                    return b.f31916g;
+                case 17:
+                    return b.j;
+                default:
+                    throw new AssertionError();
+            }
         }
-        switch (i2) {
-            case 1:
-                return b.BEGIN_OBJECT;
-            case 2:
-                return b.END_OBJECT;
-            case 3:
-                return b.BEGIN_ARRAY;
-            case 4:
-                return b.END_ARRAY;
-            case 5:
-            case 6:
-                return b.BOOLEAN;
-            case 7:
-                return b.NULL;
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-                return b.STRING;
-            case 12:
-            case 13:
-            case 14:
-                return b.NAME;
-            case 15:
-            case 16:
-                return b.NUMBER;
-            case 17:
-                return b.END_DOCUMENT;
-            default:
-                throw new AssertionError();
-        }
+        return (b) invokeV.objValue;
     }
 
     public String g() throws IOException {
+        InterceptResult invokeV;
         String b2;
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            if (i2 == 14) {
+                b2 = u();
+            } else if (i2 == 12) {
+                b2 = b('\'');
+            } else if (i2 == 13) {
+                b2 = b(Typography.quote);
+            } else {
+                throw new IllegalStateException("Expected a name but was " + f() + s());
+            }
+            this.f31901a = 0;
+            this.n[this.m - 1] = b2;
+            return b2;
         }
-        if (i2 == 14) {
-            b2 = u();
-        } else if (i2 == 12) {
-            b2 = b('\'');
-        } else if (i2 == 13) {
-            b2 = b(Typography.quote);
-        } else {
-            throw new IllegalStateException("Expected a name but was " + f() + s());
-        }
-        this.f30051a = 0;
-        this.n[this.m - 1] = b2;
-        return b2;
+        return (String) invokeV.objValue;
     }
 
     public String h() throws IOException {
+        InterceptResult invokeV;
         String str;
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            if (i2 == 10) {
+                str = u();
+            } else if (i2 == 8) {
+                str = b('\'');
+            } else if (i2 == 9) {
+                str = b(Typography.quote);
+            } else if (i2 == 11) {
+                str = this.k;
+                this.k = null;
+            } else if (i2 == 15) {
+                str = Long.toString(this.f31909i);
+            } else if (i2 == 16) {
+                str = new String(this.f31904d, this.f31905e, this.j);
+                this.f31905e += this.j;
+            } else {
+                throw new IllegalStateException("Expected a string but was " + f() + s());
+            }
+            this.f31901a = 0;
+            int[] iArr = this.o;
+            int i3 = this.m - 1;
+            iArr[i3] = iArr[i3] + 1;
+            return str;
         }
-        if (i2 == 10) {
-            str = u();
-        } else if (i2 == 8) {
-            str = b('\'');
-        } else if (i2 == 9) {
-            str = b(Typography.quote);
-        } else if (i2 == 11) {
-            str = this.k;
-            this.k = null;
-        } else if (i2 == 15) {
-            str = Long.toString(this.f30059i);
-        } else if (i2 == 16) {
-            str = new String(this.f30054d, this.f30055e, this.j);
-            this.f30055e += this.j;
-        } else {
-            throw new IllegalStateException("Expected a string but was " + f() + s());
-        }
-        this.f30051a = 0;
-        int[] iArr = this.o;
-        int i3 = this.m - 1;
-        iArr[i3] = iArr[i3] + 1;
-        return str;
+        return (String) invokeV.objValue;
     }
 
     public boolean i() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
-        }
-        if (i2 == 5) {
-            this.f30051a = 0;
-            int[] iArr = this.o;
-            int i3 = this.m - 1;
-            iArr[i3] = iArr[i3] + 1;
-            return true;
-        } else if (i2 == 6) {
-            this.f30051a = 0;
-            int[] iArr2 = this.o;
-            int i4 = this.m - 1;
-            iArr2[i4] = iArr2[i4] + 1;
-            return false;
-        } else {
-            throw new IllegalStateException("Expected a boolean but was " + f() + s());
-        }
-    }
-
-    public void j() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
-        }
-        if (i2 == 7) {
-            this.f30051a = 0;
-            int[] iArr = this.o;
-            int i3 = this.m - 1;
-            iArr[i3] = iArr[i3] + 1;
-            return;
-        }
-        throw new IllegalStateException("Expected null but was " + f() + s());
-    }
-
-    public double k() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
-        }
-        if (i2 == 15) {
-            this.f30051a = 0;
-            int[] iArr = this.o;
-            int i3 = this.m - 1;
-            iArr[i3] = iArr[i3] + 1;
-            return this.f30059i;
-        }
-        if (i2 == 16) {
-            this.k = new String(this.f30054d, this.f30055e, this.j);
-            this.f30055e += this.j;
-        } else if (i2 == 8 || i2 == 9) {
-            this.k = b(i2 == 8 ? '\'' : Typography.quote);
-        } else if (i2 == 10) {
-            this.k = u();
-        } else if (i2 != 11) {
-            throw new IllegalStateException("Expected a double but was " + f() + s());
-        }
-        this.f30051a = 11;
-        double parseDouble = Double.parseDouble(this.k);
-        if (!this.f30053c && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
-            throw new d("JSON forbids NaN and infinities: " + parseDouble + s());
-        }
-        this.k = null;
-        this.f30051a = 0;
-        int[] iArr2 = this.o;
-        int i4 = this.m - 1;
-        iArr2[i4] = iArr2[i4] + 1;
-        return parseDouble;
-    }
-
-    public long l() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
-        }
-        if (i2 == 15) {
-            this.f30051a = 0;
-            int[] iArr = this.o;
-            int i3 = this.m - 1;
-            iArr[i3] = iArr[i3] + 1;
-            return this.f30059i;
-        }
-        if (i2 == 16) {
-            this.k = new String(this.f30054d, this.f30055e, this.j);
-            this.f30055e += this.j;
-        } else if (i2 != 8 && i2 != 9 && i2 != 10) {
-            throw new IllegalStateException("Expected a long but was " + f() + s());
-        } else {
-            if (i2 == 10) {
-                this.k = u();
-            } else {
-                this.k = b(i2 == 8 ? '\'' : Typography.quote);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
             }
-            try {
-                long parseLong = Long.parseLong(this.k);
-                this.f30051a = 0;
+            if (i2 == 5) {
+                this.f31901a = 0;
+                int[] iArr = this.o;
+                int i3 = this.m - 1;
+                iArr[i3] = iArr[i3] + 1;
+                return true;
+            } else if (i2 == 6) {
+                this.f31901a = 0;
                 int[] iArr2 = this.o;
                 int i4 = this.m - 1;
                 iArr2[i4] = iArr2[i4] + 1;
-                return parseLong;
-            } catch (NumberFormatException unused) {
+                return false;
+            } else {
+                throw new IllegalStateException("Expected a boolean but was " + f() + s());
             }
         }
-        this.f30051a = 11;
-        double parseDouble = Double.parseDouble(this.k);
-        long j = (long) parseDouble;
-        if (j == parseDouble) {
-            this.k = null;
-            this.f30051a = 0;
-            int[] iArr3 = this.o;
-            int i5 = this.m - 1;
-            iArr3[i5] = iArr3[i5] + 1;
-            return j;
+        return invokeV.booleanValue;
+    }
+
+    public void j() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            if (i2 == 7) {
+                this.f31901a = 0;
+                int[] iArr = this.o;
+                int i3 = this.m - 1;
+                iArr[i3] = iArr[i3] + 1;
+                return;
+            }
+            throw new IllegalStateException("Expected null but was " + f() + s());
         }
-        throw new NumberFormatException("Expected a long but was " + this.k + s());
+    }
+
+    public double k() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            if (i2 == 15) {
+                this.f31901a = 0;
+                int[] iArr = this.o;
+                int i3 = this.m - 1;
+                iArr[i3] = iArr[i3] + 1;
+                return this.f31909i;
+            }
+            if (i2 == 16) {
+                this.k = new String(this.f31904d, this.f31905e, this.j);
+                this.f31905e += this.j;
+            } else if (i2 == 8 || i2 == 9) {
+                this.k = b(i2 == 8 ? '\'' : Typography.quote);
+            } else if (i2 == 10) {
+                this.k = u();
+            } else if (i2 != 11) {
+                throw new IllegalStateException("Expected a double but was " + f() + s());
+            }
+            this.f31901a = 11;
+            double parseDouble = Double.parseDouble(this.k);
+            if (!this.f31903c && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
+                throw new d("JSON forbids NaN and infinities: " + parseDouble + s());
+            }
+            this.k = null;
+            this.f31901a = 0;
+            int[] iArr2 = this.o;
+            int i4 = this.m - 1;
+            iArr2[i4] = iArr2[i4] + 1;
+            return parseDouble;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public long l() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            if (i2 == 15) {
+                this.f31901a = 0;
+                int[] iArr = this.o;
+                int i3 = this.m - 1;
+                iArr[i3] = iArr[i3] + 1;
+                return this.f31909i;
+            }
+            if (i2 == 16) {
+                this.k = new String(this.f31904d, this.f31905e, this.j);
+                this.f31905e += this.j;
+            } else if (i2 != 8 && i2 != 9 && i2 != 10) {
+                throw new IllegalStateException("Expected a long but was " + f() + s());
+            } else {
+                if (i2 == 10) {
+                    this.k = u();
+                } else {
+                    this.k = b(i2 == 8 ? '\'' : Typography.quote);
+                }
+                try {
+                    long parseLong = Long.parseLong(this.k);
+                    this.f31901a = 0;
+                    int[] iArr2 = this.o;
+                    int i4 = this.m - 1;
+                    iArr2[i4] = iArr2[i4] + 1;
+                    return parseLong;
+                } catch (NumberFormatException unused) {
+                }
+            }
+            this.f31901a = 11;
+            double parseDouble = Double.parseDouble(this.k);
+            long j = (long) parseDouble;
+            if (j == parseDouble) {
+                this.k = null;
+                this.f31901a = 0;
+                int[] iArr3 = this.o;
+                int i5 = this.m - 1;
+                iArr3[i5] = iArr3[i5] + 1;
+                return j;
+            }
+            throw new NumberFormatException("Expected a long but was " + this.k + s());
+        }
+        return invokeV.longValue;
     }
 
     public int m() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
-        }
-        if (i2 == 15) {
-            long j = this.f30059i;
-            int i3 = (int) j;
-            if (j == i3) {
-                this.f30051a = 0;
-                int[] iArr = this.o;
-                int i4 = this.m - 1;
-                iArr[i4] = iArr[i4] + 1;
-                return i3;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
             }
-            throw new NumberFormatException("Expected an int but was " + this.f30059i + s());
-        }
-        if (i2 == 16) {
-            this.k = new String(this.f30054d, this.f30055e, this.j);
-            this.f30055e += this.j;
-        } else if (i2 != 8 && i2 != 9 && i2 != 10) {
-            throw new IllegalStateException("Expected an int but was " + f() + s());
-        } else {
-            if (i2 == 10) {
-                this.k = u();
+            if (i2 == 15) {
+                long j = this.f31909i;
+                int i3 = (int) j;
+                if (j == i3) {
+                    this.f31901a = 0;
+                    int[] iArr = this.o;
+                    int i4 = this.m - 1;
+                    iArr[i4] = iArr[i4] + 1;
+                    return i3;
+                }
+                throw new NumberFormatException("Expected an int but was " + this.f31909i + s());
+            }
+            if (i2 == 16) {
+                this.k = new String(this.f31904d, this.f31905e, this.j);
+                this.f31905e += this.j;
+            } else if (i2 != 8 && i2 != 9 && i2 != 10) {
+                throw new IllegalStateException("Expected an int but was " + f() + s());
             } else {
-                this.k = b(i2 == 8 ? '\'' : Typography.quote);
+                if (i2 == 10) {
+                    this.k = u();
+                } else {
+                    this.k = b(i2 == 8 ? '\'' : Typography.quote);
+                }
+                try {
+                    int parseInt = Integer.parseInt(this.k);
+                    this.f31901a = 0;
+                    int[] iArr2 = this.o;
+                    int i5 = this.m - 1;
+                    iArr2[i5] = iArr2[i5] + 1;
+                    return parseInt;
+                } catch (NumberFormatException unused) {
+                }
             }
-            try {
-                int parseInt = Integer.parseInt(this.k);
-                this.f30051a = 0;
-                int[] iArr2 = this.o;
-                int i5 = this.m - 1;
-                iArr2[i5] = iArr2[i5] + 1;
-                return parseInt;
-            } catch (NumberFormatException unused) {
+            this.f31901a = 11;
+            double parseDouble = Double.parseDouble(this.k);
+            int i6 = (int) parseDouble;
+            if (i6 == parseDouble) {
+                this.k = null;
+                this.f31901a = 0;
+                int[] iArr3 = this.o;
+                int i7 = this.m - 1;
+                iArr3[i7] = iArr3[i7] + 1;
+                return i6;
             }
+            throw new NumberFormatException("Expected an int but was " + this.k + s());
         }
-        this.f30051a = 11;
-        double parseDouble = Double.parseDouble(this.k);
-        int i6 = (int) parseDouble;
-        if (i6 == parseDouble) {
-            this.k = null;
-            this.f30051a = 0;
-            int[] iArr3 = this.o;
-            int i7 = this.m - 1;
-            iArr3[i7] = iArr3[i7] + 1;
-            return i6;
-        }
-        throw new NumberFormatException("Expected an int but was " + this.k + s());
+        return invokeV.intValue;
     }
 
     public void n() throws IOException {
-        int i2 = 0;
-        do {
-            int i3 = this.f30051a;
-            if (i3 == 0) {
-                i3 = r();
-            }
-            if (i3 == 3) {
-                a(1);
-            } else if (i3 == 1) {
-                a(3);
-            } else {
-                if (i3 == 4) {
-                    this.m--;
-                } else if (i3 == 2) {
-                    this.m--;
-                } else {
-                    if (i3 == 14 || i3 == 10) {
-                        v();
-                    } else if (i3 == 8 || i3 == 12) {
-                        c('\'');
-                    } else if (i3 == 9 || i3 == 13) {
-                        c(Typography.quote);
-                    } else if (i3 == 16) {
-                        this.f30055e += this.j;
-                    }
-                    this.f30051a = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            int i2 = 0;
+            do {
+                int i3 = this.f31901a;
+                if (i3 == 0) {
+                    i3 = r();
                 }
-                i2--;
-                this.f30051a = 0;
-            }
-            i2++;
-            this.f30051a = 0;
-        } while (i2 != 0);
-        int[] iArr = this.o;
-        int i4 = this.m;
-        int i5 = i4 - 1;
-        iArr[i5] = iArr[i5] + 1;
-        this.n[i4 - 1] = StringUtil.NULL_STRING;
+                if (i3 == 3) {
+                    a(1);
+                } else if (i3 == 1) {
+                    a(3);
+                } else {
+                    if (i3 == 4) {
+                        this.m--;
+                    } else if (i3 == 2) {
+                        this.m--;
+                    } else {
+                        if (i3 == 14 || i3 == 10) {
+                            v();
+                        } else if (i3 == 8 || i3 == 12) {
+                            c('\'');
+                        } else if (i3 == 9 || i3 == 13) {
+                            c(Typography.quote);
+                        } else if (i3 == 16) {
+                            this.f31905e += this.j;
+                        }
+                        this.f31901a = 0;
+                    }
+                    i2--;
+                    this.f31901a = 0;
+                }
+                i2++;
+                this.f31901a = 0;
+            } while (i2 != 0);
+            int[] iArr = this.o;
+            int i4 = this.m;
+            int i5 = i4 - 1;
+            iArr[i5] = iArr[i5] + 1;
+            this.n[i4 - 1] = StringUtil.NULL_STRING;
+        }
     }
 
     public String p() {
-        StringBuilder sb = new StringBuilder();
-        sb.append('$');
-        int i2 = this.m;
-        for (int i3 = 0; i3 < i2; i3++) {
-            int i4 = this.l[i3];
-            if (i4 == 1 || i4 == 2) {
-                sb.append('[');
-                sb.append(this.o[i3]);
-                sb.append(']');
-            } else if (i4 == 3 || i4 == 4 || i4 == 5) {
-                sb.append(IStringUtil.EXTENSION_SEPARATOR);
-                String[] strArr = this.n;
-                if (strArr[i3] != null) {
-                    sb.append(strArr[i3]);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append('$');
+            int i2 = this.m;
+            for (int i3 = 0; i3 < i2; i3++) {
+                int i4 = this.l[i3];
+                if (i4 == 1 || i4 == 2) {
+                    sb.append('[');
+                    sb.append(this.o[i3]);
+                    sb.append(']');
+                } else if (i4 == 3 || i4 == 4 || i4 == 5) {
+                    sb.append(IStringUtil.EXTENSION_SEPARATOR);
+                    String[] strArr = this.n;
+                    if (strArr[i3] != null) {
+                        sb.append(strArr[i3]);
+                    }
                 }
             }
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 
     public final boolean q() {
-        return this.f30053c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f31903c : invokeV.booleanValue;
     }
 
     public int r() throws IOException {
+        InterceptResult invokeV;
         int b2;
-        int[] iArr = this.l;
-        int i2 = this.m;
-        int i3 = iArr[i2 - 1];
-        if (i3 == 1) {
-            iArr[i2 - 1] = 2;
-        } else if (i3 == 2) {
-            int b3 = b(true);
-            if (b3 != 44) {
-                if (b3 != 59) {
-                    if (b3 == 93) {
-                        this.f30051a = 4;
-                        return 4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            int[] iArr = this.l;
+            int i2 = this.m;
+            int i3 = iArr[i2 - 1];
+            if (i3 == 1) {
+                iArr[i2 - 1] = 2;
+            } else if (i3 == 2) {
+                int b3 = b(true);
+                if (b3 != 44) {
+                    if (b3 != 59) {
+                        if (b3 == 93) {
+                            this.f31901a = 4;
+                            return 4;
+                        }
+                        throw b("Unterminated array");
                     }
-                    throw b("Unterminated array");
+                    w();
                 }
-                w();
-            }
-        } else if (i3 == 3 || i3 == 5) {
-            this.l[this.m - 1] = 4;
-            if (i3 == 5 && (b2 = b(true)) != 44) {
-                if (b2 != 59) {
-                    if (b2 == 125) {
-                        this.f30051a = 2;
+            } else if (i3 == 3 || i3 == 5) {
+                this.l[this.m - 1] = 4;
+                if (i3 == 5 && (b2 = b(true)) != 44) {
+                    if (b2 != 59) {
+                        if (b2 == 125) {
+                            this.f31901a = 2;
+                            return 2;
+                        }
+                        throw b("Unterminated object");
+                    }
+                    w();
+                }
+                int b4 = b(true);
+                if (b4 == 34) {
+                    this.f31901a = 13;
+                    return 13;
+                } else if (b4 == 39) {
+                    w();
+                    this.f31901a = 12;
+                    return 12;
+                } else if (b4 == 125) {
+                    if (i3 != 5) {
+                        this.f31901a = 2;
                         return 2;
                     }
-                    throw b("Unterminated object");
-                }
-                w();
-            }
-            int b4 = b(true);
-            if (b4 == 34) {
-                this.f30051a = 13;
-                return 13;
-            } else if (b4 == 39) {
-                w();
-                this.f30051a = 12;
-                return 12;
-            } else if (b4 == 125) {
-                if (i3 != 5) {
-                    this.f30051a = 2;
-                    return 2;
-                }
-                throw b("Expected name");
-            } else {
-                w();
-                this.f30055e--;
-                if (a((char) b4)) {
-                    this.f30051a = 14;
-                    return 14;
-                }
-                throw b("Expected name");
-            }
-        } else if (i3 == 4) {
-            iArr[i2 - 1] = 5;
-            int b5 = b(true);
-            if (b5 != 58) {
-                if (b5 == 61) {
-                    w();
-                    if (this.f30055e < this.f30056f || b(1)) {
-                        char[] cArr = this.f30054d;
-                        int i4 = this.f30055e;
-                        if (cArr[i4] == '>') {
-                            this.f30055e = i4 + 1;
-                        }
-                    }
+                    throw b("Expected name");
                 } else {
-                    throw b("Expected ':'");
-                }
-            }
-        } else if (i3 == 6) {
-            if (this.f30053c) {
-                z();
-            }
-            this.l[this.m - 1] = 7;
-        } else if (i3 == 7) {
-            if (b(false) == -1) {
-                this.f30051a = 17;
-                return 17;
-            }
-            w();
-            this.f30055e--;
-        } else if (i3 == 8) {
-            throw new IllegalStateException("JsonReader is closed");
-        }
-        int b6 = b(true);
-        if (b6 == 34) {
-            this.f30051a = 9;
-            return 9;
-        } else if (b6 == 39) {
-            w();
-            this.f30051a = 8;
-            return 8;
-        } else {
-            if (b6 != 44 && b6 != 59) {
-                if (b6 == 91) {
-                    this.f30051a = 3;
-                    return 3;
-                } else if (b6 != 93) {
-                    if (b6 != 123) {
-                        this.f30055e--;
-                        int o = o();
-                        if (o != 0) {
-                            return o;
-                        }
-                        int t = t();
-                        if (t != 0) {
-                            return t;
-                        }
-                        if (a(this.f30054d[this.f30055e])) {
-                            w();
-                            this.f30051a = 10;
-                            return 10;
-                        }
-                        throw b("Expected value");
+                    w();
+                    this.f31905e--;
+                    if (a((char) b4)) {
+                        this.f31901a = 14;
+                        return 14;
                     }
-                    this.f30051a = 1;
-                    return 1;
-                } else if (i3 == 1) {
-                    this.f30051a = 4;
-                    return 4;
+                    throw b("Expected name");
                 }
+            } else if (i3 == 4) {
+                iArr[i2 - 1] = 5;
+                int b5 = b(true);
+                if (b5 != 58) {
+                    if (b5 == 61) {
+                        w();
+                        if (this.f31905e < this.f31906f || b(1)) {
+                            char[] cArr = this.f31904d;
+                            int i4 = this.f31905e;
+                            if (cArr[i4] == '>') {
+                                this.f31905e = i4 + 1;
+                            }
+                        }
+                    } else {
+                        throw b("Expected ':'");
+                    }
+                }
+            } else if (i3 == 6) {
+                if (this.f31903c) {
+                    z();
+                }
+                this.l[this.m - 1] = 7;
+            } else if (i3 == 7) {
+                if (b(false) == -1) {
+                    this.f31901a = 17;
+                    return 17;
+                }
+                w();
+                this.f31905e--;
+            } else if (i3 == 8) {
+                throw new IllegalStateException("JsonReader is closed");
             }
-            if (i3 != 1 && i3 != 2) {
-                throw b("Unexpected value");
+            int b6 = b(true);
+            if (b6 == 34) {
+                this.f31901a = 9;
+                return 9;
+            } else if (b6 == 39) {
+                w();
+                this.f31901a = 8;
+                return 8;
+            } else {
+                if (b6 != 44 && b6 != 59) {
+                    if (b6 == 91) {
+                        this.f31901a = 3;
+                        return 3;
+                    } else if (b6 != 93) {
+                        if (b6 != 123) {
+                            this.f31905e--;
+                            int o = o();
+                            if (o != 0) {
+                                return o;
+                            }
+                            int t = t();
+                            if (t != 0) {
+                                return t;
+                            }
+                            if (a(this.f31904d[this.f31905e])) {
+                                w();
+                                this.f31901a = 10;
+                                return 10;
+                            }
+                            throw b("Expected value");
+                        }
+                        this.f31901a = 1;
+                        return 1;
+                    } else if (i3 == 1) {
+                        this.f31901a = 4;
+                        return 4;
+                    }
+                }
+                if (i3 != 1 && i3 != 2) {
+                    throw b("Unexpected value");
+                }
+                w();
+                this.f31905e--;
+                this.f31901a = 7;
+                return 7;
             }
-            w();
-            this.f30055e--;
-            this.f30051a = 7;
-            return 7;
         }
+        return invokeV.intValue;
     }
 
     public String s() {
-        return " at line " + (this.f30057g + 1) + " column " + ((this.f30055e - this.f30058h) + 1) + " path " + p();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return " at line " + (this.f31907g + 1) + " column " + ((this.f31905e - this.f31908h) + 1) + " path " + p();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String toString() {
-        return getClass().getSimpleName() + s();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return getClass().getSimpleName() + s();
+        }
+        return (String) invokeV.objValue;
     }
 
     public void a() throws IOException {
-        int i2 = this.f30051a;
-        if (i2 == 0) {
-            i2 = r();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i2 = this.f31901a;
+            if (i2 == 0) {
+                i2 = r();
+            }
+            if (i2 == 3) {
+                a(1);
+                this.o[this.m - 1] = 0;
+                this.f31901a = 0;
+                return;
+            }
+            throw new IllegalStateException("Expected BEGIN_ARRAY but was " + f() + s());
         }
-        if (i2 == 3) {
-            a(1);
-            this.o[this.m - 1] = 0;
-            this.f30051a = 0;
-            return;
-        }
-        throw new IllegalStateException("Expected BEGIN_ARRAY but was " + f() + s());
     }
 
     private void c(char c2) throws IOException {
-        char[] cArr = this.f30054d;
-        do {
-            int i2 = this.f30055e;
-            int i3 = this.f30056f;
-            while (i2 < i3) {
-                int i4 = i2 + 1;
-                char c3 = cArr[i2];
-                if (c3 == c2) {
-                    this.f30055e = i4;
-                    return;
-                } else if (c3 == '\\') {
-                    this.f30055e = i4;
-                    y();
-                    i2 = this.f30055e;
-                    i3 = this.f30056f;
-                } else {
-                    if (c3 == '\n') {
-                        this.f30057g++;
-                        this.f30058h = i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Character.valueOf(c2)}) == null) {
+            char[] cArr = this.f31904d;
+            do {
+                int i2 = this.f31905e;
+                int i3 = this.f31906f;
+                while (i2 < i3) {
+                    int i4 = i2 + 1;
+                    char c3 = cArr[i2];
+                    if (c3 == c2) {
+                        this.f31905e = i4;
+                        return;
+                    } else if (c3 == '\\') {
+                        this.f31905e = i4;
+                        y();
+                        i2 = this.f31905e;
+                        i3 = this.f31906f;
+                    } else {
+                        if (c3 == '\n') {
+                            this.f31907g++;
+                            this.f31908h = i4;
+                        }
+                        i2 = i4;
                     }
-                    i2 = i4;
                 }
-            }
-            this.f30055e = i2;
-        } while (b(1));
-        throw b("Unterminated string");
+                this.f31905e = i2;
+            } while (b(1));
+            throw b("Unterminated string");
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x005c, code lost:
-        if (r1 != null) goto L34;
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0060, code lost:
+        if (r1 != null) goto L36;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x005e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0062, code lost:
         r1 = new java.lang.StringBuilder(java.lang.Math.max((r2 - r3) * 2, 16));
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x006c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0070, code lost:
         r1.append(r0, r3, r2 - r3);
-        r9.f30055e = r2;
+        r9.f31905e = r2;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private String b(char c2) throws IOException {
-        char[] cArr = this.f30054d;
-        StringBuilder sb = null;
-        do {
-            int i2 = this.f30055e;
-            int i3 = this.f30056f;
-            while (true) {
-                int i4 = i3;
-                int i5 = i2;
-                while (i2 < i4) {
-                    int i6 = i2 + 1;
-                    char c3 = cArr[i2];
-                    if (c3 == c2) {
-                        this.f30055e = i6;
-                        int i7 = (i6 - i5) - 1;
-                        if (sb == null) {
-                            return new String(cArr, i5, i7);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Character.valueOf(c2)})) == null) {
+            char[] cArr = this.f31904d;
+            StringBuilder sb = null;
+            do {
+                int i2 = this.f31905e;
+                int i3 = this.f31906f;
+                while (true) {
+                    int i4 = i3;
+                    int i5 = i2;
+                    while (i2 < i4) {
+                        int i6 = i2 + 1;
+                        char c3 = cArr[i2];
+                        if (c3 == c2) {
+                            this.f31905e = i6;
+                            int i7 = (i6 - i5) - 1;
+                            if (sb == null) {
+                                return new String(cArr, i5, i7);
+                            }
+                            sb.append(cArr, i5, i7);
+                            return sb.toString();
+                        } else if (c3 == '\\') {
+                            this.f31905e = i6;
+                            int i8 = (i6 - i5) - 1;
+                            if (sb == null) {
+                                sb = new StringBuilder(Math.max((i8 + 1) * 2, 16));
+                            }
+                            sb.append(cArr, i5, i8);
+                            sb.append(y());
+                            i2 = this.f31905e;
+                            i3 = this.f31906f;
+                        } else {
+                            if (c3 == '\n') {
+                                this.f31907g++;
+                                this.f31908h = i6;
+                            }
+                            i2 = i6;
                         }
-                        sb.append(cArr, i5, i7);
-                        return sb.toString();
-                    } else if (c3 == '\\') {
-                        this.f30055e = i6;
-                        int i8 = (i6 - i5) - 1;
-                        if (sb == null) {
-                            sb = new StringBuilder(Math.max((i8 + 1) * 2, 16));
-                        }
-                        sb.append(cArr, i5, i8);
-                        sb.append(y());
-                        i2 = this.f30055e;
-                        i3 = this.f30056f;
-                    } else {
-                        if (c3 == '\n') {
-                            this.f30057g++;
-                            this.f30058h = i6;
-                        }
-                        i2 = i6;
                     }
+                    break;
                 }
-                break;
-            }
-        } while (b(1));
-        throw b("Unterminated string");
+            } while (b(1));
+            throw b("Unterminated string");
+        }
+        return (String) invokeCommon.objValue;
     }
 
     private boolean a(char c2) throws IOException {
-        if (c2 == '\t' || c2 == '\n' || c2 == '\f' || c2 == '\r' || c2 == ' ') {
-            return false;
-        }
-        if (c2 != '#') {
-            if (c2 == ',') {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Character.valueOf(c2)})) == null) {
+            if (c2 == '\t' || c2 == '\n' || c2 == '\f' || c2 == '\r' || c2 == ' ') {
                 return false;
             }
-            if (c2 != '/' && c2 != '=') {
-                if (c2 == '{' || c2 == '}' || c2 == ':') {
+            if (c2 != '#') {
+                if (c2 == ',') {
                     return false;
                 }
-                if (c2 != ';') {
-                    switch (c2) {
-                        case '[':
-                        case ']':
-                            return false;
-                        case '\\':
-                            break;
-                        default:
-                            return true;
+                if (c2 != '/' && c2 != '=') {
+                    if (c2 == '{' || c2 == '}' || c2 == ':') {
+                        return false;
+                    }
+                    if (c2 != ';') {
+                        switch (c2) {
+                            case '[':
+                            case ']':
+                                return false;
+                            case '\\':
+                                break;
+                            default:
+                                return true;
+                        }
                     }
                 }
             }
+            w();
+            return false;
         }
-        w();
-        return false;
+        return invokeCommon.booleanValue;
     }
 
     private void a(int i2) {
-        int i3 = this.m;
-        int[] iArr = this.l;
-        if (i3 == iArr.length) {
-            int i4 = i3 * 2;
-            this.l = Arrays.copyOf(iArr, i4);
-            this.o = Arrays.copyOf(this.o, i4);
-            this.n = (String[]) Arrays.copyOf(this.n, i4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
+            int i3 = this.m;
+            int[] iArr = this.l;
+            if (i3 == iArr.length) {
+                int i4 = i3 * 2;
+                this.l = Arrays.copyOf(iArr, i4);
+                this.o = Arrays.copyOf(this.o, i4);
+                this.n = (String[]) Arrays.copyOf(this.n, i4);
+            }
+            int[] iArr2 = this.l;
+            int i5 = this.m;
+            this.m = i5 + 1;
+            iArr2[i5] = i2;
         }
-        int[] iArr2 = this.l;
-        int i5 = this.m;
-        this.m = i5 + 1;
-        iArr2[i5] = i2;
     }
 
     private boolean a(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65540, this, str)) != null) {
+            return invokeL.booleanValue;
+        }
         int length = str.length();
         while (true) {
-            if (this.f30055e + length > this.f30056f && !b(length)) {
+            if (this.f31905e + length > this.f31906f && !b(length)) {
                 return false;
             }
-            char[] cArr = this.f30054d;
-            int i2 = this.f30055e;
+            char[] cArr = this.f31904d;
+            int i2 = this.f31905e;
             if (cArr[i2] != '\n') {
                 for (int i3 = 0; i3 < length; i3++) {
-                    if (this.f30054d[this.f30055e + i3] != str.charAt(i3)) {
+                    if (this.f31904d[this.f31905e + i3] != str.charAt(i3)) {
                         break;
                     }
                 }
                 return true;
             }
-            this.f30057g++;
-            this.f30058h = i2 + 1;
-            this.f30055e++;
+            this.f31907g++;
+            this.f31908h = i2 + 1;
+            this.f31905e++;
         }
     }
 
     private boolean b(int i2) throws IOException {
+        InterceptResult invokeI;
         int i3;
-        char[] cArr = this.f30054d;
-        int i4 = this.f30058h;
-        int i5 = this.f30055e;
-        this.f30058h = i4 - i5;
-        int i6 = this.f30056f;
-        if (i6 != i5) {
-            int i7 = i6 - i5;
-            this.f30056f = i7;
-            System.arraycopy(cArr, i5, cArr, 0, i7);
-        } else {
-            this.f30056f = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
+            char[] cArr = this.f31904d;
+            int i4 = this.f31908h;
+            int i5 = this.f31905e;
+            this.f31908h = i4 - i5;
+            int i6 = this.f31906f;
+            if (i6 != i5) {
+                int i7 = i6 - i5;
+                this.f31906f = i7;
+                System.arraycopy(cArr, i5, cArr, 0, i7);
+            } else {
+                this.f31906f = 0;
+            }
+            this.f31905e = 0;
+            do {
+                Reader reader = this.f31902b;
+                int i8 = this.f31906f;
+                int read = reader.read(cArr, i8, cArr.length - i8);
+                if (read == -1) {
+                    return false;
+                }
+                int i9 = this.f31906f + read;
+                this.f31906f = i9;
+                if (this.f31907g == 0 && (i3 = this.f31908h) == 0 && i9 > 0 && cArr[0] == 65279) {
+                    this.f31905e++;
+                    this.f31908h = i3 + 1;
+                    i2++;
+                }
+            } while (this.f31906f < i2);
+            return true;
         }
-        this.f30055e = 0;
-        do {
-            Reader reader = this.f30052b;
-            int i8 = this.f30056f;
-            int read = reader.read(cArr, i8, cArr.length - i8);
-            if (read == -1) {
-                return false;
-            }
-            int i9 = this.f30056f + read;
-            this.f30056f = i9;
-            if (this.f30057g == 0 && (i3 = this.f30058h) == 0 && i9 > 0 && cArr[0] == 65279) {
-                this.f30055e++;
-                this.f30058h = i3 + 1;
-                i2++;
-            }
-        } while (this.f30056f < i2);
-        return true;
+        return invokeI.booleanValue;
     }
 
     private int b(boolean z) throws IOException {
-        char[] cArr = this.f30054d;
-        int i2 = this.f30055e;
-        int i3 = this.f30056f;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeZ = interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, this, z)) != null) {
+            return invokeZ.intValue;
+        }
+        char[] cArr = this.f31904d;
+        int i2 = this.f31905e;
+        int i3 = this.f31906f;
         while (true) {
             if (i2 == i3) {
-                this.f30055e = i2;
+                this.f31905e = i2;
                 if (!b(1)) {
                     if (z) {
                         throw new EOFException("End of input" + s());
                     }
                     return -1;
                 }
-                i2 = this.f30055e;
-                i3 = this.f30056f;
+                i2 = this.f31905e;
+                i3 = this.f31906f;
             }
             int i4 = i2 + 1;
             char c2 = cArr[i2];
             if (c2 == '\n') {
-                this.f30057g++;
-                this.f30058h = i4;
+                this.f31907g++;
+                this.f31908h = i4;
             } else if (c2 != ' ' && c2 != '\r' && c2 != '\t') {
                 if (c2 == '/') {
-                    this.f30055e = i4;
+                    this.f31905e = i4;
                     if (i4 == i3) {
-                        this.f30055e = i4 - 1;
+                        this.f31905e = i4 - 1;
                         boolean b2 = b(2);
-                        this.f30055e++;
+                        this.f31905e++;
                         if (!b2) {
                             return c2;
                         }
                     }
                     w();
-                    int i5 = this.f30055e;
+                    int i5 = this.f31905e;
                     char c3 = cArr[i5];
                     if (c3 == '*') {
-                        this.f30055e = i5 + 1;
+                        this.f31905e = i5 + 1;
                         if (a("*/")) {
-                            i2 = this.f30055e + 2;
-                            i3 = this.f30056f;
+                            i2 = this.f31905e + 2;
+                            i3 = this.f31906f;
                         } else {
                             throw b("Unterminated comment");
                         }
                     } else if (c3 != '/') {
                         return c2;
                     } else {
-                        this.f30055e = i5 + 1;
+                        this.f31905e = i5 + 1;
                         x();
-                        i2 = this.f30055e;
-                        i3 = this.f30056f;
+                        i2 = this.f31905e;
+                        i3 = this.f31906f;
                     }
                 } else if (c2 == '#') {
-                    this.f30055e = i4;
+                    this.f31905e = i4;
                     w();
                     x();
-                    i2 = this.f30055e;
-                    i3 = this.f30056f;
+                    i2 = this.f31905e;
+                    i3 = this.f31906f;
                 } else {
-                    this.f30055e = i4;
+                    this.f31905e = i4;
                     return c2;
                 }
             }
@@ -1273,6 +1485,11 @@ public class a implements Closeable {
     }
 
     private IOException b(String str) throws IOException {
-        throw new d(str + s());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+            throw new d(str + s());
+        }
+        return (IOException) invokeL.objValue;
     }
 }

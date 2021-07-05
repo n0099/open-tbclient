@@ -2,6 +2,14 @@ package com.baidu.apollon.utils;
 
 import android.os.Build;
 import android.util.Base64;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import java.security.SecureRandom;
 import java.util.Arrays;
@@ -13,168 +21,251 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes.dex */
 public class Crypto {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f4052a = 16;
+    public static final int f4050a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f4053b = 8;
+    public static final int f4051b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f4054c = 128;
+    public static final int f4052c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f4055d = 64;
+    public static final int f4053d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f4056e = 8;
+    public static final int f4054e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f4057f = 1000;
+    public static final int f4055f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f4058g = new SecureRandom();
+    public static SecureRandom f4056g;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1818362562, "Lcom/baidu/apollon/utils/Crypto;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1818362562, "Lcom/baidu/apollon/utils/Crypto;");
+                return;
+            }
+        }
+        f4056g = new SecureRandom();
+    }
+
+    public Crypto() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static byte[] a(int i2) {
-        byte[] bArr = new byte[i2];
-        f4058g.nextBytes(bArr);
-        return bArr;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+            byte[] bArr = new byte[i2];
+            f4056g.nextBytes(bArr);
+            return bArr;
+        }
+        return (byte[]) invokeI.objValue;
     }
 
     public static byte[] aesDecrypt(byte[] bArr, String str) {
-        if (bArr == null || bArr.length < 24) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bArr, str)) == null) {
+            if (bArr == null || bArr.length < 24) {
+                return null;
+            }
+            byte[] copyOf = Arrays.copyOf(bArr, 8);
+            byte[] copyOfRange = Arrays.copyOfRange(bArr, 8, 24);
+            SecretKey a2 = a(str, copyOf);
+            if (a2 == null) {
+                return null;
+            }
+            try {
+                Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
+                cipher.init(2, a2, new IvParameterSpec(copyOfRange));
+                int length = copyOf.length + copyOfRange.length;
+                return cipher.doFinal(bArr, length, bArr.length - length);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
-        byte[] copyOf = Arrays.copyOf(bArr, 8);
-        byte[] copyOfRange = Arrays.copyOfRange(bArr, 8, 24);
-        SecretKey a2 = a(str, copyOf);
-        if (a2 == null) {
-            return null;
-        }
-        try {
-            Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
-            cipher.init(2, a2, new IvParameterSpec(copyOfRange));
-            int length = copyOf.length + copyOfRange.length;
-            return cipher.doFinal(bArr, length, bArr.length - length);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
-        }
+        return (byte[]) invokeLL.objValue;
     }
 
     public static byte[] aesEncrypt(byte[] bArr, String str) {
-        byte[] a2 = a(8);
-        SecretKey a3 = a(str, a2);
-        if (a3 == null) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bArr, str)) == null) {
+            byte[] a2 = a(8);
+            SecretKey a3 = a(str, a2);
+            if (a3 == null) {
+                return null;
+            }
+            try {
+                Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
+                cipher.init(1, a3);
+                return a(a2, cipher.getIV(), cipher.doFinal(bArr));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
-        try {
-            Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
-            cipher.init(1, a3);
-            return a(a2, cipher.getIV(), cipher.doFinal(bArr));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
-        }
+        return (byte[]) invokeLL.objValue;
     }
 
     public static SecretKey b(String str, byte[] bArr) {
-        if (str == null) {
-            str = "";
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, bArr)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            try {
+                return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 64)).getEncoded(), Coder.KEY_DES);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
-        try {
-            return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 64)).getEncoded(), Coder.KEY_DES);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
-        }
+        return (SecretKey) invokeLL.objValue;
     }
 
     public static byte[] desDecrypt(byte[] bArr, String str) throws Exception {
-        if (bArr == null || bArr.length < 16) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, bArr, str)) == null) {
+            if (bArr == null || bArr.length < 16) {
+                return null;
+            }
+            byte[] copyOf = Arrays.copyOf(bArr, 8);
+            byte[] copyOfRange = Arrays.copyOfRange(bArr, 8, 16);
+            SecretKey b2 = b(str, copyOf);
+            if (b2 == null) {
+                return null;
+            }
+            try {
+                Cipher cipher = Cipher.getInstance("DES/CTR/NoPadding");
+                cipher.init(2, b2, new IvParameterSpec(copyOfRange));
+                int length = copyOf.length + copyOfRange.length;
+                return cipher.doFinal(bArr, length, bArr.length - length);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
-        byte[] copyOf = Arrays.copyOf(bArr, 8);
-        byte[] copyOfRange = Arrays.copyOfRange(bArr, 8, 16);
-        SecretKey b2 = b(str, copyOf);
-        if (b2 == null) {
-            return null;
-        }
-        try {
-            Cipher cipher = Cipher.getInstance("DES/CTR/NoPadding");
-            cipher.init(2, b2, new IvParameterSpec(copyOfRange));
-            int length = copyOf.length + copyOfRange.length;
-            return cipher.doFinal(bArr, length, bArr.length - length);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
-        }
+        return (byte[]) invokeLL.objValue;
     }
 
     public static byte[] desEncrypt(byte[] bArr, String str) {
-        byte[] a2 = a(8);
-        SecretKey b2 = b(str, a2);
-        try {
-            Cipher cipher = Cipher.getInstance("DES/CTR/NoPadding");
-            cipher.init(1, b2);
-            return a(a2, cipher.getIV(), cipher.doFinal(bArr));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, bArr, str)) == null) {
+            byte[] a2 = a(8);
+            SecretKey b2 = b(str, a2);
+            try {
+                Cipher cipher = Cipher.getInstance("DES/CTR/NoPadding");
+                cipher.init(1, b2);
+                return a(a2, cipher.getIV(), cipher.doFinal(bArr));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (byte[]) invokeLL.objValue;
     }
 
     public static byte[] rsaDecrypt(byte[] bArr, String str) {
-        return a.a(a.b(Base64.decode(str, 2)), bArr);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, bArr, str)) == null) ? a.a(a.b(Base64.decode(str, 2)), bArr) : (byte[]) invokeLL.objValue;
     }
 
     public static byte[] rsaEncrypt(byte[] bArr, String str) {
-        return a.a(a.a(Base64.decode(str, 2)), bArr);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, bArr, str)) == null) ? a.a(a.a(Base64.decode(str, 2)), bArr) : (byte[]) invokeLL.objValue;
     }
 
     public static String a() {
-        return Build.VERSION.SDK_INT >= 19 ? "PBKDF2WithHmacSHA1And8bit" : "PBKDF2withHmacSHA1";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 19 ? "PBKDF2WithHmacSHA1And8bit" : "PBKDF2withHmacSHA1" : (String) invokeV.objValue;
     }
 
     public static SecretKey a(String str, byte[] bArr) {
-        if (str == null) {
-            str = "";
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            try {
+                return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 128)).getEncoded(), "AES");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
-        try {
-            return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 128)).getEncoded(), "AES");
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
-        }
+        return (SecretKey) invokeLL.objValue;
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2) {
-        if (bArr == null) {
-            return bArr2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
+            if (bArr == null) {
+                return bArr2;
+            }
+            if (bArr2 == null) {
+                return bArr;
+            }
+            byte[] bArr3 = new byte[bArr.length + bArr2.length];
+            System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
+            System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
+            return bArr3;
         }
-        if (bArr2 == null) {
-            return bArr;
-        }
-        byte[] bArr3 = new byte[bArr.length + bArr2.length];
-        System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
-        System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
-        return bArr3;
+        return (byte[]) invokeLL.objValue;
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        if (bArr == null) {
-            return a(bArr2, bArr3);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, bArr2, bArr3)) == null) {
+            if (bArr == null) {
+                return a(bArr2, bArr3);
+            }
+            if (bArr2 == null) {
+                return a(bArr, bArr3);
+            }
+            if (bArr3 == null) {
+                return a(bArr, bArr2);
+            }
+            byte[] bArr4 = new byte[bArr.length + bArr2.length + bArr3.length];
+            System.arraycopy(bArr, 0, bArr4, 0, bArr.length);
+            System.arraycopy(bArr2, 0, bArr4, bArr.length, bArr2.length);
+            System.arraycopy(bArr3, 0, bArr4, bArr.length + bArr2.length, bArr3.length);
+            return bArr4;
         }
-        if (bArr2 == null) {
-            return a(bArr, bArr3);
-        }
-        if (bArr3 == null) {
-            return a(bArr, bArr2);
-        }
-        byte[] bArr4 = new byte[bArr.length + bArr2.length + bArr3.length];
-        System.arraycopy(bArr, 0, bArr4, 0, bArr.length);
-        System.arraycopy(bArr2, 0, bArr4, bArr.length, bArr2.length);
-        System.arraycopy(bArr3, 0, bArr4, bArr.length + bArr2.length, bArr3.length);
-        return bArr4;
+        return (byte[]) invokeLLL.objValue;
     }
 }

@@ -4,6 +4,12 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.glide.load.engine.n;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
@@ -14,152 +20,310 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 /* loaded from: classes7.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<com.kwad.sdk.glide.load.c, b> f36187a;
+    public final Map<com.kwad.sdk.glide.load.c, b> f37950a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f36188b;
+    public final boolean f37951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f36189c;
+    public final Executor f37952c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ReferenceQueue<n<?>> f36190d;
+    public final ReferenceQueue<n<?>> f37953d;
 
     /* renamed from: e  reason: collision with root package name */
-    public n.a f36191e;
+    public n.a f37954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f36192f;
+    public volatile boolean f37955f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile InterfaceC0419a f36193g;
+    public volatile InterfaceC0463a f37956g;
 
     @VisibleForTesting
     /* renamed from: com.kwad.sdk.glide.load.engine.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0419a {
+    public interface InterfaceC0463a {
         void a();
     }
 
     @VisibleForTesting
     /* loaded from: classes7.dex */
     public static final class b extends WeakReference<n<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.c f36197a;
+        public final com.kwad.sdk.glide.load.c f37960a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f36198b;
+        public final boolean f37961b;
         @Nullable
 
         /* renamed from: c  reason: collision with root package name */
-        public s<?> f36199c;
+        public s<?> f37962c;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(@NonNull com.kwad.sdk.glide.load.c cVar, @NonNull n<?> nVar, @NonNull ReferenceQueue<? super n<?>> referenceQueue, boolean z) {
             super(nVar, referenceQueue);
-            this.f36197a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
-            this.f36199c = (nVar.f() && z) ? (s) com.kwad.sdk.glide.g.j.a(nVar.b()) : null;
-            this.f36198b = nVar.f();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, nVar, referenceQueue, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(objArr2[0], (ReferenceQueue) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f37960a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
+            this.f37962c = (nVar.f() && z) ? (s) com.kwad.sdk.glide.g.j.a(nVar.b()) : null;
+            this.f37961b = nVar.f();
         }
 
         public void a() {
-            this.f36199c = null;
-            clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f37962c = null;
+                clear();
+            }
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(boolean z) {
         this(z, Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.kwad.sdk.glide.load.engine.a.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             @Override // java.util.concurrent.ThreadFactory
-            public Thread newThread(@NonNull final Runnable runnable) {
-                return new Thread(new Runnable() { // from class: com.kwad.sdk.glide.load.engine.a.1.1
+            public Thread newThread(@NonNull Runnable runnable) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) ? new Thread(new Runnable(this, runnable) { // from class: com.kwad.sdk.glide.load.engine.a.1.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ Runnable f37957a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ AnonymousClass1 f37958b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, runnable};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f37958b = this;
+                        this.f37957a = runnable;
+                    }
+
                     @Override // java.lang.Runnable
                     public void run() {
-                        Process.setThreadPriority(10);
-                        runnable.run();
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            Process.setThreadPriority(10);
+                            this.f37957a.run();
+                        }
                     }
-                }, "glide-active-resources");
+                }, "glide-active-resources") : (Thread) invokeL.objValue;
             }
         }));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Boolean) objArr2[0]).booleanValue(), (Executor) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @VisibleForTesting
     public a(boolean z, Executor executor) {
-        this.f36187a = new HashMap();
-        this.f36190d = new ReferenceQueue<>();
-        this.f36188b = z;
-        this.f36189c = executor;
-        executor.execute(new Runnable() { // from class: com.kwad.sdk.glide.load.engine.a.2
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f37950a = new HashMap();
+        this.f37953d = new ReferenceQueue<>();
+        this.f37951b = z;
+        this.f37952c = executor;
+        executor.execute(new Runnable(this) { // from class: com.kwad.sdk.glide.load.engine.a.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ a f37959a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f37959a = this;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                a.this.a();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f37959a.a();
+                }
             }
         });
     }
 
     public void a() {
-        while (!this.f36192f) {
-            try {
-                a((b) this.f36190d.remove());
-                InterfaceC0419a interfaceC0419a = this.f36193g;
-                if (interfaceC0419a != null) {
-                    interfaceC0419a.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            while (!this.f37955f) {
+                try {
+                    a((b) this.f37953d.remove());
+                    InterfaceC0463a interfaceC0463a = this.f37956g;
+                    if (interfaceC0463a != null) {
+                        interfaceC0463a.a();
+                    }
+                } catch (InterruptedException unused) {
+                    Thread.currentThread().interrupt();
                 }
-            } catch (InterruptedException unused) {
-                Thread.currentThread().interrupt();
             }
         }
     }
 
     public synchronized void a(com.kwad.sdk.glide.load.c cVar) {
-        b remove = this.f36187a.remove(cVar);
-        if (remove != null) {
-            remove.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            synchronized (this) {
+                b remove = this.f37950a.remove(cVar);
+                if (remove != null) {
+                    remove.a();
+                }
+            }
         }
     }
 
     public synchronized void a(com.kwad.sdk.glide.load.c cVar, n<?> nVar) {
-        b put = this.f36187a.put(cVar, new b(cVar, nVar, this.f36190d, this.f36188b));
-        if (put != null) {
-            put.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, nVar) == null) {
+            synchronized (this) {
+                b put = this.f37950a.put(cVar, new b(cVar, nVar, this.f37953d, this.f37951b));
+                if (put != null) {
+                    put.a();
+                }
+            }
         }
     }
 
     public void a(@NonNull b bVar) {
-        synchronized (this.f36191e) {
-            synchronized (this) {
-                this.f36187a.remove(bVar.f36197a);
-                if (bVar.f36198b && bVar.f36199c != null) {
-                    n<?> nVar = new n<>(bVar.f36199c, true, false);
-                    nVar.a(bVar.f36197a, this.f36191e);
-                    this.f36191e.a(bVar.f36197a, nVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            synchronized (this.f37954e) {
+                synchronized (this) {
+                    this.f37950a.remove(bVar.f37960a);
+                    if (bVar.f37961b && bVar.f37962c != null) {
+                        n<?> nVar = new n<>(bVar.f37962c, true, false);
+                        nVar.a(bVar.f37960a, this.f37954e);
+                        this.f37954e.a(bVar.f37960a, nVar);
+                    }
                 }
             }
         }
     }
 
     public void a(n.a aVar) {
-        synchronized (aVar) {
-            synchronized (this) {
-                this.f36191e = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            synchronized (aVar) {
+                synchronized (this) {
+                    this.f37954e = aVar;
+                }
             }
         }
     }
 
     @Nullable
     public synchronized n<?> b(com.kwad.sdk.glide.load.c cVar) {
-        b bVar = this.f36187a.get(cVar);
-        if (bVar == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
+            synchronized (this) {
+                b bVar = this.f37950a.get(cVar);
+                if (bVar == null) {
+                    return null;
+                }
+                n<?> nVar = bVar.get();
+                if (nVar == null) {
+                    a(bVar);
+                }
+                return nVar;
+            }
         }
-        n<?> nVar = bVar.get();
-        if (nVar == null) {
-            a(bVar);
-        }
-        return nVar;
+        return (n) invokeL.objValue;
     }
 }

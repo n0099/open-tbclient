@@ -6,45 +6,93 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import androidx.annotation.RequiresPermission;
 import androidx.core.content.ContextCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class VibrateUtils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public int[] amplitudes;
     public Context mContext;
     public Vibrator mVibrator;
     public long[] timings;
 
+    /* renamed from: com.baidu.android.util.android.VibrateUtils$1  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
     /* loaded from: classes.dex */
     public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int[] amplitudes;
         public Context mContext;
         public Vibrator mVibrator;
         public long[] timings;
 
         public Builder(Vibrator vibrator, long[] jArr, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vibrator, jArr, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mVibrator = vibrator;
             this.mContext = context;
             this.timings = jArr;
         }
 
         public Builder amplitudes(int[] iArr) {
-            this.amplitudes = iArr;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iArr)) == null) {
+                this.amplitudes = iArr;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public VibrateUtils build() {
-            return new VibrateUtils(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new VibrateUtils(this, null) : (VibrateUtils) invokeV.objValue;
         }
     }
 
+    public /* synthetic */ VibrateUtils(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
     private boolean checkVibratePermission() {
-        Context context = this.mContext;
-        return context != null && ContextCompat.checkSelfPermission(context, "android.permission.VIBRATE") == 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            Context context = this.mContext;
+            return context != null && ContextCompat.checkSelfPermission(context, "android.permission.VIBRATE") == 0;
+        }
+        return invokeV.booleanValue;
     }
 
     @RequiresPermission("android.permission.VIBRATE")
     public void cancelVibrator() {
-        Vibrator vibrator = this.mVibrator;
-        if (vibrator != null && vibrator.hasVibrator() && checkVibratePermission()) {
+        Vibrator vibrator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (vibrator = this.mVibrator) != null && vibrator.hasVibrator() && checkVibratePermission()) {
             this.mVibrator.cancel();
         }
     }
@@ -53,7 +101,8 @@ public class VibrateUtils {
     public void vibrateStart() {
         Vibrator vibrator;
         long[] jArr;
-        if (!checkVibratePermission() || (vibrator = this.mVibrator) == null || (jArr = this.timings) == null || jArr.length <= 0 || !vibrator.hasVibrator()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || !checkVibratePermission() || (vibrator = this.mVibrator) == null || (jArr = this.timings) == null || jArr.length <= 0 || !vibrator.hasVibrator()) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 26) {
@@ -94,6 +143,20 @@ public class VibrateUtils {
     }
 
     public VibrateUtils(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mVibrator = builder.mVibrator;
         this.timings = builder.timings;
         this.amplitudes = builder.amplitudes;

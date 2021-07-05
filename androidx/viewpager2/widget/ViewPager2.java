@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
@@ -30,11 +31,21 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.R;
 import androidx.viewpager2.adapter.StatefulAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes.dex */
 public final class ViewPager2 extends ViewGroup {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int OFFSCREEN_PAGE_LIMIT_DEFAULT = -1;
     public static final int ORIENTATION_HORIZONTAL = 0;
     public static final int ORIENTATION_VERTICAL = 1;
@@ -42,6 +53,7 @@ public final class ViewPager2 extends ViewGroup {
     public static final int SCROLL_STATE_IDLE = 0;
     public static final int SCROLL_STATE_SETTLING = 2;
     public static boolean sFeatureEnhancedA11yEnabled = true;
+    public transient /* synthetic */ FieldHolder $fh;
     public AccessibilityProvider mAccessibilityProvider;
     public int mCurrentItem;
     public RecyclerView.AdapterDataObserver mCurrentItemDataSetChangeObserver;
@@ -65,94 +77,216 @@ public final class ViewPager2 extends ViewGroup {
 
     /* loaded from: classes.dex */
     public abstract class AccessibilityProvider {
-        public AccessibilityProvider() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewPager2 this$0;
+
+        public AccessibilityProvider(ViewPager2 viewPager2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {viewPager2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = viewPager2;
         }
 
         public boolean handlesGetAccessibilityClassName() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean handlesLmPerformAccessibilityAction(int i2) {
-            return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
 
         public boolean handlesPerformAccessibilityAction(int i2, Bundle bundle) {
-            return false;
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bundle)) == null) {
+                return false;
+            }
+            return invokeIL.booleanValue;
         }
 
         public boolean handlesRvGetAccessibilityClassName() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public void onAttachAdapter(@Nullable RecyclerView.Adapter<?> adapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, adapter) == null) {
+            }
         }
 
         public void onDetachAdapter(@Nullable RecyclerView.Adapter<?> adapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, adapter) == null) {
+            }
         }
 
         public String onGetAccessibilityClassName() {
-            throw new IllegalStateException("Not implemented.");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                throw new IllegalStateException("Not implemented.");
+            }
+            return (String) invokeV.objValue;
         }
 
         public void onInitialize(@NonNull CompositeOnPageChangeCallback compositeOnPageChangeCallback, @NonNull RecyclerView recyclerView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048583, this, compositeOnPageChangeCallback, recyclerView) == null) {
+            }
         }
 
         public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, accessibilityNodeInfo) == null) {
+            }
         }
 
         public void onLmInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, accessibilityNodeInfoCompat) == null) {
+            }
         }
 
         public boolean onLmPerformAccessibilityAction(int i2) {
-            throw new IllegalStateException("Not implemented.");
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+                throw new IllegalStateException("Not implemented.");
+            }
+            return invokeI.booleanValue;
         }
 
         public boolean onPerformAccessibilityAction(int i2, Bundle bundle) {
-            throw new IllegalStateException("Not implemented.");
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i2, bundle)) == null) {
+                throw new IllegalStateException("Not implemented.");
+            }
+            return invokeIL.booleanValue;
         }
 
         public void onRestorePendingState() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            }
         }
 
         public CharSequence onRvGetAccessibilityClassName() {
-            throw new IllegalStateException("Not implemented.");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                throw new IllegalStateException("Not implemented.");
+            }
+            return (CharSequence) invokeV.objValue;
         }
 
         public void onRvInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048590, this, accessibilityEvent) == null) {
+            }
         }
 
         public void onSetLayoutDirection() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            }
         }
 
         public void onSetNewCurrentItem() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            }
         }
 
         public void onSetOrientation() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            }
         }
 
         public void onSetUserInputEnabled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public class BasicAccessibilityProvider extends AccessibilityProvider {
-        public BasicAccessibilityProvider() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewPager2 this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public BasicAccessibilityProvider(ViewPager2 viewPager2) {
             super();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {viewPager2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = viewPager2;
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public boolean handlesLmPerformAccessibilityAction(int i2) {
-            return (i2 == 8192 || i2 == 4096) && !ViewPager2.this.isUserInputEnabled();
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (i2 == 8192 || i2 == 4096) && !this.this$0.isUserInputEnabled() : invokeI.booleanValue;
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public boolean handlesRvGetAccessibilityClassName() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onLmInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-            if (ViewPager2.this.isUserInputEnabled()) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accessibilityNodeInfoCompat) == null) || this.this$0.isUserInputEnabled()) {
                 return;
             }
             accessibilityNodeInfoCompat.removeAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_BACKWARD);
@@ -162,24 +296,48 @@ public final class ViewPager2 extends ViewGroup {
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public boolean onLmPerformAccessibilityAction(int i2) {
-            if (handlesLmPerformAccessibilityAction(i2)) {
-                return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+                if (handlesLmPerformAccessibilityAction(i2)) {
+                    return false;
+                }
+                throw new IllegalStateException();
             }
-            throw new IllegalStateException();
+            return invokeI.booleanValue;
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public CharSequence onRvGetAccessibilityClassName() {
-            if (handlesRvGetAccessibilityClassName()) {
-                return "androidx.viewpager.widget.ViewPager";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (handlesRvGetAccessibilityClassName()) {
+                    return "androidx.viewpager.widget.ViewPager";
+                }
+                throw new IllegalStateException();
             }
-            throw new IllegalStateException();
+            return (CharSequence) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
     public static abstract class DataSetChangeObserver extends RecyclerView.AdapterDataObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public DataSetChangeObserver() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
@@ -187,65 +345,117 @@ public final class ViewPager2 extends ViewGroup {
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
         public final void onItemRangeChanged(int i2, int i3) {
-            onChanged();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+                onChanged();
+            }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
         public final void onItemRangeInserted(int i2, int i3) {
-            onChanged();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+                onChanged();
+            }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
         public final void onItemRangeMoved(int i2, int i3, int i4) {
-            onChanged();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIII(1048580, this, i2, i3, i4) == null) {
+                onChanged();
+            }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
         public final void onItemRangeRemoved(int i2, int i3) {
-            onChanged();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
+                onChanged();
+            }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
         public final void onItemRangeChanged(int i2, int i3, @Nullable Object obj) {
-            onChanged();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj) == null) {
+                onChanged();
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public class LinearLayoutManagerImpl extends LinearLayoutManager {
-        public LinearLayoutManagerImpl(Context context) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewPager2 this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LinearLayoutManagerImpl(ViewPager2 viewPager2, Context context) {
             super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {viewPager2, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = viewPager2;
         }
 
         @Override // androidx.recyclerview.widget.LinearLayoutManager
         public void calculateExtraLayoutSpace(@NonNull RecyclerView.State state, @NonNull int[] iArr) {
-            int offscreenPageLimit = ViewPager2.this.getOffscreenPageLimit();
-            if (offscreenPageLimit == -1) {
-                super.calculateExtraLayoutSpace(state, iArr);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, state, iArr) == null) {
+                int offscreenPageLimit = this.this$0.getOffscreenPageLimit();
+                if (offscreenPageLimit == -1) {
+                    super.calculateExtraLayoutSpace(state, iArr);
+                    return;
+                }
+                int pageSize = this.this$0.getPageSize() * offscreenPageLimit;
+                iArr[0] = pageSize;
+                iArr[1] = pageSize;
             }
-            int pageSize = ViewPager2.this.getPageSize() * offscreenPageLimit;
-            iArr[0] = pageSize;
-            iArr[1] = pageSize;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
         public void onInitializeAccessibilityNodeInfo(@NonNull RecyclerView.Recycler recycler, @NonNull RecyclerView.State state, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-            super.onInitializeAccessibilityNodeInfo(recycler, state, accessibilityNodeInfoCompat);
-            ViewPager2.this.mAccessibilityProvider.onLmInitializeAccessibilityNodeInfo(accessibilityNodeInfoCompat);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recycler, state, accessibilityNodeInfoCompat) == null) {
+                super.onInitializeAccessibilityNodeInfo(recycler, state, accessibilityNodeInfoCompat);
+                this.this$0.mAccessibilityProvider.onLmInitializeAccessibilityNodeInfo(accessibilityNodeInfoCompat);
+            }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
         public boolean performAccessibilityAction(@NonNull RecyclerView.Recycler recycler, @NonNull RecyclerView.State state, int i2, @Nullable Bundle bundle) {
-            if (ViewPager2.this.mAccessibilityProvider.handlesLmPerformAccessibilityAction(i2)) {
-                return ViewPager2.this.mAccessibilityProvider.onLmPerformAccessibilityAction(i2);
+            InterceptResult invokeLLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, recycler, state, i2, bundle)) == null) {
+                if (this.this$0.mAccessibilityProvider.handlesLmPerformAccessibilityAction(i2)) {
+                    return this.this$0.mAccessibilityProvider.onLmPerformAccessibilityAction(i2);
+                }
+                return super.performAccessibilityAction(recycler, state, i2, bundle);
             }
-            return super.performAccessibilityAction(recycler, state, i2, bundle);
+            return invokeLLIL.booleanValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
         public boolean requestChildRectangleOnScreen(@NonNull RecyclerView recyclerView, @NonNull View view, @NonNull Rect rect, boolean z, boolean z2) {
-            return false;
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{recyclerView, view, rect, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+                return false;
+            }
+            return invokeCommon.booleanValue;
         }
     }
 
@@ -258,13 +468,39 @@ public final class ViewPager2 extends ViewGroup {
 
     /* loaded from: classes.dex */
     public static abstract class OnPageChangeCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public OnPageChangeCallback() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void onPageScrollStateChanged(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            }
         }
 
         public void onPageScrolled(int i2, float f2, @Px int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
+            }
         }
 
         public void onPageSelected(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            }
         }
     }
 
@@ -276,24 +512,99 @@ public final class ViewPager2 extends ViewGroup {
 
     /* loaded from: classes.dex */
     public class PageAwareAccessibilityProvider extends AccessibilityProvider {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final AccessibilityViewCommand mActionPageBackward;
         public final AccessibilityViewCommand mActionPageForward;
         public RecyclerView.AdapterDataObserver mAdapterDataObserver;
+        public final /* synthetic */ ViewPager2 this$0;
 
-        public PageAwareAccessibilityProvider() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public PageAwareAccessibilityProvider(ViewPager2 viewPager2) {
             super();
-            this.mActionPageForward = new AccessibilityViewCommand() { // from class: androidx.viewpager2.widget.ViewPager2.PageAwareAccessibilityProvider.1
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {viewPager2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = viewPager2;
+            this.mActionPageForward = new AccessibilityViewCommand(this) { // from class: androidx.viewpager2.widget.ViewPager2.PageAwareAccessibilityProvider.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PageAwareAccessibilityProvider this$1;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext2 = TitanRuntime.newInitContext();
+                        newInitContext2.initArgs = r2;
+                        Object[] objArr3 = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext2);
+                        int i4 = newInitContext2.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext2.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext2);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                }
+
                 @Override // androidx.core.view.accessibility.AccessibilityViewCommand
                 public boolean perform(@NonNull View view, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
-                    PageAwareAccessibilityProvider.this.setCurrentItemFromAccessibilityCommand(((ViewPager2) view).getCurrentItem() + 1);
-                    return true;
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, commandArguments)) == null) {
+                        this.this$1.setCurrentItemFromAccessibilityCommand(((ViewPager2) view).getCurrentItem() + 1);
+                        return true;
+                    }
+                    return invokeLL.booleanValue;
                 }
             };
-            this.mActionPageBackward = new AccessibilityViewCommand() { // from class: androidx.viewpager2.widget.ViewPager2.PageAwareAccessibilityProvider.2
+            this.mActionPageBackward = new AccessibilityViewCommand(this) { // from class: androidx.viewpager2.widget.ViewPager2.PageAwareAccessibilityProvider.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PageAwareAccessibilityProvider this$1;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext2 = TitanRuntime.newInitContext();
+                        newInitContext2.initArgs = r2;
+                        Object[] objArr3 = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext2);
+                        int i4 = newInitContext2.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext2.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext2);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                }
+
                 @Override // androidx.core.view.accessibility.AccessibilityViewCommand
                 public boolean perform(@NonNull View view, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
-                    PageAwareAccessibilityProvider.this.setCurrentItemFromAccessibilityCommand(((ViewPager2) view).getCurrentItem() - 1);
-                    return true;
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, commandArguments)) == null) {
+                        this.this$1.setCurrentItemFromAccessibilityCommand(((ViewPager2) view).getCurrentItem() - 1);
+                        return true;
+                    }
+                    return invokeLL.booleanValue;
                 }
             };
         }
@@ -301,29 +612,33 @@ public final class ViewPager2 extends ViewGroup {
         private void addCollectionInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
             int i2;
             int i3;
-            if (ViewPager2.this.getAdapter() == null) {
-                i2 = 0;
-            } else if (ViewPager2.this.getOrientation() == 1) {
-                i2 = ViewPager2.this.getAdapter().getItemCount();
-            } else {
-                i3 = ViewPager2.this.getAdapter().getItemCount();
-                i2 = 0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65537, this, accessibilityNodeInfo) == null) {
+                if (this.this$0.getAdapter() == null) {
+                    i2 = 0;
+                } else if (this.this$0.getOrientation() == 1) {
+                    i2 = this.this$0.getAdapter().getItemCount();
+                } else {
+                    i3 = this.this$0.getAdapter().getItemCount();
+                    i2 = 0;
+                    AccessibilityNodeInfoCompat.wrap(accessibilityNodeInfo).setCollectionInfo(AccessibilityNodeInfoCompat.CollectionInfoCompat.obtain(i2, i3, false, 0));
+                }
+                i3 = 0;
                 AccessibilityNodeInfoCompat.wrap(accessibilityNodeInfo).setCollectionInfo(AccessibilityNodeInfoCompat.CollectionInfoCompat.obtain(i2, i3, false, 0));
             }
-            i3 = 0;
-            AccessibilityNodeInfoCompat.wrap(accessibilityNodeInfo).setCollectionInfo(AccessibilityNodeInfoCompat.CollectionInfoCompat.obtain(i2, i3, false, 0));
         }
 
         private void addScrollActions(AccessibilityNodeInfo accessibilityNodeInfo) {
+            RecyclerView.Adapter adapter;
             int itemCount;
-            RecyclerView.Adapter adapter = ViewPager2.this.getAdapter();
-            if (adapter == null || (itemCount = adapter.getItemCount()) == 0 || !ViewPager2.this.isUserInputEnabled()) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(65538, this, accessibilityNodeInfo) == null) || (adapter = this.this$0.getAdapter()) == null || (itemCount = adapter.getItemCount()) == 0 || !this.this$0.isUserInputEnabled()) {
                 return;
             }
-            if (ViewPager2.this.mCurrentItem > 0) {
+            if (this.this$0.mCurrentItem > 0) {
                 accessibilityNodeInfo.addAction(8192);
             }
-            if (ViewPager2.this.mCurrentItem < itemCount - 1) {
+            if (this.this$0.mCurrentItem < itemCount - 1) {
                 accessibilityNodeInfo.addAction(4096);
             }
             accessibilityNodeInfo.setScrollable(true);
@@ -331,142 +646,218 @@ public final class ViewPager2 extends ViewGroup {
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public boolean handlesGetAccessibilityClassName() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public boolean handlesPerformAccessibilityAction(int i2, Bundle bundle) {
-            return i2 == 8192 || i2 == 4096;
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bundle)) == null) ? i2 == 8192 || i2 == 4096 : invokeIL.booleanValue;
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onAttachAdapter(@Nullable RecyclerView.Adapter<?> adapter) {
-            updatePageAccessibilityActions();
-            if (adapter != null) {
-                adapter.registerAdapterDataObserver(this.mAdapterDataObserver);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adapter) == null) {
+                updatePageAccessibilityActions();
+                if (adapter != null) {
+                    adapter.registerAdapterDataObserver(this.mAdapterDataObserver);
+                }
             }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onDetachAdapter(@Nullable RecyclerView.Adapter<?> adapter) {
-            if (adapter != null) {
-                adapter.unregisterAdapterDataObserver(this.mAdapterDataObserver);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, adapter) == null) || adapter == null) {
+                return;
             }
+            adapter.unregisterAdapterDataObserver(this.mAdapterDataObserver);
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public String onGetAccessibilityClassName() {
-            if (handlesGetAccessibilityClassName()) {
-                return "androidx.viewpager.widget.ViewPager";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (handlesGetAccessibilityClassName()) {
+                    return "androidx.viewpager.widget.ViewPager";
+                }
+                throw new IllegalStateException();
             }
-            throw new IllegalStateException();
+            return (String) invokeV.objValue;
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onInitialize(@NonNull CompositeOnPageChangeCallback compositeOnPageChangeCallback, @NonNull RecyclerView recyclerView) {
-            ViewCompat.setImportantForAccessibility(recyclerView, 2);
-            this.mAdapterDataObserver = new DataSetChangeObserver() { // from class: androidx.viewpager2.widget.ViewPager2.PageAwareAccessibilityProvider.3
-                @Override // androidx.viewpager2.widget.ViewPager2.DataSetChangeObserver, androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-                public void onChanged() {
-                    PageAwareAccessibilityProvider.this.updatePageAccessibilityActions();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, compositeOnPageChangeCallback, recyclerView) == null) {
+                ViewCompat.setImportantForAccessibility(recyclerView, 2);
+                this.mAdapterDataObserver = new DataSetChangeObserver(this) { // from class: androidx.viewpager2.widget.ViewPager2.PageAwareAccessibilityProvider.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ PageAwareAccessibilityProvider this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext.callArgs[0];
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // androidx.viewpager2.widget.ViewPager2.DataSetChangeObserver, androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
+                    public void onChanged() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$1.updatePageAccessibilityActions();
+                        }
+                    }
+                };
+                if (ViewCompat.getImportantForAccessibility(this.this$0) == 0) {
+                    ViewCompat.setImportantForAccessibility(this.this$0, 1);
                 }
-            };
-            if (ViewCompat.getImportantForAccessibility(ViewPager2.this) == 0) {
-                ViewCompat.setImportantForAccessibility(ViewPager2.this, 1);
             }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
-            addCollectionInfo(accessibilityNodeInfo);
-            if (Build.VERSION.SDK_INT >= 16) {
-                addScrollActions(accessibilityNodeInfo);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, accessibilityNodeInfo) == null) {
+                addCollectionInfo(accessibilityNodeInfo);
+                if (Build.VERSION.SDK_INT >= 16) {
+                    addScrollActions(accessibilityNodeInfo);
+                }
             }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public boolean onPerformAccessibilityAction(int i2, Bundle bundle) {
+            InterceptResult invokeIL;
             int currentItem;
-            if (handlesPerformAccessibilityAction(i2, bundle)) {
-                if (i2 == 8192) {
-                    currentItem = ViewPager2.this.getCurrentItem() - 1;
-                } else {
-                    currentItem = ViewPager2.this.getCurrentItem() + 1;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, bundle)) == null) {
+                if (handlesPerformAccessibilityAction(i2, bundle)) {
+                    if (i2 == 8192) {
+                        currentItem = this.this$0.getCurrentItem() - 1;
+                    } else {
+                        currentItem = this.this$0.getCurrentItem() + 1;
+                    }
+                    setCurrentItemFromAccessibilityCommand(currentItem);
+                    return true;
                 }
-                setCurrentItemFromAccessibilityCommand(currentItem);
-                return true;
+                throw new IllegalStateException();
             }
-            throw new IllegalStateException();
+            return invokeIL.booleanValue;
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onRestorePendingState() {
-            updatePageAccessibilityActions();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                updatePageAccessibilityActions();
+            }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onRvInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
-            accessibilityEvent.setSource(ViewPager2.this);
-            accessibilityEvent.setClassName(onGetAccessibilityClassName());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, accessibilityEvent) == null) {
+                accessibilityEvent.setSource(this.this$0);
+                accessibilityEvent.setClassName(onGetAccessibilityClassName());
+            }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onSetLayoutDirection() {
-            updatePageAccessibilityActions();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                updatePageAccessibilityActions();
+            }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onSetNewCurrentItem() {
-            updatePageAccessibilityActions();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                updatePageAccessibilityActions();
+            }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onSetOrientation() {
-            updatePageAccessibilityActions();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+                updatePageAccessibilityActions();
+            }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public void onSetUserInputEnabled() {
-            updatePageAccessibilityActions();
-            if (Build.VERSION.SDK_INT < 21) {
-                ViewPager2.this.sendAccessibilityEvent(2048);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+                updatePageAccessibilityActions();
+                if (Build.VERSION.SDK_INT < 21) {
+                    this.this$0.sendAccessibilityEvent(2048);
+                }
             }
         }
 
         public void setCurrentItemFromAccessibilityCommand(int i2) {
-            if (ViewPager2.this.isUserInputEnabled()) {
-                ViewPager2.this.setCurrentItemInternal(i2, true);
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048590, this, i2) == null) && this.this$0.isUserInputEnabled()) {
+                this.this$0.setCurrentItemInternal(i2, true);
             }
         }
 
         public void updatePageAccessibilityActions() {
             int itemCount;
-            ViewPager2 viewPager2 = ViewPager2.this;
-            ViewCompat.removeAccessibilityAction(viewPager2, 16908360);
-            ViewCompat.removeAccessibilityAction(viewPager2, 16908361);
-            ViewCompat.removeAccessibilityAction(viewPager2, 16908358);
-            ViewCompat.removeAccessibilityAction(viewPager2, 16908359);
-            if (ViewPager2.this.getAdapter() == null || (itemCount = ViewPager2.this.getAdapter().getItemCount()) == 0 || !ViewPager2.this.isUserInputEnabled()) {
-                return;
-            }
-            if (ViewPager2.this.getOrientation() == 0) {
-                boolean isRtl = ViewPager2.this.isRtl();
-                int i2 = isRtl ? 16908360 : 16908361;
-                int i3 = isRtl ? 16908361 : 16908360;
-                if (ViewPager2.this.mCurrentItem < itemCount - 1) {
-                    ViewCompat.replaceAccessibilityAction(viewPager2, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(i2, null), null, this.mActionPageForward);
-                }
-                if (ViewPager2.this.mCurrentItem > 0) {
-                    ViewCompat.replaceAccessibilityAction(viewPager2, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(i3, null), null, this.mActionPageBackward);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+                ViewPager2 viewPager2 = this.this$0;
+                ViewCompat.removeAccessibilityAction(viewPager2, 16908360);
+                ViewCompat.removeAccessibilityAction(viewPager2, 16908361);
+                ViewCompat.removeAccessibilityAction(viewPager2, 16908358);
+                ViewCompat.removeAccessibilityAction(viewPager2, 16908359);
+                if (this.this$0.getAdapter() == null || (itemCount = this.this$0.getAdapter().getItemCount()) == 0 || !this.this$0.isUserInputEnabled()) {
                     return;
                 }
-                return;
-            }
-            if (ViewPager2.this.mCurrentItem < itemCount - 1) {
-                ViewCompat.replaceAccessibilityAction(viewPager2, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(16908359, null), null, this.mActionPageForward);
-            }
-            if (ViewPager2.this.mCurrentItem > 0) {
-                ViewCompat.replaceAccessibilityAction(viewPager2, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(16908358, null), null, this.mActionPageBackward);
+                if (this.this$0.getOrientation() == 0) {
+                    boolean isRtl = this.this$0.isRtl();
+                    int i2 = isRtl ? 16908360 : 16908361;
+                    int i3 = isRtl ? 16908361 : 16908360;
+                    if (this.this$0.mCurrentItem < itemCount - 1) {
+                        ViewCompat.replaceAccessibilityAction(viewPager2, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(i2, null), null, this.mActionPageForward);
+                    }
+                    if (this.this$0.mCurrentItem > 0) {
+                        ViewCompat.replaceAccessibilityAction(viewPager2, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(i3, null), null, this.mActionPageBackward);
+                        return;
+                    }
+                    return;
+                }
+                if (this.this$0.mCurrentItem < itemCount - 1) {
+                    ViewCompat.replaceAccessibilityAction(viewPager2, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(16908359, null), null, this.mActionPageForward);
+                }
+                if (this.this$0.mCurrentItem > 0) {
+                    ViewCompat.replaceAccessibilityAction(viewPager2, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(16908358, null), null, this.mActionPageBackward);
+                }
             }
         }
     }
@@ -478,51 +869,108 @@ public final class ViewPager2 extends ViewGroup {
 
     /* loaded from: classes.dex */
     public class PagerSnapHelperImpl extends PagerSnapHelper {
-        public PagerSnapHelperImpl() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewPager2 this$0;
+
+        public PagerSnapHelperImpl(ViewPager2 viewPager2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {viewPager2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = viewPager2;
         }
 
         @Override // androidx.recyclerview.widget.PagerSnapHelper, androidx.recyclerview.widget.SnapHelper
         @Nullable
         public View findSnapView(RecyclerView.LayoutManager layoutManager) {
-            if (ViewPager2.this.isFakeDragging()) {
-                return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, layoutManager)) == null) {
+                if (this.this$0.isFakeDragging()) {
+                    return null;
+                }
+                return super.findSnapView(layoutManager);
             }
-            return super.findSnapView(layoutManager);
+            return (View) invokeL.objValue;
         }
     }
 
     /* loaded from: classes.dex */
     public class RecyclerViewImpl extends RecyclerView {
-        public RecyclerViewImpl(@NonNull Context context) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewPager2 this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public RecyclerViewImpl(@NonNull ViewPager2 viewPager2, Context context) {
             super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {viewPager2, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = viewPager2;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
         @RequiresApi(23)
         public CharSequence getAccessibilityClassName() {
-            if (ViewPager2.this.mAccessibilityProvider.handlesRvGetAccessibilityClassName()) {
-                return ViewPager2.this.mAccessibilityProvider.onRvGetAccessibilityClassName();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.this$0.mAccessibilityProvider.handlesRvGetAccessibilityClassName()) {
+                    return this.this$0.mAccessibilityProvider.onRvGetAccessibilityClassName();
+                }
+                return super.getAccessibilityClassName();
             }
-            return super.getAccessibilityClassName();
+            return (CharSequence) invokeV.objValue;
         }
 
         @Override // android.view.View
         public void onInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
-            super.onInitializeAccessibilityEvent(accessibilityEvent);
-            accessibilityEvent.setFromIndex(ViewPager2.this.mCurrentItem);
-            accessibilityEvent.setToIndex(ViewPager2.this.mCurrentItem);
-            ViewPager2.this.mAccessibilityProvider.onRvInitializeAccessibilityEvent(accessibilityEvent);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accessibilityEvent) == null) {
+                super.onInitializeAccessibilityEvent(accessibilityEvent);
+                accessibilityEvent.setFromIndex(this.this$0.mCurrentItem);
+                accessibilityEvent.setToIndex(this.this$0.mCurrentItem);
+                this.this$0.mAccessibilityProvider.onRvInitializeAccessibilityEvent(accessibilityEvent);
+            }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup
         public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-            return ViewPager2.this.isUserInputEnabled() && super.onInterceptTouchEvent(motionEvent);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? this.this$0.isUserInputEnabled() && super.onInterceptTouchEvent(motionEvent) : invokeL.booleanValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView, android.view.View
         @SuppressLint({"ClickableViewAccessibility"})
         public boolean onTouchEvent(MotionEvent motionEvent) {
-            return ViewPager2.this.isUserInputEnabled() && super.onTouchEvent(motionEvent);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) ? this.this$0.isUserInputEnabled() && super.onTouchEvent(motionEvent) : invokeL.booleanValue;
         }
     }
 
@@ -534,32 +982,108 @@ public final class ViewPager2 extends ViewGroup {
 
     /* loaded from: classes.dex */
     public static class SmoothScrollToPosition implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final int mPosition;
         public final RecyclerView mRecyclerView;
 
         public SmoothScrollToPosition(int i2, RecyclerView recyclerView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), recyclerView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mPosition = i2;
             this.mRecyclerView = recyclerView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.mRecyclerView.smoothScrollToPosition(this.mPosition);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.mRecyclerView.smoothScrollToPosition(this.mPosition);
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(470258013, "Landroidx/viewpager2/widget/ViewPager2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(470258013, "Landroidx/viewpager2/widget/ViewPager2;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ViewPager2(@NonNull Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mTmpContainerRect = new Rect();
         this.mTmpChildRect = new Rect();
         this.mExternalPageChangeCallbacks = new CompositeOnPageChangeCallback(3);
         this.mCurrentItemDirty = false;
-        this.mCurrentItemDataSetChangeObserver = new DataSetChangeObserver() { // from class: androidx.viewpager2.widget.ViewPager2.1
+        this.mCurrentItemDataSetChangeObserver = new DataSetChangeObserver(this) { // from class: androidx.viewpager2.widget.ViewPager2.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ViewPager2 this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext2.callArgs[0];
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // androidx.viewpager2.widget.ViewPager2.DataSetChangeObserver, androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
             public void onChanged() {
-                ViewPager2 viewPager2 = ViewPager2.this;
-                viewPager2.mCurrentItemDirty = true;
-                viewPager2.mScrollEventAdapter.notifyDataSetChangeHappened();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    ViewPager2 viewPager2 = this.this$0;
+                    viewPager2.mCurrentItemDirty = true;
+                    viewPager2.mScrollEventAdapter.notifyDataSetChangeHappened();
+                }
             }
         };
         this.mPendingCurrentItem = -1;
@@ -571,90 +1095,177 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     private RecyclerView.OnChildAttachStateChangeListener enforceChildFillListener() {
-        return new RecyclerView.OnChildAttachStateChangeListener() { // from class: androidx.viewpager2.widget.ViewPager2.4
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? new RecyclerView.OnChildAttachStateChangeListener(this) { // from class: androidx.viewpager2.widget.ViewPager2.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ViewPager2 this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
             public void onChildViewAttachedToWindow(@NonNull View view) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
-                if (((ViewGroup.MarginLayoutParams) layoutParams).width != -1 || ((ViewGroup.MarginLayoutParams) layoutParams).height != -1) {
-                    throw new IllegalStateException("Pages must fill the whole ViewPager2 (use match_parent)");
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
+                    if (((ViewGroup.MarginLayoutParams) layoutParams).width != -1 || ((ViewGroup.MarginLayoutParams) layoutParams).height != -1) {
+                        throw new IllegalStateException("Pages must fill the whole ViewPager2 (use match_parent)");
+                    }
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
             public void onChildViewDetachedFromWindow(@NonNull View view) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+                }
             }
-        };
+        } : (RecyclerView.OnChildAttachStateChangeListener) invokeV.objValue;
     }
 
     private void initialize(Context context, AttributeSet attributeSet) {
-        this.mAccessibilityProvider = sFeatureEnhancedA11yEnabled ? new PageAwareAccessibilityProvider() : new BasicAccessibilityProvider();
-        RecyclerViewImpl recyclerViewImpl = new RecyclerViewImpl(context);
-        this.mRecyclerView = recyclerViewImpl;
-        recyclerViewImpl.setId(ViewCompat.generateViewId());
-        this.mRecyclerView.setDescendantFocusability(131072);
-        LinearLayoutManagerImpl linearLayoutManagerImpl = new LinearLayoutManagerImpl(context);
-        this.mLayoutManager = linearLayoutManagerImpl;
-        this.mRecyclerView.setLayoutManager(linearLayoutManagerImpl);
-        this.mRecyclerView.setScrollingTouchSlop(1);
-        setOrientation(context, attributeSet);
-        this.mRecyclerView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.mRecyclerView.addOnChildAttachStateChangeListener(enforceChildFillListener());
-        ScrollEventAdapter scrollEventAdapter = new ScrollEventAdapter(this);
-        this.mScrollEventAdapter = scrollEventAdapter;
-        this.mFakeDragger = new FakeDrag(this, scrollEventAdapter, this.mRecyclerView);
-        PagerSnapHelperImpl pagerSnapHelperImpl = new PagerSnapHelperImpl();
-        this.mPagerSnapHelper = pagerSnapHelperImpl;
-        pagerSnapHelperImpl.attachToRecyclerView(this.mRecyclerView);
-        this.mRecyclerView.addOnScrollListener(this.mScrollEventAdapter);
-        CompositeOnPageChangeCallback compositeOnPageChangeCallback = new CompositeOnPageChangeCallback(3);
-        this.mPageChangeEventDispatcher = compositeOnPageChangeCallback;
-        this.mScrollEventAdapter.setOnPageChangeCallback(compositeOnPageChangeCallback);
-        OnPageChangeCallback onPageChangeCallback = new OnPageChangeCallback() { // from class: androidx.viewpager2.widget.ViewPager2.2
-            @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-            public void onPageScrollStateChanged(int i2) {
-                if (i2 == 0) {
-                    ViewPager2.this.updateCurrentItem();
-                }
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, context, attributeSet) == null) {
+            this.mAccessibilityProvider = sFeatureEnhancedA11yEnabled ? new PageAwareAccessibilityProvider(this) : new BasicAccessibilityProvider(this);
+            RecyclerViewImpl recyclerViewImpl = new RecyclerViewImpl(this, context);
+            this.mRecyclerView = recyclerViewImpl;
+            recyclerViewImpl.setId(ViewCompat.generateViewId());
+            this.mRecyclerView.setDescendantFocusability(131072);
+            LinearLayoutManagerImpl linearLayoutManagerImpl = new LinearLayoutManagerImpl(this, context);
+            this.mLayoutManager = linearLayoutManagerImpl;
+            this.mRecyclerView.setLayoutManager(linearLayoutManagerImpl);
+            this.mRecyclerView.setScrollingTouchSlop(1);
+            setOrientation(context, attributeSet);
+            this.mRecyclerView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            this.mRecyclerView.addOnChildAttachStateChangeListener(enforceChildFillListener());
+            ScrollEventAdapter scrollEventAdapter = new ScrollEventAdapter(this);
+            this.mScrollEventAdapter = scrollEventAdapter;
+            this.mFakeDragger = new FakeDrag(this, scrollEventAdapter, this.mRecyclerView);
+            PagerSnapHelperImpl pagerSnapHelperImpl = new PagerSnapHelperImpl(this);
+            this.mPagerSnapHelper = pagerSnapHelperImpl;
+            pagerSnapHelperImpl.attachToRecyclerView(this.mRecyclerView);
+            this.mRecyclerView.addOnScrollListener(this.mScrollEventAdapter);
+            CompositeOnPageChangeCallback compositeOnPageChangeCallback = new CompositeOnPageChangeCallback(3);
+            this.mPageChangeEventDispatcher = compositeOnPageChangeCallback;
+            this.mScrollEventAdapter.setOnPageChangeCallback(compositeOnPageChangeCallback);
+            OnPageChangeCallback onPageChangeCallback = new OnPageChangeCallback(this) { // from class: androidx.viewpager2.widget.ViewPager2.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ViewPager2 this$0;
 
-            @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-            public void onPageSelected(int i2) {
-                ViewPager2 viewPager2 = ViewPager2.this;
-                if (viewPager2.mCurrentItem != i2) {
-                    viewPager2.mCurrentItem = i2;
-                    viewPager2.mAccessibilityProvider.onSetNewCurrentItem();
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
                 }
-            }
-        };
-        OnPageChangeCallback onPageChangeCallback2 = new OnPageChangeCallback() { // from class: androidx.viewpager2.widget.ViewPager2.3
-            @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-            public void onPageSelected(int i2) {
-                ViewPager2.this.clearFocus();
-                if (ViewPager2.this.hasFocus()) {
-                    ViewPager2.this.mRecyclerView.requestFocus(2);
+
+                @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+                public void onPageScrollStateChanged(int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) && i2 == 0) {
+                        this.this$0.updateCurrentItem();
+                    }
                 }
-            }
-        };
-        this.mPageChangeEventDispatcher.addOnPageChangeCallback(onPageChangeCallback);
-        this.mPageChangeEventDispatcher.addOnPageChangeCallback(onPageChangeCallback2);
-        this.mAccessibilityProvider.onInitialize(this.mPageChangeEventDispatcher, this.mRecyclerView);
-        this.mPageChangeEventDispatcher.addOnPageChangeCallback(this.mExternalPageChangeCallbacks);
-        PageTransformerAdapter pageTransformerAdapter = new PageTransformerAdapter(this.mLayoutManager);
-        this.mPageTransformerAdapter = pageTransformerAdapter;
-        this.mPageChangeEventDispatcher.addOnPageChangeCallback(pageTransformerAdapter);
-        RecyclerView recyclerView = this.mRecyclerView;
-        attachViewToParent(recyclerView, 0, recyclerView.getLayoutParams());
+
+                @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+                public void onPageSelected(int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+                        ViewPager2 viewPager2 = this.this$0;
+                        if (viewPager2.mCurrentItem != i2) {
+                            viewPager2.mCurrentItem = i2;
+                            viewPager2.mAccessibilityProvider.onSetNewCurrentItem();
+                        }
+                    }
+                }
+            };
+            OnPageChangeCallback onPageChangeCallback2 = new OnPageChangeCallback(this) { // from class: androidx.viewpager2.widget.ViewPager2.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ViewPager2 this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+                public void onPageSelected(int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        this.this$0.clearFocus();
+                        if (this.this$0.hasFocus()) {
+                            this.this$0.mRecyclerView.requestFocus(2);
+                        }
+                    }
+                }
+            };
+            this.mPageChangeEventDispatcher.addOnPageChangeCallback(onPageChangeCallback);
+            this.mPageChangeEventDispatcher.addOnPageChangeCallback(onPageChangeCallback2);
+            this.mAccessibilityProvider.onInitialize(this.mPageChangeEventDispatcher, this.mRecyclerView);
+            this.mPageChangeEventDispatcher.addOnPageChangeCallback(this.mExternalPageChangeCallbacks);
+            PageTransformerAdapter pageTransformerAdapter = new PageTransformerAdapter(this.mLayoutManager);
+            this.mPageTransformerAdapter = pageTransformerAdapter;
+            this.mPageChangeEventDispatcher.addOnPageChangeCallback(pageTransformerAdapter);
+            RecyclerView recyclerView = this.mRecyclerView;
+            attachViewToParent(recyclerView, 0, recyclerView.getLayoutParams());
+        }
     }
 
     private void registerCurrentItemDataSetTracker(@Nullable RecyclerView.Adapter<?> adapter) {
-        if (adapter != null) {
-            adapter.registerAdapterDataObserver(this.mCurrentItemDataSetChangeObserver);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, this, adapter) == null) || adapter == null) {
+            return;
         }
+        adapter.registerAdapterDataObserver(this.mCurrentItemDataSetChangeObserver);
     }
 
     private void restorePendingState() {
         RecyclerView.Adapter adapter;
-        if (this.mPendingCurrentItem == -1 || (adapter = getAdapter()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.mPendingCurrentItem == -1 || (adapter = getAdapter()) == null) {
             return;
         }
         Parcelable parcelable = this.mPendingAdapterState;
@@ -672,226 +1283,315 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     private void setOrientation(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ViewPager2);
-        if (Build.VERSION.SDK_INT >= 29) {
-            saveAttributeDataForStyleable(context, R.styleable.ViewPager2, attributeSet, obtainStyledAttributes, 0, 0);
-        }
-        try {
-            setOrientation(obtainStyledAttributes.getInt(R.styleable.ViewPager2_android_orientation, 0));
-        } finally {
-            obtainStyledAttributes.recycle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ViewPager2);
+            if (Build.VERSION.SDK_INT >= 29) {
+                saveAttributeDataForStyleable(context, R.styleable.ViewPager2, attributeSet, obtainStyledAttributes, 0, 0);
+            }
+            try {
+                setOrientation(obtainStyledAttributes.getInt(R.styleable.ViewPager2_android_orientation, 0));
+            } finally {
+                obtainStyledAttributes.recycle();
+            }
         }
     }
 
     private void unregisterCurrentItemDataSetTracker(@Nullable RecyclerView.Adapter<?> adapter) {
-        if (adapter != null) {
-            adapter.unregisterAdapterDataObserver(this.mCurrentItemDataSetChangeObserver);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65546, this, adapter) == null) || adapter == null) {
+            return;
         }
+        adapter.unregisterAdapterDataObserver(this.mCurrentItemDataSetChangeObserver);
     }
 
     public void addItemDecoration(@NonNull RecyclerView.ItemDecoration itemDecoration) {
-        this.mRecyclerView.addItemDecoration(itemDecoration);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, itemDecoration) == null) {
+            this.mRecyclerView.addItemDecoration(itemDecoration);
+        }
     }
 
     public boolean beginFakeDrag() {
-        return this.mFakeDragger.beginFakeDrag();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFakeDragger.beginFakeDrag() : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public boolean canScrollHorizontally(int i2) {
-        return this.mRecyclerView.canScrollHorizontally(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.mRecyclerView.canScrollHorizontally(i2) : invokeI.booleanValue;
     }
 
     @Override // android.view.View
     public boolean canScrollVertically(int i2) {
-        return this.mRecyclerView.canScrollVertically(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.mRecyclerView.canScrollVertically(i2) : invokeI.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
-        Parcelable parcelable = sparseArray.get(getId());
-        if (parcelable instanceof SavedState) {
-            int i2 = ((SavedState) parcelable).mRecyclerViewId;
-            sparseArray.put(this.mRecyclerView.getId(), sparseArray.get(i2));
-            sparseArray.remove(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sparseArray) == null) {
+            Parcelable parcelable = sparseArray.get(getId());
+            if (parcelable instanceof SavedState) {
+                int i2 = ((SavedState) parcelable).mRecyclerViewId;
+                sparseArray.put(this.mRecyclerView.getId(), sparseArray.get(i2));
+                sparseArray.remove(i2);
+            }
+            super.dispatchRestoreInstanceState(sparseArray);
+            restorePendingState();
         }
-        super.dispatchRestoreInstanceState(sparseArray);
-        restorePendingState();
     }
 
     public boolean endFakeDrag() {
-        return this.mFakeDragger.endFakeDrag();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mFakeDragger.endFakeDrag() : invokeV.booleanValue;
     }
 
     public boolean fakeDragBy(@Px @SuppressLint({"SupportAnnotationUsage"}) float f2) {
-        return this.mFakeDragger.fakeDragBy(f2);
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f2)) == null) ? this.mFakeDragger.fakeDragBy(f2) : invokeF.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     @RequiresApi(23)
     public CharSequence getAccessibilityClassName() {
-        if (this.mAccessibilityProvider.handlesGetAccessibilityClassName()) {
-            return this.mAccessibilityProvider.onGetAccessibilityClassName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.mAccessibilityProvider.handlesGetAccessibilityClassName()) {
+                return this.mAccessibilityProvider.onGetAccessibilityClassName();
+            }
+            return super.getAccessibilityClassName();
         }
-        return super.getAccessibilityClassName();
+        return (CharSequence) invokeV.objValue;
     }
 
     @Nullable
     public RecyclerView.Adapter getAdapter() {
-        return this.mRecyclerView.getAdapter();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mRecyclerView.getAdapter() : (RecyclerView.Adapter) invokeV.objValue;
     }
 
     public int getCurrentItem() {
-        return this.mCurrentItem;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mCurrentItem : invokeV.intValue;
     }
 
     @NonNull
     public RecyclerView.ItemDecoration getItemDecorationAt(int i2) {
-        return this.mRecyclerView.getItemDecorationAt(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? this.mRecyclerView.getItemDecorationAt(i2) : (RecyclerView.ItemDecoration) invokeI.objValue;
     }
 
     public int getItemDecorationCount() {
-        return this.mRecyclerView.getItemDecorationCount();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRecyclerView.getItemDecorationCount() : invokeV.intValue;
     }
 
     public int getOffscreenPageLimit() {
-        return this.mOffscreenPageLimit;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mOffscreenPageLimit : invokeV.intValue;
     }
 
     public int getOrientation() {
-        return this.mLayoutManager.getOrientation();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mLayoutManager.getOrientation() : invokeV.intValue;
     }
 
     public int getPageSize() {
+        InterceptResult invokeV;
         int height;
         int paddingBottom;
-        RecyclerView recyclerView = this.mRecyclerView;
-        if (getOrientation() == 0) {
-            height = recyclerView.getWidth() - recyclerView.getPaddingLeft();
-            paddingBottom = recyclerView.getPaddingRight();
-        } else {
-            height = recyclerView.getHeight() - recyclerView.getPaddingTop();
-            paddingBottom = recyclerView.getPaddingBottom();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            RecyclerView recyclerView = this.mRecyclerView;
+            if (getOrientation() == 0) {
+                height = recyclerView.getWidth() - recyclerView.getPaddingLeft();
+                paddingBottom = recyclerView.getPaddingRight();
+            } else {
+                height = recyclerView.getHeight() - recyclerView.getPaddingTop();
+                paddingBottom = recyclerView.getPaddingBottom();
+            }
+            return height - paddingBottom;
         }
-        return height - paddingBottom;
+        return invokeV.intValue;
     }
 
     public int getScrollState() {
-        return this.mScrollEventAdapter.getScrollState();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mScrollEventAdapter.getScrollState() : invokeV.intValue;
     }
 
     public void invalidateItemDecorations() {
-        this.mRecyclerView.invalidateItemDecorations();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.mRecyclerView.invalidateItemDecorations();
+        }
     }
 
     public boolean isFakeDragging() {
-        return this.mFakeDragger.isFakeDragging();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mFakeDragger.isFakeDragging() : invokeV.booleanValue;
     }
 
     public boolean isRtl() {
-        return this.mLayoutManager.getLayoutDirection() == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mLayoutManager.getLayoutDirection() == 1 : invokeV.booleanValue;
     }
 
     public boolean isUserInputEnabled() {
-        return this.mUserInputEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mUserInputEnabled : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
-        super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-        this.mAccessibilityProvider.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, accessibilityNodeInfo) == null) {
+            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+            this.mAccessibilityProvider.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        int measuredWidth = this.mRecyclerView.getMeasuredWidth();
-        int measuredHeight = this.mRecyclerView.getMeasuredHeight();
-        this.mTmpContainerRect.left = getPaddingLeft();
-        this.mTmpContainerRect.right = (i4 - i2) - getPaddingRight();
-        this.mTmpContainerRect.top = getPaddingTop();
-        this.mTmpContainerRect.bottom = (i5 - i3) - getPaddingBottom();
-        Gravity.apply(BadgeDrawable.TOP_START, measuredWidth, measuredHeight, this.mTmpContainerRect, this.mTmpChildRect);
-        RecyclerView recyclerView = this.mRecyclerView;
-        Rect rect = this.mTmpChildRect;
-        recyclerView.layout(rect.left, rect.top, rect.right, rect.bottom);
-        if (this.mCurrentItemDirty) {
-            updateCurrentItem();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            int measuredWidth = this.mRecyclerView.getMeasuredWidth();
+            int measuredHeight = this.mRecyclerView.getMeasuredHeight();
+            this.mTmpContainerRect.left = getPaddingLeft();
+            this.mTmpContainerRect.right = (i4 - i2) - getPaddingRight();
+            this.mTmpContainerRect.top = getPaddingTop();
+            this.mTmpContainerRect.bottom = (i5 - i3) - getPaddingBottom();
+            Gravity.apply(BadgeDrawable.TOP_START, measuredWidth, measuredHeight, this.mTmpContainerRect, this.mTmpChildRect);
+            RecyclerView recyclerView = this.mRecyclerView;
+            Rect rect = this.mTmpChildRect;
+            recyclerView.layout(rect.left, rect.top, rect.right, rect.bottom);
+            if (this.mCurrentItemDirty) {
+                updateCurrentItem();
+            }
         }
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        measureChild(this.mRecyclerView, i2, i3);
-        int measuredWidth = this.mRecyclerView.getMeasuredWidth();
-        int measuredHeight = this.mRecyclerView.getMeasuredHeight();
-        int measuredState = this.mRecyclerView.getMeasuredState();
-        int paddingLeft = measuredWidth + getPaddingLeft() + getPaddingRight();
-        int paddingTop = measuredHeight + getPaddingTop() + getPaddingBottom();
-        setMeasuredDimension(ViewGroup.resolveSizeAndState(Math.max(paddingLeft, getSuggestedMinimumWidth()), i2, measuredState), ViewGroup.resolveSizeAndState(Math.max(paddingTop, getSuggestedMinimumHeight()), i3, measuredState << 16));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
+            measureChild(this.mRecyclerView, i2, i3);
+            int measuredWidth = this.mRecyclerView.getMeasuredWidth();
+            int measuredHeight = this.mRecyclerView.getMeasuredHeight();
+            int measuredState = this.mRecyclerView.getMeasuredState();
+            int paddingLeft = measuredWidth + getPaddingLeft() + getPaddingRight();
+            int paddingTop = measuredHeight + getPaddingTop() + getPaddingBottom();
+            setMeasuredDimension(ViewGroup.resolveSizeAndState(Math.max(paddingLeft, getSuggestedMinimumWidth()), i2, measuredState), ViewGroup.resolveSizeAndState(Math.max(paddingTop, getSuggestedMinimumHeight()), i3, measuredState << 16));
+        }
     }
 
     @Override // android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
-        if (!(parcelable instanceof SavedState)) {
-            super.onRestoreInstanceState(parcelable);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, parcelable) == null) {
+            if (!(parcelable instanceof SavedState)) {
+                super.onRestoreInstanceState(parcelable);
+                return;
+            }
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            this.mPendingCurrentItem = savedState.mCurrentItem;
+            this.mPendingAdapterState = savedState.mAdapterState;
         }
-        SavedState savedState = (SavedState) parcelable;
-        super.onRestoreInstanceState(savedState.getSuperState());
-        this.mPendingCurrentItem = savedState.mCurrentItem;
-        this.mPendingAdapterState = savedState.mAdapterState;
     }
 
     @Override // android.view.View
     @Nullable
     public Parcelable onSaveInstanceState() {
-        SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.mRecyclerViewId = this.mRecyclerView.getId();
-        int i2 = this.mPendingCurrentItem;
-        if (i2 == -1) {
-            i2 = this.mCurrentItem;
-        }
-        savedState.mCurrentItem = i2;
-        Parcelable parcelable = this.mPendingAdapterState;
-        if (parcelable != null) {
-            savedState.mAdapterState = parcelable;
-        } else {
-            RecyclerView.Adapter adapter = this.mRecyclerView.getAdapter();
-            if (adapter instanceof StatefulAdapter) {
-                savedState.mAdapterState = ((StatefulAdapter) adapter).saveState();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            SavedState savedState = new SavedState(super.onSaveInstanceState());
+            savedState.mRecyclerViewId = this.mRecyclerView.getId();
+            int i2 = this.mPendingCurrentItem;
+            if (i2 == -1) {
+                i2 = this.mCurrentItem;
             }
+            savedState.mCurrentItem = i2;
+            Parcelable parcelable = this.mPendingAdapterState;
+            if (parcelable != null) {
+                savedState.mAdapterState = parcelable;
+            } else {
+                RecyclerView.Adapter adapter = this.mRecyclerView.getAdapter();
+                if (adapter instanceof StatefulAdapter) {
+                    savedState.mAdapterState = ((StatefulAdapter) adapter).saveState();
+                }
+            }
+            return savedState;
         }
-        return savedState;
+        return (Parcelable) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup
     public void onViewAdded(View view) {
-        throw new IllegalStateException(ViewPager2.class.getSimpleName() + " does not support direct child views");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, view) == null) {
+            throw new IllegalStateException(ViewPager2.class.getSimpleName() + " does not support direct child views");
+        }
     }
 
     @Override // android.view.View
     @RequiresApi(16)
     public boolean performAccessibilityAction(int i2, Bundle bundle) {
-        if (this.mAccessibilityProvider.handlesPerformAccessibilityAction(i2, bundle)) {
-            return this.mAccessibilityProvider.onPerformAccessibilityAction(i2, bundle);
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i2, bundle)) == null) {
+            if (this.mAccessibilityProvider.handlesPerformAccessibilityAction(i2, bundle)) {
+                return this.mAccessibilityProvider.onPerformAccessibilityAction(i2, bundle);
+            }
+            return super.performAccessibilityAction(i2, bundle);
         }
-        return super.performAccessibilityAction(i2, bundle);
+        return invokeIL.booleanValue;
     }
 
     public void registerOnPageChangeCallback(@NonNull OnPageChangeCallback onPageChangeCallback) {
-        this.mExternalPageChangeCallbacks.addOnPageChangeCallback(onPageChangeCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, onPageChangeCallback) == null) {
+            this.mExternalPageChangeCallbacks.addOnPageChangeCallback(onPageChangeCallback);
+        }
     }
 
     public void removeItemDecoration(@NonNull RecyclerView.ItemDecoration itemDecoration) {
-        this.mRecyclerView.removeItemDecoration(itemDecoration);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, itemDecoration) == null) {
+            this.mRecyclerView.removeItemDecoration(itemDecoration);
+        }
     }
 
     public void removeItemDecorationAt(int i2) {
-        this.mRecyclerView.removeItemDecorationAt(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+            this.mRecyclerView.removeItemDecorationAt(i2);
+        }
     }
 
     public void requestTransform() {
-        if (this.mPageTransformerAdapter.getPageTransformer() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048607, this) == null) || this.mPageTransformerAdapter.getPageTransformer() == null) {
             return;
         }
         double relativeScrollPosition = this.mScrollEventAdapter.getRelativeScrollPosition();
@@ -901,99 +1601,121 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     public void setAdapter(@Nullable RecyclerView.Adapter adapter) {
-        RecyclerView.Adapter adapter2 = this.mRecyclerView.getAdapter();
-        this.mAccessibilityProvider.onDetachAdapter(adapter2);
-        unregisterCurrentItemDataSetTracker(adapter2);
-        this.mRecyclerView.setAdapter(adapter);
-        this.mCurrentItem = 0;
-        restorePendingState();
-        this.mAccessibilityProvider.onAttachAdapter(adapter);
-        registerCurrentItemDataSetTracker(adapter);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, adapter) == null) {
+            RecyclerView.Adapter adapter2 = this.mRecyclerView.getAdapter();
+            this.mAccessibilityProvider.onDetachAdapter(adapter2);
+            unregisterCurrentItemDataSetTracker(adapter2);
+            this.mRecyclerView.setAdapter(adapter);
+            this.mCurrentItem = 0;
+            restorePendingState();
+            this.mAccessibilityProvider.onAttachAdapter(adapter);
+            registerCurrentItemDataSetTracker(adapter);
+        }
     }
 
     public void setCurrentItem(int i2) {
-        setCurrentItem(i2, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+            setCurrentItem(i2, true);
+        }
     }
 
     public void setCurrentItemInternal(int i2, boolean z) {
-        RecyclerView.Adapter adapter = getAdapter();
-        if (adapter == null) {
-            if (this.mPendingCurrentItem != -1) {
-                this.mPendingCurrentItem = Math.max(i2, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            RecyclerView.Adapter adapter = getAdapter();
+            if (adapter == null) {
+                if (this.mPendingCurrentItem != -1) {
+                    this.mPendingCurrentItem = Math.max(i2, 0);
+                }
+            } else if (adapter.getItemCount() <= 0) {
+            } else {
+                int min = Math.min(Math.max(i2, 0), adapter.getItemCount() - 1);
+                if (min == this.mCurrentItem && this.mScrollEventAdapter.isIdle()) {
+                    return;
+                }
+                if (min == this.mCurrentItem && z) {
+                    return;
+                }
+                double d2 = this.mCurrentItem;
+                this.mCurrentItem = min;
+                this.mAccessibilityProvider.onSetNewCurrentItem();
+                if (!this.mScrollEventAdapter.isIdle()) {
+                    d2 = this.mScrollEventAdapter.getRelativeScrollPosition();
+                }
+                this.mScrollEventAdapter.notifyProgrammaticScroll(min, z);
+                if (!z) {
+                    this.mRecyclerView.scrollToPosition(min);
+                    return;
+                }
+                double d3 = min;
+                if (Math.abs(d3 - d2) > 3.0d) {
+                    this.mRecyclerView.scrollToPosition(d3 > d2 ? min - 3 : min + 3);
+                    RecyclerView recyclerView = this.mRecyclerView;
+                    recyclerView.post(new SmoothScrollToPosition(min, recyclerView));
+                    return;
+                }
+                this.mRecyclerView.smoothScrollToPosition(min);
             }
-        } else if (adapter.getItemCount() <= 0) {
-        } else {
-            int min = Math.min(Math.max(i2, 0), adapter.getItemCount() - 1);
-            if (min == this.mCurrentItem && this.mScrollEventAdapter.isIdle()) {
-                return;
-            }
-            if (min == this.mCurrentItem && z) {
-                return;
-            }
-            double d2 = this.mCurrentItem;
-            this.mCurrentItem = min;
-            this.mAccessibilityProvider.onSetNewCurrentItem();
-            if (!this.mScrollEventAdapter.isIdle()) {
-                d2 = this.mScrollEventAdapter.getRelativeScrollPosition();
-            }
-            this.mScrollEventAdapter.notifyProgrammaticScroll(min, z);
-            if (!z) {
-                this.mRecyclerView.scrollToPosition(min);
-                return;
-            }
-            double d3 = min;
-            if (Math.abs(d3 - d2) > 3.0d) {
-                this.mRecyclerView.scrollToPosition(d3 > d2 ? min - 3 : min + 3);
-                RecyclerView recyclerView = this.mRecyclerView;
-                recyclerView.post(new SmoothScrollToPosition(min, recyclerView));
-                return;
-            }
-            this.mRecyclerView.smoothScrollToPosition(min);
         }
     }
 
     @Override // android.view.View
     @RequiresApi(17)
     public void setLayoutDirection(int i2) {
-        super.setLayoutDirection(i2);
-        this.mAccessibilityProvider.onSetLayoutDirection();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            super.setLayoutDirection(i2);
+            this.mAccessibilityProvider.onSetLayoutDirection();
+        }
     }
 
     public void setOffscreenPageLimit(int i2) {
-        if (i2 < 1 && i2 != -1) {
-            throw new IllegalArgumentException("Offscreen page limit must be OFFSCREEN_PAGE_LIMIT_DEFAULT or a number > 0");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
+            if (i2 < 1 && i2 != -1) {
+                throw new IllegalArgumentException("Offscreen page limit must be OFFSCREEN_PAGE_LIMIT_DEFAULT or a number > 0");
+            }
+            this.mOffscreenPageLimit = i2;
+            this.mRecyclerView.requestLayout();
         }
-        this.mOffscreenPageLimit = i2;
-        this.mRecyclerView.requestLayout();
     }
 
     public void setPageTransformer(@Nullable PageTransformer pageTransformer) {
-        if (pageTransformer != null) {
-            if (!this.mSavedItemAnimatorPresent) {
-                this.mSavedItemAnimator = this.mRecyclerView.getItemAnimator();
-                this.mSavedItemAnimatorPresent = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, pageTransformer) == null) {
+            if (pageTransformer != null) {
+                if (!this.mSavedItemAnimatorPresent) {
+                    this.mSavedItemAnimator = this.mRecyclerView.getItemAnimator();
+                    this.mSavedItemAnimatorPresent = true;
+                }
+                this.mRecyclerView.setItemAnimator(null);
+            } else if (this.mSavedItemAnimatorPresent) {
+                this.mRecyclerView.setItemAnimator(this.mSavedItemAnimator);
+                this.mSavedItemAnimator = null;
+                this.mSavedItemAnimatorPresent = false;
             }
-            this.mRecyclerView.setItemAnimator(null);
-        } else if (this.mSavedItemAnimatorPresent) {
-            this.mRecyclerView.setItemAnimator(this.mSavedItemAnimator);
-            this.mSavedItemAnimator = null;
-            this.mSavedItemAnimatorPresent = false;
+            if (pageTransformer == this.mPageTransformerAdapter.getPageTransformer()) {
+                return;
+            }
+            this.mPageTransformerAdapter.setPageTransformer(pageTransformer);
+            requestTransform();
         }
-        if (pageTransformer == this.mPageTransformerAdapter.getPageTransformer()) {
-            return;
-        }
-        this.mPageTransformerAdapter.setPageTransformer(pageTransformer);
-        requestTransform();
     }
 
     public void setUserInputEnabled(boolean z) {
-        this.mUserInputEnabled = z;
-        this.mAccessibilityProvider.onSetUserInputEnabled();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+            this.mUserInputEnabled = z;
+            this.mAccessibilityProvider.onSetUserInputEnabled();
+        }
     }
 
     public void snapToPage() {
-        View findSnapView = this.mPagerSnapHelper.findSnapView(this.mLayoutManager);
-        if (findSnapView == null) {
+        View findSnapView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048617, this) == null) || (findSnapView = this.mPagerSnapHelper.findSnapView(this.mLayoutManager)) == null) {
             return;
         }
         int[] calculateDistanceToFinalSnap = this.mPagerSnapHelper.calculateDistanceToFinalSnap(this.mLayoutManager, findSnapView);
@@ -1004,111 +1726,265 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     public void unregisterOnPageChangeCallback(@NonNull OnPageChangeCallback onPageChangeCallback) {
-        this.mExternalPageChangeCallbacks.removeOnPageChangeCallback(onPageChangeCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, onPageChangeCallback) == null) {
+            this.mExternalPageChangeCallbacks.removeOnPageChangeCallback(onPageChangeCallback);
+        }
     }
 
     public void updateCurrentItem() {
-        PagerSnapHelper pagerSnapHelper = this.mPagerSnapHelper;
-        if (pagerSnapHelper != null) {
-            View findSnapView = pagerSnapHelper.findSnapView(this.mLayoutManager);
-            if (findSnapView == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+            PagerSnapHelper pagerSnapHelper = this.mPagerSnapHelper;
+            if (pagerSnapHelper != null) {
+                View findSnapView = pagerSnapHelper.findSnapView(this.mLayoutManager);
+                if (findSnapView == null) {
+                    return;
+                }
+                int position = this.mLayoutManager.getPosition(findSnapView);
+                if (position != this.mCurrentItem && getScrollState() == 0) {
+                    this.mPageChangeEventDispatcher.onPageSelected(position);
+                }
+                this.mCurrentItemDirty = false;
                 return;
             }
-            int position = this.mLayoutManager.getPosition(findSnapView);
-            if (position != this.mCurrentItem && getScrollState() == 0) {
-                this.mPageChangeEventDispatcher.onPageSelected(position);
-            }
-            this.mCurrentItemDirty = false;
-            return;
+            throw new IllegalStateException("Design assumption violated.");
         }
-        throw new IllegalStateException("Design assumption violated.");
     }
 
     /* loaded from: classes.dex */
     public static class SavedState extends View.BaseSavedState {
-        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.viewpager2.widget.ViewPager2.SavedState.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            public SavedState[] newArray(int i2) {
-                return new SavedState[i2];
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.ClassLoaderCreator
-            public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
-                return Build.VERSION.SDK_INT >= 24 ? new SavedState(parcel, classLoader) : new SavedState(parcel);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            public SavedState createFromParcel(Parcel parcel) {
-                return createFromParcel(parcel, (ClassLoader) null);
-            }
-        };
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator<SavedState> CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
         public Parcelable mAdapterState;
         public int mCurrentItem;
         public int mRecyclerViewId;
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(173315595, "Landroidx/viewpager2/widget/ViewPager2$SavedState;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(173315595, "Landroidx/viewpager2/widget/ViewPager2$SavedState;");
+                    return;
+                }
+            }
+            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.viewpager2.widget.ViewPager2.SavedState.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                public SavedState[] newArray(int i2) {
+                    InterceptResult invokeI;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // android.os.Parcelable.ClassLoaderCreator
+                public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) ? Build.VERSION.SDK_INT >= 24 ? new SavedState(parcel, classLoader) : new SavedState(parcel) : (SavedState) invokeLL.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                public SavedState createFromParcel(Parcel parcel) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? createFromParcel(parcel, (ClassLoader) null) : (SavedState) invokeL.objValue;
+                }
+            };
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         @RequiresApi(24)
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel, classLoader};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
             readValues(parcel, classLoader);
         }
 
         private void readValues(Parcel parcel, ClassLoader classLoader) {
-            this.mRecyclerViewId = parcel.readInt();
-            this.mCurrentItem = parcel.readInt();
-            this.mAdapterState = parcel.readParcelable(classLoader);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65540, this, parcel, classLoader) == null) {
+                this.mRecyclerViewId = parcel.readInt();
+                this.mCurrentItem = parcel.readInt();
+                this.mAdapterState = parcel.readParcelable(classLoader);
+            }
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
-            super.writeToParcel(parcel, i2);
-            parcel.writeInt(this.mRecyclerViewId);
-            parcel.writeInt(this.mCurrentItem);
-            parcel.writeParcelable(this.mAdapterState, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
+                super.writeToParcel(parcel, i2);
+                parcel.writeInt(this.mRecyclerViewId);
+                parcel.writeInt(this.mCurrentItem);
+                parcel.writeParcelable(this.mAdapterState, i2);
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(Parcel parcel) {
             super(parcel);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Parcel) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             readValues(parcel, null);
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(Parcelable parcelable) {
             super(parcelable);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcelable};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Parcelable) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
     public void addItemDecoration(@NonNull RecyclerView.ItemDecoration itemDecoration, int i2) {
-        this.mRecyclerView.addItemDecoration(itemDecoration, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, itemDecoration, i2) == null) {
+            this.mRecyclerView.addItemDecoration(itemDecoration, i2);
+        }
     }
 
     public void setCurrentItem(int i2, boolean z) {
-        if (!isFakeDragging()) {
-            setCurrentItemInternal(i2, z);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            if (!isFakeDragging()) {
+                setCurrentItemInternal(i2, z);
+                return;
+            }
+            throw new IllegalStateException("Cannot change current item when ViewPager2 is fake dragging");
         }
-        throw new IllegalStateException("Cannot change current item when ViewPager2 is fake dragging");
     }
 
     public void setOrientation(int i2) {
-        this.mLayoutManager.setOrientation(i2);
-        this.mAccessibilityProvider.onSetOrientation();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+            this.mLayoutManager.setOrientation(i2);
+            this.mAccessibilityProvider.onSetOrientation();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ViewPager2(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mTmpContainerRect = new Rect();
         this.mTmpChildRect = new Rect();
         this.mExternalPageChangeCallbacks = new CompositeOnPageChangeCallback(3);
         this.mCurrentItemDirty = false;
-        this.mCurrentItemDataSetChangeObserver = new DataSetChangeObserver() { // from class: androidx.viewpager2.widget.ViewPager2.1
+        this.mCurrentItemDataSetChangeObserver = new DataSetChangeObserver(this) { // from class: androidx.viewpager2.widget.ViewPager2.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ViewPager2 this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr2;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext2.callArgs[0];
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // androidx.viewpager2.widget.ViewPager2.DataSetChangeObserver, androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
             public void onChanged() {
-                ViewPager2 viewPager2 = ViewPager2.this;
-                viewPager2.mCurrentItemDirty = true;
-                viewPager2.mScrollEventAdapter.notifyDataSetChangeHappened();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    ViewPager2 viewPager2 = this.this$0;
+                    viewPager2.mCurrentItemDirty = true;
+                    viewPager2.mScrollEventAdapter.notifyDataSetChangeHappened();
+                }
             }
         };
         this.mPendingCurrentItem = -1;
@@ -1119,18 +1995,61 @@ public final class ViewPager2 extends ViewGroup {
         initialize(context, attributeSet);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ViewPager2(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.mTmpContainerRect = new Rect();
         this.mTmpChildRect = new Rect();
         this.mExternalPageChangeCallbacks = new CompositeOnPageChangeCallback(3);
         this.mCurrentItemDirty = false;
-        this.mCurrentItemDataSetChangeObserver = new DataSetChangeObserver() { // from class: androidx.viewpager2.widget.ViewPager2.1
+        this.mCurrentItemDataSetChangeObserver = new DataSetChangeObserver(this) { // from class: androidx.viewpager2.widget.ViewPager2.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ViewPager2 this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr22;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext2.callArgs[0];
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // androidx.viewpager2.widget.ViewPager2.DataSetChangeObserver, androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
             public void onChanged() {
-                ViewPager2 viewPager2 = ViewPager2.this;
-                viewPager2.mCurrentItemDirty = true;
-                viewPager2.mScrollEventAdapter.notifyDataSetChangeHappened();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    ViewPager2 viewPager2 = this.this$0;
+                    viewPager2.mCurrentItemDirty = true;
+                    viewPager2.mScrollEventAdapter.notifyDataSetChangeHappened();
+                }
             }
         };
         this.mPendingCurrentItem = -1;
@@ -1141,19 +2060,62 @@ public final class ViewPager2 extends ViewGroup {
         initialize(context, attributeSet);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @RequiresApi(21)
     public ViewPager2(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
         super(context, attributeSet, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
         this.mTmpContainerRect = new Rect();
         this.mTmpChildRect = new Rect();
         this.mExternalPageChangeCallbacks = new CompositeOnPageChangeCallback(3);
         this.mCurrentItemDirty = false;
-        this.mCurrentItemDataSetChangeObserver = new DataSetChangeObserver() { // from class: androidx.viewpager2.widget.ViewPager2.1
+        this.mCurrentItemDataSetChangeObserver = new DataSetChangeObserver(this) { // from class: androidx.viewpager2.widget.ViewPager2.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ViewPager2 this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr22;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i52 = i42 & 2;
+                        AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext2.callArgs[0];
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // androidx.viewpager2.widget.ViewPager2.DataSetChangeObserver, androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
             public void onChanged() {
-                ViewPager2 viewPager2 = ViewPager2.this;
-                viewPager2.mCurrentItemDirty = true;
-                viewPager2.mScrollEventAdapter.notifyDataSetChangeHappened();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    ViewPager2 viewPager2 = this.this$0;
+                    viewPager2.mCurrentItemDirty = true;
+                    viewPager2.mScrollEventAdapter.notifyDataSetChangeHappened();
+                }
             }
         };
         this.mPendingCurrentItem = -1;

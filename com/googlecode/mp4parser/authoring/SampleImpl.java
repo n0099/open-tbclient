@@ -1,18 +1,40 @@
 package com.googlecode.mp4parser.authoring;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Container;
 import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SampleImpl implements Sample {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer[] data;
     public final long offset;
     public final Container parent;
     public final long size;
 
     public SampleImpl(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {byteBuffer};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.offset = -1L;
         this.size = byteBuffer.limit();
         this.data = new ByteBuffer[]{byteBuffer};
@@ -21,60 +43,103 @@ public class SampleImpl implements Sample {
 
     @Override // com.googlecode.mp4parser.authoring.Sample
     public ByteBuffer asByteBuffer() {
-        ensureData();
-        ByteBuffer wrap = ByteBuffer.wrap(new byte[CastUtils.l2i(this.size)]);
-        for (ByteBuffer byteBuffer : this.data) {
-            wrap.put(byteBuffer.duplicate());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ensureData();
+            ByteBuffer wrap = ByteBuffer.wrap(new byte[CastUtils.l2i(this.size)]);
+            for (ByteBuffer byteBuffer : this.data) {
+                wrap.put(byteBuffer.duplicate());
+            }
+            wrap.rewind();
+            return wrap;
         }
-        wrap.rewind();
-        return wrap;
+        return (ByteBuffer) invokeV.objValue;
     }
 
     public void ensureData() {
-        if (this.data != null) {
-            return;
-        }
-        Container container = this.parent;
-        if (container != null) {
-            try {
-                this.data = new ByteBuffer[]{container.getByteBuffer(this.offset, this.size)};
-                return;
-            } catch (IOException e2) {
-                throw new RuntimeException("couldn't read sample " + this, e2);
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.data == null) {
+            Container container = this.parent;
+            if (container != null) {
+                try {
+                    this.data = new ByteBuffer[]{container.getByteBuffer(this.offset, this.size)};
+                    return;
+                } catch (IOException e2) {
+                    throw new RuntimeException("couldn't read sample " + this, e2);
+                }
             }
+            throw new RuntimeException("Missing parent container, can't read sample " + this);
         }
-        throw new RuntimeException("Missing parent container, can't read sample " + this);
     }
 
     @Override // com.googlecode.mp4parser.authoring.Sample
     public long getSize() {
-        return this.size;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.size : invokeV.longValue;
     }
 
     public String toString() {
-        return "SampleImpl{offset=" + this.offset + "{size=" + this.size + '}';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "SampleImpl{offset=" + this.offset + "{size=" + this.size + '}';
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Sample
     public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-        ensureData();
-        for (ByteBuffer byteBuffer : this.data) {
-            writableByteChannel.write(byteBuffer.duplicate());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writableByteChannel) == null) {
+            ensureData();
+            for (ByteBuffer byteBuffer : this.data) {
+                writableByteChannel.write(byteBuffer.duplicate());
+            }
         }
     }
 
     public SampleImpl(ByteBuffer[] byteBufferArr) {
-        this.offset = -1L;
-        int i2 = 0;
-        for (ByteBuffer byteBuffer : byteBufferArr) {
-            i2 += byteBuffer.remaining();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {byteBufferArr};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
         }
-        this.size = i2;
+        this.offset = -1L;
+        int i4 = 0;
+        for (ByteBuffer byteBuffer : byteBufferArr) {
+            i4 += byteBuffer.remaining();
+        }
+        this.size = i4;
         this.data = byteBufferArr;
         this.parent = null;
     }
 
     public SampleImpl(long j, long j2, ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), byteBuffer};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.offset = j;
         this.size = j2;
         this.data = new ByteBuffer[]{byteBuffer};
@@ -82,6 +147,20 @@ public class SampleImpl implements Sample {
     }
 
     public SampleImpl(long j, long j2, Container container) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), container};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.offset = j;
         this.size = j2;
         this.data = null;

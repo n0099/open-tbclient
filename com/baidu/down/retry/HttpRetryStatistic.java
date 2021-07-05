@@ -1,9 +1,15 @@
 package com.baidu.down.retry;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpRetryStatistic {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DATA = "DATA:";
     public static final boolean DEBUG = false;
     public static final String RETRY_DOWNLOAD_FLOW_TIME = "dft:";
@@ -17,27 +23,52 @@ public class HttpRetryStatistic {
     public static final String RETYR_MODE = "md:";
     public static final String TAG = "HttpRetryStatistic";
     public static final String THREAD = "THREAD:";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public HttpRetryStatistic() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static String buidTaskRetryStatistic(ConcurrentHashMap<Integer, String> concurrentHashMap, int i2, long j, String str, String str2) {
-        StringBuilder sb = new StringBuilder();
-        for (Map.Entry<Integer, String> entry : concurrentHashMap.entrySet()) {
-            sb.append(THREAD + entry.getKey() + "\n");
-            sb.append(DATA + entry.getValue() + "\n");
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{concurrentHashMap, Integer.valueOf(i2), Long.valueOf(j), str, str2})) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<Integer, String> entry : concurrentHashMap.entrySet()) {
+                sb.append(THREAD + entry.getKey() + "\n");
+                sb.append(DATA + entry.getValue() + "\n");
+            }
+            sb.append(RETYR_MODE + i2 + "\n");
+            sb.append(RETRY_DOWNLOAD_FLOW_TIME + j + "\n");
+            sb.append(RETRY_EXCEPTION_NAME + str + "\n");
+            sb.append(RETRY_REQUEST_ID + str2 + "\n");
+            sb.append("buid task time:" + System.currentTimeMillis() + "\n");
+            return sb.toString();
         }
-        sb.append(RETYR_MODE + i2 + "\n");
-        sb.append(RETRY_DOWNLOAD_FLOW_TIME + j + "\n");
-        sb.append(RETRY_EXCEPTION_NAME + str + "\n");
-        sb.append(RETRY_REQUEST_ID + str2 + "\n");
-        sb.append("buid task time:" + System.currentTimeMillis() + "\n");
-        return sb.toString();
+        return (String) invokeCommon.objValue;
     }
 
     public static String buildRetryStatistic(String str, String str2, String str3) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n retrytag: \n");
-        sb.append(RETRY_URL + str + "\n");
-        sb.append(RETRY_RESULT + str2 + "\n");
-        sb.append(RETRY_HOST + str3 + "\n");
-        return sb.toString();
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("\n retrytag: \n");
+            sb.append(RETRY_URL + str + "\n");
+            sb.append(RETRY_RESULT + str2 + "\n");
+            sb.append(RETRY_HOST + str3 + "\n");
+            return sb.toString();
+        }
+        return (String) invokeLLL.objValue;
     }
 }

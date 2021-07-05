@@ -12,11 +12,21 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Set;
 /* loaded from: classes.dex */
 public final class MediaMetadataCompat implements Parcelable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MediaMetadataCompat> CREATOR;
     public static final ArrayMap<String, Integer> METADATA_KEYS_TYPE;
     public static final String METADATA_KEY_ADVERTISEMENT = "android.media.metadata.ADVERTISEMENT";
@@ -58,6 +68,7 @@ public final class MediaMetadataCompat implements Parcelable {
     public static final String[] PREFERRED_DESCRIPTION_ORDER;
     public static final String[] PREFERRED_URI_ORDER;
     public static final String TAG = "MediaMetadata";
+    public transient /* synthetic */ FieldHolder $fh;
     public final Bundle mBundle;
     public MediaDescriptionCompat mDescription;
     public Object mMetadataObj;
@@ -87,6 +98,18 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1796148426, "Landroid/support/v4/media/MediaMetadataCompat;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1796148426, "Landroid/support/v4/media/MediaMetadataCompat;");
+                return;
+            }
+        }
         ArrayMap<String, Integer> arrayMap = new ArrayMap<>();
         METADATA_KEYS_TYPE = arrayMap;
         arrayMap.put(METADATA_KEY_TITLE, 1);
@@ -124,272 +147,430 @@ public final class MediaMetadataCompat implements Parcelable {
         PREFERRED_BITMAP_ORDER = new String[]{METADATA_KEY_DISPLAY_ICON, METADATA_KEY_ART, METADATA_KEY_ALBUM_ART};
         PREFERRED_URI_ORDER = new String[]{METADATA_KEY_DISPLAY_ICON_URI, METADATA_KEY_ART_URI, METADATA_KEY_ALBUM_ART_URI};
         CREATOR = new Parcelable.Creator<MediaMetadataCompat>() { // from class: android.support.v4.media.MediaMetadataCompat.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MediaMetadataCompat createFromParcel(Parcel parcel) {
-                return new MediaMetadataCompat(parcel);
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new MediaMetadataCompat(parcel) : (MediaMetadataCompat) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MediaMetadataCompat[] newArray(int i2) {
-                return new MediaMetadataCompat[i2];
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new MediaMetadataCompat[i2] : (MediaMetadataCompat[]) invokeI.objValue;
             }
         };
     }
 
     public MediaMetadataCompat(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bundle};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         Bundle bundle2 = new Bundle(bundle);
         this.mBundle = bundle2;
         MediaSessionCompat.ensureClassLoader(bundle2);
     }
 
     public static MediaMetadataCompat fromMediaMetadata(Object obj) {
-        if (obj == null || Build.VERSION.SDK_INT < 21) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            if (obj == null || Build.VERSION.SDK_INT < 21) {
+                return null;
+            }
+            Parcel obtain = Parcel.obtain();
+            MediaMetadataCompatApi21.writeToParcel(obj, obtain, 0);
+            obtain.setDataPosition(0);
+            MediaMetadataCompat createFromParcel = CREATOR.createFromParcel(obtain);
+            obtain.recycle();
+            createFromParcel.mMetadataObj = obj;
+            return createFromParcel;
         }
-        Parcel obtain = Parcel.obtain();
-        MediaMetadataCompatApi21.writeToParcel(obj, obtain, 0);
-        obtain.setDataPosition(0);
-        MediaMetadataCompat createFromParcel = CREATOR.createFromParcel(obtain);
-        obtain.recycle();
-        createFromParcel.mMetadataObj = obj;
-        return createFromParcel;
+        return (MediaMetadataCompat) invokeL.objValue;
     }
 
     public boolean containsKey(String str) {
-        return this.mBundle.containsKey(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.mBundle.containsKey(str) : invokeL.booleanValue;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public Bitmap getBitmap(String str) {
-        try {
-            return (Bitmap) this.mBundle.getParcelable(str);
-        } catch (Exception e2) {
-            Log.w(TAG, "Failed to retrieve a key as Bitmap.", e2);
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                return (Bitmap) this.mBundle.getParcelable(str);
+            } catch (Exception e2) {
+                Log.w(TAG, "Failed to retrieve a key as Bitmap.", e2);
+                return null;
+            }
         }
+        return (Bitmap) invokeL.objValue;
     }
 
     public Bundle getBundle() {
-        return new Bundle(this.mBundle);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new Bundle(this.mBundle) : (Bundle) invokeV.objValue;
     }
 
     public MediaDescriptionCompat getDescription() {
+        InterceptResult invokeV;
         Bitmap bitmap;
         Uri uri;
-        MediaDescriptionCompat mediaDescriptionCompat = this.mDescription;
-        if (mediaDescriptionCompat != null) {
-            return mediaDescriptionCompat;
-        }
-        String string = getString(METADATA_KEY_MEDIA_ID);
-        CharSequence[] charSequenceArr = new CharSequence[3];
-        CharSequence text = getText(METADATA_KEY_DISPLAY_TITLE);
-        if (TextUtils.isEmpty(text)) {
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < 3) {
-                String[] strArr = PREFERRED_DESCRIPTION_ORDER;
-                if (i3 >= strArr.length) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            MediaDescriptionCompat mediaDescriptionCompat = this.mDescription;
+            if (mediaDescriptionCompat != null) {
+                return mediaDescriptionCompat;
+            }
+            String string = getString(METADATA_KEY_MEDIA_ID);
+            CharSequence[] charSequenceArr = new CharSequence[3];
+            CharSequence text = getText(METADATA_KEY_DISPLAY_TITLE);
+            if (TextUtils.isEmpty(text)) {
+                int i2 = 0;
+                int i3 = 0;
+                while (i2 < 3) {
+                    String[] strArr = PREFERRED_DESCRIPTION_ORDER;
+                    if (i3 >= strArr.length) {
+                        break;
+                    }
+                    int i4 = i3 + 1;
+                    CharSequence text2 = getText(strArr[i3]);
+                    if (!TextUtils.isEmpty(text2)) {
+                        charSequenceArr[i2] = text2;
+                        i2++;
+                    }
+                    i3 = i4;
+                }
+            } else {
+                charSequenceArr[0] = text;
+                charSequenceArr[1] = getText(METADATA_KEY_DISPLAY_SUBTITLE);
+                charSequenceArr[2] = getText(METADATA_KEY_DISPLAY_DESCRIPTION);
+            }
+            int i5 = 0;
+            while (true) {
+                String[] strArr2 = PREFERRED_BITMAP_ORDER;
+                if (i5 >= strArr2.length) {
+                    bitmap = null;
                     break;
                 }
-                int i4 = i3 + 1;
-                CharSequence text2 = getText(strArr[i3]);
-                if (!TextUtils.isEmpty(text2)) {
-                    charSequenceArr[i2] = text2;
-                    i2++;
+                bitmap = getBitmap(strArr2[i5]);
+                if (bitmap != null) {
+                    break;
                 }
-                i3 = i4;
+                i5++;
             }
-        } else {
-            charSequenceArr[0] = text;
-            charSequenceArr[1] = getText(METADATA_KEY_DISPLAY_SUBTITLE);
-            charSequenceArr[2] = getText(METADATA_KEY_DISPLAY_DESCRIPTION);
-        }
-        int i5 = 0;
-        while (true) {
-            String[] strArr2 = PREFERRED_BITMAP_ORDER;
-            if (i5 >= strArr2.length) {
-                bitmap = null;
-                break;
+            int i6 = 0;
+            while (true) {
+                String[] strArr3 = PREFERRED_URI_ORDER;
+                if (i6 >= strArr3.length) {
+                    uri = null;
+                    break;
+                }
+                String string2 = getString(strArr3[i6]);
+                if (!TextUtils.isEmpty(string2)) {
+                    uri = Uri.parse(string2);
+                    break;
+                }
+                i6++;
             }
-            bitmap = getBitmap(strArr2[i5]);
-            if (bitmap != null) {
-                break;
+            String string3 = getString(METADATA_KEY_MEDIA_URI);
+            Uri parse = TextUtils.isEmpty(string3) ? null : Uri.parse(string3);
+            MediaDescriptionCompat.Builder builder = new MediaDescriptionCompat.Builder();
+            builder.setMediaId(string);
+            builder.setTitle(charSequenceArr[0]);
+            builder.setSubtitle(charSequenceArr[1]);
+            builder.setDescription(charSequenceArr[2]);
+            builder.setIconBitmap(bitmap);
+            builder.setIconUri(uri);
+            builder.setMediaUri(parse);
+            Bundle bundle = new Bundle();
+            if (this.mBundle.containsKey(METADATA_KEY_BT_FOLDER_TYPE)) {
+                bundle.putLong(MediaDescriptionCompat.EXTRA_BT_FOLDER_TYPE, getLong(METADATA_KEY_BT_FOLDER_TYPE));
             }
-            i5++;
-        }
-        int i6 = 0;
-        while (true) {
-            String[] strArr3 = PREFERRED_URI_ORDER;
-            if (i6 >= strArr3.length) {
-                uri = null;
-                break;
+            if (this.mBundle.containsKey(METADATA_KEY_DOWNLOAD_STATUS)) {
+                bundle.putLong(MediaDescriptionCompat.EXTRA_DOWNLOAD_STATUS, getLong(METADATA_KEY_DOWNLOAD_STATUS));
             }
-            String string2 = getString(strArr3[i6]);
-            if (!TextUtils.isEmpty(string2)) {
-                uri = Uri.parse(string2);
-                break;
+            if (!bundle.isEmpty()) {
+                builder.setExtras(bundle);
             }
-            i6++;
+            MediaDescriptionCompat build = builder.build();
+            this.mDescription = build;
+            return build;
         }
-        String string3 = getString(METADATA_KEY_MEDIA_URI);
-        Uri parse = TextUtils.isEmpty(string3) ? null : Uri.parse(string3);
-        MediaDescriptionCompat.Builder builder = new MediaDescriptionCompat.Builder();
-        builder.setMediaId(string);
-        builder.setTitle(charSequenceArr[0]);
-        builder.setSubtitle(charSequenceArr[1]);
-        builder.setDescription(charSequenceArr[2]);
-        builder.setIconBitmap(bitmap);
-        builder.setIconUri(uri);
-        builder.setMediaUri(parse);
-        Bundle bundle = new Bundle();
-        if (this.mBundle.containsKey(METADATA_KEY_BT_FOLDER_TYPE)) {
-            bundle.putLong(MediaDescriptionCompat.EXTRA_BT_FOLDER_TYPE, getLong(METADATA_KEY_BT_FOLDER_TYPE));
-        }
-        if (this.mBundle.containsKey(METADATA_KEY_DOWNLOAD_STATUS)) {
-            bundle.putLong(MediaDescriptionCompat.EXTRA_DOWNLOAD_STATUS, getLong(METADATA_KEY_DOWNLOAD_STATUS));
-        }
-        if (!bundle.isEmpty()) {
-            builder.setExtras(bundle);
-        }
-        MediaDescriptionCompat build = builder.build();
-        this.mDescription = build;
-        return build;
+        return (MediaDescriptionCompat) invokeV.objValue;
     }
 
     public long getLong(String str) {
-        return this.mBundle.getLong(str, 0L);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.mBundle.getLong(str, 0L) : invokeL.longValue;
     }
 
     public Object getMediaMetadata() {
-        if (this.mMetadataObj == null && Build.VERSION.SDK_INT >= 21) {
-            Parcel obtain = Parcel.obtain();
-            writeToParcel(obtain, 0);
-            obtain.setDataPosition(0);
-            this.mMetadataObj = MediaMetadataCompatApi21.createFromParcel(obtain);
-            obtain.recycle();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mMetadataObj == null && Build.VERSION.SDK_INT >= 21) {
+                Parcel obtain = Parcel.obtain();
+                writeToParcel(obtain, 0);
+                obtain.setDataPosition(0);
+                this.mMetadataObj = MediaMetadataCompatApi21.createFromParcel(obtain);
+                obtain.recycle();
+            }
+            return this.mMetadataObj;
         }
-        return this.mMetadataObj;
+        return invokeV.objValue;
     }
 
     public RatingCompat getRating(String str) {
-        RatingCompat ratingCompat;
-        try {
-            if (Build.VERSION.SDK_INT >= 19) {
-                ratingCompat = RatingCompat.fromRating(this.mBundle.getParcelable(str));
-            } else {
-                ratingCompat = (RatingCompat) this.mBundle.getParcelable(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 19) {
+                    return RatingCompat.fromRating(this.mBundle.getParcelable(str));
+                }
+                return (RatingCompat) this.mBundle.getParcelable(str);
+            } catch (Exception e2) {
+                Log.w(TAG, "Failed to retrieve a key as Rating.", e2);
+                return null;
             }
-            return ratingCompat;
-        } catch (Exception e2) {
-            Log.w(TAG, "Failed to retrieve a key as Rating.", e2);
-            return null;
         }
+        return (RatingCompat) invokeL.objValue;
     }
 
     public String getString(String str) {
-        CharSequence charSequence = this.mBundle.getCharSequence(str);
-        if (charSequence != null) {
-            return charSequence.toString();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            CharSequence charSequence = this.mBundle.getCharSequence(str);
+            if (charSequence != null) {
+                return charSequence.toString();
+            }
+            return null;
         }
-        return null;
+        return (String) invokeL.objValue;
     }
 
     public CharSequence getText(String str) {
-        return this.mBundle.getCharSequence(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.mBundle.getCharSequence(str) : (CharSequence) invokeL.objValue;
     }
 
     public Set<String> keySet() {
-        return this.mBundle.keySet();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mBundle.keySet() : (Set) invokeV.objValue;
     }
 
     public int size() {
-        return this.mBundle.size();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mBundle.size() : invokeV.intValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeBundle(this.mBundle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i2) == null) {
+            parcel.writeBundle(this.mBundle);
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Bundle mBundle;
 
         public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mBundle = new Bundle();
         }
 
         private Bitmap scaleBitmap(Bitmap bitmap, int i2) {
-            float f2 = i2;
-            float min = Math.min(f2 / bitmap.getWidth(), f2 / bitmap.getHeight());
-            return Bitmap.createScaledBitmap(bitmap, (int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), true);
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, bitmap, i2)) == null) {
+                float f2 = i2;
+                float min = Math.min(f2 / bitmap.getWidth(), f2 / bitmap.getHeight());
+                return Bitmap.createScaledBitmap(bitmap, (int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), true);
+            }
+            return (Bitmap) invokeLI.objValue;
         }
 
         public MediaMetadataCompat build() {
-            return new MediaMetadataCompat(this.mBundle);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MediaMetadataCompat(this.mBundle) : (MediaMetadataCompat) invokeV.objValue;
         }
 
         public Builder putBitmap(String str, Bitmap bitmap) {
-            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 2) {
-                throw new IllegalArgumentException("The " + str + " key cannot be used to put a Bitmap");
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 2) {
+                    throw new IllegalArgumentException("The " + str + " key cannot be used to put a Bitmap");
+                }
+                this.mBundle.putParcelable(str, bitmap);
+                return this;
             }
-            this.mBundle.putParcelable(str, bitmap);
-            return this;
+            return (Builder) invokeLL.objValue;
         }
 
         public Builder putLong(String str, long j) {
-            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
-                throw new IllegalArgumentException("The " + str + " key cannot be used to put a long");
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
+                    throw new IllegalArgumentException("The " + str + " key cannot be used to put a long");
+                }
+                this.mBundle.putLong(str, j);
+                return this;
             }
-            this.mBundle.putLong(str, j);
-            return this;
+            return (Builder) invokeLJ.objValue;
         }
 
         public Builder putRating(String str, RatingCompat ratingCompat) {
-            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 3) {
-                throw new IllegalArgumentException("The " + str + " key cannot be used to put a Rating");
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, ratingCompat)) == null) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 3) {
+                    throw new IllegalArgumentException("The " + str + " key cannot be used to put a Rating");
+                }
+                if (Build.VERSION.SDK_INT >= 19) {
+                    this.mBundle.putParcelable(str, (Parcelable) ratingCompat.getRating());
+                } else {
+                    this.mBundle.putParcelable(str, ratingCompat);
+                }
+                return this;
             }
-            if (Build.VERSION.SDK_INT >= 19) {
-                this.mBundle.putParcelable(str, (Parcelable) ratingCompat.getRating());
-            } else {
-                this.mBundle.putParcelable(str, ratingCompat);
-            }
-            return this;
+            return (Builder) invokeLL.objValue;
         }
 
         public Builder putString(String str, String str2) {
-            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
-                throw new IllegalArgumentException("The " + str + " key cannot be used to put a String");
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
+                    throw new IllegalArgumentException("The " + str + " key cannot be used to put a String");
+                }
+                this.mBundle.putCharSequence(str, str2);
+                return this;
             }
-            this.mBundle.putCharSequence(str, str2);
-            return this;
+            return (Builder) invokeLL.objValue;
         }
 
         public Builder putText(String str, CharSequence charSequence) {
-            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
-                throw new IllegalArgumentException("The " + str + " key cannot be used to put a CharSequence");
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, charSequence)) == null) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
+                    throw new IllegalArgumentException("The " + str + " key cannot be used to put a CharSequence");
+                }
+                this.mBundle.putCharSequence(str, charSequence);
+                return this;
             }
-            this.mBundle.putCharSequence(str, charSequence);
-            return this;
+            return (Builder) invokeLL.objValue;
         }
 
         public Builder(MediaMetadataCompat mediaMetadataCompat) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mediaMetadataCompat};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             Bundle bundle = new Bundle(mediaMetadataCompat.mBundle);
             this.mBundle = bundle;
             MediaSessionCompat.ensureClassLoader(bundle);
         }
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public Builder(MediaMetadataCompat mediaMetadataCompat, int i2) {
             this(mediaMetadataCompat);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mediaMetadataCompat, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    this((MediaMetadataCompat) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
             for (String str : this.mBundle.keySet()) {
                 Object obj = this.mBundle.get(str);
                 if (obj instanceof Bitmap) {
@@ -403,6 +584,20 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     public MediaMetadataCompat(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mBundle = parcel.readBundle(MediaSessionCompat.class.getClassLoader());
     }
 }

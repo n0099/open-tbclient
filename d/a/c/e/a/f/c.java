@@ -2,209 +2,336 @@ package d.a.c.e.a.f;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class c extends DiskFileOperate {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f42193a;
+    public Bitmap f44002a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapFactory.Options f42194b;
+    public BitmapFactory.Options f44003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f42195c;
+    public a f44004c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42196d;
+    public boolean f44005d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f42197e;
+    public long f44006e;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public static byte f42198d = Byte.MIN_VALUE;
+        public static byte f44007d = Byte.MIN_VALUE;
 
         /* renamed from: e  reason: collision with root package name */
-        public static byte f42199e = Byte.MIN_VALUE;
+        public static byte f44008e = Byte.MIN_VALUE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f42200a = false;
+        public boolean f44009a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f42201b = 0;
+        public long f44010b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f42202c = true;
+        public boolean f44011c;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1704228563, "Ld/a/c/e/a/f/c$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1704228563, "Ld/a/c/e/a/f/c$a;");
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f44009a = false;
+            this.f44010b = 0L;
+            this.f44011c = true;
+        }
 
         public static int a() {
-            return 14;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return 14;
+            }
+            return invokeV.intValue;
         }
 
         public boolean b(byte[] bArr) {
-            if (bArr == null || bArr.length < a()) {
-                return false;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+                if (bArr == null || bArr.length < a()) {
+                    return false;
+                }
+                ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, a());
+                if (wrap.getInt() != 1786600511) {
+                    return false;
+                }
+                if ((wrap.get() & f44007d) != 0) {
+                    this.f44009a = true;
+                }
+                this.f44010b = wrap.getLong();
+                if ((wrap.get() & f44008e) != 0) {
+                    this.f44011c = false;
+                }
+                return true;
             }
-            ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, a());
-            if (wrap.getInt() != 1786600511) {
-                return false;
-            }
-            if ((wrap.get() & f42198d) != 0) {
-                this.f42200a = true;
-            }
-            this.f42201b = wrap.getLong();
-            if ((wrap.get() & f42199e) != 0) {
-                this.f42202c = false;
-            }
-            return true;
+            return invokeL.booleanValue;
         }
 
         public byte[] c() {
-            ByteBuffer allocate = ByteBuffer.allocate(a());
-            allocate.putInt(1786600511);
-            allocate.put(this.f42200a ? (byte) (f42198d | 0) : (byte) 0);
-            allocate.putLong(this.f42201b);
-            allocate.put(this.f42202c ? (byte) 0 : (byte) (f42199e | 0));
-            allocate.flip();
-            return allocate.array();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                ByteBuffer allocate = ByteBuffer.allocate(a());
+                allocate.putInt(1786600511);
+                allocate.put(this.f44009a ? (byte) (f44007d | 0) : (byte) 0);
+                allocate.putLong(this.f44010b);
+                allocate.put(this.f44011c ? (byte) 0 : (byte) (f44008e | 0));
+                allocate.flip();
+                return allocate.array();
+            }
+            return (byte[]) invokeV.objValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.f42193a = null;
-        this.f42194b = null;
-        this.f42195c = null;
-        this.f42196d = true;
-        this.f42195c = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, action};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44002a = null;
+        this.f44003b = null;
+        this.f44004c = null;
+        this.f44005d = true;
+        this.f44004c = new a();
     }
 
     public static int a(BitmapFactory.Options options, int i2, int i3) {
-        int i4 = options.outHeight;
-        int i5 = options.outWidth;
-        int i6 = 1;
-        if (i4 > i3 || i5 > i2) {
-            int i7 = i4 / 2;
-            int i8 = i5 / 2;
-            while (i7 / i6 >= i3 && i8 / i6 >= i2) {
-                i6 *= 2;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i2, i3)) == null) {
+            int i4 = options.outHeight;
+            int i5 = options.outWidth;
+            int i6 = 1;
+            if (i4 > i3 || i5 > i2) {
+                int i7 = i4 / 2;
+                int i8 = i5 / 2;
+                while (i7 / i6 >= i3 && i8 / i6 >= i2) {
+                    i6 *= 2;
+                }
             }
+            return i6;
         }
-        return i6;
+        return invokeLII.intValue;
     }
 
     public boolean b(byte[] bArr, int i2, int i3) {
-        if (bArr != null && this.f42195c.b(bArr)) {
-            long j = this.f42195c.f42201b;
-            if (j == 0 || j >= System.currentTimeMillis()) {
-                int a2 = a.a();
-                try {
-                    if (this.f42194b == null) {
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-                        this.f42194b = options;
-                        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
+            if (bArr != null && this.f44004c.b(bArr)) {
+                long j = this.f44004c.f44010b;
+                if (j == 0 || j >= System.currentTimeMillis()) {
+                    int a2 = a.a();
+                    try {
+                        if (this.f44003b == null) {
+                            BitmapFactory.Options options = new BitmapFactory.Options();
+                            this.f44003b = options;
+                            options.inPreferredConfig = Bitmap.Config.RGB_565;
+                        }
+                        this.f44003b.inJustDecodeBounds = true;
+                        BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f44003b);
+                    } catch (Error e2) {
+                        BdLog.e(e2.getMessage());
                     }
-                    this.f42194b.inJustDecodeBounds = true;
-                    BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f42194b);
-                } catch (Error e2) {
-                    BdLog.e(e2.getMessage());
-                }
-                if (!this.f42194b.mCancel && this.f42194b.outWidth != -1 && this.f42194b.outHeight != -1) {
-                    this.f42194b.inSampleSize = a(this.f42194b, i2, i3);
-                    this.f42194b.inJustDecodeBounds = false;
-                    this.f42193a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f42194b);
-                    return this.f42193a != null;
+                    if (!this.f44003b.mCancel && this.f44003b.outWidth != -1 && this.f44003b.outHeight != -1) {
+                        this.f44003b.inSampleSize = a(this.f44003b, i2, i3);
+                        this.f44003b.inJustDecodeBounds = false;
+                        this.f44002a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f44003b);
+                        return this.f44002a != null;
+                    }
+                    return false;
                 }
                 return false;
             }
             return false;
         }
-        return false;
+        return invokeLII.booleanValue;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public byte[] buildFormatData() {
-        if (this.mData == null || !this.f42196d) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mData == null || !this.f44005d) {
+                return null;
+            }
+            return this.f44004c.c();
         }
-        return this.f42195c.c();
+        return (byte[]) invokeV.objValue;
     }
 
     public byte[] c() {
-        int a2 = a.a();
-        int length = this.mData.length - a2;
-        byte[] bArr = new byte[length];
-        System.arraycopy(this.mData, a2, bArr, 0, length);
-        return bArr;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int a2 = a.a();
+            int length = this.mData.length - a2;
+            byte[] bArr = new byte[length];
+            System.arraycopy(this.mData, a2, bArr, 0, length);
+            return bArr;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public boolean d() {
-        return this.f42195c.f42202c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44004c.f44011c : invokeV.booleanValue;
     }
 
     public void e(boolean z) {
-        this.f42195c.f42202c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f44004c.f44011c = z;
+        }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void endLog() {
-        d.a.c.e.l.a.k(isSuccess(), System.currentTimeMillis() - this.f42197e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d.a.c.e.l.a.k(isSuccess(), System.currentTimeMillis() - this.f44006e);
+        }
     }
 
     public void f(boolean z) {
-        this.f42196d = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f44005d = z;
+        }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean formatData(byte[] bArr) {
-        if (bArr != null && this.f42195c.b(bArr)) {
-            long j = this.f42195c.f42201b;
-            if (j == 0 || j >= System.currentTimeMillis()) {
-                if (this.f42194b == null) {
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    this.f42194b = options;
-                    options.inPreferredConfig = Bitmap.Config.RGB_565;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
+            if (bArr != null && this.f44004c.b(bArr)) {
+                long j = this.f44004c.f44010b;
+                if (j == 0 || j >= System.currentTimeMillis()) {
+                    if (this.f44003b == null) {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        this.f44003b = options;
+                        options.inPreferredConfig = Bitmap.Config.RGB_565;
+                    }
+                    int a2 = a.a();
+                    try {
+                        this.f44002a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f44003b);
+                    } catch (Error e2) {
+                        BdLog.e(e2.getMessage());
+                    }
+                    return this.f44002a != null;
                 }
-                int a2 = a.a();
-                try {
-                    this.f42193a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f42194b);
-                } catch (Error e2) {
-                    BdLog.e(e2.getMessage());
-                }
-                return this.f42193a != null;
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public Bitmap getBitmap() {
-        return this.f42193a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f44002a : (Bitmap) invokeV.objValue;
     }
 
     public boolean isGif() {
-        return this.f42195c.f42200a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f44004c.f44009a : invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
-        super.setData(bArr);
-        if (isGif() || !l.B(bArr)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
+            super.setData(bArr);
+            if (isGif() || !l.B(bArr)) {
+                return;
+            }
+            setGif(true);
         }
-        setGif(true);
     }
 
     public void setGif(boolean z) {
-        this.f42195c.f42200a = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f44004c.f44009a = z;
+        }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void startLog() {
-        this.f42197e = System.currentTimeMillis();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.f44006e = System.currentTimeMillis();
+        }
     }
 }

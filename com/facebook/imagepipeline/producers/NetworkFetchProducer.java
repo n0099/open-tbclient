@@ -1,6 +1,13 @@
 package com.facebook.imagepipeline.producers;
 
 import android.os.SystemClock;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.ByteArrayPool;
 import com.facebook.common.memory.PooledByteBufferFactory;
@@ -16,97 +23,144 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class NetworkFetchProducer implements Producer<EncodedImage> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERMEDIATE_RESULT_PRODUCER_EVENT = "intermediate_result";
     public static final String PRODUCER_NAME = "NetworkFetchProducer";
     public static final int READ_SIZE = 16384;
     @VisibleForTesting
     public static final long TIME_BETWEEN_PARTIAL_RESULTS_MS = 100;
+    public transient /* synthetic */ FieldHolder $fh;
     public final ByteArrayPool mByteArrayPool;
     public final NetworkFetcher mNetworkFetcher;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
     public NetworkFetchProducer(PooledByteBufferFactory pooledByteBufferFactory, ByteArrayPool byteArrayPool, NetworkFetcher networkFetcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pooledByteBufferFactory, byteArrayPool, networkFetcher};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mPooledByteBufferFactory = pooledByteBufferFactory;
         this.mByteArrayPool = byteArrayPool;
         this.mNetworkFetcher = networkFetcher;
     }
 
     public static float calculateProgress(int i2, int i3) {
-        return i3 > 0 ? i2 / i3 : 1.0f - ((float) Math.exp((-i2) / 50000.0d));
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) ? i3 > 0 ? i2 / i3 : 1.0f - ((float) Math.exp((-i2) / 50000.0d)) : invokeII.floatValue;
     }
 
     @Nullable
     private Map<String, String> getExtraMap(FetchState fetchState, int i2) {
-        if (fetchState.getListener().requiresExtraMap(fetchState.getId())) {
-            return this.mNetworkFetcher.getExtraMap(fetchState, i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, this, fetchState, i2)) == null) {
+            if (fetchState.getListener().requiresExtraMap(fetchState.getId())) {
+                return this.mNetworkFetcher.getExtraMap(fetchState, i2);
+            }
+            return null;
         }
-        return null;
+        return (Map) invokeLI.objValue;
     }
 
     public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i2, @Nullable BytesRange bytesRange, Consumer<EncodedImage> consumer) {
-        EncodedImage encodedImage;
-        CloseableReference of = CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
-        EncodedImage encodedImage2 = null;
-        try {
-            encodedImage = new EncodedImage(of);
-        } catch (Throwable th) {
-            th = th;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLILL(AdIconUtil.AD_TEXT_ID, null, pooledByteBufferOutputStream, i2, bytesRange, consumer) != null) {
+            return;
         }
+        CloseableReference of = CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
+        EncodedImage encodedImage = null;
         try {
-            encodedImage.setBytesRange(bytesRange);
-            encodedImage.parseMetaData();
-            consumer.onNewResult(encodedImage, i2);
-            EncodedImage.closeSafely(encodedImage);
-            CloseableReference.closeSafely(of);
+            EncodedImage encodedImage2 = new EncodedImage(of);
+            try {
+                encodedImage2.setBytesRange(bytesRange);
+                encodedImage2.parseMetaData();
+                consumer.onNewResult(encodedImage2, i2);
+                EncodedImage.closeSafely(encodedImage2);
+                CloseableReference.closeSafely(of);
+            } catch (Throwable th) {
+                th = th;
+                encodedImage = encodedImage2;
+                EncodedImage.closeSafely(encodedImage);
+                CloseableReference.closeSafely(of);
+                throw th;
+            }
         } catch (Throwable th2) {
             th = th2;
-            encodedImage2 = encodedImage;
-            EncodedImage.closeSafely(encodedImage2);
-            CloseableReference.closeSafely(of);
-            throw th;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onCancellation(FetchState fetchState) {
-        fetchState.getListener().onProducerFinishWithCancellation(fetchState.getId(), PRODUCER_NAME, null);
-        fetchState.getConsumer().onCancellation();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, fetchState) == null) {
+            fetchState.getListener().onProducerFinishWithCancellation(fetchState.getId(), PRODUCER_NAME, null);
+            fetchState.getConsumer().onCancellation();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onFailure(FetchState fetchState, Throwable th) {
-        fetchState.getListener().onProducerFinishWithFailure(fetchState.getId(), PRODUCER_NAME, th, null);
-        fetchState.getListener().onUltimateProducerReached(fetchState.getId(), PRODUCER_NAME, false);
-        fetchState.getConsumer().onFailure(th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, this, fetchState, th) == null) {
+            fetchState.getListener().onProducerFinishWithFailure(fetchState.getId(), PRODUCER_NAME, th, null);
+            fetchState.getListener().onUltimateProducerReached(fetchState.getId(), PRODUCER_NAME, false);
+            fetchState.getConsumer().onFailure(th);
+        }
     }
 
     private boolean shouldPropagateIntermediateResults(FetchState fetchState) {
-        if (fetchState.getContext().isIntermediateResultExpected()) {
-            return this.mNetworkFetcher.shouldPropagate(fetchState);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, fetchState)) == null) {
+            if (fetchState.getContext().isIntermediateResultExpected()) {
+                return this.mNetworkFetcher.shouldPropagate(fetchState);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public void handleFinalResult(PooledByteBufferOutputStream pooledByteBufferOutputStream, FetchState fetchState) {
-        Map<String, String> extraMap = getExtraMap(fetchState, pooledByteBufferOutputStream.size());
-        ProducerListener listener = fetchState.getListener();
-        listener.onProducerFinishWithSuccess(fetchState.getId(), PRODUCER_NAME, extraMap);
-        listener.onUltimateProducerReached(fetchState.getId(), PRODUCER_NAME, true);
-        notifyConsumer(pooledByteBufferOutputStream, fetchState.getOnNewResultStatusFlags() | 1, fetchState.getResponseBytesRange(), fetchState.getConsumer());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, pooledByteBufferOutputStream, fetchState) == null) {
+            Map<String, String> extraMap = getExtraMap(fetchState, pooledByteBufferOutputStream.size());
+            ProducerListener listener = fetchState.getListener();
+            listener.onProducerFinishWithSuccess(fetchState.getId(), PRODUCER_NAME, extraMap);
+            listener.onUltimateProducerReached(fetchState.getId(), PRODUCER_NAME, true);
+            notifyConsumer(pooledByteBufferOutputStream, fetchState.getOnNewResultStatusFlags() | 1, fetchState.getResponseBytesRange(), fetchState.getConsumer());
+        }
     }
 
     public void maybeHandleIntermediateResult(PooledByteBufferOutputStream pooledByteBufferOutputStream, FetchState fetchState) {
-        long uptimeMillis = SystemClock.uptimeMillis();
-        if (!shouldPropagateIntermediateResults(fetchState) || uptimeMillis - fetchState.getLastIntermediateResultTimeMs() < 100) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pooledByteBufferOutputStream, fetchState) == null) {
+            long uptimeMillis = SystemClock.uptimeMillis();
+            if (!shouldPropagateIntermediateResults(fetchState) || uptimeMillis - fetchState.getLastIntermediateResultTimeMs() < 100) {
+                return;
+            }
+            fetchState.setLastIntermediateResultTimeMs(uptimeMillis);
+            fetchState.getListener().onProducerEvent(fetchState.getId(), PRODUCER_NAME, INTERMEDIATE_RESULT_PRODUCER_EVENT);
+            notifyConsumer(pooledByteBufferOutputStream, fetchState.getOnNewResultStatusFlags(), fetchState.getResponseBytesRange(), fetchState.getConsumer());
         }
-        fetchState.setLastIntermediateResultTimeMs(uptimeMillis);
-        fetchState.getListener().onProducerEvent(fetchState.getId(), PRODUCER_NAME, INTERMEDIATE_RESULT_PRODUCER_EVENT);
-        notifyConsumer(pooledByteBufferOutputStream, fetchState.getOnNewResultStatusFlags(), fetchState.getResponseBytesRange(), fetchState.getConsumer());
     }
 
     public void onResponse(FetchState fetchState, InputStream inputStream, int i2) throws IOException {
         PooledByteBufferOutputStream newOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, fetchState, inputStream, i2) != null) {
+            return;
+        }
         if (i2 > 0) {
             newOutputStream = this.mPooledByteBufferFactory.newOutputStream(i2);
         } else {
@@ -134,29 +188,65 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
 
     @Override // com.facebook.imagepipeline.producers.Producer
     public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
-        producerContext.getListener().onProducerStart(producerContext.getId(), PRODUCER_NAME);
-        final FetchState createFetchState = this.mNetworkFetcher.createFetchState(consumer, producerContext);
-        this.mNetworkFetcher.fetch(createFetchState, new NetworkFetcher.Callback() { // from class: com.facebook.imagepipeline.producers.NetworkFetchProducer.1
-            @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
-            public void onCancellation() {
-                NetworkFetchProducer.this.onCancellation(createFetchState);
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, consumer, producerContext) == null) {
+            producerContext.getListener().onProducerStart(producerContext.getId(), PRODUCER_NAME);
+            FetchState createFetchState = this.mNetworkFetcher.createFetchState(consumer, producerContext);
+            this.mNetworkFetcher.fetch(createFetchState, new NetworkFetcher.Callback(this, createFetchState) { // from class: com.facebook.imagepipeline.producers.NetworkFetchProducer.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ NetworkFetchProducer this$0;
+                public final /* synthetic */ FetchState val$fetchState;
 
-            @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
-            public void onFailure(Throwable th) {
-                NetworkFetchProducer.this.onFailure(createFetchState, th);
-            }
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, createFetchState};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$fetchState = createFetchState;
+                }
 
-            @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
-            public void onResponse(InputStream inputStream, int i2) throws IOException {
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.beginSection("NetworkFetcher->onResponse");
+                @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
+                public void onCancellation() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.onCancellation(this.val$fetchState);
+                    }
                 }
-                NetworkFetchProducer.this.onResponse(createFetchState, inputStream, i2);
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.endSection();
+
+                @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
+                public void onFailure(Throwable th) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                        this.this$0.onFailure(this.val$fetchState, th);
+                    }
                 }
-            }
-        });
+
+                @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
+                public void onResponse(InputStream inputStream, int i2) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inputStream, i2) == null) {
+                        if (FrescoSystrace.isTracing()) {
+                            FrescoSystrace.beginSection("NetworkFetcher->onResponse");
+                        }
+                        this.this$0.onResponse(this.val$fetchState, inputStream, i2);
+                        if (FrescoSystrace.isTracing()) {
+                            FrescoSystrace.endSection();
+                        }
+                    }
+                }
+            });
+        }
     }
 }

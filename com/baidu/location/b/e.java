@@ -1,22 +1,45 @@
 package com.baidu.location.b;
 
 import android.location.Location;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class e implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Location f6522a;
+    public final /* synthetic */ Location f6552a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f6523b;
+    public final /* synthetic */ d f6553b;
 
     public e(d dVar, Location location) {
-        this.f6523b = dVar;
-        this.f6522a = location;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dVar, location};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f6553b = dVar;
+        this.f6552a = location;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f6523b.b(this.f6522a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f6553b.b(this.f6552a);
+        }
     }
 }

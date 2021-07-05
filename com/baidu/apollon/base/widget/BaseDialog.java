@@ -12,247 +12,392 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public abstract class BaseDialog extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f3609a;
+    public TextView f3607a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f3610b;
+    public LinearLayout f3608b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f3611c;
+    public Button f3609c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f3612d;
+    public Button f3610d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageButton f3613e;
+    public ImageButton f3611e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f3614f;
+    public View f3612f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout.LayoutParams f3615g;
+    public LinearLayout.LayoutParams f3613g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LayoutInflater f3616h;
+    public LayoutInflater f3614h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f3617i;
+    public View.OnClickListener f3615i;
     public Context mContext;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseDialog(Context context) {
         super(context, ResUtils.style(context, "ApollonPromptDialog"));
-        this.f3617i = new View.OnClickListener() { // from class: com.baidu.apollon.base.widget.BaseDialog.1
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f3615i = new View.OnClickListener(this) { // from class: com.baidu.apollon.base.widget.BaseDialog.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ BaseDialog f3616a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f3616a = this;
+            }
+
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BaseDialog.this.dismiss();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    this.f3616a.dismiss();
+                }
             }
         };
         this.mContext = context;
     }
 
     public void addContentView(View view) {
-        this.f3610b.removeAllViews();
-        this.f3610b.addView(view, this.f3615g);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            this.f3608b.removeAllViews();
+            this.f3608b.addView(view, this.f3613g);
+        }
     }
 
     public void hideButtons() {
-        findViewById(ResUtils.id(this.mContext, "dialog_btns")).setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            findViewById(ResUtils.id(this.mContext, "dialog_btns")).setVisibility(8);
+        }
     }
 
     public void hideNegativeButton() {
-        Button button = this.f3612d;
-        if (button != null) {
-            button.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Button button = this.f3610d;
+            if (button != null) {
+                button.setVisibility(8);
+            }
+            View view = this.f3612f;
+            if (view != null) {
+                view.setVisibility(8);
+            }
+            this.f3609c.setBackgroundResource(ResUtils.drawable(this.mContext, "wallet_base_dialog_btn_selector"));
         }
-        View view = this.f3614f;
-        if (view != null) {
-            view.setVisibility(8);
-        }
-        this.f3611c.setBackgroundResource(ResUtils.drawable(this.mContext, "wallet_base_dialog_btn_selector"));
     }
 
     public void hidePositiveButton() {
-        Button button = this.f3611c;
-        if (button != null) {
-            button.setVisibility(8);
-        }
-        View view = this.f3614f;
-        if (view != null) {
-            view.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Button button = this.f3609c;
+            if (button != null) {
+                button.setVisibility(8);
+            }
+            View view = this.f3612f;
+            if (view != null) {
+                view.setVisibility(8);
+            }
         }
     }
 
     public void hideTitle() {
-        this.f3609a.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f3607a.setVisibility(8);
+        }
     }
 
     public void hideTitleLine() {
-        findViewById(ResUtils.id(this.mContext, "dialog_title_line")).setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            findViewById(ResUtils.id(this.mContext, "dialog_title_line")).setVisibility(8);
+        }
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        requestWindowFeature(1);
-        setContentView(ResUtils.layout(this.mContext, "wallet_base_layout_dialog_base"));
-        this.f3609a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_title"));
-        this.f3611c = (Button) findViewById(ResUtils.id(this.mContext, "positive_btn"));
-        this.f3612d = (Button) findViewById(ResUtils.id(this.mContext, "negative_btn"));
-        this.f3613e = (ImageButton) findViewById(ResUtils.id(this.mContext, "dialog_title_close"));
-        this.f3614f = findViewById(ResUtils.id(this.mContext, "btn_line"));
-        this.f3611c.setOnClickListener(this.f3617i);
-        this.f3612d.setOnClickListener(this.f3617i);
-        this.f3613e.setOnClickListener(this.f3617i);
-        this.f3610b = (LinearLayout) findViewById(ResUtils.id(this.mContext, "dialog_content_layout"));
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        this.f3615g = layoutParams;
-        layoutParams.gravity = 17;
-        this.f3616h = LayoutInflater.from(this.mContext);
-        setCanceledOnTouchOutside(false);
-        setCancelable(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            setContentView(ResUtils.layout(this.mContext, "wallet_base_layout_dialog_base"));
+            this.f3607a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_title"));
+            this.f3609c = (Button) findViewById(ResUtils.id(this.mContext, "positive_btn"));
+            this.f3610d = (Button) findViewById(ResUtils.id(this.mContext, "negative_btn"));
+            this.f3611e = (ImageButton) findViewById(ResUtils.id(this.mContext, "dialog_title_close"));
+            this.f3612f = findViewById(ResUtils.id(this.mContext, "btn_line"));
+            this.f3609c.setOnClickListener(this.f3615i);
+            this.f3610d.setOnClickListener(this.f3615i);
+            this.f3611e.setOnClickListener(this.f3615i);
+            this.f3608b = (LinearLayout) findViewById(ResUtils.id(this.mContext, "dialog_content_layout"));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            this.f3613g = layoutParams;
+            layoutParams.gravity = 17;
+            this.f3614h = LayoutInflater.from(this.mContext);
+            setCanceledOnTouchOutside(false);
+            setCancelable(false);
+        }
     }
 
     public void setNegativeBtn(View.OnClickListener onClickListener) {
-        Button button = this.f3612d;
-        if (button != null) {
-            if (onClickListener == null) {
-                onClickListener = this.f3617i;
-            }
-            button.setOnClickListener(onClickListener);
+        Button button;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) || (button = this.f3610d) == null) {
+            return;
         }
+        if (onClickListener == null) {
+            onClickListener = this.f3615i;
+        }
+        button.setOnClickListener(onClickListener);
     }
 
     public void setPositiveBtn(View.OnClickListener onClickListener) {
-        Button button = this.f3611c;
-        if (button != null) {
-            if (onClickListener == null) {
-                onClickListener = this.f3617i;
-            }
-            button.setOnClickListener(onClickListener);
+        Button button;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, onClickListener) == null) || (button = this.f3609c) == null) {
+            return;
         }
+        if (onClickListener == null) {
+            onClickListener = this.f3615i;
+        }
+        button.setOnClickListener(onClickListener);
     }
 
     public void setTitleText(int i2) {
-        TextView textView = this.f3609a;
-        if (textView == null) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || (textView = this.f3607a) == null) {
             return;
         }
         textView.setText(i2);
     }
 
     public void setTitleTextBackgroud(int i2) {
-        TextView textView = this.f3609a;
-        if (textView == null) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (textView = this.f3607a) == null) {
             return;
         }
         textView.setBackgroundColor(i2);
     }
 
     public void showCloseBtn(boolean z) {
-        ImageButton imageButton = this.f3613e;
-        if (imageButton != null) {
-            imageButton.setVisibility(z ? 0 : 4);
+        ImageButton imageButton;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || (imageButton = this.f3611e) == null) {
+            return;
         }
+        imageButton.setVisibility(z ? 0 : 4);
     }
 
     public void addContentView(View view, LinearLayout.LayoutParams layoutParams) {
-        this.f3610b.removeAllViews();
-        this.f3610b.addView(view, layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, view, layoutParams) == null) {
+            this.f3608b.removeAllViews();
+            this.f3608b.addView(view, layoutParams);
+        }
     }
 
     public void setNegativeBtn(int i2, View.OnClickListener onClickListener) {
-        Button button = this.f3612d;
-        if (button != null) {
-            button.setText(i2);
-            Button button2 = this.f3612d;
-            if (onClickListener == null) {
-                onClickListener = this.f3617i;
-            }
-            button2.setOnClickListener(onClickListener);
+        Button button;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i2, onClickListener) == null) || (button = this.f3610d) == null) {
+            return;
         }
+        button.setText(i2);
+        Button button2 = this.f3610d;
+        if (onClickListener == null) {
+            onClickListener = this.f3615i;
+        }
+        button2.setOnClickListener(onClickListener);
     }
 
     public void setPositiveBtn(int i2, View.OnClickListener onClickListener) {
-        Button button = this.f3611c;
-        if (button != null) {
-            button.setText(i2);
-            Button button2 = this.f3611c;
-            if (onClickListener == null) {
-                onClickListener = this.f3617i;
-            }
-            button2.setOnClickListener(onClickListener);
+        Button button;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048589, this, i2, onClickListener) == null) || (button = this.f3609c) == null) {
+            return;
         }
+        button.setText(i2);
+        Button button2 = this.f3609c;
+        if (onClickListener == null) {
+            onClickListener = this.f3615i;
+        }
+        button2.setOnClickListener(onClickListener);
     }
 
     public void setTitleText(String str) {
-        TextView textView = this.f3609a;
-        if (textView == null) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (textView = this.f3607a) == null) {
             return;
         }
         textView.setText(str);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseDialog(Context context, int i2) {
         super(context, i2);
-        this.f3617i = new View.OnClickListener() { // from class: com.baidu.apollon.base.widget.BaseDialog.1
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f3615i = new View.OnClickListener(this) { // from class: com.baidu.apollon.base.widget.BaseDialog.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ BaseDialog f3616a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr3;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f3616a = this;
+            }
+
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BaseDialog.this.dismiss();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    this.f3616a.dismiss();
+                }
             }
         };
         this.mContext = context;
     }
 
     public void addContentView(int i2) {
-        this.f3610b.removeAllViews();
-        this.f3610b.addView(this.f3616h.inflate(i2, (ViewGroup) null), this.f3615g);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.f3608b.removeAllViews();
+            this.f3608b.addView(this.f3614h.inflate(i2, (ViewGroup) null), this.f3613g);
+        }
     }
 
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        if (this.f3612d != null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.f3612d.setText(str);
-            }
-            Button button = this.f3612d;
-            if (onClickListener == null) {
-                onClickListener = this.f3617i;
-            }
-            button.setOnClickListener(onClickListener);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, onClickListener) == null) || this.f3610d == null) {
+            return;
         }
+        if (!TextUtils.isEmpty(str)) {
+            this.f3610d.setText(str);
+        }
+        Button button = this.f3610d;
+        if (onClickListener == null) {
+            onClickListener = this.f3615i;
+        }
+        button.setOnClickListener(onClickListener);
     }
 
     public void setPositiveBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
-        Button button = this.f3611c;
-        if (button != null) {
-            button.setText(spannableString);
-            Button button2 = this.f3611c;
-            if (onClickListener == null) {
-                onClickListener = this.f3617i;
-            }
-            button2.setOnClickListener(onClickListener);
+        Button button;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, spannableString, onClickListener) == null) || (button = this.f3609c) == null) {
+            return;
         }
+        button.setText(spannableString);
+        Button button2 = this.f3609c;
+        if (onClickListener == null) {
+            onClickListener = this.f3615i;
+        }
+        button2.setOnClickListener(onClickListener);
     }
 
     public void addContentView(int i2, LinearLayout.LayoutParams layoutParams) {
-        this.f3610b.removeAllViews();
-        this.f3610b.addView(this.f3616h.inflate(i2, (ViewGroup) null), layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, layoutParams) == null) {
+            this.f3608b.removeAllViews();
+            this.f3608b.addView(this.f3614h.inflate(i2, (ViewGroup) null), layoutParams);
+        }
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        if (this.f3611c != null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.f3611c.setText(str);
-            }
-            Button button = this.f3611c;
-            if (onClickListener == null) {
-                onClickListener = this.f3617i;
-            }
-            button.setOnClickListener(onClickListener);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048592, this, str, onClickListener) == null) || this.f3609c == null) {
+            return;
         }
+        if (!TextUtils.isEmpty(str)) {
+            this.f3609c.setText(str);
+        }
+        Button button = this.f3609c;
+        if (onClickListener == null) {
+            onClickListener = this.f3615i;
+        }
+        button.setOnClickListener(onClickListener);
     }
 }

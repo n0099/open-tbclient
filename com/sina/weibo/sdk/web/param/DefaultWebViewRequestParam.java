@@ -2,36 +2,86 @@ package com.sina.weibo.sdk.web.param;
 
 import android.content.Context;
 import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.web.WebRequestType;
 /* loaded from: classes7.dex */
 public class DefaultWebViewRequestParam extends BaseWebViewRequestParam {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public DefaultWebViewRequestParam() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public void childFillBundle(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        }
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public String getRequestUrl() {
-        return getBaseData().getUrl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getBaseData().getUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public boolean hasExtraTask() {
-        return super.hasExtraTask();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.hasExtraTask() : invokeV.booleanValue;
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public void transformChildBundle(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        }
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public void updateRequestUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DefaultWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, String str2, String str3, Context context) {
         super(authInfo, webRequestType, str, str2, str3, context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {authInfo, webRequestType, str, str2, str3, context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((AuthInfo) objArr2[0], (WebRequestType) objArr2[1], (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], (Context) objArr2[5]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

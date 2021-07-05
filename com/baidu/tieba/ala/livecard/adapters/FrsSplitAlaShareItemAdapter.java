@@ -5,119 +5,205 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import d.a.n0.r.q.a2;
-import d.a.n0.r.q.z1;
-import d.a.o0.o.e;
-import d.a.o0.o.f;
-import d.a.o0.r0.j;
-import d.a.o0.r0.k;
-import d.a.o0.v.i.e.c;
-import d.a.o0.z.b0;
-import d.a.o0.z.z;
-/* loaded from: classes4.dex */
-public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> implements z, f {
-    public String w;
-    public c x;
-    public String y;
-    public b0<a2> z;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.a2;
+import d.a.r0.r.q.b2;
+import d.a.s0.a0.b0;
+import d.a.s0.a0.z;
+import d.a.s0.o.e;
+import d.a.s0.o.f;
+import d.a.s0.u0.j;
+import d.a.s0.u0.k;
+import d.a.s0.v.i.e.c;
+/* loaded from: classes5.dex */
+public class FrsSplitAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> implements z, f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public b0<b2> A;
+    public String x;
+    public c y;
+    public String z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c f14138a;
+        public c f14225a;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public FrsPageAlaShareHolder(c cVar) {
-            super(cVar.m());
-            this.f14138a = cVar;
+            super(cVar.l());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14225a = cVar;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a extends b0<a2> {
-        public a() {
+    /* loaded from: classes5.dex */
+    public class a extends b0<b2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ FrsSplitAlaShareItemAdapter f14226b;
+
+        public a(FrsSplitAlaShareItemAdapter frsSplitAlaShareItemAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsSplitAlaShareItemAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14226b = frsSplitAlaShareItemAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.o0.z.b0
+        @Override // d.a.s0.a0.b0
         /* renamed from: d */
-        public void a(View view, a2 a2Var) {
+        public void a(View view, b2 b2Var) {
             CustomMessage customMessage;
-            if (view.getId() == R.id.layout_root) {
-                customMessage = new CustomMessage(2921018);
-            } else if (view.getId() != R.id.card_home_page_normal_thread_user_name && view.getId() != R.id.card_home_page_normal_thread_user_header) {
-                customMessage = view.getId() == R.id.video_container ? new CustomMessage(2921019) : null;
-            } else {
-                customMessage = new CustomMessage(2921016);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, b2Var) == null) {
+                if (view.getId() == R.id.layout_root) {
+                    customMessage = new CustomMessage(2921018);
+                } else if (view.getId() != R.id.card_home_page_normal_thread_user_name && view.getId() != R.id.card_home_page_normal_thread_user_header) {
+                    customMessage = view.getId() == R.id.video_container ? new CustomMessage(2921019) : null;
+                } else {
+                    customMessage = new CustomMessage(2921016);
+                }
+                if (customMessage == null || this.f14226b.o == null) {
+                    return;
+                }
+                customMessage.setData(b2Var);
+                this.f14226b.o.sendMessage(customMessage);
             }
-            if (customMessage == null || FrsSplitAlaShareItemAdapter.this.o == null) {
-                return;
-            }
-            customMessage.setData(a2Var);
-            FrsSplitAlaShareItemAdapter.this.o.sendMessage(customMessage);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsSplitAlaShareItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.z = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.A = new a(this);
     }
 
-    @Override // d.a.o0.z.z
+    @Override // d.a.s0.a0.z
     public void a(String str) {
-        this.w = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.x = str;
+        }
     }
 
-    @Override // d.a.o0.o.f
+    @Override // d.a.s0.o.f
     public void g(String str) {
-        this.y = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.z = str;
+        }
     }
 
-    @Override // d.a.o0.z.z
+    @Override // d.a.s0.a0.z
     public void r(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
-    /* renamed from: v0 */
+    /* renamed from: x0 */
     public FrsPageAlaShareHolder Q(ViewGroup viewGroup) {
-        TbPageContext<?> tbPageContext = this.o;
-        if (tbPageContext == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            TbPageContext<?> tbPageContext = this.o;
+            if (tbPageContext == null) {
+                return null;
+            }
+            c cVar = new c(tbPageContext, this.f44825i);
+            this.y = cVar;
+            cVar.T(this.f44825i);
+            this.y.a(this.x);
+            this.y.o(this.A);
+            return new FrsPageAlaShareHolder(this.y);
         }
-        c cVar = new c(tbPageContext, this.f43016i);
-        this.x = cVar;
-        cVar.U(this.f43016i);
-        this.x.a(this.w);
-        this.x.p(this.z);
-        return new FrsPageAlaShareHolder(this.x);
+        return (FrsPageAlaShareHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.o0.r0.k, d.a.c.k.e.a
-    /* renamed from: w0 */
-    public View X(int i2, View view, ViewGroup viewGroup, z1 z1Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
-        CustomMessage customMessage = new CustomMessage(2921017);
-        FrsViewData frsViewData = this.n;
-        int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-        a2 a2Var = z1Var.w;
-        a2Var.O1 = (z1Var.position + 1) - topThreadSize;
-        customMessage.setData(a2Var);
-        this.o.sendMessage(customMessage);
-        if (z1Var != null) {
-            c cVar = frsPageAlaShareHolder.f14138a;
-            if (cVar instanceof e) {
-                cVar.setPage(this.y);
+    @Override // d.a.s0.u0.k, d.a.c.k.e.a
+    /* renamed from: y0 */
+    public View X(int i2, View view, ViewGroup viewGroup, a2 a2Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), view, viewGroup, a2Var, frsPageAlaShareHolder})) == null) {
+            CustomMessage customMessage = new CustomMessage(2921017);
+            FrsViewData frsViewData = this.n;
+            int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
+            b2 b2Var = a2Var.w;
+            b2Var.P1 = (a2Var.position + 1) - topThreadSize;
+            customMessage.setData(b2Var);
+            this.o.sendMessage(customMessage);
+            if (a2Var != null) {
+                c cVar = frsPageAlaShareHolder.f14225a;
+                if (cVar instanceof e) {
+                    cVar.setPage(this.z);
+                }
+                frsPageAlaShareHolder.f14225a.a(this.x);
+                j.h(frsPageAlaShareHolder.f14225a.M(), this.n);
+                j.h(frsPageAlaShareHolder.f14225a.O(), this.n);
+                frsPageAlaShareHolder.f14225a.m(a2Var.w);
+                a2Var.w.q4();
             }
-            frsPageAlaShareHolder.f14138a.a(this.w);
-            j.h(frsPageAlaShareHolder.f14138a.N(), this.n);
-            j.h(frsPageAlaShareHolder.f14138a.P(), this.n);
-            frsPageAlaShareHolder.f14138a.n(z1Var.w);
-            z1Var.w.C4();
+            return frsPageAlaShareHolder.a();
         }
-        return frsPageAlaShareHolder.a();
+        return (View) invokeCommon.objValue;
     }
 }

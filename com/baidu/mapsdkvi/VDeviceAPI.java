@@ -17,71 +17,139 @@ import android.telephony.PhoneNumberUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VDeviceAPI {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PowerManager.WakeLock f7986a;
+    public static PowerManager.WakeLock f8016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f7987b;
+    public static BroadcastReceiver f8017b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-668360355, "Lcom/baidu/mapsdkvi/VDeviceAPI;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-668360355, "Lcom/baidu/mapsdkvi/VDeviceAPI;");
+        }
+    }
+
+    public VDeviceAPI() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static String getAppVersion() {
-        try {
-            return b.a().getPackageManager().getPackageInfo(b.a().getApplicationInfo().packageName, 0).versionName;
-        } catch (PackageManager.NameNotFoundException unused) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                return b.a().getPackageManager().getPackageInfo(b.a().getApplicationInfo().packageName, 0).versionName;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public static long getAvailableMemory() {
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) b.a().getSystemService("activity")).getMemoryInfo(memoryInfo);
-        return memoryInfo.availMem / 1024;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) b.a().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return memoryInfo.availMem / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static String getCachePath() {
-        return Environment.getDataDirectory().getAbsolutePath();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Environment.getDataDirectory().getAbsolutePath() : (String) invokeV.objValue;
     }
 
     public static int getCurrentNetworkType() {
+        InterceptResult invokeV;
         NetworkInfo networkInfo;
-        try {
-            networkInfo = ((ConnectivityManager) b.a().getSystemService("connectivity")).getActiveNetworkInfo();
-        } catch (Exception unused) {
-            networkInfo = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            try {
+                networkInfo = ((ConnectivityManager) b.a().getSystemService("connectivity")).getActiveNetworkInfo();
+            } catch (Exception unused) {
+                networkInfo = null;
+            }
+            if (networkInfo == null) {
+                return 0;
+            }
+            int type = networkInfo.getType();
+            if (type != 0) {
+                return type != 1 ? 1 : 2;
+            }
+            return 3;
         }
-        if (networkInfo == null) {
-            return 0;
-        }
-        int type = networkInfo.getType();
-        if (type != 0) {
-            return type != 1 ? 1 : 2;
-        }
-        return 3;
+        return invokeV.intValue;
     }
 
     public static long getFreeSpace() {
-        StatFs statFs = new StatFs(Environment.getRootDirectory().getPath());
-        return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            StatFs statFs = new StatFs(Environment.getRootDirectory().getPath());
+            return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static String getModuleFileName() {
-        return b.a().getFilesDir().getAbsolutePath();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b.a().getFilesDir().getAbsolutePath() : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x001e  */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0024 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0022  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0028 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static c getNetworkInfo(int i2) {
+        InterceptResult invokeI;
         int i3;
         NetworkInfo networkInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeI = interceptable.invokeI(65544, null, i2)) != null) {
+            return (c) invokeI.objValue;
+        }
         ConnectivityManager connectivityManager = (ConnectivityManager) b.a().getSystemService("connectivity");
         if (i2 == 2) {
             i3 = 1;
@@ -100,184 +168,266 @@ public class VDeviceAPI {
     }
 
     public static String getOsVersion() {
-        return "android";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? "android" : (String) invokeV.objValue;
     }
 
     public static int getScreenBrightness() {
+        InterceptResult invokeV;
         int i2;
-        ContentResolver contentResolver = b.a().getContentResolver();
-        try {
-            i2 = Settings.System.getInt(contentResolver, "screen_brightness_mode");
-        } catch (Settings.SettingNotFoundException unused) {
-            i2 = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            ContentResolver contentResolver = b.a().getContentResolver();
+            try {
+                i2 = Settings.System.getInt(contentResolver, "screen_brightness_mode");
+            } catch (Settings.SettingNotFoundException unused) {
+                i2 = 0;
+            }
+            if (i2 == 1) {
+                return -1;
+            }
+            try {
+                return Settings.System.getInt(contentResolver, "screen_brightness");
+            } catch (Settings.SettingNotFoundException unused2) {
+                return -1;
+            }
         }
-        if (i2 == 1) {
-            return -1;
-        }
-        try {
-            return Settings.System.getInt(contentResolver, "screen_brightness");
-        } catch (Settings.SettingNotFoundException unused2) {
-            return -1;
-        }
+        return invokeV.intValue;
     }
 
     public static float getScreenDensity() {
-        if (b.a() == null) {
-            return 0.0f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (b.a() == null) {
+                return 0.0f;
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) b.a().getSystemService("window");
+            if (windowManager != null) {
+                windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            }
+            return displayMetrics.density;
         }
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowManager = (WindowManager) b.a().getSystemService("window");
-        if (windowManager != null) {
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        }
-        return displayMetrics.density;
+        return invokeV.floatValue;
     }
 
     public static int getScreenDensityDpi() {
-        if (b.a() == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (b.a() == null) {
+                return 0;
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) b.a().getSystemService("window");
+            if (windowManager != null) {
+                windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            }
+            return displayMetrics.densityDpi;
         }
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowManager = (WindowManager) b.a().getSystemService("window");
-        if (windowManager != null) {
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        }
-        return displayMetrics.densityDpi;
+        return invokeV.intValue;
     }
 
     public static long getSdcardFreeSpace() {
-        StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-        return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static String getSdcardPath() {
-        File externalStorageDirectory = Environment.getExternalStorageDirectory();
-        if (externalStorageDirectory != null) {
-            return externalStorageDirectory.getAbsolutePath();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            File externalStorageDirectory = Environment.getExternalStorageDirectory();
+            if (externalStorageDirectory != null) {
+                return externalStorageDirectory.getAbsolutePath();
+            }
+            return null;
         }
-        return null;
+        return (String) invokeV.objValue;
     }
 
     public static long getSdcardTotalSpace() {
-        StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-        return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static float getSystemMetricsX() {
-        if (b.a() == null) {
-            return 0.0f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (b.a() == null) {
+                return 0.0f;
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) b.a().getSystemService("window");
+            if (windowManager != null) {
+                windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            }
+            return displayMetrics.widthPixels;
         }
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowManager = (WindowManager) b.a().getSystemService("window");
-        if (windowManager != null) {
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        }
-        return displayMetrics.widthPixels;
+        return invokeV.floatValue;
     }
 
     public static float getSystemMetricsY() {
-        if (b.a() == null) {
-            return 0.0f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            if (b.a() == null) {
+                return 0.0f;
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) b.a().getSystemService("window");
+            if (windowManager != null) {
+                windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            }
+            return displayMetrics.heightPixels;
         }
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowManager = (WindowManager) b.a().getSystemService("window");
-        if (windowManager != null) {
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        }
-        return displayMetrics.heightPixels;
+        return invokeV.floatValue;
     }
 
     public static long getTotalMemory() {
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-            String readLine = bufferedReader.readLine();
-            r1 = readLine != null ? Integer.valueOf(readLine.split("\\s+")[1]).intValue() : 0L;
-            bufferedReader.close();
-        } catch (IOException unused) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+                String readLine = bufferedReader.readLine();
+                r1 = readLine != null ? Integer.valueOf(readLine.split("\\s+")[1]).intValue() : 0L;
+                bufferedReader.close();
+            } catch (IOException unused) {
+            }
+            return r1;
         }
-        return r1;
+        return invokeV.longValue;
     }
 
     public static long getTotalSpace() {
-        StatFs statFs = new StatFs(Environment.getRootDirectory().getPath());
-        return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            StatFs statFs = new StatFs(Environment.getRootDirectory().getPath());
+            return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static boolean isWifiConnected() {
-        NetworkInfo networkInfo = ((ConnectivityManager) b.a().getSystemService("connectivity")).getNetworkInfo(1);
-        if (networkInfo == null) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            NetworkInfo networkInfo = ((ConnectivityManager) b.a().getSystemService("connectivity")).getNetworkInfo(1);
+            if (networkInfo == null) {
+                return false;
+            }
+            return networkInfo.isConnected();
         }
-        return networkInfo.isConnected();
+        return invokeV.booleanValue;
     }
 
     public static void makeCall(String str) {
-        b.a().startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
+            b.a().startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)));
+        }
     }
 
     public static native void onNetworkStateChanged();
 
     public static void openUrl(String str) {
-        b.a().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65559, null, str) == null) {
+            b.a().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+        }
     }
 
     public static int sendMMS(String str, String str2, String str3, String str4) {
-        if (PhoneNumberUtils.isWellFormedSmsAddress(str)) {
-            try {
-                String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(Uri.fromFile(new File(str4)).toString()));
-                Intent intent = new Intent("android.intent.action.SEND");
-                intent.putExtra("address", str);
-                intent.putExtra("subject", str2);
-                intent.putExtra("sms_body", str3);
-                intent.putExtra("android.intent.extra.STREAM", Uri.parse("file://" + str4));
-                intent.setType(mimeTypeFromExtension);
-                b.a().startActivity(intent);
-                return 0;
-            } catch (Exception unused) {
-                return 2;
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65560, null, str, str2, str3, str4)) == null) {
+            if (PhoneNumberUtils.isWellFormedSmsAddress(str)) {
+                try {
+                    String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(Uri.fromFile(new File(str4)).toString()));
+                    Intent intent = new Intent("android.intent.action.SEND");
+                    intent.putExtra("address", str);
+                    intent.putExtra("subject", str2);
+                    intent.putExtra("sms_body", str3);
+                    intent.putExtra("android.intent.extra.STREAM", Uri.parse("file://" + str4));
+                    intent.setType(mimeTypeFromExtension);
+                    b.a().startActivity(intent);
+                    return 0;
+                } catch (Exception unused) {
+                    return 2;
+                }
             }
+            return 1;
         }
-        return 1;
+        return invokeLLLL.intValue;
     }
 
     public static void sendSMS(String str, String str2) {
-        Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
-        intent.putExtra("sms_body", str2);
-        b.a().startActivity(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65561, null, str, str2) == null) {
+            Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
+            intent.putExtra("sms_body", str2);
+            b.a().startActivity(intent);
+        }
     }
 
     public static void setNetworkChangedCallback() {
-        unsetNetworkChangedCallback();
-        f7987b = new a();
-        b.a().registerReceiver(f7987b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65562, null) == null) {
+            unsetNetworkChangedCallback();
+            f8017b = new a();
+            b.a().registerReceiver(f8017b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        }
     }
 
     public static void setScreenAlwaysOn(boolean z) {
-        if (z) {
-            if (f7986a == null) {
-                f7986a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65563, null, z) == null) {
+            if (z) {
+                if (f8016a == null) {
+                    f8016a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+                }
+                f8016a.acquire();
+                return;
             }
-            f7986a.acquire();
-            return;
+            PowerManager.WakeLock wakeLock = f8016a;
+            if (wakeLock == null || !wakeLock.isHeld()) {
+                return;
+            }
+            f8016a.release();
+            f8016a = null;
         }
-        PowerManager.WakeLock wakeLock = f7986a;
-        if (wakeLock == null || !wakeLock.isHeld()) {
-            return;
-        }
-        f7986a.release();
-        f7986a = null;
     }
 
     public static void setupSoftware(String str) {
-        Intent intent = new Intent("android.intent.action.VIEW");
-        intent.setDataAndType(Uri.fromFile(new File(str)), "application/vnd.android.package-archive");
-        b.a().startActivity(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65564, null, str) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setDataAndType(Uri.fromFile(new File(str)), "application/vnd.android.package-archive");
+            b.a().startActivity(intent);
+        }
     }
 
     public static void unsetNetworkChangedCallback() {
-        if (f7987b != null) {
-            b.a().unregisterReceiver(f7987b);
-            f7987b = null;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f8017b == null) {
+            return;
         }
+        b.a().unregisterReceiver(f8017b);
+        f8017b = null;
     }
 }

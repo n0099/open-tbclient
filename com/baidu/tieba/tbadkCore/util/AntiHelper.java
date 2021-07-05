@@ -6,6 +6,7 @@ import android.util.Pair;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountRestoreActivityConfig;
@@ -15,305 +16,622 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.n0.r.q.a2;
-import d.a.n0.r.s.a;
+import d.a.r0.r.q.b2;
+import d.a.r0.r.s.a;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class AntiHelper {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
-    public enum OperationType {
-        ACCOUNT_RESTORE,
-        CREATE_THREAD,
-        SIGN,
-        LIKE,
-        REPLY
+    public static final class OperationType {
+        public static final /* synthetic */ OperationType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final OperationType ACCOUNT_RESTORE;
+        public static final OperationType CREATE_THREAD;
+        public static final OperationType LIKE;
+        public static final OperationType REPLY;
+        public static final OperationType SIGN;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56553691, "Lcom/baidu/tieba/tbadkCore/util/AntiHelper$OperationType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-56553691, "Lcom/baidu/tieba/tbadkCore/util/AntiHelper$OperationType;");
+                    return;
+                }
+            }
+            ACCOUNT_RESTORE = new OperationType("ACCOUNT_RESTORE", 0);
+            CREATE_THREAD = new OperationType("CREATE_THREAD", 1);
+            SIGN = new OperationType("SIGN", 2);
+            LIKE = new OperationType("LIKE", 3);
+            OperationType operationType = new OperationType("REPLY", 4);
+            REPLY = operationType;
+            $VALUES = new OperationType[]{ACCOUNT_RESTORE, CREATE_THREAD, SIGN, LIKE, operationType};
+        }
+
+        public OperationType(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static OperationType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (OperationType) Enum.valueOf(OperationType.class, str) : (OperationType) invokeL.objValue;
+        }
+
+        public static OperationType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OperationType[]) $VALUES.clone() : (OperationType[]) invokeV.objValue;
+        }
     }
 
     /* loaded from: classes5.dex */
     public static class a implements a.e {
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            d.a.n0.r.d0.b.j().t("anti_vcode_no_longer_tip", true);
-            aVar.dismiss();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                d.a.r0.r.d0.b.j().t("anti_vcode_no_longer_tip", true);
+                aVar.dismiss();
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class b implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f21008e;
+        public final /* synthetic */ k f21157e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f21009f;
+        public final /* synthetic */ Context f21158f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f21010g;
+        public final /* synthetic */ BlockPopInfoData f21159g;
 
         public b(k kVar, Context context, BlockPopInfoData blockPopInfoData) {
-            this.f21008e = kVar;
-            this.f21009f = context;
-            this.f21010g = blockPopInfoData;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kVar, context, blockPopInfoData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21157e = kVar;
+            this.f21158f = context;
+            this.f21159g = blockPopInfoData;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            k kVar = this.f21008e;
-            if (kVar != null) {
-                kVar.onPositiveButtonClick(aVar);
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                k kVar = this.f21157e;
+                if (kVar != null) {
+                    kVar.onPositiveButtonClick(aVar);
+                }
+                aVar.dismiss();
+                d.a.r0.l.a.l(this.f21158f, this.f21159g.ahead_url);
             }
-            aVar.dismiss();
-            d.a.n0.l.a.l(this.f21009f, this.f21010g.ahead_url);
         }
     }
 
     /* loaded from: classes5.dex */
     public static class c implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f21011e;
+        public final /* synthetic */ k f21160e;
 
         public c(k kVar) {
-            this.f21011e = kVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21160e = kVar;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            k kVar = this.f21011e;
-            if (kVar != null) {
-                kVar.onNavigationButtonClick(aVar);
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                k kVar = this.f21160e;
+                if (kVar != null) {
+                    kVar.onNavigationButtonClick(aVar);
+                }
+                aVar.dismiss();
             }
-            aVar.dismiss();
         }
     }
 
     /* loaded from: classes5.dex */
     public static class d implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f21012e;
+        public final /* synthetic */ Context f21161e;
 
         public d(Context context) {
-            this.f21012e = context;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21161e = context;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
-            d.a.n0.l.a.l(this.f21012e, "http://tieba.baidu.com/mo/q/userappeal");
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                d.a.r0.l.a.l(this.f21161e, "http://tieba.baidu.com/mo/q/userappeal");
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class e implements a.e {
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class f implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f21013e;
+        public final /* synthetic */ Context f21162e;
 
         public f(Context context) {
-            this.f21013e = context;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21162e = context;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
-            d.a.n0.l.a.l(this.f21013e, "http://tieba.baidu.com/mo/q/userappeal");
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                d.a.r0.l.a.l(this.f21162e, "http://tieba.baidu.com/mo/q/userappeal");
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class g implements a.e {
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class h implements a.e {
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class i implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f21014e;
+        public final /* synthetic */ Context f21163e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PageType f21015f;
+        public final /* synthetic */ PageType f21164f;
 
         public i(Context context, PageType pageType) {
-            this.f21014e = context;
-            this.f21015f = pageType;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, pageType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21163e = context;
+            this.f21164f = pageType;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f21014e, this.f21015f)));
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f21163e, this.f21164f)));
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class j implements a.e {
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public j() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public interface k {
-        void onNavigationButtonClick(d.a.n0.r.s.a aVar);
+        void onNavigationButtonClick(d.a.r0.r.s.a aVar);
 
-        void onPositiveButtonClick(d.a.n0.r.s.a aVar);
+        void onPositiveButtonClick(d.a.r0.r.s.a aVar);
     }
 
     public static void A(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         String string;
         String string2;
-        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
-        if (operationType == OperationType.SIGN) {
-            String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
-            if (n(antiData)) {
-                string2 = context.getString(R.string.anti_type_forbid_sys);
-            } else if (g(antiData)) {
-                string2 = context.getString(R.string.anti_type_forbid_bawu);
-            } else if (h(antiData)) {
-                string2 = context.getString(R.string.anti_type_hide);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, context, antiData, operationType, pageType) == null) {
+            d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+            if (operationType == OperationType.SIGN) {
+                String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
+                if (n(antiData)) {
+                    string2 = context.getString(R.string.anti_type_forbid_sys);
+                } else if (g(antiData)) {
+                    string2 = context.getString(R.string.anti_type_forbid_bawu);
+                } else if (h(antiData)) {
+                    string2 = context.getString(R.string.anti_type_hide);
+                } else {
+                    string2 = context.getString(R.string.anti_type_exception);
+                }
+                string = MessageFormat.format(string3, string2, context.getString(R.string.anti_appeal_sign_com_tip));
             } else {
-                string2 = context.getString(R.string.anti_type_exception);
+                string = context.getString(R.string.anti_account_exception_tip);
             }
-            string = MessageFormat.format(string3, string2, context.getString(R.string.anti_appeal_sign_com_tip));
-        } else {
-            string = context.getString(R.string.anti_account_exception_tip);
-        }
-        aVar.setMessage(string);
-        aVar.setPositiveButton(context.getString(R.string.anti_vcode_pos), new d(context));
-        aVar.setNegativeButton(context.getString(R.string.anti_account_exception_neg), new e());
-        if (context instanceof Activity) {
-            aVar.create(d.a.c.a.j.a(context)).show();
+            aVar.setMessage(string);
+            aVar.setPositiveButton(context.getString(R.string.anti_vcode_pos), new d(context));
+            aVar.setNegativeButton(context.getString(R.string.anti_account_exception_neg), new e());
+            if (context instanceof Activity) {
+                aVar.create(d.a.c.a.j.a(context)).show();
+            }
         }
     }
 
     public static boolean a(Context context, int i2, String str) {
-        if (i(i2)) {
-            p(context, str);
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean b(TbPageContext<?> tbPageContext, a2 a2Var) {
-        if (tbPageContext == null || !j(a2Var)) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, context, i2, str)) == null) {
+            if (i(i2)) {
+                p(context, str);
+                return true;
+            }
             return false;
         }
-        l.M(tbPageContext.getPageActivity(), StringUtils.isNull(a2Var.h2) ? tbPageContext.getString(R.string.forbiden_comment_text) : a2Var.h2);
-        return true;
+        return invokeLIL.booleanValue;
+    }
+
+    public static boolean b(TbPageContext<?> tbPageContext, b2 b2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, b2Var)) == null) {
+            if (tbPageContext == null || !j(b2Var)) {
+                return false;
+            }
+            l.M(tbPageContext.getPageActivity(), StringUtils.isNull(b2Var.i2) ? tbPageContext.getString(R.string.forbiden_comment_text) : b2Var.i2);
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean c(TbPageContext<?> tbPageContext, VideoItemData videoItemData) {
-        if (tbPageContext == null || !k(videoItemData)) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, videoItemData)) == null) {
+            if (tbPageContext == null || !k(videoItemData)) {
+                return false;
+            }
+            l.M(tbPageContext.getPageActivity(), StringUtils.isNull(videoItemData.noCommetStr) ? tbPageContext.getString(R.string.forbiden_comment_text) : videoItemData.noCommetStr);
+            return true;
         }
-        l.M(tbPageContext.getPageActivity(), StringUtils.isNull(videoItemData.noCommetStr) ? tbPageContext.getString(R.string.forbiden_comment_text) : videoItemData.noCommetStr);
-        return true;
+        return invokeLL.booleanValue;
     }
 
     public static boolean d(TbPageContext<?> tbPageContext, AntiData antiData) {
-        return false;
-    }
-
-    public static boolean e(Context context, a2 a2Var) {
-        if (context == null || !o(a2Var)) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, tbPageContext, antiData)) == null) {
             return false;
         }
-        l.L(context, R.string.feed_thread_state_under_review_text);
-        return true;
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean e(Context context, b2 b2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, b2Var)) == null) {
+            if (context == null || !o(b2Var)) {
+                return false;
+            }
+            l.L(context, R.string.feed_thread_state_under_review_text);
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean f(AntiData antiData) {
-        return antiData != null && antiData.getVcode_stat() == 1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, antiData)) == null) ? antiData != null && antiData.getVcode_stat() == 1 : invokeL.booleanValue;
     }
 
     public static boolean g(AntiData antiData) {
-        return antiData != null && antiData.getBlock_stat() == 3;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, antiData)) == null) ? antiData != null && antiData.getBlock_stat() == 3 : invokeL.booleanValue;
     }
 
     public static boolean h(AntiData antiData) {
-        return antiData != null && antiData.getHide_stat() == 1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, antiData)) == null) ? antiData != null && antiData.getHide_stat() == 1 : invokeL.booleanValue;
     }
 
     public static boolean i(int i2) {
-        return i2 == 3250012;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) ? i2 == 3250012 : invokeI.booleanValue;
     }
 
-    public static boolean j(a2 a2Var) {
-        return a2Var != null && a2Var.C2() && a2Var.g2;
+    public static boolean j(b2 b2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, b2Var)) == null) ? b2Var != null && b2Var.p2() && b2Var.h2 : invokeL.booleanValue;
     }
 
     public static boolean k(VideoItemData videoItemData) {
-        return videoItemData != null && videoItemData.isBjhVideo && videoItemData.forbidComment;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, videoItemData)) == null) ? videoItemData != null && videoItemData.isBjhVideo && videoItemData.forbidComment : invokeL.booleanValue;
     }
 
     public static boolean l(int i2) {
-        return i2 == 3250002 || i2 == 3250001 || i2 == 3250003 || i2 == 3250004 || i2 == 3250013;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) ? i2 == 3250002 || i2 == 3250001 || i2 == 3250003 || i2 == 3250004 || i2 == 3250013 : invokeI.booleanValue;
     }
 
     public static boolean m(int i2, String str) {
-        if (i2 != 3250013) {
-            return i2 == 3250002 || i2 == 3250001 || i2 == 3250003 || i2 == 3250004 || i2 == 3250013;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65549, null, i2, str)) == null) {
+            if (i2 != 3250013) {
+                return i2 == 3250002 || i2 == 3250001 || i2 == 3250003 || i2 == 3250004 || i2 == 3250013;
+            }
+            if (d.a.c.e.p.k.isEmpty(str)) {
+                str = TbadkCoreApplication.getInst().getContext().getString(R.string.anti_account_exception_appealing);
+            }
+            BdToast.h(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).q();
+            return true;
         }
-        if (d.a.c.e.p.k.isEmpty(str)) {
-            str = TbadkCoreApplication.getInst().getContext().getString(R.string.anti_account_exception_appealing);
-        }
-        BdToast.h(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).q();
-        return true;
+        return invokeIL.booleanValue;
     }
 
     public static boolean n(AntiData antiData) {
-        return antiData != null && antiData.getBlock_stat() == 2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, antiData)) == null) ? antiData != null && antiData.getBlock_stat() == 2 : invokeL.booleanValue;
     }
 
-    public static boolean o(a2 a2Var) {
-        return a2Var != null && a2Var.o1 && a2Var.C2();
+    public static boolean o(b2 b2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, b2Var)) == null) ? b2Var != null && b2Var.p1 && b2Var.p2() : invokeL.booleanValue;
     }
 
     public static void p(Context context, String str) {
-        if (context == null || d.a.c.e.p.k.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) || context == null || d.a.c.e.p.k.isEmpty(str)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new Pair("nomenu", "1"));
         arrayList.add(new Pair("noshare", "1"));
-        d.a.n0.l.a.l(context, d.a.n0.l.a.c(str, arrayList));
+        d.a.r0.l.a.l(context, d.a.r0.l.a.c(str, arrayList));
     }
 
     public static void q() {
-        d.a.n0.r.d0.b.j().C("anti_vcode_no_longer_tip");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
+            d.a.r0.r.d0.b.j().C("anti_vcode_no_longer_tip");
+        }
     }
 
     public static void r(Context context, AntiData antiData, PageType pageType) {
-        if (d.a.n0.r.d0.b.j().g("anti_vcode_no_longer_tip", false)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65554, null, context, antiData, pageType) == null) || d.a.r0.r.d0.b.j().g("anti_vcode_no_longer_tip", false)) {
             return;
         }
         boolean isHas_chance = antiData.isHas_chance();
-        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+        d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
         aVar.setMessage(context.getString(isHas_chance ? R.string.anti_vocode_on_chance_tip : R.string.anti_vcode_tip));
         if (!isHas_chance) {
             aVar.setNegativeButton(context.getString(R.string.anti_vcode_pos), new i(context, pageType));
@@ -326,134 +644,164 @@ public class AntiHelper {
         }
     }
 
-    public static d.a.n0.r.s.a s(Context context, BlockPopInfoData blockPopInfoData) {
-        return t(context, blockPopInfoData, null);
+    public static d.a.r0.r.s.a s(Context context, BlockPopInfoData blockPopInfoData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, context, blockPopInfoData)) == null) ? t(context, blockPopInfoData, null) : (d.a.r0.r.s.a) invokeLL.objValue;
     }
 
-    public static d.a.n0.r.s.a t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
-        if (blockPopInfoData == null) {
+    public static d.a.r0.r.s.a t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65556, null, context, blockPopInfoData, kVar)) == null) {
+            if (blockPopInfoData == null) {
+                return null;
+            }
+            d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+            if (blockPopInfoData.block_info == null) {
+                blockPopInfoData.block_info = "";
+            }
+            aVar.setMessage(blockPopInfoData.block_info);
+            aVar.setPositiveButton(d.a.c.e.p.k.isEmpty(blockPopInfoData.ahead_info) ? context.getString(R.string.anti_vcode_pos) : blockPopInfoData.ahead_info, new b(kVar, context, blockPopInfoData));
+            aVar.setNegativeButton(d.a.c.e.p.k.isEmpty(blockPopInfoData.ok_info) ? context.getString(R.string.anti_account_exception_neg) : blockPopInfoData.ok_info, new c(kVar));
+            if (context instanceof Activity) {
+                aVar.create(d.a.c.a.j.a(context)).show();
+                return aVar;
+            }
             return null;
         }
-        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
-        if (blockPopInfoData.block_info == null) {
-            blockPopInfoData.block_info = "";
-        }
-        aVar.setMessage(blockPopInfoData.block_info);
-        aVar.setPositiveButton(d.a.c.e.p.k.isEmpty(blockPopInfoData.ahead_info) ? context.getString(R.string.anti_vcode_pos) : blockPopInfoData.ahead_info, new b(kVar, context, blockPopInfoData));
-        aVar.setNegativeButton(d.a.c.e.p.k.isEmpty(blockPopInfoData.ok_info) ? context.getString(R.string.anti_account_exception_neg) : blockPopInfoData.ok_info, new c(kVar));
-        if (context instanceof Activity) {
-            aVar.create(d.a.c.a.j.a(context)).show();
-            return aVar;
-        }
-        return null;
+        return (d.a.r0.r.s.a) invokeLLL.objValue;
     }
 
-    public static d.a.n0.r.s.a u(Context context, String str) {
-        return v(context, str, 0);
+    public static d.a.r0.r.s.a u(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, context, str)) == null) ? v(context, str, 0) : (d.a.r0.r.s.a) invokeLL.objValue;
     }
 
-    public static d.a.n0.r.s.a v(Context context, String str, int i2) {
+    public static d.a.r0.r.s.a v(Context context, String str, int i2) {
+        InterceptResult invokeLLI;
         String str2;
-        if (str == null) {
-            str = "";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65558, null, context, str, i2)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+            blockPopInfoData.block_info = str;
+            if (i2 == 0) {
+                str2 = "http://tieba.baidu.com/mo/q/userappeal";
+            } else {
+                str2 = "http://tieba.baidu.com/mo/q/userappeal?block_errno=" + i2;
+            }
+            blockPopInfoData.ahead_url = str2;
+            return s(context, blockPopInfoData);
         }
-        BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-        blockPopInfoData.block_info = str;
-        if (i2 == 0) {
-            str2 = "http://tieba.baidu.com/mo/q/userappeal";
-        } else {
-            str2 = "http://tieba.baidu.com/mo/q/userappeal?block_errno=" + i2;
-        }
-        blockPopInfoData.ahead_url = str2;
-        return s(context, blockPopInfoData);
+        return (d.a.r0.r.s.a) invokeLLI.objValue;
     }
 
-    public static d.a.n0.r.s.a w(Context context, String str, int i2, k kVar) {
+    public static d.a.r0.r.s.a w(Context context, String str, int i2, k kVar) {
+        InterceptResult invokeLLIL;
         String str2;
-        if (str == null) {
-            str = "";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65559, null, context, str, i2, kVar)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+            blockPopInfoData.block_info = str;
+            if (i2 == 0) {
+                str2 = "http://tieba.baidu.com/mo/q/userappeal";
+            } else {
+                str2 = "http://tieba.baidu.com/mo/q/userappeal?block_errno=" + i2;
+            }
+            blockPopInfoData.ahead_url = str2;
+            return t(context, blockPopInfoData, kVar);
         }
-        BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-        blockPopInfoData.block_info = str;
-        if (i2 == 0) {
-            str2 = "http://tieba.baidu.com/mo/q/userappeal";
-        } else {
-            str2 = "http://tieba.baidu.com/mo/q/userappeal?block_errno=" + i2;
-        }
-        blockPopInfoData.ahead_url = str2;
-        return t(context, blockPopInfoData, kVar);
+        return (d.a.r0.r.s.a) invokeLLIL.objValue;
     }
 
     public static boolean x(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
-        if (!f(antiData)) {
-            q();
-        }
-        if (!n(antiData) && !h(antiData)) {
-            if (g(antiData)) {
-                y(context, antiData, operationType);
-            } else if (!f(antiData) || operationType != OperationType.REPLY) {
-                return false;
-            } else {
-                r(context, antiData, pageType);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65560, null, context, antiData, operationType, pageType)) == null) {
+            if (!f(antiData)) {
+                q();
             }
-        } else if (antiData.isHas_chance()) {
-            A(context, antiData, operationType, pageType);
-        } else {
-            z(context, antiData, operationType);
+            if (!n(antiData) && !h(antiData)) {
+                if (g(antiData)) {
+                    y(context, antiData, operationType);
+                } else if (!f(antiData) || operationType != OperationType.REPLY) {
+                    return false;
+                } else {
+                    r(context, antiData, pageType);
+                }
+            } else if (antiData.isHas_chance()) {
+                A(context, antiData, operationType, pageType);
+            } else {
+                z(context, antiData, operationType);
+            }
+            return true;
         }
-        return true;
+        return invokeLLLL.booleanValue;
     }
 
     public static void y(Context context, AntiData antiData, OperationType operationType) {
         String format;
         String string;
-        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
-        if (operationType == OperationType.SIGN) {
-            String string2 = context.getString(R.string.anti_appeal_sign_base_tip);
-            if (n(antiData)) {
-                string = context.getString(R.string.anti_type_forbid_sys);
-            } else if (g(antiData)) {
-                string = context.getString(R.string.anti_type_forbid_bawu);
-            } else if (h(antiData)) {
-                string = context.getString(R.string.anti_type_hide);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65561, null, context, antiData, operationType) == null) {
+            d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+            if (operationType == OperationType.SIGN) {
+                String string2 = context.getString(R.string.anti_appeal_sign_base_tip);
+                if (n(antiData)) {
+                    string = context.getString(R.string.anti_type_forbid_sys);
+                } else if (g(antiData)) {
+                    string = context.getString(R.string.anti_type_forbid_bawu);
+                } else if (h(antiData)) {
+                    string = context.getString(R.string.anti_type_hide);
+                } else {
+                    string = context.getString(R.string.anti_type_exception);
+                }
+                format = MessageFormat.format(string2, string, context.getString(R.string.anti_appeal_sign_bawu_tip));
             } else {
-                string = context.getString(R.string.anti_type_exception);
+                format = MessageFormat.format(context.getString(R.string.anti_appeal_com_tip), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
             }
-            format = MessageFormat.format(string2, string, context.getString(R.string.anti_appeal_sign_bawu_tip));
-        } else {
-            format = MessageFormat.format(context.getString(R.string.anti_appeal_com_tip), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
-        }
-        aVar.setMessage(format);
-        aVar.setPositiveButton(context.getString(R.string.anti_vcode_pos), new f(context));
-        aVar.setNegativeButton(context.getString(R.string.anti_account_exception_neg), new g());
-        if (context instanceof Activity) {
-            aVar.create(d.a.c.a.j.a(context)).show();
+            aVar.setMessage(format);
+            aVar.setPositiveButton(context.getString(R.string.anti_vcode_pos), new f(context));
+            aVar.setNegativeButton(context.getString(R.string.anti_account_exception_neg), new g());
+            if (context instanceof Activity) {
+                aVar.create(d.a.c.a.j.a(context)).show();
+            }
         }
     }
 
     public static void z(Context context, AntiData antiData, OperationType operationType) {
         String string;
         String string2;
-        d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
-        if (operationType == OperationType.SIGN) {
-            String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
-            if (n(antiData)) {
-                string2 = context.getString(R.string.anti_type_forbid_sys);
-            } else if (g(antiData)) {
-                string2 = context.getString(R.string.anti_type_forbid_bawu);
-            } else if (h(antiData)) {
-                string2 = context.getString(R.string.anti_type_hide);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65562, null, context, antiData, operationType) == null) {
+            d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(d.a.c.a.j.a(context).getPageActivity());
+            if (operationType == OperationType.SIGN) {
+                String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
+                if (n(antiData)) {
+                    string2 = context.getString(R.string.anti_type_forbid_sys);
+                } else if (g(antiData)) {
+                    string2 = context.getString(R.string.anti_type_forbid_bawu);
+                } else if (h(antiData)) {
+                    string2 = context.getString(R.string.anti_type_hide);
+                } else {
+                    string2 = context.getString(R.string.anti_type_exception);
+                }
+                string = MessageFormat.format(string3, string2, context.getString(R.string.anti_appeal_sign_no_chance_tip));
             } else {
-                string2 = context.getString(R.string.anti_type_exception);
+                string = context.getString(R.string.anti_no_chance_com_tip);
             }
-            string = MessageFormat.format(string3, string2, context.getString(R.string.anti_appeal_sign_no_chance_tip));
-        } else {
-            string = context.getString(R.string.anti_no_chance_com_tip);
-        }
-        aVar.setMessage(string);
-        aVar.setPositiveButton(context.getString(R.string.confirm), new h());
-        if (context instanceof Activity) {
-            aVar.create(d.a.c.a.j.a(context)).show();
+            aVar.setMessage(string);
+            aVar.setPositiveButton(context.getString(R.string.confirm), new h());
+            if (context instanceof Activity) {
+                aVar.create(d.a.c.a.j.a(context)).show();
+            }
         }
     }
 }

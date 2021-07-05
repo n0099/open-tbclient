@@ -5,8 +5,10 @@ import android.net.DhcpInfo;
 import android.net.Proxy;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.core.util.ImageLogger;
@@ -17,88 +19,137 @@ import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbCdnIpListData;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.j.a.e;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImageProblemAssistant {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f17858a;
+    public final Context f17984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbCdnIpListData f17859b;
+    public TbCdnIpListData f17985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public StringBuilder f17860c;
+    public StringBuilder f17986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<TestTask> f17861d = new ArrayList<>();
+    public ArrayList<TestTask> f17987d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17862e = false;
+    public boolean f17988e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class TestTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17863a;
+        public String f17989a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f17864b;
+        public int f17990b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17865c;
+        public String f17991c;
 
         public TestTask(ImageProblemAssistant imageProblemAssistant) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageProblemAssistant};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 
     public ImageProblemAssistant(Context context) {
-        this.f17858a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f17987d = new ArrayList<>();
+        this.f17988e = false;
+        this.f17984a = context;
         String[] strArr = {context.getString(R.string.img_assistant_title_1), context.getString(R.string.img_assistant_title_2), context.getString(R.string.img_assistant_title_3), context.getString(R.string.img_assistant_title_4), context.getString(R.string.img_assistant_title_5), context.getString(R.string.img_assistant_title_6)};
-        for (int i2 = 0; i2 < 6; i2++) {
-            String str = strArr[i2];
+        for (int i4 = 0; i4 < 6; i4++) {
+            String str = strArr[i4];
             TestTask testTask = new TestTask(this);
-            testTask.f17863a = str;
-            this.f17861d.add(testTask);
+            testTask.f17989a = str;
+            this.f17987d.add(testTask);
         }
     }
 
     public static String b(int i2) {
-        return (i2 & 255) + "." + ((i2 >> 8) & 255) + "." + ((i2 >> 16) & 255) + "." + ((i2 >> 24) & 255);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
+            return (i2 & 255) + "." + ((i2 >> 8) & 255) + "." + ((i2 >> 16) & 255) + "." + ((i2 >> 24) & 255);
+        }
+        return (String) invokeI.objValue;
     }
 
     public final boolean a(String str, String str2) {
-        try {
-            if (TextUtils.isEmpty(str)) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                e eVar = new e();
+                ImgHttpClient imgHttpClient = new ImgHttpClient(eVar);
+                eVar.b().s(str);
+                if (str2 != null && str2.length() > 0) {
+                    imgHttpClient.getNetDataWithIp(str2, "tbcdn.hiphotos.baidu.com", 1);
+                } else {
+                    imgHttpClient.getNetDataWithIp(null, null, 1);
+                }
+                return eVar.c().b();
+            } catch (Exception e2) {
+                BdLog.e(e2);
                 return false;
             }
-            e eVar = new e();
-            ImgHttpClient imgHttpClient = new ImgHttpClient(eVar);
-            eVar.b().s(str);
-            if (str2 != null && str2.length() > 0) {
-                imgHttpClient.getNetDataWithIp(str2, "tbcdn.hiphotos.baidu.com", 1);
-            } else {
-                imgHttpClient.getNetDataWithIp(null, null, 1);
-            }
-            return eVar.c().b();
-        } catch (Exception e2) {
-            BdLog.e(e2);
-            return false;
         }
+        return invokeLL.booleanValue;
     }
 
     public void checkDNSIP() {
         TestTask testTask;
         Exception e2;
         int i2;
-        if (PermissionUtil.isAgreePrivacyPolicy()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             try {
-                testTask = this.f17861d.get(1);
+                testTask = this.f17987d.get(1);
             } catch (Exception e3) {
                 testTask = null;
                 e2 = e3;
@@ -106,20 +157,20 @@ public class ImageProblemAssistant {
             try {
                 DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApplicationContext().getSystemService("wifi")).getDhcpInfo();
                 String[] strArr = {"8.8.8.8", "4.4.4.4", "8.8.4.4"};
-                if (this.f17860c != null) {
-                    this.f17860c.append("_2:" + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2));
+                if (this.f17986c != null) {
+                    this.f17986c.append("_2:" + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2));
                 }
                 while (i2 < 3) {
                     String str = strArr[i2];
                     i2 = (b(dhcpInfo.dns1).equals(str) || b(dhcpInfo.dns2).equals(str)) ? 0 : i2 + 1;
-                    testTask.f17864b = 1;
-                    testTask.f17865c = this.f17858a.getString(R.string.img_assistant_helptext_2_1) + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2) + this.f17858a.getString(R.string.img_assistant_helptext_2_2);
+                    testTask.f17990b = 1;
+                    testTask.f17991c = this.f17984a.getString(R.string.img_assistant_helptext_2_1) + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2) + this.f17984a.getString(R.string.img_assistant_helptext_2_2);
                     return;
                 }
             } catch (Exception e4) {
                 e2 = e4;
                 if (testTask != null) {
-                    testTask.f17864b = 0;
+                    testTask.f17990b = 0;
                 }
                 BdLog.e(e2);
             }
@@ -129,209 +180,233 @@ public class ImageProblemAssistant {
     public void checkLoadImg() {
         TestTask testTask;
         Exception e2;
-        try {
-            testTask = this.f17861d.get(5);
-        } catch (Exception e3) {
-            testTask = null;
-            e2 = e3;
-        }
-        try {
-            String postNetData = new NetWork(TbCdnTachometerModel.IPLIST_ADDRESS).postNetData();
-            if (!TextUtils.isEmpty(postNetData)) {
-                JSONObject jSONObject = new JSONObject(postNetData);
-                TbCdnIpListData tbCdnIpListData = new TbCdnIpListData();
-                this.f17859b = tbCdnIpListData;
-                tbCdnIpListData.parseJson(jSONObject);
-                boolean a2 = a(this.f17859b.f17819c, null);
-                boolean a3 = a("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
-                boolean a4 = a(TbConfig.URL_IMAGE_PREFIX + this.f17859b.f17819c, null);
-                if (!a3 && !a4) {
-                    testTask.f17864b = 2;
-                    testTask.f17865c = this.f17858a.getString(R.string.img_assistant_helptext_6_1);
-                    if (this.f17860c != null) {
-                        this.f17860c.append("_6:failed1");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                testTask = this.f17987d.get(5);
+            } catch (Exception e3) {
+                testTask = null;
+                e2 = e3;
+            }
+            try {
+                String postNetData = new NetWork(TbCdnTachometerModel.IPLIST_ADDRESS).postNetData();
+                if (!TextUtils.isEmpty(postNetData)) {
+                    JSONObject jSONObject = new JSONObject(postNetData);
+                    TbCdnIpListData tbCdnIpListData = new TbCdnIpListData();
+                    this.f17985b = tbCdnIpListData;
+                    tbCdnIpListData.parseJson(jSONObject);
+                    boolean a2 = a(this.f17985b.f17945c, null);
+                    boolean a3 = a("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
+                    boolean a4 = a(TbConfig.URL_IMAGE_PREFIX + this.f17985b.f17945c, null);
+                    if (!a3 && !a4) {
+                        testTask.f17990b = 2;
+                        testTask.f17991c = this.f17984a.getString(R.string.img_assistant_helptext_6_1);
+                        if (this.f17986c != null) {
+                            this.f17986c.append("_6:failed1");
+                            return;
+                        }
+                        return;
+                    } else if (a2 && a3 && a4) {
+                        testTask.f17990b = 0;
+                        this.f17988e = true;
+                        return;
+                    } else if (a4) {
+                        testTask.f17990b = 1;
+                        testTask.f17991c = this.f17984a.getString(R.string.img_assistant_helptext_6_2);
+                        if (this.f17986c != null) {
+                            this.f17986c.append("_6:warning");
+                        }
+                        this.f17988e = true;
+                        return;
+                    } else {
+                        testTask.f17990b = 2;
+                        testTask.f17991c = this.f17984a.getString(R.string.img_assistant_helptext_6_1);
+                        if (this.f17986c != null) {
+                            this.f17986c.append("_6:failed2");
+                            return;
+                        }
                         return;
                     }
-                    return;
-                } else if (a2 && a3 && a4) {
-                    testTask.f17864b = 0;
-                    this.f17862e = true;
-                    return;
-                } else if (a4) {
-                    testTask.f17864b = 1;
-                    testTask.f17865c = this.f17858a.getString(R.string.img_assistant_helptext_6_2);
-                    if (this.f17860c != null) {
-                        this.f17860c.append("_6:warning");
-                    }
-                    this.f17862e = true;
-                    return;
-                } else {
-                    testTask.f17864b = 2;
-                    testTask.f17865c = this.f17858a.getString(R.string.img_assistant_helptext_6_1);
-                    if (this.f17860c != null) {
-                        this.f17860c.append("_6:failed2");
-                        return;
-                    }
-                    return;
                 }
+                testTask.f17990b = 2;
+                testTask.f17991c = this.f17984a.getString(R.string.img_assistant_helptext_6_1);
+                if (this.f17986c != null) {
+                    this.f17986c.append("_6:failed:iplist");
+                }
+            } catch (Exception e4) {
+                e2 = e4;
+                if (testTask != null) {
+                    testTask.f17990b = 0;
+                }
+                BdLog.e(e2);
             }
-            testTask.f17864b = 2;
-            testTask.f17865c = this.f17858a.getString(R.string.img_assistant_helptext_6_1);
-            if (this.f17860c != null) {
-                this.f17860c.append("_6:failed:iplist");
-            }
-        } catch (Exception e4) {
-            e2 = e4;
-            if (testTask != null) {
-                testTask.f17864b = 0;
-            }
-            BdLog.e(e2);
         }
     }
 
     public void checkProxyIP() {
         TestTask testTask;
         Exception e2;
-        try {
-            testTask = this.f17861d.get(2);
-        } catch (Exception e3) {
-            testTask = null;
-            e2 = e3;
-        }
-        try {
-            String property = System.getProperty("http.proxyHost");
-            String property2 = System.getProperty("http.proxyPort");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (TextUtils.isEmpty(property)) {
-                    property = Proxy.getHost(this.f17858a);
-                }
-                if (TextUtils.isEmpty(property2)) {
-                    property2 = String.valueOf(Proxy.getPort(this.f17858a));
-                }
-            } catch (Exception unused) {
+                testTask = this.f17987d.get(2);
+            } catch (Exception e3) {
+                testTask = null;
+                e2 = e3;
             }
-            if (property != null && property2 != null && property.length() > 0) {
-                testTask.f17864b = 1;
-                if (j.H()) {
-                    testTask.f17865c = this.f17858a.getString(R.string.img_assistant_helptext_3);
-                } else {
-                    testTask.f17865c = this.f17858a.getString(R.string.img_assistant_helptext_3_mobile);
+            try {
+                String property = System.getProperty("http.proxyHost");
+                String property2 = System.getProperty("http.proxyPort");
+                try {
+                    if (TextUtils.isEmpty(property)) {
+                        property = Proxy.getHost(this.f17984a);
+                    }
+                    if (TextUtils.isEmpty(property2)) {
+                        property2 = String.valueOf(Proxy.getPort(this.f17984a));
+                    }
+                } catch (Exception unused) {
                 }
-                if (this.f17860c != null) {
-                    this.f17860c.append("_3:" + property + ":" + property2);
+                if (property != null && property2 != null && property.length() > 0) {
+                    testTask.f17990b = 1;
+                    if (j.H()) {
+                        testTask.f17991c = this.f17984a.getString(R.string.img_assistant_helptext_3);
+                    } else {
+                        testTask.f17991c = this.f17984a.getString(R.string.img_assistant_helptext_3_mobile);
+                    }
+                    if (this.f17986c != null) {
+                        this.f17986c.append("_3:" + property + ":" + property2);
+                        return;
+                    }
                     return;
                 }
-                return;
+                testTask.f17990b = 0;
+            } catch (Exception e4) {
+                e2 = e4;
+                if (testTask != null) {
+                    testTask.f17990b = 0;
+                }
+                BdLog.e(e2);
             }
-            testTask.f17864b = 0;
-        } catch (Exception e4) {
-            e2 = e4;
-            if (testTask != null) {
-                testTask.f17864b = 0;
-            }
-            BdLog.e(e2);
         }
     }
 
     public void checkSetting() {
         TestTask testTask;
         Exception e2;
-        try {
-            testTask = this.f17861d.get(4);
-        } catch (Exception e3) {
-            testTask = null;
-            e2 = e3;
-        }
-        try {
-            testTask.f17864b = 0;
-        } catch (Exception e4) {
-            e2 = e4;
-            if (testTask != null) {
-                testTask.f17864b = 0;
-            }
-            BdLog.e(e2);
-        }
-    }
-
-    public void fix() {
-        ImageLogger.assistant(this.f17860c.toString());
-        if (this.f17862e) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
-                netWork.addPostData("ab_img_m", "1");
-                netWork.postNetData();
-            } catch (Exception e2) {
+                testTask = this.f17987d.get(4);
+            } catch (Exception e3) {
+                testTask = null;
+                e2 = e3;
+            }
+            try {
+                testTask.f17990b = 0;
+            } catch (Exception e4) {
+                e2 = e4;
+                if (testTask != null) {
+                    testTask.f17990b = 0;
+                }
                 BdLog.e(e2);
             }
         }
     }
 
-    public boolean hasImageProblem() {
-        if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
-            ICDNIPDirectConnect.getInstance().init();
+    public void fix() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ImageLogger.assistant(this.f17986c.toString());
+            if (this.f17988e) {
+                try {
+                    NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
+                    netWork.addPostData("ab_img_m", "1");
+                    netWork.postNetData();
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                }
+            }
         }
-        return ICDNIPDirectConnect.getInstance().hasImageProblem();
+    }
+
+    public boolean hasImageProblem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
+                ICDNIPDirectConnect.getInstance().init();
+            }
+            return ICDNIPDirectConnect.getInstance().hasImageProblem();
+        }
+        return invokeV.booleanValue;
     }
 
     public void networkCheck() {
         TestTask testTask;
         Exception e2;
-        this.f17860c = new StringBuilder();
-        Iterator<TestTask> it = this.f17861d.iterator();
-        while (it.hasNext()) {
-            it.next().f17865c = "";
-        }
-        try {
-            testTask = this.f17861d.get(0);
-        } catch (Exception e3) {
-            testTask = null;
-            e2 = e3;
-        }
-        try {
-            if (l.D()) {
-                testTask.f17864b = 0;
-            } else {
-                testTask.f17864b = 2;
-                testTask.f17865c = this.f17858a.getString(R.string.img_assistant_helptext_1);
-                if (this.f17860c != null) {
-                    this.f17860c.append("1:failed");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f17986c = new StringBuilder();
+            Iterator<TestTask> it = this.f17987d.iterator();
+            while (it.hasNext()) {
+                it.next().f17991c = "";
+            }
+            try {
+                testTask = this.f17987d.get(0);
+            } catch (Exception e3) {
+                testTask = null;
+                e2 = e3;
+            }
+            try {
+                if (l.D()) {
+                    testTask.f17990b = 0;
+                } else {
+                    testTask.f17990b = 2;
+                    testTask.f17991c = this.f17984a.getString(R.string.img_assistant_helptext_1);
+                    if (this.f17986c != null) {
+                        this.f17986c.append("1:failed");
+                    }
                 }
+            } catch (Exception e4) {
+                e2 = e4;
+                if (testTask != null) {
+                    testTask.f17990b = 0;
+                }
+                BdLog.e(e2);
             }
-        } catch (Exception e4) {
-            e2 = e4;
-            if (testTask != null) {
-                testTask.f17864b = 0;
-            }
-            BdLog.e(e2);
         }
     }
 
     public void networkTest() {
         TestTask testTask;
         Exception e2;
-        try {
-            testTask = this.f17861d.get(3);
-        } catch (Exception e3) {
-            testTask = null;
-            e2 = e3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) {
+            return;
         }
         try {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (a(TbDomainConfig.DOMAIN_HTTPS_BAIDU, null)) {
-                testTask.f17864b = 0;
-            } else {
-                testTask.f17864b = 2;
-                testTask.f17865c = this.f17858a.getString(R.string.img_assistant_helptext_4);
-                if (this.f17860c != null) {
-                    this.f17860c.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
+            testTask = this.f17987d.get(3);
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (a(TbDomainConfig.DOMAIN_HTTPS_BAIDU, null)) {
+                    testTask.f17990b = 0;
+                } else {
+                    testTask.f17990b = 2;
+                    testTask.f17991c = this.f17984a.getString(R.string.img_assistant_helptext_4);
+                    if (this.f17986c != null) {
+                        this.f17986c.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                    }
                 }
+            } catch (Exception e3) {
+                e2 = e3;
+                if (testTask != null) {
+                    testTask.f17990b = 0;
+                }
+                BdLog.e(e2);
             }
         } catch (Exception e4) {
+            testTask = null;
             e2 = e4;
-            if (testTask != null) {
-                testTask.f17864b = 0;
-            }
-            BdLog.e(e2);
         }
     }
 }

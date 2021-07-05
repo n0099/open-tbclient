@@ -3,6 +3,12 @@ package com.kwad.sdk.crash.report;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.ThreadInfo;
@@ -21,42 +27,94 @@ import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
 public abstract class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f35218a;
+    public c f36981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35219b = "";
+    public String f36982b;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f36982b = "";
+    }
 
     private String a(String str) {
-        return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45)) : (String) invokeL.objValue;
     }
 
     public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
 
     public void a(c cVar) {
-        this.f35218a = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.f36981a = cVar;
+        }
     }
 
     @SuppressLint({"CheckResult"})
     public void a(File file) {
-        com.kwad.sdk.core.d.a.a("ExceptionCollector", "reportException dir =" + file);
-        for (File file2 : file.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.report.b.1
-            @Override // java.io.FileFilter
-            public boolean accept(File file3) {
-                return file3.getName().endsWith(".dump");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
+            com.kwad.sdk.core.d.a.a("ExceptionCollector", "reportException dir =" + file);
+            for (File file2 : file.listFiles(new FileFilter(this) { // from class: com.kwad.sdk.crash.report.b.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ b f36983a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f36983a = this;
+                }
+
+                @Override // java.io.FileFilter
+                public boolean accept(File file3) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file3)) == null) ? file3.getName().endsWith(".dump") : invokeL.booleanValue;
+                }
+            })) {
+                b(file2);
             }
-        })) {
-            b(file2);
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x008b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x000d */
     public void a(File file, ExceptionMessage exceptionMessage) {
         BufferedReader bufferedReader;
-        String readLine;
-        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(1048579, this, file, exceptionMessage) != null) {
+            return;
+        }
         try {
             MemoryInfo memoryInfo = new MemoryInfo(exceptionMessage.mMemoryInfo);
             ArrayList arrayList = new ArrayList();
@@ -64,18 +122,21 @@ public abstract class b {
             try {
                 try {
                     bufferedReader = new BufferedReader(new FileReader(file));
-                } catch (Throwable th) {
-                    th = th;
+                } catch (IOException e2) {
+                    e = e2;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (Throwable th) {
+                th = th;
             }
             try {
                 ThreadInfo threadInfo = new ThreadInfo();
                 while (true) {
-                    readLine = bufferedReader.readLine();
+                    String readLine = bufferedReader.readLine();
                     if (readLine == null) {
-                        break;
+                        memoryInfo.mJavaThreads = arrayList;
+                        exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
+                        com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
+                        return;
                     } else if (readLine.isEmpty()) {
                         arrayList.add(threadInfo);
                         threadInfo = new ThreadInfo();
@@ -83,25 +144,18 @@ public abstract class b {
                         if (!readLine.startsWith("at ") && !readLine.startsWith("(no ")) {
                             threadInfo.mName = readLine;
                         }
-                        if (threadInfo.mTrace == null) {
-                            str = readLine;
-                        } else {
-                            str = threadInfo.mTrace + readLine;
+                        if (threadInfo.mTrace != null) {
+                            readLine = threadInfo.mTrace + readLine;
                         }
-                        threadInfo.mTrace = str;
+                        threadInfo.mTrace = readLine;
                         threadInfo.mTrace += "#";
                     }
                 }
-                memoryInfo.mJavaThreads = arrayList;
-                exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
-                com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
-                bufferedReader2 = readLine;
             } catch (IOException e3) {
                 e = e3;
                 bufferedReader2 = bufferedReader;
                 com.kwad.sdk.core.d.a.b(e);
                 com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
-                bufferedReader2 = bufferedReader2;
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader2 = bufferedReader;
@@ -115,43 +169,46 @@ public abstract class b {
 
     public void b(File file) {
         File[] listFiles;
-        String a2 = f.a(file.getPath());
-        File file2 = new File(a2 + ".msg");
-        File file3 = new File(a2 + ".log");
-        File file4 = new File(a2 + ".blog");
-        File file5 = new File(a2 + ".jtrace");
-        ArrayList<File> arrayList = new ArrayList();
-        try {
-            ExceptionMessage a3 = a(file, file2, file3, a2);
-            this.f35218a.a(a3);
-            f.a(file4);
-            ArrayList arrayList2 = new ArrayList();
-            Collections.addAll(arrayList2, file3, file4);
-            Iterator it = arrayList2.iterator();
-            while (it.hasNext()) {
-                if (!((File) it.next()).exists()) {
-                    it.remove();
-                }
-            }
-            File file6 = new File(file.getParentFile().getParent(), SchedulerSupport.CUSTOM);
-            if (file6.exists()) {
-                for (File file7 : file6.listFiles()) {
-                    if (!file7.isDirectory() && (file7.getName().startsWith(a3.mLogUUID) || file7.getName().startsWith(a(a3.mLogUUID)))) {
-                        arrayList.add(file7);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, file) == null) {
+            String a2 = f.a(file.getPath());
+            File file2 = new File(a2 + ".msg");
+            File file3 = new File(a2 + ".log");
+            File file4 = new File(a2 + ".blog");
+            File file5 = new File(a2 + ".jtrace");
+            ArrayList<File> arrayList = new ArrayList();
+            try {
+                ExceptionMessage a3 = a(file, file2, file3, a2);
+                this.f36981a.a(a3);
+                f.a(file4);
+                ArrayList arrayList2 = new ArrayList();
+                Collections.addAll(arrayList2, file3, file4);
+                Iterator it = arrayList2.iterator();
+                while (it.hasNext()) {
+                    if (!((File) it.next()).exists()) {
+                        it.remove();
                     }
                 }
-                arrayList2.addAll(arrayList);
+                File file6 = new File(file.getParentFile().getParent(), SchedulerSupport.CUSTOM);
+                if (file6.exists()) {
+                    for (File file7 : file6.listFiles()) {
+                        if (!file7.isDirectory() && (file7.getName().startsWith(a3.mLogUUID) || file7.getName().startsWith(a(a3.mLogUUID)))) {
+                            arrayList.add(file7);
+                        }
+                    }
+                    arrayList2.addAll(arrayList);
+                }
+                h.b(file.getPath());
+                h.b(file3.getPath());
+                h.b(file4.getPath());
+                for (File file8 : arrayList) {
+                    h.b(file8.getPath());
+                }
+                h.b(file5.getPath());
+                f.b(com.kwad.sdk.crash.c.b.f36950b);
+            } catch (Throwable th) {
+                com.kwad.sdk.core.d.a.b(th);
             }
-            h.b(file.getPath());
-            h.b(file3.getPath());
-            h.b(file4.getPath());
-            for (File file8 : arrayList) {
-                h.b(file8.getPath());
-            }
-            h.b(file5.getPath());
-            f.b(com.kwad.sdk.crash.c.b.f35187b);
-        } catch (Throwable th) {
-            com.kwad.sdk.core.d.a.b(th);
         }
     }
 
@@ -162,6 +219,10 @@ public abstract class b {
         StringBuilder sb3;
         StringBuilder sb4;
         StringBuilder sb5;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(1048581, this, file, exceptionMessage) != null) {
+            return;
+        }
         BufferedReader bufferedReader = null;
         try {
             try {
@@ -243,15 +304,15 @@ public abstract class b {
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f35219b + e + "\n";
-                        this.f35219b = str;
+                        str = this.f36982b + e + "\n";
+                        this.f36982b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        str = this.f35219b + e + "\n";
-                        this.f35219b = str;
+                        str = this.f36982b + e + "\n";
+                        this.f36982b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {

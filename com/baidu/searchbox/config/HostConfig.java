@@ -2,11 +2,18 @@ package com.baidu.searchbox.config;
 
 import androidx.annotation.NonNull;
 import com.baidu.down.manage.DownloadConstants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class HostConfig {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_ABTEST_SCOP = "scop_abtest";
     public static final String CONFIG_KEY_TCBOX_HOST = "TCBOX_HOST";
     public static final String CONFIG_LIVE_TASK_HOST = "LIVE_TASK_HOST";
@@ -16,188 +23,321 @@ public final class HostConfig {
     public static final String UBC_DEBUG_HOST = "UBC_DEBUG_HOST";
     public static final String UBC_DEBUG_URL = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
     public static ConfigInterceptor sConfigInterceptor;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ConfigInterceptor {
         boolean getBooleanConfig(String str, String str2);
     }
 
+    public HostConfig() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @NonNull
     public static String getAladdinCommonHost() {
-        return AppConfig.getStringConfig("ALADDIN_NA_COMMON_HOST", "https://sp0.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? AppConfig.getStringConfig("ALADDIN_NA_COMMON_HOST", "https://sp0.baidu.com") : (String) invokeV.objValue;
     }
 
     @NonNull
     public static String getAladdinSportHost() {
-        return AppConfig.getStringConfig("ALADDIN_NA_SPORT_HOST", "https://tiyu.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? AppConfig.getStringConfig("ALADDIN_NA_SPORT_HOST", "https://tiyu.baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getAntiHijackHost() {
-        return AppConfig.getStringConfig("ANTIHIJACK_UPLOAD_URL", "http://boxrd.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? AppConfig.getStringConfig("ANTIHIJACK_UPLOAD_URL", "http://boxrd.baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getAppAuthorityDescription() {
-        return String.format("%s/webpage?type=user&action=authority", BaseUrlManager.ONLINE_URL);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? String.format("%s/webpage?type=user&action=authority", BaseUrlManager.ONLINE_URL) : (String) invokeV.objValue;
     }
 
     public static String getBaiduLogoHost() {
-        return getOldSearchboxHostForHttps();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? getOldSearchboxHostForHttps() : (String) invokeV.objValue;
     }
 
     public static String getBoxMessageHost() {
-        return AppConfig.getStringConfig("BOX_MESSAGE_HOST", getSearchboxHostForHttps());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? AppConfig.getStringConfig("BOX_MESSAGE_HOST", getSearchboxHostForHttps()) : (String) invokeV.objValue;
     }
 
     public static String getComicFEHost() {
-        return AppConfig.getStringConfig("COMIC_FE_HOST", "https://cartoon.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? AppConfig.getStringConfig("COMIC_FE_HOST", "https://cartoon.baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getComicServerHost() {
-        return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? "https://vp.mbd.baidu.com" : "http://vp.mbd.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? "https://vp.mbd.baidu.com" : "http://vp.mbd.baidu.com");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getExtHostForHttps() {
-        return AppConfig.getStringConfig(CONFIG_SUBSCRIBE_HOST, isSearchboxUseHttps() ? "https://ext.baidu.com" : "http://ext.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return AppConfig.getStringConfig(CONFIG_SUBSCRIBE_HOST, isSearchboxUseHttps() ? "https://ext.baidu.com" : "http://ext.baidu.com");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getFeedPreConnectImageUrl() {
-        return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? "https://timgmb.bdimg.com/timg" : "http://timgmb.bdimg.com/timg");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? "https://timgmb.bdimg.com/timg" : "http://timgmb.bdimg.com/timg");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getGameServerHost() {
-        return AppConfig.getStringConfig("GAME_SERVER_HOST", isSearchboxUseHttps() ? "https://gamecenter.baidu.com" : "http://gamecenter.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return AppConfig.getStringConfig("GAME_SERVER_HOST", isSearchboxUseHttps() ? "https://gamecenter.baidu.com" : "http://gamecenter.baidu.com");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getHisSyncHost() {
-        return AppConfig.getStringConfig("HIS_SYNC_HOST", getSearchboxHostForHttps());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? AppConfig.getStringConfig("HIS_SYNC_HOST", getSearchboxHostForHttps()) : (String) invokeV.objValue;
     }
 
     public static String getImageSearchHost() {
-        return AppConfig.getStringConfig("IMAGE_SEARCH_URL", "http://qingpai.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? AppConfig.getStringConfig("IMAGE_SEARCH_URL", "http://qingpai.baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getLiveTaskHostForHttps() {
-        return AppConfig.getStringConfig(CONFIG_LIVE_TASK_HOST, "https://kanzhibo.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? AppConfig.getStringConfig(CONFIG_LIVE_TASK_HOST, "https://kanzhibo.baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getMediPageUrl() {
-        return AppConfig.getStringConfig("XBOX_SHARE_LOOP_HOST", "http://xbox.m.baidu.com/app/share/loop");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? AppConfig.getStringConfig("XBOX_SHARE_LOOP_HOST", "http://xbox.m.baidu.com/app/share/loop") : (String) invokeV.objValue;
     }
 
     public static String getNetTestServer() {
-        return "http://112.34.113.161/checkupdate";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? "http://112.34.113.161/checkupdate" : (String) invokeV.objValue;
     }
 
     public static String getNovelBoxHostForHttps() {
-        return AppConfig.getStringConfig(CONFIG_NOVEL_FE_HOST, isSearchboxUseHttps() ? "https://boxnovel.baidu.com" : "http://boxnovel.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return AppConfig.getStringConfig(CONFIG_NOVEL_FE_HOST, isSearchboxUseHttps() ? "https://boxnovel.baidu.com" : "http://boxnovel.baidu.com");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getO2OImgSearchUrl() {
-        return AppConfig.getStringConfig("IMG_SEARCH_URL", "http://image.baidu.com/wisebrowse/meitu");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? AppConfig.getStringConfig("IMG_SEARCH_URL", "http://image.baidu.com/wisebrowse/meitu") : (String) invokeV.objValue;
     }
 
     public static String getOldSearchboxHostForHttpOnly() {
-        return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, DownloadConstants.REFER);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, DownloadConstants.REFER) : (String) invokeV.objValue;
     }
 
     public static String getOldSearchboxHostForHttps() {
-        return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? "https://m.baidu.com" : DownloadConstants.REFER);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? "https://m.baidu.com" : DownloadConstants.REFER);
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getRedirectUrlHost() {
-        return AppConfig.getStringConfig("REDIRECT_URL_HOST", getSearchboxHostForHttps());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? AppConfig.getStringConfig("REDIRECT_URL_HOST", getSearchboxHostForHttps()) : (String) invokeV.objValue;
     }
 
     public static String getSchemaUrl() {
-        return "https://mbd.baidu.com/webpage?type=user&action=safariadd&format=json";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? "https://mbd.baidu.com/webpage?type=user&action=safariadd&format=json" : (String) invokeV.objValue;
     }
 
     public static String getSearchAppServer() {
-        return "http://m.baidu.com/pu=sz@1320_224,osname@android/app?tn=tophot";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? "http://m.baidu.com/pu=sz@1320_224,osname@android/app?tn=tophot" : (String) invokeV.objValue;
     }
 
     @NonNull
     public static String getSearchFullVideoSetHost() {
-        return AppConfig.getStringConfig("SEARCH_VIDEO_FULL_VIDEO_SET", isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            return AppConfig.getStringConfig("SEARCH_VIDEO_FULL_VIDEO_SET", isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getSearchSimCardPreUrl() {
-        return AppConfig.isDebug() ? AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, "http://mbd.baidu.com") : "http://mbd.baidu.com";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? AppConfig.isDebug() ? AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, "http://mbd.baidu.com") : "http://mbd.baidu.com" : (String) invokeV.objValue;
     }
 
     public static String getSearchboxHostForHttpOnly() {
-        return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, "http://mbd.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, "http://mbd.baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getSearchboxHostForHttps() {
-        return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+            return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getTCInPluginHost() {
-        return AppConfig.getStringConfig("TC_IN_PLUGIN_HOST", getSearchboxHostForHttps());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? AppConfig.getStringConfig("TC_IN_PLUGIN_HOST", getSearchboxHostForHttps()) : (String) invokeV.objValue;
     }
 
     public static String getTcBoxHost() {
-        String searchboxHostForHttps = getSearchboxHostForHttps();
-        if (isSearchboxUseHttps()) {
-            ConfigInterceptor configInterceptor = sConfigInterceptor;
-            if (!(configInterceptor != null ? configInterceptor.getBooleanConfig(CONFIG_ABTEST_SCOP, CONFIG_KEY_TCBOX_HOST) : false)) {
-                searchboxHostForHttps = getOldSearchboxHostForHttpOnly();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+            String searchboxHostForHttps = getSearchboxHostForHttps();
+            if (isSearchboxUseHttps()) {
+                ConfigInterceptor configInterceptor = sConfigInterceptor;
+                if (!(configInterceptor != null ? configInterceptor.getBooleanConfig(CONFIG_ABTEST_SCOP, CONFIG_KEY_TCBOX_HOST) : false)) {
+                    searchboxHostForHttps = getOldSearchboxHostForHttpOnly();
+                }
             }
+            return AppConfig.getStringConfig(CONFIG_KEY_TCBOX_HOST, searchboxHostForHttps);
         }
-        return AppConfig.getStringConfig(CONFIG_KEY_TCBOX_HOST, searchboxHostForHttps);
+        return (String) invokeV.objValue;
     }
 
     public static String getTcBoxHostHttpOnly() {
-        return AppConfig.getStringConfig(CONFIG_KEY_TCBOX_HOST, getOldSearchboxHostForHttpOnly());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? AppConfig.getStringConfig(CONFIG_KEY_TCBOX_HOST, getOldSearchboxHostForHttpOnly()) : (String) invokeV.objValue;
     }
 
     public static String getUrlAppMustRead() {
-        return "https://m.baidu.com/sf?pd=sd_privacy_terms&ms=1&ms=1&word=%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E&title=%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E&openapi=1&from_sf=1&resource_id=37483&dsp=iphone&tn=wisexmlnew&ext=%7B%22pid%22%3A%22mianze-shengming%22%7D&lid=&referlid=9238571407366095574&frsrcid=37483&frorder=1";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? "https://m.baidu.com/sf?pd=sd_privacy_terms&ms=1&ms=1&word=%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E&title=%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E&openapi=1&from_sf=1&resource_id=37483&dsp=iphone&tn=wisexmlnew&ext=%7B%22pid%22%3A%22mianze-shengming%22%7D&lid=&referlid=9238571407366095574&frsrcid=37483&frorder=1" : (String) invokeV.objValue;
     }
 
     public static String getUrlPrivacyPolicy() {
-        return String.format("%s/common/agreement/privacy.html", SapiWebView.BROWSE_MODE_AGREEMENT_HOST);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? String.format("%s/common/agreement/privacy.html", SapiWebView.BROWSE_MODE_AGREEMENT_HOST) : (String) invokeV.objValue;
     }
 
     public static String getUrlServiceProtocal() {
-        return String.format("%s/common/agreement/android.html", SapiWebView.BROWSE_MODE_AGREEMENT_HOST);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? String.format("%s/common/agreement/android.html", SapiWebView.BROWSE_MODE_AGREEMENT_HOST) : (String) invokeV.objValue;
     }
 
     public static String getUserQrcodeHost() {
-        return AppConfig.getStringConfig("USER_QRCODE_HOST", "http://r.m.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) ? AppConfig.getStringConfig("USER_QRCODE_HOST", "http://r.m.baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getUserXHost() {
-        return AppConfig.getStringConfig("SEARCH_BOX_USERX_HOST", getSearchboxHostForHttps());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? AppConfig.getStringConfig("SEARCH_BOX_USERX_HOST", getSearchboxHostForHttps()) : (String) invokeV.objValue;
     }
 
     public static String getVideoHost() {
-        return AppConfig.getStringConfig("VIDEO_DOWN_HOST", "http://video.api.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? AppConfig.getStringConfig("VIDEO_DOWN_HOST", "http://video.api.baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getVoiceSearchHost() {
-        return AppConfig.getStringConfig("VOICE_SEARCH_HOST", "");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? AppConfig.getStringConfig("VOICE_SEARCH_HOST", "") : (String) invokeV.objValue;
     }
 
     public static String getVoiceServer() {
-        return String.format("%s/echo.fcgi", AppConfig.getStringConfig("VOICE_URL", "http://vse.baidu.com"));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? String.format("%s/echo.fcgi", AppConfig.getStringConfig("VOICE_URL", "http://vse.baidu.com")) : (String) invokeV.objValue;
     }
 
     public static String getWalletWhiteListHost() {
-        return AppConfig.getStringConfig("WALLET_WHITE_LIST_HOST", "https://www.baifubao.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) ? AppConfig.getStringConfig("WALLET_WHITE_LIST_HOST", "https://www.baifubao.com") : (String) invokeV.objValue;
     }
 
     public static String getXSearchboxHostForHttps() {
-        return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
+            return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static boolean isSearchboxUseHttps() {
-        boolean z = true;
-        return AppConfig.getBooleanConfig("SERACHBOX_USE_HTTPS", (!QuickPersistConfig.getInstance().getBoolean(QuickPersistConfigConst.KEY_SEARCHBOX_SERVER_USE_HTTPS, true) || AppConfig.HTTPSConfig.isTmpUseHttp()) ? false : false);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
+            boolean z = true;
+            return AppConfig.getBooleanConfig("SERACHBOX_USE_HTTPS", (!QuickPersistConfig.getInstance().getBoolean(QuickPersistConfigConst.KEY_SEARCHBOX_SERVER_USE_HTTPS, true) || AppConfig.HTTPSConfig.isTmpUseHttp()) ? false : false);
+        }
+        return invokeV.booleanValue;
     }
 
     public static void setsConfigInterceptor(ConfigInterceptor configInterceptor) {
-        sConfigInterceptor = configInterceptor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65578, null, configInterceptor) == null) {
+            sConfigInterceptor = configInterceptor;
+        }
     }
 }

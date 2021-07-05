@@ -8,62 +8,129 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class RoundProgressBar extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21517e;
+    public int f21647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21518f;
+    public int f21648f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21519g;
+    public int f21649g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21520h;
+    public int f21650h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f21521i;
+    public float f21651i;
     public Paint j;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundProgressBar(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public void a() {
-        this.f21520h = 4;
-        this.f21517e = Color.rgb(255, 255, 255);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f21650h = 4;
+            this.f21647e = Color.rgb(255, 255, 255);
+        }
     }
 
     public void b(float f2) {
-        this.f21521i = f2;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
+            this.f21651i = f2;
+            invalidate();
+        }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        this.f21518f = getWidth();
-        int height = getHeight();
-        this.f21519g = height;
-        if (this.f21518f > height) {
-            this.f21518f = height;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            this.f21648f = getWidth();
+            int height = getHeight();
+            this.f21649g = height;
+            if (this.f21648f > height) {
+                this.f21648f = height;
+            }
+            this.j.setAntiAlias(true);
+            this.j.setStyle(Paint.Style.STROKE);
+            this.j.setStrokeWidth(this.f21650h);
+            this.j.setColor(this.f21647e);
+            canvas.drawArc(new RectF(5.0f, 5.0f, this.f21648f - 5, this.f21649g - 5), 270.0f, (this.f21651i * 360.0f) / 100.0f, false, this.j);
         }
-        this.j.setAntiAlias(true);
-        this.j.setStyle(Paint.Style.STROKE);
-        this.j.setStrokeWidth(this.f21520h);
-        this.j.setColor(this.f21517e);
-        canvas.drawArc(new RectF(5.0f, 5.0f, this.f21518f - 5, this.f21519g - 5), 270.0f, (this.f21521i * 360.0f) / 100.0f, false, this.j);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundProgressBar(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundProgressBar(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.j = new Paint();
         a();
     }

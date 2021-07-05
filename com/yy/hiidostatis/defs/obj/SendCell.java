@@ -1,5 +1,12 @@
 package com.yy.hiidostatis.defs.obj;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.NumberUtil;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.cipher.AesCipher;
@@ -8,26 +15,52 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SendCell {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY = "*&Hjkfa{{07";
     public static final int RANDOM_LEN = 10000;
+    public transient /* synthetic */ FieldHolder $fh;
     public String content;
     public long expire;
     public long id;
     public int retry;
     public long timestamp;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SendCell(String str, long j) {
         this(0L, str, j, 0, System.currentTimeMillis());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Long) objArr2[0]).longValue(), (String) objArr2[1], ((Long) objArr2[2]).longValue(), ((Integer) objArr2[3]).intValue(), ((Long) objArr2[4]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     private long createId() {
-        return ((this.timestamp + (this.expire * 1000)) * 10000) + ((long) (Math.random() * 10000.0d));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? ((this.timestamp + (this.expire * 1000)) * 10000) + ((long) (Math.random() * 10000.0d)) : invokeV.longValue;
     }
 
     public static SendCell loadFromFile(File file) {
+        InterceptResult invokeL;
         FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, file)) != null) {
+            return (SendCell) invokeL.objValue;
+        }
         try {
             fileInputStream = new FileInputStream(file);
             try {
@@ -63,29 +96,40 @@ public class SendCell {
     }
 
     public static long parseId(String str) {
-        try {
-            if (str.endsWith(".sec")) {
-                return Long.parseLong(str.substring(0, str.length() - 4));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            try {
+                if (str.endsWith(".sec")) {
+                    return Long.parseLong(str.substring(0, str.length() - 4));
+                }
+                return 0L;
+            } catch (Throwable th) {
+                L.debug("SendCell", th.getMessage(), new Object[0]);
+                return 0L;
             }
-            return 0L;
-        } catch (Throwable th) {
-            L.debug("SendCell", th.getMessage(), new Object[0]);
-            return 0L;
         }
+        return invokeL.longValue;
     }
 
     private File randomFile(File file) {
-        String absolutePath = file.getAbsolutePath();
-        StringBuilder sb = new StringBuilder(absolutePath.length() + 25);
-        sb.append(absolutePath);
-        sb.append("/");
-        sb.append(this.id);
-        sb.append(".sec");
-        return new File(sb.toString());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, file)) == null) {
+            String absolutePath = file.getAbsolutePath();
+            StringBuilder sb = new StringBuilder(absolutePath.length() + 25);
+            sb.append(absolutePath);
+            sb.append("/");
+            sb.append(this.id);
+            sb.append(".sec");
+            return new File(sb.toString());
+        }
+        return (File) invokeL.objValue;
     }
 
     public void deleteFile(File file) {
-        if (this.id == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, file) == null) || this.id == 0) {
             return;
         }
         String absolutePath = file.getAbsolutePath();
@@ -98,32 +142,52 @@ public class SendCell {
     }
 
     public String getContent() {
-        return this.content;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
     }
 
     public long getExpire() {
-        return this.expire;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.expire : invokeV.longValue;
     }
 
     public long getId() {
-        return this.id;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.id : invokeV.longValue;
     }
 
     public int getRetry() {
-        return this.retry;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.retry : invokeV.intValue;
     }
 
     public long getTimestamp() {
-        return this.timestamp;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.timestamp : invokeV.longValue;
     }
 
     public int retryIncrease() {
-        int i2 = this.retry + 1;
-        this.retry = i2;
-        return i2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i2 = this.retry + 1;
+            this.retry = i2;
+            return i2;
+        }
+        return invokeV.intValue;
     }
 
     public boolean saveToFile(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048583, this, file)) != null) {
+            return invokeL.booleanValue;
+        }
         File randomFile = randomFile(file);
         if (randomFile.exists()) {
             return true;
@@ -176,6 +240,20 @@ public class SendCell {
     }
 
     public SendCell(long j, String str, long j2, int i2, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), str, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.content = str;
         this.retry = i2;
         this.expire = j2;

@@ -1,283 +1,142 @@
 package com.bytedance.sdk.openadsdk.core.a;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.bytedance.sdk.openadsdk.core.a.b;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.d.n;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
-import com.bytedance.sdk.openadsdk.core.z;
-import com.bytedance.sdk.openadsdk.utils.ad;
-import com.bytedance.sdk.openadsdk.utils.ak;
-import com.bytedance.sdk.openadsdk.utils.u;
-import com.bytedance.sdk.openadsdk.utils.x;
-import java.lang.ref.WeakReference;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTBannerAd;
+import com.bytedance.sdk.openadsdk.core.l;
 /* loaded from: classes6.dex */
-public class a extends b {
-    public boolean D;
-    public TTDrawFeedAd.DrawVideoListener E;
-    public int F;
+public class a implements TTAdNative.BannerAdListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f27907a;
+    public TTAdNative.BannerAdListener f29665a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f27908b;
-
-    public a(@NonNull Context context, @NonNull l lVar, @NonNull String str, int i2) {
-        super(context, lVar, str, i2);
-        this.f27907a = true;
-        this.f27908b = false;
-        this.D = false;
+    public a(TTAdNative.BannerAdListener bannerAdListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bannerAdListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f29665a = bannerAdListener;
     }
 
-    private boolean c(View view) {
-        if (view == null) {
-            return false;
+    @Override // com.bytedance.sdk.openadsdk.TTAdNative.BannerAdListener
+    public void onBannerAdLoad(TTBannerAd tTBannerAd) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tTBannerAd) == null) || this.f29665a == null) {
+            return;
         }
-        if (view instanceof NativeVideoTsView) {
-            u.c("ClickCreativeListener", "NativeVideoTsView....");
-            return true;
-        } else if (view.getId() != ad.e(this.f27909c, "tt_video_ad_cover_center_layout") && view.getId() != ad.e(this.f27909c, "tt_video_ad_logo_image") && view.getId() != ad.e(this.f27909c, "tt_video_btn_ad_image_tv") && view.getId() != ad.e(this.f27909c, "tt_video_ad_name") && view.getId() != ad.e(this.f27909c, "tt_video_ad_button")) {
-            if (view.getId() != ad.e(this.f27909c, "tt_root_view") && view.getId() != ad.e(this.f27909c, "tt_video_play")) {
-                if (!(view instanceof ViewGroup)) {
-                    return false;
-                }
-                int i2 = 0;
-                while (true) {
-                    ViewGroup viewGroup = (ViewGroup) view;
-                    if (i2 >= viewGroup.getChildCount()) {
-                        return false;
-                    }
-                    if (c(viewGroup.getChildAt(i2))) {
-                        return true;
-                    }
-                    i2++;
-                }
-            } else {
-                u.c("ClickCreativeListener", "tt_root_view....");
-                return true;
-            }
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            this.f29665a.onBannerAdLoad(tTBannerAd);
         } else {
-            u.c("ClickCreativeListener", "tt_video_ad_cover_center_layout....");
-            return true;
+            l.d().post(new Runnable(this, tTBannerAd) { // from class: com.bytedance.sdk.openadsdk.core.a.a.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ TTBannerAd f29669a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ a f29670b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, tTBannerAd};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f29670b = this;
+                    this.f29669a = tTBannerAd;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f29670b.f29665a.onBannerAdLoad(this.f29669a);
+                    }
+                }
+            });
         }
     }
 
-    private boolean f() {
-        l lVar = this.f27910d;
-        return lVar != null && lVar.k() == 1 && l.c(this.f27910d);
-    }
-
-    private boolean g() {
-        return this instanceof com.bytedance.sdk.openadsdk.core.nativeexpress.d;
-    }
-
-    private boolean h() {
-        if (this.f27910d == null || g() || !l.c(this.f27910d)) {
-            return false;
-        }
-        if (this.F == 0) {
-            this.F = ak.c(this.f27910d.ap());
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append("!isViewVisibility()=");
-        sb.append(!b());
-        sb.append(",isAutoPlay()=");
-        sb.append(a());
-        sb.append(",!isCoverPageVisibility()=");
-        sb.append(!c());
-        u.b("ClickCreativeListener", sb.toString());
-        if (this.F == 5 && f() && a() && !b() && !c()) {
-            return false;
-        }
-        int i2 = this.F;
-        return i2 == 1 || i2 == 2 || i2 == 5;
-    }
-
-    private void i() {
-        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar;
-        if (this.D && (aVar = this.n) != null && (aVar instanceof com.bytedance.sdk.openadsdk.downloadnew.a.d)) {
-            ((com.bytedance.sdk.openadsdk.downloadnew.a.d) aVar).f(true);
-        }
-    }
-
-    public void a(TTDrawFeedAd.DrawVideoListener drawVideoListener) {
-        this.E = drawVideoListener;
-    }
-
-    public void b(boolean z) {
-        this.f27908b = z;
-    }
-
-    public boolean b() {
-        return false;
-    }
-
-    public boolean c() {
-        return false;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private String b(String str) {
-        char c2;
-        switch (str.hashCode()) {
-            case -1695837674:
-                if (str.equals("banner_ad")) {
-                    c2 = 2;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case -712491894:
-                if (str.equals("embeded_ad")) {
-                    c2 = 0;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 174971131:
-                if (str.equals("splash_ad")) {
-                    c2 = 5;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 1844104722:
-                if (str.equals("interaction")) {
-                    c2 = 4;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 1912999166:
-                if (str.equals("draw_ad")) {
-                    c2 = 1;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 2091589896:
-                if (str.equals("slide_banner_ad")) {
-                    c2 = 3;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            default:
-                c2 = 65535;
-                break;
-        }
-        return (c2 == 0 || c2 == 1) ? "feed_call" : (c2 == 2 || c2 == 3) ? "banner_call" : c2 != 4 ? c2 != 5 ? "" : "splash_ad" : "interaction_call";
-    }
-
-    public void a(boolean z) {
-        this.f27907a = z;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.a.b, com.bytedance.sdk.openadsdk.core.a.c
-    public void a(View view, int i2, int i3, int i4, int i5) {
-        TTDrawFeedAd.DrawVideoListener drawVideoListener;
-        if (a(2)) {
+    @Override // com.bytedance.sdk.openadsdk.TTAdNative.BannerAdListener, com.bytedance.sdk.openadsdk.c.b
+    public void onError(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f29665a == null) {
             return;
         }
-        if (h() && c(view) && !this.D) {
-            u.b("ClickCreativeListener", "拦截原生视频view走普通点击事件.....");
-            super.a(view, i2, i3, i4, i5);
-            return;
+        if (str == null) {
+            str = "未知异常";
         }
-        i();
-        u.b("ClickCreativeListener", "走创意区域点击事件.....");
-        if (this.f27909c == null) {
-            this.f27909c = p.a();
-        }
-        if (this.f27909c == null) {
-            return;
-        }
-        long j = this.w;
-        long j2 = this.x;
-        WeakReference<View> weakReference = this.f27913g;
-        View view2 = weakReference == null ? null : weakReference.get();
-        WeakReference<View> weakReference2 = this.f27914h;
-        this.f27915i = a(i2, i3, i4, i5, j, j2, view2, weakReference2 == null ? null : weakReference2.get());
-        int Z = this.f27910d.Z();
-        if (Z == 2 || Z == 3) {
-            if (this.k != null || this.f27908b) {
-                com.bytedance.sdk.openadsdk.c.d.a(this.f27909c, "click_button", this.f27910d, this.f27915i, this.f27911e, true, this.o);
-            }
-            z.a(true);
-            Context context = this.f27909c;
-            l lVar = this.f27910d;
-            int i6 = this.f27912f;
-            boolean a2 = z.a(context, lVar, i6, this.k, this.p, ak.a(i6), this.n, true, this.o, this.r, a(this.f27911e));
-            if (this.f27907a) {
-                com.bytedance.sdk.openadsdk.c.d.a(this.f27909c, PrefetchEvent.STATE_CLICK, this.f27910d, this.f27915i, this.f27911e, a2, this.o);
-            }
-        } else if (Z != 4) {
-            if (Z != 5) {
-                Z = -1;
-            } else {
-                String b2 = b(this.f27911e);
-                if (!TextUtils.isEmpty(b2)) {
-                    com.bytedance.sdk.openadsdk.c.d.a(this.f27909c, "click_call", this.f27910d, this.f27915i, b2, true, this.o);
-                }
-                com.bytedance.sdk.openadsdk.c.d.a(this.f27909c, PrefetchEvent.STATE_CLICK, this.f27910d, this.f27915i, this.f27911e, ak.d(view.getContext(), this.f27910d.ag()), this.o);
-            }
-        } else if ((this.k != null || this.p != null) && !"feed_video_middle_page".equals(this.f27911e) && this.f27910d.C() && !TextUtils.isEmpty(n.a(this.f27910d))) {
-            Context context2 = this.f27909c;
-            l lVar2 = this.f27910d;
-            int i7 = this.f27912f;
-            TTNativeAd tTNativeAd = this.k;
-            TTNativeExpressAd tTNativeExpressAd = this.p;
-            String str = this.f27911e;
-            boolean a3 = z.a(context2, lVar2, i7, tTNativeAd, tTNativeExpressAd, str, this.n, true, this.o, this.r, a(str));
-            if (this.f27907a) {
-                com.bytedance.sdk.openadsdk.c.d.a(this.f27909c, PrefetchEvent.STATE_CLICK, this.f27910d, this.f27915i, this.f27911e, a3, this.o);
-            }
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            this.f29665a.onError(i2, str);
         } else {
-            com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.n;
-            if (aVar != null) {
-                aVar.g();
-                if (this.f27907a) {
-                    com.bytedance.sdk.openadsdk.c.d.a(this.f27909c, PrefetchEvent.STATE_CLICK, this.f27910d, this.f27915i, this.f27911e, true, this.o);
+            l.d().post(new Runnable(this, i2, str) { // from class: com.bytedance.sdk.openadsdk.core.a.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f29666a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ String f29667b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ a f29668c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f29668c = this;
+                    this.f29666a = i2;
+                    this.f29667b = str;
                 }
-            }
-        }
-        b.a aVar2 = this.j;
-        if (aVar2 != null) {
-            aVar2.a(view, Z);
-        }
-        if (!ak.b(this.f27910d) || (drawVideoListener = this.E) == null) {
-            return;
-        }
-        drawVideoListener.onClick();
-    }
 
-    public void c(boolean z) {
-        this.D = z;
-    }
-
-    private boolean a(String str) {
-        return !TextUtils.isEmpty(str) && str.equals("feed_video_middle_page");
-    }
-
-    public boolean a() {
-        l lVar = this.f27910d;
-        if (lVar == null) {
-            return true;
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f29668c.f29665a.onError(this.f29666a, this.f29667b);
+                    }
+                }
+            });
         }
-        int c2 = p.h().c(ak.d(lVar.ap()));
-        if (c2 != 1) {
-            return c2 != 2 ? c2 != 3 : x.e(this.f27909c) || x.d(this.f27909c);
-        }
-        return x.d(this.f27909c);
     }
 }

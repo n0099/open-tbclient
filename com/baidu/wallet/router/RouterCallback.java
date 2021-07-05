@@ -2,7 +2,7 @@ package com.baidu.wallet.router;
 
 import com.baidu.wallet.core.NoProguard;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface RouterCallback extends NoProguard {
     public static final int CODE_ERROR = 1;
     public static final int CODE_INVALID = 3;

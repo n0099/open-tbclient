@@ -1,53 +1,7 @@
 package d.b.c.b.f;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface b {
+    void a(long j, Thread thread, Throwable th);
 
-    /* loaded from: classes6.dex */
-    public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f69668a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public byte[] f69669b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f69670c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public long f69671d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public long f69672e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public long f69673f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public long f69674g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public Map<String, String> f69675h = Collections.emptyMap();
-
-        /* renamed from: i  reason: collision with root package name */
-        public List<d.b.c.b.d.a> f69676i;
-
-        public boolean a() {
-            return this.f69673f < System.currentTimeMillis();
-        }
-
-        public boolean b() {
-            return this.f69674g < System.currentTimeMillis();
-        }
-    }
-
-    a a(String str);
-
-    void a();
-
-    void a(String str, a aVar);
+    boolean a(Throwable th);
 }

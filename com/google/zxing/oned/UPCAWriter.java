@@ -1,39 +1,75 @@
 package com.google.zxing.oned;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.Writer;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class UPCAWriter implements Writer {
-    public final EAN13Writer subWriter = new EAN13Writer();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final EAN13Writer subWriter;
+
+    public UPCAWriter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.subWriter = new EAN13Writer();
+    }
 
     public static String preencode(String str) {
-        int length = str.length();
-        if (length == 11) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < 11; i3++) {
-                i2 += (str.charAt(i3) - '0') * (i3 % 2 == 0 ? 3 : 1);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int length = str.length();
+            if (length == 11) {
+                int i2 = 0;
+                for (int i3 = 0; i3 < 11; i3++) {
+                    i2 += (str.charAt(i3) - '0') * (i3 % 2 == 0 ? 3 : 1);
+                }
+                str = str + ((1000 - i2) % 10);
+            } else if (length != 12) {
+                throw new IllegalArgumentException("Requested contents should be 11 or 12 digits long, but got " + str.length());
             }
-            str = str + ((1000 - i2) % 10);
-        } else if (length != 12) {
-            throw new IllegalArgumentException("Requested contents should be 11 or 12 digits long, but got " + str.length());
+            return "0" + str;
         }
-        return "0" + str;
+        return (String) invokeL.objValue;
     }
 
     @Override // com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3) throws WriterException {
-        return encode(str, barcodeFormat, i2, i3, null);
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i2, i3)) == null) ? encode(str, barcodeFormat, i2, i3, null) : (BitMatrix) invokeLLII.objValue;
     }
 
     @Override // com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
-        if (barcodeFormat == BarcodeFormat.UPC_A) {
-            return this.subWriter.encode(preencode(str), BarcodeFormat.EAN_13, i2, i3, map);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i2), Integer.valueOf(i3), map})) == null) {
+            if (barcodeFormat == BarcodeFormat.UPC_A) {
+                return this.subWriter.encode(preencode(str), BarcodeFormat.EAN_13, i2, i3, map);
+            }
+            throw new IllegalArgumentException("Can only encode UPC-A, but got " + barcodeFormat);
         }
-        throw new IllegalArgumentException("Can only encode UPC-A, but got " + barcodeFormat);
+        return (BitMatrix) invokeCommon.objValue;
     }
 }

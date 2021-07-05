@@ -6,53 +6,116 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class PrivilegeItemView extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18398e;
+    public Context f18533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18399f;
+    public View f18534f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18400g;
+    public TbImageView f18535g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PrivilegeTextView f18401h;
+    public PrivilegeTextView f18536h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18402i;
+    public TextView f18537i;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeItemView(Context context) {
         super(context);
-        this.f18398e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f18533e = context;
         a();
     }
 
     public final void a() {
-        View inflate = LayoutInflater.from(this.f18398e).inflate(R.layout.index_privilege_item, this);
-        this.f18399f = inflate;
-        this.f18400g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-        this.f18401h = (PrivilegeTextView) this.f18399f.findViewById(R.id.privilege_name);
-        this.f18402i = (TextView) this.f18399f.findViewById(R.id.privilege_desc);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.f18533e).inflate(R.layout.index_privilege_item, this);
+            this.f18534f = inflate;
+            this.f18535g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+            this.f18536h = (PrivilegeTextView) this.f18534f.findViewById(R.id.privilege_name);
+            this.f18537i = (TextView) this.f18534f.findViewById(R.id.privilege_desc);
+        }
     }
 
     public PrivilegeTextView getPrivilegeName() {
-        return this.f18401h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18536h : (PrivilegeTextView) invokeV.objValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18398e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f18533e = context;
         a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
-        this.f18398e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f18533e = context;
         a();
     }
 }

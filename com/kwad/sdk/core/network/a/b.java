@@ -2,7 +2,12 @@ package com.kwad.sdk.core.network.a;
 
 import android.text.TextUtils;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidubce.AbstractBceClient;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.network.k;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -23,38 +28,66 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34588a = "UTF-8";
+    public static String f36351a = "UTF-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f34589b = new OkHttpClient.Builder().connectTimeout(3000, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).build();
+    public static OkHttpClient f36352b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-360684867, "Lcom/kwad/sdk/core/network/a/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-360684867, "Lcom/kwad/sdk/core/network/a/b;");
+                return;
+            }
         }
-        try {
-            return URLEncoder.encode(str, "UTF-8");
-        } catch (UnsupportedEncodingException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            return "";
-        }
+        f36352b = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(6000L, TimeUnit.MILLISECONDS).build();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0063 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x000e */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.zip.GZIPInputStream */
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                return URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0067 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0012 */
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.util.zip.GZIPInputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.util.zip.GZIPInputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: java.util.zip.GZIPInputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.zip.GZIPInputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: java.util.zip.GZIPInputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: java.util.zip.GZIPInputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: java.util.zip.GZIPInputStream */
     /* JADX WARN: Multi-variable type inference failed */
     public static String a(Response response) {
+        InterceptResult invokeL;
         InputStream inputStream;
         InputStream inputStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, response)) != null) {
+            return (String) invokeL.objValue;
+        }
         StringBuilder sb = new StringBuilder();
         GZIPInputStream gZIPInputStream = 0;
         gZIPInputStream = 0;
@@ -83,7 +116,7 @@ public class b {
                 } else {
                     inputStream2 = inputStream;
                 }
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream2, f34588a), 8);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream2, f36351a), 8);
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (readLine == null) {
@@ -115,46 +148,64 @@ public class b {
     }
 
     public static OkHttpClient a() {
-        return f34589b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f36352b : (OkHttpClient) invokeV.objValue;
     }
 
     public static Response a(String str, Map<String, String> map) {
-        try {
-            Request.Builder url = new Request.Builder().url(str);
-            url.addHeader("User-Agent", k.a());
-            a(url, map);
-            return a().newCall(url.build()).execute();
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, map)) == null) {
+            try {
+                Request.Builder url = new Request.Builder().url(str);
+                url.addHeader("User-Agent", k.a());
+                a(url, map);
+                return a().newCall(url.build()).execute();
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (Response) invokeLL.objValue;
     }
 
     public static Response a(String str, Map<String, String> map, Map<String, String> map2) {
-        try {
-            Request.Builder url = new Request.Builder().url(str);
-            url.addHeader("User-Agent", k.a());
-            a(url, map);
-            b(url, map2);
-            return a().newCall(url.build()).execute();
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, map, map2)) == null) {
+            try {
+                Request.Builder url = new Request.Builder().url(str);
+                url.addHeader("User-Agent", k.a());
+                a(url, map);
+                b(url, map2);
+                return a().newCall(url.build()).execute();
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (Response) invokeLLL.objValue;
     }
 
     public static Response a(String str, Map<String, String> map, JSONObject jSONObject) {
-        try {
-            Request.Builder url = new Request.Builder().url(str);
-            url.addHeader("User-Agent", k.a());
-            a(url, map);
-            a(url, jSONObject);
-            return a().newCall(url.build()).execute();
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, map, jSONObject)) == null) {
+            try {
+                Request.Builder url = new Request.Builder().url(str);
+                url.addHeader("User-Agent", k.a());
+                a(url, map);
+                a(url, jSONObject);
+                return a().newCall(url.build()).execute();
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (Response) invokeLLL.objValue;
     }
 
     public static void a(Request.Builder builder, Map<String, String> map) {
-        if (builder == null || map == null || map.isEmpty()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, builder, map) == null) || builder == null || map == null || map.isEmpty()) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -169,28 +220,34 @@ public class b {
     }
 
     public static void a(Request.Builder builder, JSONObject jSONObject) {
-        builder.post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, builder, jSONObject) == null) {
+            builder.post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jSONObject.toString()));
+        }
     }
 
     public static void b(Request.Builder builder, Map<String, String> map) {
         FormBody formBody;
-        if (map == null || map.isEmpty()) {
-            formBody = null;
-        } else {
-            FormBody.Builder builder2 = new FormBody.Builder();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                if (entry != null) {
-                    try {
-                        builder2.addEncoded(entry.getKey(), a(entry.getValue()));
-                    } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, builder, map) == null) {
+            if (map == null || map.isEmpty()) {
+                formBody = null;
+            } else {
+                FormBody.Builder builder2 = new FormBody.Builder();
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (entry != null) {
+                        try {
+                            builder2.addEncoded(entry.getKey(), a(entry.getValue()));
+                        } catch (Exception unused) {
+                        }
                     }
                 }
+                formBody = builder2.build();
             }
-            formBody = builder2.build();
+            if (builder == null || formBody == null) {
+                return;
+            }
+            builder.post(formBody);
         }
-        if (builder == null || formBody == null) {
-            return;
-        }
-        builder.post(formBody);
     }
 }

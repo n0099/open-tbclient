@@ -2,6 +2,13 @@ package com.baidu.pass.face.platform.network;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,76 +18,107 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NoMotionRequest extends BaseRequest {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NoMotionRequest";
     public static final String URL_POST_NOMOTION_LIVENESS = "http://face.baidu.com/gate/api/userverifydemo";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:109:0x0178 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x009a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:184:0x0220 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x009d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x00a0 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x00a3 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x00a6 */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(746496574, "Lcom/baidu/pass/face/platform/network/NoMotionRequest;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(746496574, "Lcom/baidu/pass/face/platform/network/NoMotionRequest;");
+        }
+    }
+
+    public NoMotionRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:111:0x017c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:186:0x0224 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x009e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x00a1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x00a4 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x00a7 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x00aa */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x0167 A[Catch: IOException -> 0x0163, TryCatch #36 {IOException -> 0x0163, blocks: (B:98:0x015f, B:102:0x0167, B:104:0x016c, B:106:0x0171), top: B:211:0x015f }] */
-    /* JADX WARN: Removed duplicated region for block: B:104:0x016c A[Catch: IOException -> 0x0163, TryCatch #36 {IOException -> 0x0163, blocks: (B:98:0x015f, B:102:0x0167, B:104:0x016c, B:106:0x0171), top: B:211:0x015f }] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0171 A[Catch: IOException -> 0x0163, TRY_LEAVE, TryCatch #36 {IOException -> 0x0163, blocks: (B:98:0x015f, B:102:0x0167, B:104:0x016c, B:106:0x0171), top: B:211:0x015f }] */
-    /* JADX WARN: Removed duplicated region for block: B:120:0x018f A[Catch: IOException -> 0x018b, TryCatch #33 {IOException -> 0x018b, blocks: (B:116:0x0187, B:120:0x018f, B:122:0x0194, B:124:0x0199), top: B:207:0x0187 }] */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0194 A[Catch: IOException -> 0x018b, TryCatch #33 {IOException -> 0x018b, blocks: (B:116:0x0187, B:120:0x018f, B:122:0x0194, B:124:0x0199), top: B:207:0x0187 }] */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x0199 A[Catch: IOException -> 0x018b, TRY_LEAVE, TryCatch #33 {IOException -> 0x018b, blocks: (B:116:0x0187, B:120:0x018f, B:122:0x0194, B:124:0x0199), top: B:207:0x0187 }] */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x01b8 A[Catch: IOException -> 0x01b4, TryCatch #7 {IOException -> 0x01b4, blocks: (B:134:0x01b0, B:138:0x01b8, B:140:0x01bd, B:142:0x01c2), top: B:201:0x01b0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:140:0x01bd A[Catch: IOException -> 0x01b4, TryCatch #7 {IOException -> 0x01b4, blocks: (B:134:0x01b0, B:138:0x01b8, B:140:0x01bd, B:142:0x01c2), top: B:201:0x01b0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x01c2 A[Catch: IOException -> 0x01b4, TRY_LEAVE, TryCatch #7 {IOException -> 0x01b4, blocks: (B:134:0x01b0, B:138:0x01b8, B:140:0x01bd, B:142:0x01c2), top: B:201:0x01b0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:156:0x01e1 A[Catch: IOException -> 0x01dd, TryCatch #40 {IOException -> 0x01dd, blocks: (B:152:0x01d9, B:156:0x01e1, B:158:0x01e6, B:160:0x01eb), top: B:213:0x01d9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:158:0x01e6 A[Catch: IOException -> 0x01dd, TryCatch #40 {IOException -> 0x01dd, blocks: (B:152:0x01d9, B:156:0x01e1, B:158:0x01e6, B:160:0x01eb), top: B:213:0x01d9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:160:0x01eb A[Catch: IOException -> 0x01dd, TRY_LEAVE, TryCatch #40 {IOException -> 0x01dd, blocks: (B:152:0x01d9, B:156:0x01e1, B:158:0x01e6, B:160:0x01eb), top: B:213:0x01d9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:174:0x020a A[Catch: IOException -> 0x0206, TryCatch #16 {IOException -> 0x0206, blocks: (B:170:0x0202, B:174:0x020a, B:176:0x020f, B:178:0x0214), top: B:205:0x0202 }] */
-    /* JADX WARN: Removed duplicated region for block: B:176:0x020f A[Catch: IOException -> 0x0206, TryCatch #16 {IOException -> 0x0206, blocks: (B:170:0x0202, B:174:0x020a, B:176:0x020f, B:178:0x0214), top: B:205:0x0202 }] */
-    /* JADX WARN: Removed duplicated region for block: B:178:0x0214 A[Catch: IOException -> 0x0206, TRY_LEAVE, TryCatch #16 {IOException -> 0x0206, blocks: (B:170:0x0202, B:174:0x020a, B:176:0x020f, B:178:0x0214), top: B:205:0x0202 }] */
-    /* JADX WARN: Removed duplicated region for block: B:190:0x022b A[Catch: IOException -> 0x0227, TryCatch #35 {IOException -> 0x0227, blocks: (B:186:0x0223, B:190:0x022b, B:192:0x0230, B:194:0x0235), top: B:209:0x0223 }] */
-    /* JADX WARN: Removed duplicated region for block: B:192:0x0230 A[Catch: IOException -> 0x0227, TryCatch #35 {IOException -> 0x0227, blocks: (B:186:0x0223, B:190:0x022b, B:192:0x0230, B:194:0x0235), top: B:209:0x0223 }] */
-    /* JADX WARN: Removed duplicated region for block: B:194:0x0235 A[Catch: IOException -> 0x0227, TRY_LEAVE, TryCatch #35 {IOException -> 0x0227, blocks: (B:186:0x0223, B:190:0x022b, B:192:0x0230, B:194:0x0235), top: B:209:0x0223 }] */
-    /* JADX WARN: Removed duplicated region for block: B:198:0x023e  */
-    /* JADX WARN: Removed duplicated region for block: B:201:0x01b0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:205:0x0202 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:207:0x0187 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:209:0x0223 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:211:0x015f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:213:0x01d9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:227:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:228:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:229:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:230:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:231:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r0v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r0v1 */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x016b A[Catch: IOException -> 0x0167, TryCatch #34 {IOException -> 0x0167, blocks: (B:100:0x0163, B:104:0x016b, B:106:0x0170, B:108:0x0175), top: B:216:0x0163 }] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0170 A[Catch: IOException -> 0x0167, TryCatch #34 {IOException -> 0x0167, blocks: (B:100:0x0163, B:104:0x016b, B:106:0x0170, B:108:0x0175), top: B:216:0x0163 }] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x0175 A[Catch: IOException -> 0x0167, TRY_LEAVE, TryCatch #34 {IOException -> 0x0167, blocks: (B:100:0x0163, B:104:0x016b, B:106:0x0170, B:108:0x0175), top: B:216:0x0163 }] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0193 A[Catch: IOException -> 0x018f, TryCatch #29 {IOException -> 0x018f, blocks: (B:118:0x018b, B:122:0x0193, B:124:0x0198, B:126:0x019d), top: B:214:0x018b }] */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x0198 A[Catch: IOException -> 0x018f, TryCatch #29 {IOException -> 0x018f, blocks: (B:118:0x018b, B:122:0x0193, B:124:0x0198, B:126:0x019d), top: B:214:0x018b }] */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x019d A[Catch: IOException -> 0x018f, TRY_LEAVE, TryCatch #29 {IOException -> 0x018f, blocks: (B:118:0x018b, B:122:0x0193, B:124:0x0198, B:126:0x019d), top: B:214:0x018b }] */
+    /* JADX WARN: Removed duplicated region for block: B:140:0x01bc A[Catch: IOException -> 0x01b8, TryCatch #3 {IOException -> 0x01b8, blocks: (B:136:0x01b4, B:140:0x01bc, B:142:0x01c1, B:144:0x01c6), top: B:205:0x01b4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:142:0x01c1 A[Catch: IOException -> 0x01b8, TryCatch #3 {IOException -> 0x01b8, blocks: (B:136:0x01b4, B:140:0x01bc, B:142:0x01c1, B:144:0x01c6), top: B:205:0x01b4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x01c6 A[Catch: IOException -> 0x01b8, TRY_LEAVE, TryCatch #3 {IOException -> 0x01b8, blocks: (B:136:0x01b4, B:140:0x01bc, B:142:0x01c1, B:144:0x01c6), top: B:205:0x01b4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:158:0x01e5 A[Catch: IOException -> 0x01e1, TryCatch #38 {IOException -> 0x01e1, blocks: (B:154:0x01dd, B:158:0x01e5, B:160:0x01ea, B:162:0x01ef), top: B:218:0x01dd }] */
+    /* JADX WARN: Removed duplicated region for block: B:160:0x01ea A[Catch: IOException -> 0x01e1, TryCatch #38 {IOException -> 0x01e1, blocks: (B:154:0x01dd, B:158:0x01e5, B:160:0x01ea, B:162:0x01ef), top: B:218:0x01dd }] */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x01ef A[Catch: IOException -> 0x01e1, TRY_LEAVE, TryCatch #38 {IOException -> 0x01e1, blocks: (B:154:0x01dd, B:158:0x01e5, B:160:0x01ea, B:162:0x01ef), top: B:218:0x01dd }] */
+    /* JADX WARN: Removed duplicated region for block: B:176:0x020e A[Catch: IOException -> 0x020a, TryCatch #16 {IOException -> 0x020a, blocks: (B:172:0x0206, B:176:0x020e, B:178:0x0213, B:180:0x0218), top: B:212:0x0206 }] */
+    /* JADX WARN: Removed duplicated region for block: B:178:0x0213 A[Catch: IOException -> 0x020a, TryCatch #16 {IOException -> 0x020a, blocks: (B:172:0x0206, B:176:0x020e, B:178:0x0213, B:180:0x0218), top: B:212:0x0206 }] */
+    /* JADX WARN: Removed duplicated region for block: B:180:0x0218 A[Catch: IOException -> 0x020a, TRY_LEAVE, TryCatch #16 {IOException -> 0x020a, blocks: (B:172:0x0206, B:176:0x020e, B:178:0x0213, B:180:0x0218), top: B:212:0x0206 }] */
+    /* JADX WARN: Removed duplicated region for block: B:192:0x022f A[Catch: IOException -> 0x022b, TryCatch #12 {IOException -> 0x022b, blocks: (B:188:0x0227, B:192:0x022f, B:194:0x0234, B:196:0x0239), top: B:210:0x0227 }] */
+    /* JADX WARN: Removed duplicated region for block: B:194:0x0234 A[Catch: IOException -> 0x022b, TryCatch #12 {IOException -> 0x022b, blocks: (B:188:0x0227, B:192:0x022f, B:194:0x0234, B:196:0x0239), top: B:210:0x0227 }] */
+    /* JADX WARN: Removed duplicated region for block: B:196:0x0239 A[Catch: IOException -> 0x022b, TRY_LEAVE, TryCatch #12 {IOException -> 0x022b, blocks: (B:188:0x0227, B:192:0x022f, B:194:0x0234, B:196:0x0239), top: B:210:0x0227 }] */
+    /* JADX WARN: Removed duplicated region for block: B:200:0x0242  */
+    /* JADX WARN: Removed duplicated region for block: B:205:0x01b4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:210:0x0227 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:212:0x0206 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:214:0x018b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:216:0x0163 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:218:0x01dd A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:232:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:233:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:234:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:235:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:236:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r0v10 */
     /* JADX WARN: Type inference failed for: r0v11 */
     /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v13, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r0v16, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r0v13 */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v15, types: [java.io.OutputStream] */
     /* JADX WARN: Type inference failed for: r0v18, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v2, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r0v20, types: [java.io.OutputStream] */
     /* JADX WARN: Type inference failed for: r0v22, types: [java.io.OutputStream] */
     /* JADX WARN: Type inference failed for: r0v24, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r0v27 */
-    /* JADX WARN: Type inference failed for: r0v28 */
+    /* JADX WARN: Type inference failed for: r0v26, types: [java.io.OutputStream] */
     /* JADX WARN: Type inference failed for: r0v29 */
     /* JADX WARN: Type inference failed for: r0v3 */
     /* JADX WARN: Type inference failed for: r0v30 */
     /* JADX WARN: Type inference failed for: r0v31 */
     /* JADX WARN: Type inference failed for: r0v32 */
-    /* JADX WARN: Type inference failed for: r0v35, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r0v37 */
-    /* JADX WARN: Type inference failed for: r0v38 */
+    /* JADX WARN: Type inference failed for: r0v33 */
+    /* JADX WARN: Type inference failed for: r0v34 */
+    /* JADX WARN: Type inference failed for: r0v37, types: [java.io.OutputStream] */
     /* JADX WARN: Type inference failed for: r0v39 */
     /* JADX WARN: Type inference failed for: r0v4 */
     /* JADX WARN: Type inference failed for: r0v40 */
     /* JADX WARN: Type inference failed for: r0v41 */
     /* JADX WARN: Type inference failed for: r0v42 */
+    /* JADX WARN: Type inference failed for: r0v43 */
+    /* JADX WARN: Type inference failed for: r0v44 */
     /* JADX WARN: Type inference failed for: r0v5 */
     /* JADX WARN: Type inference failed for: r0v6 */
     /* JADX WARN: Type inference failed for: r0v7 */
@@ -116,10 +154,11 @@ public class NoMotionRequest extends BaseRequest {
     /* JADX WARN: Type inference failed for: r5v8 */
     /* JADX WARN: Type inference failed for: r5v9 */
     /* JADX WARN: Type inference failed for: r7v0 */
-    /* JADX WARN: Type inference failed for: r7v12 */
-    /* JADX WARN: Type inference failed for: r7v18 */
-    /* JADX WARN: Type inference failed for: r7v6, types: [java.io.ByteArrayOutputStream] */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r7v14 */
+    /* JADX WARN: Type inference failed for: r7v2 */
+    /* JADX WARN: Type inference failed for: r7v20 */
+    /* JADX WARN: Type inference failed for: r7v8, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.Object, java.lang.String] */
     /* JADX WARN: Type inference failed for: r9v10 */
     /* JADX WARN: Type inference failed for: r9v12 */
     /* JADX WARN: Type inference failed for: r9v14 */
@@ -138,9 +177,9 @@ public class NoMotionRequest extends BaseRequest {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void httpUrlConnectionPost(String str, Handler handler) {
+        ?? r7;
         HttpURLConnection httpURLConnection;
         InputStream inputStream;
-        ?? r7;
         ByteArrayOutputStream byteArrayOutputStream;
         Exception e2;
         IOException e3;
@@ -148,6 +187,13 @@ public class NoMotionRequest extends BaseRequest {
         MalformedURLException e5;
         UnsupportedEncodingException e6;
         String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r7 = 65539;
+            if (interceptable.invokeLL(65539, null, str, handler) != null) {
+                return;
+            }
+        }
         ?? r0 = "8000";
         StringBuilder sb = new StringBuilder("");
         ByteArrayOutputStream byteArrayOutputStream2 = null;
@@ -635,14 +681,42 @@ public class NoMotionRequest extends BaseRequest {
         handler.sendMessage(obtainMessage222222222222222);
     }
 
-    public static void sendMessage(final String str, final Handler handler) {
-        if (str == null || str.length() <= 0) {
+    public static void sendMessage(String str, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, handler) == null) || str == null || str.length() <= 0) {
             return;
         }
-        new Thread(new Runnable() { // from class: com.baidu.pass.face.platform.network.NoMotionRequest.1
+        new Thread(new Runnable(str, handler) { // from class: com.baidu.pass.face.platform.network.NoMotionRequest.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String val$image;
+            public final /* synthetic */ Handler val$uiHandler;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, handler};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.val$image = str;
+                this.val$uiHandler = handler;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                NoMotionRequest.httpUrlConnectionPost(str, handler);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    NoMotionRequest.httpUrlConnectionPost(this.val$image, this.val$uiHandler);
+                }
             }
         }).start();
     }

@@ -2,7 +2,7 @@ package com.baidu.wallet.qrcodescanner;
 
 import android.content.Context;
 import com.baidu.wallet.api.IScannerDispatchListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IScanCodeListener {
     void dispatchUrl(Context context, String str, IScannerDispatchListener iScannerDispatchListener);
 

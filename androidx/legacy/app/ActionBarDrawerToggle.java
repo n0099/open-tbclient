@@ -21,16 +21,28 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 @Deprecated
 /* loaded from: classes.dex */
 public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_HOME = 16908332;
     public static final String TAG = "ActionBarDrawerToggle";
-    public static final int[] THEME_ATTRS = {16843531};
+    public static final int[] THEME_ATTRS;
     public static final float TOGGLE_DRAWABLE_OFFSET = 0.33333334f;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Activity mActivity;
     public final Delegate mActivityImpl;
     public final int mCloseDrawerContentDescRes;
@@ -64,11 +76,27 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
 
     /* loaded from: classes.dex */
     public static class SetIndicatorInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public Method mSetHomeActionContentDescription;
         public Method mSetHomeAsUpIndicator;
         public ImageView mUpIndicatorView;
 
         public SetIndicatorInfo(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             try {
                 this.mSetHomeAsUpIndicator = ActionBar.class.getDeclaredMethod("setHomeAsUpIndicator", Drawable.class);
                 this.mSetHomeActionContentDescription = ActionBar.class.getDeclaredMethod("setHomeActionContentDescription", Integer.TYPE);
@@ -92,233 +120,355 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
 
     /* loaded from: classes.dex */
     public class SlideDrawable extends InsetDrawable implements Drawable.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final boolean mHasMirroring;
         public float mOffset;
         public float mPosition;
         public final Rect mTmpRect;
+        public final /* synthetic */ ActionBarDrawerToggle this$0;
 
-        public SlideDrawable(Drawable drawable) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SlideDrawable(ActionBarDrawerToggle actionBarDrawerToggle, Drawable drawable) {
             super(drawable, 0);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {actionBarDrawerToggle, drawable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = actionBarDrawerToggle;
             this.mHasMirroring = Build.VERSION.SDK_INT > 18;
             this.mTmpRect = new Rect();
         }
 
         @Override // android.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
         public void draw(@NonNull Canvas canvas) {
-            copyBounds(this.mTmpRect);
-            canvas.save();
-            boolean z = ViewCompat.getLayoutDirection(ActionBarDrawerToggle.this.mActivity.getWindow().getDecorView()) == 1;
-            int i2 = z ? -1 : 1;
-            float width = this.mTmpRect.width();
-            canvas.translate((-this.mOffset) * width * this.mPosition * i2, 0.0f);
-            if (z && !this.mHasMirroring) {
-                canvas.translate(width, 0.0f);
-                canvas.scale(-1.0f, 1.0f);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+                copyBounds(this.mTmpRect);
+                canvas.save();
+                boolean z = ViewCompat.getLayoutDirection(this.this$0.mActivity.getWindow().getDecorView()) == 1;
+                int i2 = z ? -1 : 1;
+                float width = this.mTmpRect.width();
+                canvas.translate((-this.mOffset) * width * this.mPosition * i2, 0.0f);
+                if (z && !this.mHasMirroring) {
+                    canvas.translate(width, 0.0f);
+                    canvas.scale(-1.0f, 1.0f);
+                }
+                super.draw(canvas);
+                canvas.restore();
             }
-            super.draw(canvas);
-            canvas.restore();
         }
 
         public float getPosition() {
-            return this.mPosition;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPosition : invokeV.floatValue;
         }
 
         public void setOffset(float f2) {
-            this.mOffset = f2;
-            invalidateSelf();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
+                this.mOffset = f2;
+                invalidateSelf();
+            }
         }
 
         public void setPosition(float f2) {
-            this.mPosition = f2;
-            invalidateSelf();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
+                this.mPosition = f2;
+                invalidateSelf();
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-900065101, "Landroidx/legacy/app/ActionBarDrawerToggle;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-900065101, "Landroidx/legacy/app/ActionBarDrawerToggle;");
+                return;
+            }
+        }
+        THEME_ATTRS = new int[]{16843531};
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, @DrawableRes int i2, @StringRes int i3, @StringRes int i4) {
         this(activity, drawerLayout, !assumeMaterial(activity), i2, i3, i4);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, drawerLayout, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Activity) objArr2[0], (DrawerLayout) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     public static boolean assumeMaterial(Context context) {
-        return context.getApplicationInfo().targetSdkVersion >= 21 && Build.VERSION.SDK_INT >= 21;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getApplicationInfo().targetSdkVersion >= 21 && Build.VERSION.SDK_INT >= 21 : invokeL.booleanValue;
     }
 
     private Drawable getThemeUpIndicator() {
+        InterceptResult invokeV;
         Context context;
-        Delegate delegate = this.mActivityImpl;
-        if (delegate != null) {
-            return delegate.getThemeUpIndicator();
-        }
-        if (Build.VERSION.SDK_INT >= 18) {
-            ActionBar actionBar = this.mActivity.getActionBar();
-            if (actionBar != null) {
-                context = actionBar.getThemedContext();
-            } else {
-                context = this.mActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            Delegate delegate = this.mActivityImpl;
+            if (delegate != null) {
+                return delegate.getThemeUpIndicator();
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, THEME_ATTRS, 16843470, 0);
-            Drawable drawable = obtainStyledAttributes.getDrawable(0);
-            obtainStyledAttributes.recycle();
-            return drawable;
+            if (Build.VERSION.SDK_INT >= 18) {
+                ActionBar actionBar = this.mActivity.getActionBar();
+                if (actionBar != null) {
+                    context = actionBar.getThemedContext();
+                } else {
+                    context = this.mActivity;
+                }
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, THEME_ATTRS, 16843470, 0);
+                Drawable drawable = obtainStyledAttributes.getDrawable(0);
+                obtainStyledAttributes.recycle();
+                return drawable;
+            }
+            TypedArray obtainStyledAttributes2 = this.mActivity.obtainStyledAttributes(THEME_ATTRS);
+            Drawable drawable2 = obtainStyledAttributes2.getDrawable(0);
+            obtainStyledAttributes2.recycle();
+            return drawable2;
         }
-        TypedArray obtainStyledAttributes2 = this.mActivity.obtainStyledAttributes(THEME_ATTRS);
-        Drawable drawable2 = obtainStyledAttributes2.getDrawable(0);
-        obtainStyledAttributes2.recycle();
-        return drawable2;
+        return (Drawable) invokeV.objValue;
     }
 
     private void setActionBarDescription(int i2) {
-        Delegate delegate = this.mActivityImpl;
-        if (delegate != null) {
-            delegate.setActionBarDescription(i2);
-        } else if (Build.VERSION.SDK_INT >= 18) {
-            ActionBar actionBar = this.mActivity.getActionBar();
-            if (actionBar != null) {
-                actionBar.setHomeActionContentDescription(i2);
-            }
-        } else {
-            if (this.mSetIndicatorInfo == null) {
-                this.mSetIndicatorInfo = new SetIndicatorInfo(this.mActivity);
-            }
-            if (this.mSetIndicatorInfo.mSetHomeAsUpIndicator != null) {
-                try {
-                    ActionBar actionBar2 = this.mActivity.getActionBar();
-                    this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
-                    actionBar2.setSubtitle(actionBar2.getSubtitle());
-                } catch (Exception e2) {
-                    Log.w(TAG, "Couldn't set content description via JB-MR2 API", e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
+            Delegate delegate = this.mActivityImpl;
+            if (delegate != null) {
+                delegate.setActionBarDescription(i2);
+            } else if (Build.VERSION.SDK_INT >= 18) {
+                ActionBar actionBar = this.mActivity.getActionBar();
+                if (actionBar != null) {
+                    actionBar.setHomeActionContentDescription(i2);
+                }
+            } else {
+                if (this.mSetIndicatorInfo == null) {
+                    this.mSetIndicatorInfo = new SetIndicatorInfo(this.mActivity);
+                }
+                if (this.mSetIndicatorInfo.mSetHomeAsUpIndicator != null) {
+                    try {
+                        ActionBar actionBar2 = this.mActivity.getActionBar();
+                        this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
+                        actionBar2.setSubtitle(actionBar2.getSubtitle());
+                    } catch (Exception e2) {
+                        Log.w(TAG, "Couldn't set content description via JB-MR2 API", e2);
+                    }
                 }
             }
         }
     }
 
     private void setActionBarUpIndicator(Drawable drawable, int i2) {
-        Delegate delegate = this.mActivityImpl;
-        if (delegate != null) {
-            delegate.setActionBarUpIndicator(drawable, i2);
-        } else if (Build.VERSION.SDK_INT >= 18) {
-            ActionBar actionBar = this.mActivity.getActionBar();
-            if (actionBar != null) {
-                actionBar.setHomeAsUpIndicator(drawable);
-                actionBar.setHomeActionContentDescription(i2);
-            }
-        } else {
-            if (this.mSetIndicatorInfo == null) {
-                this.mSetIndicatorInfo = new SetIndicatorInfo(this.mActivity);
-            }
-            SetIndicatorInfo setIndicatorInfo = this.mSetIndicatorInfo;
-            if (setIndicatorInfo.mSetHomeAsUpIndicator != null) {
-                try {
-                    ActionBar actionBar2 = this.mActivity.getActionBar();
-                    this.mSetIndicatorInfo.mSetHomeAsUpIndicator.invoke(actionBar2, drawable);
-                    this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
-                    return;
-                } catch (Exception e2) {
-                    Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e2);
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, drawable, i2) == null) {
+            Delegate delegate = this.mActivityImpl;
+            if (delegate != null) {
+                delegate.setActionBarUpIndicator(drawable, i2);
+            } else if (Build.VERSION.SDK_INT >= 18) {
+                ActionBar actionBar = this.mActivity.getActionBar();
+                if (actionBar != null) {
+                    actionBar.setHomeAsUpIndicator(drawable);
+                    actionBar.setHomeActionContentDescription(i2);
                 }
-            }
-            ImageView imageView = setIndicatorInfo.mUpIndicatorView;
-            if (imageView != null) {
-                imageView.setImageDrawable(drawable);
             } else {
-                Log.w(TAG, "Couldn't set home-as-up indicator");
+                if (this.mSetIndicatorInfo == null) {
+                    this.mSetIndicatorInfo = new SetIndicatorInfo(this.mActivity);
+                }
+                SetIndicatorInfo setIndicatorInfo = this.mSetIndicatorInfo;
+                if (setIndicatorInfo.mSetHomeAsUpIndicator != null) {
+                    try {
+                        ActionBar actionBar2 = this.mActivity.getActionBar();
+                        this.mSetIndicatorInfo.mSetHomeAsUpIndicator.invoke(actionBar2, drawable);
+                        this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
+                        return;
+                    } catch (Exception e2) {
+                        Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e2);
+                        return;
+                    }
+                }
+                ImageView imageView = setIndicatorInfo.mUpIndicatorView;
+                if (imageView != null) {
+                    imageView.setImageDrawable(drawable);
+                } else {
+                    Log.w(TAG, "Couldn't set home-as-up indicator");
+                }
             }
         }
     }
 
     public boolean isDrawerIndicatorEnabled() {
-        return this.mDrawerIndicatorEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDrawerIndicatorEnabled : invokeV.booleanValue;
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (!this.mHasCustomUpIndicator) {
-            this.mHomeAsUpIndicator = getThemeUpIndicator();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, configuration) == null) {
+            if (!this.mHasCustomUpIndicator) {
+                this.mHomeAsUpIndicator = getThemeUpIndicator();
+            }
+            this.mDrawerImage = ContextCompat.getDrawable(this.mActivity, this.mDrawerImageResource);
+            syncState();
         }
-        this.mDrawerImage = ContextCompat.getDrawable(this.mActivity, this.mDrawerImageResource);
-        syncState();
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
     public void onDrawerClosed(View view) {
-        this.mSlider.setPosition(0.0f);
-        if (this.mDrawerIndicatorEnabled) {
-            setActionBarDescription(this.mOpenDrawerContentDescRes);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            this.mSlider.setPosition(0.0f);
+            if (this.mDrawerIndicatorEnabled) {
+                setActionBarDescription(this.mOpenDrawerContentDescRes);
+            }
         }
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
     public void onDrawerOpened(View view) {
-        this.mSlider.setPosition(1.0f);
-        if (this.mDrawerIndicatorEnabled) {
-            setActionBarDescription(this.mCloseDrawerContentDescRes);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+            this.mSlider.setPosition(1.0f);
+            if (this.mDrawerIndicatorEnabled) {
+                setActionBarDescription(this.mCloseDrawerContentDescRes);
+            }
         }
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
     public void onDrawerSlide(View view, float f2) {
         float min;
-        float position = this.mSlider.getPosition();
-        if (f2 > 0.5f) {
-            min = Math.max(position, Math.max(0.0f, f2 - 0.5f) * 2.0f);
-        } else {
-            min = Math.min(position, f2 * 2.0f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048580, this, view, f2) == null) {
+            float position = this.mSlider.getPosition();
+            if (f2 > 0.5f) {
+                min = Math.max(position, Math.max(0.0f, f2 - 0.5f) * 2.0f);
+            } else {
+                min = Math.min(position, f2 * 2.0f);
+            }
+            this.mSlider.setPosition(min);
         }
-        this.mSlider.setPosition(min);
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
     public void onDrawerStateChanged(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        }
     }
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        if (menuItem != null && menuItem.getItemId() == 16908332 && this.mDrawerIndicatorEnabled) {
-            if (this.mDrawerLayout.isDrawerVisible(GravityCompat.START)) {
-                this.mDrawerLayout.closeDrawer(GravityCompat.START);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, menuItem)) == null) {
+            if (menuItem != null && menuItem.getItemId() == 16908332 && this.mDrawerIndicatorEnabled) {
+                if (this.mDrawerLayout.isDrawerVisible(GravityCompat.START)) {
+                    this.mDrawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
+                }
+                this.mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
             }
-            this.mDrawerLayout.openDrawer(GravityCompat.START);
-            return true;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public void setDrawerIndicatorEnabled(boolean z) {
-        if (z != this.mDrawerIndicatorEnabled) {
-            if (z) {
-                setActionBarUpIndicator(this.mSlider, this.mDrawerLayout.isDrawerOpen(GravityCompat.START) ? this.mCloseDrawerContentDescRes : this.mOpenDrawerContentDescRes);
-            } else {
-                setActionBarUpIndicator(this.mHomeAsUpIndicator, 0);
-            }
-            this.mDrawerIndicatorEnabled = z;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || z == this.mDrawerIndicatorEnabled) {
+            return;
         }
+        if (z) {
+            setActionBarUpIndicator(this.mSlider, this.mDrawerLayout.isDrawerOpen(GravityCompat.START) ? this.mCloseDrawerContentDescRes : this.mOpenDrawerContentDescRes);
+        } else {
+            setActionBarUpIndicator(this.mHomeAsUpIndicator, 0);
+        }
+        this.mDrawerIndicatorEnabled = z;
     }
 
     public void setHomeAsUpIndicator(Drawable drawable) {
-        if (drawable == null) {
-            this.mHomeAsUpIndicator = getThemeUpIndicator();
-            this.mHasCustomUpIndicator = false;
-        } else {
-            this.mHomeAsUpIndicator = drawable;
-            this.mHasCustomUpIndicator = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
+            if (drawable == null) {
+                this.mHomeAsUpIndicator = getThemeUpIndicator();
+                this.mHasCustomUpIndicator = false;
+            } else {
+                this.mHomeAsUpIndicator = drawable;
+                this.mHasCustomUpIndicator = true;
+            }
+            if (this.mDrawerIndicatorEnabled) {
+                return;
+            }
+            setActionBarUpIndicator(this.mHomeAsUpIndicator, 0);
         }
-        if (this.mDrawerIndicatorEnabled) {
-            return;
-        }
-        setActionBarUpIndicator(this.mHomeAsUpIndicator, 0);
     }
 
     public void syncState() {
-        if (this.mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            this.mSlider.setPosition(1.0f);
-        } else {
-            this.mSlider.setPosition(0.0f);
-        }
-        if (this.mDrawerIndicatorEnabled) {
-            setActionBarUpIndicator(this.mSlider, this.mDrawerLayout.isDrawerOpen(GravityCompat.START) ? this.mCloseDrawerContentDescRes : this.mOpenDrawerContentDescRes);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (this.mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                this.mSlider.setPosition(1.0f);
+            } else {
+                this.mSlider.setPosition(0.0f);
+            }
+            if (this.mDrawerIndicatorEnabled) {
+                setActionBarUpIndicator(this.mSlider, this.mDrawerLayout.isDrawerOpen(GravityCompat.START) ? this.mCloseDrawerContentDescRes : this.mOpenDrawerContentDescRes);
+            }
         }
     }
 
     public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, boolean z, @DrawableRes int i2, @StringRes int i3, @StringRes int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, drawerLayout, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mDrawerIndicatorEnabled = true;
         this.mActivity = activity;
         if (activity instanceof DelegateProvider) {
@@ -332,12 +482,15 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         this.mCloseDrawerContentDescRes = i4;
         this.mHomeAsUpIndicator = getThemeUpIndicator();
         this.mDrawerImage = ContextCompat.getDrawable(activity, i2);
-        SlideDrawable slideDrawable = new SlideDrawable(this.mDrawerImage);
+        SlideDrawable slideDrawable = new SlideDrawable(this, this.mDrawerImage);
         this.mSlider = slideDrawable;
         slideDrawable.setOffset(z ? 0.33333334f : 0.0f);
     }
 
     public void setHomeAsUpIndicator(int i2) {
-        setHomeAsUpIndicator(i2 != 0 ? ContextCompat.getDrawable(this.mActivity, i2) : null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            setHomeAsUpIndicator(i2 != 0 ? ContextCompat.getDrawable(this.mActivity, i2) : null);
+        }
     }
 }

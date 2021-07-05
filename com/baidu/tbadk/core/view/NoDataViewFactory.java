@@ -5,321 +5,649 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class NoDataViewFactory {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public enum ImgType {
-        NONE,
-        CREATE,
-        NODATA,
-        FINDBAR,
-        COLLECTION,
-        EMOTION,
-        SINGALL,
-        GIFT,
-        WEBVIEW,
-        LOCAL,
-        ANTI,
-        NETERROR
-    }
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class ImgType {
+        public static final /* synthetic */ ImgType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final ImgType ANTI;
+        public static final ImgType COLLECTION;
+        public static final ImgType CREATE;
+        public static final ImgType EMOTION;
+        public static final ImgType FINDBAR;
+        public static final ImgType GIFT;
+        public static final ImgType LOCAL;
+        public static final ImgType NETERROR;
+        public static final ImgType NODATA;
+        public static final ImgType NONE;
+        public static final ImgType SINGALL;
+        public static final ImgType WEBVIEW;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class b {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-148886139, "Lcom/baidu/tbadk/core/view/NoDataViewFactory$ImgType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-148886139, "Lcom/baidu/tbadk/core/view/NoDataViewFactory$ImgType;");
+                    return;
+                }
+            }
+            NONE = new ImgType("NONE", 0);
+            CREATE = new ImgType("CREATE", 1);
+            NODATA = new ImgType("NODATA", 2);
+            FINDBAR = new ImgType("FINDBAR", 3);
+            COLLECTION = new ImgType("COLLECTION", 4);
+            EMOTION = new ImgType("EMOTION", 5);
+            SINGALL = new ImgType("SINGALL", 6);
+            GIFT = new ImgType("GIFT", 7);
+            WEBVIEW = new ImgType("WEBVIEW", 8);
+            LOCAL = new ImgType("LOCAL", 9);
+            ANTI = new ImgType("ANTI", 10);
+            ImgType imgType = new ImgType("NETERROR", 11);
+            NETERROR = imgType;
+            $VALUES = new ImgType[]{NONE, CREATE, NODATA, FINDBAR, COLLECTION, EMOTION, SINGALL, GIFT, WEBVIEW, LOCAL, ANTI, imgType};
+        }
 
-        /* renamed from: a  reason: collision with root package name */
-        public View.OnClickListener f12400a;
+        public ImgType(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
 
-        /* renamed from: b  reason: collision with root package name */
-        public String f12401b;
+        public static ImgType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ImgType) Enum.valueOf(ImgType.class, str) : (ImgType) invokeL.objValue;
+        }
 
-        public b(String str, View.OnClickListener onClickListener) {
-            this.f12401b = str;
-            this.f12400a = onClickListener;
+        public static ImgType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ImgType[]) $VALUES.clone() : (ImgType[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class c {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f12402a;
+        public View.OnClickListener f12455a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f12403b;
+        public String f12456b;
+
+        public b(String str, View.OnClickListener onClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, onClickListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12456b = str;
+            this.f12455a = onClickListener;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final b f12457a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final b f12458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f12404c;
+        public final int f12459c;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public b f12405a = null;
+            public b f12460a;
 
             /* renamed from: b  reason: collision with root package name */
-            public b f12406b = null;
+            public b f12461b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f12407c = -1;
+            public int f12462c;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f12460a = null;
+                this.f12461b = null;
+                this.f12462c = -1;
+            }
 
             public a d(int i2) {
-                this.f12407c = i2;
-                return this;
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+                    this.f12462c = i2;
+                    return this;
+                }
+                return (a) invokeI.objValue;
             }
 
             public c e() {
-                return new c(this);
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this, null) : (c) invokeV.objValue;
             }
 
             public a f(b bVar) {
-                this.f12405a = bVar;
-                return this;
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
+                    this.f12460a = bVar;
+                    return this;
+                }
+                return (a) invokeL.objValue;
             }
+        }
+
+        public /* synthetic */ c(a aVar, a aVar2) {
+            this(aVar);
         }
 
         public static c a(b bVar) {
-            a aVar = new a();
-            aVar.f(bVar);
-            return aVar.e();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bVar)) == null) {
+                a aVar = new a();
+                aVar.f(bVar);
+                return aVar.e();
+            }
+            return (c) invokeL.objValue;
         }
 
         public static c b(b bVar, int i2) {
-            a aVar = new a();
-            aVar.f(bVar);
-            aVar.d(i2);
-            return aVar.e();
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bVar, i2)) == null) {
+                a aVar = new a();
+                aVar.f(bVar);
+                aVar.d(i2);
+                return aVar.e();
+            }
+            return (c) invokeLI.objValue;
         }
 
         public c(a aVar) {
-            this.f12402a = aVar.f12405a;
-            this.f12403b = aVar.f12406b;
-            this.f12404c = aVar.f12407c;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12457a = aVar.f12460a;
+            this.f12458b = aVar.f12461b;
+            this.f12459c = aVar.f12462c;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImgType f12408a;
+        public final ImgType f12463a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f12409b;
+        public final int f12464b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f12410c;
+        public final int f12465c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f12411d;
+        public final int f12466d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12412e;
+        public final int f12467e;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public ImgType f12413a = ImgType.NONE;
+            public ImgType f12468a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f12414b = -1;
+            public int f12469b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f12415c = -1;
+            public int f12470c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f12416d = -1;
+            public int f12471d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f12417e = -1;
+            public int f12472e;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f12468a = ImgType.NONE;
+                this.f12469b = -1;
+                this.f12470c = -1;
+                this.f12471d = -1;
+                this.f12472e = -1;
+            }
 
             public d f() {
-                return new d(this);
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new d(this, null) : (d) invokeV.objValue;
             }
 
             public a g(int i2) {
-                this.f12416d = i2;
-                return this;
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+                    this.f12471d = i2;
+                    return this;
+                }
+                return (a) invokeI.objValue;
             }
 
             public a h(int i2) {
-                this.f12415c = i2;
-                return this;
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+                    this.f12470c = i2;
+                    return this;
+                }
+                return (a) invokeI.objValue;
             }
 
             public a i(ImgType imgType) {
-                this.f12413a = imgType;
-                return this;
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imgType)) == null) {
+                    this.f12468a = imgType;
+                    return this;
+                }
+                return (a) invokeL.objValue;
             }
 
             public a j(int i2) {
-                this.f12414b = i2;
-                return this;
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+                    this.f12469b = i2;
+                    return this;
+                }
+                return (a) invokeI.objValue;
             }
 
             public a k(int i2) {
-                this.f12417e = i2;
-                return this;
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+                    this.f12472e = i2;
+                    return this;
+                }
+                return (a) invokeI.objValue;
             }
+        }
+
+        public /* synthetic */ d(a aVar, a aVar2) {
+            this(aVar);
         }
 
         public static d a(ImgType imgType) {
-            a aVar = new a();
-            aVar.i(imgType);
-            return aVar.f();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imgType)) == null) {
+                a aVar = new a();
+                aVar.i(imgType);
+                return aVar.f();
+            }
+            return (d) invokeL.objValue;
         }
 
         public static d b(ImgType imgType, int i2) {
-            a aVar = new a();
-            aVar.i(imgType);
-            aVar.j(i2);
-            return aVar.f();
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, imgType, i2)) == null) {
+                a aVar = new a();
+                aVar.i(imgType);
+                aVar.j(i2);
+                return aVar.f();
+            }
+            return (d) invokeLI.objValue;
         }
 
         public static d c(ImgType imgType, int i2, int i3, int i4, int i5) {
-            a aVar = new a();
-            aVar.i(imgType);
-            aVar.h(i2);
-            aVar.j(i3);
-            aVar.g(i4);
-            aVar.k(i5);
-            return aVar.f();
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{imgType, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+                a aVar = new a();
+                aVar.i(imgType);
+                aVar.h(i2);
+                aVar.j(i3);
+                aVar.g(i4);
+                aVar.k(i5);
+                return aVar.f();
+            }
+            return (d) invokeCommon.objValue;
         }
 
         public d(a aVar) {
-            this.f12408a = aVar.f12413a;
-            this.f12409b = aVar.f12414b;
-            this.f12410c = aVar.f12415c;
-            this.f12411d = aVar.f12416d;
-            this.f12412e = aVar.f12417e;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12463a = aVar.f12468a;
+            this.f12464b = aVar.f12469b;
+            this.f12465c = aVar.f12470c;
+            this.f12466d = aVar.f12471d;
+            this.f12467e = aVar.f12472e;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f12418a;
+        public final String f12473a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f12419b;
+        public final String f12474b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f12420c;
+        public final String f12475c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f12421d;
+        public final int f12476d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12422e;
+        public final int f12477e;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public String f12423a = null;
+            public String f12478a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f12424b = null;
+            public String f12479b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f12425c = null;
+            public String f12480c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f12426d = -1;
+            public int f12481d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f12427e = 0;
+            public int f12482e;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f12478a = null;
+                this.f12479b = null;
+                this.f12480c = null;
+                this.f12481d = -1;
+                this.f12482e = 0;
+            }
 
             public e f() {
-                return new e(this);
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new e(this, null) : (e) invokeV.objValue;
             }
 
             public a g(String str) {
-                this.f12424b = str;
-                return this;
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                    this.f12479b = str;
+                    return this;
+                }
+                return (a) invokeL.objValue;
             }
 
             public a h(String str) {
-                this.f12423a = str;
-                return this;
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                    this.f12478a = str;
+                    return this;
+                }
+                return (a) invokeL.objValue;
             }
 
             public a i(int i2) {
-                this.f12426d = i2;
-                return this;
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+                    this.f12481d = i2;
+                    return this;
+                }
+                return (a) invokeI.objValue;
             }
         }
 
+        public /* synthetic */ e(a aVar, a aVar2) {
+            this(aVar);
+        }
+
         public static e a(int i2) {
-            return c(TbadkCoreApplication.getInst().getResources().getString(i2));
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? c(TbadkCoreApplication.getInst().getResources().getString(i2)) : (e) invokeI.objValue;
         }
 
         public static e b(int i2, int i3) {
-            return d(TbadkCoreApplication.getInst().getResources().getString(i2), TbadkCoreApplication.getInst().getResources().getString(i3));
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) ? d(TbadkCoreApplication.getInst().getResources().getString(i2), TbadkCoreApplication.getInst().getResources().getString(i3)) : (e) invokeII.objValue;
         }
 
         public static e c(String str) {
-            a aVar = new a();
-            aVar.g(str);
-            return aVar.f();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+                a aVar = new a();
+                aVar.g(str);
+                return aVar.f();
+            }
+            return (e) invokeL.objValue;
         }
 
         public static e d(String str, String str2) {
-            a aVar = new a();
-            aVar.g(str);
-            aVar.h(str2);
-            return aVar.f();
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+                a aVar = new a();
+                aVar.g(str);
+                aVar.h(str2);
+                return aVar.f();
+            }
+            return (e) invokeLL.objValue;
         }
 
         public static e e(int i2, int i3) {
-            a aVar = new a();
-            aVar.g(TbadkCoreApplication.getInst().getResources().getString(i2));
-            aVar.i(i3);
-            return aVar.f();
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) {
+                a aVar = new a();
+                aVar.g(TbadkCoreApplication.getInst().getResources().getString(i2));
+                aVar.i(i3);
+                return aVar.f();
+            }
+            return (e) invokeII.objValue;
         }
 
         public e(a aVar) {
-            this.f12418a = aVar.f12423a;
-            this.f12419b = aVar.f12424b;
-            this.f12420c = aVar.f12425c;
-            this.f12421d = aVar.f12426d;
-            this.f12422e = aVar.f12427e;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12473a = aVar.f12478a;
+            this.f12474b = aVar.f12479b;
+            this.f12475c = aVar.f12480c;
+            this.f12476d = aVar.f12481d;
+            this.f12477e = aVar.f12482e;
         }
     }
 
     public static NoDataView a(Context context, View view, d dVar, e eVar, c cVar) {
-        return b(context, view, dVar, eVar, cVar, false);
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, context, view, dVar, eVar, cVar)) == null) ? b(context, view, dVar, eVar, cVar, false) : (NoDataView) invokeLLLLL.objValue;
     }
 
     public static NoDataView b(Context context, View view, d dVar, e eVar, c cVar, boolean z) {
-        NoDataView noDataView = new NoDataView(context);
-        noDataView.c(cVar, dVar, eVar);
-        if (view != null) {
-            if (view instanceof RelativeLayout) {
-                RelativeLayout relativeLayout = (RelativeLayout) view;
-                if (z) {
-                    relativeLayout.addView(noDataView, 0);
-                } else {
-                    relativeLayout.addView(noDataView);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, view, dVar, eVar, cVar, Boolean.valueOf(z)})) == null) {
+            NoDataView noDataView = new NoDataView(context);
+            noDataView.c(cVar, dVar, eVar);
+            if (view != null) {
+                if (view instanceof RelativeLayout) {
+                    RelativeLayout relativeLayout = (RelativeLayout) view;
+                    if (z) {
+                        relativeLayout.addView(noDataView, 0);
+                    } else {
+                        relativeLayout.addView(noDataView);
+                    }
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) noDataView.getLayoutParams();
+                    layoutParams.width = -1;
+                    layoutParams.height = -1;
+                    layoutParams.addRule(14);
+                    noDataView.setLayoutParams(layoutParams);
+                } else if (view instanceof LinearLayout) {
+                    ((LinearLayout) view).addView(noDataView);
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) noDataView.getLayoutParams();
+                    layoutParams2.gravity = 1;
+                    noDataView.setLayoutParams(layoutParams2);
+                } else if (view instanceof FrameLayout) {
+                    ((FrameLayout) view).addView(noDataView, 0);
                 }
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) noDataView.getLayoutParams();
-                layoutParams.width = -1;
-                layoutParams.height = -1;
-                layoutParams.addRule(14);
-                noDataView.setLayoutParams(layoutParams);
-            } else if (view instanceof LinearLayout) {
-                ((LinearLayout) view).addView(noDataView);
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) noDataView.getLayoutParams();
-                layoutParams2.gravity = 1;
-                noDataView.setLayoutParams(layoutParams2);
-            } else if (view instanceof FrameLayout) {
-                ((FrameLayout) view).addView(noDataView, 0);
             }
+            noDataView.setVisibility(8);
+            return noDataView;
         }
-        noDataView.setVisibility(8);
-        return noDataView;
+        return (NoDataView) invokeCommon.objValue;
     }
 }

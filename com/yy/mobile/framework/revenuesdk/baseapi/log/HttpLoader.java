@@ -3,10 +3,16 @@ package com.yy.mobile.framework.revenuesdk.baseapi.log;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.URLUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -27,61 +33,144 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpLoader {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: com.yy.mobile.framework.revenuesdk.baseapi.log.HttpLoader$1  reason: invalid class name */
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
     public static class MyHostnameVerifier implements HostnameVerifier {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public MyHostnameVerifier() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         @Override // javax.net.ssl.HostnameVerifier
         public boolean verify(String str, SSLSession sSLSession) {
-            return true;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public /* synthetic */ MyHostnameVerifier(AnonymousClass1 anonymousClass1) {
+            this();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class MyX509TrustManager implements X509TrustManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public MyX509TrustManager() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
+            }
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
+            }
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public X509Certificate[] getAcceptedIssuers() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (X509Certificate[]) invokeV.objValue;
+        }
+
+        public /* synthetic */ MyX509TrustManager(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+    }
+
+    public HttpLoader() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public static void ignoreSSLCertError(HttpsURLConnection httpsURLConnection) {
-        try {
-            TrustManager[] trustManagerArr = {new MyX509TrustManager()};
-            SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            sSLContext.init(null, trustManagerArr, new SecureRandom());
-            httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
-            httpsURLConnection.setHostnameVerifier(new MyHostnameVerifier());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, httpsURLConnection) == null) {
+            try {
+                TrustManager[] trustManagerArr = {new MyX509TrustManager(null)};
+                SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
+                sSLContext.init(null, trustManagerArr, new SecureRandom());
+                httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
+                httpsURLConnection.setHostnameVerifier(new MyHostnameVerifier(null));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:84:0x012b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x0117 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0121 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x0125 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x012f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x011b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String postData(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         DataOutputStream dataOutputStream;
         InputStream inputStream;
         HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65538, null, str, map)) != null) {
+            return (String) invokeLL.objValue;
+        }
         HttpURLConnection httpURLConnection2 = null;
         try {
             httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -247,21 +336,14 @@ public class HttpLoader {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0098 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00e2 */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v3, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v5, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v1 */
-    /* JADX WARN: Type inference failed for: r6v9, types: [java.util.zip.GZIPInputStream, java.io.InputStream] */
     public static String postJson(String str, String str2) {
+        InterceptResult invokeLL;
         GZIPInputStream gZIPInputStream;
         BufferedReader bufferedReader;
-        String str3 = "";
-        BufferedReader bufferedReader2 = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            String str3 = "";
+            BufferedReader bufferedReader2 = null;
             try {
                 try {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -275,7 +357,7 @@ public class HttpLoader {
                     httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                     httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                     httpURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "application/json");
-                    if (str2 != 0 && !TextUtils.isEmpty(str2)) {
+                    if (str2 != null && !TextUtils.isEmpty(str2)) {
                         httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str2.getBytes().length));
                         OutputStream outputStream = httpURLConnection.getOutputStream();
                         outputStream.write(str2.getBytes());
@@ -283,16 +365,19 @@ public class HttpLoader {
                         outputStream.close();
                     }
                     if (httpURLConnection.getResponseCode() == 200) {
-                        str2 = new GZIPInputStream(httpURLConnection.getInputStream());
+                        gZIPInputStream = new GZIPInputStream(httpURLConnection.getInputStream());
                         try {
-                            bufferedReader = new BufferedReader(new InputStreamReader((InputStream) str2, "UTF-8"));
-                        } catch (Exception e2) {
-                            e = e2;
+                            try {
+                                bufferedReader = new BufferedReader(new InputStreamReader(gZIPInputStream, "UTF-8"));
+                            } catch (Exception e2) {
+                                e = e2;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
                         }
                         try {
                             str3 = bufferedReader.readLine();
                             bufferedReader2 = bufferedReader;
-                            gZIPInputStream = str2;
                         } catch (Exception e3) {
                             bufferedReader2 = bufferedReader;
                             e = e3;
@@ -305,13 +390,13 @@ public class HttpLoader {
                                     e4.printStackTrace();
                                 }
                             }
-                            if (str2 != 0) {
-                                str2.close();
+                            if (gZIPInputStream != null) {
+                                gZIPInputStream.close();
                             }
                             return str3;
-                        } catch (Throwable th) {
+                        } catch (Throwable th2) {
                             bufferedReader2 = bufferedReader;
-                            th = th;
+                            th = th2;
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
@@ -319,9 +404,9 @@ public class HttpLoader {
                                     e5.printStackTrace();
                                 }
                             }
-                            if (str2 != 0) {
+                            if (gZIPInputStream != null) {
                                 try {
-                                    str2.close();
+                                    gZIPInputStream.close();
                                 } catch (Exception e6) {
                                     e6.printStackTrace();
                                 }
@@ -338,22 +423,21 @@ public class HttpLoader {
                             e7.printStackTrace();
                         }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Exception e8) {
+                    e8.printStackTrace();
                 }
-            } catch (Exception e8) {
-                e = e8;
-                str2 = 0;
+            } catch (Exception e9) {
+                e = e9;
+                gZIPInputStream = null;
             } catch (Throwable th3) {
                 th = th3;
-                str2 = 0;
+                gZIPInputStream = null;
             }
             if (gZIPInputStream != null) {
                 gZIPInputStream.close();
             }
-        } catch (Exception e9) {
-            e9.printStackTrace();
+            return str3;
         }
-        return str3;
+        return (String) invokeLL.objValue;
     }
 }

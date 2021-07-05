@@ -5,69 +5,172 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import com.baidu.wallet.router.LocalRouter;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class NFCUtil {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static NFCUtil f24096a;
+    public static NFCUtil f24639a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public NfcAdapter f24097b;
+    public NfcAdapter f24640b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PendingIntent f24098c;
+    public PendingIntent f24641c;
     public IntentFilter[] mFilters;
     public String[][] mTechlist;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: com.baidu.wallet.core.utils.NFCUtil$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static NFCUtil f24099a = new NFCUtil();
+        public static NFCUtil f24642a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-873228073, "Lcom/baidu/wallet/core/utils/NFCUtil$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-873228073, "Lcom/baidu/wallet/core/utils/NFCUtil$a;");
+                    return;
+                }
+            }
+            f24642a = new NFCUtil(null);
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    public /* synthetic */ NFCUtil(AnonymousClass1 anonymousClass1) {
+        this();
     }
 
     private void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, activity) == null) {
+        }
     }
 
     private void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, activity) == null) {
+        }
     }
 
     public static NFCUtil getInstance() {
-        return a.f24099a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? a.f24642a : (NFCUtil) invokeV.objValue;
     }
 
     public void disableForegroundDispatch(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, activity, z) == null) {
+        }
     }
 
     public void enableForegroundDispatch(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, z) == null) {
+        }
     }
 
     public NfcAdapter getNFCAdapter(Activity activity) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            return null;
+        }
+        return (NfcAdapter) invokeL.objValue;
     }
 
     public boolean isPhoneNFCEnable(Activity activity) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean isPhoneSurportNFC(Activity activity) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, activity)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean isWalletNFCEnable(Activity activity) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, activity)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean isWalletNFCSurport(Activity activity) {
-        return LocalRouter.getInstance(activity).isProviderExisted(BaiduWalletServiceProviderMap.PLUGIN_NFC) && isPhoneSurportNFC(activity);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) ? LocalRouter.getInstance(activity).isProviderExisted(BaiduWalletServiceProviderMap.PLUGIN_NFC) && isPhoneSurportNFC(activity) : invokeL.booleanValue;
     }
 
     public void setWalletNFCEnable(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, activity, z) == null) {
+        }
     }
 
     public NFCUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

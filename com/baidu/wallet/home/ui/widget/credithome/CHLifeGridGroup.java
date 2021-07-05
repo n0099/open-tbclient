@@ -3,74 +3,131 @@ package com.baidu.wallet.home.ui.widget.credithome;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.GridLayout;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CHLifeGridGroup extends BaseItemLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CHTitleView f24482a;
+    public CHTitleView f25025a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GridLayout f24483b;
+    public GridLayout f25026b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f24484c;
+    public List<BaseItemView> f25027c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHLifeGridGroup(Context context) {
         super(context);
-        this.f24484c = new ArrayList();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f25027c = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
-        gridLayout.setEmptyAreaColor(ResUtils.getColor(getContext(), "bd_wallet_white"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, gridLayout) == null) {
+            gridLayout.setEmptyAreaColor(ResUtils.getColor(getContext(), "bd_wallet_white"));
+        }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24484c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25027c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
-        LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_life_layout"), this);
-        this.f24483b = (GridLayout) findViewById(ResUtils.id(getContext(), "ch_life_group"));
-        this.f24482a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_life_lable"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_life_layout"), this);
+            this.f25026b = (GridLayout) findViewById(ResUtils.id(getContext(), "ch_life_group"));
+            this.f25025a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_life_lable"));
+        }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public boolean isDataValid() {
+        InterceptResult invokeV;
         HomeCfgResponse.DataItem[] dataItemArr;
-        HomeCfgResponse.ConfigData configData = this.mConfigData;
-        return (configData == null || (dataItemArr = configData.list) == null || dataItemArr.length == 0) ? false : true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HomeCfgResponse.ConfigData configData = this.mConfigData;
+            return (configData == null || (dataItemArr = configData.list) == null || dataItemArr.length == 0) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
-        this.f24482a.setData(this.mConfigData, getWalletInterface());
-        HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-        this.f24483b.setColumnCount(4);
-        this.f24483b.setHorizontalSpacing(0);
-        this.f24483b.setVerticalSpacing(0);
-        a(this.f24483b);
-        int length = dataItemArr.length <= 16 ? dataItemArr.length : 16;
-        for (int i2 = 0; i2 < length; i2++) {
-            if (dataItemArr[i2] != null) {
-                CHLifeGridItem cHLifeGridItem = new CHLifeGridItem(getContext());
-                cHLifeGridItem.setData(dataItemArr[i2], getWalletInterface());
-                this.f24483b.addView(cHLifeGridItem);
-                this.f24484c.add(cHLifeGridItem);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f25025a.setData(this.mConfigData, getWalletInterface());
+            HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
+            this.f25026b.setColumnCount(4);
+            this.f25026b.setHorizontalSpacing(0);
+            this.f25026b.setVerticalSpacing(0);
+            a(this.f25026b);
+            int length = dataItemArr.length <= 16 ? dataItemArr.length : 16;
+            for (int i2 = 0; i2 < length; i2++) {
+                if (dataItemArr[i2] != null) {
+                    CHLifeGridItem cHLifeGridItem = new CHLifeGridItem(getContext());
+                    cHLifeGridItem.setData(dataItemArr[i2], getWalletInterface());
+                    this.f25026b.addView(cHLifeGridItem);
+                    this.f25027c.add(cHLifeGridItem);
+                }
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHLifeGridGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24484c = new ArrayList();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f25027c = new ArrayList();
     }
 }

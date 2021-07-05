@@ -22,44 +22,62 @@ import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.widget.DecorToolbar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.ToolbarWidgetWrapper;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ToolbarActionBar extends ActionBar {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public DecorToolbar mDecorToolbar;
     public boolean mLastMenuVisibility;
     public boolean mMenuCallbackSet;
+    public final Toolbar.OnMenuItemClickListener mMenuClicker;
+    public final Runnable mMenuInvalidator;
+    public ArrayList<ActionBar.OnMenuVisibilityListener> mMenuVisibilityListeners;
     public boolean mToolbarMenuPrepared;
     public Window.Callback mWindowCallback;
-    public ArrayList<ActionBar.OnMenuVisibilityListener> mMenuVisibilityListeners = new ArrayList<>();
-    public final Runnable mMenuInvalidator = new Runnable() { // from class: androidx.appcompat.app.ToolbarActionBar.1
-        @Override // java.lang.Runnable
-        public void run() {
-            ToolbarActionBar.this.populateOptionsMenu();
-        }
-    };
-    public final Toolbar.OnMenuItemClickListener mMenuClicker = new Toolbar.OnMenuItemClickListener() { // from class: androidx.appcompat.app.ToolbarActionBar.2
-        @Override // androidx.appcompat.widget.Toolbar.OnMenuItemClickListener
-        public boolean onMenuItemClick(MenuItem menuItem) {
-            return ToolbarActionBar.this.mWindowCallback.onMenuItemSelected(0, menuItem);
-        }
-    };
 
     /* loaded from: classes.dex */
     public final class ActionMenuPresenterCallback implements MenuPresenter.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public boolean mClosingActionMenu;
+        public final /* synthetic */ ToolbarActionBar this$0;
 
-        public ActionMenuPresenterCallback() {
+        public ActionMenuPresenterCallback(ToolbarActionBar toolbarActionBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {toolbarActionBar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = toolbarActionBar;
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
         public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
-            if (this.mClosingActionMenu) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) || this.mClosingActionMenu) {
                 return;
             }
             this.mClosingActionMenu = true;
-            ToolbarActionBar.this.mDecorToolbar.dismissPopupMenus();
-            Window.Callback callback = ToolbarActionBar.this.mWindowCallback;
+            this.this$0.mDecorToolbar.dismissPopupMenus();
+            Window.Callback callback = this.this$0.mWindowCallback;
             if (callback != null) {
                 callback.onPanelClosed(108, menuBuilder);
             }
@@ -68,33 +86,65 @@ public class ToolbarActionBar extends ActionBar {
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
         public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
-            Window.Callback callback = ToolbarActionBar.this.mWindowCallback;
-            if (callback != null) {
-                callback.onMenuOpened(108, menuBuilder);
-                return true;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
+                Window.Callback callback = this.this$0.mWindowCallback;
+                if (callback != null) {
+                    callback.onMenuOpened(108, menuBuilder);
+                    return true;
+                }
+                return false;
             }
-            return false;
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes.dex */
     public final class MenuBuilderCallback implements MenuBuilder.Callback {
-        public MenuBuilderCallback() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ToolbarActionBar this$0;
+
+        public MenuBuilderCallback(ToolbarActionBar toolbarActionBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {toolbarActionBar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = toolbarActionBar;
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
         public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
-            return false;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, menuBuilder, menuItem)) == null) {
+                return false;
+            }
+            return invokeLL.booleanValue;
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
         public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
-            ToolbarActionBar toolbarActionBar = ToolbarActionBar.this;
-            if (toolbarActionBar.mWindowCallback != null) {
-                if (toolbarActionBar.mDecorToolbar.isOverflowMenuShowing()) {
-                    ToolbarActionBar.this.mWindowCallback.onPanelClosed(108, menuBuilder);
-                } else if (ToolbarActionBar.this.mWindowCallback.onPreparePanel(0, null, menuBuilder)) {
-                    ToolbarActionBar.this.mWindowCallback.onMenuOpened(108, menuBuilder);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder) == null) {
+                ToolbarActionBar toolbarActionBar = this.this$0;
+                if (toolbarActionBar.mWindowCallback != null) {
+                    if (toolbarActionBar.mDecorToolbar.isOverflowMenuShowing()) {
+                        this.this$0.mWindowCallback.onPanelClosed(108, menuBuilder);
+                    } else if (this.this$0.mWindowCallback.onPreparePanel(0, null, menuBuilder)) {
+                        this.this$0.mWindowCallback.onMenuOpened(108, menuBuilder);
+                    }
                 }
             }
         }
@@ -102,35 +152,142 @@ public class ToolbarActionBar extends ActionBar {
 
     /* loaded from: classes.dex */
     public class ToolbarCallbackWrapper extends WindowCallbackWrapper {
-        public ToolbarCallbackWrapper(Window.Callback callback) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ToolbarActionBar this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ToolbarCallbackWrapper(ToolbarActionBar toolbarActionBar, Window.Callback callback) {
             super(callback);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {toolbarActionBar, callback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Window.Callback) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = toolbarActionBar;
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
         public View onCreatePanelView(int i2) {
-            if (i2 == 0) {
-                return new View(ToolbarActionBar.this.mDecorToolbar.getContext());
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+                if (i2 == 0) {
+                    return new View(this.this$0.mDecorToolbar.getContext());
+                }
+                return super.onCreatePanelView(i2);
             }
-            return super.onCreatePanelView(i2);
+            return (View) invokeI.objValue;
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
         public boolean onPreparePanel(int i2, View view, Menu menu) {
-            boolean onPreparePanel = super.onPreparePanel(i2, view, menu);
-            if (onPreparePanel) {
-                ToolbarActionBar toolbarActionBar = ToolbarActionBar.this;
-                if (!toolbarActionBar.mToolbarMenuPrepared) {
-                    toolbarActionBar.mDecorToolbar.setMenuPrepared();
-                    ToolbarActionBar.this.mToolbarMenuPrepared = true;
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, view, menu)) == null) {
+                boolean onPreparePanel = super.onPreparePanel(i2, view, menu);
+                if (onPreparePanel) {
+                    ToolbarActionBar toolbarActionBar = this.this$0;
+                    if (!toolbarActionBar.mToolbarMenuPrepared) {
+                        toolbarActionBar.mDecorToolbar.setMenuPrepared();
+                        this.this$0.mToolbarMenuPrepared = true;
+                    }
                 }
+                return onPreparePanel;
             }
-            return onPreparePanel;
+            return invokeILL.booleanValue;
         }
     }
 
     public ToolbarActionBar(Toolbar toolbar, CharSequence charSequence, Window.Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {toolbar, charSequence, callback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mMenuVisibilityListeners = new ArrayList<>();
+        this.mMenuInvalidator = new Runnable(this) { // from class: androidx.appcompat.app.ToolbarActionBar.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ToolbarActionBar this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.this$0.populateOptionsMenu();
+                }
+            }
+        };
+        this.mMenuClicker = new Toolbar.OnMenuItemClickListener(this) { // from class: androidx.appcompat.app.ToolbarActionBar.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ToolbarActionBar this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // androidx.appcompat.widget.Toolbar.OnMenuItemClickListener
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, menuItem)) == null) ? this.this$0.mWindowCallback.onMenuItemSelected(0, menuItem) : invokeL.booleanValue;
+            }
+        };
         this.mDecorToolbar = new ToolbarWidgetWrapper(toolbar, false);
-        ToolbarCallbackWrapper toolbarCallbackWrapper = new ToolbarCallbackWrapper(callback);
+        ToolbarCallbackWrapper toolbarCallbackWrapper = new ToolbarCallbackWrapper(this, callback);
         this.mWindowCallback = toolbarCallbackWrapper;
         this.mDecorToolbar.setWindowCallback(toolbarCallbackWrapper);
         toolbar.setOnMenuItemClickListener(this.mMenuClicker);
@@ -138,40 +295,59 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     private Menu getMenu() {
-        if (!this.mMenuCallbackSet) {
-            this.mDecorToolbar.setMenuCallbacks(new ActionMenuPresenterCallback(), new MenuBuilderCallback());
-            this.mMenuCallbackSet = true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (!this.mMenuCallbackSet) {
+                this.mDecorToolbar.setMenuCallbacks(new ActionMenuPresenterCallback(this), new MenuBuilderCallback(this));
+                this.mMenuCallbackSet = true;
+            }
+            return this.mDecorToolbar.getMenu();
         }
-        return this.mDecorToolbar.getMenu();
+        return (Menu) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void addOnMenuVisibilityListener(ActionBar.OnMenuVisibilityListener onMenuVisibilityListener) {
-        this.mMenuVisibilityListeners.add(onMenuVisibilityListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onMenuVisibilityListener) == null) {
+            this.mMenuVisibilityListeners.add(onMenuVisibilityListener);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void addTab(ActionBar.Tab tab) {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tab) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public boolean closeOptionsMenu() {
-        return this.mDecorToolbar.hideOverflowMenu();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDecorToolbar.hideOverflowMenu() : invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public boolean collapseActionView() {
-        if (this.mDecorToolbar.hasExpandedActionView()) {
-            this.mDecorToolbar.collapseActionView();
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mDecorToolbar.hasExpandedActionView()) {
+                this.mDecorToolbar.collapseActionView();
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void dispatchMenuVisibilityChanged(boolean z) {
-        if (z == this.mLastMenuVisibility) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || z == this.mLastMenuVisibility) {
             return;
         }
         this.mLastMenuVisibility = z;
@@ -183,377 +359,592 @@ public class ToolbarActionBar extends ActionBar {
 
     @Override // androidx.appcompat.app.ActionBar
     public View getCustomView() {
-        return this.mDecorToolbar.getCustomView();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mDecorToolbar.getCustomView() : (View) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public int getDisplayOptions() {
-        return this.mDecorToolbar.getDisplayOptions();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mDecorToolbar.getDisplayOptions() : invokeV.intValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public float getElevation() {
-        return ViewCompat.getElevation(this.mDecorToolbar.getViewGroup());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ViewCompat.getElevation(this.mDecorToolbar.getViewGroup()) : invokeV.floatValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public int getHeight() {
-        return this.mDecorToolbar.getHeight();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mDecorToolbar.getHeight() : invokeV.intValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public int getNavigationItemCount() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public int getNavigationMode() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public int getSelectedNavigationIndex() {
-        return -1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public ActionBar.Tab getSelectedTab() {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
+        return (ActionBar.Tab) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public CharSequence getSubtitle() {
-        return this.mDecorToolbar.getSubtitle();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mDecorToolbar.getSubtitle() : (CharSequence) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public ActionBar.Tab getTabAt(int i2) {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
+        return (ActionBar.Tab) invokeI.objValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public int getTabCount() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public Context getThemedContext() {
-        return this.mDecorToolbar.getContext();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mDecorToolbar.getContext() : (Context) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public CharSequence getTitle() {
-        return this.mDecorToolbar.getTitle();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mDecorToolbar.getTitle() : (CharSequence) invokeV.objValue;
     }
 
     public Window.Callback getWrappedWindowCallback() {
-        return this.mWindowCallback;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mWindowCallback : (Window.Callback) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void hide() {
-        this.mDecorToolbar.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.mDecorToolbar.setVisibility(8);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public boolean invalidateOptionsMenu() {
-        this.mDecorToolbar.getViewGroup().removeCallbacks(this.mMenuInvalidator);
-        ViewCompat.postOnAnimation(this.mDecorToolbar.getViewGroup(), this.mMenuInvalidator);
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            this.mDecorToolbar.getViewGroup().removeCallbacks(this.mMenuInvalidator);
+            ViewCompat.postOnAnimation(this.mDecorToolbar.getViewGroup(), this.mMenuInvalidator);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public boolean isShowing() {
-        return this.mDecorToolbar.getVisibility() == 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mDecorToolbar.getVisibility() == 0 : invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public boolean isTitleTruncated() {
-        return super.isTitleTruncated();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? super.isTitleTruncated() : invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public ActionBar.Tab newTab() {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
+        return (ActionBar.Tab) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void onDestroy() {
-        this.mDecorToolbar.getViewGroup().removeCallbacks(this.mMenuInvalidator);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            this.mDecorToolbar.getViewGroup().removeCallbacks(this.mMenuInvalidator);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public boolean onKeyShortcut(int i2, KeyEvent keyEvent) {
-        Menu menu = getMenu();
-        if (menu != null) {
-            menu.setQwertyMode(KeyCharacterMap.load(keyEvent != null ? keyEvent.getDeviceId() : -1).getKeyboardType() != 1);
-            return menu.performShortcut(i2, keyEvent, 0);
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048605, this, i2, keyEvent)) == null) {
+            Menu menu = getMenu();
+            if (menu != null) {
+                menu.setQwertyMode(KeyCharacterMap.load(keyEvent != null ? keyEvent.getDeviceId() : -1).getKeyboardType() != 1);
+                return menu.performShortcut(i2, keyEvent, 0);
+            }
+            return false;
         }
-        return false;
+        return invokeIL.booleanValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public boolean onMenuKeyEvent(KeyEvent keyEvent) {
-        if (keyEvent.getAction() == 1) {
-            openOptionsMenu();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, keyEvent)) == null) {
+            if (keyEvent.getAction() == 1) {
+                openOptionsMenu();
+            }
+            return true;
         }
-        return true;
+        return invokeL.booleanValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public boolean openOptionsMenu() {
-        return this.mDecorToolbar.showOverflowMenu();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mDecorToolbar.showOverflowMenu() : invokeV.booleanValue;
     }
 
     public void populateOptionsMenu() {
-        Menu menu = getMenu();
-        MenuBuilder menuBuilder = menu instanceof MenuBuilder ? (MenuBuilder) menu : null;
-        if (menuBuilder != null) {
-            menuBuilder.stopDispatchingItemsChanged();
-        }
-        try {
-            menu.clear();
-            if (!this.mWindowCallback.onCreatePanelMenu(0, menu) || !this.mWindowCallback.onPreparePanel(0, null, menu)) {
-                menu.clear();
-            }
-        } finally {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            Menu menu = getMenu();
+            MenuBuilder menuBuilder = menu instanceof MenuBuilder ? (MenuBuilder) menu : null;
             if (menuBuilder != null) {
-                menuBuilder.startDispatchingItemsChanged();
+                menuBuilder.stopDispatchingItemsChanged();
+            }
+            try {
+                menu.clear();
+                if (!this.mWindowCallback.onCreatePanelMenu(0, menu) || !this.mWindowCallback.onPreparePanel(0, null, menu)) {
+                    menu.clear();
+                }
+            } finally {
+                if (menuBuilder != null) {
+                    menuBuilder.startDispatchingItemsChanged();
+                }
             }
         }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void removeAllTabs() {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void removeOnMenuVisibilityListener(ActionBar.OnMenuVisibilityListener onMenuVisibilityListener) {
-        this.mMenuVisibilityListeners.remove(onMenuVisibilityListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, onMenuVisibilityListener) == null) {
+            this.mMenuVisibilityListeners.remove(onMenuVisibilityListener);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void removeTab(ActionBar.Tab tab) {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, tab) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void removeTabAt(int i2) {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public boolean requestFocus() {
-        ViewGroup viewGroup = this.mDecorToolbar.getViewGroup();
-        if (viewGroup == null || viewGroup.hasFocus()) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            ViewGroup viewGroup = this.mDecorToolbar.getViewGroup();
+            if (viewGroup == null || viewGroup.hasFocus()) {
+                return false;
+            }
+            viewGroup.requestFocus();
+            return true;
         }
-        viewGroup.requestFocus();
-        return true;
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void selectTab(ActionBar.Tab tab) {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, tab) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setBackgroundDrawable(@Nullable Drawable drawable) {
-        this.mDecorToolbar.setBackgroundDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, drawable) == null) {
+            this.mDecorToolbar.setBackgroundDrawable(drawable);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setCustomView(View view) {
-        setCustomView(view, new ActionBar.LayoutParams(-2, -2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, view) == null) {
+            setCustomView(view, new ActionBar.LayoutParams(-2, -2));
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setDefaultDisplayHomeAsUpEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setDisplayHomeAsUpEnabled(boolean z) {
-        setDisplayOptions(z ? 4 : 0, 4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+            setDisplayOptions(z ? 4 : 0, 4);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     @SuppressLint({"WrongConstant"})
     public void setDisplayOptions(int i2) {
-        setDisplayOptions(i2, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+            setDisplayOptions(i2, -1);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setDisplayShowCustomEnabled(boolean z) {
-        setDisplayOptions(z ? 16 : 0, 16);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+            setDisplayOptions(z ? 16 : 0, 16);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setDisplayShowHomeEnabled(boolean z) {
-        setDisplayOptions(z ? 2 : 0, 2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+            setDisplayOptions(z ? 2 : 0, 2);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setDisplayShowTitleEnabled(boolean z) {
-        setDisplayOptions(z ? 8 : 0, 8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+            setDisplayOptions(z ? 8 : 0, 8);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setDisplayUseLogoEnabled(boolean z) {
-        setDisplayOptions(z ? 1 : 0, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
+            setDisplayOptions(z ? 1 : 0, 1);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setElevation(float f2) {
-        ViewCompat.setElevation(this.mDecorToolbar.getViewGroup(), f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048627, this, f2) == null) {
+            ViewCompat.setElevation(this.mDecorToolbar.getViewGroup(), f2);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setHomeActionContentDescription(CharSequence charSequence) {
-        this.mDecorToolbar.setNavigationContentDescription(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, charSequence) == null) {
+            this.mDecorToolbar.setNavigationContentDescription(charSequence);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setHomeAsUpIndicator(Drawable drawable) {
-        this.mDecorToolbar.setNavigationIcon(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, drawable) == null) {
+            this.mDecorToolbar.setNavigationIcon(drawable);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setHomeButtonEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048632, this, z) == null) {
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setIcon(int i2) {
-        this.mDecorToolbar.setIcon(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
+            this.mDecorToolbar.setIcon(i2);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setListNavigationCallbacks(SpinnerAdapter spinnerAdapter, ActionBar.OnNavigationListener onNavigationListener) {
-        this.mDecorToolbar.setDropdownParams(spinnerAdapter, new NavItemSelectedListener(onNavigationListener));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048635, this, spinnerAdapter, onNavigationListener) == null) {
+            this.mDecorToolbar.setDropdownParams(spinnerAdapter, new NavItemSelectedListener(onNavigationListener));
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setLogo(int i2) {
-        this.mDecorToolbar.setLogo(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
+            this.mDecorToolbar.setLogo(i2);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setNavigationMode(int i2) {
-        if (i2 != 2) {
-            this.mDecorToolbar.setNavigationMode(i2);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
+            if (i2 != 2) {
+                this.mDecorToolbar.setNavigationMode(i2);
+                return;
+            }
+            throw new IllegalArgumentException("Tabs not supported in this configuration");
         }
-        throw new IllegalArgumentException("Tabs not supported in this configuration");
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setSelectedNavigationItem(int i2) {
-        if (this.mDecorToolbar.getNavigationMode() == 1) {
-            this.mDecorToolbar.setDropdownSelectedPosition(i2);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
+            if (this.mDecorToolbar.getNavigationMode() == 1) {
+                this.mDecorToolbar.setDropdownSelectedPosition(i2);
+                return;
+            }
+            throw new IllegalStateException("setSelectedNavigationIndex not valid for current navigation mode");
         }
-        throw new IllegalStateException("setSelectedNavigationIndex not valid for current navigation mode");
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setShowHideAnimationEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setSplitBackgroundDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048641, this, drawable) == null) {
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setStackedBackgroundDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048642, this, drawable) == null) {
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setSubtitle(CharSequence charSequence) {
-        this.mDecorToolbar.setSubtitle(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048644, this, charSequence) == null) {
+            this.mDecorToolbar.setSubtitle(charSequence);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setTitle(CharSequence charSequence) {
-        this.mDecorToolbar.setTitle(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048646, this, charSequence) == null) {
+            this.mDecorToolbar.setTitle(charSequence);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setWindowTitle(CharSequence charSequence) {
-        this.mDecorToolbar.setWindowTitle(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048647, this, charSequence) == null) {
+            this.mDecorToolbar.setWindowTitle(charSequence);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void show() {
-        this.mDecorToolbar.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
+            this.mDecorToolbar.setVisibility(0);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void addTab(ActionBar.Tab tab, boolean z) {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, tab, z) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setCustomView(View view, ActionBar.LayoutParams layoutParams) {
-        if (view != null) {
-            view.setLayoutParams(layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048618, this, view, layoutParams) == null) {
+            if (view != null) {
+                view.setLayoutParams(layoutParams);
+            }
+            this.mDecorToolbar.setCustomView(view);
         }
-        this.mDecorToolbar.setCustomView(view);
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setDisplayOptions(int i2, int i3) {
-        this.mDecorToolbar.setDisplayOptions((i2 & i3) | ((~i3) & this.mDecorToolbar.getDisplayOptions()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048622, this, i2, i3) == null) {
+            this.mDecorToolbar.setDisplayOptions((i2 & i3) | ((~i3) & this.mDecorToolbar.getDisplayOptions()));
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setHomeActionContentDescription(int i2) {
-        this.mDecorToolbar.setNavigationContentDescription(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048628, this, i2) == null) {
+            this.mDecorToolbar.setNavigationContentDescription(i2);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setHomeAsUpIndicator(int i2) {
-        this.mDecorToolbar.setNavigationIcon(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
+            this.mDecorToolbar.setNavigationIcon(i2);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setIcon(Drawable drawable) {
-        this.mDecorToolbar.setIcon(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048634, this, drawable) == null) {
+            this.mDecorToolbar.setIcon(drawable);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setLogo(Drawable drawable) {
-        this.mDecorToolbar.setLogo(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048637, this, drawable) == null) {
+            this.mDecorToolbar.setLogo(drawable);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setSubtitle(int i2) {
-        DecorToolbar decorToolbar = this.mDecorToolbar;
-        decorToolbar.setSubtitle(i2 != 0 ? decorToolbar.getContext().getText(i2) : null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048643, this, i2) == null) {
+            DecorToolbar decorToolbar = this.mDecorToolbar;
+            decorToolbar.setSubtitle(i2 != 0 ? decorToolbar.getContext().getText(i2) : null);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setTitle(int i2) {
-        DecorToolbar decorToolbar = this.mDecorToolbar;
-        decorToolbar.setTitle(i2 != 0 ? decorToolbar.getContext().getText(i2) : null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048645, this, i2) == null) {
+            DecorToolbar decorToolbar = this.mDecorToolbar;
+            decorToolbar.setTitle(i2 != 0 ? decorToolbar.getContext().getText(i2) : null);
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void addTab(ActionBar.Tab tab, int i2) {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tab, i2) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void addTab(ActionBar.Tab tab, int i2, boolean z) {
-        throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tab, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
+        }
     }
 
     @Override // androidx.appcompat.app.ActionBar
     public void setCustomView(int i2) {
-        setCustomView(LayoutInflater.from(this.mDecorToolbar.getContext()).inflate(i2, this.mDecorToolbar.getViewGroup(), false));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
+            setCustomView(LayoutInflater.from(this.mDecorToolbar.getContext()).inflate(i2, this.mDecorToolbar.getViewGroup(), false));
+        }
     }
 }

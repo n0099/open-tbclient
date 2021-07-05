@@ -8,72 +8,131 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class RimLivenessBaseDialog extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f6177a;
+    public TextView f6207a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f6178b;
+    public LinearLayout f6208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f6179c;
+    public Button f6209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f6180d;
+    public Button f6210d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RimLivenessBaseDialog(Context context) {
         super(context, R.style.BeautyDialog);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a();
     }
 
     private void a() {
-        setContentView(R.layout.rim_liveness_alert_dialog_base);
-        this.f6177a = (TextView) findViewById(R.id.dialog_title);
-        this.f6178b = (LinearLayout) findViewById(R.id.dialog_content);
-        this.f6179c = (Button) findViewById(R.id.positive_btn);
-        this.f6180d = (Button) findViewById(R.id.negative_btn);
-        setCancelable(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            setContentView(R.layout.rim_liveness_alert_dialog_base);
+            this.f6207a = (TextView) findViewById(R.id.dialog_title);
+            this.f6208b = (LinearLayout) findViewById(R.id.dialog_content);
+            this.f6209c = (Button) findViewById(R.id.positive_btn);
+            this.f6210d = (Button) findViewById(R.id.negative_btn);
+            setCancelable(false);
+        }
     }
 
     public void addContentView(int i2) {
-        LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f6178b, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f6208b, true);
+        }
     }
 
     public void setNegativeBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
-        findViewById(R.id.btn_line).setVisibility(0);
-        this.f6180d.setVisibility(0);
-        this.f6180d.setText(charSequence);
-        this.f6180d.setOnClickListener(onClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, onClickListener) == null) {
+            findViewById(R.id.btn_line).setVisibility(0);
+            this.f6210d.setVisibility(0);
+            this.f6210d.setText(charSequence);
+            this.f6210d.setOnClickListener(onClickListener);
+        }
     }
 
     public void setPositiveBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
-        this.f6179c.setText(charSequence);
-        this.f6179c.setOnClickListener(onClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, charSequence, onClickListener) == null) {
+            this.f6209c.setText(charSequence);
+            this.f6209c.setOnClickListener(onClickListener);
+        }
     }
 
     public void setTextViewContent(CharSequence charSequence) {
-        TextView textView = new TextView(getContext());
-        textView.setText(charSequence);
-        textView.setGravity(17);
-        textView.setTextColor(getContext().getResources().getColor(R.color.sapi_dialog_title_text_color));
-        textView.setTextSize(1, getContext().getResources().getDimension(R.dimen.rim_base_level16Font));
-        textView.setLineSpacing(1.0f, 1.2f);
-        int dimension = (int) getContext().getResources().getDimension(R.dimen.rim_dimen_20dp);
-        textView.setPadding(dimension, dimension, dimension, dimension);
-        textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.f6178b.addView(textView);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
+            TextView textView = new TextView(getContext());
+            textView.setText(charSequence);
+            textView.setGravity(17);
+            textView.setTextColor(getContext().getResources().getColor(R.color.sapi_dialog_title_text_color));
+            textView.setTextSize(1, getContext().getResources().getDimension(R.dimen.rim_base_level16Font));
+            textView.setLineSpacing(1.0f, 1.2f);
+            int dimension = (int) getContext().getResources().getDimension(R.dimen.rim_dimen_20dp);
+            textView.setPadding(dimension, dimension, dimension, dimension);
+            textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f6208b.addView(textView);
+        }
     }
 
     @Override // android.app.Dialog
     public void setTitle(CharSequence charSequence) {
-        this.f6177a.setText(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
+            this.f6207a.setText(charSequence);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RimLivenessBaseDialog(Context context, int i2) {
         super(context, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a();
     }
 }

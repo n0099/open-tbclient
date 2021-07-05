@@ -2,7 +2,13 @@ package com.baidu.wallet.paysdk.banksign.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.restnet.RestNameValuePair;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.UserData;
 import com.baidu.wallet.core.beans.NetworkBean;
 import com.baidu.wallet.core.domain.DomainConfig;
@@ -10,70 +16,108 @@ import com.baidu.wallet.paysdk.banksign.datamodel.GetJumpUrlResponse;
 import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
-import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends PayBaseBean<GetJumpUrlResponse> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25281a;
+    public String f25824a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public void a(String str) {
-        this.f25281a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f25824a = str;
+        }
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
-        super.execBean(GetJumpUrlResponse.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.execBean(GetJumpUrlResponse.class);
+        }
     }
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
+        InterceptResult invokeV;
         String str;
-        ArrayList arrayList = new ArrayList();
-        String str2 = null;
-        String sessionId = NetworkBean.SessionCache.getInstance().getSessionId(null);
-        DirectPayContentResponse payResponse = PayDataCache.getInstance().getPayResponse();
-        if (payResponse != null) {
-            UserData.SP sp = payResponse.sp;
-            String str3 = (sp == null || TextUtils.isEmpty(sp.serial_num)) ? null : payResponse.sp.serial_num;
-            Map<String, String> map = payResponse.cashdesk;
-            if (map != null && !map.isEmpty() && !TextUtils.isEmpty(payResponse.cashdesk.get("session_no"))) {
-                str2 = payResponse.cashdesk.get("session_no");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String str2 = null;
+            String sessionId = NetworkBean.SessionCache.getInstance().getSessionId(null);
+            DirectPayContentResponse payResponse = PayDataCache.getInstance().getPayResponse();
+            if (payResponse != null) {
+                UserData.SP sp = payResponse.sp;
+                String str3 = (sp == null || TextUtils.isEmpty(sp.serial_num)) ? null : payResponse.sp.serial_num;
+                Map<String, String> map = payResponse.cashdesk;
+                if (map != null && !map.isEmpty() && !TextUtils.isEmpty(payResponse.cashdesk.get("session_no"))) {
+                    str2 = payResponse.cashdesk.get("session_no");
+                }
+                str = str2;
+                str2 = str3;
+            } else {
+                str = null;
             }
-            str = str2;
-            str2 = str3;
-        } else {
-            str = null;
+            if (!TextUtils.isEmpty(sessionId)) {
+                arrayList.add(new RestNameValuePair("session_id", sessionId));
+            }
+            if (!TextUtils.isEmpty(this.f25824a)) {
+                arrayList.add(new RestNameValuePair("selected_card_no", this.f25824a));
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                arrayList.add(new RestNameValuePair("serial_num", str2));
+            }
+            if (!TextUtils.isEmpty(str)) {
+                arrayList.add(new RestNameValuePair("precashier_session_no", str));
+            }
+            return arrayList;
         }
-        if (!TextUtils.isEmpty(sessionId)) {
-            arrayList.add(new RestNameValuePair(ETAG.KEY_STATISTICS_SEESIONID, sessionId));
-        }
-        if (!TextUtils.isEmpty(this.f25281a)) {
-            arrayList.add(new RestNameValuePair("selected_card_no", this.f25281a));
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            arrayList.add(new RestNameValuePair("serial_num", str2));
-        }
-        if (!TextUtils.isEmpty(str)) {
-            arrayList.add(new RestNameValuePair("precashier_session_no", str));
-        }
-        return arrayList;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        return 768;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 768;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
-        return DomainConfig.getInstance().getAppPayHost() + "/cashdesk/wireless/banksign/getjumpurl";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return DomainConfig.getInstance().getAppPayHost() + "/cashdesk/wireless/banksign/getjumpurl";
+        }
+        return (String) invokeV.objValue;
     }
 }

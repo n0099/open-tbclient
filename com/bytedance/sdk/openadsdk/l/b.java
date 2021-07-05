@@ -1,82 +1,50 @@
 package com.bytedance.sdk.openadsdk.l;
 
-import android.os.SystemClock;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.bytedance.sdk.openadsdk.utils.u;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class b implements Comparable, Runnable {
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f29719a;
+    public String f31346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f29720b;
+    public String f31347b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public long f29721c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Thread f29722d = null;
-
-    public b(g gVar, a aVar) {
-        this.f29719a = null;
-        this.f29720b = null;
-        this.f29721c = 0L;
-        this.f29719a = gVar;
-        this.f29720b = aVar;
-        this.f29721c = SystemClock.uptimeMillis();
-    }
-
-    public g a() {
-        return this.f29719a;
-    }
-
-    @Override // java.lang.Comparable
-    public int compareTo(Object obj) {
-        if (obj instanceof b) {
-            return this.f29719a.compareTo(((b) obj).a());
+    public b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return 0;
+        this.f31346a = str;
+        this.f31347b = str2;
     }
 
-    public boolean equals(Object obj) {
-        g gVar;
-        return (obj instanceof b) && (gVar = this.f29719a) != null && gVar.equals(((b) obj).a());
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31346a : (String) invokeV.objValue;
     }
 
-    public int hashCode() {
-        return this.f29719a.hashCode();
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        long uptimeMillis = SystemClock.uptimeMillis();
-        long j = uptimeMillis - this.f29721c;
-        this.f29722d = Thread.currentThread();
-        g gVar = this.f29719a;
-        if (gVar != null) {
-            gVar.run();
-        }
-        long uptimeMillis2 = SystemClock.uptimeMillis() - uptimeMillis;
-        a aVar = this.f29720b;
-        if (aVar != null) {
-            d.a(aVar, j, uptimeMillis2);
-        }
-        Object[] objArr = new Object[8];
-        objArr[0] = "run: pool  = ";
-        a aVar2 = this.f29720b;
-        String str = StringUtil.NULL_STRING;
-        objArr[1] = aVar2 != null ? aVar2.a() : StringUtil.NULL_STRING;
-        objArr[2] = " waitTime =";
-        objArr[3] = Long.valueOf(j);
-        objArr[4] = " taskCost = ";
-        objArr[5] = Long.valueOf(uptimeMillis2);
-        objArr[6] = " name=";
-        g gVar2 = this.f29719a;
-        if (gVar2 != null) {
-            str = gVar2.h();
-        }
-        objArr[7] = str;
-        u.b("DelegateRunnable", objArr);
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31347b : (String) invokeV.objValue;
     }
 }

@@ -1,9 +1,18 @@
 package com.baidu.searchbox.bddownload;
 
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class SpeedCalculator {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public long allIncreaseBytes;
     public long beginTimestamp;
     public long bytesPerSecond;
@@ -11,95 +20,180 @@ public class SpeedCalculator {
     public long increaseBytes;
     public long timestamp;
 
+    public SpeedCalculator() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static String humanReadableSpeed(long j, boolean z) {
-        return Util.humanReadableBytes(j, z) + "/s";
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            return Util.humanReadableBytes(j, z) + "/s";
+        }
+        return (String) invokeCommon.objValue;
     }
 
     public String averageSpeed() {
-        return speedFromBegin();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? speedFromBegin() : (String) invokeV.objValue;
     }
 
     public synchronized void downloading(long j) {
-        if (this.timestamp == 0) {
-            long nowMillis = nowMillis();
-            this.timestamp = nowMillis;
-            this.beginTimestamp = nowMillis;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            synchronized (this) {
+                if (this.timestamp == 0) {
+                    long nowMillis = nowMillis();
+                    this.timestamp = nowMillis;
+                    this.beginTimestamp = nowMillis;
+                }
+                this.increaseBytes += j;
+                this.allIncreaseBytes += j;
+            }
         }
-        this.increaseBytes += j;
-        this.allIncreaseBytes += j;
     }
 
     public synchronized void endTask() {
-        this.endTimestamp = nowMillis();
-    }
-
-    public synchronized void flush() {
-        long nowMillis = nowMillis();
-        long j = this.increaseBytes;
-        long max = Math.max(1L, nowMillis - this.timestamp);
-        this.increaseBytes = 0L;
-        this.timestamp = nowMillis;
-        this.bytesPerSecond = (((float) j) / ((float) max)) * 1000.0f;
-    }
-
-    public synchronized long getBytesPerSecondAndFlush() {
-        long nowMillis = nowMillis() - this.timestamp;
-        if (nowMillis < 1000 && this.bytesPerSecond != 0) {
-            return this.bytesPerSecond;
-        } else if (this.bytesPerSecond != 0 || nowMillis >= 500) {
-            return getInstantBytesPerSecondAndFlush();
-        } else {
-            return 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.endTimestamp = nowMillis();
+            }
         }
     }
 
+    public synchronized void flush() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                long nowMillis = nowMillis();
+                long j = this.increaseBytes;
+                long max = Math.max(1L, nowMillis - this.timestamp);
+                this.increaseBytes = 0L;
+                this.timestamp = nowMillis;
+                this.bytesPerSecond = (((float) j) / ((float) max)) * 1000.0f;
+            }
+        }
+    }
+
+    public synchronized long getBytesPerSecondAndFlush() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                long nowMillis = nowMillis() - this.timestamp;
+                if (nowMillis < 1000 && this.bytesPerSecond != 0) {
+                    return this.bytesPerSecond;
+                }
+                if (this.bytesPerSecond != 0 || nowMillis >= 500) {
+                    return getInstantBytesPerSecondAndFlush();
+                }
+                return 0L;
+            }
+        }
+        return invokeV.longValue;
+    }
+
     public synchronized long getBytesPerSecondFromBegin() {
-        return (((float) this.allIncreaseBytes) / ((float) Math.max(1L, (this.endTimestamp == 0 ? nowMillis() : this.endTimestamp) - this.beginTimestamp))) * 1000.0f;
+        InterceptResult invokeV;
+        long max;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                max = (((float) this.allIncreaseBytes) / ((float) Math.max(1L, (this.endTimestamp == 0 ? nowMillis() : this.endTimestamp) - this.beginTimestamp))) * 1000.0f;
+            }
+            return max;
+        }
+        return invokeV.longValue;
     }
 
     public long getInstantBytesPerSecondAndFlush() {
-        flush();
-        return this.bytesPerSecond;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            flush();
+            return this.bytesPerSecond;
+        }
+        return invokeV.longValue;
     }
 
     public synchronized long getInstantSpeedDurationMillis() {
-        return nowMillis() - this.timestamp;
+        InterceptResult invokeV;
+        long nowMillis;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                nowMillis = nowMillis() - this.timestamp;
+            }
+            return nowMillis;
+        }
+        return invokeV.longValue;
     }
 
     public String getSpeedWithBinaryAndFlush() {
-        return humanReadableSpeed(getInstantBytesPerSecondAndFlush(), false);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? humanReadableSpeed(getInstantBytesPerSecondAndFlush(), false) : (String) invokeV.objValue;
     }
 
     public String getSpeedWithSIAndFlush() {
-        return humanReadableSpeed(getInstantBytesPerSecondAndFlush(), true);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? humanReadableSpeed(getInstantBytesPerSecondAndFlush(), true) : (String) invokeV.objValue;
     }
 
     public String instantSpeed() {
-        return getSpeedWithSIAndFlush();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getSpeedWithSIAndFlush() : (String) invokeV.objValue;
     }
 
     public String lastSpeed() {
-        return humanReadableSpeed(this.bytesPerSecond, true);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? humanReadableSpeed(this.bytesPerSecond, true) : (String) invokeV.objValue;
     }
 
     public long nowMillis() {
-        return SystemClock.uptimeMillis();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? SystemClock.uptimeMillis() : invokeV.longValue;
     }
 
     public synchronized void reset() {
-        this.timestamp = 0L;
-        this.increaseBytes = 0L;
-        this.bytesPerSecond = 0L;
-        this.beginTimestamp = 0L;
-        this.endTimestamp = 0L;
-        this.allIncreaseBytes = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            synchronized (this) {
+                this.timestamp = 0L;
+                this.increaseBytes = 0L;
+                this.bytesPerSecond = 0L;
+                this.beginTimestamp = 0L;
+                this.endTimestamp = 0L;
+                this.allIncreaseBytes = 0L;
+            }
+        }
     }
 
     public String speed() {
-        return humanReadableSpeed(getBytesPerSecondAndFlush(), true);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? humanReadableSpeed(getBytesPerSecondAndFlush(), true) : (String) invokeV.objValue;
     }
 
     public String speedFromBegin() {
-        return humanReadableSpeed(getBytesPerSecondFromBegin(), true);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? humanReadableSpeed(getBytesPerSecondFromBegin(), true) : (String) invokeV.objValue;
     }
 }

@@ -1,212 +1,294 @@
 package com.bytedance.sdk.openadsdk.core.widget;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.LinearGradient;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.Shader;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.View;
-import androidx.annotation.ColorInt;
+import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.ad;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.openadsdk.r.q;
 /* loaded from: classes6.dex */
-public class f extends Drawable {
-    @ColorInt
+public class f extends AlertDialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28853a;
-    @ColorInt
+    public TextView f30745a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28854b;
-    @Nullable
+    public TextView f30746b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f28855c;
-    @Nullable
+    public Button f30747c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f28856d;
-    @Nullable
+    public Button f30748d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearGradient f28857e;
+    public Context f30749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28858f;
+    public String f30750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28859g;
+    public String f30751g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28860h;
+    public String f30752h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28861i;
-    @Nullable
-    public RectF j;
-    @Nullable
-    public Paint k;
+    public String f30753i;
+    public Drawable j;
+    public a k;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public interface a {
+        void a(Dialog dialog);
 
-        /* renamed from: c  reason: collision with root package name */
-        public int[] f28864c;
-        @Nullable
+        void b(Dialog dialog);
+    }
 
-        /* renamed from: d  reason: collision with root package name */
-        public float[] f28865d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public LinearGradient f28866e;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f28869h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public int f28870i;
-        @ColorInt
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f28862a = ad.j(p.a(), "tt_ssxinmian8");
-        @ColorInt
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f28863b = ad.j(p.a(), "tt_ssxinxian3");
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f28867f = 10;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f28868g = 16;
-
-        public a() {
-            this.f28869h = 0;
-            this.f28870i = 0;
-            this.f28869h = 0;
-            this.f28870i = 0;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(Context context) {
+        super(context, r.g(context, "tt_custom_dialog"));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.f30749e = context;
+    }
 
-        public a a(@ColorInt int i2) {
-            this.f28862a = i2;
-            return this;
-        }
-
-        public a b(@ColorInt int i2) {
-            this.f28863b = i2;
-            return this;
-        }
-
-        public a c(int i2) {
-            this.f28867f = i2;
-            return this;
-        }
-
-        public a d(int i2) {
-            this.f28869h = i2;
-            return this;
-        }
-
-        public a e(int i2) {
-            this.f28870i = i2;
-            return this;
-        }
-
-        public a a(@Nullable int[] iArr) {
-            this.f28864c = iArr;
-            return this;
-        }
-
-        public f a() {
-            return new f(this.f28862a, this.f28864c, this.f28865d, this.f28863b, this.f28866e, this.f28867f, this.f28868g, this.f28869h, this.f28870i);
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            TextView textView = this.f30745a;
+            if (textView != null) {
+                textView.setText(this.f30750f);
+                Drawable drawable = this.j;
+                if (drawable != null) {
+                    int intrinsicWidth = drawable.getIntrinsicWidth();
+                    int intrinsicHeight = this.j.getIntrinsicHeight();
+                    int d2 = q.d(this.f30749e, 45.0f);
+                    if (intrinsicWidth > d2 || intrinsicWidth < d2) {
+                        intrinsicWidth = d2;
+                    }
+                    if (intrinsicHeight > d2 || intrinsicHeight < d2) {
+                        intrinsicHeight = d2;
+                    }
+                    this.j.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
+                    this.f30745a.setCompoundDrawables(this.j, null, null, null);
+                    this.f30745a.setCompoundDrawablePadding(q.d(this.f30749e, 10.0f));
+                }
+            }
+            TextView textView2 = this.f30746b;
+            if (textView2 != null) {
+                textView2.setText(this.f30751g);
+            }
+            Button button = this.f30747c;
+            if (button != null) {
+                button.setText(this.f30752h);
+            }
+            Button button2 = this.f30748d;
+            if (button2 != null) {
+                button2.setText(this.f30753i);
+            }
         }
     }
 
-    public f(@ColorInt int i2, @Nullable int[] iArr, @Nullable float[] fArr, @ColorInt int i3, @Nullable LinearGradient linearGradient, int i4, int i5, int i6, int i7) {
-        this.f28853a = i2;
-        this.f28855c = iArr;
-        this.f28856d = fArr;
-        this.f28854b = i3;
-        this.f28857e = linearGradient;
-        this.f28858f = i4;
-        this.f28859g = i5;
-        this.f28860h = i6;
-        this.f28861i = i7;
+    public f c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.f30752h = str;
+            return this;
+        }
+        return (f) invokeL.objValue;
+    }
+
+    public f d(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.f30753i = str;
+            return this;
+        }
+        return (f) invokeL.objValue;
+    }
+
+    @Override // android.app.AlertDialog, android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(r.f(this.f30749e, "tt_install_dialog_layout"));
+            setCanceledOnTouchOutside(true);
+            a();
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.show();
+            b();
+        }
     }
 
     private void a() {
-        int[] iArr;
-        Paint paint = new Paint();
-        this.k = paint;
-        boolean z = true;
-        paint.setAntiAlias(true);
-        this.k.setShadowLayer(this.f28859g, this.f28860h, this.f28861i, this.f28854b);
-        if (this.j != null && (iArr = this.f28855c) != null && iArr.length > 1) {
-            float[] fArr = this.f28856d;
-            z = (fArr == null || fArr.length <= 0 || fArr.length != iArr.length) ? false : false;
-            Paint paint2 = this.k;
-            LinearGradient linearGradient = this.f28857e;
-            if (linearGradient == null) {
-                RectF rectF = this.j;
-                linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f28855c, z ? this.f28856d : null, Shader.TileMode.CLAMP);
-            }
-            paint2.setShader(linearGradient);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.f30745a = (TextView) findViewById(r.e(this.f30749e, "tt_install_title"));
+            this.f30746b = (TextView) findViewById(r.e(this.f30749e, "tt_install_content"));
+            this.f30747c = (Button) findViewById(r.e(this.f30749e, "tt_install_btn_yes"));
+            this.f30748d = (Button) findViewById(r.e(this.f30749e, "tt_install_btn_no"));
+            this.f30747c.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.f.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ f f30754a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f30754a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f30754a.dismiss();
+                        if (this.f30754a.k != null) {
+                            this.f30754a.k.a(this.f30754a);
+                        }
+                    }
+                }
+            });
+            this.f30748d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.f.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ f f30755a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f30755a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f30755a.dismiss();
+                        if (this.f30755a.k != null) {
+                            this.f30755a.k.b(this.f30755a);
+                        }
+                    }
+                }
+            });
         }
-        this.k.setColor(this.f28853a);
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
-        if (this.j == null) {
-            Rect bounds = getBounds();
-            int i2 = bounds.left;
-            int i3 = this.f28859g;
-            int i4 = this.f28860h;
-            int i5 = this.f28861i;
-            this.j = new RectF((i2 + i3) - i4, (bounds.top + i3) - i5, (bounds.right - i3) - i4, (bounds.bottom - i3) - i5);
+    public f a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.f30750f = str;
+            return this;
         }
-        if (this.k == null) {
-            a();
-        }
-        RectF rectF = this.j;
-        int i6 = this.f28858f;
-        canvas.drawRoundRect(rectF, i6, i6, this.k);
+        return (f) invokeL.objValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        return -3;
+    public f a(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
+            this.j = drawable;
+            return this;
+        }
+        return (f) invokeL.objValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
-        Paint paint = this.k;
-        if (paint != null) {
-            paint.setAlpha(i2);
+    public f a(a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
+            this.k = aVar;
+            return this;
         }
+        return (f) invokeL.objValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        Paint paint = this.k;
-        if (paint != null) {
-            paint.setColorFilter(colorFilter);
+    public f a(@Nullable DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
+            setOnCancelListener(onCancelListener);
+            return this;
         }
+        return (f) invokeL.objValue;
     }
 
-    public static void a(View view, a aVar) {
-        if (view == null || aVar == null) {
-            return;
+    public f b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.f30751g = str;
+            return this;
         }
-        view.setLayerType(1, null);
-        ViewCompat.setBackground(view, aVar.a());
+        return (f) invokeL.objValue;
     }
 }

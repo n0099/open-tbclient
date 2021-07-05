@@ -1,5 +1,11 @@
 package rx.internal.operators;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.e;
 import h.j;
@@ -12,336 +18,539 @@ import java.util.List;
 import java.util.Map;
 import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<T1> f72484e;
+    public final d<T1> f76154e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d<T2> f72485f;
+    public final d<T2> f76155f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final f<? super T1, ? extends d<D1>> f72486g;
+    public final f<? super T1, ? extends d<D1>> f76156g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final f<? super T2, ? extends d<D2>> f72487h;
+    public final f<? super T2, ? extends d<D2>> f76157h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g<? super T1, ? super d<T2>, ? extends R> f72488i;
+    public final g<? super T1, ? super d<T2>, ? extends R> f76158i;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public final class ResultManager extends HashMap<Integer, e<T2>> implements k {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3035156013812425335L;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final RefCountSubscription cancel;
+        public final h.u.b group;
         public boolean leftDone;
         public int leftIds;
         public boolean rightDone;
         public int rightIds;
+        public final Map<Integer, T2> rightMap;
         public final j<? super R> subscriber;
-        public final Map<Integer, T2> rightMap = new HashMap();
-        public final h.u.b group = new h.u.b();
-        public final RefCountSubscription cancel = new RefCountSubscription(this.group);
+        public final /* synthetic */ OnSubscribeGroupJoin this$0;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public final class a extends j<D1> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final int f72489e;
+            public final int f76159e;
 
             /* renamed from: f  reason: collision with root package name */
-            public boolean f72490f = true;
+            public boolean f76160f;
 
-            public a(int i2) {
-                this.f72489e = i2;
+            /* renamed from: g  reason: collision with root package name */
+            public final /* synthetic */ ResultManager f76161g;
+
+            public a(ResultManager resultManager, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {resultManager, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f76161g = resultManager;
+                this.f76160f = true;
+                this.f76159e = i2;
             }
 
             @Override // h.e
             public void onCompleted() {
                 e<T2> remove;
-                if (this.f72490f) {
-                    this.f72490f = false;
-                    synchronized (ResultManager.this) {
-                        remove = ResultManager.this.leftMap().remove(Integer.valueOf(this.f72489e));
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f76160f) {
+                    this.f76160f = false;
+                    synchronized (this.f76161g) {
+                        remove = this.f76161g.leftMap().remove(Integer.valueOf(this.f76159e));
                     }
                     if (remove != null) {
                         remove.onCompleted();
                     }
-                    ResultManager.this.group.b(this);
+                    this.f76161g.group.b(this);
                 }
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                ResultManager.this.errorMain(th);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                    this.f76161g.errorMain(th);
+                }
             }
 
             @Override // h.e
             public void onNext(D1 d1) {
-                onCompleted();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d1) == null) {
+                    onCompleted();
+                }
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public final class b extends j<T1> {
-            public b() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ ResultManager f76162e;
+
+            public b(ResultManager resultManager) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {resultManager};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f76162e = resultManager;
             }
 
             @Override // h.e
             public void onCompleted() {
                 ArrayList arrayList;
-                synchronized (ResultManager.this) {
-                    ResultManager.this.leftDone = true;
-                    if (ResultManager.this.rightDone) {
-                        arrayList = new ArrayList(ResultManager.this.leftMap().values());
-                        ResultManager.this.leftMap().clear();
-                        ResultManager.this.rightMap.clear();
-                    } else {
-                        arrayList = null;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    synchronized (this.f76162e) {
+                        this.f76162e.leftDone = true;
+                        if (this.f76162e.rightDone) {
+                            arrayList = new ArrayList(this.f76162e.leftMap().values());
+                            this.f76162e.leftMap().clear();
+                            this.f76162e.rightMap.clear();
+                        } else {
+                            arrayList = null;
+                        }
                     }
+                    this.f76162e.complete(arrayList);
                 }
-                ResultManager.this.complete(arrayList);
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                ResultManager.this.errorAll(th);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                    this.f76162e.errorAll(th);
+                }
             }
 
             @Override // h.e
             public void onNext(T1 t1) {
                 int i2;
                 ArrayList<Object> arrayList;
-                try {
-                    PublishSubject K = PublishSubject.K();
-                    h.q.d dVar = new h.q.d(K);
-                    synchronized (ResultManager.this) {
-                        ResultManager resultManager = ResultManager.this;
-                        i2 = resultManager.leftIds;
-                        resultManager.leftIds = i2 + 1;
-                        ResultManager.this.leftMap().put(Integer.valueOf(i2), dVar);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t1) == null) {
+                    try {
+                        PublishSubject K = PublishSubject.K();
+                        h.q.d dVar = new h.q.d(K);
+                        synchronized (this.f76162e) {
+                            ResultManager resultManager = this.f76162e;
+                            i2 = resultManager.leftIds;
+                            resultManager.leftIds = i2 + 1;
+                            this.f76162e.leftMap().put(Integer.valueOf(i2), dVar);
+                        }
+                        h.d b2 = h.d.b(new a(K, this.f76162e.cancel));
+                        a aVar = new a(this.f76162e, i2);
+                        this.f76162e.group.a(aVar);
+                        this.f76162e.this$0.f76156g.call(t1).I(aVar);
+                        R a2 = this.f76162e.this$0.f76158i.a(t1, b2);
+                        synchronized (this.f76162e) {
+                            arrayList = new ArrayList(this.f76162e.rightMap.values());
+                        }
+                        this.f76162e.subscriber.onNext(a2);
+                        for (Object obj : arrayList) {
+                            dVar.onNext(obj);
+                        }
+                    } catch (Throwable th) {
+                        h.m.a.f(th, this);
                     }
-                    h.d b2 = h.d.b(new a(K, ResultManager.this.cancel));
-                    a aVar = new a(i2);
-                    ResultManager.this.group.a(aVar);
-                    OnSubscribeGroupJoin.this.f72486g.call(t1).I(aVar);
-                    R a2 = OnSubscribeGroupJoin.this.f72488i.a(t1, b2);
-                    synchronized (ResultManager.this) {
-                        arrayList = new ArrayList(ResultManager.this.rightMap.values());
-                    }
-                    ResultManager.this.subscriber.onNext(a2);
-                    for (Object obj : arrayList) {
-                        dVar.onNext(obj);
-                    }
-                } catch (Throwable th) {
-                    h.m.a.f(th, this);
                 }
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public final class c extends j<D2> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final int f72493e;
+            public final int f76163e;
 
             /* renamed from: f  reason: collision with root package name */
-            public boolean f72494f = true;
+            public boolean f76164f;
 
-            public c(int i2) {
-                this.f72493e = i2;
+            /* renamed from: g  reason: collision with root package name */
+            public final /* synthetic */ ResultManager f76165g;
+
+            public c(ResultManager resultManager, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {resultManager, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f76165g = resultManager;
+                this.f76164f = true;
+                this.f76163e = i2;
             }
 
             @Override // h.e
             public void onCompleted() {
-                if (this.f72494f) {
-                    this.f72494f = false;
-                    synchronized (ResultManager.this) {
-                        ResultManager.this.rightMap.remove(Integer.valueOf(this.f72493e));
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f76164f) {
+                    this.f76164f = false;
+                    synchronized (this.f76165g) {
+                        this.f76165g.rightMap.remove(Integer.valueOf(this.f76163e));
                     }
-                    ResultManager.this.group.b(this);
+                    this.f76165g.group.b(this);
                 }
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                ResultManager.this.errorMain(th);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                    this.f76165g.errorMain(th);
+                }
             }
 
             @Override // h.e
             public void onNext(D2 d2) {
-                onCompleted();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2) == null) {
+                    onCompleted();
+                }
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public final class d extends j<T2> {
-            public d() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ ResultManager f76166e;
+
+            public d(ResultManager resultManager) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {resultManager};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f76166e = resultManager;
             }
 
             @Override // h.e
             public void onCompleted() {
                 ArrayList arrayList;
-                synchronized (ResultManager.this) {
-                    ResultManager.this.rightDone = true;
-                    if (ResultManager.this.leftDone) {
-                        arrayList = new ArrayList(ResultManager.this.leftMap().values());
-                        ResultManager.this.leftMap().clear();
-                        ResultManager.this.rightMap.clear();
-                    } else {
-                        arrayList = null;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    synchronized (this.f76166e) {
+                        this.f76166e.rightDone = true;
+                        if (this.f76166e.leftDone) {
+                            arrayList = new ArrayList(this.f76166e.leftMap().values());
+                            this.f76166e.leftMap().clear();
+                            this.f76166e.rightMap.clear();
+                        } else {
+                            arrayList = null;
+                        }
                     }
+                    this.f76166e.complete(arrayList);
                 }
-                ResultManager.this.complete(arrayList);
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                ResultManager.this.errorAll(th);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                    this.f76166e.errorAll(th);
+                }
             }
 
             @Override // h.e
             public void onNext(T2 t2) {
                 int i2;
                 ArrayList<e> arrayList;
-                try {
-                    synchronized (ResultManager.this) {
-                        ResultManager resultManager = ResultManager.this;
-                        i2 = resultManager.rightIds;
-                        resultManager.rightIds = i2 + 1;
-                        ResultManager.this.rightMap.put(Integer.valueOf(i2), t2);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t2) == null) {
+                    try {
+                        synchronized (this.f76166e) {
+                            ResultManager resultManager = this.f76166e;
+                            i2 = resultManager.rightIds;
+                            resultManager.rightIds = i2 + 1;
+                            this.f76166e.rightMap.put(Integer.valueOf(i2), t2);
+                        }
+                        c cVar = new c(this.f76166e, i2);
+                        this.f76166e.group.a(cVar);
+                        this.f76166e.this$0.f76157h.call(t2).I(cVar);
+                        synchronized (this.f76166e) {
+                            arrayList = new ArrayList(this.f76166e.leftMap().values());
+                        }
+                        for (e eVar : arrayList) {
+                            eVar.onNext(t2);
+                        }
+                    } catch (Throwable th) {
+                        h.m.a.f(th, this);
                     }
-                    c cVar = new c(i2);
-                    ResultManager.this.group.a(cVar);
-                    OnSubscribeGroupJoin.this.f72487h.call(t2).I(cVar);
-                    synchronized (ResultManager.this) {
-                        arrayList = new ArrayList(ResultManager.this.leftMap().values());
-                    }
-                    for (e eVar : arrayList) {
-                        eVar.onNext(t2);
-                    }
-                } catch (Throwable th) {
-                    h.m.a.f(th, this);
                 }
             }
         }
 
-        public ResultManager(j<? super R> jVar) {
+        public ResultManager(OnSubscribeGroupJoin onSubscribeGroupJoin, j<? super R> jVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {onSubscribeGroupJoin, jVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = onSubscribeGroupJoin;
+            this.rightMap = new HashMap();
             this.subscriber = jVar;
+            this.group = new h.u.b();
+            this.cancel = new RefCountSubscription(this.group);
         }
 
         public void complete(List<e<T2>> list) {
-            if (list != null) {
-                for (e<T2> eVar : list) {
-                    eVar.onCompleted();
-                }
-                this.subscriber.onCompleted();
-                this.cancel.unsubscribe();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
+                return;
             }
+            for (e<T2> eVar : list) {
+                eVar.onCompleted();
+            }
+            this.subscriber.onCompleted();
+            this.cancel.unsubscribe();
         }
 
         public void errorAll(Throwable th) {
             ArrayList<e> arrayList;
-            synchronized (this) {
-                arrayList = new ArrayList(leftMap().values());
-                leftMap().clear();
-                this.rightMap.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                synchronized (this) {
+                    arrayList = new ArrayList(leftMap().values());
+                    leftMap().clear();
+                    this.rightMap.clear();
+                }
+                for (e eVar : arrayList) {
+                    eVar.onError(th);
+                }
+                this.subscriber.onError(th);
+                this.cancel.unsubscribe();
             }
-            for (e eVar : arrayList) {
-                eVar.onError(th);
-            }
-            this.subscriber.onError(th);
-            this.cancel.unsubscribe();
         }
 
         public void errorMain(Throwable th) {
-            synchronized (this) {
-                leftMap().clear();
-                this.rightMap.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                synchronized (this) {
+                    leftMap().clear();
+                    this.rightMap.clear();
+                }
+                this.subscriber.onError(th);
+                this.cancel.unsubscribe();
             }
-            this.subscriber.onError(th);
-            this.cancel.unsubscribe();
         }
 
         public void init() {
-            b bVar = new b();
-            d dVar = new d();
-            this.group.a(bVar);
-            this.group.a(dVar);
-            OnSubscribeGroupJoin.this.f72484e.I(bVar);
-            OnSubscribeGroupJoin.this.f72485f.I(dVar);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                b bVar = new b(this);
+                d dVar = new d(this);
+                this.group.a(bVar);
+                this.group.a(dVar);
+                this.this$0.f76154e.I(bVar);
+                this.this$0.f76155f.I(dVar);
+            }
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.cancel.isUnsubscribed();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cancel.isUnsubscribed() : invokeV.booleanValue;
         }
 
         public Map<Integer, e<T2>> leftMap() {
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (Map) invokeV.objValue;
         }
 
         @Override // h.k
         public void unsubscribe() {
-            this.cancel.unsubscribe();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.cancel.unsubscribe();
+            }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class a<T> implements d.a<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final RefCountSubscription f72497e;
+        public final RefCountSubscription f76167e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d<T> f72498f;
+        public final d<T> f76168f;
 
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public final class C2007a extends j<T> {
+        /* loaded from: classes10.dex */
+        public final class C2128a extends j<T> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final j<? super T> f72499e;
+            public final j<? super T> f76169e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final k f72500f;
+            public final k f76170f;
 
-            public C2007a(a aVar, j<? super T> jVar, k kVar) {
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public C2128a(a aVar, j<? super T> jVar, k kVar) {
                 super(jVar);
-                this.f72499e = jVar;
-                this.f72500f = kVar;
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, jVar, kVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super((j) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f76169e = jVar;
+                this.f76170f = kVar;
             }
 
             @Override // h.e
             public void onCompleted() {
-                this.f72499e.onCompleted();
-                this.f72500f.unsubscribe();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.f76169e.onCompleted();
+                    this.f76170f.unsubscribe();
+                }
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                this.f72499e.onError(th);
-                this.f72500f.unsubscribe();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                    this.f76169e.onError(th);
+                    this.f76170f.unsubscribe();
+                }
             }
 
             @Override // h.e
             public void onNext(T t) {
-                this.f72499e.onNext(t);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                    this.f76169e.onNext(t);
+                }
             }
         }
 
         public a(d<T> dVar, RefCountSubscription refCountSubscription) {
-            this.f72497e = refCountSubscription;
-            this.f72498f = dVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar, refCountSubscription};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f76167e = refCountSubscription;
+            this.f76168f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(j<? super T> jVar) {
-            k a2 = this.f72497e.a();
-            C2007a c2007a = new C2007a(this, jVar, a2);
-            c2007a.add(a2);
-            this.f72498f.I(c2007a);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
+                k a2 = this.f76167e.a();
+                C2128a c2128a = new C2128a(this, jVar, a2);
+                c2128a.add(a2);
+                this.f76168f.I(c2128a);
+            }
         }
     }
 }

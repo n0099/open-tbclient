@@ -1,54 +1,103 @@
 package d.a.c.f.a;
 
 import android.graphics.drawable.BitmapDrawable;
-/* loaded from: classes.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapDrawable f42774a;
+    public BitmapDrawable f44583a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.c.k.d.a f42775b;
+    public d.a.c.k.d.a f44584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f42776c = true;
+    public volatile boolean f44585c;
+
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44585c = true;
+    }
 
     public int a() {
-        if (e()) {
-            return this.f42774a.getIntrinsicHeight();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (e()) {
+                return this.f44583a.getIntrinsicHeight();
+            }
+            if (d()) {
+                return this.f44584b.m();
+            }
+            return 0;
         }
-        if (d()) {
-            return this.f42775b.m();
-        }
-        return 0;
+        return invokeV.intValue;
     }
 
     public int b() {
-        if (e()) {
-            return this.f42774a.getIntrinsicWidth();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (e()) {
+                return this.f44583a.getIntrinsicWidth();
+            }
+            if (d()) {
+                return this.f44584b.r();
+            }
+            return 0;
         }
-        if (d()) {
-            return this.f42775b.r();
-        }
-        return 0;
+        return invokeV.intValue;
     }
 
     public boolean c() {
-        return e() || d();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e() || d() : invokeV.booleanValue;
     }
 
     public boolean d() {
-        d.a.c.k.d.a aVar = this.f42775b;
-        return aVar != null && aVar.w();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            d.a.c.k.d.a aVar = this.f44584b;
+            return aVar != null && aVar.w();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean e() {
-        BitmapDrawable bitmapDrawable = this.f42774a;
-        return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.f42774a.getBitmap().isRecycled()) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BitmapDrawable bitmapDrawable = this.f44583a;
+            return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.f44583a.getBitmap().isRecycled()) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void f() {
-        this.f42775b = null;
-        this.f42774a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f44584b = null;
+            this.f44583a = null;
+        }
     }
 }

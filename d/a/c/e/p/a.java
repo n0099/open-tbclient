@@ -4,24 +4,38 @@ import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-/* loaded from: classes.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static void a(String str) {
-        if (str == null) {
-            str = "";
-        }
-        try {
-            ((ClipboardManager) BdBaseApplication.getInst().getApp().getSystemService("clipboard")).setText(str);
-        } catch (Throwable th) {
-            BdLog.e(th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (str == null) {
+                str = "";
+            }
+            try {
+                ((ClipboardManager) BdBaseApplication.getInst().getApp().getSystemService("clipboard")).setText(str);
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
         }
     }
 
     public static int b(Context context) {
+        InterceptResult invokeL;
         int identifier;
-        if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android")) > 0) {
-            return context.getResources().getDimensionPixelSize(identifier);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android")) > 0) {
+                return context.getResources().getDimensionPixelSize(identifier);
+            }
+            return 0;
         }
-        return 0;
+        return invokeL.intValue;
     }
 }

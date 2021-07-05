@@ -4,37 +4,94 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class ImmersiveKeyboardAdjust {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ViewTreeObserver.OnGlobalLayoutListener globalLayoutListener;
     public int usableHeightPrevious;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int computeUsableHeight(View view) {
-        if (view == null) {
-            return 0;
+    public ImmersiveKeyboardAdjust() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        Rect rect = new Rect();
-        view.getWindowVisibleDisplayFrame(rect);
-        return rect.bottom;
     }
 
-    public void attachActivity(final View view) {
-        if (view == null) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public int computeUsableHeight(View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, view)) == null) {
+            if (view == null) {
+                return 0;
+            }
+            Rect rect = new Rect();
+            view.getWindowVisibleDisplayFrame(rect);
+            return rect.bottom;
+        }
+        return invokeL.intValue;
+    }
+
+    public void attachActivity(View view) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
         if (this.globalLayoutListener == null) {
-            this.globalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.apollon.statusbar.ImmersiveKeyboardAdjust.1
+            this.globalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener(this, view) { // from class: com.baidu.apollon.statusbar.ImmersiveKeyboardAdjust.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ View f3992a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ ImmersiveKeyboardAdjust f3993b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, view};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f3993b = this;
+                    this.f3992a = view;
+                }
+
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
+                    int computeUsableHeight;
                     View view2;
-                    int computeUsableHeight = ImmersiveKeyboardAdjust.this.computeUsableHeight(view);
-                    if (computeUsableHeight == ImmersiveKeyboardAdjust.this.usableHeightPrevious || (view2 = view) == null) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (computeUsableHeight = this.f3993b.computeUsableHeight(this.f3992a)) == this.f3993b.usableHeightPrevious || (view2 = this.f3992a) == null) {
                         return;
                     }
                     view2.getLayoutParams().height = computeUsableHeight;
-                    view.requestLayout();
-                    ImmersiveKeyboardAdjust.this.usableHeightPrevious = computeUsableHeight;
+                    this.f3992a.requestLayout();
+                    this.f3993b.usableHeightPrevious = computeUsableHeight;
                 }
             };
         }
@@ -46,7 +103,8 @@ public class ImmersiveKeyboardAdjust {
     }
 
     public void detachActivity(View view) {
-        if (view == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null) {
             return;
         }
         if (view != null) {

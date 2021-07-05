@@ -11,92 +11,144 @@ import android.graphics.Rect;
 import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class XfordView extends ImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f6196a;
+    public Bitmap f6226a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f6197b;
+    public Paint f6227b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f6198c;
+    public Rect f6228c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f6199d;
+    public Rect f6229d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Xfermode f6200e;
+    public Xfermode f6230e;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public XfordView(Context context) {
         super(context);
-        this.f6196a = null;
-        this.f6197b = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f6226a = null;
+        this.f6227b = null;
         a();
     }
 
     private void a() {
-        if (this.f6197b == null) {
-            Paint paint = new Paint();
-            this.f6197b = paint;
-            paint.setColor(1711276032);
-        }
-        if (this.f6196a == null) {
-            this.f6196a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
-        }
-        if (this.f6200e == null) {
-            this.f6200e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            if (this.f6227b == null) {
+                Paint paint = new Paint();
+                this.f6227b = paint;
+                paint.setColor(1711276032);
+            }
+            if (this.f6226a == null) {
+                this.f6226a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
+            }
+            if (this.f6230e == null) {
+                this.f6230e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+            }
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        Bitmap bitmap = this.f6196a;
-        if (bitmap != null && !bitmap.isRecycled()) {
-            this.f6196a.recycle();
-            this.f6196a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.onDetachedFromWindow();
+            Bitmap bitmap = this.f6226a;
+            if (bitmap != null && !bitmap.isRecycled()) {
+                this.f6226a.recycle();
+                this.f6226a = null;
+            }
+            System.gc();
+            this.f6230e = null;
+            this.f6228c = null;
+            this.f6229d = null;
         }
-        System.gc();
-        this.f6200e = null;
-        this.f6198c = null;
-        this.f6199d = null;
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.sapi_liveness_face_round_height);
-        int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(R.dimen.sapi_liveness_face_round_width);
-        int width = (getWidth() - dimensionPixelSize2) / 2;
-        int height = (getHeight() - dimensionPixelSize) / 2;
-        if (this.f6199d == null) {
-            this.f6199d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            super.onDraw(canvas);
+            int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
+            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.sapi_liveness_face_round_height);
+            int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(R.dimen.sapi_liveness_face_round_width);
+            int width = (getWidth() - dimensionPixelSize2) / 2;
+            int height = (getHeight() - dimensionPixelSize) / 2;
+            if (this.f6229d == null) {
+                this.f6229d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
+            }
+            if (this.f6228c == null) {
+                this.f6228c = new Rect(0, 0, this.f6226a.getWidth(), this.f6226a.getHeight());
+            }
+            canvas.drawBitmap(this.f6226a, this.f6228c, this.f6229d, this.f6227b);
+            this.f6227b.setXfermode(this.f6230e);
+            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6227b);
+            this.f6227b.setXfermode(null);
+            canvas.restoreToCount(saveLayer);
         }
-        if (this.f6198c == null) {
-            this.f6198c = new Rect(0, 0, this.f6196a.getWidth(), this.f6196a.getHeight());
-        }
-        canvas.drawBitmap(this.f6196a, this.f6198c, this.f6199d, this.f6197b);
-        this.f6197b.setXfermode(this.f6200e);
-        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6197b);
-        this.f6197b.setXfermode(null);
-        canvas.restoreToCount(saveLayer);
     }
 
     public void setBgPaintColor(int i2) {
-        if (this.f6197b == null) {
-            this.f6197b = new Paint();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            if (this.f6227b == null) {
+                this.f6227b = new Paint();
+            }
+            this.f6227b.setColor(i2);
         }
-        this.f6197b.setColor(i2);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public XfordView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f6196a = null;
-        this.f6197b = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f6226a = null;
+        this.f6227b = null;
         a();
     }
 }

@@ -1,14 +1,36 @@
 package com.google.common.base;
 
-import d.g.c.a.n;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.f.d.a.n;
 import java.io.Serializable;
 import java.lang.Enum;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Enums$StringConverter<T extends Enum<T>> extends Converter<String, T> implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Class<T> enumClass;
 
     public Enums$StringConverter(Class<T> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         n.p(cls);
         this.enumClass = cls;
     }
@@ -21,29 +43,45 @@ public final class Enums$StringConverter<T extends Enum<T>> extends Converter<St
         return doBackward((Enums$StringConverter<T>) ((Enum) obj));
     }
 
-    @Override // com.google.common.base.Converter, d.g.c.a.g
+    @Override // com.google.common.base.Converter, d.f.d.a.g
     public boolean equals(Object obj) {
-        if (obj instanceof Enums$StringConverter) {
-            return this.enumClass.equals(((Enums$StringConverter) obj).enumClass);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (obj instanceof Enums$StringConverter) {
+                return this.enumClass.equals(((Enums$StringConverter) obj).enumClass);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public int hashCode() {
-        return this.enumClass.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.enumClass.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
-        return "Enums.stringConverter(" + this.enumClass.getName() + ".class)";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "Enums.stringConverter(" + this.enumClass.getName() + ".class)";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String doBackward(T t) {
-        return t.name();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) ? t.name() : (String) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.common.base.Converter
     public T doForward(String str) {
-        return (T) Enum.valueOf(this.enumClass, str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? (T) Enum.valueOf(this.enumClass, str) : (T) invokeL.objValue;
     }
 }

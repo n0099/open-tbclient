@@ -2,10 +2,33 @@ package com.baidu.swan.bdtls;
 
 import android.text.TextUtils;
 import androidx.annotation.Keep;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.StandardCharsets;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RSA {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public RSA() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Keep
     public static native byte[] decrypt(byte[] bArr);
 
@@ -19,33 +42,53 @@ public class RSA {
     public static native byte[] privateEncrypt(byte[] bArr);
 
     public static String privateKeyDecrypt(byte[] bArr) {
-        if (bArr == null || bArr.length < 1) {
-            return "null content";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+            if (bArr == null || bArr.length < 1) {
+                return "null content";
+            }
+            byte[] privateDecrypt = privateDecrypt(bArr);
+            return (privateDecrypt == null || privateDecrypt.length < 1) ? "result is null" : new String(privateDecrypt, StandardCharsets.UTF_8);
         }
-        byte[] privateDecrypt = privateDecrypt(bArr);
-        return (privateDecrypt == null || privateDecrypt.length < 1) ? "result is null" : new String(privateDecrypt, StandardCharsets.UTF_8);
+        return (String) invokeL.objValue;
     }
 
     public static byte[] privateKeyEncrypt(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            byte[] privateEncrypt = privateEncrypt(str.getBytes(StandardCharsets.UTF_8));
+            return (privateEncrypt == null || privateEncrypt.length < 1) ? new byte[]{-1} : privateEncrypt;
         }
-        byte[] privateEncrypt = privateEncrypt(str.getBytes(StandardCharsets.UTF_8));
-        return (privateEncrypt == null || privateEncrypt.length < 1) ? new byte[]{-1} : privateEncrypt;
+        return (byte[]) invokeL.objValue;
     }
 
     public static String rsaDecrypt(byte[] bArr) {
-        if (bArr == null || bArr.length < 1) {
-            return "null content";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
+            if (bArr == null || bArr.length < 1) {
+                return "null content";
+            }
+            byte[] decrypt = decrypt(bArr);
+            return (decrypt == null || decrypt.length < 1) ? "result is null" : new String(decrypt, StandardCharsets.UTF_8);
         }
-        byte[] decrypt = decrypt(bArr);
-        return (decrypt == null || decrypt.length < 1) ? "result is null" : new String(decrypt, StandardCharsets.UTF_8);
+        return (String) invokeL.objValue;
     }
 
     public static byte[] rsaEncrypt(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return encrypt(str.getBytes(StandardCharsets.UTF_8));
         }
-        return encrypt(str.getBytes(StandardCharsets.UTF_8));
+        return (byte[]) invokeL.objValue;
     }
 }

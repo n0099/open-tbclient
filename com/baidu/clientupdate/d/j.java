@@ -16,168 +16,245 @@ import android.text.TextUtils;
 import androidx.core.content.FileProvider;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.router.RouterCallback;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.util.LogUtil;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class j {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f4627a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f4657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4628b = "";
+    public static String f4658b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1147890217, "Lcom/baidu/clientupdate/d/j;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1147890217, "Lcom/baidu/clientupdate/d/j;");
+                return;
+            }
+        }
+        f4657a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f4658b = "";
+    }
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
-        Object obj2 = null;
-        try {
-            obj2 = obj.getClass().getMethod(str, clsArr).invoke(obj, objArr);
-            LogUtil.logD("Utility", "Method \"" + str + "\" invoked success!");
-            return obj2;
-        } catch (Exception e2) {
-            LogUtil.logD("Utility", "Method \"" + str + "\" invoked failed: " + e2.getMessage());
-            return obj2;
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, obj, str, clsArr, objArr)) == null) {
+            Object obj2 = null;
+            try {
+                obj2 = obj.getClass().getMethod(str, clsArr).invoke(obj, objArr);
+                LogUtil.logD("Utility", "Method \"" + str + "\" invoked success!");
+                return obj2;
+            } catch (Exception e2) {
+                LogUtil.logD("Utility", "Method \"" + str + "\" invoked failed: " + e2.getMessage());
+                return obj2;
+            }
         }
+        return invokeLLLL.objValue;
     }
 
     public static String a(Context context, String str) {
-        try {
-            return g.a(new File(b(context, str).applicationInfo.publicSourceDir));
-        } catch (Exception e2) {
-            LogUtil.logE("Utility", "error" + e2.getMessage());
-            return "";
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                return g.a(new File(b(context, str).applicationInfo.publicSourceDir));
+            } catch (Exception e2) {
+                LogUtil.logE("Utility", "error" + e2.getMessage());
+                return "";
+            }
         }
+        return (String) invokeLL.objValue;
     }
 
     public static String a(Object obj) {
-        Object a2 = a(obj, "getPath", null, null);
-        return a2 != null ? (String) a2 : "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            Object a2 = a(obj, "getPath", null, null);
+            return a2 != null ? (String) a2 : "";
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void a(Context context, File file) {
-        com.baidu.clientupdate.a.d a2 = com.baidu.clientupdate.a.d.a(context);
-        com.baidu.clientupdate.c.a a3 = com.baidu.clientupdate.c.a.a(context);
-        LogUtil.logD("Utility", "startSystemInstallUI安装文件存在:" + file.exists() + ":" + file.getPath());
-        com.baidu.util.a.a(context).b("lcsdk_xml", "sessionId", a3.c());
-        com.baidu.util.a.a(context).b("lcsdk_xml", "sessionInfo", a3.b());
-        Intent intent = new Intent("android.intent.action.VIEW");
-        try {
-            if (Build.VERSION.SDK_INT >= 24) {
-                intent.setFlags(RouterCallback.CODE_ERROR);
-                String str = f4628b;
-                if (TextUtils.isEmpty(f4628b)) {
-                    str = context.getPackageName() + ".fileprovider";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, context, file) == null) {
+            com.baidu.clientupdate.a.d a2 = com.baidu.clientupdate.a.d.a(context);
+            com.baidu.clientupdate.c.a a3 = com.baidu.clientupdate.c.a.a(context);
+            LogUtil.logD("Utility", "startSystemInstallUI安装文件存在:" + file.exists() + ":" + file.getPath());
+            com.baidu.util.a.a(context).b("lcsdk_xml", "sessionId", a3.c());
+            com.baidu.util.a.a(context).b("lcsdk_xml", "sessionInfo", a3.b());
+            Intent intent = new Intent("android.intent.action.VIEW");
+            try {
+                if (Build.VERSION.SDK_INT >= 24) {
+                    intent.setFlags(RouterCallback.CODE_ERROR);
+                    String str = f4658b;
+                    if (TextUtils.isEmpty(f4658b)) {
+                        str = context.getPackageName() + ".fileprovider";
+                    }
+                    intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
+                } else {
+                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 }
-                intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
-            } else {
-                intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                LogUtil.logD("Utility", "启动系统安装界面");
+                context.startActivity(intent);
+                a2.a(a3.c(), "0", a3.b(), "a9", "0", (System.currentTimeMillis() / 1000) + "", "", "startSystemInstallUI", "");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                LogUtil.logE("Utility", "启动系统安装界面失败");
+                a2.a(a3.c(), "0", a3.b(), "a9", "1", (System.currentTimeMillis() / 1000) + "", "", "startSystemInstallUI", e2.toString());
             }
-            LogUtil.logD("Utility", "启动系统安装界面");
-            context.startActivity(intent);
-            a2.a(a3.c(), "0", a3.b(), "a9", "0", (System.currentTimeMillis() / 1000) + "", "", "startSystemInstallUI", "");
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            LogUtil.logE("Utility", "启动系统安装界面失败");
-            a2.a(a3.c(), "0", a3.b(), "a9", "1", (System.currentTimeMillis() / 1000) + "", "", "startSystemInstallUI", e2.toString());
         }
     }
 
     public static void a(String str) {
-        f4628b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+            f4658b = str;
+        }
     }
 
     public static boolean a(Context context) {
+        InterceptResult invokeL;
         NetworkInfo[] allNetworkInfo;
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-        if (connectivityManager == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return false;
+            }
+            for (NetworkInfo networkInfo : connectivityManager.getAllNetworkInfo()) {
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    return true;
+                }
+            }
             return false;
         }
-        for (NetworkInfo networkInfo : connectivityManager.getAllNetworkInfo()) {
-            if (networkInfo != null && networkInfo.isConnected()) {
-                return true;
-            }
-        }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static PackageInfo b(Context context, String str) {
-        try {
-            return context.getPackageManager().getPackageInfo(str, 64);
-        } catch (PackageManager.NameNotFoundException unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(str, 64);
+            } catch (PackageManager.NameNotFoundException unused) {
+                return null;
+            }
         }
+        return (PackageInfo) invokeLL.objValue;
     }
 
     public static boolean b(Context context) {
-        return context.checkCallingOrSelfPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0 && context.checkCallingOrSelfPermission("android.permission.INTERNET") == 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? context.checkCallingOrSelfPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0 && context.checkCallingOrSelfPermission("android.permission.INTERNET") == 0 : invokeL.booleanValue;
     }
 
     public static long c(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getLong("client_update_ignore_time", 0L);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? PreferenceManager.getDefaultSharedPreferences(context).getLong("client_update_ignore_time", 0L) : invokeL.longValue;
     }
 
     @TargetApi(9)
     public static String c(Context context, String str) {
+        InterceptResult invokeLL;
         Object a2;
-        return (Build.VERSION.SDK_INT >= 9 && (a2 = a((StorageManager) context.getSystemService("storage"), "getVolumeState", new Class[]{String.class}, new Object[]{str})) != null) ? (String) a2 : "";
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? (Build.VERSION.SDK_INT >= 9 && (a2 = a((StorageManager) context.getSystemService("storage"), "getVolumeState", new Class[]{String.class}, new Object[]{str})) != null) ? (String) a2 : "" : (String) invokeLL.objValue;
     }
 
     public static boolean d(Context context) {
-        Context applicationContext = context.getApplicationContext();
-        ActivityManager.RunningTaskInfo e2 = e(applicationContext);
-        if (e2 == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            ActivityManager.RunningTaskInfo e2 = e(applicationContext);
+            if (e2 == null) {
+                return false;
+            }
+            return TextUtils.equals(applicationContext.getPackageName(), e2.baseActivity.getPackageName());
         }
-        return TextUtils.equals(applicationContext.getPackageName(), e2.baseActivity.getPackageName());
+        return invokeL.booleanValue;
     }
 
     public static ActivityManager.RunningTaskInfo e(Context context) {
+        InterceptResult invokeL;
         ActivityManager.RecentTaskInfo recentTaskInfo;
-        ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-        List<ActivityManager.RecentTaskInfo> recentTasks = activityManager.getRecentTasks(1, 1);
-        List<ActivityManager.RunningTaskInfo> runningTasks = activityManager.getRunningTasks(3);
-        Iterator<ActivityManager.RecentTaskInfo> it = recentTasks.iterator();
-        Iterator<ActivityManager.RunningTaskInfo> it2 = runningTasks.iterator();
-        if (it.hasNext()) {
-            recentTaskInfo = it.next();
-            LogUtil.logD("Utility", "getCurrentTask---------当前任务----localRecentTaskInfo.id = " + recentTaskInfo.id);
-            LogUtil.logD("Utility", "getCurrentTask---------当前任务----localRecentTaskInfo.PackageName = " + recentTaskInfo.baseIntent.getComponent().getPackageName());
-        } else {
-            recentTaskInfo = null;
-        }
-        if (recentTaskInfo == null) {
-            return null;
-        }
-        ActivityManager.RunningTaskInfo next = it2.hasNext() ? it2.next() : null;
-        if (next == null) {
-            return null;
-        }
-        int i2 = recentTaskInfo.id;
-        if (i2 == -1 || next.id != i2) {
-            String packageName = recentTaskInfo.baseIntent.getComponent().getPackageName();
-            if (next.baseActivity.getPackageName().equals(packageName)) {
-                while (it2.hasNext()) {
-                    next = it2.next();
-                    if (!next.baseActivity.getPackageName().equals(packageName)) {
-                    }
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+            List<ActivityManager.RecentTaskInfo> recentTasks = activityManager.getRecentTasks(1, 1);
+            List<ActivityManager.RunningTaskInfo> runningTasks = activityManager.getRunningTasks(3);
+            Iterator<ActivityManager.RecentTaskInfo> it = recentTasks.iterator();
+            Iterator<ActivityManager.RunningTaskInfo> it2 = runningTasks.iterator();
+            if (it.hasNext()) {
+                recentTaskInfo = it.next();
+                LogUtil.logD("Utility", "getCurrentTask---------当前任务----localRecentTaskInfo.id = " + recentTaskInfo.id);
+                LogUtil.logD("Utility", "getCurrentTask---------当前任务----localRecentTaskInfo.PackageName = " + recentTaskInfo.baseIntent.getComponent().getPackageName());
+            } else {
+                recentTaskInfo = null;
+            }
+            if (recentTaskInfo == null) {
                 return null;
             }
-        } else {
-            LogUtil.logD("Utility", "getCurrentTask---------new task");
+            ActivityManager.RunningTaskInfo next = it2.hasNext() ? it2.next() : null;
+            if (next == null) {
+                return null;
+            }
+            int i2 = recentTaskInfo.id;
+            if (i2 == -1 || next.id != i2) {
+                String packageName = recentTaskInfo.baseIntent.getComponent().getPackageName();
+                if (next.baseActivity.getPackageName().equals(packageName)) {
+                    while (it2.hasNext()) {
+                        next = it2.next();
+                        if (!next.baseActivity.getPackageName().equals(packageName)) {
+                        }
+                    }
+                    return null;
+                }
+            } else {
+                LogUtil.logD("Utility", "getCurrentTask---------new task");
+            }
+            return next;
         }
-        return next;
+        return (ActivityManager.RunningTaskInfo) invokeL.objValue;
     }
 
     @TargetApi(9)
     public static Object[] f(Context context) {
+        InterceptResult invokeL;
         Object a2;
-        if (Build.VERSION.SDK_INT >= 9 && (a2 = a((StorageManager) context.getSystemService("storage"), "getVolumeList", null, null)) != null) {
-            return (Object[]) a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 9 && (a2 = a((StorageManager) context.getSystemService("storage"), "getVolumeList", null, null)) != null) {
+                return (Object[]) a2;
+            }
+            return null;
         }
-        return null;
+        return (Object[]) invokeL.objValue;
     }
 }

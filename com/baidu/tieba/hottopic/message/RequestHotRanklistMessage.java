@@ -1,78 +1,130 @@
 package com.baidu.tieba.hottopic.message;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.n0.z0.w;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.w;
 import tbclient.CommonReq;
 import tbclient.TopicList.DataReq;
 import tbclient.TopicList.TopicListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RequestHotRanklistMessage extends NetMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16985common;
+    public CommonReq f17111common;
     public long fid;
     public String list_type;
     public String need_tab_list;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestHotRanklistMessage() {
         super(CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
-        try {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.f72985common = getCommon();
-            builder.call_from = getCallFrom();
-            builder.list_type = getListType();
-            builder.need_tab_list = getNeedTabList();
-            builder.fid = Long.valueOf(this.fid);
-            if (z) {
-                w.a(builder, true);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.f76659common = getCommon();
+                builder.call_from = getCallFrom();
+                builder.list_type = getListType();
+                builder.need_tab_list = getNeedTabList();
+                builder.fid = Long.valueOf(this.fid);
+                if (z) {
+                    w.a(builder, true);
+                }
+                TopicListReqIdl.Builder builder2 = new TopicListReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
             }
-            TopicListReqIdl.Builder builder2 = new TopicListReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        } catch (Exception unused) {
-            return null;
         }
+        return invokeZ.objValue;
     }
 
     public String getCallFrom() {
-        return this.call_from;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.call_from : (String) invokeV.objValue;
     }
 
     public CommonReq getCommon() {
-        return this.f16985common;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17111common : (CommonReq) invokeV.objValue;
     }
 
     public String getListType() {
-        return this.list_type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.list_type : (String) invokeV.objValue;
     }
 
     public String getNeedTabList() {
-        return this.need_tab_list;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.need_tab_list : (String) invokeV.objValue;
     }
 
     public void setCallFrom(String str) {
-        this.call_from = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.call_from = str;
+        }
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f16985common = commonReq;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, commonReq) == null) {
+            this.f17111common = commonReq;
+        }
     }
 
     public void setFid(long j) {
-        this.fid = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.fid = j;
+        }
     }
 
     public void setListType(String str) {
-        this.list_type = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.list_type = str;
+        }
     }
 
     public void setNeedTabList(String str) {
-        this.need_tab_list = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.need_tab_list = str;
+        }
     }
 }

@@ -1,16 +1,22 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import d.a.c.e.d.l;
-import d.a.n0.r.r.a;
-import d.a.o0.g2.c;
-import d.a.o0.g2.g;
-import d.a.o0.x0.b;
+import d.a.r0.r.r.a;
+import d.a.s0.a1.b;
+import d.a.s0.j2.c;
+import d.a.s0.j2.g;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
@@ -37,7 +43,9 @@ import tbclient.User;
 import tbclient.UserManChannelInfo;
 /* loaded from: classes5.dex */
 public class ProfileSocketResponseMessage extends SocketResponsedMessage implements c {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String PROFILE_CACHE_KEY = "profile_cache_key";
+    public transient /* synthetic */ FieldHolder $fh;
     public Anti anti_stat;
     public List<BannerImage> banner;
     public TbBookrack bookrack;
@@ -68,181 +76,266 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public UserManChannelInfo userManChannelInfo;
     public DealWindow window;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ProfileSocketResponseMessage() {
         super(303012);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public Anti GetAntiStat() {
-        return this.anti_stat;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.anti_stat : (Anti) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public List<PostInfoList> GetPostList() {
-        return this.post_list;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.post_list : (List) invokeV.objValue;
     }
 
     public TAInfo GetTainfo() {
-        return this.tainfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tainfo : (TAInfo) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public User GetUser() {
-        return this.user;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.user : (User) invokeV.objValue;
     }
 
     public List<BannerImage> getBannerList() {
-        return this.banner;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.banner : (List) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public TbBookrack getBookrackData() {
-        return this.bookrack;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.bookrack : (TbBookrack) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public List<ForumDynamic> getConcernedForumList() {
-        return this.concernedForumList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.concernedForumList : (List) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public List<DynamicInfo> getDynamicInfoList() {
-        return this.dynamicInfoList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.dynamicInfoList : (List) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public int getErrorCode() {
-        return getError();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? getError() : invokeV.intValue;
     }
 
     public String getErrorMsg() {
-        return getErrorString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
     public Feedback getFeedBack() {
-        return this.feedBack;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.feedBack : (Feedback) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public b getGoodsWindowInfo() {
-        return this.mLiveGoodsWindowData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mLiveGoodsWindowData : (b) invokeV.objValue;
     }
 
     public Highlist getHighlist() {
-        return this.highlist;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.highlist : (Highlist) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public HotUserRankEntry getHotRankEntry() {
-        return this.hotUserRankEntry;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.hotUserRankEntry : (HotUserRankEntry) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public AlaLiveInfoCoreData getLiveInfo() {
-        return this.liveInfoData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.liveInfoData : (AlaLiveInfoCoreData) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public List<AlaLiveInfoCoreData> getLiveReplayInfo() {
-        return this.liveReplayData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.liveReplayData : (List) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public int getMaskType() {
-        return this.maskType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.maskType : invokeV.intValue;
     }
 
     public ModuleInfo getModuleInfo() {
-        return this.moduleInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.moduleInfo : (ModuleInfo) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public List<ThreadInfo> getNewestThreadList() {
-        return this.newest_dynamic_list;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.newest_dynamic_list : (List) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public NicknameInfo getNicknameInfo() {
-        return this.nicknameInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.nicknameInfo : (NicknameInfo) invokeV.objValue;
     }
 
     public int getPageNum() {
-        return this.pageNum;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.pageNum : invokeV.intValue;
     }
 
     public List<SmartApp> getRecomSwanList() {
-        return this.recomSwanList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.recomSwanList : (List) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public TAInfo getTaInfo() {
-        return this.tainfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.tainfo : (TAInfo) invokeV.objValue;
     }
 
     public g getUcCardData() {
-        return this.ucCardData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.ucCardData : (g) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public UserAgreeInfo getUserAgreeInfo() {
-        return this.userAgreeInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.userAgreeInfo : (UserAgreeInfo) invokeV.objValue;
     }
 
     public UserManChannelInfo getUserChannelInfo() {
-        return this.userManChannelInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userManChannelInfo : (UserManChannelInfo) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g2.c
+    @Override // d.a.s0.j2.c
     public UserGodInfo getUserGodInfo() {
-        return this.userGodInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.userGodInfo : (UserGodInfo) invokeV.objValue;
     }
 
     public boolean isError() {
-        return hasError();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? hasError() : invokeV.booleanValue;
     }
 
     public boolean isError_hint() {
-        return this.error_hint;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.error_hint : invokeV.booleanValue;
     }
 
     public boolean isFrom_db() {
-        return this.from_db;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.from_db : invokeV.booleanValue;
     }
 
     public boolean isSelf() {
-        return this.isSelf;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.isSelf : invokeV.booleanValue;
     }
 
     public void setHighlist(Highlist highlist) {
-        this.highlist = highlist;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, highlist) == null) {
+            this.highlist = highlist;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
-        l<byte[]> e2 = a.f().e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
-        if (bArr == null || !this.isSelf) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, bArr) == null) {
+            l<byte[]> e2 = a.f().e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            if (bArr == null || !this.isSelf) {
+                return;
+            }
+            e2.g("profile_cache_key", bArr);
         }
-        e2.g("profile_cache_key", bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i2, byte[] bArr) {
         l<String> h2;
-        super.beforeDispatchInBackGround(i2, (int) bArr);
-        if (this.ucCardData == null || (h2 = a.f().h("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) == null || !this.isSelf) {
-            return;
-        }
-        List<g.a> list = this.ucCardData.f58996a;
-        if (ListUtils.getCount(list) > 4) {
-            list.get(4).f58998b = 8L;
-            for (g.a aVar : list) {
-                if (aVar.f58998b > d.a.c.e.m.b.f(h2.get(aVar.f58997a), 0L)) {
-                    aVar.f58999c = true;
-                } else {
-                    aVar.f58999c = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, bArr) == null) {
+            super.beforeDispatchInBackGround(i2, (int) bArr);
+            if (this.ucCardData == null || (h2 = a.f().h("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) == null || !this.isSelf) {
+                return;
+            }
+            List<g.a> list = this.ucCardData.f62364a;
+            if (ListUtils.getCount(list) > 4) {
+                list.get(4).f62366b = 8L;
+                for (g.a aVar : list) {
+                    if (aVar.f62366b > d.a.c.e.m.b.f(h2.get(aVar.f62365a), 0L)) {
+                        aVar.f62367c = true;
+                    } else {
+                        aVar.f62367c = false;
+                    }
                 }
             }
         }
@@ -252,79 +345,82 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
-        ProfileRequestMessage profileRequestMessage = (ProfileRequestMessage) getOrginalMessage().getExtra();
-        this.from_db = profileRequestMessage.is_from_db();
-        this.error_hint = profileRequestMessage.is_error_hint();
-        this.isSelf = profileRequestMessage.isSelf();
-        if (profileRequestMessage.get_pn() != null) {
-            this.pageNum = profileRequestMessage.get_pn().intValue();
-        }
-        ProfileResIdl profileResIdl = (ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class);
-        if (profileResIdl != null) {
-            setError(profileResIdl.error.errorno.intValue());
-            setErrorString(profileResIdl.error.usermsg);
-        }
-        if (getError() != 0) {
-            return;
-        }
-        d.a.o0.g2.b personCenterData = profileRequestMessage.getPersonCenterData();
-        if (personCenterData != null) {
-            personCenterData.b(profileResIdl);
-        }
-        if (profileResIdl == null || (dataRes = profileResIdl.data) == null) {
-            return;
-        }
-        this.userGodInfo = dataRes.user_god_info;
-        this.userManChannelInfo = dataRes.video_channel_info;
-        this.user = dataRes.user;
-        this.anti_stat = dataRes.anti_stat;
-        this.tainfo = dataRes.tainfo;
-        this.post_list = dataRes.post_list;
-        if (dataRes.uc_card != null) {
-            g gVar = new g();
-            this.ucCardData = gVar;
-            gVar.a(profileResIdl.data.uc_card);
-        }
-        DataRes dataRes2 = profileResIdl.data;
-        this.bookrack = dataRes2.tbbookrack;
-        this.highlist = dataRes2.highs;
-        this.window = dataRes2.window;
-        this.feedBack = dataRes2.feedback;
-        this.concernedForumList = dataRes2.concerned_forum_list;
-        this.dynamicInfoList = dataRes2.dynamic_list;
-        this.taInfo = dataRes2.tainfo;
-        this.moduleInfo = dataRes2.module_info;
-        if (dataRes2.ala_live_info != null) {
-            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            this.liveInfoData = alaLiveInfoCoreData;
-            alaLiveInfoCoreData.parserProtoBuf(profileResIdl.data.ala_live_info);
-        }
-        if (profileResIdl.data.goods_win != null) {
-            b bVar = new b();
-            this.mLiveGoodsWindowData = bVar;
-            bVar.b(profileResIdl.data.goods_win);
-        }
-        if (!ListUtils.isEmpty(profileResIdl.data.ala_live_record)) {
-            this.liveReplayData = new ArrayList();
-            for (AlaLiveInfo alaLiveInfo : profileResIdl.data.ala_live_record) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData2 = new AlaLiveInfoCoreData();
-                alaLiveInfoCoreData2.parserProtoBuf(alaLiveInfo);
-                this.liveReplayData.add(alaLiveInfoCoreData2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, bArr) == null) {
+            ProfileRequestMessage profileRequestMessage = (ProfileRequestMessage) getOrginalMessage().getExtra();
+            this.from_db = profileRequestMessage.is_from_db();
+            this.error_hint = profileRequestMessage.is_error_hint();
+            this.isSelf = profileRequestMessage.isSelf();
+            if (profileRequestMessage.get_pn() != null) {
+                this.pageNum = profileRequestMessage.get_pn().intValue();
             }
+            ProfileResIdl profileResIdl = (ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class);
+            if (profileResIdl != null) {
+                setError(profileResIdl.error.errorno.intValue());
+                setErrorString(profileResIdl.error.usermsg);
+            }
+            if (getError() != 0) {
+                return;
+            }
+            d.a.s0.j2.b personCenterData = profileRequestMessage.getPersonCenterData();
+            if (personCenterData != null) {
+                personCenterData.b(profileResIdl);
+            }
+            if (profileResIdl == null || (dataRes = profileResIdl.data) == null) {
+                return;
+            }
+            this.userGodInfo = dataRes.user_god_info;
+            this.userManChannelInfo = dataRes.video_channel_info;
+            this.user = dataRes.user;
+            this.anti_stat = dataRes.anti_stat;
+            this.tainfo = dataRes.tainfo;
+            this.post_list = dataRes.post_list;
+            if (dataRes.uc_card != null) {
+                g gVar = new g();
+                this.ucCardData = gVar;
+                gVar.a(profileResIdl.data.uc_card);
+            }
+            DataRes dataRes2 = profileResIdl.data;
+            this.bookrack = dataRes2.tbbookrack;
+            this.highlist = dataRes2.highs;
+            this.window = dataRes2.window;
+            this.feedBack = dataRes2.feedback;
+            this.concernedForumList = dataRes2.concerned_forum_list;
+            this.dynamicInfoList = dataRes2.dynamic_list;
+            this.taInfo = dataRes2.tainfo;
+            this.moduleInfo = dataRes2.module_info;
+            if (dataRes2.ala_live_info != null) {
+                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                this.liveInfoData = alaLiveInfoCoreData;
+                alaLiveInfoCoreData.parserProtoBuf(profileResIdl.data.ala_live_info);
+            }
+            if (profileResIdl.data.goods_win != null) {
+                b bVar = new b();
+                this.mLiveGoodsWindowData = bVar;
+                bVar.b(profileResIdl.data.goods_win);
+            }
+            if (!ListUtils.isEmpty(profileResIdl.data.ala_live_record)) {
+                this.liveReplayData = new ArrayList();
+                for (AlaLiveInfo alaLiveInfo : profileResIdl.data.ala_live_record) {
+                    AlaLiveInfoCoreData alaLiveInfoCoreData2 = new AlaLiveInfoCoreData();
+                    alaLiveInfoCoreData2.parserProtoBuf(alaLiveInfo);
+                    this.liveReplayData.add(alaLiveInfoCoreData2);
+                }
+            }
+            DataRes dataRes3 = profileResIdl.data;
+            this.userAgreeInfo = dataRes3.user_agree_info;
+            this.nicknameInfo = dataRes3.nickname_info;
+            this.banner = dataRes3.banner;
+            this.recomSwanList = dataRes3.recom_swan_list;
+            this.newest_dynamic_list = dataRes3.newest_dynamic_list;
+            this.hotUserRankEntry = dataRes3.new_god_rankinfo;
+            User user = this.user;
+            if (user == null || user.new_god_data == null || user.call_fans_info == null) {
+                return;
+            }
+            TbSingleton.getInstance().mShowCallFans = this.user.new_god_data.status.intValue() == 3;
+            TbSingleton.getInstance().mCanCallFans = this.user.call_fans_info.can_call.intValue() == 1;
+            TbSingleton.getInstance().mCallFansTid = String.valueOf(this.user.call_fans_info.thread_id);
         }
-        DataRes dataRes3 = profileResIdl.data;
-        this.userAgreeInfo = dataRes3.user_agree_info;
-        this.nicknameInfo = dataRes3.nickname_info;
-        this.banner = dataRes3.banner;
-        this.recomSwanList = dataRes3.recom_swan_list;
-        this.newest_dynamic_list = dataRes3.newest_dynamic_list;
-        this.hotUserRankEntry = dataRes3.new_god_rankinfo;
-        User user = this.user;
-        if (user == null || user.new_god_data == null || user.call_fans_info == null) {
-            return;
-        }
-        TbSingleton.getInstance().mShowCallFans = this.user.new_god_data.status.intValue() == 3;
-        TbSingleton.getInstance().mCanCallFans = this.user.call_fans_info.can_call.intValue() == 1;
-        TbSingleton.getInstance().mCallFansTid = String.valueOf(this.user.call_fans_info.thread_id);
     }
 }

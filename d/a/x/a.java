@@ -1,25 +1,18 @@
 package d.a.x;
-/* loaded from: classes2.dex */
+
+import android.app.Application;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes9.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f68664a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f68665b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f68666c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f68667d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f68668e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f68669f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f68670g;
+    public static void a(Application application, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, application, str, str2, str3) == null) {
+            Log.d("LeakCanary", "install: close");
+        }
+    }
 }

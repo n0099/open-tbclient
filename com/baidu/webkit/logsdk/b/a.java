@@ -1,23 +1,45 @@
 package com.baidu.webkit.logsdk.b;
-/* loaded from: classes5.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26848a;
+    public String f27391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26849b;
+    public int f27392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26850c;
+    public String f27393c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26851d;
+    public String f27394d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26852e = "full";
+    public String f27395e;
 
     public a(String str) {
-        this.f26848a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f27395e = "full";
+        this.f27391a = str;
     }
 }

@@ -3,51 +3,105 @@ package com.baidu.android.bbalbs.common.util;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.JsonReader;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 /* loaded from: classes.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f2555e;
+    public static final String f2553e;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2556a;
+    public String f2554a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2557b;
+    public String f2555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2558c = 0;
+    public int f2556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2559d = 2;
+    public int f2557d;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1701138824, "Lcom/baidu/android/bbalbs/common/util/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1701138824, "Lcom/baidu/android/bbalbs/common/util/a;");
+                return;
+            }
+        }
         String str = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
         String str2 = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-        f2555e = str + str2;
+        f2553e = str + str2;
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f2556c = 0;
+        this.f2557d = 2;
     }
 
     public static boolean a(Context context) {
-        File c2 = c(context);
-        if (c2.exists()) {
-            return c2.delete();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            File c2 = c(context);
+            if (c2.exists()) {
+                return c2.delete();
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static a b(Context context) {
-        return d(d.a(c(context)));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? d(d.a(c(context))) : (a) invokeL.objValue;
     }
 
     public static boolean b(int i2) {
-        return i2 >= 14;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? i2 >= 14 : invokeI.booleanValue;
     }
 
     public static a c(String str) {
+        InterceptResult invokeL;
         JsonReader jsonReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) != null) {
+            return (a) invokeL.objValue;
+        }
         JsonReader jsonReader2 = null;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -120,71 +174,106 @@ public final class a {
     }
 
     public static File c(Context context) {
-        return new File(context.getFilesDir(), "libcuid.so");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? new File(context.getFilesDir(), "libcuid.so") : (File) invokeL.objValue;
     }
 
     public static a d(String str) {
-        return c(f(str));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? c(f(str)) : (a) invokeL.objValue;
     }
 
     public static boolean e(String str) {
-        return TextUtils.isEmpty(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
     }
 
     public static String f(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return new String(com.baidu.android.bbalbs.common.a.a.b(f2553e, f2553e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+            } catch (Exception e2) {
+                d.a(e2);
+                return "";
+            }
         }
-        try {
-            return new String(com.baidu.android.bbalbs.common.a.a.b(f2555e, f2555e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
-        } catch (Exception e2) {
-            d.a(e2);
-            return "";
-        }
+        return (String) invokeL.objValue;
     }
 
     public static String g(String str) {
-        return new String(com.baidu.android.bbalbs.common.a.b.a(str.getBytes()));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? new String(com.baidu.android.bbalbs.common.a.b.a(str.getBytes())) : (String) invokeL.objValue;
     }
 
     public String a() {
-        return this.f2556a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2554a : (String) invokeV.objValue;
     }
 
     public void a(int i2) {
-        this.f2558c = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f2556c = i2;
+        }
     }
 
     public void a(String str) {
-        this.f2556a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f2554a = str;
+        }
     }
 
     public String b() {
-        return this.f2557b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2555b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
-        this.f2557b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f2555b = str;
+        }
     }
 
     public boolean c() {
+        InterceptResult invokeV;
         String str;
-        if (d()) {
-            str = "O";
-        } else if (!e()) {
-            return false;
-        } else {
-            str = "0";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (d()) {
+                str = "O";
+            } else if (!e()) {
+                return false;
+            } else {
+                str = "0";
+            }
+            this.f2555b = str;
+            return true;
         }
-        this.f2557b = str;
-        return true;
+        return invokeV.booleanValue;
     }
 
     public boolean d() {
-        return b(this.f2558c);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? b(this.f2556c) : invokeV.booleanValue;
     }
 
     public boolean e() {
-        return e(this.f2557b);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? e(this.f2555b) : invokeV.booleanValue;
     }
 }

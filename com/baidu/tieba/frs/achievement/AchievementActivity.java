@@ -2,56 +2,115 @@ package com.baidu.tieba.frs.achievement;
 
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import d.a.o0.r0.g1.c;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.u0.f1.c;
+/* loaded from: classes5.dex */
 public class AchievementActivity extends BaseActivity {
-    public d.a.o0.r0.g1.a inviteLetter;
-    public View.OnClickListener onShareClickListener = new a();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public d.a.s0.u0.f1.a inviteLetter;
+    public View.OnClickListener onShareClickListener;
     public c thanksLetter;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AchievementActivity f15432e;
+
+        public a(AchievementActivity achievementActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {achievementActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15432e = achievementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            AchievementActivity.this.thanksLetter.h(false);
-            AchievementActivity.this.inviteLetter.h(true);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f15432e.thanksLetter.h(false);
+                this.f15432e.inviteLetter.h(true);
+            }
         }
+    }
+
+    public AchievementActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.onShareClickListener = new a(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
-        ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
-        ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        this.thanksLetter.g(i2);
-        this.inviteLetter.g(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            this.thanksLetter.g(i2);
+            this.inviteLetter.g(i2);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        setIsAddSwipeBackLayout(false);
-        super.onCreate(bundle);
-        setContentView(R.layout.activity_achievement);
-        c cVar = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
-        this.thanksLetter = cVar;
-        cVar.h(true);
-        this.thanksLetter.j(this.onShareClickListener);
-        d.a.o0.r0.g1.a aVar = new d.a.o0.r0.g1.a(getPageContext(), findViewById(R.id.layout_invite_letter));
-        this.inviteLetter = aVar;
-        aVar.h(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            setIsAddSwipeBackLayout(false);
+            super.onCreate(bundle);
+            setContentView(R.layout.activity_achievement);
+            c cVar = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
+            this.thanksLetter = cVar;
+            cVar.h(true);
+            this.thanksLetter.j(this.onShareClickListener);
+            d.a.s0.u0.f1.a aVar = new d.a.s0.u0.f1.a(getPageContext(), findViewById(R.id.layout_invite_letter));
+            this.inviteLetter = aVar;
+            aVar.h(false);
+        }
     }
 }

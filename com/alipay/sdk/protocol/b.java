@@ -1,87 +1,148 @@
 package com.alipay.sdk.protocol;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f1922a;
+    public a f1925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1923b;
+    public String f1926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f1924c;
+    public String[] f1927c;
 
     public b(String str) {
-        this.f1923b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f1926b = str;
     }
 
     public static void a(b bVar) {
-        String[] c2 = bVar.c();
-        if (c2.length == 3 && TextUtils.equals("tid", c2[0])) {
-            com.alipay.sdk.tid.b a2 = com.alipay.sdk.tid.b.a(com.alipay.sdk.sys.b.a().b());
-            if (TextUtils.isEmpty(c2[1]) || TextUtils.isEmpty(c2[2])) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
+            String[] c2 = bVar.c();
+            if (c2.length == 3 && TextUtils.equals("tid", c2[0])) {
+                com.alipay.sdk.tid.b a2 = com.alipay.sdk.tid.b.a(com.alipay.sdk.sys.b.a().b());
+                if (TextUtils.isEmpty(c2[1]) || TextUtils.isEmpty(c2[2])) {
+                    return;
+                }
+                a2.a(c2[1], c2[2]);
             }
-            a2.a(c2[1], c2[2]);
         }
     }
 
     public static String[] b(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return str.split(";");
         }
-        return str.split(";");
+        return (String[]) invokeL.objValue;
     }
 
     public String[] c() {
-        return this.f1924c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1927c : (String[]) invokeV.objValue;
     }
 
     public b(String str, a aVar) {
-        this.f1923b = str;
-        this.f1922a = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f1926b = str;
+        this.f1925a = aVar;
     }
 
     public a b() {
-        return this.f1922a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1925a : (a) invokeV.objValue;
     }
 
     public static List<b> a(JSONObject jSONObject) {
-        ArrayList arrayList = new ArrayList();
-        if (jSONObject == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONObject == null) {
+                return arrayList;
+            }
+            String[] b2 = b(jSONObject.optString("name", ""));
+            for (int i2 = 0; i2 < b2.length; i2++) {
+                a a2 = a.a(b2[i2]);
+                if (a2 != a.f1917a) {
+                    b bVar = new b(b2[i2], a2);
+                    bVar.f1927c = a(b2[i2]);
+                    arrayList.add(bVar);
+                }
+            }
             return arrayList;
         }
-        String[] b2 = b(jSONObject.optString("name", ""));
-        for (int i2 = 0; i2 < b2.length; i2++) {
-            a a2 = a.a(b2[i2]);
-            if (a2 != a.None) {
-                b bVar = new b(b2[i2], a2);
-                bVar.f1924c = a(b2[i2]);
-                arrayList.add(bVar);
-            }
-        }
-        return arrayList;
+        return (List) invokeL.objValue;
     }
 
     public static String[] a(String str) {
-        ArrayList arrayList = new ArrayList();
-        int indexOf = str.indexOf(40);
-        int lastIndexOf = str.lastIndexOf(41);
-        if (indexOf == -1 || lastIndexOf == -1 || lastIndexOf <= indexOf) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int indexOf = str.indexOf(40);
+            int lastIndexOf = str.lastIndexOf(41);
+            if (indexOf == -1 || lastIndexOf == -1 || lastIndexOf <= indexOf) {
+                return null;
+            }
+            for (String str2 : str.substring(indexOf + 1, lastIndexOf).split("' *, *'", -1)) {
+                arrayList.add(str2.trim().replaceAll("'", "").replaceAll("\"", ""));
+            }
+            return (String[]) arrayList.toArray(new String[0]);
         }
-        for (String str2 : str.substring(indexOf + 1, lastIndexOf).split("' *, *'", -1)) {
-            arrayList.add(str2.trim().replaceAll("'", "").replaceAll("\"", ""));
-        }
-        return (String[]) arrayList.toArray(new String[0]);
+        return (String[]) invokeL.objValue;
     }
 
     public String a() {
-        return this.f1923b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1926b : (String) invokeV.objValue;
     }
 }

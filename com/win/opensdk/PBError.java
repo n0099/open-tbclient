@@ -1,47 +1,114 @@
 package com.win.opensdk;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class PBError {
+    public static /* synthetic */ Interceptable $ic;
+    public static final PBError LOAD_TIME_OUT;
+    public static final PBError LOAD_TOO_FREQUENTLY;
+    public static final PBError LOAD_TYPE_ERROR;
+    public static final PBError NO_FILL;
+    public static final PBError NO_LOAD;
+    public static final PBError NO_NETWORK;
+    public static final PBError NO_RESUOURCE;
+    public static final PBError PID_INVALID;
+    public static final PBError PID_TYPE_ERROR;
+    public static final PBError SERVER_ERROR;
+    public static final PBError TIMEOUT;
+    public static final PBError UNKNOWN;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40677a;
+    public int f42420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40678b;
-    public static final PBError NO_FILL = new PBError(2001, "NO FILL");
-    public static final PBError TIMEOUT = new PBError(2002, "TIME OUT");
-    public static final PBError LOAD_TOO_FREQUENTLY = new PBError(2003, "LOAD TOO FREQUENTLY");
-    public static final PBError SERVER_ERROR = new PBError(2004, "NET ERROR");
-    public static final PBError PID_INVALID = new PBError(2005, "PID INVALID");
-    public static final PBError PID_TYPE_ERROR = new PBError(2006, "PID ERROR");
-    public static final PBError UNKNOWN = new PBError(2030, "UNKNOWN ERROR");
-    public static final PBError NO_NETWORK = new PBError(2030, "No network available");
-    public static final PBError NO_LOAD = new PBError(2031, "No Load");
-    public static final PBError NO_RESUOURCE = new PBError(2031, "No Resources");
-    public static final PBError LOAD_TIME_OUT = new PBError(2031, "Load Time Out");
-    public static final PBError LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
+    public String f42421b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(14169905, "Lcom/win/opensdk/PBError;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(14169905, "Lcom/win/opensdk/PBError;");
+                return;
+            }
+        }
+        NO_FILL = new PBError(2001, "NO FILL");
+        TIMEOUT = new PBError(2002, "TIME OUT");
+        LOAD_TOO_FREQUENTLY = new PBError(2003, "LOAD TOO FREQUENTLY");
+        SERVER_ERROR = new PBError(2004, "NET ERROR");
+        PID_INVALID = new PBError(2005, "PID INVALID");
+        PID_TYPE_ERROR = new PBError(2006, "PID ERROR");
+        UNKNOWN = new PBError(2030, "UNKNOWN ERROR");
+        NO_NETWORK = new PBError(2030, "No network available");
+        NO_LOAD = new PBError(2031, "No Load");
+        NO_RESUOURCE = new PBError(2031, "No Resources");
+        LOAD_TIME_OUT = new PBError(2031, "Load Time Out");
+        LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
+    }
 
     public PBError(int i2, String str) {
-        this.f40677a = i2;
-        this.f40678b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f42420a = i2;
+        this.f42421b = str;
     }
 
     public int getCode() {
-        return this.f40677a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42420a : invokeV.intValue;
     }
 
     public String getMsg() {
-        return this.f40678b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42421b : (String) invokeV.objValue;
     }
 
     public void setCode(int i2) {
-        this.f40677a = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.f42420a = i2;
+        }
     }
 
     public void setMsg(String str) {
-        this.f40678b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f42421b = str;
+        }
     }
 
     public String toString() {
-        return "PBError{code=" + this.f40677a + ", msg='" + this.f40678b + "'}";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "PBError{code=" + this.f42420a + ", msg='" + this.f42421b + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

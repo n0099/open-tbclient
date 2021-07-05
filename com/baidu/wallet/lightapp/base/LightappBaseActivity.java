@@ -22,6 +22,8 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 import android.widget.ZoomButtonsController;
 import androidx.core.content.FileProvider;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.NoProguard;
 import com.baidu.apollon.permission.PermissionManager;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
@@ -31,6 +33,13 @@ import com.baidu.apollon.utils.ResUtils;
 import com.baidu.apollon.utils.StringUtils;
 import com.baidu.apollon.webmanager.SafeWebView;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.ContactManager;
@@ -47,8 +56,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class LightappBaseActivity extends BaseActivity implements NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int CALL_CAMERA_ID_DETECT = 5;
     public static final int CALL_CAMERA_REQUESTCODE = 3;
     public static final int CONTACTS_REQUESTCODE = 4;
@@ -58,103 +68,179 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     public static final int INPUT_FILE_GET_STORAGE_PERMISSION = 102;
     public static final int INSERT_EVENTS_REQUEST = 6;
     public static int WEBVIEW_ERROR_TIME;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Intent f25163a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f25164b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f25165c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f25166d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Uri f24624e;
+    public Uri f25167e;
+    public long mLangbridgeHash;
     public LightappJsClient mLightappJsClient;
+    public boolean mNeedClearHistory;
+    public boolean mNeedOverrideUrl;
     public List<String> mPhoneContacts;
     public ValueCallback<Uri> mUploadMessage;
     public ValueCallback<Uri[]> mUploadMessageForAndroid5;
     public LightappBrowserWebView mWebView;
-    public boolean mNeedClearHistory = true;
 
-    /* renamed from: a  reason: collision with root package name */
-    public Intent f24620a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f24621b = -1;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f24622c = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f24623d = false;
-    public boolean mNeedOverrideUrl = false;
-    public long mLangbridgeHash = 0;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class BaseCustomWebViewClient extends SafeWebView.SafeWebViewClient implements NoProguard {
-        public BaseCustomWebViewClient() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LightappBaseActivity f25173a;
+
+        public BaseCustomWebViewClient(LightappBaseActivity lightappBaseActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lightappBaseActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f25173a = lightappBaseActivity;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-            super.doUpdateVisitedHistory(webView, str, z);
-            LightappBaseActivity lightappBaseActivity = LightappBaseActivity.this;
-            if (lightappBaseActivity.mNeedClearHistory) {
-                lightappBaseActivity.mWebView.clearHistory();
-                if (str == null || str.contains("about:blank")) {
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) {
+                super.doUpdateVisitedHistory(webView, str, z);
+                LightappBaseActivity lightappBaseActivity = this.f25173a;
+                if (lightappBaseActivity.mNeedClearHistory) {
+                    lightappBaseActivity.mWebView.clearHistory();
+                    if (str == null || str.contains("about:blank")) {
+                        return;
+                    }
+                    this.f25173a.mNeedClearHistory = false;
                 }
-                LightappBaseActivity.this.mNeedClearHistory = false;
             }
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            super.onPageFinished(webView, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+                super.onPageFinished(webView, str);
+            }
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            LightappBaseActivity.this.mLightappJsClient.setUrlLocal(str);
-            super.onPageStarted(webView, str, bitmap);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
+                this.f25173a.mLightappJsClient.setUrlLocal(str);
+                super.onPageStarted(webView, str, bitmap);
+            }
         }
 
         @Override // android.webkit.WebViewClient
         @Deprecated
         public void onReceivedError(WebView webView, int i2, String str, String str2) {
-            DXMSdkSAUtils.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(i2 + "", str2));
-            PayStatisticsUtil.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(i2 + "", str2));
-            LogUtil.d("LightappBaseActivity", "onReceivedError.showErrorPage");
-            super.onReceivedError(webView, i2, str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
+                DXMSdkSAUtils.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(i2 + "", str2));
+                PayStatisticsUtil.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(i2 + "", str2));
+                LogUtil.d("LightappBaseActivity", "onReceivedError.showErrorPage");
+                super.onReceivedError(webView, i2, str, str2);
+            }
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            LogUtil.d("LightappBaseActivity", "OriginalUrl : " + webView.getOriginalUrl());
-            LogUtil.d("LightappBaseActivity", "shouldOverrideUrlLoading url = " + str);
-            if (str.startsWith("tel:")) {
-                LightappBaseActivity.this.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
-                return true;
-            }
-            if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
-                try {
-                    Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str));
-                    intent.putExtra("android.intent.extra.EMAIL", new String[]{str.replace(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO, "")});
-                    LightappBaseActivity.this.startActivity(intent);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+                LogUtil.d("LightappBaseActivity", "OriginalUrl : " + webView.getOriginalUrl());
+                LogUtil.d("LightappBaseActivity", "shouldOverrideUrlLoading url = " + str);
+                if (str.startsWith("tel:")) {
+                    this.f25173a.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
                     return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    GlobalUtils.toast(LightappBaseActivity.this.getActivity(), "请先配置邮箱");
                 }
-            } else if (!str.toLowerCase(Locale.CHINA).startsWith("http") && !str.toLowerCase(Locale.CHINA).startsWith("https") && !str.toLowerCase(Locale.CHINA).startsWith("file")) {
-                try {
-                    Intent parseUri = Intent.parseUri(str, 1);
-                    parseUri.addCategory("android.intent.category.BROWSABLE");
-                    parseUri.setComponent(null);
-                    parseUri.setSelector(null);
-                    LightappBaseActivity.this.startActivity(parseUri);
-                    return true;
-                } catch (Exception e3) {
-                    LogUtil.d("LightappBaseActivity", e3.getMessage());
+                if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
+                    try {
+                        Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str));
+                        intent.putExtra("android.intent.extra.EMAIL", new String[]{str.replace(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO, "")});
+                        this.f25173a.startActivity(intent);
+                        return true;
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                        GlobalUtils.toast(this.f25173a.getActivity(), "请先配置邮箱");
+                    }
+                } else if (!str.toLowerCase(Locale.CHINA).startsWith("http") && !str.toLowerCase(Locale.CHINA).startsWith("https") && !str.toLowerCase(Locale.CHINA).startsWith("file")) {
+                    try {
+                        Intent parseUri = Intent.parseUri(str, 1);
+                        parseUri.addCategory("android.intent.category.BROWSABLE");
+                        parseUri.setComponent(null);
+                        parseUri.setSelector(null);
+                        this.f25173a.startActivity(parseUri);
+                        return true;
+                    } catch (Exception e3) {
+                        LogUtil.d("LightappBaseActivity", e3.getMessage());
+                    }
+                } else {
+                    LangbridgeCacheManager.getInstance().handleLoadUrl(this.f25173a.mLangbridgeHash, str);
+                    return false;
                 }
-            } else {
-                LangbridgeCacheManager.getInstance().handleLoadUrl(LightappBaseActivity.this.mLangbridgeHash, str);
-                return false;
+                return super.shouldOverrideUrlLoading(webView, str);
             }
-            return super.shouldOverrideUrlLoading(webView, str);
+            return invokeLL.booleanValue;
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1233697650, "Lcom/baidu/wallet/lightapp/base/LightappBaseActivity;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1233697650, "Lcom/baidu/wallet/lightapp/base/LightappBaseActivity;");
+        }
+    }
+
+    public LightappBaseActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mNeedClearHistory = true;
+        this.f25163a = null;
+        this.f25164b = -1;
+        this.f25165c = null;
+        this.f25166d = false;
+        this.mNeedOverrideUrl = false;
+        this.mLangbridgeHash = 0L;
     }
 
     public abstract com.baidu.wallet.lightapp.multipage.a getBusinessImpl();
@@ -167,214 +253,254 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
-        this.f24620a = null;
-        this.f24621b = -1;
-        if (i2 == 1) {
-            if (this.mUploadMessage == null) {
-                return;
-            }
-            Uri data = (intent == null || i3 != -1) ? null : intent.getData();
-            if (data != null) {
-                this.mUploadMessage.onReceiveValue(data);
-            } else {
-                this.mUploadMessage.onReceiveValue(this.f24624e);
-            }
-            this.mUploadMessage = null;
-            this.f24624e = null;
-        } else if (i2 == 2) {
-            if (this.mUploadMessageForAndroid5 == null) {
-                return;
-            }
-            Uri data2 = (intent == null || i3 != -1) ? null : intent.getData();
-            if (data2 != null) {
-                this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{data2});
-            } else {
-                Uri uri = this.f24624e;
-                if (uri != null) {
-                    this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{uri});
-                } else {
-                    this.mUploadMessageForAndroid5.onReceiveValue(new Uri[0]);
-                }
-            }
-            this.mUploadMessageForAndroid5 = null;
-            this.f24624e = null;
-        } else if (i2 == 3) {
-            if (i3 == -1) {
-                this.mLightappJsClient.onCallCameraPicCallbackLocal();
-            }
-        } else if (i2 != 4) {
-            if (i2 == 6) {
-                this.mLightappJsClient.onInsertCalendarEventDone(i3 == -1);
-            }
-        } else if (i3 == -1) {
-            if (intent != null && intent.getData() != null) {
-                List<String> loadRawPhone = ContactManager.getIContactsImpl().loadRawPhone(intent.getData(), getActivity());
-                this.mPhoneContacts = loadRawPhone;
-                if (loadRawPhone != null && loadRawPhone.size() > 1) {
-                    if (this.mPhoneContacts.size() == 2) {
-                        String str = this.mPhoneContacts.get(0);
-                        String str2 = this.mPhoneContacts.get(1);
-                        if (!TextUtils.isEmpty(str) && str.equals(str2)) {
-                            str = "";
-                        }
-                        this.mLightappJsClient.onContactsSelectedLocal(0, new String[]{str, StringUtils.trimAll(str2)}, "");
-                        return;
-                    }
-                    prepareSelectNumDialog(this.mPhoneContacts, new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.1
-                        @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
-                            if (i4 <= 0 || i4 >= LightappBaseActivity.this.mPhoneContacts.size()) {
-                                return;
-                            }
-                            String replace = LightappBaseActivity.this.mPhoneContacts.get(i4).replace(" ", "").replace("-", "");
-                            LightappBaseActivity lightappBaseActivity = LightappBaseActivity.this;
-                            lightappBaseActivity.mLightappJsClient.onContactsSelectedLocal(0, new String[]{lightappBaseActivity.mPhoneContacts.get(0), replace}, "");
-                        }
-                    });
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, intent) == null) {
+            super.onActivityResult(i2, i3, intent);
+            this.f25163a = null;
+            this.f25164b = -1;
+            if (i2 == 1) {
+                if (this.mUploadMessage == null) {
                     return;
                 }
+                Uri data = (intent == null || i3 != -1) ? null : intent.getData();
+                if (data != null) {
+                    this.mUploadMessage.onReceiveValue(data);
+                } else {
+                    this.mUploadMessage.onReceiveValue(this.f25167e);
+                }
+                this.mUploadMessage = null;
+                this.f25167e = null;
+            } else if (i2 == 2) {
+                if (this.mUploadMessageForAndroid5 == null) {
+                    return;
+                }
+                Uri data2 = (intent == null || i3 != -1) ? null : intent.getData();
+                if (data2 != null) {
+                    this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{data2});
+                } else {
+                    Uri uri = this.f25167e;
+                    if (uri != null) {
+                        this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{uri});
+                    } else {
+                        this.mUploadMessageForAndroid5.onReceiveValue(new Uri[0]);
+                    }
+                }
+                this.mUploadMessageForAndroid5 = null;
+                this.f25167e = null;
+            } else if (i2 == 3) {
+                if (i3 == -1) {
+                    this.mLightappJsClient.onCallCameraPicCallbackLocal();
+                }
+            } else if (i2 != 4) {
+                if (i2 == 6) {
+                    this.mLightappJsClient.onInsertCalendarEventDone(i3 == -1);
+                }
+            } else if (i3 == -1) {
+                if (intent != null && intent.getData() != null) {
+                    List<String> loadRawPhone = ContactManager.getIContactsImpl().loadRawPhone(intent.getData(), getActivity());
+                    this.mPhoneContacts = loadRawPhone;
+                    if (loadRawPhone != null && loadRawPhone.size() > 1) {
+                        if (this.mPhoneContacts.size() == 2) {
+                            String str = this.mPhoneContacts.get(0);
+                            String str2 = this.mPhoneContacts.get(1);
+                            if (!TextUtils.isEmpty(str) && str.equals(str2)) {
+                                str = "";
+                            }
+                            this.mLightappJsClient.onContactsSelectedLocal(0, new String[]{str, StringUtils.trimAll(str2)}, "");
+                            return;
+                        }
+                        prepareSelectNumDialog(this.mPhoneContacts, new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            /* renamed from: a  reason: collision with root package name */
+                            public final /* synthetic */ LightappBaseActivity f25168a;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i4 = newInitContext.flag;
+                                    if ((i4 & 1) != 0) {
+                                        int i5 = i4 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.f25168a = this;
+                            }
+
+                            @Override // android.widget.AdapterView.OnItemClickListener
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+                                Interceptable interceptable2 = $ic;
+                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) || i4 <= 0 || i4 >= this.f25168a.mPhoneContacts.size()) {
+                                    return;
+                                }
+                                String replace = this.f25168a.mPhoneContacts.get(i4).replace(" ", "").replace("-", "");
+                                LightappBaseActivity lightappBaseActivity = this.f25168a;
+                                lightappBaseActivity.mLightappJsClient.onContactsSelectedLocal(0, new String[]{lightappBaseActivity.mPhoneContacts.get(0), replace}, "");
+                            }
+                        });
+                        return;
+                    }
+                }
+                this.mLightappJsClient.onContactsSelectedLocal(1, null, getErrMsg());
             }
-            this.mLightappJsClient.onContactsSelectedLocal(1, null, getErrMsg());
         }
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        LightappBrowserWebView lightappBrowserWebView = this.mWebView;
-        if (lightappBrowserWebView != null && lightappBrowserWebView.canGoBack()) {
-            LogUtil.d("LightappBaseActivity", "cangoback:  " + this.mWebView.getUrl());
-            this.mWebView.goBack();
-            onWebViewBack();
-            this.mNeedOverrideUrl = true;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LightappBrowserWebView lightappBrowserWebView = this.mWebView;
+            if (lightappBrowserWebView != null && lightappBrowserWebView.canGoBack()) {
+                LogUtil.d("LightappBaseActivity", "cangoback:  " + this.mWebView.getUrl());
+                this.mWebView.goBack();
+                onWebViewBack();
+                this.mNeedOverrideUrl = true;
+                return;
+            }
+            super.onBackPressed();
         }
-        super.onBackPressed();
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     @SuppressLint({"NewApi"})
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        try {
-            setContentView(ResUtils.layout(getActivity(), getContentLayoutId()));
-        } catch (Throwable th) {
-            String stackTraceString = Log.getStackTraceString(th);
-            WEBVIEW_ERROR_TIME++;
-            if (!stackTraceString.contains("NameNotFoundException: com.android.webview") && !stackTraceString.contains("java.lang.RuntimeException: Cannot load WebView") && !stackTraceString.contains("MissingWebViewPackageException: Failed to load WebView provider")) {
-                if (WEBVIEW_ERROR_TIME >= 3) {
-                    Toast.makeText(getActivity(), ResUtils.getString(this, "langbridge_webview_error2"), 1).show();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            try {
+                setContentView(ResUtils.layout(getActivity(), getContentLayoutId()));
+            } catch (Throwable th) {
+                String stackTraceString = Log.getStackTraceString(th);
+                WEBVIEW_ERROR_TIME++;
+                if (!stackTraceString.contains("NameNotFoundException: com.android.webview") && !stackTraceString.contains("java.lang.RuntimeException: Cannot load WebView") && !stackTraceString.contains("MissingWebViewPackageException: Failed to load WebView provider")) {
+                    if (WEBVIEW_ERROR_TIME >= 3) {
+                        Toast.makeText(getActivity(), ResUtils.getString(this, "langbridge_webview_error2"), 1).show();
+                    }
+                    DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_WEBVIEW_ERROR, Arrays.asList(th.getMessage(), "1", "" + WEBVIEW_ERROR_TIME, stackTraceString));
+                    PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_WEBVIEW_ERROR, Arrays.asList(th.getMessage(), "1", "" + WEBVIEW_ERROR_TIME, stackTraceString));
+                } else {
+                    Toast.makeText(getActivity(), ResUtils.getString(this, "langbridge_webview_error"), 1).show();
+                    DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_WEBVIEW_ERROR, Arrays.asList(th.getMessage(), "0", "" + WEBVIEW_ERROR_TIME, stackTraceString));
+                    PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_WEBVIEW_ERROR, Arrays.asList(th.getMessage(), "0", "" + WEBVIEW_ERROR_TIME, stackTraceString));
                 }
-                DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_WEBVIEW_ERROR, Arrays.asList(th.getMessage(), "1", "" + WEBVIEW_ERROR_TIME, stackTraceString));
-                PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_WEBVIEW_ERROR, Arrays.asList(th.getMessage(), "1", "" + WEBVIEW_ERROR_TIME, stackTraceString));
-            } else {
-                Toast.makeText(getActivity(), ResUtils.getString(this, "langbridge_webview_error"), 1).show();
-                DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_WEBVIEW_ERROR, Arrays.asList(th.getMessage(), "0", "" + WEBVIEW_ERROR_TIME, stackTraceString));
-                PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_WEBVIEW_ERROR, Arrays.asList(th.getMessage(), "0", "" + WEBVIEW_ERROR_TIME, stackTraceString));
             }
-        }
-        LightappBrowserWebView lightappBrowserWebView = (LightappBrowserWebView) findViewById(ResUtils.id(getActivity(), getLightappWebviewId()));
-        this.mWebView = lightappBrowserWebView;
-        if (lightappBrowserWebView == null) {
-            return;
-        }
-        lightappBrowserWebView.getSettings().setJavaScriptEnabled(true);
-        this.mWebView.getSettings().setDomStorageEnabled(true);
-        this.mWebView.getSettings().setDatabaseEnabled(true);
-        this.mWebView.getSettings().setGeolocationDatabasePath(getApplicationContext().getDir("database", 0).getPath());
-        setSupportZoom();
-        this.mWebView.getSettings().setTextZoom(100);
-        this.mWebView.getSettings().setGeolocationEnabled(true);
-        this.mWebView.setScrollBarStyle(0);
-        this.mWebView.clearCache(false);
-        this.mWebView.resumeTimers();
-        if (Build.VERSION.SDK_INT >= 11) {
-            this.mWebView.removeJavascriptInterface("searchBoxJavaBridge_");
-            this.mWebView.removeJavascriptInterface("accessibility");
-            this.mWebView.removeJavascriptInterface("accessibilityTraversal");
-        }
-        LightappJsClient lightappJsClient = new LightappJsClient(getBusinessImpl(), this.mWebView);
-        this.mLightappJsClient = lightappJsClient;
-        this.mWebView.addJavascriptInterface(lightappJsClient, LightappJsClient.LIGHTAPP_JS_NAME);
-        if (Build.VERSION.SDK_INT >= 21) {
-            CookieManager.getInstance().setAcceptThirdPartyCookies(this.mWebView, true);
+            LightappBrowserWebView lightappBrowserWebView = (LightappBrowserWebView) findViewById(ResUtils.id(getActivity(), getLightappWebviewId()));
+            this.mWebView = lightappBrowserWebView;
+            if (lightappBrowserWebView == null) {
+                return;
+            }
+            lightappBrowserWebView.getSettings().setJavaScriptEnabled(true);
+            this.mWebView.getSettings().setDomStorageEnabled(true);
+            this.mWebView.getSettings().setDatabaseEnabled(true);
+            this.mWebView.getSettings().setGeolocationDatabasePath(getApplicationContext().getDir("database", 0).getPath());
+            setSupportZoom();
+            this.mWebView.getSettings().setTextZoom(100);
+            this.mWebView.getSettings().setGeolocationEnabled(true);
+            this.mWebView.setScrollBarStyle(0);
+            this.mWebView.clearCache(false);
+            this.mWebView.resumeTimers();
+            if (Build.VERSION.SDK_INT >= 11) {
+                this.mWebView.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.mWebView.removeJavascriptInterface("accessibility");
+                this.mWebView.removeJavascriptInterface("accessibilityTraversal");
+            }
+            LightappJsClient lightappJsClient = new LightappJsClient(getBusinessImpl(), this.mWebView);
+            this.mLightappJsClient = lightappJsClient;
+            this.mWebView.addJavascriptInterface(lightappJsClient, LightappJsClient.LIGHTAPP_JS_NAME);
+            if (Build.VERSION.SDK_INT >= 21) {
+                CookieManager.getInstance().setAcceptThirdPartyCookies(this.mWebView, true);
+            }
         }
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        LightappJsClient lightappJsClient = this.mLightappJsClient;
-        if (lightappJsClient != null) {
-            lightappJsClient.destroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDestroy();
+            LightappJsClient lightappJsClient = this.mLightappJsClient;
+            if (lightappJsClient != null) {
+                lightappJsClient.destroy();
+            }
+            if (this.mWebView == null || LightappWebViewCenter.getInstance().releaseLightappWebView(this, this.mWebView)) {
+                return;
+            }
+            this.mWebView.removeAllViews();
+            ViewGroup viewGroup = (ViewGroup) this.mWebView.getParent();
+            if (viewGroup != null) {
+                viewGroup.removeView(this.mWebView);
+            }
+            this.mWebView.clearHistory();
+            this.mWebView.destroy();
         }
-        if (this.mWebView == null || LightappWebViewCenter.getInstance().releaseLightappWebView(this, this.mWebView)) {
-            return;
-        }
-        this.mWebView.removeAllViews();
-        ViewGroup viewGroup = (ViewGroup) this.mWebView.getParent();
-        if (viewGroup != null) {
-            viewGroup.removeView(this.mWebView);
-        }
-        this.mWebView.clearHistory();
-        this.mWebView.destroy();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
         boolean z;
-        super.onRequestPermissionsResult(i2, strArr, iArr);
-        this.mLightappJsClient.onRequestPermissionsResultLocal(i2, strArr, iArr);
-        if (iArr == null || iArr.length <= 0) {
-            return;
-        }
-        if (i2 != 101) {
-            if (i2 == 102) {
-                int length = iArr.length;
-                int i3 = 0;
-                while (true) {
-                    if (i3 >= length) {
-                        z = false;
-                        break;
-                    } else if (iArr[i3] != 0) {
-                        z = true;
-                        break;
-                    } else {
-                        i3++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i2, strArr, iArr);
+            this.mLightappJsClient.onRequestPermissionsResultLocal(i2, strArr, iArr);
+            if (iArr == null || iArr.length <= 0) {
+                return;
+            }
+            if (i2 != 101) {
+                if (i2 == 102) {
+                    int length = iArr.length;
+                    int i3 = 0;
+                    while (true) {
+                        if (i3 >= length) {
+                            z = false;
+                            break;
+                        } else if (iArr[i3] != 0) {
+                            z = true;
+                            break;
+                        } else {
+                            i3++;
+                        }
+                    }
+                    if (!z) {
+                        a(this.f25165c, this.f25166d, this.f25164b);
+                        this.f25165c = "";
+                        this.f25166d = false;
+                        this.f25164b = -1;
                     }
                 }
-                if (!z) {
-                    a(this.f24622c, this.f24623d, this.f24621b);
-                    this.f24622c = "";
-                    this.f24623d = false;
-                    this.f24621b = -1;
+                z = false;
+            } else if (iArr[0] == 0) {
+                Intent intent = this.f25163a;
+                if (intent != null) {
+                    startActivityForResult(intent, this.f25164b);
                 }
+                z = false;
+            } else {
+                z = true;
             }
-            z = false;
-        } else if (iArr[0] == 0) {
-            Intent intent = this.f24620a;
-            if (intent != null) {
-                startActivityForResult(intent, this.f24621b);
-            }
-            z = false;
-        } else {
-            z = true;
-        }
-        if (z) {
-            if (this.f24621b == 1) {
-                ValueCallback<Uri> valueCallback = this.mUploadMessage;
-                if (valueCallback != null) {
-                    valueCallback.onReceiveValue(null);
-                    this.mUploadMessage = null;
+            if (z) {
+                if (this.f25164b == 1) {
+                    ValueCallback<Uri> valueCallback = this.mUploadMessage;
+                    if (valueCallback != null) {
+                        valueCallback.onReceiveValue(null);
+                        this.mUploadMessage = null;
+                    }
+                    this.f25167e = null;
+                } else if (i2 == 2) {
+                    ValueCallback<Uri[]> valueCallback2 = this.mUploadMessageForAndroid5;
+                    if (valueCallback2 != null) {
+                        valueCallback2.onReceiveValue(new Uri[0]);
+                        this.mUploadMessageForAndroid5 = null;
+                    }
+                    this.f25167e = null;
                 }
-                this.f24624e = null;
-            } else if (i2 == 2) {
-                ValueCallback<Uri[]> valueCallback2 = this.mUploadMessageForAndroid5;
-                if (valueCallback2 != null) {
-                    valueCallback2.onReceiveValue(new Uri[0]);
-                    this.mUploadMessageForAndroid5 = null;
-                }
-                this.f24624e = null;
             }
         }
     }
@@ -385,246 +511,392 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
 
     @SuppressLint({"NewApi"})
     public void setSupportZoom() {
-        this.mWebView.getSettings().setSupportZoom(true);
-        this.mWebView.getSettings().setBuiltInZoomControls(true);
-        if (Build.VERSION.SDK_INT >= 11) {
-            this.mWebView.getSettings().setDisplayZoomControls(false);
-        } else {
-            setZoomControlGone(this.mWebView);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.mWebView.getSettings().setSupportZoom(true);
+            this.mWebView.getSettings().setBuiltInZoomControls(true);
+            if (Build.VERSION.SDK_INT >= 11) {
+                this.mWebView.getSettings().setDisplayZoomControls(false);
+            } else {
+                setZoomControlGone(this.mWebView);
+            }
+            this.mWebView.getSettings().setUseWideViewPort(true);
         }
-        this.mWebView.getSettings().setUseWideViewPort(true);
     }
 
     public void setZoomControlGone(View view) {
-        try {
-            Field declaredField = WebView.class.getDeclaredField("mZoomButtonsController");
-            declaredField.setAccessible(true);
-            ZoomButtonsController zoomButtonsController = new ZoomButtonsController(view);
-            zoomButtonsController.getZoomControls().setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, view) == null) {
             try {
-                declaredField.set(view, zoomButtonsController);
-            } catch (IllegalAccessException e2) {
-                LogUtil.d(e2.getMessage());
-            } catch (IllegalArgumentException e3) {
-                LogUtil.d(e3.getMessage());
+                Field declaredField = WebView.class.getDeclaredField("mZoomButtonsController");
+                declaredField.setAccessible(true);
+                ZoomButtonsController zoomButtonsController = new ZoomButtonsController(view);
+                zoomButtonsController.getZoomControls().setVisibility(8);
+                try {
+                    declaredField.set(view, zoomButtonsController);
+                } catch (IllegalAccessException e2) {
+                    LogUtil.d(e2.getMessage());
+                } catch (IllegalArgumentException e3) {
+                    LogUtil.d(e3.getMessage());
+                }
+            } catch (NoSuchFieldException e4) {
+                LogUtil.d(e4.getMessage());
+            } catch (SecurityException e5) {
+                LogUtil.d(e5.getMessage());
             }
-        } catch (NoSuchFieldException e4) {
-            LogUtil.d(e4.getMessage());
-        } catch (SecurityException e5) {
-            LogUtil.d(e5.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0087, code lost:
-        if (r14.equals("image") != false) goto L28;
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x008b, code lost:
+        if (r14.equals("image") != false) goto L30;
      */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00a2  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0157  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x015b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(String str, boolean z, int i2) {
         Intent intent;
         Intent intent2;
-        if (!PermissionManager.checkCallingPermission(getActivity(), "android.permission.READ_EXTERNAL_STORAGE") && !PermissionManager.checkCallingPermission(getActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
-            this.f24622c = str;
-            this.f24623d = z;
-            this.f24621b = i2;
-            BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new BaiduWalletUtils.IRequestPermissionCallBack() { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.2
-                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                public void isAllAgree(Boolean bool) {
-                    if (bool.booleanValue()) {
-                        PermissionManager.checkCallingOrSelfPermission(LightappBaseActivity.this.getActivity(), new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 102);
-                    } else {
-                        LightappBaseActivity.this.onRequestPermissionsResult(102, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new int[]{-1, -1});
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            if (!PermissionManager.checkCallingPermission(getActivity(), "android.permission.READ_EXTERNAL_STORAGE") && !PermissionManager.checkCallingPermission(getActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+                this.f25165c = str;
+                this.f25166d = z;
+                this.f25164b = i2;
+                BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LightappBaseActivity f25169a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f25169a = this;
                     }
-                }
 
-                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                public void isShow(String str2, Boolean bool) {
-                }
-
-                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                public void requestResult(String str2, Boolean bool) {
-                }
-            });
-            return;
-        }
-        File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        if (!externalStoragePublicDirectory.exists()) {
-            externalStoragePublicDirectory.mkdirs();
-        }
-        PackageManager packageManager = getPackageManager();
-        String[] split = str.split("/");
-        if (split == null || split.length <= 0) {
-            return;
-        }
-        char c2 = 0;
-        if (TextUtils.isEmpty(split[0])) {
-            return;
-        }
-        if (z) {
-            String str2 = split[0];
-            int hashCode = str2.hashCode();
-            if (hashCode == 93166550) {
-                if (str2.equals("audio")) {
-                    c2 = 2;
-                    if (c2 != 0) {
+                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                    public void isAllAgree(Boolean bool) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
+                            if (bool.booleanValue()) {
+                                PermissionManager.checkCallingOrSelfPermission(this.f25169a.getActivity(), new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 102);
+                            } else {
+                                this.f25169a.onRequestPermissionsResult(102, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new int[]{-1, -1});
+                            }
+                        }
                     }
-                    intent = intent2;
-                }
-                c2 = 65535;
-                if (c2 != 0) {
-                }
-                intent = intent2;
-            } else if (hashCode != 100313435) {
-                if (hashCode == 112202875 && str2.equals("video")) {
-                    c2 = 1;
-                    if (c2 != 0) {
-                        File file = new File(externalStoragePublicDirectory + File.separator + "IMG_" + System.currentTimeMillis() + ".jpg");
-                        if (BeanConstants.CHANNEL_ID_IQIYI.equals(BeanConstants.CHANNEL_ID)) {
-                            Activity activity = getActivity();
-                            this.f24624e = FileProvider.getUriForFile(activity, getPackageName() + ".fileprovider", file);
-                        } else {
-                            Activity activity2 = getActivity();
-                            this.f24624e = FileProvider.getUriForFile(activity2, getPackageName() + ".langbrigeProvider", file);
-                        }
-                        grantUriPermission(getPackageName(), this.f24624e, 3);
-                        intent2 = new Intent("android.media.action.IMAGE_CAPTURE");
-                        intent2.putExtra("output", this.f24624e);
-                        if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                            this.f24620a = intent2;
-                            this.f24621b = i2;
-                            BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack() { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.3
-                                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                                public void isAllAgree(Boolean bool) {
-                                    if (bool.booleanValue()) {
-                                        PermissionManager.checkCallingOrSelfPermission(LightappBaseActivity.this.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 101);
-                                    } else {
-                                        LightappBaseActivity.this.onRequestPermissionsResult(101, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
-                                    }
-                                }
 
-                                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                                public void isShow(String str3, Boolean bool) {
-                                }
-
-                                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                                public void requestResult(String str3, Boolean bool) {
-                                }
-                            });
-                            return;
+                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                    public void isShow(String str2, Boolean bool) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2, bool) == null) {
                         }
-                    } else if (c2 == 1) {
-                        File file2 = new File(externalStoragePublicDirectory + File.separator + "video_" + System.currentTimeMillis() + ".mp4");
-                        if (BeanConstants.CHANNEL_ID_IQIYI.equals(BeanConstants.CHANNEL_ID)) {
-                            Activity activity3 = getActivity();
-                            this.f24624e = FileProvider.getUriForFile(activity3, getPackageName() + ".fileprovider", file2);
-                        } else {
-                            Activity activity4 = getActivity();
-                            this.f24624e = FileProvider.getUriForFile(activity4, getPackageName() + ".langbrigeProvider", file2);
-                        }
-                        grantUriPermission(getPackageName(), this.f24624e, 3);
-                        intent2 = new Intent("android.media.action.VIDEO_CAPTURE");
-                        intent2.putExtra("output", this.f24624e);
-                        if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                            this.f24620a = intent2;
-                            this.f24621b = i2;
-                            BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack() { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.4
-                                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                                public void isAllAgree(Boolean bool) {
-                                    if (bool.booleanValue()) {
-                                        PermissionManager.checkCallingOrSelfPermission(LightappBaseActivity.this.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 101);
-                                    } else {
-                                        LightappBaseActivity.this.onRequestPermissionsResult(101, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
-                                    }
-                                }
-
-                                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                                public void isShow(String str3, Boolean bool) {
-                                }
-
-                                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                                public void requestResult(String str3, Boolean bool) {
-                                }
-                            });
-                            return;
-                        }
-                    } else if (c2 != 2) {
-                        intent = new Intent("android.intent.action.GET_CONTENT");
-                        intent.setType(str);
-                    } else {
-                        intent = new Intent("android.provider.MediaStore.RECORD_SOUND");
                     }
-                    intent = intent2;
-                }
-                c2 = 65535;
-                if (c2 != 0) {
-                }
-                intent = intent2;
+
+                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                    public void requestResult(String str2, Boolean bool) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bool) == null) {
+                        }
+                    }
+                });
+                return;
             }
-        } else {
-            intent = new Intent("android.intent.action.GET_CONTENT");
-            intent.setType(str);
-        }
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(intent, i2);
+            File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            if (!externalStoragePublicDirectory.exists()) {
+                externalStoragePublicDirectory.mkdirs();
+            }
+            PackageManager packageManager = getPackageManager();
+            String[] split = str.split("/");
+            if (split == null || split.length <= 0) {
+                return;
+            }
+            char c2 = 0;
+            if (TextUtils.isEmpty(split[0])) {
+                return;
+            }
+            if (z) {
+                String str2 = split[0];
+                int hashCode = str2.hashCode();
+                if (hashCode == 93166550) {
+                    if (str2.equals("audio")) {
+                        c2 = 2;
+                        if (c2 != 0) {
+                        }
+                        intent = intent2;
+                    }
+                    c2 = 65535;
+                    if (c2 != 0) {
+                    }
+                    intent = intent2;
+                } else if (hashCode != 100313435) {
+                    if (hashCode == 112202875 && str2.equals("video")) {
+                        c2 = 1;
+                        if (c2 != 0) {
+                            File file = new File(externalStoragePublicDirectory + File.separator + "IMG_" + System.currentTimeMillis() + ".jpg");
+                            if (BeanConstants.CHANNEL_ID_IQIYI.equals(BeanConstants.CHANNEL_ID)) {
+                                Activity activity = getActivity();
+                                this.f25167e = FileProvider.getUriForFile(activity, getPackageName() + ".fileprovider", file);
+                            } else {
+                                Activity activity2 = getActivity();
+                                this.f25167e = FileProvider.getUriForFile(activity2, getPackageName() + ".langbrigeProvider", file);
+                            }
+                            grantUriPermission(getPackageName(), this.f25167e, 3);
+                            intent2 = new Intent("android.media.action.IMAGE_CAPTURE");
+                            intent2.putExtra("output", this.f25167e);
+                            if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
+                                this.f25163a = intent2;
+                                this.f25164b = i2;
+                                BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.3
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    /* renamed from: a  reason: collision with root package name */
+                                    public final /* synthetic */ LightappBaseActivity f25170a;
+
+                                    {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this};
+                                            interceptable2.invokeUnInit(65536, newInitContext);
+                                            int i3 = newInitContext.flag;
+                                            if ((i3 & 1) != 0) {
+                                                int i4 = i3 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable2.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.f25170a = this;
+                                    }
+
+                                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                                    public void isAllAgree(Boolean bool) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
+                                            if (bool.booleanValue()) {
+                                                PermissionManager.checkCallingOrSelfPermission(this.f25170a.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 101);
+                                            } else {
+                                                this.f25170a.onRequestPermissionsResult(101, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
+                                            }
+                                        }
+                                    }
+
+                                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                                    public void isShow(String str3, Boolean bool) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3, bool) == null) {
+                                        }
+                                    }
+
+                                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                                    public void requestResult(String str3, Boolean bool) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str3, bool) == null) {
+                                        }
+                                    }
+                                });
+                                return;
+                            }
+                        } else if (c2 == 1) {
+                            File file2 = new File(externalStoragePublicDirectory + File.separator + "video_" + System.currentTimeMillis() + ".mp4");
+                            if (BeanConstants.CHANNEL_ID_IQIYI.equals(BeanConstants.CHANNEL_ID)) {
+                                Activity activity3 = getActivity();
+                                this.f25167e = FileProvider.getUriForFile(activity3, getPackageName() + ".fileprovider", file2);
+                            } else {
+                                Activity activity4 = getActivity();
+                                this.f25167e = FileProvider.getUriForFile(activity4, getPackageName() + ".langbrigeProvider", file2);
+                            }
+                            grantUriPermission(getPackageName(), this.f25167e, 3);
+                            intent2 = new Intent("android.media.action.VIDEO_CAPTURE");
+                            intent2.putExtra("output", this.f25167e);
+                            if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
+                                this.f25163a = intent2;
+                                this.f25164b = i2;
+                                BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.4
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    /* renamed from: a  reason: collision with root package name */
+                                    public final /* synthetic */ LightappBaseActivity f25171a;
+
+                                    {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this};
+                                            interceptable2.invokeUnInit(65536, newInitContext);
+                                            int i3 = newInitContext.flag;
+                                            if ((i3 & 1) != 0) {
+                                                int i4 = i3 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable2.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.f25171a = this;
+                                    }
+
+                                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                                    public void isAllAgree(Boolean bool) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
+                                            if (bool.booleanValue()) {
+                                                PermissionManager.checkCallingOrSelfPermission(this.f25171a.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 101);
+                                            } else {
+                                                this.f25171a.onRequestPermissionsResult(101, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
+                                            }
+                                        }
+                                    }
+
+                                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                                    public void isShow(String str3, Boolean bool) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3, bool) == null) {
+                                        }
+                                    }
+
+                                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                                    public void requestResult(String str3, Boolean bool) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str3, bool) == null) {
+                                        }
+                                    }
+                                });
+                                return;
+                            }
+                        } else if (c2 != 2) {
+                            intent = new Intent("android.intent.action.GET_CONTENT");
+                            intent.setType(str);
+                        } else {
+                            intent = new Intent("android.provider.MediaStore.RECORD_SOUND");
+                        }
+                        intent = intent2;
+                    }
+                    c2 = 65535;
+                    if (c2 != 0) {
+                    }
+                    intent = intent2;
+                }
+            } else {
+                intent = new Intent("android.intent.action.GET_CONTENT");
+                intent.setType(str);
+            }
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivityForResult(intent, i2);
+            }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class BaseCustomChromeClient extends SafeWebView.SafeChromeClient implements NoProguard {
-        public BaseCustomChromeClient() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LightappBaseActivity f25172a;
+
+        public BaseCustomChromeClient(LightappBaseActivity lightappBaseActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lightappBaseActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f25172a = lightappBaseActivity;
         }
 
         @Override // android.webkit.WebChromeClient
         public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
-            callback.invoke(str, true, false);
-            super.onGeolocationPermissionsShowPrompt(str, callback);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, callback) == null) {
+                callback.invoke(str, true, false);
+                super.onGeolocationPermissionsShowPrompt(str, callback);
+            }
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+            InterceptResult invokeLLL;
             String[] acceptTypes;
-            LightappBaseActivity.this.mUploadMessageForAndroid5 = valueCallback;
-            if (fileChooserParams == null || (acceptTypes = fileChooserParams.getAcceptTypes()) == null || acceptTypes.length <= 0 || TextUtils.isEmpty(acceptTypes[0])) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, valueCallback, fileChooserParams)) == null) {
+                this.f25172a.mUploadMessageForAndroid5 = valueCallback;
+                if (fileChooserParams == null || (acceptTypes = fileChooserParams.getAcceptTypes()) == null || acceptTypes.length <= 0 || TextUtils.isEmpty(acceptTypes[0])) {
+                    return true;
+                }
+                this.f25172a.a(acceptTypes[0], fileChooserParams.isCaptureEnabled(), 2);
                 return true;
             }
-            LightappBaseActivity.this.a(acceptTypes[0], fileChooserParams.isCaptureEnabled(), 2);
-            return true;
+            return invokeLLL.booleanValue;
         }
 
         public void openFileChooser(ValueCallback<Uri> valueCallback) {
-            LightappBaseActivity.this.mUploadMessage = valueCallback;
-            Intent intent = new Intent("android.intent.action.GET_CONTENT");
-            intent.addCategory("android.intent.category.OPENABLE");
-            intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-            if (intent.resolveActivity(LightappBaseActivity.this.getPackageManager()) != null) {
-                LightappBaseActivity.this.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
-            } else {
-                PayStatisticsUtil.onEvent(LightAppStatEvent.LIGHT_APP_FILE_CHOOSER_INTENT_FAIL);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, valueCallback) == null) {
+                this.f25172a.mUploadMessage = valueCallback;
+                Intent intent = new Intent("android.intent.action.GET_CONTENT");
+                intent.addCategory("android.intent.category.OPENABLE");
+                intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
+                if (intent.resolveActivity(this.f25172a.getPackageManager()) != null) {
+                    this.f25172a.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
+                } else {
+                    PayStatisticsUtil.onEvent(LightAppStatEvent.LIGHT_APP_FILE_CHOOSER_INTENT_FAIL);
+                }
             }
         }
 
         public void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
-            LightappBaseActivity.this.mUploadMessage = valueCallback;
-            Intent intent = new Intent("android.intent.action.GET_CONTENT");
-            intent.addCategory("android.intent.category.OPENABLE");
-            intent.setType(str);
-            if (intent.resolveActivity(LightappBaseActivity.this.getPackageManager()) != null) {
-                LightappBaseActivity.this.startActivityForResult(Intent.createChooser(intent, "File Browser"), 1);
-            } else {
-                PayStatisticsUtil.onEvent(LightAppStatEvent.LIGHT_APP_FILE_CHOOSER_INTENT_FAIL);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, valueCallback, str) == null) {
+                this.f25172a.mUploadMessage = valueCallback;
+                Intent intent = new Intent("android.intent.action.GET_CONTENT");
+                intent.addCategory("android.intent.category.OPENABLE");
+                intent.setType(str);
+                if (intent.resolveActivity(this.f25172a.getPackageManager()) != null) {
+                    this.f25172a.startActivityForResult(Intent.createChooser(intent, "File Browser"), 1);
+                } else {
+                    PayStatisticsUtil.onEvent(LightAppStatEvent.LIGHT_APP_FILE_CHOOSER_INTENT_FAIL);
+                }
             }
         }
 
         public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
-            LightappBaseActivity.this.mUploadMessage = valueCallback;
-            if (TextUtils.isEmpty(str)) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048580, this, valueCallback, str, str2) == null) {
+                this.f25172a.mUploadMessage = valueCallback;
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                this.f25172a.a(str, !TextUtils.isEmpty(str2), 1);
             }
-            LightappBaseActivity.this.a(str, !TextUtils.isEmpty(str2), 1);
         }
     }
 }

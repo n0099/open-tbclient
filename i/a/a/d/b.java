@@ -1,5 +1,11 @@
 package i.a.a.d;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.RevenueConfig;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.ISDKReporter;
@@ -8,39 +14,67 @@ import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.api.pay.IMiddlePayService;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class b implements IMiddleRevenue {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f72150a;
+    public final a f75742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IRevenue f72151b;
+    public final IRevenue f75743b;
 
     public b(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
-        this.f72151b = iRevenue;
-        IAppPayService appPayService = this.f72151b.getAppPayService();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {middleRevenueConfig, iRevenue};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f75743b = iRevenue;
+        IAppPayService appPayService = this.f75743b.getAppPayService();
         Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
-        this.f72150a = new a(middleRevenueConfig, appPayService);
+        this.f75742a = new a(middleRevenueConfig, appPayService);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
     public IAppPayService getAppPayService() {
-        return this.f72150a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75742a : (IAppPayService) invokeV.objValue;
     }
 
     @Override // tv.athena.revenue.api.IMiddleRevenue
     public IMiddlePayService getMiddlePayService() {
-        return this.f72150a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75742a : (IMiddlePayService) invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
     public ISDKReporter getSDKReporter() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (ISDKReporter) invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
     public void updateConfig(RevenueConfig revenueConfig) {
-        this.f72151b.updateConfig(revenueConfig);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, revenueConfig) == null) {
+            this.f75743b.updateConfig(revenueConfig);
+        }
     }
 }

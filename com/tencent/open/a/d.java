@@ -3,90 +3,159 @@ package com.tencent.open.a;
 import android.annotation.SuppressLint;
 import android.os.Environment;
 import android.os.StatFs;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.text.SimpleDateFormat;
 /* loaded from: classes7.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public static final boolean a(int i2, int i3) {
-            return i3 == (i2 & i3);
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i2, i3)) == null) ? i3 == (i2 & i3) : invokeII.booleanValue;
         }
     }
 
     /* loaded from: classes7.dex */
     public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public static boolean a() {
-            String externalStorageState = Environment.getExternalStorageState();
-            return "mounted".equals(externalStorageState) || "mounted_ro".equals(externalStorageState);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                String externalStorageState = Environment.getExternalStorageState();
+                return "mounted".equals(externalStorageState) || "mounted_ro".equals(externalStorageState);
+            }
+            return invokeV.booleanValue;
         }
 
         public static c b() {
-            if (a()) {
-                return c.b(Environment.getExternalStorageDirectory());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a()) {
+                    return c.b(Environment.getExternalStorageDirectory());
+                }
+                return null;
             }
-            return null;
+            return (c) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
     public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public File f40149a;
+        public File f41892a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f40150b;
+        public long f41893b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f40151c;
+        public long f41894c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public File a() {
-            return this.f40149a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41892a : (File) invokeV.objValue;
         }
 
         public long b() {
-            return this.f40150b;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41893b : invokeV.longValue;
         }
 
         public long c() {
-            return this.f40151c;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41894c : invokeV.longValue;
         }
 
         public String toString() {
-            return String.format("[%s : %d / %d]", a().getAbsolutePath(), Long.valueOf(c()), Long.valueOf(b()));
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? String.format("[%s : %d / %d]", a().getAbsolutePath(), Long.valueOf(c()), Long.valueOf(b())) : (String) invokeV.objValue;
         }
 
         public void a(File file) {
-            this.f40149a = file;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
+                this.f41892a = file;
+            }
         }
 
         public void b(long j) {
-            this.f40151c = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.f41894c = j;
+            }
         }
 
         public static c b(File file) {
+            InterceptResult invokeL;
             StatFs statFs;
-            c cVar = new c();
-            cVar.a(file);
-            long blockSize = new StatFs(file.getAbsolutePath()).getBlockSize();
-            cVar.a(statFs.getBlockCount() * blockSize);
-            cVar.b(statFs.getAvailableBlocks() * blockSize);
-            return cVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+                c cVar = new c();
+                cVar.a(file);
+                long blockSize = new StatFs(file.getAbsolutePath()).getBlockSize();
+                cVar.a(statFs.getBlockCount() * blockSize);
+                cVar.b(statFs.getAvailableBlocks() * blockSize);
+                return cVar;
+            }
+            return (c) invokeL.objValue;
         }
 
         public void a(long j) {
-            this.f40150b = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.f41893b = j;
+            }
         }
     }
 
     /* renamed from: com.tencent.open.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0520d {
+    public static final class C0564d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         @SuppressLint({"SimpleDateFormat"})
         public static SimpleDateFormat a(String str) {
-            return new SimpleDateFormat(str);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? new SimpleDateFormat(str) : (SimpleDateFormat) invokeL.objValue;
         }
     }
 }

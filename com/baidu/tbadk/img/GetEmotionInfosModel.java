@@ -7,44 +7,75 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.a.n0.b0.c;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.b0.c;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetEmotionInfosModel extends BdBaseModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f12996e;
+    public b f13080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f12997f = new a(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
+    public final HttpMessageListener f13081f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ GetEmotionInfosModel f13082a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(GetEmotionInfosModel getEmotionInfosModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {getEmotionInfosModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13082a = getEmotionInfosModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003353 || !(httpResponsedMessage instanceof GetEmotionInfosResponseMessage) || GetEmotionInfosModel.this.f12996e == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && this.f13082a.f13080e != null) {
+                GetEmotionInfosResponseMessage getEmotionInfosResponseMessage = (GetEmotionInfosResponseMessage) httpResponsedMessage;
+                if (getEmotionInfosResponseMessage.getEmotionList() != null) {
+                    this.f13082a.f13080e.onSuccess(getEmotionInfosResponseMessage.getEmotionList());
+                } else {
+                    this.f13082a.f13080e.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
+                }
+                this.f13082a.f13080e = null;
             }
-            GetEmotionInfosResponseMessage getEmotionInfosResponseMessage = (GetEmotionInfosResponseMessage) httpResponsedMessage;
-            if (getEmotionInfosResponseMessage.getEmotionList() != null) {
-                GetEmotionInfosModel.this.f12996e.onSuccess(getEmotionInfosResponseMessage.getEmotionList());
-            } else {
-                GetEmotionInfosModel.this.f12996e.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
-            }
-            GetEmotionInfosModel.this.f12996e = null;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onFail(int i2, String str);
 
@@ -52,49 +83,78 @@ public class GetEmotionInfosModel extends BdBaseModel {
     }
 
     public GetEmotionInfosModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13081f = new a(this, CmdConfigHttp.CMD_GET_EMOTION_INFOS);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f12997f.setTag(getUniqueId());
-        this.f12997f.setSelfListener(true);
-        registerListener(this.f12997f);
+        this.f13081f.setTag(getUniqueId());
+        this.f13081f.setSelfListener(true);
+        registerListener(this.f13081f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f12997f);
-        MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f13081f);
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS, TbConfig.SERVER_ADDRESS + "c/e/meme/pic2idJson");
-        tbHttpMessageTask.setResponsedClass(GetEmotionInfosResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS, TbConfig.SERVER_ADDRESS + "c/e/meme/pic2idJson");
+            tbHttpMessageTask.setResponsedClass(GetEmotionInfosResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public void y(List<String> list, b bVar) {
-        this.f12996e = bVar;
-        if (list == null || list.isEmpty()) {
-            if (bVar != null) {
-                bVar.onFail(0, "list is empty");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, list, bVar) == null) {
+            this.f13080e = bVar;
+            if (list == null || list.isEmpty()) {
+                if (bVar != null) {
+                    bVar.onFail(0, "list is empty");
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        JSONArray jSONArray = new JSONArray();
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            String str = list.get(i2);
-            if (!TextUtils.isEmpty(str)) {
-                jSONArray.put(str);
+            JSONArray jSONArray = new JSONArray();
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                String str = list.get(i2);
+                if (!TextUtils.isEmpty(str)) {
+                    jSONArray.put(str);
+                }
             }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
+            httpMessage.addParam("pic_urls", d.a.r0.l.c.o(jSONArray.toString()));
+            sendMessage(httpMessage);
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-        httpMessage.addParam("pic_urls", d.a.n0.l.c.o(jSONArray.toString()));
-        sendMessage(httpMessage);
     }
 }

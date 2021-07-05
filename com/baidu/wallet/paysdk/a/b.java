@@ -5,42 +5,57 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.apollon.restnet.RestNameValuePair;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.core.utils.BaiduWalletUtils;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f25195a;
+    public static a f25738a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
-        return !TextUtils.isEmpty(PayDataCache.getInstance().getPureSign());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? !TextUtils.isEmpty(PayDataCache.getInstance().getPureSign()) : invokeV.booleanValue;
     }
 
     public static boolean b() {
-        return "1".equals(PayDataCache.getInstance().getPureSign());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "1".equals(PayDataCache.getInstance().getPureSign()) : invokeV.booleanValue;
     }
 
     public static boolean c() {
-        return "0".equals(PayDataCache.getInstance().getPureSign());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? "0".equals(PayDataCache.getInstance().getPureSign()) : invokeV.booleanValue;
     }
 
     public static void a(List<RestNameValuePair> list) {
-        if (list == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || list == null) {
             return;
         }
         list.add(new RestNameValuePair("pure_sign", PayDataCache.getInstance().getPureSign()));
     }
 
     public static void a(Context context, a aVar) {
-        f25195a = aVar;
-        Intent intent = new Intent();
-        intent.setClass(context, PayTypeActivity.class);
-        if (!BaiduWalletUtils.isActivity(context)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            f25738a = aVar;
+            Intent intent = new Intent();
+            intent.setClass(context, PayTypeActivity.class);
+            if (!BaiduWalletUtils.isActivity(context)) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            context.startActivity(intent);
         }
-        context.startActivity(intent);
     }
 }

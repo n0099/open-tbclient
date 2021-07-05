@@ -16,6 +16,7 @@ import android.os.PowerManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
@@ -124,7 +125,7 @@ public abstract class JobIntentService extends Service {
             synchronized (this) {
                 if (!this.mServiceProcessing) {
                     this.mServiceProcessing = true;
-                    this.mRunWakeLock.acquire(600000L);
+                    this.mRunWakeLock.acquire(TTAdConstant.AD_MAX_EVENT_TIME);
                     this.mLaunchWakeLock.release();
                 }
             }

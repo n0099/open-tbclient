@@ -1,17 +1,26 @@
 package com.baidu.tieba.lego.card.model;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.a.o0.k1.o.j.c;
-import d.a.o0.k1.o.k.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.n1.o.j.c;
+import d.a.s0.n1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SingleLineCard extends BaseCardInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
     public final c buttonInfo;
@@ -33,8 +42,24 @@ public class SingleLineCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SingleLineCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         JSONObject optJSONObject = jSONObject.optJSONObject("icon");
         if (optJSONObject != null) {
             this.iconUrl = optJSONObject.optString("url");
@@ -61,8 +86,8 @@ public class SingleLineCard extends BaseCardInfo {
         JSONArray optJSONArray = jSONObject.optJSONArray("params");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.params = new ArrayList(length);
-        for (int i2 = 0; i2 < length; i2++) {
-            this.params.add(optJSONArray.optString(i2));
+        for (int i4 = 0; i4 < length; i4++) {
+            this.params.add(optJSONArray.optString(i4));
         }
         this.paramColor = b.b(jSONObject.optString("pColor", ""));
         this.paramColorNight = b.b(jSONObject.optString("pColorNight", ""));
@@ -80,82 +105,122 @@ public class SingleLineCard extends BaseCardInfo {
     }
 
     public int getBgColor() {
-        return this.bgColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bgColor : invokeV.intValue;
     }
 
     public int getBgColorNight() {
-        return this.bgColorNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bgColorNight : invokeV.intValue;
     }
 
     public c getButtonInfo() {
-        return this.buttonInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.buttonInfo : (c) invokeV.objValue;
     }
 
     public int getGravity() {
-        return this.gravity;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.gravity : invokeV.intValue;
     }
 
     public int getHeight() {
-        return this.height;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.height : invokeV.intValue;
     }
 
     public String getIconTitle() {
-        return this.iconTitle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.iconTitle : (String) invokeV.objValue;
     }
 
     public int getIconTitleColor() {
-        return this.iconTitleColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.iconTitleColor : invokeV.intValue;
     }
 
     public int getIconTitleColorNight() {
-        return this.iconTitleColorNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.iconTitleColorNight : invokeV.intValue;
     }
 
     public int getIconType() {
-        return this.iconType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.iconType : invokeV.intValue;
     }
 
     public String getIconUrl() {
-        return this.iconUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.iconUrl : (String) invokeV.objValue;
     }
 
     public String getIconUrlNight() {
-        return this.iconUrlNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.iconUrlNight : (String) invokeV.objValue;
     }
 
     public int getMaxLines() {
-        return this.maxLines;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.maxLines : invokeV.intValue;
     }
 
     public int getParamColor() {
-        return this.paramColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.paramColor : invokeV.intValue;
     }
 
     public int getParamColorNight() {
-        return this.paramColorNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.paramColorNight : invokeV.intValue;
     }
 
     public List<String> getParams() {
-        return this.params;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.params : (List) invokeV.objValue;
     }
 
     public int getTextSize() {
-        return this.textSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.textSize : invokeV.intValue;
     }
 
     public int getTitleColor() {
-        return this.titleColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.titleColor : invokeV.intValue;
     }
 
     public int getTitleColorNight() {
-        return this.titleColorNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.titleColorNight : invokeV.intValue;
     }
 
     public boolean isShowLeftIcon() {
-        return this.showLeftIcon;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.showLeftIcon : invokeV.booleanValue;
     }
 
     public boolean isShowLeftLine() {
-        return this.showLeftLine;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.showLeftLine : invokeV.booleanValue;
     }
 }

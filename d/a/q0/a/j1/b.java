@@ -1,0 +1,89 @@
+package d.a.q0.a.j1;
+
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.a2.e;
+import d.a.q0.a.g1.f;
+import d.a.q0.a.h;
+import d.a.q0.a.p.d.d1;
+import d.a.q0.a.u.c.d;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class b extends d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(@NonNull d.a.q0.a.u.c.b bVar) {
+        super(bVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((d.a.q0.a.u.c.b) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public d.a.q0.a.u.h.b r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (d.f50740c) {
+                Log.d("Api-callImageMenu", "handle: callImageMenu");
+            }
+            if (e.Q() == null) {
+                return new d.a.q0.a.u.h.b(1001, "null swan runtime");
+            }
+            Pair<d.a.q0.a.u.h.b, JSONObject> b2 = d.a.q0.a.u.i.b.b("Api-callImageMenu", str);
+            d.a.q0.a.u.h.b bVar = (d.a.q0.a.u.h.b) b2.first;
+            if (!bVar.isSuccess()) {
+                if (d.f50740c) {
+                    d.a.q0.a.e0.d.b("Api-callImageMenu", "parse fail");
+                }
+                return bVar;
+            }
+            String optString = ((JSONObject) b2.second).optString("imageURL");
+            if (TextUtils.isEmpty(optString)) {
+                return new d.a.q0.a.u.h.b(202, d.a.q0.a.c1.a.b().getString(h.united_scheme_err_message_params_parse_fail));
+            }
+            return s(optString);
+        }
+        return (d.a.q0.a.u.h.b) invokeL.objValue;
+    }
+
+    public d.a.q0.a.u.h.b s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            d.a.q0.a.p.e.c h2 = f.V().h();
+            if (!(h2 instanceof NgWebView)) {
+                return new d.a.q0.a.u.h.b(1001, "call image menu fail");
+            }
+            d1 t0 = d.a.q0.a.c1.a.t0();
+            if (t0 == null) {
+                return new d.a.q0.a.u.h.b(1001, "call image menu fail");
+            }
+            t0.b((NgWebView) h2, str);
+            return new d.a.q0.a.u.h.b(0);
+        }
+        return (d.a.q0.a.u.h.b) invokeL.objValue;
+    }
+}

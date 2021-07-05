@@ -1,22 +1,45 @@
 package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.n0.r.d0.b;
+import d.a.r0.r.d0.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PreLoadVideoSwitchManager {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRE_LOAD_SIZE = 512000;
     public static final int MAX_PRE_LOAD_NUM = 3;
     public static final int MAX_SEARCH_RANGE_NUM = 10;
     public static PreLoadVideoSwitchManager sInstance;
-    public int mMaxNum = 3;
-    public boolean isWifi = true;
-    public int mSize = 0;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean isWifi;
+    public int mMaxNum;
+    public int mSize;
 
     public PreLoadVideoSwitchManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mMaxNum = 3;
+        this.isWifi = true;
+        this.mSize = 0;
         VideoPreLoadLog.log("PreLoadVideoSwitchManager init ");
         try {
             parseJson(b.j().p("video_sync_switch_json", ""));
@@ -26,18 +49,24 @@ public class PreLoadVideoSwitchManager {
     }
 
     public static PreLoadVideoSwitchManager getInstance() {
-        if (sInstance == null) {
-            synchronized (PreLoadVideoSwitchManager.class) {
-                if (sInstance == null) {
-                    sInstance = new PreLoadVideoSwitchManager();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (sInstance == null) {
+                synchronized (PreLoadVideoSwitchManager.class) {
+                    if (sInstance == null) {
+                        sInstance = new PreLoadVideoSwitchManager();
+                    }
                 }
             }
+            return sInstance;
         }
-        return sInstance;
+        return (PreLoadVideoSwitchManager) invokeV.objValue;
     }
 
     private void parseJson(String str) throws JSONException {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         JSONObject jSONObject = new JSONObject(str);
@@ -48,35 +77,50 @@ public class PreLoadVideoSwitchManager {
     }
 
     public int getMaxPreLoadNum() {
-        return this.mMaxNum;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMaxNum : invokeV.intValue;
     }
 
     public int getSize() {
-        int i2 = this.mSize;
-        if (i2 == 0) {
-            return 512000;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i2 = this.mSize;
+            if (i2 == 0) {
+                return 512000;
+            }
+            return i2;
         }
-        return i2;
+        return invokeV.intValue;
     }
 
     public boolean isOpen() {
-        if (VideoPreLoadSwitch.isOn()) {
-            return !this.isWifi || j.H();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (VideoPreLoadSwitch.isOn()) {
+                return !this.isWifi || j.H();
+            }
+            VideoPreLoadLog.log("PreLoadVideoSwitchManager isOpen switch close ");
+            return false;
         }
-        VideoPreLoadLog.log("PreLoadVideoSwitchManager isOpen switch close ");
-        return false;
+        return invokeV.booleanValue;
     }
 
     public void setSyncSwitchJson(String str) {
-        VideoPreLoadLog.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            parseJson(str);
-            b.j().x("video_sync_switch_json", str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            VideoPreLoadLog.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            try {
+                parseJson(str);
+                b.j().x("video_sync_switch_json", str);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 }

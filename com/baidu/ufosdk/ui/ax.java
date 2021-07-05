@@ -7,14 +7,34 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class ax extends Handler {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f22834a;
+    public final /* synthetic */ FeedbackHotActivity f23350a;
 
     public ax(FeedbackHotActivity feedbackHotActivity) {
-        this.f22834a = feedbackHotActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackHotActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23350a = feedbackHotActivity;
     }
 
     @Override // android.os.Handler
@@ -26,26 +46,29 @@ public final class ax extends Handler {
         TextView textView2;
         LinearLayout linearLayout;
         WebView webView3;
-        super.handleMessage(message);
-        if (message.what == 3) {
-            webView = this.f22834a.j;
-            if (webView.getProgress() < 100) {
-                webView2 = this.f22834a.j;
-                webView2.stopLoading();
-                view = this.f22834a.l;
-                view.setVisibility(8);
-                Context applicationContext = this.f22834a.getApplicationContext();
-                textView2 = this.f22834a.m;
-                com.baidu.ufosdk.f.i.a(applicationContext, textView2);
-                linearLayout = this.f22834a.f22770h;
-                linearLayout.setVisibility(0);
-                webView3 = this.f22834a.j;
-                webView3.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            if (message.what == 3) {
+                webView = this.f23350a.j;
+                if (webView.getProgress() < 100) {
+                    webView2 = this.f23350a.j;
+                    webView2.stopLoading();
+                    view = this.f23350a.l;
+                    view.setVisibility(8);
+                    Context applicationContext = this.f23350a.getApplicationContext();
+                    textView2 = this.f23350a.m;
+                    com.baidu.ufosdk.f.i.a(applicationContext, textView2);
+                    linearLayout = this.f23350a.f23286h;
+                    linearLayout.setVisibility(0);
+                    webView3 = this.f23350a.j;
+                    webView3.setVisibility(8);
+                }
             }
-        }
-        if (message.what == 0) {
-            textView = this.f22834a.n;
-            textView.setText(com.baidu.ufosdk.f.s.a("8"));
+            if (message.what == 0) {
+                textView = this.f23350a.n;
+                textView.setText(com.baidu.ufosdk.f.s.a("8"));
+            }
         }
     }
 }

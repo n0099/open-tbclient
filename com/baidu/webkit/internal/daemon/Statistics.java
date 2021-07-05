@@ -1,52 +1,91 @@
 package com.baidu.webkit.internal.daemon;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Statistics implements INoProGuard {
+    public static /* synthetic */ Interceptable $ic;
     public static boolean mIsInited;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public Statistics() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static synchronized void close() {
-        synchronized (Statistics.class) {
-            try {
-                if (mIsInited) {
-                    nativeClose();
-                    mIsInited = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            synchronized (Statistics.class) {
+                try {
+                    if (mIsInited) {
+                        nativeClose();
+                        mIsInited = false;
+                    }
+                } catch (Throwable th) {
+                    th.printStackTrace();
                 }
-            } catch (Throwable th) {
-                th.printStackTrace();
             }
         }
     }
 
     public static String getPhoenixString() {
-        try {
-            return mIsInited ? nativeGetPhoenixString() : "";
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                return mIsInited ? nativeGetPhoenixString() : "";
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public static String getString() {
-        try {
-            return mIsInited ? nativeGetString() : "";
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                return mIsInited ? nativeGetString() : "";
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public static synchronized boolean init(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         boolean z;
-        synchronized (Statistics.class) {
-            try {
-                if (!mIsInited) {
-                    mIsInited = nativeInit(str, str2, str3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, str3)) == null) {
+            synchronized (Statistics.class) {
+                try {
+                    if (!mIsInited) {
+                        mIsInited = nativeInit(str, str2, str3);
+                    }
+                    z = mIsInited;
                 }
-                z = mIsInited;
             }
+            return z;
         }
-        return z;
+        return invokeLLL.booleanValue;
     }
 
     public static native void nativeClose();
@@ -64,35 +103,44 @@ public final class Statistics implements INoProGuard {
     public static native void nativeUploadSuccessfully();
 
     public static void record(int i2, String str) {
-        if (str == null) {
-            str = "";
-        }
-        try {
-            if (mIsInited) {
-                nativeRecord(i2, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65548, null, i2, str) == null) {
+            if (str == null) {
+                str = "";
             }
-        } catch (Throwable th) {
-            th.printStackTrace();
+            try {
+                if (mIsInited) {
+                    nativeRecord(i2, str);
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
         }
     }
 
     public static void updatePhoenixConfig(String str) {
-        try {
-            if (mIsInited) {
-                nativeUpdatePhoenixConfig(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
+            try {
+                if (mIsInited) {
+                    nativeUpdatePhoenixConfig(str);
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-        } catch (Throwable th) {
-            th.printStackTrace();
         }
     }
 
     public static void uploadSuccessfully() {
-        try {
-            if (mIsInited) {
-                nativeUploadSuccessfully();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            try {
+                if (mIsInited) {
+                    nativeUploadSuccessfully();
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-        } catch (Throwable th) {
-            th.printStackTrace();
         }
     }
 }

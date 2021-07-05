@@ -2,27 +2,56 @@ package com.google.android.material.internal;
 
 import android.os.Build;
 import androidx.annotation.RestrictTo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ManufacturerUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String LGE = "lge";
     public static final String MEIZU = "meizu";
     public static final String SAMSUNG = "samsung";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ManufacturerUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static boolean isDateInputKeyboardMissingSeparatorCharacters() {
-        return isLGEDevice() || isSamsungDevice();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? isLGEDevice() || isSamsungDevice() : invokeV.booleanValue;
     }
 
     public static boolean isLGEDevice() {
-        return Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(LGE);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(LGE) : invokeV.booleanValue;
     }
 
     public static boolean isMeizuDevice() {
-        return Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("meizu");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("meizu") : invokeV.booleanValue;
     }
 
     public static boolean isSamsungDevice() {
-        return Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(SAMSUNG);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(SAMSUNG) : invokeV.booleanValue;
     }
 }

@@ -1,9 +1,15 @@
 package com.kwai.filedownloader;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class l {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f37905a;
+    public static a f39668a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -17,10 +23,14 @@ public class l {
     }
 
     public static a a() {
-        return f37905a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f39668a : (a) invokeV.objValue;
     }
 
     public static boolean b() {
-        return a() != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a() != null : invokeV.booleanValue;
     }
 }

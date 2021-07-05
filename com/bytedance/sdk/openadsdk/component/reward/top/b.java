@@ -8,4 +8,6 @@ public interface b {
     void b(View view);
 
     void c(View view);
+
+    void d(View view);
 }

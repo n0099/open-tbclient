@@ -1,5 +1,11 @@
 package io.reactivex.internal.operators.observable;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.Scheduler;
@@ -10,21 +16,40 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpstream<T, T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
     public final long timeout;
     public final TimeUnit unit;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class DebounceEmitter<T> extends AtomicReference<Disposable> implements Runnable, Disposable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6812032969491025141L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final long idx;
-        public final AtomicBoolean once = new AtomicBoolean();
+        public final AtomicBoolean once;
         public final DebounceTimedObserver<T> parent;
         public final T value;
 
         public DebounceEmitter(T t, long j, DebounceTimedObserver<T> debounceTimedObserver) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t, Long.valueOf(j), debounceTimedObserver};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.once = new AtomicBoolean();
             this.value = t;
             this.idx = j;
             this.parent = debounceTimedObserver;
@@ -32,28 +57,39 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            DisposableHelper.dispose(this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                DisposableHelper.dispose(this);
+            }
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return get() == DisposableHelper.DISPOSED;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.once.compareAndSet(false, true)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.once.compareAndSet(false, true)) {
                 this.parent.emit(this.idx, this.value, this);
             }
         }
 
         public void setResource(Disposable disposable) {
-            DisposableHelper.replace(this, disposable);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
+                DisposableHelper.replace(this, disposable);
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class DebounceTimedObserver<T> implements Observer<T>, Disposable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Observer<? super T> actual;
         public boolean done;
         public volatile long index;
@@ -64,6 +100,20 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
         public final Scheduler.Worker worker;
 
         public DebounceTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, worker};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = observer;
             this.timeout = j;
             this.unit = timeUnit;
@@ -72,12 +122,16 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.s.dispose();
-            this.worker.dispose();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.s.dispose();
+                this.worker.dispose();
+            }
         }
 
         public void emit(long j, T t, DebounceEmitter<T> debounceEmitter) {
-            if (j == this.index) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), t, debounceEmitter}) == null) && j == this.index) {
                 this.actual.onNext(t);
                 debounceEmitter.dispose();
             }
@@ -85,12 +139,15 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.worker.isDisposed();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.worker.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
-            if (this.done) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.done) {
                 return;
             }
             this.done = true;
@@ -108,22 +165,26 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
 
         @Override // io.reactivex.Observer
         public void onError(Throwable th) {
-            if (this.done) {
-                RxJavaPlugins.onError(th);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
+                if (this.done) {
+                    RxJavaPlugins.onError(th);
+                    return;
+                }
+                Disposable disposable = this.timer;
+                if (disposable != null) {
+                    disposable.dispose();
+                }
+                this.done = true;
+                this.actual.onError(th);
+                this.worker.dispose();
             }
-            Disposable disposable = this.timer;
-            if (disposable != null) {
-                disposable.dispose();
-            }
-            this.done = true;
-            this.actual.onError(th);
-            this.worker.dispose();
         }
 
         @Override // io.reactivex.Observer
         public void onNext(T t) {
-            if (this.done) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || this.done) {
                 return;
             }
             long j = this.index + 1;
@@ -139,15 +200,32 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.s, disposable)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
                 this.s = disposable;
                 this.actual.onSubscribe(this);
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservableDebounceTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(observableSource);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {observableSource, Long.valueOf(j), timeUnit, scheduler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((ObservableSource) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.timeout = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
@@ -155,6 +233,9 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
 
     @Override // io.reactivex.Observable
     public void subscribeActual(Observer<? super T> observer) {
-        this.source.subscribe(new DebounceTimedObserver(new SerializedObserver(observer), this.timeout, this.unit, this.scheduler.createWorker()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
+            this.source.subscribe(new DebounceTimedObserver(new SerializedObserver(observer), this.timeout, this.unit, this.scheduler.createWorker()));
+        }
     }
 }

@@ -1,34 +1,65 @@
 package h.o.d;
-/* loaded from: classes8.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes10.dex */
 public final class a<T> implements h.e<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.n.b<? super T> f72020e;
+    public final h.n.b<? super T> f75612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.b<? super Throwable> f72021f;
+    public final h.n.b<? super Throwable> f75613f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final h.n.a f72022g;
+    public final h.n.a f75614g;
 
     public a(h.n.b<? super T> bVar, h.n.b<? super Throwable> bVar2, h.n.a aVar) {
-        this.f72020e = bVar;
-        this.f72021f = bVar2;
-        this.f72022g = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, bVar2, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f75612e = bVar;
+        this.f75613f = bVar2;
+        this.f75614g = aVar;
     }
 
     @Override // h.e
     public void onCompleted() {
-        this.f72022g.call();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f75614g.call();
+        }
     }
 
     @Override // h.e
     public void onError(Throwable th) {
-        this.f72021f.call(th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.f75613f.call(th);
+        }
     }
 
     @Override // h.e
     public void onNext(T t) {
-        this.f72020e.call(t);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.f75612e.call(t);
+        }
     }
 }

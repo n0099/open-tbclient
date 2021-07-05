@@ -1,65 +1,110 @@
 package com.bytedance.sdk.openadsdk.preload.a.b;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigDecimal;
 /* loaded from: classes6.dex */
 public final class g extends Number {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f30006a;
+    public final String f31856a;
 
     public g(String str) {
-        this.f30006a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f31856a = str;
     }
 
     @Override // java.lang.Number
     public double doubleValue() {
-        return Double.parseDouble(this.f30006a);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Double.parseDouble(this.f31856a) : invokeV.doubleValue;
     }
 
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof g) {
+                String str = this.f31856a;
+                String str2 = ((g) obj).f31856a;
+                return str == str2 || str.equals(str2);
+            }
+            return false;
         }
-        if (obj instanceof g) {
-            String str = this.f30006a;
-            String str2 = ((g) obj).f30006a;
-            return str == str2 || str.equals(str2);
-        }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Override // java.lang.Number
     public float floatValue() {
-        return Float.parseFloat(this.f30006a);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Float.parseFloat(this.f31856a) : invokeV.floatValue;
     }
 
     public int hashCode() {
-        return this.f30006a.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31856a.hashCode() : invokeV.intValue;
     }
 
     @Override // java.lang.Number
     public int intValue() {
-        try {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                return Integer.parseInt(this.f30006a);
-            } catch (NumberFormatException unused) {
-                return (int) Long.parseLong(this.f30006a);
+                try {
+                    return Integer.parseInt(this.f31856a);
+                } catch (NumberFormatException unused) {
+                    return new BigDecimal(this.f31856a).intValue();
+                }
+            } catch (NumberFormatException unused2) {
+                return (int) Long.parseLong(this.f31856a);
             }
-        } catch (NumberFormatException unused2) {
-            return new BigDecimal(this.f30006a).intValue();
         }
+        return invokeV.intValue;
     }
 
     @Override // java.lang.Number
     public long longValue() {
-        try {
-            return Long.parseLong(this.f30006a);
-        } catch (NumberFormatException unused) {
-            return new BigDecimal(this.f30006a).longValue();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return Long.parseLong(this.f31856a);
+            } catch (NumberFormatException unused) {
+                return new BigDecimal(this.f31856a).longValue();
+            }
         }
+        return invokeV.longValue;
     }
 
     public String toString() {
-        return this.f30006a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31856a : (String) invokeV.objValue;
     }
 }

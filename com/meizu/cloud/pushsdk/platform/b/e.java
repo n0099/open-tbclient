@@ -6,19 +6,18 @@ import android.text.TextUtils;
 import com.baidu.wallet.lightapp.base.LightappConstants;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes7.dex */
 public class e extends c<SubTagsStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38802a;
+    public String f40565a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38803b;
+    public int f40566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38804c;
+    public String f40567c;
 
     public e(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, null, aVar, scheduledExecutorService);
@@ -31,48 +30,48 @@ public class e extends c<SubTagsStatus> {
 
     public e(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         super(context, str, str2, aVar, scheduledExecutorService);
-        this.f38803b = 3;
+        this.f40566b = 3;
     }
 
     public e(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, str, str2, aVar, scheduledExecutorService);
-        this.f38802a = str3;
+        this.f40565a = str3;
     }
 
     public void a(int i2) {
-        this.f38803b = i2;
+        this.f40566b = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(SubTagsStatus subTagsStatus) {
-        PlatformMessageSender.a(this.f38793e, !TextUtils.isEmpty(this.f38796h) ? this.f38796h : this.f38793e.getPackageName(), subTagsStatus);
+        PlatformMessageSender.a(this.f40556e, !TextUtils.isEmpty(this.f40559h) ? this.f40559h : this.f40556e.getPackageName(), subTagsStatus);
     }
 
     public void a(String str) {
-        this.f38804c = str;
+        this.f40567c = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f38794f) || TextUtils.isEmpty(this.f38795g) || TextUtils.isEmpty(this.f38802a)) ? false : true;
+        return (TextUtils.isEmpty(this.f40557f) || TextUtils.isEmpty(this.f40558g) || TextUtils.isEmpty(this.f40565a)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra(Constants.APP_ID, this.f38794f);
-        intent.putExtra("app_key", this.f38795g);
-        intent.putExtra("strategy_package_name", this.f38793e.getPackageName());
-        intent.putExtra("push_id", this.f38802a);
+        intent.putExtra("app_id", this.f40557f);
+        intent.putExtra("app_key", this.f40558g);
+        intent.putExtra("strategy_package_name", this.f40556e.getPackageName());
+        intent.putExtra("push_id", this.f40565a);
         intent.putExtra("strategy_type", g());
-        intent.putExtra("strategy_child_type", this.f38803b);
-        intent.putExtra("strategy_params", this.f38804c);
+        intent.putExtra("strategy_child_type", this.f40566b);
+        intent.putExtra("strategy_params", this.f40567c);
         return intent;
     }
 
     public void e(String str) {
-        this.f38802a = str;
+        this.f40565a = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -87,10 +86,10 @@ public class e extends c<SubTagsStatus> {
         String str;
         SubTagsStatus subTagsStatus = new SubTagsStatus();
         subTagsStatus.setCode(LightappConstants.ERRCODE_NOT_ALLOWED_BACKGROUND);
-        if (TextUtils.isEmpty(this.f38794f)) {
+        if (TextUtils.isEmpty(this.f40557f)) {
             str = "appId not empty";
-        } else if (!TextUtils.isEmpty(this.f38795g)) {
-            if (TextUtils.isEmpty(this.f38802a)) {
+        } else if (!TextUtils.isEmpty(this.f40558g)) {
+            if (TextUtils.isEmpty(this.f40565a)) {
                 str = "pushId not empty";
             }
             return subTagsStatus;
@@ -108,8 +107,8 @@ public class e extends c<SubTagsStatus> {
         StringBuilder sb;
         String str;
         SubTagsStatus subTagsStatus = new SubTagsStatus();
-        int i2 = this.f38803b;
-        com.meizu.cloud.pushsdk.b.a.c e2 = i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? null : this.j.e(this.f38794f, this.f38795g, this.f38802a) : this.j.d(this.f38794f, this.f38795g, this.f38802a) : this.j.b(this.f38794f, this.f38795g, this.f38802a, this.f38804c) : this.j.a(this.f38794f, this.f38795g, this.f38802a, this.f38804c);
+        int i2 = this.f40566b;
+        com.meizu.cloud.pushsdk.b.a.c e2 = i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? null : this.j.e(this.f40557f, this.f40558g, this.f40565a) : this.j.d(this.f40557f, this.f40558g, this.f40565a) : this.j.b(this.f40557f, this.f40558g, this.f40565a, this.f40567c) : this.j.a(this.f40557f, this.f40558g, this.f40565a, this.f40567c);
         if (e2.b()) {
             subTagsStatus = new SubTagsStatus((String) e2.a());
             sb = new StringBuilder();
@@ -117,7 +116,7 @@ public class e extends c<SubTagsStatus> {
         } else {
             com.meizu.cloud.pushsdk.b.b.a c2 = e2.c();
             if (c2.a() != null) {
-                d.j.a.a.a.b("Strategy", "status code=" + c2.b() + " data=" + c2.a());
+                d.h.a.a.a.b("Strategy", "status code=" + c2.b() + " data=" + c2.a());
             }
             subTagsStatus.setCode(String.valueOf(c2.b()));
             subTagsStatus.setMessage(c2.c());
@@ -126,7 +125,7 @@ public class e extends c<SubTagsStatus> {
         }
         sb.append(str);
         sb.append(subTagsStatus);
-        d.j.a.a.a.b("Strategy", sb.toString());
+        d.h.a.a.a.b("Strategy", sb.toString());
         return subTagsStatus;
     }
 

@@ -1,6 +1,6 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface HttpParams {
     HttpParams copy();
 

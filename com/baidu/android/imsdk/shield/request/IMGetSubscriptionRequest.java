@@ -9,48 +9,82 @@ import com.baidu.android.imsdk.shield.IGetSubscriptionListener;
 import com.baidu.android.imsdk.shield.model.GetSubscriptionResult;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetSubscriptionRequest";
+    public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IMGetSubscriptionRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
         super(context, j, list, list2, str2, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Long.valueOf(j), list, list2, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (List) objArr2[2], (List) objArr2[3], (String) objArr2[4], (String) objArr2[5]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private GetSubscriptionResult.SubscriptionInfo generateSubscriptionInfo(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            GetSubscriptionResult.SubscriptionInfo subscriptionInfo = new GetSubscriptionResult.SubscriptionInfo();
-            subscriptionInfo.setStatus(jSONObject.optInt("subscription_state"));
-            subscriptionInfo.setDescription(jSONObject.optString("description"));
-            subscriptionInfo.setTopicName(jSONObject.optString(IntentConfig.TOPIC_NAME));
-            subscriptionInfo.setTopicId(jSONObject.optLong("topic_id"));
-            subscriptionInfo.setMiNiTopicId(jSONObject.optString("fminapp_topic"));
-            return subscriptionInfo;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
+            if (jSONObject != null) {
+                GetSubscriptionResult.SubscriptionInfo subscriptionInfo = new GetSubscriptionResult.SubscriptionInfo();
+                subscriptionInfo.setStatus(jSONObject.optInt("subscription_state"));
+                subscriptionInfo.setDescription(jSONObject.optString("description"));
+                subscriptionInfo.setTopicName(jSONObject.optString(IntentConfig.TOPIC_NAME));
+                subscriptionInfo.setTopicId(jSONObject.optLong("topic_id"));
+                subscriptionInfo.setMiNiTopicId(jSONObject.optString("fminapp_topic"));
+                return subscriptionInfo;
+            }
+            return null;
         }
-        return null;
+        return (GetSubscriptionResult.SubscriptionInfo) invokeL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.shield.request.IMSubscriptionBaseRequest
     public String getHostUrlParam() {
-        return "subscribe_state";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "subscribe_state" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i2, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
-        LogUtils.d(TAG, "IMGetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
-        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener == null || !(removeListener instanceof IGetSubscriptionListener)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+            LogUtils.d(TAG, "IMGetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
+            IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+            if (removeListener == null || !(removeListener instanceof IGetSubscriptionListener)) {
+                return;
+            }
+            GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
+            getSubscriptionResult.setErrorCode(((Integer) transErrorCode.first).intValue());
+            getSubscriptionResult.setErrorMsg((String) transErrorCode.second);
+            ((IGetSubscriptionListener) removeListener).onResult(getSubscriptionResult);
         }
-        GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
-        getSubscriptionResult.setErrorCode(((Integer) transErrorCode.first).intValue());
-        getSubscriptionResult.setErrorMsg((String) transErrorCode.second);
-        ((IGetSubscriptionListener) removeListener).onResult(getSubscriptionResult);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -62,66 +96,69 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
         String str3;
         int i3;
         IMListener removeListener;
-        String str4 = "";
-        String str5 = new String(bArr);
-        LogUtils.d(TAG, "IMGetSubscriptionRequest onSuccess :" + str5);
-        ArrayList arrayList = new ArrayList();
-        long j2 = 0;
-        try {
-            JSONObject jSONObject = new JSONObject(str5);
-            i3 = jSONObject.optInt("error_code");
-            if (i3 == 0) {
-                String optString = jSONObject.optString("error_msg", "");
-                j2 = jSONObject.optLong("pa_uid");
-                str2 = jSONObject.optString("pa_avatar");
-                try {
-                    str4 = jSONObject.optString("pa_nickname");
-                    JSONArray optJSONArray = jSONObject.optJSONArray("data");
-                    if (optJSONArray != null && optJSONArray.length() > 0) {
-                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                            GetSubscriptionResult.SubscriptionInfo generateSubscriptionInfo = generateSubscriptionInfo(optJSONArray.getJSONObject(i4));
-                            if (generateSubscriptionInfo != null) {
-                                arrayList.add(generateSubscriptionInfo);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr) == null) {
+            String str4 = "";
+            String str5 = new String(bArr);
+            LogUtils.d(TAG, "IMGetSubscriptionRequest onSuccess :" + str5);
+            ArrayList arrayList = new ArrayList();
+            long j2 = 0;
+            try {
+                JSONObject jSONObject = new JSONObject(str5);
+                i3 = jSONObject.optInt("error_code");
+                if (i3 == 0) {
+                    String optString = jSONObject.optString("error_msg", "");
+                    j2 = jSONObject.optLong("pa_uid");
+                    str2 = jSONObject.optString("pa_avatar");
+                    try {
+                        str4 = jSONObject.optString("pa_nickname");
+                        JSONArray optJSONArray = jSONObject.optJSONArray("data");
+                        if (optJSONArray != null && optJSONArray.length() > 0) {
+                            for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                                GetSubscriptionResult.SubscriptionInfo generateSubscriptionInfo = generateSubscriptionInfo(optJSONArray.getJSONObject(i4));
+                                if (generateSubscriptionInfo != null) {
+                                    arrayList.add(generateSubscriptionInfo);
+                                }
                             }
                         }
+                        str3 = str4;
+                        str4 = optString;
+                    } catch (Exception e2) {
+                        j = j2;
+                        exc = e2;
+                        str = str4;
+                        str4 = str2;
+                        LogUtils.e(TAG, "JSONException", exc);
+                        str2 = str4;
+                        str3 = str;
+                        str4 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                        j2 = j;
+                        i3 = 1010;
+                        removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+                        if (removeListener == null) {
+                        }
+                        return;
                     }
-                    str3 = str4;
-                    str4 = optString;
-                } catch (Exception e2) {
-                    j = j2;
-                    exc = e2;
-                    str = str4;
-                    str4 = str2;
-                    LogUtils.e(TAG, "JSONException", exc);
-                    str2 = str4;
-                    str3 = str;
-                    str4 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                    j2 = j;
-                    i3 = 1010;
-                    removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-                    if (removeListener == null) {
-                    }
-                    return;
+                } else {
+                    str3 = "";
+                    str2 = str3;
                 }
-            } else {
-                str3 = "";
-                str2 = str3;
+            } catch (Exception e3) {
+                j = j2;
+                exc = e3;
+                str = "";
             }
-        } catch (Exception e3) {
-            j = j2;
-            exc = e3;
-            str = "";
-        }
-        removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener == null && (removeListener instanceof IGetSubscriptionListener)) {
-            GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
-            getSubscriptionResult.setErrorCode(i3);
-            getSubscriptionResult.setErrorMsg(str4);
-            getSubscriptionResult.setPauid(j2);
-            getSubscriptionResult.setPaAvatar(str2);
-            getSubscriptionResult.setPaNickName(str3);
-            getSubscriptionResult.setSubscriptionList(arrayList);
-            ((IGetSubscriptionListener) removeListener).onResult(getSubscriptionResult);
+            removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+            if (removeListener == null && (removeListener instanceof IGetSubscriptionListener)) {
+                GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
+                getSubscriptionResult.setErrorCode(i3);
+                getSubscriptionResult.setErrorMsg(str4);
+                getSubscriptionResult.setPauid(j2);
+                getSubscriptionResult.setPaAvatar(str2);
+                getSubscriptionResult.setPaNickName(str3);
+                getSubscriptionResult.setSubscriptionList(arrayList);
+                ((IGetSubscriptionListener) removeListener).onResult(getSubscriptionResult);
+            }
         }
     }
 }

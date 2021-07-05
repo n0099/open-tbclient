@@ -4,312 +4,454 @@ import android.content.Context;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class as implements ar, InvocationHandler {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[][] f41091a = {new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
+    public static final String[][] f42834a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f123a;
+    public volatile int f124a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Class f125a = null;
+    public volatile long f125a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Context f126a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public volatile a f127a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Class f128a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final Object f129a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Method f130a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class f41092b = null;
-
-    /* renamed from: a  reason: collision with other field name */
-    public Method f127a = null;
+    public Class f42835b;
 
     /* renamed from: b  reason: collision with other field name */
-    public Method f128b = null;
+    public Method f131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f41093c = null;
+    public Method f42836c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f41094d = null;
+    public Method f42837d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f41095e = null;
+    public Method f42838e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Method f41096f = null;
+    public Method f42839f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Method f41097g = null;
+    public Method f42840g;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final Object f126a = new Object();
-
-    /* renamed from: a  reason: collision with other field name */
-    public volatile int f121a = 0;
-
-    /* renamed from: a  reason: collision with other field name */
-    public volatile long f122a = 0;
-
-    /* renamed from: a  reason: collision with other field name */
-    public volatile a f124a = null;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ as f42841a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Boolean f129a;
+        public Boolean f132a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f130a;
+        public String f133a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41099b;
+        public String f42842b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f41100c;
+        public String f42843c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f41101d;
+        public String f42844d;
 
-        public a() {
-            this.f129a = null;
-            this.f130a = null;
-            this.f41099b = null;
-            this.f41100c = null;
-            this.f41101d = null;
+        public a(as asVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {asVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f42841a = asVar;
+            this.f132a = null;
+            this.f133a = null;
+            this.f42842b = null;
+            this.f42843c = null;
+            this.f42844d = null;
+        }
+
+        public /* synthetic */ a(as asVar, at atVar) {
+            this(asVar);
         }
 
         public boolean a() {
-            if (!TextUtils.isEmpty(this.f130a) || !TextUtils.isEmpty(this.f41099b) || !TextUtils.isEmpty(this.f41100c) || !TextUtils.isEmpty(this.f41101d)) {
-                this.f129a = Boolean.TRUE;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!TextUtils.isEmpty(this.f133a) || !TextUtils.isEmpty(this.f42842b) || !TextUtils.isEmpty(this.f42843c) || !TextUtils.isEmpty(this.f42844d)) {
+                    this.f132a = Boolean.TRUE;
+                }
+                return this.f132a != null;
             }
-            return this.f129a != null;
+            return invokeV.booleanValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56379314, "Lcom/xiaomi/push/as;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56379314, "Lcom/xiaomi/push/as;");
+                return;
+            }
+        }
+        f42834a = new String[][]{new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
+    }
+
     public as(Context context) {
-        this.f123a = context.getApplicationContext();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f128a = null;
+        this.f42835b = null;
+        this.f130a = null;
+        this.f131b = null;
+        this.f42836c = null;
+        this.f42837d = null;
+        this.f42838e = null;
+        this.f42839f = null;
+        this.f42840g = null;
+        this.f129a = new Object();
+        this.f124a = 0;
+        this.f125a = 0L;
+        this.f127a = null;
+        this.f126a = context.getApplicationContext();
         a(context);
         b(context);
     }
 
     public static Class<?> a(Context context, String str) {
-        try {
-            return t.a(context, str);
-        } catch (Throwable unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                return t.a(context, str);
+            } catch (Throwable unused) {
+                return null;
+            }
         }
+        return (Class) invokeLL.objValue;
     }
 
     public static <T> T a(Method method, Object obj, Object... objArr) {
-        if (method != null) {
-            try {
-                T t = (T) method.invoke(obj, objArr);
-                if (t != null) {
-                    return t;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, method, obj, objArr)) == null) {
+            if (method != null) {
+                try {
+                    T t = (T) method.invoke(obj, objArr);
+                    if (t != null) {
+                        return t;
+                    }
+                    return null;
+                } catch (Throwable unused) {
+                    return null;
                 }
-                return null;
-            } catch (Throwable unused) {
-                return null;
             }
+            return null;
         }
-        return null;
+        return (T) invokeLLL.objValue;
     }
 
     public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
-        if (cls != null) {
-            try {
-                return cls.getMethod(str, clsArr);
-            } catch (Throwable unused) {
-                return null;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, cls, str, clsArr)) == null) {
+            if (cls != null) {
+                try {
+                    return cls.getMethod(str, clsArr);
+                } catch (Throwable unused) {
+                    return null;
+                }
             }
+            return null;
         }
-        return null;
+        return (Method) invokeLLL.objValue;
     }
 
     private void a() {
-        synchronized (this.f126a) {
-            try {
-                this.f126a.notifyAll();
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    private void a(Context context) {
-        Class<?> a2 = a(context, "com.bun.miitmdid.core.MdidSdk");
-        Class<?> cls = null;
-        Class<?> cls2 = null;
-        int i2 = 0;
-        while (true) {
-            String[][] strArr = f41091a;
-            if (i2 >= strArr.length) {
-                break;
-            }
-            String[] strArr2 = strArr[i2];
-            Class<?> a3 = a(context, strArr2[0]);
-            Class<?> a4 = a(context, strArr2[1]);
-            if (a3 != null && a4 != null) {
-                b("found class in index " + i2);
-                cls2 = a4;
-                cls = a3;
-                break;
-            }
-            i2++;
-            cls2 = a4;
-            cls = a3;
-        }
-        this.f125a = a2;
-        this.f127a = a(a2, "InitSdk", Context.class, cls);
-        this.f41092b = cls;
-        this.f128b = a(cls2, "getUDID", new Class[0]);
-        this.f41093c = a(cls2, "getOAID", new Class[0]);
-        this.f41094d = a(cls2, "getVAID", new Class[0]);
-        this.f41095e = a(cls2, "getAAID", new Class[0]);
-        this.f41096f = a(cls2, "isSupported", new Class[0]);
-        this.f41097g = a(cls2, "shutDown", new Class[0]);
-    }
-
-    private void a(String str) {
-        if (this.f124a != null) {
-            return;
-        }
-        long j = this.f122a;
-        long elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
-        int i2 = this.f121a;
-        if (elapsedRealtime > 3000 && i2 < 3) {
-            synchronized (this.f126a) {
-                if (this.f122a == j && this.f121a == i2) {
-                    b("retry, current count is " + i2);
-                    this.f121a = this.f121a + 1;
-                    b(this.f123a);
-                    j = this.f122a;
-                    elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
-                }
-            }
-        }
-        if (this.f124a != null || j < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
-            return;
-        }
-        synchronized (this.f126a) {
-            if (this.f124a == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            synchronized (this.f129a) {
                 try {
-                    b(str + " wait...");
-                    this.f126a.wait(3000L);
+                    this.f129a.notifyAll();
                 } catch (Exception unused) {
                 }
             }
         }
     }
 
+    private void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
+            Class<?> a2 = a(context, "com.bun.miitmdid.core.MdidSdk");
+            Class<?> cls = null;
+            Class<?> cls2 = null;
+            int i2 = 0;
+            while (true) {
+                String[][] strArr = f42834a;
+                if (i2 >= strArr.length) {
+                    break;
+                }
+                String[] strArr2 = strArr[i2];
+                Class<?> a3 = a(context, strArr2[0]);
+                Class<?> a4 = a(context, strArr2[1]);
+                if (a3 != null && a4 != null) {
+                    b("found class in index " + i2);
+                    cls2 = a4;
+                    cls = a3;
+                    break;
+                }
+                i2++;
+                cls2 = a4;
+                cls = a3;
+            }
+            this.f128a = a2;
+            this.f130a = a(a2, "InitSdk", Context.class, cls);
+            this.f42835b = cls;
+            this.f131b = a(cls2, "getUDID", new Class[0]);
+            this.f42836c = a(cls2, "getOAID", new Class[0]);
+            this.f42837d = a(cls2, "getVAID", new Class[0]);
+            this.f42838e = a(cls2, "getAAID", new Class[0]);
+            this.f42839f = a(cls2, "isSupported", new Class[0]);
+            this.f42840g = a(cls2, "shutDown", new Class[0]);
+        }
+    }
+
+    private void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f127a == null) {
+            long j = this.f125a;
+            long elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
+            int i2 = this.f124a;
+            if (elapsedRealtime > 3000 && i2 < 3) {
+                synchronized (this.f129a) {
+                    if (this.f125a == j && this.f124a == i2) {
+                        b("retry, current count is " + i2);
+                        this.f124a = this.f124a + 1;
+                        b(this.f126a);
+                        j = this.f125a;
+                        elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
+                    }
+                }
+            }
+            if (this.f127a != null || j < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
+                return;
+            }
+            synchronized (this.f129a) {
+                if (this.f127a == null) {
+                    try {
+                        b(str + " wait...");
+                        this.f129a.wait(3000L);
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+        }
+    }
+
     public static boolean a(Object obj) {
-        return (obj instanceof Boolean) || (obj instanceof Character) || (obj instanceof Byte) || (obj instanceof Short) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Double);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? (obj instanceof Boolean) || (obj instanceof Character) || (obj instanceof Byte) || (obj instanceof Short) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Double) : invokeL.booleanValue;
     }
 
     private void b(Context context) {
-        long elapsedRealtime = SystemClock.elapsedRealtime();
-        long j = -elapsedRealtime;
-        Class cls = this.f41092b;
-        if (cls != null) {
-            try {
-                ClassLoader classLoader = cls.getClassLoader();
-                if (classLoader == null) {
-                    classLoader = context.getClassLoader();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            long j = -elapsedRealtime;
+            Class cls = this.f42835b;
+            if (cls != null) {
+                try {
+                    ClassLoader classLoader = cls.getClassLoader();
+                    if (classLoader == null) {
+                        classLoader = context.getClassLoader();
+                    }
+                    a(this.f130a, this.f128a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f42835b}, this));
+                } catch (Throwable th) {
+                    b("call init sdk error:" + th);
                 }
-                a(this.f127a, this.f125a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f41092b}, this));
-            } catch (Throwable th) {
-                b("call init sdk error:" + th);
+                this.f125a = elapsedRealtime;
             }
-            this.f122a = elapsedRealtime;
+            elapsedRealtime = j;
+            this.f125a = elapsedRealtime;
         }
-        elapsedRealtime = j;
-        this.f122a = elapsedRealtime;
     }
 
     public static void b(String str) {
-        com.xiaomi.channel.commonutils.logger.b.m56a("mdid:" + str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            com.xiaomi.channel.commonutils.logger.b.m70a("mdid:" + str);
+        }
     }
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        a("getUDID");
-        if (this.f124a == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            a("getUDID");
+            if (this.f127a == null) {
+                return null;
+            }
+            return this.f127a.f133a;
         }
-        return this.f124a.f130a;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        a("isSupported");
-        return this.f124a != null && Boolean.TRUE.equals(this.f124a.f129a);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            a("isSupported");
+            return this.f127a != null && Boolean.TRUE.equals(this.f127a.f132a);
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo135b() {
-        a("getOAID");
-        if (this.f124a == null) {
-            return null;
+    public String mo149b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            a("getOAID");
+            if (this.f127a == null) {
+                return null;
+            }
+            return this.f127a.f42842b;
         }
-        return this.f124a.f41099b;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        a("getVAID");
-        if (this.f124a == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a("getVAID");
+            if (this.f127a == null) {
+                return null;
+            }
+            return this.f127a.f42843c;
         }
-        return this.f124a.f41100c;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        a("getAAID");
-        if (this.f124a == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            a("getAAID");
+            if (this.f127a == null) {
+                return null;
+            }
+            return this.f127a.f42844d;
         }
-        return this.f124a.f41101d;
+        return (String) invokeV.objValue;
     }
 
     @Override // java.lang.reflect.InvocationHandler
     public Object invoke(Object obj, Method method, Object[] objArr) {
-        this.f122a = SystemClock.elapsedRealtime();
-        if (objArr != null) {
-            a aVar = new a();
-            int length = objArr.length;
-            int i2 = 0;
-            while (true) {
-                if (i2 >= length) {
-                    break;
-                }
-                Object obj2 = objArr[i2];
-                if (obj2 != null && !a(obj2)) {
-                    aVar.f130a = (String) a(this.f128b, obj2, new Object[0]);
-                    aVar.f41099b = (String) a(this.f41093c, obj2, new Object[0]);
-                    aVar.f41100c = (String) a(this.f41094d, obj2, new Object[0]);
-                    aVar.f41101d = (String) a(this.f41095e, obj2, new Object[0]);
-                    aVar.f129a = (Boolean) a(this.f41096f, obj2, new Object[0]);
-                    a(this.f41097g, obj2, new Object[0]);
-                    if (aVar.a()) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("has get succ, check duplicate:");
-                        sb.append(this.f124a != null);
-                        b(sb.toString());
-                        synchronized (as.class) {
-                            if (this.f124a == null) {
-                                this.f124a = aVar;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, obj, method, objArr)) == null) {
+            this.f125a = SystemClock.elapsedRealtime();
+            if (objArr != null) {
+                a aVar = new a(this, null);
+                int length = objArr.length;
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= length) {
+                        break;
+                    }
+                    Object obj2 = objArr[i2];
+                    if (obj2 != null && !a(obj2)) {
+                        aVar.f133a = (String) a(this.f131b, obj2, new Object[0]);
+                        aVar.f42842b = (String) a(this.f42836c, obj2, new Object[0]);
+                        aVar.f42843c = (String) a(this.f42837d, obj2, new Object[0]);
+                        aVar.f42844d = (String) a(this.f42838e, obj2, new Object[0]);
+                        aVar.f132a = (Boolean) a(this.f42839f, obj2, new Object[0]);
+                        a(this.f42840g, obj2, new Object[0]);
+                        if (aVar.a()) {
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("has get succ, check duplicate:");
+                            sb.append(this.f127a != null);
+                            b(sb.toString());
+                            synchronized (as.class) {
+                                if (this.f127a == null) {
+                                    this.f127a = aVar;
+                                }
                             }
                         }
                     }
+                    i2++;
                 }
-                i2++;
             }
+            a();
+            return null;
         }
-        a();
-        return null;
+        return invokeLLL.objValue;
     }
 }

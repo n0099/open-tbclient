@@ -1,55 +1,84 @@
 package com.kwad.sdk.core.c.a;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.ABParams;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c implements com.kwad.sdk.core.c<AdInfo.AdBaseInfo> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public JSONObject a(AdInfo.AdBaseInfo adBaseInfo) {
-        JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "creativeId", adBaseInfo.creativeId);
-        com.kwad.sdk.utils.o.a(jSONObject, "adSourceType", adBaseInfo.adSourceType);
-        com.kwad.sdk.utils.o.a(jSONObject, "adDescription", adBaseInfo.adDescription);
-        com.kwad.sdk.utils.o.a(jSONObject, "adMarkIcon", adBaseInfo.adMarkIcon);
-        com.kwad.sdk.utils.o.a(jSONObject, "adGrayMarkIcon", adBaseInfo.adGrayMarkIcon);
-        com.kwad.sdk.utils.o.a(jSONObject, "adSourceDescription", adBaseInfo.adSourceDescription);
-        com.kwad.sdk.utils.o.a(jSONObject, "adOperationType", adBaseInfo.adOperationType);
-        com.kwad.sdk.utils.o.a(jSONObject, "adActionDescription", adBaseInfo.adActionDescription);
-        com.kwad.sdk.utils.o.a(jSONObject, "adActionBarColor", adBaseInfo.adActionBarColor);
-        com.kwad.sdk.utils.o.a(jSONObject, "adShowDuration", adBaseInfo.adShowDuration);
-        com.kwad.sdk.utils.o.a(jSONObject, "appName", adBaseInfo.appName);
-        com.kwad.sdk.utils.o.a(jSONObject, "appIconUrl", adBaseInfo.appIconUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "appPackageName", adBaseInfo.appPackageName);
-        com.kwad.sdk.utils.o.a(jSONObject, "appScore", adBaseInfo.appScore);
-        com.kwad.sdk.utils.o.a(jSONObject, "appDownloadCountDesc", adBaseInfo.appDownloadCountDesc);
-        com.kwad.sdk.utils.o.a(jSONObject, "appCategory", adBaseInfo.appCategory);
-        com.kwad.sdk.utils.o.a(jSONObject, "appVersion", adBaseInfo.appVersion);
-        com.kwad.sdk.utils.o.a(jSONObject, "corporationName", adBaseInfo.corporationName);
-        com.kwad.sdk.utils.o.a(jSONObject, "packageSize", adBaseInfo.packageSize);
-        com.kwad.sdk.utils.o.a(jSONObject, "appImageUrl", adBaseInfo.appImageUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "appImageSize", adBaseInfo.appImageSize);
-        com.kwad.sdk.utils.o.a(jSONObject, "appDescription", adBaseInfo.appDescription);
-        com.kwad.sdk.utils.o.a(jSONObject, "enableSkipAd", adBaseInfo.enableSkipAd);
-        com.kwad.sdk.utils.o.a(jSONObject, "skipSecond", adBaseInfo.skipSecond);
-        com.kwad.sdk.utils.o.a(jSONObject, "ecpm", adBaseInfo.ecpm);
-        com.kwad.sdk.utils.o.a(jSONObject, "videoPlayedNS", adBaseInfo.videoPlayedNS);
-        com.kwad.sdk.utils.o.a(jSONObject, "productName", adBaseInfo.productName);
-        com.kwad.sdk.utils.o.a(jSONObject, "expParam", adBaseInfo.mABParams.toJson().toString());
-        com.kwad.sdk.utils.o.a(jSONObject, "showUrl", adBaseInfo.showUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, Constants.KEYS.EXPOSED_CLICK_URL_KEY, adBaseInfo.clickUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "convUrl", adBaseInfo.convUrl);
-        return jSONObject;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            com.kwad.sdk.utils.o.a(jSONObject, "creativeId", adBaseInfo.creativeId);
+            com.kwad.sdk.utils.o.a(jSONObject, "adSourceType", adBaseInfo.adSourceType);
+            com.kwad.sdk.utils.o.a(jSONObject, "adDescription", adBaseInfo.adDescription);
+            com.kwad.sdk.utils.o.a(jSONObject, "adMarkIcon", adBaseInfo.adMarkIcon);
+            com.kwad.sdk.utils.o.a(jSONObject, "adGrayMarkIcon", adBaseInfo.adGrayMarkIcon);
+            com.kwad.sdk.utils.o.a(jSONObject, "adSourceDescription", adBaseInfo.adSourceDescription);
+            com.kwad.sdk.utils.o.a(jSONObject, "adOperationType", adBaseInfo.adOperationType);
+            com.kwad.sdk.utils.o.a(jSONObject, "adActionDescription", adBaseInfo.adActionDescription);
+            com.kwad.sdk.utils.o.a(jSONObject, "adActionBarColor", adBaseInfo.adActionBarColor);
+            com.kwad.sdk.utils.o.a(jSONObject, "adShowDuration", adBaseInfo.adShowDuration);
+            com.kwad.sdk.utils.o.a(jSONObject, "appName", adBaseInfo.appName);
+            com.kwad.sdk.utils.o.a(jSONObject, "appIconUrl", adBaseInfo.appIconUrl);
+            com.kwad.sdk.utils.o.a(jSONObject, "appPackageName", adBaseInfo.appPackageName);
+            com.kwad.sdk.utils.o.a(jSONObject, "appScore", adBaseInfo.appScore);
+            com.kwad.sdk.utils.o.a(jSONObject, "appDownloadCountDesc", adBaseInfo.appDownloadCountDesc);
+            com.kwad.sdk.utils.o.a(jSONObject, "appCategory", adBaseInfo.appCategory);
+            com.kwad.sdk.utils.o.a(jSONObject, "appVersion", adBaseInfo.appVersion);
+            com.kwad.sdk.utils.o.a(jSONObject, "corporationName", adBaseInfo.corporationName);
+            com.kwad.sdk.utils.o.a(jSONObject, "packageSize", adBaseInfo.packageSize);
+            com.kwad.sdk.utils.o.a(jSONObject, "appImageUrl", adBaseInfo.appImageUrl);
+            com.kwad.sdk.utils.o.a(jSONObject, "appImageSize", adBaseInfo.appImageSize);
+            com.kwad.sdk.utils.o.a(jSONObject, "appDescription", adBaseInfo.appDescription);
+            com.kwad.sdk.utils.o.a(jSONObject, "enableSkipAd", adBaseInfo.enableSkipAd);
+            com.kwad.sdk.utils.o.a(jSONObject, "skipSecond", adBaseInfo.skipSecond);
+            com.kwad.sdk.utils.o.a(jSONObject, "ecpm", adBaseInfo.ecpm);
+            com.kwad.sdk.utils.o.a(jSONObject, "videoPlayedNS", adBaseInfo.videoPlayedNS);
+            com.kwad.sdk.utils.o.a(jSONObject, "productName", adBaseInfo.productName);
+            com.kwad.sdk.utils.o.a(jSONObject, "expParam", adBaseInfo.mABParams.toJson().toString());
+            com.kwad.sdk.utils.o.a(jSONObject, "showUrl", adBaseInfo.showUrl);
+            com.kwad.sdk.utils.o.a(jSONObject, Constants.KEYS.EXPOSED_CLICK_URL_KEY, adBaseInfo.clickUrl);
+            com.kwad.sdk.utils.o.a(jSONObject, "convUrl", adBaseInfo.convUrl);
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public void a(AdInfo.AdBaseInfo adBaseInfo, JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, adBaseInfo, jSONObject) == null) || jSONObject == null) {
             return;
         }
         adBaseInfo.creativeId = jSONObject.optLong("creativeId");

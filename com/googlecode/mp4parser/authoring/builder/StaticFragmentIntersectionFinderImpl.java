@@ -1,17 +1,40 @@
 package com.googlecode.mp4parser.authoring.builder;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.authoring.Track;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class StaticFragmentIntersectionFinderImpl implements FragmentIntersectionFinder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Map<Track, long[]> sampleNumbers;
 
     public StaticFragmentIntersectionFinderImpl(Map<Track, long[]> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.sampleNumbers = map;
     }
 
     @Override // com.googlecode.mp4parser.authoring.builder.FragmentIntersectionFinder
     public long[] sampleNumbers(Track track) {
-        return this.sampleNumbers.get(track);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, track)) == null) ? this.sampleNumbers.get(track) : (long[]) invokeL.objValue;
     }
 }

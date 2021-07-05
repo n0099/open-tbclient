@@ -7,69 +7,158 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
-import d.a.m0.a.h;
-import d.a.m0.a.k;
-import d.a.m0.a.v2.v;
-import d.a.m0.a.z1.b.b.h;
-import d.a.m0.a.z1.b.f.e;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.h;
+import d.a.q0.a.k;
+import d.a.q0.a.v2.v;
+import d.a.q0.a.z1.b.b.h;
+import d.a.q0.a.z1.b.f.e;
+/* loaded from: classes4.dex */
 public class SwanAppAdbDebugActivity extends Activity {
-    public static final boolean DEBUG = k.f46983a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final boolean DEBUG;
     public static final String TAG = "SwanAppAdbDebugActivity";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class a implements DialogInterface.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ SwanAppAdbDebugActivity f10894e;
+
+        public a(SwanAppAdbDebugActivity swanAppAdbDebugActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {swanAppAdbDebugActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10894e = swanAppAdbDebugActivity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            SwanAppAdbDebugActivity.this.finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                this.f10894e.finish();
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f10823e;
+        public final /* synthetic */ Intent f10895e;
 
-        public b(Intent intent) {
-            this.f10823e = intent;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ SwanAppAdbDebugActivity f10896f;
+
+        public b(SwanAppAdbDebugActivity swanAppAdbDebugActivity, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {swanAppAdbDebugActivity, intent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10896f = swanAppAdbDebugActivity;
+            this.f10895e = intent;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            this.f10823e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
-            SwanAppAdbDebugActivity.this.startActivity(this.f10823e);
-            SwanAppAdbDebugActivity.this.finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                this.f10895e.setClass(this.f10896f, SwanAppLauncherActivity.class);
+                this.f10896f.startActivity(this.f10895e);
+                this.f10896f.finish();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1410172890, "Lcom/baidu/swan/apps/console/debugger/adbdebug/SwanAppAdbDebugActivity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1410172890, "Lcom/baidu/swan/apps/console/debugger/adbdebug/SwanAppAdbDebugActivity;");
+                return;
+            }
+        }
+        DEBUG = k.f49133a;
+    }
+
+    public SwanAppAdbDebugActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        if (DEBUG) {
-            Log.d(TAG, "ADB Debug onCreate");
-        }
-        if (v.a(this)) {
-            return;
-        }
-        Intent intent = getIntent();
-        if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-            e.f(this, h.aiapps_adb_debug_lack_path).F();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
             if (DEBUG) {
-                Log.d(TAG, "ADB Debug lack of app path");
+                Log.d(TAG, "ADB Debug onCreate");
             }
-            finish();
+            if (v.a(this)) {
+                return;
+            }
+            Intent intent = getIntent();
+            if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
+                e.f(this, h.aiapps_adb_debug_lack_path).F();
+                if (DEBUG) {
+                    Log.d(TAG, "ADB Debug lack of app path");
+                }
+                finish();
+            }
+            h.a aVar = new h.a(this);
+            aVar.V(getString(d.a.q0.a.h.aiapps_adb_debug));
+            aVar.x(getString(d.a.q0.a.h.aiapps_adb_debug_alert));
+            aVar.n(new d.a.q0.a.w2.h.a());
+            aVar.m(false);
+            aVar.O(d.a.q0.a.h.aiapps_confirm, new b(this, intent));
+            aVar.B(d.a.q0.a.h.swanapp_close, new a(this));
+            aVar.X();
         }
-        h.a aVar = new h.a(this);
-        aVar.V(getString(d.a.m0.a.h.aiapps_adb_debug));
-        aVar.x(getString(d.a.m0.a.h.aiapps_adb_debug_alert));
-        aVar.n(new d.a.m0.a.w2.h.a());
-        aVar.m(false);
-        aVar.O(d.a.m0.a.h.aiapps_confirm, new b(intent));
-        aVar.B(d.a.m0.a.h.swanapp_close, new a());
-        aVar.X();
     }
 }

@@ -1,149 +1,211 @@
 package com.yy.mobile.framework.revenuesdk.payservice.utils;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JsonDataParerUtil {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static String getCHOrderId(String str) {
-        String str2 = "";
-        if (str != null) {
-            try {
-                String string = new JSONObject(str).getString("developerPayload");
-                if (string != null && !string.equals("")) {
-                    String string2 = new JSONObject(string).getString("chOrderId");
-                    if (string2 != null) {
-                        str2 = string2;
-                    }
-                }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getCHOrderId--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
+    public JsonDataParerUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , chorderId =%s", str, str2));
-        return str2;
+    }
+
+    public static String getCHOrderId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String str2 = "";
+            if (str != null) {
+                try {
+                    String string = new JSONObject(str).getString("developerPayload");
+                    if (string != null && !string.equals("")) {
+                        String string2 = new JSONObject(string).getString("chOrderId");
+                        if (string2 != null) {
+                            str2 = string2;
+                        }
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getCHOrderId--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
+                }
+            }
+            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , chorderId =%s", str, str2));
+            return str2;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getChOrderidByPayload(String str) {
-        if (str != null) {
-            try {
-                String string = new JSONObject(str).getString("chOrderId");
-                if (string != null && !string.equals("")) {
-                    return string;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str != null) {
+                try {
+                    String string = new JSONObject(str).getString("chOrderId");
+                    if (string != null && !string.equals("")) {
+                        return string;
+                    }
+                    RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getChOrderidByPayload =null ", new Object[0]));
+                    return "";
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad--getChOrderidByPayload data =%s , Exception =%s", str, e2.getMessage()));
                 }
-                RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getChOrderidByPayload =null ", new Object[0]));
-                return "";
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad--getChOrderidByPayload data =%s , Exception =%s", str, e2.getMessage()));
             }
+            RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---getChOrderidByPayload data =%s , getPayLoad =%s", str, ""));
+            return "";
         }
-        RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---getChOrderidByPayload data =%s , getPayLoad =%s", str, ""));
-        return "";
+        return (String) invokeL.objValue;
     }
 
     public static String getChallengeExtension(String str) {
-        String str2 = "";
-        if (str != null) {
-            try {
-                String string = new JSONObject(str).getString("riskData");
-                if (string != null && !string.equals("")) {
-                    str2 = new JSONObject(string).getString("challengeExtension");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String str2 = "";
+            if (str != null) {
+                try {
+                    String string = new JSONObject(str).getString("riskData");
+                    if (string != null && !string.equals("")) {
+                        str2 = new JSONObject(string).getString("challengeExtension");
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getChallengeExtension--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()));
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getChallengeExtension--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()));
             }
+            RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---getChallengeExtension data =%s , purchaseTime =%s", str, str2));
+            return str2;
         }
-        RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---getChallengeExtension data =%s , purchaseTime =%s", str, str2));
-        return str2;
+        return (String) invokeL.objValue;
     }
 
     public static String getGPOrderId(String str) {
-        String str2 = "";
-        if (str != null) {
-            try {
-                String string = new JSONObject(str).getString("orderId");
-                if (string != null) {
-                    str2 = string;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            String str2 = "";
+            if (str != null) {
+                try {
+                    String string = new JSONObject(str).getString("orderId");
+                    if (string != null) {
+                        str2 = string;
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
             }
+            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , orderId =%s", str, str2));
+            return str2;
         }
-        RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , orderId =%s", str, str2));
-        return str2;
+        return (String) invokeL.objValue;
     }
 
     public static String getPayLoad(String str) {
-        if (str != null) {
-            try {
-                String string = new JSONObject(str).getString("developerPayload");
-                if (string != null && !string.equals("")) {
-                    return string;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            if (str != null) {
+                try {
+                    String string = new JSONObject(str).getString("developerPayload");
+                    if (string != null && !string.equals("")) {
+                        return string;
+                    }
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad =null ", new Object[0]), new Object[0]);
+                    return "";
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()));
                 }
-                RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad =null ", new Object[0]), new Object[0]);
-                return "";
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()));
             }
+            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , getPayLoad =%s", str, ""));
+            return "";
         }
-        RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , getPayLoad =%s", str, ""));
-        return "";
+        return (String) invokeL.objValue;
     }
 
     public static String getProductId(String str) {
-        String str2 = "";
-        if (str != null) {
-            try {
-                String string = new JSONObject(str).getString("productId");
-                if (string != null) {
-                    str2 = string;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            String str2 = "";
+            if (str != null) {
+                try {
+                    String string = new JSONObject(str).getString("productId");
+                    if (string != null) {
+                        str2 = string;
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --productId--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --productId--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
             }
+            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , orderId =%s", str, str2));
+            return str2;
         }
-        RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , orderId =%s", str, str2));
-        return str2;
+        return (String) invokeL.objValue;
     }
 
     public static PurchaseInfo getPurchaseInfoByProductId(String str, List<PurchaseInfo> list) {
-        for (PurchaseInfo purchaseInfo : list) {
-            try {
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, list)) == null) {
+            for (PurchaseInfo purchaseInfo : list) {
+                try {
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                if (str == new JSONObject(purchaseInfo.data).optString("productId")) {
+                    return purchaseInfo;
+                }
             }
-            if (str == new JSONObject(purchaseInfo.data).optString("productId")) {
-                return purchaseInfo;
-            }
+            return null;
         }
-        return null;
+        return (PurchaseInfo) invokeLL.objValue;
     }
 
     public static long getPurchaseTime(String str) {
+        InterceptResult invokeL;
         long j;
-        if (str != null) {
-            try {
-                j = new JSONObject(str).getLong("purchaseTime");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (str != null) {
+                try {
+                    j = new JSONObject(str).getLong("purchaseTime");
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
+                }
+                RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , purchaseTime =%s", str, Long.valueOf(j)));
+                return j;
             }
+            j = 0;
             RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , purchaseTime =%s", str, Long.valueOf(j)));
             return j;
         }
-        j = 0;
-        RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , purchaseTime =%s", str, Long.valueOf(j)));
-        return j;
+        return invokeL.longValue;
     }
 }

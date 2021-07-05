@@ -1,39 +1,70 @@
 package com.baidu.wallet.core.beans;
-/* loaded from: classes5.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class BeanErrorContent {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f24025a;
+    public int f24568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24026b;
+    public int f24569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24027c;
+    public String f24570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f24028d;
+    public Object f24571d;
 
     public BeanErrorContent(int i2, int i3, String str, Object obj) {
-        this.f24025a = i2;
-        this.f24026b = i3;
-        this.f24027c = str;
-        this.f24028d = obj;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, obj};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24568a = i2;
+        this.f24569b = i3;
+        this.f24570c = str;
+        this.f24571d = obj;
     }
 
     public int getBeanId() {
-        return this.f24025a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24568a : invokeV.intValue;
     }
 
     public Object getErrContent() {
-        return this.f24028d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24571d : invokeV.objValue;
     }
 
     public String getMsg() {
-        return this.f24027c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24570c : (String) invokeV.objValue;
     }
 
     public int getRet() {
-        return this.f24026b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24569b : invokeV.intValue;
     }
 }

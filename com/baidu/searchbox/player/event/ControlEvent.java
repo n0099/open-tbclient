@@ -2,8 +2,14 @@ package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class ControlEvent extends VideoEvent {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CONTINUE_PLAY = "control_event_continue_play";
     public static final String ACTION_CONTINUE_TIPS_SHOW = "control_event_continue_tips_show";
     public static final String ACTION_LIVE_PAYMENT_FLOATING_PREVIEW_VIEW = "action_live_payment_floating_preview_view";
@@ -36,13 +42,32 @@ public class ControlEvent extends VideoEvent {
     public static final int KEY_PROGRESS = 1;
     public static final int KEY_SEEK_PROGRESS = 5;
     public static final int KEY_SWITCH_MODE = 4;
+    public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ControlEvent(String str) {
         super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @PublicMethod
     public static VideoEvent obtainEvent(@NonNull String str) {
-        return VideoEvent.obtain(str, 2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? VideoEvent.obtain(str, 2) : (VideoEvent) invokeL.objValue;
     }
 }

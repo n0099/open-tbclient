@@ -5,11 +5,16 @@ import android.util.Log;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlUBCData;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudControlUBCUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CONTROL = "control";
     public static final String KEY_EXT = "ext";
     public static final String KEY_K = "product";
@@ -21,9 +26,25 @@ public class CloudControlUBCUtils {
     public static final String KEY_VALID = "valid";
     public static final String TAG = "CloudControlUBCUtils";
     public static final String UBC_CLOUD_CTROL_ID = "944";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public CloudControlUBCUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public void doStatistics(CloudControlUBCData cloudControlUBCData) {
-        if (cloudControlUBCData == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cloudControlUBCData) == null) || cloudControlUBCData == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();

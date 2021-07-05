@@ -1,8 +1,16 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.k.e.n;
 import java.io.Serializable;
@@ -10,29 +18,70 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CardHListViewData extends BaseCardInfo implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 9;
     public static final int MIN_COUNT = 3;
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    public static final BdUniqueId TYPE;
     public static final long serialVersionUID = 6577771607010727691L;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final List<n> mList;
+    public boolean showBottomDivider;
+    public boolean showTopDivider;
     public String threadId;
     public String title;
-    public boolean showTopDivider = true;
-    public boolean showBottomDivider = true;
-    public final List<n> mList = new ArrayList();
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(605065290, "Lcom/baidu/tieba/card/data/CardHListViewData;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(605065290, "Lcom/baidu/tieba/card/data/CardHListViewData;");
+                return;
+            }
+        }
+        TYPE = BdUniqueId.gen();
+    }
+
+    public CardHListViewData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.showTopDivider = true;
+        this.showBottomDivider = true;
+        this.mList = new ArrayList();
+    }
 
     public final List<n> getDataList() {
-        return this.mList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mList : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return TYPE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TYPE : (BdUniqueId) invokeV.objValue;
     }
 
     public void parseProtobuf(GuessLikeStruct guessLikeStruct) {
-        if (guessLikeStruct == null || ListUtils.getCount(guessLikeStruct.thread_list) < 3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, guessLikeStruct) == null) || guessLikeStruct == null || ListUtils.getCount(guessLikeStruct.thread_list) < 3) {
             return;
         }
         this.title = StringHelper.trim(guessLikeStruct.title);

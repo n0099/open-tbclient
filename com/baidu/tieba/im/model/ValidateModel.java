@@ -4,101 +4,163 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.ApplyJoinGroupActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.n0.z0.f0;
-import d.a.n0.z0.h0;
-import d.a.n0.z0.n;
-import d.a.o0.f1.h.d;
-import d.a.o0.f1.k.b;
+import d.a.r0.z0.f0;
+import d.a.r0.z0.i0;
+import d.a.r0.z0.n;
+import d.a.s0.i1.h.d;
+import d.a.s0.i1.k.b;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ValidateModel {
-    public static ValidateItemData convertToValidateItemData(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo == null) {
-            return null;
-        }
-        String content = groupNewsPojo.getContent();
-        if (TextUtils.isEmpty(content)) {
-            return null;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(content);
-            if (true == jSONObject.isNull("notice_id")) {
-                ValidateItemData validateItemData = new ValidateItemData();
-                validateItemData.setNotice_id(groupNewsPojo.getNotice_id());
-                validateItemData.setApplyReason(jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG));
-                validateItemData.setApplyTime(groupNewsPojo.getTime());
-                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                if (optJSONObject == null) {
-                    return null;
-                }
-                validateItemData.setUserName(optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME));
-                validateItemData.setPortrait(optJSONObject.optString("portrait"));
-                String optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                validateItemData.setGroupId(optString);
-                setGroupName(validateItemData, optString);
-                validateItemData.setUserId(optJSONObject.optString("userId"));
-                validateItemData.setInviterUserId(optJSONObject.optLong(ApplyJoinGroupActivityConfig.INVITE_USER_ID));
-                validateItemData.setJoinType(optJSONObject.optInt(ApplyJoinGroupActivityConfig.JOIN_TYPE));
-                validateItemData.setExt(groupNewsPojo.getExt());
-                return validateItemData;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ValidateModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ValidateItemData validateItemData2 = (ValidateItemData) OrmObject.objectWithJsonStr(content, ValidateItemData.class);
-            setGroupName(validateItemData2, validateItemData2.getGroupId());
-            return validateItemData2;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return null;
         }
+    }
+
+    public static ValidateItemData convertToValidateItemData(GroupNewsPojo groupNewsPojo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, groupNewsPojo)) == null) {
+            if (groupNewsPojo == null) {
+                return null;
+            }
+            String content = groupNewsPojo.getContent();
+            if (TextUtils.isEmpty(content)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(content);
+                if (true == jSONObject.isNull("notice_id")) {
+                    ValidateItemData validateItemData = new ValidateItemData();
+                    validateItemData.setNotice_id(groupNewsPojo.getNotice_id());
+                    validateItemData.setApplyReason(jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG));
+                    validateItemData.setApplyTime(groupNewsPojo.getTime());
+                    JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+                    if (optJSONObject == null) {
+                        return null;
+                    }
+                    validateItemData.setUserName(optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME));
+                    validateItemData.setPortrait(optJSONObject.optString("portrait"));
+                    String optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
+                    validateItemData.setGroupId(optString);
+                    setGroupName(validateItemData, optString);
+                    validateItemData.setUserId(optJSONObject.optString("userId"));
+                    validateItemData.setInviterUserId(optJSONObject.optLong(ApplyJoinGroupActivityConfig.INVITE_USER_ID));
+                    validateItemData.setJoinType(optJSONObject.optInt(ApplyJoinGroupActivityConfig.JOIN_TYPE));
+                    validateItemData.setExt(groupNewsPojo.getExt());
+                    return validateItemData;
+                }
+                ValidateItemData validateItemData2 = (ValidateItemData) OrmObject.objectWithJsonStr(content, ValidateItemData.class);
+                setGroupName(validateItemData2, validateItemData2.getGroupId());
+                return validateItemData2;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (ValidateItemData) invokeL.objValue;
     }
 
     public static List<ValidateItemData> convertToValidateItemDataList(LinkedList<GroupNewsPojo> linkedList) {
-        LinkedList linkedList2 = new LinkedList();
-        if (linkedList == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, linkedList)) == null) {
+            LinkedList linkedList2 = new LinkedList();
+            if (linkedList == null) {
+                return linkedList2;
+            }
+            Iterator<GroupNewsPojo> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ValidateItemData convertToValidateItemData = convertToValidateItemData(it.next());
+                if (convertToValidateItemData != null) {
+                    linkedList2.add(convertToValidateItemData);
+                }
+            }
             return linkedList2;
         }
-        Iterator<GroupNewsPojo> it = linkedList.iterator();
-        while (it.hasNext()) {
-            ValidateItemData convertToValidateItemData = convertToValidateItemData(it.next());
-            if (convertToValidateItemData != null) {
-                linkedList2.add(convertToValidateItemData);
-            }
-        }
-        return linkedList2;
+        return (List) invokeL.objValue;
     }
 
-    public static void deleteValidateData(final ValidateItemData validateItemData, n<Boolean> nVar) {
-        if (validateItemData == null) {
+    public static void deleteValidateData(ValidateItemData validateItemData, n<Boolean> nVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, validateItemData, nVar) == null) || validateItemData == null) {
             return;
         }
-        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.ValidateModel.3
+        i0.c(new f0<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ValidateItemData val$data;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {validateItemData};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.val$data = validateItemData;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.n0.z0.f0
+            @Override // d.a.r0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.f().a(ValidateItemData.this.getNotice_id()));
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
             }
         }, nVar);
     }
 
     public static ValidateItemData getByNoticeid(String str) {
-        return convertToValidateItemData(d.f().d(str));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? convertToValidateItemData(d.f().d(str)) : (ValidateItemData) invokeL.objValue;
     }
 
     public static void markShown(List<ValidateItemData> list) {
-        if (list == null || list.isEmpty()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        final LinkedList linkedList = new LinkedList();
+        LinkedList linkedList = new LinkedList();
         int size = list.size();
         for (int i2 = 0; i2 < size; i2++) {
             ValidateItemData validateItemData = list.get(i2);
@@ -107,54 +169,160 @@ public class ValidateModel {
                 linkedList.add(new GroupNewsPojo(validateItemData));
             }
         }
-        new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.im.model.ValidateModel.2
+        new BdAsyncTask<Void, Void, Void>(linkedList) { // from class: com.baidu.tieba.im.model.ValidateModel.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ LinkedList val$list;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {linkedList};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.val$list = linkedList;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                d.f().n(linkedList);
-                return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                    d.f().n(this.val$list);
+                    return null;
+                }
+                return (Void) invokeL.objValue;
             }
         }.execute(new Void[0]);
     }
 
     public static void requestValidateDataCountFromDB(n<Integer> nVar) {
-        h0.c(new f0<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.n0.z0.f0
-            public Integer doInBackground() {
-                return Integer.valueOf(d.f().e("apply_join_group"));
-            }
-        }, nVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, nVar) == null) {
+            i0.c(new f0<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // d.a.r0.z0.f0
+                public Integer doInBackground() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Integer.valueOf(d.f().e("apply_join_group")) : (Integer) invokeV.objValue;
+                }
+            }, nVar);
+        }
     }
 
-    public static void requestValidateDataFromDB(final int i2, final int i3, n<LinkedList<GroupNewsPojo>> nVar) {
-        h0.c(new f0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.ValidateModel.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.n0.z0.f0
-            public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.f().c(0L, i2, i3, "apply_join_group");
-            }
-        }, nVar);
+    public static void requestValidateDataFromDB(int i2, int i3, n<LinkedList<GroupNewsPojo>> nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65543, null, i2, i3, nVar) == null) {
+            i0.c(new f0<LinkedList<GroupNewsPojo>>(i2, i3) { // from class: com.baidu.tieba.im.model.ValidateModel.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ int val$count;
+                public final /* synthetic */ int val$offset;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$count = i2;
+                    this.val$offset = i3;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // d.a.r0.z0.f0
+                public LinkedList<GroupNewsPojo> doInBackground() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d.f().c(0L, this.val$count, this.val$offset, "apply_join_group") : (LinkedList) invokeV.objValue;
+                }
+            }, nVar);
+        }
     }
 
     public static void setGroupName(ValidateItemData validateItemData, String str) {
-        if (!BdBaseApplication.getInst().isDebugMode() || l.C()) {
-            ImMessageCenterPojo i2 = b.o().i(str, 1);
-            validateItemData.setGroupName(i2 != null ? i2.getGroup_name() : "");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, validateItemData, str) == null) {
+            if (!BdBaseApplication.getInst().isDebugMode() || l.C()) {
+                ImMessageCenterPojo i2 = b.o().i(str, 1);
+                validateItemData.setGroupName(i2 != null ? i2.getGroup_name() : "");
+            }
         }
     }
 
-    public static void updateValidateData(n<Boolean> nVar, final ValidateItemData validateItemData) {
-        if (validateItemData == null) {
+    public static void updateValidateData(n<Boolean> nVar, ValidateItemData validateItemData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, nVar, validateItemData) == null) || validateItemData == null) {
             return;
         }
-        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.ValidateModel.1
+        i0.c(new f0<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ValidateItemData val$data;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {validateItemData};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.val$data = validateItemData;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.n0.z0.f0
+            @Override // d.a.r0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.f().j(ValidateItemData.this));
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.f().j(this.val$data)) : (Boolean) invokeV.objValue;
             }
         }, nVar);
     }

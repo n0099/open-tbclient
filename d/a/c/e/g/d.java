@@ -1,133 +1,214 @@
 package d.a.c.e.g;
 
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.guide.BuildException;
 import com.baidu.adp.lib.guide.Configuration;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class d {
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f42344b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public a f42346d;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<b> f42345c = new ArrayList();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Configuration f42343a = new Configuration();
+    public Configuration f44152a;
 
-    /* loaded from: classes.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f44153b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<b> f44154c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a f44155d;
+
+    /* loaded from: classes8.dex */
     public interface a {
         void onDismiss();
 
         void onShown();
     }
 
-    public d a(b bVar) {
-        if (!this.f42344b) {
-            this.f42345c.add(bVar);
-            return this;
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        throw new BuildException("Already created, rebuild a new one.");
+        this.f44154c = new ArrayList();
+        this.f44152a = new Configuration();
+    }
+
+    public d a(b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
+            if (!this.f44153b) {
+                this.f44154c.add(bVar);
+                return this;
+            }
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        return (d) invokeL.objValue;
     }
 
     public c b() {
-        c cVar = new c();
-        cVar.j((b[]) this.f42345c.toArray(new b[this.f42345c.size()]));
-        cVar.k(this.f42343a);
-        cVar.i(this.f42346d);
-        this.f42345c = null;
-        this.f42343a = null;
-        this.f42346d = null;
-        this.f42344b = true;
-        return cVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            c cVar = new c();
+            cVar.j((b[]) this.f44154c.toArray(new b[this.f44154c.size()]));
+            cVar.k(this.f44152a);
+            cVar.i(this.f44155d);
+            this.f44154c = null;
+            this.f44152a = null;
+            this.f44155d = null;
+            this.f44153b = true;
+            return cVar;
+        }
+        return (c) invokeV.objValue;
     }
 
     public d c(int i2) {
-        if (this.f42344b) {
-            throw new BuildException("Already created. rebuild a new one.");
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            if (this.f44153b) {
+                throw new BuildException("Already created. rebuild a new one.");
+            }
+            if (i2 >= 0 && i2 <= 255) {
+                this.f44152a.mAlpha = i2;
+                return this;
+            }
+            throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        if (i2 >= 0 && i2 <= 255) {
-            this.f42343a.f2178g = i2;
-            return this;
-        }
-        throw new BuildException("Illegal alpha value, should between [0-255]");
+        return (d) invokeI.objValue;
     }
 
     public d d(boolean z) {
-        if (!this.f42344b) {
-            this.f42343a.k = z;
-            return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (!this.f44153b) {
+                this.f44152a.mAutoDismiss = z;
+                return this;
+            }
+            throw new BuildException("Already created, rebuild a new one.");
         }
-        throw new BuildException("Already created, rebuild a new one.");
+        return (d) invokeZ.objValue;
     }
 
     public d e(int i2) {
-        if (this.f42344b) {
-            throw new BuildException("Already created. rebuild a new one.");
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            if (this.f44153b) {
+                throw new BuildException("Already created. rebuild a new one.");
+            }
+            if (i2 > 0) {
+                this.f44152a.mEnterAnimationId = i2;
+                return this;
+            }
+            throw new BuildException("Illegal animation resource id.");
         }
-        if (i2 > 0) {
-            this.f42343a.m = i2;
-            return this;
-        }
-        throw new BuildException("Illegal animation resource id.");
+        return (d) invokeI.objValue;
     }
 
     public d f(int i2) {
-        if (this.f42344b) {
-            throw new BuildException("Already created. rebuild a new one.");
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            if (this.f44153b) {
+                throw new BuildException("Already created. rebuild a new one.");
+            }
+            if (i2 > 0) {
+                this.f44152a.mExitAnimationId = i2;
+                return this;
+            }
+            throw new BuildException("Illegal animation resource id.");
         }
-        if (i2 > 0) {
-            this.f42343a.n = i2;
-            return this;
-        }
-        throw new BuildException("Illegal animation resource id.");
+        return (d) invokeI.objValue;
     }
 
     public d g(a aVar) {
-        if (!this.f42344b) {
-            this.f42346d = aVar;
-            return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, aVar)) == null) {
+            if (!this.f44153b) {
+                this.f44155d = aVar;
+                return this;
+            }
+            throw new BuildException("Already created, rebuild a new one.");
         }
-        throw new BuildException("Already created, rebuild a new one.");
+        return (d) invokeL.objValue;
     }
 
     public d h(boolean z) {
-        this.f42343a.f2177f = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            this.f44152a.mOutsideTouchable = z;
+            return this;
+        }
+        return (d) invokeZ.objValue;
     }
 
     public d i(boolean z) {
-        if (!this.f42344b) {
-            this.f42343a.l = z;
-            return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            if (!this.f44153b) {
+                this.f44152a.mOverlayTarget = z;
+                return this;
+            }
+            throw new BuildException("Already created, rebuild a new one.");
         }
-        throw new BuildException("Already created, rebuild a new one.");
+        return (d) invokeZ.objValue;
     }
 
     public d j(View view) {
-        if (this.f42344b) {
-            throw new BuildException("Already created. rebuild a new one.");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view)) == null) {
+            if (this.f44153b) {
+                throw new BuildException("Already created. rebuild a new one.");
+            }
+            if (view != null) {
+                this.f44152a.mTargetView = view;
+                return this;
+            }
+            throw new BuildException("Illegal view.");
         }
-        if (view != null) {
-            this.f42343a.f2176e = view;
-            return this;
-        }
-        throw new BuildException("Illegal view.");
+        return (d) invokeL.objValue;
     }
 
     public d k(int i2) {
-        if (this.f42344b) {
-            throw new BuildException("Already created. rebuild a new one.");
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+            if (this.f44153b) {
+                throw new BuildException("Already created. rebuild a new one.");
+            }
+            if (i2 > 0) {
+                this.f44152a.mTargetViewId = i2;
+                return this;
+            }
+            throw new BuildException("Illegal view id.");
         }
-        if (i2 > 0) {
-            this.f42343a.f2180i = i2;
-            return this;
-        }
-        throw new BuildException("Illegal view id.");
+        return (d) invokeI.objValue;
     }
 }

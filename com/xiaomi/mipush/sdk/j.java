@@ -2,31 +2,52 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public final class j implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f41052a;
+    public final /* synthetic */ Context f42795a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ e f90a;
+    public final /* synthetic */ e f93a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f91a;
+    public final /* synthetic */ String f94a;
 
     public j(String str, Context context, e eVar) {
-        this.f91a = str;
-        this.f41052a = context;
-        this.f90a = eVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, context, eVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f94a = str;
+        this.f42795a = context;
+        this.f93a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
-        if (TextUtils.isEmpty(this.f91a)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f94a)) {
             return;
         }
-        String[] split = this.f91a.split(Constants.WAVE_SEPARATOR);
+        String[] split = this.f94a.split(Constants.WAVE_SEPARATOR);
         int length = split.length;
         int i2 = 0;
         while (true) {
@@ -42,11 +63,11 @@ public final class j implements Runnable {
             i2++;
         }
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("ASSEMBLE_PUSH : receive incorrect token");
+            com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : receive incorrect token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m56a("ASSEMBLE_PUSH : receive correct token");
-        i.d(this.f41052a, this.f90a, str);
-        i.m116a(this.f41052a);
+        com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : receive correct token");
+        i.d(this.f42795a, this.f93a, str);
+        i.m130a(this.f42795a);
     }
 }

@@ -5,6 +5,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 @Target({ElementType.ANNOTATION_TYPE})
 @Documented
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public @interface TypeQualifierNickname {
 }

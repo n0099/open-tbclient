@@ -6,17 +6,41 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ComponentInfo;
 import android.content.pm.PackageManager;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class ComponentUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "ComponentUtils";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.util.android.ComponentUtils$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1598873669, "Lcom/baidu/android/util/android/ComponentUtils$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1598873669, "Lcom/baidu/android/util/android/ComponentUtils$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[ComponentType.values().length];
             $SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType = iArr;
             try {
@@ -42,95 +66,201 @@ public final class ComponentUtils {
         }
     }
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public enum ComponentType {
-        ALL,
-        ACTIVITY,
-        SERVICE,
-        RECEIVER,
-        PROVIDER
+    public static final class ComponentType {
+        public static final /* synthetic */ ComponentType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final ComponentType ACTIVITY;
+        public static final ComponentType ALL;
+        public static final ComponentType PROVIDER;
+        public static final ComponentType RECEIVER;
+        public static final ComponentType SERVICE;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(627570037, "Lcom/baidu/android/util/android/ComponentUtils$ComponentType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(627570037, "Lcom/baidu/android/util/android/ComponentUtils$ComponentType;");
+                    return;
+                }
+            }
+            ALL = new ComponentType("ALL", 0);
+            ACTIVITY = new ComponentType("ACTIVITY", 1);
+            SERVICE = new ComponentType("SERVICE", 2);
+            RECEIVER = new ComponentType("RECEIVER", 3);
+            ComponentType componentType = new ComponentType("PROVIDER", 4);
+            PROVIDER = componentType;
+            $VALUES = new ComponentType[]{ALL, ACTIVITY, SERVICE, RECEIVER, componentType};
+        }
+
+        public ComponentType(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static ComponentType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ComponentType) Enum.valueOf(ComponentType.class, str) : (ComponentType) invokeL.objValue;
+        }
+
+        public static ComponentType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ComponentType[]) $VALUES.clone() : (ComponentType[]) invokeV.objValue;
+        }
+    }
+
+    public ComponentUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public static ComponentInfo getActivityInfo(Context context, ComponentName componentName) {
-        try {
-            return context.getPackageManager().getActivityInfo(componentName, 0);
-        } catch (PackageManager.NameNotFoundException unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, componentName)) == null) {
+            try {
+                return context.getPackageManager().getActivityInfo(componentName, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                return null;
+            }
         }
+        return (ComponentInfo) invokeLL.objValue;
     }
 
     @SuppressLint({"NewApi"})
     public static ComponentInfo getComponentInfo(Context context, ComponentType componentType, ComponentName componentName) {
-        int i2 = AnonymousClass1.$SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType[componentType.ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    if (i2 != 4) {
-                        ComponentInfo receiverInfo = getReceiverInfo(context, componentName);
-                        if (receiverInfo == null) {
-                            receiverInfo = getActivityInfo(context, componentName);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, componentType, componentName)) == null) {
+            int i2 = AnonymousClass1.$SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType[componentType.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            ComponentInfo receiverInfo = getReceiverInfo(context, componentName);
+                            if (receiverInfo == null) {
+                                receiverInfo = getActivityInfo(context, componentName);
+                            }
+                            if (receiverInfo == null) {
+                                receiverInfo = getServiceInfo(context, componentName);
+                            }
+                            return receiverInfo == null ? getProviderInfo(context, componentName) : receiverInfo;
                         }
-                        if (receiverInfo == null) {
-                            receiverInfo = getServiceInfo(context, componentName);
-                        }
-                        return receiverInfo == null ? getProviderInfo(context, componentName) : receiverInfo;
+                        return getProviderInfo(context, componentName);
                     }
-                    return getProviderInfo(context, componentName);
+                    return getServiceInfo(context, componentName);
                 }
-                return getServiceInfo(context, componentName);
+                return getActivityInfo(context, componentName);
             }
-            return getActivityInfo(context, componentName);
+            return getReceiverInfo(context, componentName);
         }
-        return getReceiverInfo(context, componentName);
+        return (ComponentInfo) invokeLLL.objValue;
     }
 
     @SuppressLint({"NewApi"})
     @TargetApi(11)
     public static ComponentInfo getProviderInfo(Context context, ComponentName componentName) {
-        try {
-            return context.getPackageManager().getProviderInfo(componentName, 0);
-        } catch (PackageManager.NameNotFoundException unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, componentName)) == null) {
+            try {
+                return context.getPackageManager().getProviderInfo(componentName, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                return null;
+            }
         }
+        return (ComponentInfo) invokeLL.objValue;
     }
 
     public static ComponentInfo getReceiverInfo(Context context, ComponentName componentName) {
-        try {
-            return context.getPackageManager().getReceiverInfo(componentName, 0);
-        } catch (PackageManager.NameNotFoundException unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, componentName)) == null) {
+            try {
+                return context.getPackageManager().getReceiverInfo(componentName, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                return null;
+            }
         }
+        return (ComponentInfo) invokeLL.objValue;
     }
 
     public static ComponentInfo getServiceInfo(Context context, ComponentName componentName) {
-        try {
-            return context.getPackageManager().getServiceInfo(componentName, 0);
-        } catch (PackageManager.NameNotFoundException unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, componentName)) == null) {
+            try {
+                return context.getPackageManager().getServiceInfo(componentName, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                return null;
+            }
         }
+        return (ComponentInfo) invokeLL.objValue;
     }
 
     public static boolean isComponentEnabledSetting(Context context, ComponentName componentName) {
-        return 1 == context.getPackageManager().getComponentEnabledSetting(componentName);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, componentName)) == null) ? 1 == context.getPackageManager().getComponentEnabledSetting(componentName) : invokeLL.booleanValue;
     }
 
     public static boolean isComponetEnable(Context context, ComponentType componentType, ComponentName componentName) {
-        ComponentInfo componentInfo = getComponentInfo(context, componentType, componentName);
-        if (componentInfo != null) {
-            return componentInfo.enabled;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, componentType, componentName)) == null) {
+            ComponentInfo componentInfo = getComponentInfo(context, componentType, componentName);
+            if (componentInfo != null) {
+                return componentInfo.enabled;
+            }
+            return false;
         }
-        return false;
+        return invokeLLL.booleanValue;
     }
 
     public static void setComponentEnabledSetting(Context context, ComponentType componentType, ComponentName componentName, boolean z) {
-        boolean isComponetEnable = isComponetEnable(context, componentType, componentName);
-        if (z) {
-            if (isComponetEnable) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, componentType, componentName, Boolean.valueOf(z)}) == null) {
+            boolean isComponetEnable = isComponetEnable(context, componentType, componentName);
+            if (z) {
+                if (isComponetEnable) {
+                    return;
+                }
+                context.getPackageManager().setComponentEnabledSetting(componentName, 1, 1);
+            } else if (isComponetEnable) {
+                context.getPackageManager().setComponentEnabledSetting(componentName, 2, 1);
             }
-            context.getPackageManager().setComponentEnabledSetting(componentName, 1, 1);
-        } else if (isComponetEnable) {
-            context.getPackageManager().setComponentEnabledSetting(componentName, 2, 1);
         }
     }
 }

@@ -3,12 +3,21 @@ package com.baidu.searchbox.net.update.v2;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.time.DateTimeUtil;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.UpdateConstants;
 import com.baidu.searchbox.net.update.ioc.UpdateRuntime;
 import com.baidu.searchbox.net.update.statistics.ICommandStatistics;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.reflect.TypeToken;
@@ -21,9 +30,10 @@ import java.io.Reader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GsonTool implements ICommandStatistics<ActionData> {
-    public static final boolean DEBUG = AppConfig.isDebug();
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final boolean DEBUG;
     public static final String ERROR_NO = "errno";
     public static final String ERROR_NO_OK = "0";
     public static final int FROM_CLOUD = 16;
@@ -33,7 +43,8 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public static final String TIME_STAMP = "timestamp";
     public static final String VERSION_VERIFY = "1";
     public static final String VERSION_VERIFY_CMD = "version_asc";
-    public JSONArray mArrayInfo = new JSONArray();
+    public transient /* synthetic */ FieldHolder $fh;
+    public JSONArray mArrayInfo;
     public int mCommandFrom;
     public CommandListenerRegistry mCommandListenerRegistry;
     public String mErrorCode;
@@ -44,11 +55,25 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public int mVersionFilterCount;
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(435261586, "Lcom/baidu/searchbox/net/update/v2/GsonTool$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(435261586, "Lcom/baidu/searchbox/net/update/v2/GsonTool$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[JsonToken.values().length];
             $SwitchMap$com$google$gson$stream$JsonToken = iArr;
             try {
@@ -62,7 +87,38 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(505480319, "Lcom/baidu/searchbox/net/update/v2/GsonTool;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(505480319, "Lcom/baidu/searchbox/net/update/v2/GsonTool;");
+                return;
+            }
+        }
+        DEBUG = AppConfig.isDebug();
+    }
+
     public GsonTool(CommandListenerRegistry commandListenerRegistry) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {commandListenerRegistry};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mArrayInfo = new JSONArray();
         if (commandListenerRegistry == null) {
             this.mCommandListenerRegistry = new CommandListenerRegistry();
         } else {
@@ -71,106 +127,138 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     }
 
     private long convertStringToLong(String str, String str2) {
-        long j = 0;
-        if (TextUtils.isEmpty(str2)) {
-            return 0L;
-        }
-        try {
-            j = Long.parseLong(str2);
-            if (DEBUG) {
-                Log.d(TAG, "action = " + str + " support imsdk long connect,new data version is  " + str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
+            long j = 0;
+            if (TextUtils.isEmpty(str2)) {
+                return 0L;
             }
-        } catch (NumberFormatException unused) {
-            if (DEBUG) {
-                Log.e(TAG, "action = " + str + " support imsdk long connect,version is not right--> " + str2);
+            try {
+                j = Long.parseLong(str2);
+                if (DEBUG) {
+                    Log.d(TAG, "action = " + str + " support imsdk long connect,new data version is  " + str2);
+                }
+            } catch (NumberFormatException unused) {
+                if (DEBUG) {
+                    Log.e(TAG, "action = " + str + " support imsdk long connect,version is not right--> " + str2);
+                }
             }
+            return j;
         }
-        return j;
+        return invokeLL.longValue;
     }
 
     private boolean dispatchCheck(Context context, String str, String str2, AbstractCommandListener abstractCommandListener, ActionData actionData, JSONObject jSONObject) {
-        return !isNeedVersionVerify(jSONObject) || convertStringToLong(str2, actionData.version) > convertStringToLong(str2, abstractCommandListener.getLocalVersion(context, str, str2));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, str, str2, abstractCommandListener, actionData, jSONObject})) == null) ? !isNeedVersionVerify(jSONObject) || convertStringToLong(str2, actionData.version) > convertStringToLong(str2, abstractCommandListener.getLocalVersion(context, str, str2)) : invokeCommon.booleanValue;
     }
 
     private boolean isNeedVersionVerify(JSONObject jSONObject) {
-        return jSONObject != null && TextUtils.equals(jSONObject.optString("version_asc"), "1");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, jSONObject)) == null) ? jSONObject != null && TextUtils.equals(jSONObject.optString("version_asc"), "1") : invokeL.booleanValue;
     }
 
-    /* JADX WARN: Type inference failed for: r1v2, types: [T, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r1v3, types: [T, java.lang.Object] */
     private boolean readAction(JsonReader jsonReader, ActionData actionData, TypeAdapter typeAdapter) throws IOException {
-        String path = jsonReader.getPath();
-        try {
-            jsonReader.beginObject();
-            while (jsonReader.hasNext()) {
-                String nextName = jsonReader.nextName();
-                if (nextName.equals("data")) {
-                    actionData.data = typeAdapter.read(jsonReader);
-                } else if (nextName.equals("version")) {
-                    actionData.version = jsonReader.nextString();
-                } else {
-                    jsonReader.skipValue();
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, jsonReader, actionData, typeAdapter)) == null) {
+            String path = jsonReader.getPath();
+            try {
+                jsonReader.beginObject();
+                while (jsonReader.hasNext()) {
+                    String nextName = jsonReader.nextName();
+                    if (nextName.equals("data")) {
+                        actionData.data = typeAdapter.read(jsonReader);
+                    } else if (nextName.equals("version")) {
+                        actionData.version = jsonReader.nextString();
+                    } else {
+                        jsonReader.skipValue();
+                    }
                 }
+                jsonReader.endObject();
+                return true;
+            } catch (Exception unused) {
+                skipErrorAction(jsonReader, path);
+                return false;
             }
-            jsonReader.endObject();
-            return true;
-        } catch (Exception unused) {
-            skipErrorAction(jsonReader, path);
-            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
     private void skipErrorAction(JsonReader jsonReader, String str) throws IOException {
-        if (jsonReader.getPath().equals(str)) {
-            jsonReader.skipValue();
-            return;
-        }
-        do {
-            int i2 = AnonymousClass1.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()];
-            if (i2 == 1) {
-                jsonReader.endObject();
-            } else if (i2 != 2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, this, jsonReader, str) == null) {
+            if (jsonReader.getPath().equals(str)) {
                 jsonReader.skipValue();
-            } else {
-                jsonReader.endArray();
+                return;
             }
-        } while (!jsonReader.getPath().equals(str));
+            do {
+                int i2 = AnonymousClass1.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()];
+                if (i2 == 1) {
+                    jsonReader.endObject();
+                } else if (i2 != 2) {
+                    jsonReader.skipValue();
+                } else {
+                    jsonReader.endArray();
+                }
+            } while (!jsonReader.getPath().equals(str));
+        }
     }
 
     @Override // com.baidu.searchbox.net.update.statistics.ICommandStatistics
     public void doStatistics() {
-        UpdateRuntime.getUpdateContext().doStatistics(this.mCommandFrom, getReportInfo());
-    }
-
-    public JSONObject getReportInfo() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(UpdateConstants.RECEIVE_TS_KEY, this.mReceiveTimeStamp);
-            jSONObject.put("detail", this.mArrayInfo);
-            jSONObject.put("totalCount", this.mTotalCount);
-            jSONObject.put("successCount", this.mSuccessCount);
-            jSONObject.put("versionFilterCount", this.mVersionFilterCount);
-            return jSONObject;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            UpdateRuntime.getUpdateContext().doStatistics(this.mCommandFrom, getReportInfo());
         }
     }
 
+    public JSONObject getReportInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(UpdateConstants.RECEIVE_TS_KEY, this.mReceiveTimeStamp);
+                jSONObject.put("detail", this.mArrayInfo);
+                jSONObject.put("totalCount", this.mTotalCount);
+                jSONObject.put("successCount", this.mSuccessCount);
+                jSONObject.put("versionFilterCount", this.mVersionFilterCount);
+                return jSONObject;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
     public void read(InputStream inputStream, int i2, JSONObject jSONObject) throws IOException {
-        read(new InputStreamReader(inputStream), i2, jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, inputStream, i2, jSONObject) == null) {
+            read(new InputStreamReader(inputStream), i2, jSONObject);
+        }
     }
 
     public void readData(JsonReader jsonReader, JSONObject jSONObject, int i2) throws IOException {
-        this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
-        this.mCommandFrom = i2;
-        readData(jsonReader, jSONObject);
-        doStatistics();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, jsonReader, jSONObject, i2) == null) {
+            this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
+            this.mCommandFrom = i2;
+            readData(jsonReader, jSONObject);
+            doStatistics();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.net.update.statistics.ICommandStatistics
     public void collectInfo(String str, ActionData actionData, boolean z) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, str, actionData, z) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -188,96 +276,105 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     }
 
     public void read(Reader reader, int i2, JSONObject jSONObject) throws IOException {
-        this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
-        this.mCommandFrom = i2;
-        JsonReader jsonReader = new JsonReader(reader);
-        jsonReader.beginObject();
-        while (jsonReader.hasNext()) {
-            String nextName = jsonReader.nextName();
-            if (nextName.equals("data")) {
-                readData(jsonReader, jSONObject);
-            } else if (nextName.equals("errno")) {
-                String nextString = jsonReader.nextString();
-                this.mErrorCode = nextString;
-                if (!nextString.equals("0")) {
-                    throw new IOException("error no is not 0");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048581, this, reader, i2, jSONObject) == null) {
+            this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
+            this.mCommandFrom = i2;
+            JsonReader jsonReader = new JsonReader(reader);
+            jsonReader.beginObject();
+            while (jsonReader.hasNext()) {
+                String nextName = jsonReader.nextName();
+                if (nextName.equals("data")) {
+                    readData(jsonReader, jSONObject);
+                } else if (nextName.equals("errno")) {
+                    String nextString = jsonReader.nextString();
+                    this.mErrorCode = nextString;
+                    if (!nextString.equals("0")) {
+                        throw new IOException("error no is not 0");
+                    }
+                } else if (nextName.equals("timestamp")) {
+                    String nextString2 = jsonReader.nextString();
+                    this.mTimeStamp = nextString2;
+                    if (i2 == 0) {
+                        DateTimeUtil.setDeltaTime(nextString2);
+                    }
+                } else {
+                    jsonReader.skipValue();
                 }
-            } else if (nextName.equals("timestamp")) {
-                String nextString2 = jsonReader.nextString();
-                this.mTimeStamp = nextString2;
-                if (i2 == 0) {
-                    DateTimeUtil.setDeltaTime(nextString2);
-                }
-            } else {
-                jsonReader.skipValue();
             }
+            jsonReader.endObject();
+            doStatistics();
         }
-        jsonReader.endObject();
-        doStatistics();
     }
 
     public void readData(Reader reader, int i2, JSONObject jSONObject) throws IOException {
-        this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
-        this.mCommandFrom = i2;
-        readData(new JsonReader(reader), jSONObject);
-        doStatistics();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048583, this, reader, i2, jSONObject) == null) {
+            this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
+            this.mCommandFrom = i2;
+            readData(new JsonReader(reader), jSONObject);
+            doStatistics();
+        }
     }
 
     private void readData(JsonReader jsonReader, JSONObject jSONObject) throws IOException {
         boolean z;
-        jsonReader.beginObject();
-        Gson gson = new Gson();
-        while (jsonReader.hasNext()) {
-            String nextName = jsonReader.nextName();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, jsonReader, jSONObject) == null) {
             jsonReader.beginObject();
+            Gson gson = new Gson();
             while (jsonReader.hasNext()) {
-                String nextName2 = jsonReader.nextName();
-                boolean z2 = true;
-                this.mTotalCount++;
-                if (DEBUG) {
-                    Log.d(TAG, "read action " + nextName + " " + nextName2);
-                }
-                AbstractCommandListener commandListener = this.mCommandListenerRegistry.getCommandListener(nextName, nextName2);
-                if (commandListener == null) {
-                    commandListener = new NoneCommandListener();
-                    z = false;
-                } else {
-                    z = true;
-                }
-                TypeAdapter typeAdapter = commandListener.getTypeAdapter();
-                if (typeAdapter == null) {
-                    try {
-                        typeAdapter = gson.getAdapter(TypeToken.get(commandListener.getDataType()));
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                        collectInfo(nextName + "/" + nextName2, (ActionData) null, false);
+                String nextName = jsonReader.nextName();
+                jsonReader.beginObject();
+                while (jsonReader.hasNext()) {
+                    String nextName2 = jsonReader.nextName();
+                    boolean z2 = true;
+                    this.mTotalCount++;
+                    if (DEBUG) {
+                        Log.d(TAG, "read action " + nextName + " " + nextName2);
                     }
-                }
-                ActionData createDataObject = commandListener.createDataObject();
-                boolean readAction = readAction(jsonReader, createDataObject, typeAdapter);
-                if (readAction) {
-                    synchronized (GsonTool.class) {
-                        if (!dispatchCheck(AppRuntime.getAppContext(), nextName, nextName2, commandListener, createDataObject, jSONObject)) {
-                            if (DEBUG) {
-                                Log.d(TAG, "data from imsdk is not newest");
-                            }
-                            collectInfo(nextName + "/" + nextName2, createDataObject, false);
-                            this.mVersionFilterCount = this.mVersionFilterCount + 1;
-                        } else {
-                            commandListener.executeCommand(AppRuntime.getAppContext(), nextName, nextName2, createDataObject);
+                    AbstractCommandListener commandListener = this.mCommandListenerRegistry.getCommandListener(nextName, nextName2);
+                    if (commandListener == null) {
+                        commandListener = new NoneCommandListener();
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    TypeAdapter typeAdapter = commandListener.getTypeAdapter();
+                    if (typeAdapter == null) {
+                        try {
+                            typeAdapter = gson.getAdapter(TypeToken.get(commandListener.getDataType()));
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            collectInfo(nextName + "/" + nextName2, (ActionData) null, false);
                         }
                     }
-                } else if (DEBUG) {
-                    Log.d(TAG, "read action " + nextName + " " + nextName2 + " fail");
+                    ActionData createDataObject = commandListener.createDataObject();
+                    boolean readAction = readAction(jsonReader, createDataObject, typeAdapter);
+                    if (readAction) {
+                        synchronized (GsonTool.class) {
+                            if (!dispatchCheck(AppRuntime.getAppContext(), nextName, nextName2, commandListener, createDataObject, jSONObject)) {
+                                if (DEBUG) {
+                                    Log.d(TAG, "data from imsdk is not newest");
+                                }
+                                collectInfo(nextName + "/" + nextName2, createDataObject, false);
+                                this.mVersionFilterCount = this.mVersionFilterCount + 1;
+                            } else {
+                                commandListener.executeCommand(AppRuntime.getAppContext(), nextName, nextName2, createDataObject);
+                            }
+                        }
+                    } else if (DEBUG) {
+                        Log.d(TAG, "read action " + nextName + " " + nextName2 + " fail");
+                    }
+                    String str = nextName + "/" + nextName2;
+                    if (!z || !readAction) {
+                        z2 = false;
+                    }
+                    collectInfo(str, createDataObject, z2);
                 }
-                String str = nextName + "/" + nextName2;
-                if (!z || !readAction) {
-                    z2 = false;
-                }
-                collectInfo(str, createDataObject, z2);
+                jsonReader.endObject();
             }
             jsonReader.endObject();
         }
-        jsonReader.endObject();
     }
 }

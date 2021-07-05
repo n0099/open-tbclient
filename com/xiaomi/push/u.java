@@ -1,6 +1,13 @@
 package com.xiaomi.push;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -8,72 +15,112 @@ import java.nio.channels.FileLock;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class u {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f41958a = Collections.synchronizedSet(new HashSet());
+    public static final Set<String> f43701a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f983a;
+    public Context f986a;
 
     /* renamed from: a  reason: collision with other field name */
-    public RandomAccessFile f984a;
+    public RandomAccessFile f987a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f985a;
+    public String f988a;
 
     /* renamed from: a  reason: collision with other field name */
-    public FileLock f986a;
+    public FileLock f989a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1664386111, "Lcom/xiaomi/push/u;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1664386111, "Lcom/xiaomi/push/u;");
+                return;
+            }
+        }
+        f43701a = Collections.synchronizedSet(new HashSet());
+    }
 
     public u(Context context) {
-        this.f983a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f986a = context;
     }
 
     public static u a(Context context, File file) {
-        com.xiaomi.channel.commonutils.logger.b.c("Locking: " + file.getAbsolutePath());
-        String str = file.getAbsolutePath() + ".LOCK";
-        File file2 = new File(str);
-        if (!file2.exists()) {
-            file2.getParentFile().mkdirs();
-            file2.createNewFile();
-        }
-        if (f41958a.add(str)) {
-            u uVar = new u(context);
-            uVar.f985a = str;
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
-                uVar.f984a = randomAccessFile;
-                uVar.f986a = randomAccessFile.getChannel().lock();
-                com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f986a);
-                return uVar;
-            } finally {
-                if (uVar.f986a == null) {
-                    RandomAccessFile randomAccessFile2 = uVar.f984a;
-                    if (randomAccessFile2 != null) {
-                        y.a(randomAccessFile2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, file)) == null) {
+            com.xiaomi.channel.commonutils.logger.b.c("Locking: " + file.getAbsolutePath());
+            String str = file.getAbsolutePath() + ".LOCK";
+            File file2 = new File(str);
+            if (!file2.exists()) {
+                file2.getParentFile().mkdirs();
+                file2.createNewFile();
+            }
+            if (f43701a.add(str)) {
+                u uVar = new u(context);
+                uVar.f988a = str;
+                try {
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
+                    uVar.f987a = randomAccessFile;
+                    uVar.f989a = randomAccessFile.getChannel().lock();
+                    com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f989a);
+                    return uVar;
+                } finally {
+                    if (uVar.f989a == null) {
+                        RandomAccessFile randomAccessFile2 = uVar.f987a;
+                        if (randomAccessFile2 != null) {
+                            y.a(randomAccessFile2);
+                        }
+                        f43701a.remove(uVar.f988a);
                     }
-                    f41958a.remove(uVar.f985a);
                 }
             }
+            throw new IOException("abtain lock failure");
         }
-        throw new IOException("abtain lock failure");
+        return (u) invokeLL.objValue;
     }
 
     public void a() {
-        com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f986a);
-        FileLock fileLock = this.f986a;
-        if (fileLock != null && fileLock.isValid()) {
-            try {
-                this.f986a.release();
-            } catch (IOException unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f989a);
+            FileLock fileLock = this.f989a;
+            if (fileLock != null && fileLock.isValid()) {
+                try {
+                    this.f989a.release();
+                } catch (IOException unused) {
+                }
+                this.f989a = null;
             }
-            this.f986a = null;
+            RandomAccessFile randomAccessFile = this.f987a;
+            if (randomAccessFile != null) {
+                y.a(randomAccessFile);
+            }
+            f43701a.remove(this.f988a);
         }
-        RandomAccessFile randomAccessFile = this.f984a;
-        if (randomAccessFile != null) {
-            y.a(randomAccessFile);
-        }
-        f41958a.remove(this.f985a);
     }
 }

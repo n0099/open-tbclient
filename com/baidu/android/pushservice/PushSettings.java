@@ -2,159 +2,273 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class PushSettings {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2729a = -1;
+    public static int f2727a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f2730b = -1;
+    public static int f2728b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f2731c = -1;
+    public static int f2729c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f2732d = -1;
+    public static int f2730d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f2733e = -1;
+    public static int f2731e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f2734f = -1;
+    public static int f2732f = -1;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1444861764, "Lcom/baidu/android/pushservice/PushSettings;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1444861764, "Lcom/baidu/android/pushservice/PushSettings;");
+        }
+    }
+
+    public PushSettings() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static String a(Context context) {
-        String a2 = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id");
-        return TextUtils.isEmpty(a2) ? com.baidu.android.pushservice.c.c.a(context, false) : a2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String a2 = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id");
+            return TextUtils.isEmpty(a2) ? com.baidu.android.pushservice.c.c.a(context, false) : a2;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void a(Context context, int i2) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, context, i2) == null) || context == null) {
             return;
         }
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.sd", i2);
     }
 
     public static void a(Context context, String str) {
-        com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_token", str);
-        com.baidu.android.pushservice.c.c.a(context, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, context, str) == null) {
+            com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_token", str);
+            com.baidu.android.pushservice.c.c.a(context, str);
+        }
     }
 
     public static void a(Context context, String str, String str2) {
-        com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id", str);
-        com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id_new", str2);
-        com.baidu.android.pushservice.c.c.a(context, str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2) == null) {
+            com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id", str);
+            com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id_new", str2);
+            com.baidu.android.pushservice.c.c.a(context, str, str2);
+        }
     }
 
     public static String b(Context context) {
-        String a2 = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id_new");
-        return TextUtils.isEmpty(a2) ? com.baidu.android.pushservice.c.c.a(context, true) : a2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            String a2 = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id_new");
+            return TextUtils.isEmpty(a2) ? com.baidu.android.pushservice.c.c.a(context, true) : a2;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void b(Context context, int i2) {
-        com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.track.failcount", i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65543, null, context, i2) == null) {
+            com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.track.failcount", i2);
+        }
     }
 
     public static void b(Context context, String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         com.baidu.android.pushservice.j.i.b(context, "com.baidu.pushservice.app_id", str);
     }
 
     public static String c(Context context) {
-        String a2 = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_token");
-        return TextUtils.isEmpty(a2) ? com.baidu.android.pushservice.c.c.c(context) : a2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            String a2 = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_token");
+            return TextUtils.isEmpty(a2) ? com.baidu.android.pushservice.c.c.c(context) : a2;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String d(Context context) {
-        return com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.app_id");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.app_id") : (String) invokeL.objValue;
     }
 
     public static boolean e(Context context) {
-        return context != null && f2729a == 1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context != null && f2727a == 1 : invokeL.booleanValue;
     }
 
     public static void enableDebugMode(boolean z) {
-        f2729a = z ? 1 : 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            f2727a = z ? 1 : 0;
+        }
     }
 
     public static boolean f(Context context) {
-        try {
-            return (context.getApplicationInfo().flags & 2) != 0;
-        } catch (Exception unused) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            try {
+                return (context.getApplicationInfo().flags & 2) != 0;
+            } catch (Exception unused) {
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 
     public static boolean g(Context context) {
-        if (context == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            if (f2728b == -1) {
+                f2728b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
+            }
+            return f2728b == 1;
         }
-        if (f2730b == -1) {
-            f2730b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
-        }
-        return f2730b == 1;
+        return invokeL.booleanValue;
     }
 
     public static boolean h(Context context) {
-        if (context == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            if (f2730d == -1) {
+                f2730d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
+            }
+            return f2730d == 1;
         }
-        if (f2732d == -1) {
-            f2732d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
-        }
-        return f2732d == 1;
+        return invokeL.booleanValue;
     }
 
     public static boolean i(Context context) {
-        if (context == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            if (f2731e == -1) {
+                f2731e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
+            }
+            return f2731e == 1;
         }
-        if (f2733e == -1) {
-            f2733e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
-        }
-        return f2733e == 1;
+        return invokeL.booleanValue;
     }
 
     public static boolean j(Context context) {
-        if (context == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            if (f2732f == -1) {
+                f2732f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
+            }
+            return f2732f == 1;
         }
-        if (f2734f == -1) {
-            f2734f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
-        }
-        return f2734f == 1;
+        return invokeL.booleanValue;
     }
 
     public static boolean k(Context context) {
-        if (context == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            if (f2729c == -1) {
+                f2729c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
+            }
+            return f2729c == 1;
         }
-        if (f2731c == -1) {
-            f2731c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
-        }
-        return f2731c == 1;
+        return invokeL.booleanValue;
     }
 
     public static void l(Context context) {
-        com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.track", System.currentTimeMillis());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
+            com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.track", System.currentTimeMillis());
+        }
     }
 
     public static boolean m(Context context) {
-        long b2 = com.baidu.android.pushservice.j.i.b(context, "com.baidu.pushservice.track");
-        if (b2 > 0) {
-            return System.currentTimeMillis() - b2 >= ((long) ((com.baidu.android.pushservice.b.d.h(context) * 3600) * 1000));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
+            long b2 = com.baidu.android.pushservice.j.i.b(context, "com.baidu.pushservice.track");
+            if (b2 > 0) {
+                return System.currentTimeMillis() - b2 >= ((long) ((com.baidu.android.pushservice.b.d.h(context) * 3600) * 1000));
+            }
+            l(context);
+            return false;
         }
-        l(context);
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static int n(Context context) {
-        return com.baidu.android.pushservice.j.i.b(context, "com.baidu.pushservice.track.failcount", 1);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) ? com.baidu.android.pushservice.j.i.b(context, "com.baidu.pushservice.track.failcount", 1) : invokeL.intValue;
     }
 
     public static boolean o(Context context) {
-        return com.baidu.android.pushservice.j.i.b(context, "com.baidu.pushservice.need.logtofile", -1) == 1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) ? com.baidu.android.pushservice.j.i.b(context, "com.baidu.pushservice.need.logtofile", -1) == 1 : invokeL.booleanValue;
     }
 }

@@ -6,43 +6,30 @@ import android.text.TextPaint;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.TextAppearance;
 import com.google.android.material.resources.TextAppearanceFontCallback;
 import java.lang.ref.WeakReference;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TextDrawableHelper {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public WeakReference<TextDrawableDelegate> delegate;
+    public final TextAppearanceFontCallback fontCallback;
     @Nullable
     public TextAppearance textAppearance;
+    public final TextPaint textPaint;
     public float textWidth;
-    public final TextPaint textPaint = new TextPaint(1);
-    public final TextAppearanceFontCallback fontCallback = new TextAppearanceFontCallback() { // from class: com.google.android.material.internal.TextDrawableHelper.1
-        @Override // com.google.android.material.resources.TextAppearanceFontCallback
-        public void onFontRetrievalFailed(int i2) {
-            TextDrawableHelper.this.textWidthDirty = true;
-            TextDrawableDelegate textDrawableDelegate = (TextDrawableDelegate) TextDrawableHelper.this.delegate.get();
-            if (textDrawableDelegate != null) {
-                textDrawableDelegate.onTextSizeChange();
-            }
-        }
+    public boolean textWidthDirty;
 
-        @Override // com.google.android.material.resources.TextAppearanceFontCallback
-        public void onFontRetrieved(@NonNull Typeface typeface, boolean z) {
-            if (z) {
-                return;
-            }
-            TextDrawableHelper.this.textWidthDirty = true;
-            TextDrawableDelegate textDrawableDelegate = (TextDrawableDelegate) TextDrawableHelper.this.delegate.get();
-            if (textDrawableDelegate != null) {
-                textDrawableDelegate.onTextSizeChange();
-            }
-        }
-    };
-    public boolean textWidthDirty = true;
-    @Nullable
-    public WeakReference<TextDrawableDelegate> delegate = new WeakReference<>(null);
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface TextDrawableDelegate {
         @NonNull
         int[] getState();
@@ -53,69 +40,161 @@ public class TextDrawableHelper {
     }
 
     public TextDrawableHelper(@Nullable TextDrawableDelegate textDrawableDelegate) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {textDrawableDelegate};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.textPaint = new TextPaint(1);
+        this.fontCallback = new TextAppearanceFontCallback(this) { // from class: com.google.android.material.internal.TextDrawableHelper.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ TextDrawableHelper this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // com.google.android.material.resources.TextAppearanceFontCallback
+            public void onFontRetrievalFailed(int i4) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i4) == null) {
+                    this.this$0.textWidthDirty = true;
+                    TextDrawableDelegate textDrawableDelegate2 = (TextDrawableDelegate) this.this$0.delegate.get();
+                    if (textDrawableDelegate2 != null) {
+                        textDrawableDelegate2.onTextSizeChange();
+                    }
+                }
+            }
+
+            @Override // com.google.android.material.resources.TextAppearanceFontCallback
+            public void onFontRetrieved(@NonNull Typeface typeface, boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface, z) == null) || z) {
+                    return;
+                }
+                this.this$0.textWidthDirty = true;
+                TextDrawableDelegate textDrawableDelegate2 = (TextDrawableDelegate) this.this$0.delegate.get();
+                if (textDrawableDelegate2 != null) {
+                    textDrawableDelegate2.onTextSizeChange();
+                }
+            }
+        };
+        this.textWidthDirty = true;
+        this.delegate = new WeakReference<>(null);
         setDelegate(textDrawableDelegate);
     }
 
     private float calculateTextWidth(@Nullable CharSequence charSequence) {
-        if (charSequence == null) {
-            return 0.0f;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, charSequence)) == null) {
+            if (charSequence == null) {
+                return 0.0f;
+            }
+            return this.textPaint.measureText(charSequence, 0, charSequence.length());
         }
-        return this.textPaint.measureText(charSequence, 0, charSequence.length());
+        return invokeL.floatValue;
     }
 
     @Nullable
     public TextAppearance getTextAppearance() {
-        return this.textAppearance;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.textAppearance : (TextAppearance) invokeV.objValue;
     }
 
     @NonNull
     public TextPaint getTextPaint() {
-        return this.textPaint;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.textPaint : (TextPaint) invokeV.objValue;
     }
 
     public float getTextWidth(String str) {
-        if (!this.textWidthDirty) {
-            return this.textWidth;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (!this.textWidthDirty) {
+                return this.textWidth;
+            }
+            float calculateTextWidth = calculateTextWidth(str);
+            this.textWidth = calculateTextWidth;
+            this.textWidthDirty = false;
+            return calculateTextWidth;
         }
-        float calculateTextWidth = calculateTextWidth(str);
-        this.textWidth = calculateTextWidth;
-        this.textWidthDirty = false;
-        return calculateTextWidth;
+        return invokeL.floatValue;
     }
 
     public boolean isTextWidthDirty() {
-        return this.textWidthDirty;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.textWidthDirty : invokeV.booleanValue;
     }
 
     public void setDelegate(@Nullable TextDrawableDelegate textDrawableDelegate) {
-        this.delegate = new WeakReference<>(textDrawableDelegate);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textDrawableDelegate) == null) {
+            this.delegate = new WeakReference<>(textDrawableDelegate);
+        }
     }
 
     public void setTextAppearance(@Nullable TextAppearance textAppearance, Context context) {
-        if (this.textAppearance != textAppearance) {
-            this.textAppearance = textAppearance;
-            if (textAppearance != null) {
-                textAppearance.updateMeasureState(context, this.textPaint, this.fontCallback);
-                TextDrawableDelegate textDrawableDelegate = this.delegate.get();
-                if (textDrawableDelegate != null) {
-                    this.textPaint.drawableState = textDrawableDelegate.getState();
-                }
-                textAppearance.updateDrawState(context, this.textPaint, this.fontCallback);
-                this.textWidthDirty = true;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, textAppearance, context) == null) || this.textAppearance == textAppearance) {
+            return;
+        }
+        this.textAppearance = textAppearance;
+        if (textAppearance != null) {
+            textAppearance.updateMeasureState(context, this.textPaint, this.fontCallback);
+            TextDrawableDelegate textDrawableDelegate = this.delegate.get();
+            if (textDrawableDelegate != null) {
+                this.textPaint.drawableState = textDrawableDelegate.getState();
             }
-            TextDrawableDelegate textDrawableDelegate2 = this.delegate.get();
-            if (textDrawableDelegate2 != null) {
-                textDrawableDelegate2.onTextSizeChange();
-                textDrawableDelegate2.onStateChange(textDrawableDelegate2.getState());
-            }
+            textAppearance.updateDrawState(context, this.textPaint, this.fontCallback);
+            this.textWidthDirty = true;
+        }
+        TextDrawableDelegate textDrawableDelegate2 = this.delegate.get();
+        if (textDrawableDelegate2 != null) {
+            textDrawableDelegate2.onTextSizeChange();
+            textDrawableDelegate2.onStateChange(textDrawableDelegate2.getState());
         }
     }
 
     public void setTextWidthDirty(boolean z) {
-        this.textWidthDirty = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.textWidthDirty = z;
+        }
     }
 
     public void updateTextPaintDrawState(Context context) {
-        this.textAppearance.updateDrawState(context, this.textPaint, this.fontCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            this.textAppearance.updateDrawState(context, this.textPaint, this.fontCallback);
+        }
     }
 }

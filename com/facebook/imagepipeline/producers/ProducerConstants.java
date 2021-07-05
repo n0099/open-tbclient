@@ -1,6 +1,12 @@
 package com.facebook.imagepipeline.producers;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ProducerConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
     public static final String EXTRA_BITMAP_SIZE = "bitmapSize";
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
@@ -10,4 +16,19 @@ public class ProducerConstants {
     public static final String EXTRA_IS_FINAL = "isFinal";
     public static final String REQUESTED_IMAGE_SIZE = "requestedImageSize";
     public static final String SAMPLE_SIZE = "sampleSize";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ProducerConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

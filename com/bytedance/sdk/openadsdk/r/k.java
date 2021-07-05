@@ -1,0 +1,138 @@
+package com.bytedance.sdk.openadsdk.r;
+
+import android.content.res.Configuration;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class k {
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f32228a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f32229b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f32230c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f32231d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static boolean f32232e = true;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(98139394, "Lcom/bytedance/sdk/openadsdk/r/k;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(98139394, "Lcom/bytedance/sdk/openadsdk/r/k;");
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                if (!f32228a) {
+                    c();
+                }
+                Configuration configuration = com.bytedance.sdk.openadsdk.core.o.a().getResources().getConfiguration();
+                String valueOf = configuration.mcc != 0 ? String.valueOf(configuration.mcc) : f32230c;
+                com.bytedance.sdk.component.utils.j.f("MCC", "config=" + configuration.mcc + ",sMCC=" + f32230c);
+                if (f32232e) {
+                    return valueOf;
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append("getMCC");
+                sb.append(f32232e ? "有SIM卡" : "无SIM卡,MCC返回null");
+                com.bytedance.sdk.component.utils.j.f("MCC", sb.toString());
+                return null;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!f32228a) {
+                c();
+            }
+            return f32231d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void c() {
+        String str;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || com.bytedance.sdk.openadsdk.core.o.a() == null || f32228a) {
+            return;
+        }
+        try {
+            TelephonyManager telephonyManager = (TelephonyManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("phone");
+            int simState = telephonyManager.getSimState();
+            if (simState == 0) {
+                f32232e = false;
+            } else if (simState == 1) {
+                f32232e = false;
+            }
+            com.bytedance.sdk.component.utils.j.f("MCC", f32232e ? "有SIM卡" : "无SIM卡");
+            String str4 = null;
+            try {
+                str = telephonyManager.getSimOperatorName();
+            } catch (Throwable unused) {
+                str = null;
+            }
+            try {
+                str2 = telephonyManager.getNetworkOperator();
+            } catch (Throwable unused2) {
+                str2 = null;
+            }
+            if (str2 == null || str2.length() < 5) {
+                try {
+                    str2 = telephonyManager.getSimOperator();
+                } catch (Throwable unused3) {
+                }
+            }
+            if (TextUtils.isEmpty(str2) || str2.length() <= 4) {
+                str3 = null;
+            } else {
+                str4 = str2.substring(0, 3);
+                str3 = str2.substring(3);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                f32229b = str;
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                f32230c = str4;
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                f32231d = str3;
+            }
+        } catch (Throwable unused4) {
+        }
+        f32228a = true;
+    }
+}

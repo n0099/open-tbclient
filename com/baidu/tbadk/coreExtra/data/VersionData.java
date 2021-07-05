@@ -2,111 +2,184 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
 import android.webkit.URLUtil;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VersionData implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int FORCE_UPDATE = 1;
     public static final int HAS_NEW_VERSION = 1;
     public static final long serialVersionUID = 5102616316349188013L;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String apkMD5RSA;
+    public String asApkMD5RSA;
+    public String asDownloadUrl;
+    public String clientId;
+    public int forceUpdate;
+    public int hasNewVer;
     public boolean isOfficialVersion;
+    public String newFile;
+    public String newVer;
+    public int newVersionCode;
     public String newVersionDesc;
     public int newVersionRemind;
     public String patch;
     public String patchSize;
     public String size;
-    public int forceUpdate = 0;
-    public int strategy = 0;
-    public int hasNewVer = 0;
-    public String newVer = null;
-    public String url = null;
-    public String clientId = null;
-    public String newFile = null;
-    public int newVersionCode = -1;
-    public String tiebaIconUrl = null;
-    public String asDownloadUrl = null;
-    public String apkMD5RSA = null;
-    public String asApkMD5RSA = null;
+    public int strategy;
+    public String tiebaIconUrl;
+    public String url;
+
+    public VersionData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.forceUpdate = 0;
+        this.strategy = 0;
+        this.hasNewVer = 0;
+        this.newVer = null;
+        this.url = null;
+        this.clientId = null;
+        this.newFile = null;
+        this.newVersionCode = -1;
+        this.tiebaIconUrl = null;
+        this.asDownloadUrl = null;
+        this.apkMD5RSA = null;
+        this.asApkMD5RSA = null;
+    }
 
     private boolean hasNewVersion() {
+        InterceptResult invokeV;
         String str;
-        return (this.newVersionRemind != 1 || (str = this.url) == null || !URLUtil.isNetworkUrl(str) || TextUtils.isEmpty(this.apkMD5RSA) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? (this.newVersionRemind != 1 || (str = this.url) == null || !URLUtil.isNetworkUrl(str) || TextUtils.isEmpty(this.apkMD5RSA) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true : invokeV.booleanValue;
     }
 
     public boolean forceUpdate() {
-        return this.forceUpdate == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.forceUpdate == 1 : invokeV.booleanValue;
     }
 
     public String getApkMD5RSA() {
-        return this.apkMD5RSA;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.apkMD5RSA : (String) invokeV.objValue;
     }
 
     public String getAsApkMD5RSA() {
-        return this.asApkMD5RSA;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.asApkMD5RSA : (String) invokeV.objValue;
     }
 
     public String getAsDownloadUrl() {
-        return this.asDownloadUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.asDownloadUrl : (String) invokeV.objValue;
     }
 
     public String getClientId() {
-        return this.clientId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.clientId : (String) invokeV.objValue;
     }
 
     public String getNewFile() {
-        return this.newFile;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.newFile : (String) invokeV.objValue;
     }
 
     public String getNewVersion() {
-        return this.newVer;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.newVer : (String) invokeV.objValue;
     }
 
     public int getNewVersionCode() {
-        return this.newVersionCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.newVersionCode : invokeV.intValue;
     }
 
     public String getNewVersionDesc() {
-        return this.newVersionDesc;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.newVersionDesc : (String) invokeV.objValue;
     }
 
     public String getPatch() {
-        return this.patch;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.patch : (String) invokeV.objValue;
     }
 
     public String getPatchSize() {
-        return this.patchSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.patchSize : (String) invokeV.objValue;
     }
 
     public String getSize() {
-        return this.size;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.size : (String) invokeV.objValue;
     }
 
     public int getStrategy() {
-        return this.strategy;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.strategy : invokeV.intValue;
     }
 
     public String getTiebaIconUrl() {
-        return this.tiebaIconUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.tiebaIconUrl : (String) invokeV.objValue;
     }
 
     public String getUrl() {
-        return this.url;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.url : (String) invokeV.objValue;
     }
 
     public boolean hasNewVer() {
-        return this.hasNewVer == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.hasNewVer == 1 : invokeV.booleanValue;
     }
 
     public boolean isOfficialVersion() {
-        return this.isOfficialVersion;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.isOfficialVersion : invokeV.booleanValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -139,54 +212,93 @@ public class VersionData implements Serializable {
     }
 
     public void setApkMD5RSA(String str) {
-        this.apkMD5RSA = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.apkMD5RSA = str;
+        }
     }
 
     public void setForceUpdate(int i2) {
-        this.forceUpdate = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+            this.forceUpdate = i2;
+        }
     }
 
     public void setHasNewVer(int i2) {
-        this.hasNewVer = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+            this.hasNewVer = i2;
+        }
     }
 
     public void setNewFile(String str) {
-        this.newFile = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.newFile = str;
+        }
     }
 
     public void setNewVersion(String str) {
-        this.newVer = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            this.newVer = str;
+        }
     }
 
     public void setNewVersionCode(int i2) {
-        this.newVersionCode = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
+            this.newVersionCode = i2;
+        }
     }
 
     public void setNewVersionDesc(String str) {
-        this.newVersionDesc = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.newVersionDesc = str;
+        }
     }
 
     public void setPatch(String str) {
-        this.patch = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.patch = str;
+        }
     }
 
     public void setPatchSize(String str) {
-        this.patchSize = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.patchSize = str;
+        }
     }
 
     public void setSize(String str) {
-        this.size = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.size = str;
+        }
     }
 
     public void setStrategy(int i2) {
-        this.strategy = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
+            this.strategy = i2;
+        }
     }
 
     public void setTiebaIconUrl(String str) {
-        this.tiebaIconUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            this.tiebaIconUrl = str;
+        }
     }
 
     public void setUrl(String str) {
-        this.url = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            this.url = str;
+        }
     }
 }

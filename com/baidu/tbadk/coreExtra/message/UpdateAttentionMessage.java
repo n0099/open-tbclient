@@ -2,49 +2,78 @@ package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.httpNet.HttpResponse;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f12718a;
+        public boolean f12800a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12719b;
+        public String f12801b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12720c;
+        public String f12802c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f12721d;
+        public boolean f12803d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f12804e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f12805f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f12724g;
+        public HttpResponse f12806g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f12725h;
+        public JSONObject f12807h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f12726i;
+        public boolean f12808i;
         public boolean j;
         public String k;
         public BlockPopInfoData l;
+        public int m;
 
-        /* renamed from: e  reason: collision with root package name */
-        public boolean f12722e = false;
-
-        /* renamed from: f  reason: collision with root package name */
-        public boolean f12723f = false;
-        public int m = 0;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12804e = false;
+            this.f12805f = false;
+            this.m = 0;
+        }
 
         public final void a(JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.k = jSONObject.optString("block_dealurl");
@@ -63,12 +92,13 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         }
 
         public void b(String str, boolean z) {
-            if (str == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) || str == null) {
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f12725h = jSONObject;
+                this.f12807h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -84,28 +114,60 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UpdateAttentionMessage(a aVar) {
         super(2001115, aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public boolean isAttention() {
-        if (getData() == null || !(getData() instanceof a)) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (getData() == null || !(getData() instanceof a)) {
+                return false;
+            }
+            return getData().f12803d;
         }
-        return getData().f12721d;
+        return invokeV.booleanValue;
     }
 
     public boolean isGod() {
-        if (getData() == null || !(getData() instanceof a)) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (getData() == null || !(getData() instanceof a)) {
+                return false;
+            }
+            return getData().f12805f;
         }
-        return getData().f12723f;
+        return invokeV.booleanValue;
     }
 
     public boolean isSucc() {
-        if (getData() == null || !(getData() instanceof a)) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getData() == null || !(getData() instanceof a)) {
+                return false;
+            }
+            return getData().f12800a;
         }
-        return getData().f12718a;
+        return invokeV.booleanValue;
     }
 }

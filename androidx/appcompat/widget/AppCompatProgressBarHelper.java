@@ -14,85 +14,142 @@ import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import androidx.core.graphics.drawable.WrappedDrawable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class AppCompatProgressBarHelper {
-    public static final int[] TINT_ATTRS = {16843067, 16843068};
+    public static /* synthetic */ Interceptable $ic;
+    public static final int[] TINT_ATTRS;
+    public transient /* synthetic */ FieldHolder $fh;
     public Bitmap mSampleTile;
     public final ProgressBar mView;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1609078267, "Landroidx/appcompat/widget/AppCompatProgressBarHelper;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1609078267, "Landroidx/appcompat/widget/AppCompatProgressBarHelper;");
+                return;
+            }
+        }
+        TINT_ATTRS = new int[]{16843067, 16843068};
+    }
+
     public AppCompatProgressBarHelper(ProgressBar progressBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {progressBar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mView = progressBar;
     }
 
     private Shape getDrawableShape() {
-        return new RoundRectShape(new float[]{5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f}, null, null);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new RoundRectShape(new float[]{5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f}, null, null) : (Shape) invokeV.objValue;
     }
 
     private Drawable tileify(Drawable drawable, boolean z) {
-        if (drawable instanceof WrappedDrawable) {
-            WrappedDrawable wrappedDrawable = (WrappedDrawable) drawable;
-            Drawable wrappedDrawable2 = wrappedDrawable.getWrappedDrawable();
-            if (wrappedDrawable2 != null) {
-                wrappedDrawable.setWrappedDrawable(tileify(wrappedDrawable2, z));
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, drawable, z)) == null) {
+            if (drawable instanceof WrappedDrawable) {
+                WrappedDrawable wrappedDrawable = (WrappedDrawable) drawable;
+                Drawable wrappedDrawable2 = wrappedDrawable.getWrappedDrawable();
+                if (wrappedDrawable2 != null) {
+                    wrappedDrawable.setWrappedDrawable(tileify(wrappedDrawable2, z));
+                }
+            } else if (drawable instanceof LayerDrawable) {
+                LayerDrawable layerDrawable = (LayerDrawable) drawable;
+                int numberOfLayers = layerDrawable.getNumberOfLayers();
+                Drawable[] drawableArr = new Drawable[numberOfLayers];
+                for (int i2 = 0; i2 < numberOfLayers; i2++) {
+                    int id = layerDrawable.getId(i2);
+                    drawableArr[i2] = tileify(layerDrawable.getDrawable(i2), id == 16908301 || id == 16908303);
+                }
+                LayerDrawable layerDrawable2 = new LayerDrawable(drawableArr);
+                for (int i3 = 0; i3 < numberOfLayers; i3++) {
+                    layerDrawable2.setId(i3, layerDrawable.getId(i3));
+                }
+                return layerDrawable2;
+            } else if (drawable instanceof BitmapDrawable) {
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+                Bitmap bitmap = bitmapDrawable.getBitmap();
+                if (this.mSampleTile == null) {
+                    this.mSampleTile = bitmap;
+                }
+                ShapeDrawable shapeDrawable = new ShapeDrawable(getDrawableShape());
+                shapeDrawable.getPaint().setShader(new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP));
+                shapeDrawable.getPaint().setColorFilter(bitmapDrawable.getPaint().getColorFilter());
+                return z ? new ClipDrawable(shapeDrawable, 3, 1) : shapeDrawable;
             }
-        } else if (drawable instanceof LayerDrawable) {
-            LayerDrawable layerDrawable = (LayerDrawable) drawable;
-            int numberOfLayers = layerDrawable.getNumberOfLayers();
-            Drawable[] drawableArr = new Drawable[numberOfLayers];
-            for (int i2 = 0; i2 < numberOfLayers; i2++) {
-                int id = layerDrawable.getId(i2);
-                drawableArr[i2] = tileify(layerDrawable.getDrawable(i2), id == 16908301 || id == 16908303);
-            }
-            LayerDrawable layerDrawable2 = new LayerDrawable(drawableArr);
-            for (int i3 = 0; i3 < numberOfLayers; i3++) {
-                layerDrawable2.setId(i3, layerDrawable.getId(i3));
-            }
-            return layerDrawable2;
-        } else if (drawable instanceof BitmapDrawable) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-            Bitmap bitmap = bitmapDrawable.getBitmap();
-            if (this.mSampleTile == null) {
-                this.mSampleTile = bitmap;
-            }
-            ShapeDrawable shapeDrawable = new ShapeDrawable(getDrawableShape());
-            shapeDrawable.getPaint().setShader(new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP));
-            shapeDrawable.getPaint().setColorFilter(bitmapDrawable.getPaint().getColorFilter());
-            return z ? new ClipDrawable(shapeDrawable, 3, 1) : shapeDrawable;
+            return drawable;
         }
-        return drawable;
+        return (Drawable) invokeLZ.objValue;
     }
 
     private Drawable tileifyIndeterminate(Drawable drawable) {
-        if (drawable instanceof AnimationDrawable) {
-            AnimationDrawable animationDrawable = (AnimationDrawable) drawable;
-            int numberOfFrames = animationDrawable.getNumberOfFrames();
-            AnimationDrawable animationDrawable2 = new AnimationDrawable();
-            animationDrawable2.setOneShot(animationDrawable.isOneShot());
-            for (int i2 = 0; i2 < numberOfFrames; i2++) {
-                Drawable tileify = tileify(animationDrawable.getFrame(i2), true);
-                tileify.setLevel(10000);
-                animationDrawable2.addFrame(tileify, animationDrawable.getDuration(i2));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, drawable)) == null) {
+            if (drawable instanceof AnimationDrawable) {
+                AnimationDrawable animationDrawable = (AnimationDrawable) drawable;
+                int numberOfFrames = animationDrawable.getNumberOfFrames();
+                AnimationDrawable animationDrawable2 = new AnimationDrawable();
+                animationDrawable2.setOneShot(animationDrawable.isOneShot());
+                for (int i2 = 0; i2 < numberOfFrames; i2++) {
+                    Drawable tileify = tileify(animationDrawable.getFrame(i2), true);
+                    tileify.setLevel(10000);
+                    animationDrawable2.addFrame(tileify, animationDrawable.getDuration(i2));
+                }
+                animationDrawable2.setLevel(10000);
+                return animationDrawable2;
             }
-            animationDrawable2.setLevel(10000);
-            return animationDrawable2;
+            return drawable;
         }
-        return drawable;
+        return (Drawable) invokeL.objValue;
     }
 
     public Bitmap getSampleTile() {
-        return this.mSampleTile;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSampleTile : (Bitmap) invokeV.objValue;
     }
 
     public void loadFromAttributes(AttributeSet attributeSet, int i2) {
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, TINT_ATTRS, i2, 0);
-        Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(0);
-        if (drawableIfKnown != null) {
-            this.mView.setIndeterminateDrawable(tileifyIndeterminate(drawableIfKnown));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i2) == null) {
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, TINT_ATTRS, i2, 0);
+            Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(0);
+            if (drawableIfKnown != null) {
+                this.mView.setIndeterminateDrawable(tileifyIndeterminate(drawableIfKnown));
+            }
+            Drawable drawableIfKnown2 = obtainStyledAttributes.getDrawableIfKnown(1);
+            if (drawableIfKnown2 != null) {
+                this.mView.setProgressDrawable(tileify(drawableIfKnown2, false));
+            }
+            obtainStyledAttributes.recycle();
         }
-        Drawable drawableIfKnown2 = obtainStyledAttributes.getDrawableIfKnown(1);
-        if (drawableIfKnown2 != null) {
-            this.mView.setProgressDrawable(tileify(drawableIfKnown2, false));
-        }
-        obtainStyledAttributes.recycle();
     }
 }

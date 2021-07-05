@@ -1,11 +1,20 @@
 package com.baidu.poly.widget;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.face.base.b.c;
 import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class o implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String Xd;
     public String Yd;
     public String Zd;
@@ -25,6 +34,20 @@ public class o implements Serializable {
     public int wa;
 
     public o(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.Xd = jSONObject.optString("display_name");
         this.Yd = jSONObject.optString(DI.PAY_CHANNEL);
         this.pay_text = jSONObject.optString("pay_text");
@@ -45,54 +68,85 @@ public class o implements Serializable {
     }
 
     public long L() {
-        return this.he;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.he : invokeV.longValue;
     }
 
     public String M() {
-        return this.ee;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.ee : (String) invokeV.objValue;
     }
 
     public int N() {
-        return this.wa;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.wa : invokeV.intValue;
     }
 
     public String O() {
-        return this.ie;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ie : (String) invokeV.objValue;
     }
 
     public int P() {
-        return this.ae;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ae : invokeV.intValue;
     }
 
     public String Q() {
-        return this.je;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.je : (String) invokeV.objValue;
     }
 
     public String R() {
-        return this.Yd;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.Yd : (String) invokeV.objValue;
     }
 
     public String S() {
-        return this.pay_text;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.pay_text : (String) invokeV.objValue;
     }
 
     public String getDisplayName() {
-        return this.Xd;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.Xd : (String) invokeV.objValue;
     }
 
     public String getIcon() {
-        return this.icon;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.icon : (String) invokeV.objValue;
     }
 
     public void i(int i2) {
-        this.ae = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.ae = i2;
+        }
     }
 
     public void l(String str) {
-        this.ie = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.ie = str;
+        }
     }
 
     public String toString() {
-        return "PayChannelEntity{display_name='" + this.Xd + "', pay_channel='" + this.Yd + "', pay_text='" + this.pay_text + "', error_text='" + this.Zd + "', icon='" + this.icon + "', is_fold=" + this._d + ", is_selected=" + this.ae + ", is_private=" + this.be + ", free_pay=" + this.ce + ", pre_pay_money=" + this.de + ", enable=" + this.wa + ", display_color='" + this.ee + "', flow=" + this.fe + ", parasitifer=" + this.ge + '}';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "PayChannelEntity{display_name='" + this.Xd + "', pay_channel='" + this.Yd + "', pay_text='" + this.pay_text + "', error_text='" + this.Zd + "', icon='" + this.icon + "', is_fold=" + this._d + ", is_selected=" + this.ae + ", is_private=" + this.be + ", free_pay=" + this.ce + ", pre_pay_money=" + this.de + ", enable=" + this.wa + ", display_color='" + this.ee + "', flow=" + this.fe + ", parasitifer=" + this.ge + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

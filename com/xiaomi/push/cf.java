@@ -1,7 +1,12 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public abstract class cf {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public abstract ce a(Context context, String str);
 }

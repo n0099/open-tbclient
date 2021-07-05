@@ -4,46 +4,69 @@ import android.graphics.Rect;
 import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class RelationSpaceItemDecoration extends RecyclerView.ItemDecoration {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f15408a;
+    public int f15501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15409b;
+    public int f15502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f15410c;
+    public int f15503c;
 
     public RelationSpaceItemDecoration(int i2, int i3, int i4) {
-        this.f15408a = i2;
-        this.f15409b = i3;
-        this.f15410c = i4;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f15501a = i2;
+        this.f15502b = i3;
+        this.f15503c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-        if (linearLayoutManager.getOrientation() == 1) {
-            if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.f15408a;
-            } else {
-                rect.top = this.f15409b;
-            }
-            if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.bottom = this.f15410c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
+            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+            if (linearLayoutManager.getOrientation() == 1) {
+                if (recyclerView.getChildAdapterPosition(view) == 0) {
+                    rect.top = this.f15501a;
+                } else {
+                    rect.top = this.f15502b;
+                }
+                if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
+                    rect.bottom = this.f15503c;
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.f15408a;
-        } else {
-            rect.left = this.f15409b;
-        }
-        if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-            rect.right = this.f15410c;
+            if (recyclerView.getChildAdapterPosition(view) == 0) {
+                rect.left = this.f15501a;
+            } else {
+                rect.left = this.f15502b;
+            }
+            if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
+                rect.right = this.f15503c;
+            }
         }
     }
 }

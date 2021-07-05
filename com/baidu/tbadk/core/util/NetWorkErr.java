@@ -1,6 +1,12 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes3.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class NetWorkErr {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_ALERT_DELETE_CODE = 1211066;
     public static final int ERROR_BZC_USER_BLOCK = 220012;
     public static final int ERROR_BZC_USER_MANAGER_NUM = 240104;
@@ -61,4 +67,19 @@ public class NetWorkErr {
     public static final int USER_NOT_LOGIN = 1;
     public static final int USER_OR_THREAD_BLOCKED = 350008;
     public static final int VCODE_INPUT_ERROR = 6;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public NetWorkErr() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

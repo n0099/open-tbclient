@@ -7,203 +7,298 @@ import android.database.sqlite.SQLiteException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class gq {
-
-    /* renamed from: a  reason: collision with other field name */
-    public static al f438a = new al(true);
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f41468a = -1;
+    public static volatile int f43211a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f437a = System.currentTimeMillis();
+    public static long f440a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f440a = new Object();
+    public static al f441a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<a> f442a = Collections.synchronizedList(new ArrayList());
+    public static com.xiaomi.push.providers.a f442a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f441a = "";
+    public static final Object f443a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static com.xiaomi.push.providers.a f439a = null;
+    public static String f444a;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: a  reason: collision with other field name */
+    public static List<a> f445a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41469a;
+        public int f43212a;
 
         /* renamed from: a  reason: collision with other field name */
-        public long f443a;
+        public long f446a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f444a;
+        public String f447a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f41470b;
+        public int f43213b;
 
         /* renamed from: b  reason: collision with other field name */
-        public long f445b;
+        public long f448b;
 
         /* renamed from: b  reason: collision with other field name */
-        public String f446b;
+        public String f449b;
 
         public a(String str, long j, int i2, int i3, String str2, long j2) {
-            this.f444a = "";
-            this.f443a = 0L;
-            this.f41469a = -1;
-            this.f41470b = -1;
-            this.f446b = "";
-            this.f445b = 0L;
-            this.f444a = str;
-            this.f443a = j;
-            this.f41469a = i2;
-            this.f41470b = i3;
-            this.f446b = str2;
-            this.f445b = j2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), str2, Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f447a = "";
+            this.f446a = 0L;
+            this.f43212a = -1;
+            this.f43213b = -1;
+            this.f449b = "";
+            this.f448b = 0L;
+            this.f447a = str;
+            this.f446a = j;
+            this.f43212a = i2;
+            this.f43213b = i3;
+            this.f449b = str2;
+            this.f448b = j2;
         }
 
         public boolean a(a aVar) {
-            return TextUtils.equals(aVar.f444a, this.f444a) && TextUtils.equals(aVar.f446b, this.f446b) && aVar.f41469a == this.f41469a && aVar.f41470b == this.f41470b && Math.abs(aVar.f443a - this.f443a) <= 5000;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f447a, this.f447a) && TextUtils.equals(aVar.f449b, this.f449b) && aVar.f43212a == this.f43212a && aVar.f43213b == this.f43213b && Math.abs(aVar.f446a - this.f446a) <= 5000 : invokeL.booleanValue;
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56373610, "Lcom/xiaomi/push/gq;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56373610, "Lcom/xiaomi/push/gq;");
+                return;
+            }
+        }
+        f441a = new al(true);
+        f43211a = -1;
+        f440a = System.currentTimeMillis();
+        f443a = new Object();
+        f445a = Collections.synchronizedList(new ArrayList());
+        f444a = "";
+        f442a = null;
     }
 
     public static int a(Context context) {
-        if (f41468a == -1) {
-            f41468a = b(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (f43211a == -1) {
+                f43211a = b(context);
+            }
+            return f43211a;
         }
-        return f41468a;
+        return invokeL.intValue;
     }
 
     public static int a(String str) {
-        try {
-            return str.getBytes("UTF-8").length;
-        } catch (UnsupportedEncodingException unused) {
-            return str.getBytes().length;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                return str.getBytes("UTF-8").length;
+            } catch (UnsupportedEncodingException unused) {
+                return str.getBytes().length;
+            }
         }
+        return invokeL.intValue;
     }
 
     public static long a(int i2, long j, boolean z, long j2, boolean z2) {
-        if (z && z2) {
-            long j3 = f437a;
-            f437a = j2;
-            if (j2 - j3 > 30000 && j > 1024) {
-                return j * 2;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2), Boolean.valueOf(z2)})) == null) {
+            if (z && z2) {
+                long j3 = f440a;
+                f440a = j2;
+                if (j2 - j3 > 30000 && j > 1024) {
+                    return j * 2;
+                }
+            }
+            return (j * (i2 == 0 ? 13 : 11)) / 10;
+        }
+        return invokeCommon.longValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static com.xiaomi.push.providers.a m356a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            com.xiaomi.push.providers.a aVar = f442a;
+            if (aVar != null) {
+                return aVar;
+            }
+            com.xiaomi.push.providers.a aVar2 = new com.xiaomi.push.providers.a(context);
+            f442a = aVar2;
+            return aVar2;
+        }
+        return (com.xiaomi.push.providers.a) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static synchronized String m357a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            synchronized (gq.class) {
+                return !TextUtils.isEmpty(f444a) ? f444a : "";
             }
         }
-        return (j * (i2 == 0 ? 13 : 11)) / 10;
+        return (String) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m342a(Context context) {
-        com.xiaomi.push.providers.a aVar = f439a;
-        if (aVar != null) {
-            return aVar;
+    public static void m359a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            f43211a = b(context);
         }
-        com.xiaomi.push.providers.a aVar2 = new com.xiaomi.push.providers.a(context);
-        f439a = aVar2;
-        return aVar2;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m343a(Context context) {
-        synchronized (gq.class) {
-            if (TextUtils.isEmpty(f441a)) {
-                return "";
-            }
-            return f441a;
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static void m345a(Context context) {
-        f41468a = b(context);
     }
 
     public static void a(Context context, String str, long j, boolean z, long j2) {
         int a2;
         boolean isEmpty;
-        if (context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2)}) == null) || context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
             return;
         }
-        synchronized (f440a) {
-            isEmpty = f442a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m343a(context) : "", j));
+        synchronized (f443a) {
+            isEmpty = f445a.isEmpty();
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m357a(context) : "", j));
         }
         if (isEmpty) {
-            f438a.a(new gr(context), 5000L);
+            f441a.a(new gr(context), 5000L);
         }
     }
 
     public static void a(Context context, String str, long j, boolean z, boolean z2, long j2) {
-        a(context, str, a(a(context), j, z, j2, z2), z, j2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j2)}) == null) {
+            a(context, str, a(a(context), j, z, j2, z2), z, j2);
+        }
     }
 
     public static void a(a aVar) {
-        for (a aVar2 : f442a) {
-            if (aVar2.a(aVar)) {
-                aVar2.f445b += aVar.f445b;
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, aVar) == null) {
+            for (a aVar2 : f445a) {
+                if (aVar2.a(aVar)) {
+                    aVar2.f448b += aVar.f448b;
+                    return;
+                }
             }
+            f445a.add(aVar);
         }
-        f442a.add(aVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m346a(String str) {
-        synchronized (gq.class) {
-            if (!l.d() && !TextUtils.isEmpty(str)) {
-                f441a = str;
+    public static synchronized void m360a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
+            synchronized (gq.class) {
+                if (!l.d() && !TextUtils.isEmpty(str)) {
+                    f444a = str;
+                }
             }
         }
     }
 
     public static int b(Context context) {
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return -1;
+                }
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null) {
+                    return -1;
+                }
+                return activeNetworkInfo.getType();
+            } catch (Exception unused) {
                 return -1;
             }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo == null) {
-                return -1;
-            }
-            return activeNetworkInfo.getType();
-        } catch (Exception unused) {
-            return -1;
         }
+        return invokeL.intValue;
     }
 
     public static void b(Context context, List<a> list) {
-        try {
-            synchronized (com.xiaomi.push.providers.a.f823a) {
-                SQLiteDatabase writableDatabase = m342a(context).getWritableDatabase();
-                writableDatabase.beginTransaction();
-                for (a aVar : list) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("package_name", aVar.f444a);
-                    contentValues.put("message_ts", Long.valueOf(aVar.f443a));
-                    contentValues.put(PmsConstant.Statistic.STATISTIC_NETWORK, Integer.valueOf(aVar.f41469a));
-                    contentValues.put("bytes", Long.valueOf(aVar.f445b));
-                    contentValues.put("rcv", Integer.valueOf(aVar.f41470b));
-                    contentValues.put(BaseStatisContent.IMSI, aVar.f446b);
-                    writableDatabase.insert("traffic", null, contentValues);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
+            try {
+                synchronized (com.xiaomi.push.providers.a.f826a) {
+                    SQLiteDatabase writableDatabase = m356a(context).getWritableDatabase();
+                    writableDatabase.beginTransaction();
+                    try {
+                        for (a aVar : list) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("package_name", aVar.f447a);
+                            contentValues.put("message_ts", Long.valueOf(aVar.f446a));
+                            contentValues.put("network_type", Integer.valueOf(aVar.f43212a));
+                            contentValues.put("bytes", Long.valueOf(aVar.f448b));
+                            contentValues.put("rcv", Integer.valueOf(aVar.f43213b));
+                            contentValues.put(BaseStatisContent.IMSI, aVar.f449b);
+                            writableDatabase.insert("traffic", null, contentValues);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                    } finally {
+                        writableDatabase.endTransaction();
+                    }
                 }
-                writableDatabase.setTransactionSuccessful();
-                writableDatabase.endTransaction();
+            } catch (SQLiteException e2) {
+                com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
-        } catch (SQLiteException e2) {
-            com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
     }
 }

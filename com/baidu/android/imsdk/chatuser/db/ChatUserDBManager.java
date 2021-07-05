@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.util.LongSparseArray;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.account.IGetUidByUkListener;
@@ -18,299 +19,471 @@ import com.baidu.android.imsdk.chatuser.IGetUserIdentityListener;
 import com.baidu.android.imsdk.chatuser.IpInfo;
 import com.baidu.android.imsdk.db.DBBase;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.shield.IGetUserShieldListener;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ChatUserDBManager extends DBBase {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ChatUserDBManager";
     public static ChatUserDBManager mInstance;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(901080571, "Lcom/baidu/android/imsdk/chatuser/db/ChatUserDBManager;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(901080571, "Lcom/baidu/android/imsdk/chatuser/db/ChatUserDBManager;");
+        }
+    }
 
     public ChatUserDBManager(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         setContext(context);
     }
 
     private ChatUser constructChatUser(Cursor cursor) {
-        long j = cursor.getLong(cursor.getColumnIndex("uid"));
-        long j2 = cursor.getLong(cursor.getColumnIndex("buid"));
-        String string = cursor.getString(cursor.getColumnIndex("username"));
-        String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HEAD_URL));
-        String string3 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_TINY_URL));
-        String string4 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_DETAIL));
-        long j3 = cursor.getLong(cursor.getColumnIndex("phone"));
-        int i2 = cursor.getInt(cursor.getColumnIndex("sex"));
-        int i3 = cursor.getInt(cursor.getColumnIndex("account_type"));
-        int i4 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_EXSIT));
-        int i5 = cursor.getInt(cursor.getColumnIndex("disturb"));
-        int i6 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_BLACKLIST));
-        String string5 = cursor.getString(cursor.getColumnIndex("v_portrait"));
-        String string6 = cursor.getString(cursor.getColumnIndex("vip_id"));
-        String string7 = cursor.getString(cursor.getColumnIndex("identity"));
-        long j4 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME));
-        int i7 = cursor.getInt(cursor.getColumnIndex("shield"));
-        long j5 = cursor.getLong(cursor.getColumnIndex("shield_time"));
-        int i8 = cursor.getInt(cursor.getColumnIndex("marktop"));
-        long j6 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME));
-        int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS));
-        int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION));
-        int i11 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY));
-        String string8 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY));
-        String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_EXT));
-        ChatUser chatUser = new ChatUser(j, j2, string, string2);
-        chatUser.setVPortrait(string5);
-        chatUser.setVipId(string6);
-        chatUser.setIdentity(string7);
-        chatUser.setLastUpdate(j4);
-        chatUser.setShield(i7);
-        chatUser.setShieldTime(j5);
-        chatUser.setMarkTop(i8);
-        chatUser.setMarkTopTime(j6);
-        chatUser.setSubscribe(i9);
-        chatUser.setPhoneRelation(i10);
-        chatUser.setHasSpecialIdentity(i11);
-        chatUser.setSpecialIdentity(string8);
-        chatUser.setUserExt(string9);
-        if (i4 == 0) {
-            IpInfo ipInfo = new IpInfo();
-            ipInfo.setUid(j);
-            String string10 = cursor.getString(cursor.getColumnIndex("ip"));
-            String string11 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_ISP));
-            String string12 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTRY));
-            String string13 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_PROVINCE));
-            String string14 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_CITY));
-            String string15 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTY));
-            ipInfo.setCity(string14);
-            ipInfo.setProv(string13);
-            ipInfo.setIp(string10);
-            ipInfo.setCountry(string12);
-            ipInfo.setCounty(string15);
-            ipInfo.setIsp(string11);
-            chatUser.setIpInfo(ipInfo);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, cursor)) == null) {
+            long j = cursor.getLong(cursor.getColumnIndex("uid"));
+            long j2 = cursor.getLong(cursor.getColumnIndex("buid"));
+            String string = cursor.getString(cursor.getColumnIndex("username"));
+            String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HEAD_URL));
+            String string3 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_TINY_URL));
+            String string4 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_DETAIL));
+            long j3 = cursor.getLong(cursor.getColumnIndex("phone"));
+            int i2 = cursor.getInt(cursor.getColumnIndex("sex"));
+            int i3 = cursor.getInt(cursor.getColumnIndex("account_type"));
+            int i4 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_EXSIT));
+            int i5 = cursor.getInt(cursor.getColumnIndex("disturb"));
+            int i6 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_BLACKLIST));
+            String string5 = cursor.getString(cursor.getColumnIndex("v_portrait"));
+            String string6 = cursor.getString(cursor.getColumnIndex("vip_id"));
+            String string7 = cursor.getString(cursor.getColumnIndex("identity"));
+            long j4 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME));
+            int i7 = cursor.getInt(cursor.getColumnIndex("shield"));
+            long j5 = cursor.getLong(cursor.getColumnIndex("shield_time"));
+            int i8 = cursor.getInt(cursor.getColumnIndex("marktop"));
+            long j6 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME));
+            int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS));
+            int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION));
+            int i11 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY));
+            String string8 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY));
+            String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_EXT));
+            ChatUser chatUser = new ChatUser(j, j2, string, string2);
+            chatUser.setVPortrait(string5);
+            chatUser.setVipId(string6);
+            chatUser.setIdentity(string7);
+            chatUser.setLastUpdate(j4);
+            chatUser.setShield(i7);
+            chatUser.setShieldTime(j5);
+            chatUser.setMarkTop(i8);
+            chatUser.setMarkTopTime(j6);
+            chatUser.setSubscribe(i9);
+            chatUser.setPhoneRelation(i10);
+            chatUser.setHasSpecialIdentity(i11);
+            chatUser.setSpecialIdentity(string8);
+            chatUser.setUserExt(string9);
+            if (i4 == 0) {
+                IpInfo ipInfo = new IpInfo();
+                ipInfo.setUid(j);
+                String string10 = cursor.getString(cursor.getColumnIndex("ip"));
+                String string11 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_ISP));
+                String string12 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTRY));
+                String string13 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_PROVINCE));
+                String string14 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_CITY));
+                String string15 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTY));
+                ipInfo.setCity(string14);
+                ipInfo.setProv(string13);
+                ipInfo.setIp(string10);
+                ipInfo.setCountry(string12);
+                ipInfo.setCounty(string15);
+                ipInfo.setIsp(string11);
+                chatUser.setIpInfo(ipInfo);
+            }
+            chatUser.setIsIpLocationExist(i4);
+            chatUser.setTinyUrl(string3);
+            chatUser.setUserDetail(string4);
+            chatUser.setSex(i2);
+            chatUser.setPhone(j3);
+            chatUser.setAccountType(i3);
+            chatUser.setDisturb(i5);
+            chatUser.setBlack(i6);
+            return chatUser;
         }
-        chatUser.setIsIpLocationExist(i4);
-        chatUser.setTinyUrl(string3);
-        chatUser.setUserDetail(string4);
-        chatUser.setSex(i2);
-        chatUser.setPhone(j3);
-        chatUser.setAccountType(i3);
-        chatUser.setDisturb(i5);
-        chatUser.setBlack(i6);
-        return chatUser;
+        return (ChatUser) invokeL.objValue;
     }
 
     private ContentValues constructIpInfoContentValue(IpInfo ipInfo, ContentValues contentValues) {
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_EXSIT, String.valueOf(0));
-        if (ipInfo != null) {
-            contentValues.put("ip", ipInfo.getIp());
-            contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_ISP, ipInfo.getIsp());
-            contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_COUNTRY, ipInfo.getCountry());
-            contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_PROVINCE, ipInfo.getProv());
-            contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_CITY, ipInfo.getCity());
-            contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_COUNTY, ipInfo.getCounty());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, ipInfo, contentValues)) == null) {
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_EXSIT, String.valueOf(0));
+            if (ipInfo != null) {
+                contentValues.put("ip", ipInfo.getIp());
+                contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_ISP, ipInfo.getIsp());
+                contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_COUNTRY, ipInfo.getCountry());
+                contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_PROVINCE, ipInfo.getProv());
+                contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_CITY, ipInfo.getCity());
+                contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP_COUNTY, ipInfo.getCounty());
+            }
+            return contentValues;
         }
-        return contentValues;
+        return (ContentValues) invokeLL.objValue;
     }
 
     private ChatSession constructShieldUsers(@NonNull ChatSession chatSession, @NonNull Cursor cursor, boolean z) {
-        chatSession.setContacter(cursor.getLong(cursor.getColumnIndex("uid")));
-        chatSession.setNickName(cursor.getString(cursor.getColumnIndex("username")));
-        chatSession.setIconUrl(cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HEAD_URL)));
-        chatSession.setCertification(cursor.getString(cursor.getColumnIndex("identity")));
-        chatSession.setVipId(cursor.getString(cursor.getColumnIndex("vip_id")));
-        chatSession.setVPortrait(cursor.getString(cursor.getColumnIndex("v_portrait")));
-        chatSession.setChatType(0);
-        if (z) {
-            chatSession.setShield(cursor.getInt(cursor.getColumnIndex("shield")));
-            chatSession.setShieldTime(cursor.getLong(cursor.getColumnIndex("shield_time")));
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65549, this, chatSession, cursor, z)) == null) {
+            chatSession.setContacter(cursor.getLong(cursor.getColumnIndex("uid")));
+            chatSession.setNickName(cursor.getString(cursor.getColumnIndex("username")));
+            chatSession.setIconUrl(cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HEAD_URL)));
+            chatSession.setCertification(cursor.getString(cursor.getColumnIndex("identity")));
+            chatSession.setVipId(cursor.getString(cursor.getColumnIndex("vip_id")));
+            chatSession.setVPortrait(cursor.getString(cursor.getColumnIndex("v_portrait")));
+            chatSession.setChatType(0);
+            if (z) {
+                chatSession.setShield(cursor.getInt(cursor.getColumnIndex("shield")));
+                chatSession.setShieldTime(cursor.getLong(cursor.getColumnIndex("shield_time")));
+            }
+            return chatSession;
         }
-        return chatSession;
+        return (ChatSession) invokeLLZ.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public ChatSession constructShieldUsersByChatUser(@NonNull ChatSession chatSession, @NonNull ChatUser chatUser) {
-        chatSession.setContacter(chatUser.getUk());
-        chatSession.setNickName(chatUser.getUserName());
-        chatSession.setIconUrl(chatUser.getIconUrl());
-        chatSession.setCertification(chatUser.getIdentity());
-        chatSession.setVPortrait(chatUser.getVPortrait());
-        chatSession.setVipId(chatUser.getVipId());
-        return chatSession;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, chatSession, chatUser)) == null) {
+            chatSession.setContacter(chatUser.getUk());
+            chatSession.setNickName(chatUser.getUserName());
+            chatSession.setIconUrl(chatUser.getIconUrl());
+            chatSession.setCertification(chatUser.getIdentity());
+            chatSession.setVPortrait(chatUser.getVPortrait());
+            chatSession.setVipId(chatUser.getVipId());
+            return chatSession;
+        }
+        return (ChatSession) invokeLL.objValue;
     }
 
     public static ChatUserDBManager getInstance(Context context) {
-        if (mInstance == null) {
-            synchronized (ChatUserDBManager.class) {
-                if (mInstance == null) {
-                    mInstance = new ChatUserDBManager(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
+            if (mInstance == null) {
+                synchronized (ChatUserDBManager.class) {
+                    if (mInstance == null) {
+                        mInstance = new ChatUserDBManager(context);
+                    }
                 }
             }
+            return mInstance;
         }
-        return mInstance;
+        return (ChatUserDBManager) invokeL.objValue;
     }
 
-    private void getUserInfo(@NonNull final List<ChatSession> list, @NonNull final List<ChatSession> list2, @NonNull final IGetUserShieldListener iGetUserShieldListener) {
-        ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            arrayList.add(Long.valueOf(list.get(i2).getContacter()));
-        }
-        String str = TAG;
-        LogUtils.i(str, "getUserInfo uks " + arrayList.toString() + ", hasResult :" + list2.size());
-        int size = arrayList.size();
-        long[] jArr = new long[size];
-        for (int i3 = 0; i3 < arrayList.size(); i3++) {
-            if (arrayList.get(i3) != null) {
-                jArr[i3] = ((Long) arrayList.get(i3)).longValue();
+    private void getUserInfo(@NonNull List<ChatSession> list, @NonNull List<ChatSession> list2, @NonNull IGetUserShieldListener iGetUserShieldListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65554, this, list, list2, iGetUserShieldListener) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                arrayList.add(Long.valueOf(list.get(i2).getContacter()));
             }
-        }
-        if (size <= 0) {
-            iGetUserShieldListener.onResult(-1, "getUser failed", list2);
-        } else {
-            AccountManagerImpl.getInstance(this.mContext).getUidByUk(jArr, new IGetUidByUkListener() { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.3
-                @Override // com.baidu.android.imsdk.account.IGetUidByUkListener
-                public void onGetUidByUkResult(int i4, String str2, long[] jArr2, Map<Long, Long> map) {
-                    if (i4 != 0) {
-                        iGetUserShieldListener.onResult(-1, "getUser failed", list2);
-                        return;
-                    }
-                    ArrayList arrayList2 = new ArrayList();
-                    for (Map.Entry<Long, Long> entry : map.entrySet()) {
-                        if (entry.getValue().longValue() > 0) {
-                            arrayList2.add(entry.getValue());
+            String str = TAG;
+            LogUtils.i(str, "getUserInfo uks " + arrayList.toString() + ", hasResult :" + list2.size());
+            int size = arrayList.size();
+            long[] jArr = new long[size];
+            for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                if (arrayList.get(i3) != null) {
+                    jArr[i3] = ((Long) arrayList.get(i3)).longValue();
+                }
+            }
+            if (size <= 0) {
+                iGetUserShieldListener.onResult(-1, "getUser failed", list2);
+            } else {
+                AccountManagerImpl.getInstance(this.mContext).getUidByUk(jArr, new IGetUidByUkListener(this, iGetUserShieldListener, list2, list) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ChatUserDBManager this$0;
+                    public final /* synthetic */ IGetUserShieldListener val$listener;
+                    public final /* synthetic */ List val$resultUsers;
+                    public final /* synthetic */ List val$source;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, iGetUserShieldListener, list2, list};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
                         }
+                        this.this$0 = this;
+                        this.val$listener = iGetUserShieldListener;
+                        this.val$resultUsers = list2;
+                        this.val$source = list;
                     }
-                    String str3 = ChatUserDBManager.TAG;
-                    LogUtils.e(str3, "getUidByUk  result :" + list2.size() + ", bduid :" + arrayList2.toString());
-                    if (arrayList2.size() > 0) {
-                        ChatUserManagerImpl.getInstance(ChatUserDBManager.this.mContext).updateUserIdentity(arrayList2, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.3.1
-                            @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                            public void onGetUserIdentityResult(int i5, List<ChatUser> list3) {
-                                if (i5 != 0) {
-                                    AnonymousClass3 anonymousClass3 = AnonymousClass3.this;
-                                    iGetUserShieldListener.onResult(-1, "getUser failed", list2);
-                                } else if (list3 == null) {
-                                    AnonymousClass3 anonymousClass32 = AnonymousClass3.this;
-                                    iGetUserShieldListener.onResult(-1, "getUser failed", list2);
-                                } else {
-                                    for (ChatSession chatSession : list) {
-                                        Iterator<ChatUser> it = list3.iterator();
-                                        while (true) {
-                                            if (it.hasNext()) {
-                                                ChatUser next = it.next();
-                                                if (next.getUk() == chatSession.getContacter()) {
-                                                    AnonymousClass3 anonymousClass33 = AnonymousClass3.this;
-                                                    list2.add(ChatUserDBManager.this.constructShieldUsersByChatUser(chatSession, next));
-                                                    ChatUserDBManager.this.updateUser(next);
-                                                    ChatMessageDBManager.getInstance(ChatUserDBManager.this.mContext).updateSessionClass(next);
-                                                    break;
+
+                    @Override // com.baidu.android.imsdk.account.IGetUidByUkListener
+                    public void onGetUidByUkResult(int i4, String str2, long[] jArr2, Map<Long, Long> map) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str2, jArr2, map}) == null) {
+                            if (i4 != 0) {
+                                this.val$listener.onResult(-1, "getUser failed", this.val$resultUsers);
+                                return;
+                            }
+                            ArrayList arrayList2 = new ArrayList();
+                            for (Map.Entry<Long, Long> entry : map.entrySet()) {
+                                if (entry.getValue().longValue() > 0) {
+                                    arrayList2.add(entry.getValue());
+                                }
+                            }
+                            String str3 = ChatUserDBManager.TAG;
+                            LogUtils.e(str3, "getUidByUk  result :" + this.val$resultUsers.size() + ", bduid :" + arrayList2.toString());
+                            if (arrayList2.size() > 0) {
+                                ChatUserManagerImpl.getInstance(this.this$0.mContext).updateUserIdentity(arrayList2, new IGetUserIdentityListener(this) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.3.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+                                    public final /* synthetic */ AnonymousClass3 this$1;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i5 = newInitContext.flag;
+                                            if ((i5 & 1) != 0) {
+                                                int i6 = i5 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.this$1 = this;
+                                    }
+
+                                    @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
+                                    public void onGetUserIdentityResult(int i5, List<ChatUser> list3) {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i5, list3) == null) {
+                                            if (i5 != 0) {
+                                                AnonymousClass3 anonymousClass3 = this.this$1;
+                                                anonymousClass3.val$listener.onResult(-1, "getUser failed", anonymousClass3.val$resultUsers);
+                                            } else if (list3 == null) {
+                                                AnonymousClass3 anonymousClass32 = this.this$1;
+                                                anonymousClass32.val$listener.onResult(-1, "getUser failed", anonymousClass32.val$resultUsers);
+                                            } else {
+                                                for (ChatSession chatSession : this.this$1.val$source) {
+                                                    Iterator<ChatUser> it = list3.iterator();
+                                                    while (true) {
+                                                        if (it.hasNext()) {
+                                                            ChatUser next = it.next();
+                                                            if (next.getUk() == chatSession.getContacter()) {
+                                                                AnonymousClass3 anonymousClass33 = this.this$1;
+                                                                anonymousClass33.val$resultUsers.add(anonymousClass33.this$0.constructShieldUsersByChatUser(chatSession, next));
+                                                                this.this$1.this$0.updateUser(next);
+                                                                ChatMessageDBManager.getInstance(this.this$1.this$0.mContext).updateSessionClass(next);
+                                                                break;
+                                                            }
+                                                        }
+                                                    }
                                                 }
+                                                AnonymousClass3 anonymousClass34 = this.this$1;
+                                                anonymousClass34.val$listener.onResult(0, "ok", anonymousClass34.val$resultUsers);
+                                                AnonymousClass3 anonymousClass35 = this.this$1;
+                                                anonymousClass35.this$0.updateAllShield(anonymousClass35.val$resultUsers);
                                             }
                                         }
                                     }
-                                    AnonymousClass3 anonymousClass34 = AnonymousClass3.this;
-                                    iGetUserShieldListener.onResult(0, "ok", list2);
-                                    AnonymousClass3 anonymousClass35 = AnonymousClass3.this;
-                                    ChatUserDBManager.this.updateAllShield(list2);
-                                }
+                                });
+                            } else {
+                                this.val$listener.onResult(-1, "getUser failed", this.val$resultUsers);
                             }
-                        });
-                    } else {
-                        iGetUserShieldListener.onResult(-1, "getUser failed", list2);
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateAllShield(@NonNull final List<ChatSession> list) {
-        if (list.size() > 0) {
-            TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.2
-                @Override // java.lang.Runnable
-                public void run() {
+    public void updateAllShield(@NonNull List<ChatSession> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65555, this, list) == null) || list.size() <= 0) {
+            return;
+        }
+        TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, list) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ChatUserDBManager this$0;
+            public final /* synthetic */ List val$users;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, list};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$users = list;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     synchronized (DBBase.mSyncLock) {
-                        for (ChatSession chatSession : list) {
-                            ChatUserDBManager.this.updateShield(chatSession, false);
+                        for (ChatSession chatSession : this.val$users) {
+                            this.this$0.updateShield(chatSession, false);
                         }
                     }
                 }
-            });
-        }
+            }
+        });
     }
 
     public ContentValues constructChatUserContentValues(ChatUser chatUser) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("uid", Long.valueOf(chatUser.getUk()));
-        contentValues.put("buid", Long.valueOf(chatUser.getBuid()));
-        contentValues.put("username", chatUser.getUserName());
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, chatUser.getIconUrl());
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, chatUser.getTinyUrl());
-        contentValues.put("sex", Integer.valueOf(chatUser.getSex()));
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_USER_DETAIL, chatUser.getUserDetail());
-        contentValues.put("phone", Long.valueOf(chatUser.getPhone()));
-        contentValues.put("account_type", Integer.valueOf(chatUser.getAccountType()));
-        contentValues.put("disturb", Integer.valueOf(chatUser.getDisturb()));
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_BLACKLIST, Integer.valueOf(chatUser.getBlack()));
-        contentValues.put("v_portrait", chatUser.getVPortrait());
-        contentValues.put("vip_id", chatUser.getVipId());
-        contentValues.put("identity", chatUser.getIdentity());
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, Long.valueOf(chatUser.getLastUpdate()));
-        contentValues.put("shield", Integer.valueOf(chatUser.getShield()));
-        contentValues.put("shield_time", Long.valueOf(chatUser.getShieldTime()));
-        contentValues.put("marktop", Integer.valueOf(chatUser.getMarkTop()));
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME, Long.valueOf(chatUser.getMarkTopTime()));
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS, Integer.valueOf(chatUser.getSubscribe()));
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION, Integer.valueOf(chatUser.getPhoneRelation()));
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY, Integer.valueOf(chatUser.getHasSpecialIdentity()));
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY, chatUser.getSpecialIdentity());
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_USER_EXT, chatUser.getUserExt());
-        return contentValues;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatUser)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("uid", Long.valueOf(chatUser.getUk()));
+            contentValues.put("buid", Long.valueOf(chatUser.getBuid()));
+            contentValues.put("username", chatUser.getUserName());
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, chatUser.getIconUrl());
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, chatUser.getTinyUrl());
+            contentValues.put("sex", Integer.valueOf(chatUser.getSex()));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_USER_DETAIL, chatUser.getUserDetail());
+            contentValues.put("phone", Long.valueOf(chatUser.getPhone()));
+            contentValues.put("account_type", Integer.valueOf(chatUser.getAccountType()));
+            contentValues.put("disturb", Integer.valueOf(chatUser.getDisturb()));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_BLACKLIST, Integer.valueOf(chatUser.getBlack()));
+            contentValues.put("v_portrait", chatUser.getVPortrait());
+            contentValues.put("vip_id", chatUser.getVipId());
+            contentValues.put("identity", chatUser.getIdentity());
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, Long.valueOf(chatUser.getLastUpdate()));
+            contentValues.put("shield", Integer.valueOf(chatUser.getShield()));
+            contentValues.put("shield_time", Long.valueOf(chatUser.getShieldTime()));
+            contentValues.put("marktop", Integer.valueOf(chatUser.getMarkTop()));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME, Long.valueOf(chatUser.getMarkTopTime()));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS, Integer.valueOf(chatUser.getSubscribe()));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION, Integer.valueOf(chatUser.getPhoneRelation()));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY, Integer.valueOf(chatUser.getHasSpecialIdentity()));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY, chatUser.getSpecialIdentity());
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_USER_EXT, chatUser.getUserExt());
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
     }
 
     public int deleteChatUser(long j) {
+        InterceptResult invokeJ;
         int delete;
-        synchronized (DBBase.mSyncLock) {
-            delete = delete(TableDefine.DB_TABLE_USERINFO, "uid = ?", new String[]{String.valueOf(j)});
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                delete = delete(TableDefine.DB_TABLE_USERINFO, "uid = ?", new String[]{String.valueOf(j)});
+            }
+            return delete;
         }
-        return delete;
+        return invokeJ.intValue;
     }
 
     public ChatUser getChatUser(long j) {
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                return null;
-            }
-            try {
-                return getChatUser(openDatabase, j);
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "getChatUser:", e2);
-                return null;
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    return getChatUser(openDatabase, j);
+                } catch (Exception e2) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e(TAG, "getChatUser:", e2);
+                    return null;
+                }
             }
         }
+        return (ChatUser) invokeJ.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0091, code lost:
-        if (r0 != null) goto L26;
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0095, code lost:
+        if (r0 != null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0093, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0097, code lost:
         r0.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00b3, code lost:
-        if (r0 == null) goto L27;
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00b7, code lost:
+        if (r0 == null) goto L29;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00bb, code lost:
         return r11;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public LongSparseArray<ChatUser> getChatUserByBduids(List<Long> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, list)) != null) {
+            return (LongSparseArray) invokeL.objValue;
+        }
         Cursor cursor = null;
         if (list == null || list.size() <= 0) {
             return null;
@@ -343,37 +516,47 @@ public class ChatUserDBManager extends DBBase {
     }
 
     public ChatUser getChatUserByBuid(long j) {
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                return null;
-            }
-            try {
-                return getChatUserByBuid(openDatabase, j);
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "getChatUser:", e2);
-                return null;
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    return getChatUserByBuid(openDatabase, j);
+                } catch (Exception e2) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e(TAG, "getChatUser:", e2);
+                    return null;
+                }
             }
         }
+        return (ChatUser) invokeJ.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00a9, code lost:
-        if (r0 != null) goto L26;
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00ad, code lost:
+        if (r0 != null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00ab, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00af, code lost:
         r0.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00cb, code lost:
-        if (r0 == null) goto L27;
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00cf, code lost:
+        if (r0 == null) goto L29;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00cf, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d3, code lost:
         return r11;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public List<Long> getNotExpiredChatUserByBduids(List<Long> list, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(1048582, this, list, j)) != null) {
+            return (List) invokeLJ.objValue;
+        }
         Cursor cursor = null;
         if (list == null || list.size() <= 0) {
             return null;
@@ -404,60 +587,70 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x013f, code lost:
-        if (r4 != null) goto L35;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00a4 */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x0143, code lost:
+        if (r4 != null) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0141, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0145, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x015a, code lost:
-        if (r4 != null) goto L35;
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x015e, code lost:
+        if (r4 != null) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x015e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0162, code lost:
         return;
      */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0163 A[Catch: all -> 0x0167, TryCatch #3 {, blocks: (B:4:0x0009, B:6:0x0016, B:7:0x001b, B:39:0x0141, B:50:0x015d, B:55:0x0163, B:56:0x0166), top: B:60:0x0009 }] */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r15v0 */
+    /* JADX WARN: Type inference failed for: r15v1 */
+    /* JADX WARN: Type inference failed for: r15v2, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r15v3 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void getShieldUserByUids(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{list, Boolean.valueOf(z), iGetUserShieldListener}) != null) {
+            return;
+        }
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             ArrayList arrayList = new ArrayList();
-            Cursor cursor2 = null;
-            if (openDatabase == null) {
-                iGetUserShieldListener.onResult(-1, "db failed", null);
-                return;
-            }
+            ?? r15 = 0;
             try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("shield", (Integer) 0);
-                openDatabase.update(TableDefine.DB_TABLE_USERINFO, contentValues, "shield=?", new String[]{String.valueOf(1)});
-                String str = "";
-                if (list.size() > 0) {
-                    try {
-                        String str2 = "" + list.get(0).getContacter();
-                        for (int i2 = 1; i2 < list.size(); i2++) {
-                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2).getContacter();
-                        }
-                        str = "uid in (" + str2 + ") ";
-                    } catch (Exception e2) {
-                        e = e2;
-                        cursor = null;
-                        LogUtils.e(TAG, "getShieldUser:", e);
-                        iGetUserShieldListener.onResult(-1, "exception", null);
-                    } catch (Throwable th) {
-                        th = th;
-                        if (cursor2 != null) {
-                        }
-                        throw th;
-                    }
+                if (openDatabase == null) {
+                    iGetUserShieldListener.onResult(-1, "db failed", null);
+                    return;
                 }
-                String str3 = str;
-                cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, str3, null, null, null, null, null);
-                while (cursor != null) {
-                    try {
+                try {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("shield", (Integer) 0);
+                    openDatabase.update(TableDefine.DB_TABLE_USERINFO, contentValues, "shield=?", new String[]{String.valueOf(1)});
+                    String str = "";
+                    if (list.size() > 0) {
+                        try {
+                            String str2 = "" + list.get(0).getContacter();
+                            for (int i2 = 1; i2 < list.size(); i2++) {
+                                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2).getContacter();
+                            }
+                            str = "uid in (" + str2 + ") ";
+                        } catch (Exception e2) {
+                            e = e2;
+                            cursor = null;
+                            LogUtils.e(TAG, "getShieldUser:", e);
+                            iGetUserShieldListener.onResult(-1, "exception", null);
+                        } catch (Throwable th) {
+                            th = th;
+                            if (r15 != 0) {
+                                r15.close();
+                            }
+                            throw th;
+                        }
+                    }
+                    String str3 = str;
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, str3, null, null, null, null, null);
+                    while (cursor != null) {
                         try {
                             if (!cursor.moveToNext()) {
                                 break;
@@ -482,38 +675,39 @@ public class ChatUserDBManager extends DBBase {
                             LogUtils.e(TAG, "getShieldUser:", e);
                             iGetUserShieldListener.onResult(-1, "exception", null);
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        throw th;
                     }
+                    LogUtils.d(TAG, "getShieldUserByUids whereClause :" + str3 + ", update :" + arrayList.size() + ", user :" + list.size());
+                    updateAllShield(arrayList);
+                    if (list.size() <= 0) {
+                        iGetUserShieldListener.onResult(0, "ok", arrayList);
+                    } else {
+                        getUserInfo(list, arrayList, iGetUserShieldListener);
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    r15 = 0;
                 }
-                LogUtils.d(TAG, "getShieldUserByUids whereClause :" + str3 + ", update :" + arrayList.size() + ", user :" + list.size());
-                updateAllShield(arrayList);
-                if (list.size() <= 0) {
-                    iGetUserShieldListener.onResult(0, "ok", arrayList);
-                } else {
-                    getUserInfo(list, arrayList, iGetUserShieldListener);
-                }
-            } catch (Exception e4) {
-                e = e4;
-                cursor = null;
             } catch (Throwable th3) {
                 th = th3;
-                cursor2 = null;
+                r15 = openDatabase;
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x007f A[Catch: all -> 0x0083, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000f, B:15:0x0062, B:16:0x0065, B:26:0x0076, B:27:0x0079, B:32:0x007f, B:33:0x0082), top: B:37:0x0003 }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0083 A[Catch: all -> 0x0087, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0013, B:17:0x0066, B:18:0x0069, B:28:0x007a, B:29:0x007d, B:34:0x0083, B:35:0x0086), top: B:45:0x0007 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public List<ChatSession> getShieldUsers() {
+        InterceptResult invokeV;
         Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) != null) {
+            return (List) invokeV.objValue;
+        }
         synchronized (DBBase.mSyncLock) {
             ArrayList arrayList = new ArrayList();
             SQLiteDatabase openDatabase = openDatabase();
@@ -564,34 +758,40 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0046, code lost:
-        if (r11 != null) goto L13;
+    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: long */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004a, code lost:
+        if (r11 != null) goto L16;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0048, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x004c, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0069, code lost:
-        if (r11 == null) goto L14;
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x006d, code lost:
+        if (r11 == null) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x006d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0071, code lost:
         return null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0072 A[Catch: all -> 0x0076, TryCatch #1 {, blocks: (B:4:0x0003, B:6:0x000a, B:14:0x003f, B:15:0x0042, B:20:0x0048, B:29:0x006c, B:34:0x0072, B:35:0x0075), top: B:39:0x0003 }] */
+    /* JADX WARN: Multi-variable type inference failed */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Long getUkByBuid(long j) {
+        InterceptResult invokeJ;
         Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048585, this, j)) != null) {
+            return (Long) invokeJ.objValue;
+        }
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             Cursor cursor2 = null;
-            if (openDatabase == null) {
-                return null;
-            }
             try {
-                cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "buid =? ", new String[]{String.valueOf(j)}, null, null, null);
-                if (cursor != null) {
-                    try {
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "buid =? ", new String[]{String.valueOf(j)}, null, null, null);
+                    if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
                                 Long valueOf = Long.valueOf(cursor.getLong(cursor.getColumnIndex("uid")));
@@ -605,126 +805,107 @@ public class ChatUserDBManager extends DBBase {
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getChatUser:", e);
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        throw th;
                     }
+                } catch (Exception e3) {
+                    e = e3;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    if (cursor2 != null) {
+                        cursor2.close();
+                    }
+                    throw th;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                if (cursor2 != null) {
-                }
-                throw th;
+                cursor2 = j;
             }
         }
     }
 
     public boolean isUserExist(SQLiteDatabase sQLiteDatabase, long j) {
+        InterceptResult invokeLJ;
         boolean z;
-        synchronized (DBBase.mSyncLock) {
-            z = true;
-            if (queryCount(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "uid=?", new String[]{String.valueOf(j)}) <= 0) {
-                z = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, sQLiteDatabase, j)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                z = true;
+                if (queryCount(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "uid=?", new String[]{String.valueOf(j)}) <= 0) {
+                    z = false;
+                }
             }
+            return z;
         }
-        return z;
+        return invokeLJ.booleanValue;
     }
 
     public boolean updateMarkTop(long j, int i2, long j2) {
+        InterceptResult invokeCommon;
         boolean z;
-        String str = TAG;
-        LogUtils.d(str, "updateMarkTop, uk =" + j + ", markToped=" + i2 + ", updateTime=" + j2);
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("marktop", Integer.valueOf(i2));
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME, Long.valueOf(j2));
-        ContentValues contentValues2 = new ContentValues();
-        contentValues2.put("marktop", Integer.valueOf(i2));
-        contentValues2.put("marktoptime", Long.valueOf(j2));
-        synchronized (DBBase.mSyncLock) {
-            z = true;
-            boolean z2 = update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j)}, contentValues) > 0;
-            boolean z3 = update(TableDefine.DB_TABLE_CHAT_SESSION, "contacter =? ", new String[]{String.valueOf(j)}, contentValues2) > 0;
-            if (!z2 && !z3) {
-                z = false;
-            }
-        }
-        return z;
-    }
-
-    public void updateMarkTopList(@NonNull final List<ChatSession> list) {
-        TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.1
-            @Override // java.lang.Runnable
-            public void run() {
-                synchronized (DBBase.mSyncLock) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("marktop", (Integer) 0);
-                    ChatUserDBManager.this.update(TableDefine.DB_TABLE_USERINFO, "marktop=?", new String[]{String.valueOf(1)}, contentValues);
-                    if (list != null) {
-                        for (ChatSession chatSession : list) {
-                            ChatUserDBManager.this.updateMarkTop(chatSession.getContacter(), chatSession.getMarkTop(), chatSession.getMarkTopTime());
-                        }
-                    }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+            String str = TAG;
+            LogUtils.d(str, "updateMarkTop, uk =" + j + ", markToped=" + i2 + ", updateTime=" + j2);
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("marktop", Integer.valueOf(i2));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME, Long.valueOf(j2));
+            ContentValues contentValues2 = new ContentValues();
+            contentValues2.put("marktop", Integer.valueOf(i2));
+            contentValues2.put("marktoptime", Long.valueOf(j2));
+            synchronized (DBBase.mSyncLock) {
+                z = true;
+                boolean z2 = update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j)}, contentValues) > 0;
+                boolean z3 = update(TableDefine.DB_TABLE_CHAT_SESSION, "contacter =? ", new String[]{String.valueOf(j)}, contentValues2) > 0;
+                if (!z2 && !z3) {
+                    z = false;
                 }
             }
-        });
-    }
-
-    public boolean updateShield(@NonNull ChatSession chatSession, boolean z) {
-        boolean z2;
-        synchronized (DBBase.mSyncLock) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("shield", Integer.valueOf(chatSession.getShield()));
-            contentValues.put("shield_time", Long.valueOf(chatSession.getShieldTime()));
-            ContentValues contentValues2 = new ContentValues();
-            contentValues2.put("shield", Integer.valueOf(chatSession.getShield()));
-            contentValues2.put("shield_time", Long.valueOf(chatSession.getShieldTime()));
-            if (z) {
-                contentValues.put("marktop", Integer.valueOf(chatSession.getMarkTop()));
-                contentValues.put(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME, Long.valueOf(chatSession.getMarkTopTime()));
-                contentValues2.put("marktop", Integer.valueOf(chatSession.getMarkTop()));
-                contentValues2.put("marktoptime", Long.valueOf(chatSession.getMarkTopTime()));
-            }
-            long contacter = chatSession.getContacter();
-            z2 = true;
-            boolean z3 = update(TableDefine.DB_TABLE_USERINFO, "uid=?", new String[]{String.valueOf(contacter)}, contentValues) > 0;
-            boolean z4 = update(TableDefine.DB_TABLE_CHAT_SESSION, "contacter =? ", new String[]{String.valueOf(contacter)}, contentValues2) > 0;
-            String str = TAG;
-            LogUtils.d(str, "updateShield, uk =" + chatSession.getContacter() + ", shield=" + chatSession.getShield() + ", updateTime=" + chatSession.getShieldTime() + ", userUpdated :" + z3);
-            if (!z3 && !z4) {
-                z2 = false;
-            }
+            return z;
         }
-        return z2;
+        return invokeCommon.booleanValue;
     }
 
-    public boolean updateSubscribedUser(long j, int i2) {
-        boolean z;
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS, Integer.valueOf(i2));
-        synchronized (DBBase.mSyncLock) {
-            z = true;
-            if (update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j)}, contentValues) <= 0) {
-                z = false;
-            }
-        }
-        return z;
-    }
+    public void updateMarkTopList(@NonNull List<ChatSession> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, list) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ChatUserDBManager this$0;
+                public final /* synthetic */ List val$users;
 
-    public void updateSubscribedUsers(@NonNull final Map<Long, Integer> map) {
-        if (map.size() > 0) {
-            TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.4
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, list};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$users = list;
+                }
+
                 @Override // java.lang.Runnable
                 public void run() {
-                    synchronized (DBBase.mSyncLock) {
-                        for (Map.Entry entry : map.entrySet()) {
-                            ChatUserDBManager.this.updateSubscribedUser(((Long) entry.getKey()).longValue(), ((Integer) entry.getValue()).intValue());
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        synchronized (DBBase.mSyncLock) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("marktop", (Integer) 0);
+                            this.this$0.update(TableDefine.DB_TABLE_USERINFO, "marktop=?", new String[]{String.valueOf(1)}, contentValues);
+                            if (this.val$users != null) {
+                                for (ChatSession chatSession : this.val$users) {
+                                    this.this$0.updateMarkTop(chatSession.getContacter(), chatSession.getMarkTop(), chatSession.getMarkTopTime());
+                                }
+                            }
                         }
                     }
                 }
@@ -732,40 +913,146 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    public int updateUser(ArrayList<ChatUser> arrayList) {
-        synchronized (DBBase.mSyncLock) {
-            if (arrayList == null) {
-                LogUtils.i(TAG, "update users with null!");
-                return -1;
-            } else if (arrayList.size() == 0) {
-                return 0;
-            } else {
-                ArrayList arrayList2 = new ArrayList(arrayList.size());
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("username", arrayList.get(i2).getUserName());
-                    contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, arrayList.get(i2).getIconUrl());
-                    contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, arrayList.get(i2).getTinyUrl());
-                    arrayList2.add(i2, new DBBase.UpdateArgs("uid = ? ", new String[]{String.valueOf(arrayList.get(i2).getUk())}, contentValues));
+    public boolean updateShield(@NonNull ChatSession chatSession, boolean z) {
+        InterceptResult invokeLZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, chatSession, z)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("shield", Integer.valueOf(chatSession.getShield()));
+                contentValues.put("shield_time", Long.valueOf(chatSession.getShieldTime()));
+                ContentValues contentValues2 = new ContentValues();
+                contentValues2.put("shield", Integer.valueOf(chatSession.getShield()));
+                contentValues2.put("shield_time", Long.valueOf(chatSession.getShieldTime()));
+                if (z) {
+                    contentValues.put("marktop", Integer.valueOf(chatSession.getMarkTop()));
+                    contentValues.put(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME, Long.valueOf(chatSession.getMarkTopTime()));
+                    contentValues2.put("marktop", Integer.valueOf(chatSession.getMarkTop()));
+                    contentValues2.put("marktoptime", Long.valueOf(chatSession.getMarkTopTime()));
                 }
-                return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
+                long contacter = chatSession.getContacter();
+                z2 = true;
+                boolean z3 = update(TableDefine.DB_TABLE_USERINFO, "uid=?", new String[]{String.valueOf(contacter)}, contentValues) > 0;
+                boolean z4 = update(TableDefine.DB_TABLE_CHAT_SESSION, "contacter =? ", new String[]{String.valueOf(contacter)}, contentValues2) > 0;
+                String str = TAG;
+                LogUtils.d(str, "updateShield, uk =" + chatSession.getContacter() + ", shield=" + chatSession.getShield() + ", updateTime=" + chatSession.getShieldTime() + ", userUpdated :" + z3);
+                if (!z3 && !z4) {
+                    z2 = false;
+                }
+            }
+            return z2;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public boolean updateSubscribedUser(long j, int i2) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS, Integer.valueOf(i2));
+            synchronized (DBBase.mSyncLock) {
+                z = true;
+                if (update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j)}, contentValues) <= 0) {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public void updateSubscribedUsers(@NonNull Map<Long, Integer> map) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, map) == null) || map.size() <= 0) {
+            return;
+        }
+        TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, map) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ChatUserDBManager this$0;
+            public final /* synthetic */ Map val$uidStatusList;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, map};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$uidStatusList = map;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    synchronized (DBBase.mSyncLock) {
+                        for (Map.Entry entry : this.val$uidStatusList.entrySet()) {
+                            this.this$0.updateSubscribedUser(((Long) entry.getKey()).longValue(), ((Integer) entry.getValue()).intValue());
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    public int updateUser(ArrayList<ChatUser> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, arrayList)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                if (arrayList == null) {
+                    LogUtils.i(TAG, "update users with null!");
+                    return -1;
+                } else if (arrayList.size() == 0) {
+                    return 0;
+                } else {
+                    ArrayList arrayList2 = new ArrayList(arrayList.size());
+                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("username", arrayList.get(i2).getUserName());
+                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, arrayList.get(i2).getIconUrl());
+                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, arrayList.get(i2).getTinyUrl());
+                        arrayList2.add(i2, new DBBase.UpdateArgs(this, "uid = ? ", new String[]{String.valueOf(arrayList.get(i2).getUk())}, contentValues));
+                    }
+                    return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
+                }
             }
         }
+        return invokeL.intValue;
     }
 
     public long updateUserByBduid(ChatUser chatUser) {
+        InterceptResult invokeL;
         long add;
-        if (chatUser == null) {
-            return 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, chatUser)) == null) {
+            if (chatUser == null) {
+                return 0L;
+            }
+            synchronized (DBBase.mSyncLock) {
+                add = add(TableDefine.DB_TABLE_USERINFO, new String[]{"buid"}, "buid = ? ", new String[]{String.valueOf(chatUser.getBuid())}, constructChatUserContentValues(chatUser));
+            }
+            return add;
         }
-        synchronized (DBBase.mSyncLock) {
-            add = add(TableDefine.DB_TABLE_USERINFO, new String[]{"buid"}, "buid = ? ", new String[]{String.valueOf(chatUser.getBuid())}, constructChatUserContentValues(chatUser));
-        }
-        return add;
+        return invokeL.longValue;
     }
 
     public void updateUserIdentity(List<ChatUser> list) {
-        if (list == null || list.size() <= 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, list) == null) || list == null || list.size() <= 0) {
             return;
         }
         synchronized (DBBase.mSyncLock) {
@@ -792,55 +1079,74 @@ public class ChatUserDBManager extends DBBase {
     }
 
     public int updateUserIp(long j, int i2) {
+        InterceptResult invokeCommon;
         int update;
-        synchronized (DBBase.mSyncLock) {
-            update = update(TableDefine.DB_TABLE_USERINFO, "uid= ?", new String[]{String.valueOf(j)}, constructIpInfoContentValue(null, new ContentValues()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                update = update(TableDefine.DB_TABLE_USERINFO, "uid= ?", new String[]{String.valueOf(j)}, constructIpInfoContentValue(null, new ContentValues()));
+            }
+            return update;
         }
-        return update;
+        return invokeCommon.intValue;
     }
 
     public int updateUserIpInfo(ArrayList<IpInfo> arrayList) {
-        synchronized (DBBase.mSyncLock) {
-            if (arrayList == null) {
-                return -1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                if (arrayList == null) {
+                    return -1;
+                }
+                if (arrayList.size() == 0) {
+                    return 0;
+                }
+                ArrayList arrayList2 = new ArrayList(arrayList.size());
+                for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                    arrayList2.add(i2, new DBBase.UpdateArgs(this, "uid= ?", new String[]{String.valueOf(arrayList.get(i2).getUid())}, constructIpInfoContentValue(arrayList.get(i2), new ContentValues())));
+                }
+                return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
             }
-            if (arrayList.size() == 0) {
-                return 0;
-            }
-            ArrayList arrayList2 = new ArrayList(arrayList.size());
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                arrayList2.add(i2, new DBBase.UpdateArgs("uid= ?", new String[]{String.valueOf(arrayList.get(i2).getUid())}, constructIpInfoContentValue(arrayList.get(i2), new ContentValues())));
-            }
-            return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
         }
+        return invokeL.intValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x002f, code lost:
-        if (r10 != null) goto L9;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0039 */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0033, code lost:
+        if (r10 != null) goto L12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0031, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0035, code lost:
         r10.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0052, code lost:
-        if (r10 == null) goto L10;
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0056, code lost:
+        if (r10 == null) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0055, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0059, code lost:
         return null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x005a  */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [android.database.Cursor] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private ChatUser getChatUser(SQLiteDatabase sQLiteDatabase, long j) {
+        InterceptResult invokeLJ;
         Cursor cursor;
-        Cursor cursor2 = null;
-        if (sQLiteDatabase == null) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(65551, this, sQLiteDatabase, j)) != null) {
+            return (ChatUser) invokeLJ.objValue;
         }
+        ?? r0 = 0;
         try {
-            cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "uid =? ", new String[]{String.valueOf(j)}, null, null, null);
-            if (cursor != null) {
-                try {
+            if (sQLiteDatabase == null) {
+                return null;
+            }
+            try {
+                cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "uid =? ", new String[]{String.valueOf(j)}, null, null, null);
+                if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
                             ChatUser constructChatUser = constructChatUser(cursor);
@@ -854,52 +1160,58 @@ public class ChatUserDBManager extends DBBase {
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getChatUser:", e);
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = cursor;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    throw th;
                 }
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+            } catch (Throwable th) {
+                th = th;
+                if (r0 != 0) {
+                    r0.close();
+                }
+                throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
-            cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            if (cursor2 != null) {
-            }
-            throw th;
+            r0 = sQLiteDatabase;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x002f, code lost:
-        if (r10 != null) goto L9;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0039 */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0033, code lost:
+        if (r10 != null) goto L12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0031, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0035, code lost:
         r10.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0052, code lost:
-        if (r10 == null) goto L10;
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0056, code lost:
+        if (r10 == null) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0055, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0059, code lost:
         return null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x005a  */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [android.database.Cursor] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private ChatUser getChatUserByBuid(SQLiteDatabase sQLiteDatabase, long j) {
+        InterceptResult invokeLJ;
         Cursor cursor;
-        Cursor cursor2 = null;
-        if (sQLiteDatabase == null) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(65552, this, sQLiteDatabase, j)) != null) {
+            return (ChatUser) invokeLJ.objValue;
         }
+        ?? r0 = 0;
         try {
-            cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "buid =? ", new String[]{String.valueOf(j)}, null, null, null);
-            if (cursor != null) {
-                try {
+            if (sQLiteDatabase == null) {
+                return null;
+            }
+            try {
+                cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "buid =? ", new String[]{String.valueOf(j)}, null, null, null);
+                if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
                             ChatUser constructChatUser = constructChatUser(cursor);
@@ -913,43 +1225,46 @@ public class ChatUserDBManager extends DBBase {
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getChatUser:", e);
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = cursor;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    throw th;
                 }
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+            } catch (Throwable th) {
+                th = th;
+                if (r0 != 0) {
+                    r0.close();
+                }
+                throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
-            cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            if (cursor2 != null) {
-            }
-            throw th;
+            r0 = sQLiteDatabase;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005e A[Catch: all -> 0x0062, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000f, B:17:0x0031, B:18:0x0034, B:26:0x0055, B:27:0x0058, B:32:0x005e, B:33:0x0061), top: B:37:0x0003 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x003a */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r10v1 */
+    /* JADX WARN: Type inference failed for: r10v2 */
+    /* JADX WARN: Type inference failed for: r10v3, types: [android.database.Cursor] */
     public ArrayList<ChatUser> getChatUser() {
+        InterceptResult invokeV;
         Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+            return (ArrayList) invokeV.objValue;
+        }
         synchronized (DBBase.mSyncLock) {
             ArrayList<ChatUser> arrayList = new ArrayList<>();
             SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor2 = null;
-            if (openDatabase == null) {
-                return null;
-            }
+            ?? r10 = 0;
             try {
-                cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, null, null, null, null, null);
-                while (cursor != null) {
-                    try {
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, null, null, null, null, null);
+                    while (cursor != null) {
                         try {
                             if (!cursor.moveToNext()) {
                                 break;
@@ -964,39 +1279,41 @@ public class ChatUserDBManager extends DBBase {
                             }
                             return null;
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        throw th;
                     }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return arrayList;
+                } catch (Exception e3) {
+                    e = e3;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    if (r10 != 0) {
+                        r10.close();
+                    }
+                    throw th;
                 }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return arrayList;
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                if (cursor2 != null) {
-                }
-                throw th;
+                r10 = openDatabase;
             }
         }
     }
 
     public long updateUser(ChatUser chatUser) {
+        InterceptResult invokeL;
         long add;
-        if (chatUser == null) {
-            return 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, chatUser)) == null) {
+            if (chatUser == null) {
+                return 0L;
+            }
+            synchronized (DBBase.mSyncLock) {
+                add = add(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "uid = ? ", new String[]{String.valueOf(chatUser.getUk())}, constructChatUserContentValues(chatUser));
+            }
+            return add;
         }
-        synchronized (DBBase.mSyncLock) {
-            add = add(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "uid = ? ", new String[]{String.valueOf(chatUser.getUk())}, constructChatUserContentValues(chatUser));
-        }
-        return add;
+        return invokeL.longValue;
     }
 }

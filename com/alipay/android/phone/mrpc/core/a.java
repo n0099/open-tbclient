@@ -1,33 +1,53 @@
 package com.alipay.android.phone.mrpc.core;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public abstract class a implements v {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Method f1607a;
+    public Method f1610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f1608b;
+    public byte[] f1611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1609c;
+    public String f1612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1610d;
+    public int f1613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1611e;
+    public String f1614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1612f;
+    public boolean f1615f;
 
     public a(Method method, int i2, String str, byte[] bArr, String str2, boolean z) {
-        this.f1607a = method;
-        this.f1610d = i2;
-        this.f1609c = str;
-        this.f1608b = bArr;
-        this.f1611e = str2;
-        this.f1612f = z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {method, Integer.valueOf(i2), str, bArr, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f1610a = method;
+        this.f1613d = i2;
+        this.f1612c = str;
+        this.f1611b = bArr;
+        this.f1614e = str2;
+        this.f1615f = z;
     }
 }

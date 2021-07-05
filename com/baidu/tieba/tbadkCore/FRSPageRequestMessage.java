@@ -1,14 +1,23 @@
 package com.baidu.tieba.tbadkCore;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
-import d.a.n0.z0.w;
-import d.a.o0.t2.g0.a;
+import d.a.r0.z0.w;
+import d.a.s0.w2.g0.a;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes5.dex */
 public class FRSPageRequestMessage extends NetMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public int callFrom;
     public int categoryId;
     public int cid;
@@ -30,192 +39,310 @@ public class FRSPageRequestMessage extends NetMessage {
     public int updateType;
     public int withGroup;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FRSPageRequestMessage() {
         super(CmdConfigHttp.FRS_HTTP_CMD, 301001);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public int getCategoryId() {
-        return this.categoryId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.categoryId : invokeV.intValue;
     }
 
     public int getCid() {
-        return this.cid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cid : invokeV.intValue;
     }
 
     public int getCtime() {
-        return this.ctime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ctime : invokeV.intValue;
     }
 
     public int getDataSize() {
-        return this.dataSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.dataSize : invokeV.intValue;
     }
 
     public int getIsGood() {
-        return this.isGood;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isGood : invokeV.intValue;
     }
 
     public String getKw() {
-        return this.kw;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.kw : (String) invokeV.objValue;
     }
 
     public String getLastId() {
-        return this.lastId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.lastId : (String) invokeV.objValue;
     }
 
     public int getNetError() {
-        return this.netError;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.netError : invokeV.intValue;
     }
 
     public int getPn() {
-        return this.pn;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.pn : invokeV.intValue;
     }
 
     public int getRn() {
-        return this.rn;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.rn : invokeV.intValue;
     }
 
     public double getScrDip() {
-        return this.scrDip;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.scrDip : invokeV.doubleValue;
     }
 
     public int getScrH() {
-        return this.scrH;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.scrH : invokeV.intValue;
     }
 
     public int getScrW() {
-        return this.scrW;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.scrW : invokeV.intValue;
     }
 
     public int getStParam() {
-        return this.stParam;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.stParam : invokeV.intValue;
     }
 
     public String getStType() {
-        return this.stType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.stType : (String) invokeV.objValue;
     }
 
     public int getUpdateType() {
-        return this.updateType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.updateType : invokeV.intValue;
     }
 
     public int getWithGroup() {
-        return this.withGroup;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.withGroup : invokeV.intValue;
     }
 
     public int getqType() {
-        return this.qType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.qType : invokeV.intValue;
     }
 
     public boolean isNeedCache() {
-        return this.needCache;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.needCache : invokeV.booleanValue;
     }
 
     public void setCallFrom(int i2) {
-        this.callFrom = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
+            this.callFrom = i2;
+        }
     }
 
     public void setCategoryId(int i2) {
-        this.categoryId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+            this.categoryId = i2;
+        }
     }
 
     public void setCid(int i2) {
-        this.cid = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
+            this.cid = i2;
+        }
     }
 
     public void setCtime(int i2) {
-        this.ctime = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
+            this.ctime = i2;
+        }
     }
 
     public void setDataSize(int i2) {
-        this.dataSize = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
+            this.dataSize = i2;
+        }
     }
 
     public void setIsGood(int i2) {
-        this.isGood = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
+            this.isGood = i2;
+        }
     }
 
     public void setKw(String str) {
-        this.kw = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.kw = str;
+        }
     }
 
     public void setLastId(String str) {
-        this.lastId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            this.lastId = str;
+        }
     }
 
     public void setNeedCache(boolean z) {
-        this.needCache = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.needCache = z;
+        }
     }
 
     public void setNetError(int i2) {
-        this.netError = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+            this.netError = i2;
+        }
     }
 
     public void setPn(int i2) {
-        this.pn = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+            this.pn = i2;
+        }
     }
 
     public void setRn(int i2) {
-        this.rn = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
+            this.rn = i2;
+        }
     }
 
     public void setScrDip(double d2) {
-        this.scrDip = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.scrDip = d2;
+        }
     }
 
     public void setScrH(int i2) {
-        this.scrH = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
+            this.scrH = i2;
+        }
     }
 
     public void setScrW(int i2) {
-        this.scrW = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
+            this.scrW = i2;
+        }
     }
 
     public void setStParam(int i2) {
-        this.stParam = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            this.stParam = i2;
+        }
     }
 
     public void setStType(String str) {
-        this.stType = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+            this.stType = str;
+        }
     }
 
     public void setUpdateType(int i2) {
-        this.updateType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+            this.updateType = i2;
+        }
     }
 
     public void setWithGroup(int i2) {
-        this.withGroup = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+            this.withGroup = i2;
+        }
     }
 
     public void setqType(int i2) {
-        this.qType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
+            this.qType = i2;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.kw = this.kw;
-        builder.pn = Integer.valueOf(this.pn);
-        builder.rn = Integer.valueOf(this.rn);
-        builder.with_group = Integer.valueOf(this.withGroup);
-        builder.is_good = Integer.valueOf(this.isGood);
-        builder.cid = Integer.valueOf(this.cid);
-        builder.scr_w = Integer.valueOf(this.scrW);
-        builder.scr_h = Integer.valueOf(this.scrH);
-        builder.scr_dip = Double.valueOf(this.scrDip);
-        builder.st_type = this.stType;
-        builder.q_type = Integer.valueOf(this.qType);
-        builder.st_param = Integer.valueOf(this.stParam);
-        builder.ctime = Integer.valueOf(this.ctime);
-        builder.data_size = Integer.valueOf(this.dataSize);
-        builder.net_error = Integer.valueOf(this.netError);
-        builder.lastids = this.lastId;
-        builder.category_id = Integer.valueOf(this.categoryId);
-        builder.call_from = Integer.valueOf(this.callFrom);
-        builder.app_pos = a.e().a();
-        w.c(builder, true, false, true);
-        FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.kw = this.kw;
+            builder.pn = Integer.valueOf(this.pn);
+            builder.rn = Integer.valueOf(this.rn);
+            builder.with_group = Integer.valueOf(this.withGroup);
+            builder.is_good = Integer.valueOf(this.isGood);
+            builder.cid = Integer.valueOf(this.cid);
+            builder.scr_w = Integer.valueOf(this.scrW);
+            builder.scr_h = Integer.valueOf(this.scrH);
+            builder.scr_dip = Double.valueOf(this.scrDip);
+            builder.st_type = this.stType;
+            builder.q_type = Integer.valueOf(this.qType);
+            builder.st_param = Integer.valueOf(this.stParam);
+            builder.ctime = Integer.valueOf(this.ctime);
+            builder.data_size = Integer.valueOf(this.dataSize);
+            builder.net_error = Integer.valueOf(this.netError);
+            builder.lastids = this.lastId;
+            builder.category_id = Integer.valueOf(this.categoryId);
+            builder.call_from = Integer.valueOf(this.callFrom);
+            builder.app_pos = a.e().a();
+            w.c(builder, true, false, true);
+            FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        }
+        return (Message) invokeZ.objValue;
     }
 }

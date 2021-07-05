@@ -1,61 +1,99 @@
 package com.baidu.mobstat;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ac {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8530a;
+    public boolean f8603a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8531b;
+    public String f8604b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8532c;
+    public boolean f8605c;
 
     public ac() {
-        this.f8530a = false;
-        this.f8531b = "";
-        this.f8532c = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f8603a = false;
+        this.f8604b = "";
+        this.f8605c = false;
     }
 
     public JSONObject a() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("SDK_BPLUS_SERVICE", this.f8530a);
-        } catch (JSONException e2) {
-            bb.c().b(e2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("SDK_BPLUS_SERVICE", this.f8603a);
+            } catch (JSONException e2) {
+                bb.c().b(e2);
+            }
+            try {
+                jSONObject.put("SDK_PRODUCT_LY", this.f8604b);
+            } catch (JSONException e3) {
+                bb.c().b(e3);
+            }
+            try {
+                jSONObject.put("SDK_LOCAL_SERVER", this.f8605c);
+            } catch (JSONException e4) {
+                bb.c().b(e4);
+            }
+            return jSONObject;
         }
-        try {
-            jSONObject.put("SDK_PRODUCT_LY", this.f8531b);
-        } catch (JSONException e3) {
-            bb.c().b(e3);
-        }
-        try {
-            jSONObject.put("SDK_LOCAL_SERVER", this.f8532c);
-        } catch (JSONException e4) {
-            bb.c().b(e4);
-        }
-        return jSONObject;
+        return (JSONObject) invokeV.objValue;
     }
 
     public ac(JSONObject jSONObject) {
-        this.f8530a = false;
-        this.f8531b = "";
-        this.f8532c = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f8603a = false;
+        this.f8604b = "";
+        this.f8605c = false;
         try {
-            this.f8530a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+            this.f8603a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
         } catch (Exception e2) {
             bb.c().b(e2);
         }
         try {
-            this.f8531b = jSONObject.getString("SDK_PRODUCT_LY");
+            this.f8604b = jSONObject.getString("SDK_PRODUCT_LY");
         } catch (Exception e3) {
             bb.c().b(e3);
         }
         try {
-            this.f8532c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
+            this.f8605c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
         } catch (Exception e4) {
             bb.c().b(e4);
         }

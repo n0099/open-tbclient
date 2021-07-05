@@ -1,6 +1,12 @@
 package com.baidu.down.utils;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class Constants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_URL = "http://flow.app.baidu.com/flow/api/flowset?";
     public static final boolean DEBUG = false;
     public static final int DEFAULT_WAP_CONNECT_TIMEOUT = 60000;
@@ -26,4 +32,19 @@ public final class Constants {
     public static final String SDK_VER_NAME = "sdk_ver";
     public static final String SPEED_STAT_URL_DEFAULT = "http://appc.baidu.com/globalflow/v1/baseflow?action=statistics";
     public static final long TEST_SPEED_THRESHOLD_DEFAULT = 10240;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public Constants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

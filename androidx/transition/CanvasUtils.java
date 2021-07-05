@@ -4,18 +4,39 @@ import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.os.Build;
 import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class CanvasUtils {
+    public static /* synthetic */ Interceptable $ic;
     public static Method sInorderBarrierMethod;
     public static boolean sOrderMethodsFetched;
     public static Method sReorderBarrierMethod;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public CanvasUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @SuppressLint({"SoonBlockedPrivateApi"})
     public static void enableZ(@NonNull Canvas canvas, boolean z) {
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 < 21) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65537, null, canvas, z) == null) || (i2 = Build.VERSION.SDK_INT) < 21) {
             return;
         }
         if (i2 >= 29) {

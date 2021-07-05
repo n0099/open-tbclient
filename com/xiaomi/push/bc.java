@@ -4,55 +4,104 @@ import android.content.Context;
 import android.content.pm.ProviderInfo;
 import android.database.Cursor;
 import android.net.Uri;
-/* loaded from: classes7.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class bc implements ar {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41125a = "content://com.vivo.vms.IdProvider/IdentifierId/";
+    public static String f42868a = "content://com.vivo.vms.IdProvider/IdentifierId/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f41126b = f41125a + "OAID";
+    public static String f42869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f41127c = f41125a + "VAID_";
+    public static String f42870c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f41128d = f41125a + "AAID_";
+    public static String f42871d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f41129e = f41125a + "OAIDSTATUS";
+    public static String f42872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f41130f = "persist.sys.identifierid.supported";
+    public static String f42873f;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f145a;
+    public Context f148a;
 
-    public bc(Context context) {
-        this.f145a = context;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56378849, "Lcom/xiaomi/push/bc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56378849, "Lcom/xiaomi/push/bc;");
+                return;
+            }
+        }
+        f42869b = f42868a + "OAID";
+        f42870c = f42868a + "VAID_";
+        f42871d = f42868a + "AAID_";
+        f42872e = f42868a + "OAIDSTATUS";
+        f42873f = "persist.sys.identifierid.supported";
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x002a, code lost:
-        if (r10 != null) goto L6;
+    public bc(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f148a = context;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
+        if (r10 != null) goto L8;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0030, code lost:
         r10.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x003b, code lost:
-        if (r10 == null) goto L7;
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x003f, code lost:
+        if (r10 == null) goto L9;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x003e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0042, code lost:
         return r0;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private String a(String str) {
+        InterceptResult invokeL;
         Throwable th;
         Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, this, str)) != null) {
+            return (String) invokeL.objValue;
+        }
         String str2 = null;
         try {
-            cursor = this.f145a.getContentResolver().query(Uri.parse(str), null, null, null, null);
+            cursor = this.f148a.getContentResolver().query(Uri.parse(str), null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToNext()) {
@@ -76,41 +125,65 @@ public class bc implements ar {
     }
 
     public static boolean a(Context context) {
-        try {
-            ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(Uri.parse(f41125a).getAuthority(), 128);
-            if (resolveContentProvider != null) {
-                if ((resolveContentProvider.applicationInfo.flags & 1) != 0) {
-                    return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(Uri.parse(f42868a).getAuthority(), 128);
+                if (resolveContentProvider != null) {
+                    if ((resolveContentProvider.applicationInfo.flags & 1) != 0) {
+                        return true;
+                    }
                 }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return "1".equals(s.a(f41130f, "0"));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f42873f, "0")) : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo135b() {
-        return a(f41126b);
+    public String mo149b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f42869b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 }

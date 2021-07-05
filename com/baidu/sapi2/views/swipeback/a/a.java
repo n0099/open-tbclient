@@ -10,47 +10,90 @@ import android.widget.ScrollView;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes2.dex */
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static boolean a(View view, float f2, float f3, boolean z) {
-        return (view == null || !a(view, f2, f3)) ? z : ViewCompat.canScrollVertically(view, 1);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? (view == null || !a(view, f2, f3)) ? z : ViewCompat.canScrollVertically(view, 1) : invokeCommon.booleanValue;
     }
 
     public static boolean b(View view, float f2, float f3, boolean z) {
-        return (view == null || !a(view, f2, f3)) ? z : ViewCompat.canScrollHorizontally(view, 1);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? (view == null || !a(view, f2, f3)) ? z : ViewCompat.canScrollHorizontally(view, 1) : invokeCommon.booleanValue;
     }
 
     public static boolean c(View view, float f2, float f3, boolean z) {
-        return (view == null || !a(view, f2, f3)) ? z : ViewCompat.canScrollHorizontally(view, -1);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? (view == null || !a(view, f2, f3)) ? z : ViewCompat.canScrollHorizontally(view, -1) : invokeCommon.booleanValue;
     }
 
     public static boolean d(View view, float f2, float f3, boolean z) {
-        return (view == null || !a(view, f2, f3)) ? z : ViewCompat.canScrollVertically(view, -1);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? (view == null || !a(view, f2, f3)) ? z : ViewCompat.canScrollVertically(view, -1) : invokeCommon.booleanValue;
     }
 
     public static View a(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         View a2;
-        for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-            View childAt = viewGroup.getChildAt(i2);
-            if (childAt.getVisibility() == 0) {
-                if (a(childAt)) {
-                    return childAt;
-                }
-                if ((childAt instanceof ViewGroup) && (a2 = a((ViewGroup) childAt)) != null) {
-                    return a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) {
+            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+                View childAt = viewGroup.getChildAt(i2);
+                if (childAt.getVisibility() == 0) {
+                    if (a(childAt)) {
+                        return childAt;
+                    }
+                    if ((childAt instanceof ViewGroup) && (a2 = a((ViewGroup) childAt)) != null) {
+                        return a2;
+                    }
                 }
             }
+            return null;
         }
-        return null;
+        return (View) invokeL.objValue;
     }
 
     public static boolean a(View view) {
-        return (view instanceof ScrollView) || (view instanceof HorizontalScrollView) || (view instanceof NestedScrollView) || (view instanceof AbsListView) || (view instanceof ViewPager) || (view instanceof WebView);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view)) == null) ? (view instanceof ScrollView) || (view instanceof HorizontalScrollView) || (view instanceof NestedScrollView) || (view instanceof AbsListView) || (view instanceof ViewPager) || (view instanceof WebView) : invokeL.booleanValue;
     }
 
     public static boolean a(View view, float f2, float f3) {
-        Rect rect = new Rect();
-        view.getGlobalVisibleRect(rect);
-        return rect.contains((int) f2, (int) f3);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            Rect rect = new Rect();
+            view.getGlobalVisibleRect(rect);
+            return rect.contains((int) f2, (int) f3);
+        }
+        return invokeCommon.booleanValue;
     }
 }

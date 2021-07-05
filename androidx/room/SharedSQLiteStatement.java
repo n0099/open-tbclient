@@ -2,45 +2,84 @@ package androidx.room;
 
 import androidx.annotation.RestrictTo;
 import androidx.sqlite.db.SupportSQLiteStatement;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public abstract class SharedSQLiteStatement {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final RoomDatabase mDatabase;
-    public final AtomicBoolean mLock = new AtomicBoolean(false);
+    public final AtomicBoolean mLock;
     public volatile SupportSQLiteStatement mStmt;
 
     public SharedSQLiteStatement(RoomDatabase roomDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {roomDatabase};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mLock = new AtomicBoolean(false);
         this.mDatabase = roomDatabase;
     }
 
     private SupportSQLiteStatement createNewStatement() {
-        return this.mDatabase.compileStatement(createQuery());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.mDatabase.compileStatement(createQuery()) : (SupportSQLiteStatement) invokeV.objValue;
     }
 
     private SupportSQLiteStatement getStmt(boolean z) {
-        if (z) {
-            if (this.mStmt == null) {
-                this.mStmt = createNewStatement();
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, this, z)) == null) {
+            if (z) {
+                if (this.mStmt == null) {
+                    this.mStmt = createNewStatement();
+                }
+                return this.mStmt;
             }
-            return this.mStmt;
+            return createNewStatement();
         }
-        return createNewStatement();
+        return (SupportSQLiteStatement) invokeZ.objValue;
     }
 
     public SupportSQLiteStatement acquire() {
-        assertNotMainThread();
-        return getStmt(this.mLock.compareAndSet(false, true));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            assertNotMainThread();
+            return getStmt(this.mLock.compareAndSet(false, true));
+        }
+        return (SupportSQLiteStatement) invokeV.objValue;
     }
 
     public void assertNotMainThread() {
-        this.mDatabase.assertNotMainThread();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mDatabase.assertNotMainThread();
+        }
     }
 
     public abstract String createQuery();
 
     public void release(SupportSQLiteStatement supportSQLiteStatement) {
-        if (supportSQLiteStatement == this.mStmt) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, supportSQLiteStatement) == null) && supportSQLiteStatement == this.mStmt) {
             this.mLock.set(false);
         }
     }

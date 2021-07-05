@@ -1,19 +1,27 @@
 package com.baidu.sofire.core;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes4.dex */
 public final class i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static void a(Context context) {
-        try {
-            com.baidu.sofire.a.a a2 = com.baidu.sofire.a.a.a(context);
-            c a3 = c.a(context);
-            for (ApkInfo apkInfo : a2.a()) {
-                if (apkInfo.duration != 0 && apkInfo.startTime + (apkInfo.duration * 60 * 1000) < System.currentTimeMillis()) {
-                    a3.a(apkInfo.packageName);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
+            try {
+                com.baidu.sofire.a.a a2 = com.baidu.sofire.a.a.a(context);
+                c a3 = c.a(context);
+                for (ApkInfo apkInfo : a2.a()) {
+                    if (apkInfo.duration != 0 && apkInfo.startTime + (apkInfo.duration * 60 * 1000) < System.currentTimeMillis()) {
+                        a3.a(apkInfo.packageName);
+                    }
                 }
+            } catch (Throwable unused) {
+                com.baidu.sofire.utility.c.a();
             }
-        } catch (Throwable unused) {
-            com.baidu.sofire.utility.c.a();
         }
     }
 }

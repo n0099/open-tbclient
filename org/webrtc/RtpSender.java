@@ -1,17 +1,41 @@
 package org.webrtc;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RtpSender {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public MediaStreamTrack cachedTrack;
     @Nullable
     public final DtmfSender dtmfSender;
     public long nativeRtpSender;
-    public boolean ownsTrack = true;
+    public boolean ownsTrack;
 
     @CalledByNative
     public RtpSender(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.ownsTrack = true;
         this.nativeRtpSender = j;
         this.cachedTrack = MediaStreamTrack.createMediaStreamTrack(nativeGetTrack(j));
         long nativeGetDtmfSender = nativeGetDtmfSender(j);
@@ -19,7 +43,8 @@ public class RtpSender {
     }
 
     private void checkRtpSenderExists() {
-        if (this.nativeRtpSender == 0) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeRtpSender == 0) {
             throw new IllegalStateException("RtpSender has been disposed.");
         }
     }
@@ -39,65 +64,100 @@ public class RtpSender {
     public static native boolean nativeSetTrack(long j, long j2);
 
     public void dispose() {
-        checkRtpSenderExists();
-        DtmfSender dtmfSender = this.dtmfSender;
-        if (dtmfSender != null) {
-            dtmfSender.dispose();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            checkRtpSenderExists();
+            DtmfSender dtmfSender = this.dtmfSender;
+            if (dtmfSender != null) {
+                dtmfSender.dispose();
+            }
+            MediaStreamTrack mediaStreamTrack = this.cachedTrack;
+            if (mediaStreamTrack != null && this.ownsTrack) {
+                mediaStreamTrack.dispose();
+            }
+            JniCommon.nativeReleaseRef(this.nativeRtpSender);
+            this.nativeRtpSender = 0L;
         }
-        MediaStreamTrack mediaStreamTrack = this.cachedTrack;
-        if (mediaStreamTrack != null && this.ownsTrack) {
-            mediaStreamTrack.dispose();
-        }
-        JniCommon.nativeReleaseRef(this.nativeRtpSender);
-        this.nativeRtpSender = 0L;
     }
 
     @Nullable
     public DtmfSender dtmf() {
-        return this.dtmfSender;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dtmfSender : (DtmfSender) invokeV.objValue;
     }
 
     public long getNativeRtpSender() {
-        checkRtpSenderExists();
-        return this.nativeRtpSender;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            checkRtpSenderExists();
+            return this.nativeRtpSender;
+        }
+        return invokeV.longValue;
     }
 
     public RtpParameters getParameters() {
-        checkRtpSenderExists();
-        return nativeGetParameters(this.nativeRtpSender);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            checkRtpSenderExists();
+            return nativeGetParameters(this.nativeRtpSender);
+        }
+        return (RtpParameters) invokeV.objValue;
     }
 
     public String id() {
-        checkRtpSenderExists();
-        return nativeGetId(this.nativeRtpSender);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            checkRtpSenderExists();
+            return nativeGetId(this.nativeRtpSender);
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setFrameEncryptor(FrameEncryptor frameEncryptor) {
-        checkRtpSenderExists();
-        nativeSetFrameEncryptor(this.nativeRtpSender, frameEncryptor.getNativeFrameEncryptor());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, frameEncryptor) == null) {
+            checkRtpSenderExists();
+            nativeSetFrameEncryptor(this.nativeRtpSender, frameEncryptor.getNativeFrameEncryptor());
+        }
     }
 
     public boolean setParameters(RtpParameters rtpParameters) {
-        checkRtpSenderExists();
-        return nativeSetParameters(this.nativeRtpSender, rtpParameters);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, rtpParameters)) == null) {
+            checkRtpSenderExists();
+            return nativeSetParameters(this.nativeRtpSender, rtpParameters);
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean setTrack(@Nullable MediaStreamTrack mediaStreamTrack, boolean z) {
-        checkRtpSenderExists();
-        if (nativeSetTrack(this.nativeRtpSender, mediaStreamTrack == null ? 0L : mediaStreamTrack.getNativeMediaStreamTrack())) {
-            MediaStreamTrack mediaStreamTrack2 = this.cachedTrack;
-            if (mediaStreamTrack2 != null && this.ownsTrack) {
-                mediaStreamTrack2.dispose();
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, mediaStreamTrack, z)) == null) {
+            checkRtpSenderExists();
+            if (nativeSetTrack(this.nativeRtpSender, mediaStreamTrack == null ? 0L : mediaStreamTrack.getNativeMediaStreamTrack())) {
+                MediaStreamTrack mediaStreamTrack2 = this.cachedTrack;
+                if (mediaStreamTrack2 != null && this.ownsTrack) {
+                    mediaStreamTrack2.dispose();
+                }
+                this.cachedTrack = mediaStreamTrack;
+                this.ownsTrack = z;
+                return true;
             }
-            this.cachedTrack = mediaStreamTrack;
-            this.ownsTrack = z;
-            return true;
+            return false;
         }
-        return false;
+        return invokeLZ.booleanValue;
     }
 
     @Nullable
     public MediaStreamTrack track() {
-        return this.cachedTrack;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.cachedTrack : (MediaStreamTrack) invokeV.objValue;
     }
 }

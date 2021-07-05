@@ -1,40 +1,105 @@
 package com.baidu.wallet.paysdk.entrance;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pay.BindBack;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class EnterWalletDoInnerBindAction implements RouterAction {
-    private void a(Context context, final boolean z, String str, final RouterCallback routerCallback) {
-        BaiduPayDelegate.getInstance().doInnerBind(context, new BindBack() { // from class: com.baidu.wallet.paysdk.entrance.EnterWalletDoInnerBindAction.1
-            @Override // com.baidu.android.pay.BindBack
-            public boolean isHideLoadingDialog() {
-                return z;
-            }
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.android.pay.BindBack
-            public void onBindResult(int i2, String str2) {
-                if (routerCallback != null) {
+    public EnterWalletDoInnerBindAction() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    private void a(Context context, boolean z, String str, RouterCallback routerCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{context, Boolean.valueOf(z), str, routerCallback}) == null) {
+            BaiduPayDelegate.getInstance().doInnerBind(context, new BindBack(this, routerCallback, z) { // from class: com.baidu.wallet.paysdk.entrance.EnterWalletDoInnerBindAction.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ RouterCallback f25954a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ boolean f25955b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ EnterWalletDoInnerBindAction f25956c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, routerCallback, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f25956c = this;
+                    this.f25954a = routerCallback;
+                    this.f25955b = z;
+                }
+
+                @Override // com.baidu.android.pay.BindBack
+                public boolean isHideLoadingDialog() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f25955b : invokeV.booleanValue;
+                }
+
+                @Override // com.baidu.android.pay.BindBack
+                public void onBindResult(int i2, String str2) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f25954a == null) {
+                        return;
+                    }
                     HashMap hashMap = new HashMap();
                     hashMap.put("statusCode", Integer.valueOf(i2));
                     hashMap.put("params", str2);
-                    routerCallback.onResult(0, hashMap);
+                    this.f25954a.onResult(0, hashMap);
                 }
-            }
-        }, new HashMap(), str);
+            }, new HashMap(), str);
+        }
     }
 
     @Override // com.baidu.wallet.router.RouterAction
     public void invoke(Context context, HashMap hashMap, RouterCallback routerCallback) {
-        if (context != null && hashMap != null && hashMap.containsKey("showDialog") && (hashMap.get("showDialog") instanceof Boolean) && hashMap.containsKey("orderInfo") && (hashMap.get("orderInfo") instanceof String)) {
-            a(context, ((Boolean) hashMap.get("showDialog")).booleanValue(), (String) hashMap.get("orderInfo"), routerCallback);
-        } else if (routerCallback != null) {
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("errorMsg", "params-error");
-            routerCallback.onResult(3, hashMap2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, hashMap, routerCallback) == null) {
+            if (context != null && hashMap != null && hashMap.containsKey("showDialog") && (hashMap.get("showDialog") instanceof Boolean) && hashMap.containsKey("orderInfo") && (hashMap.get("orderInfo") instanceof String)) {
+                a(context, ((Boolean) hashMap.get("showDialog")).booleanValue(), (String) hashMap.get("orderInfo"), routerCallback);
+            } else if (routerCallback != null) {
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("errorMsg", "params-error");
+                routerCallback.onResult(3, hashMap2);
+            }
         }
     }
 }

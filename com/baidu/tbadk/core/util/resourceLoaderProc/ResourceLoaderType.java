@@ -1,6 +1,12 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
-/* loaded from: classes3.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class ResourceLoaderType {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_DISTRIBUTE = 30;
     public static final int APP_DISTRIBUTE_NO_CDN = 31;
     public static final int BIGDAY_IMAGE = 41;
@@ -38,4 +44,19 @@ public class ResourceLoaderType {
     public static final int SIMPLE_NO_CDN = 11;
     public static final int SIMPLE_NO_FORMAT = 42;
     public static final int VOICE = 23;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ResourceLoaderType() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

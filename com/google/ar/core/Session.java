@@ -1,6 +1,13 @@
 package com.google.ar.core;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.AnchorNotSupportedForHostingException;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.core.exceptions.CloudAnchorsNotConfiguredException;
@@ -24,88 +31,316 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.ar.core.exceptions.UnsupportedConfigurationException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Session {
-
-    /* renamed from: b  reason: collision with root package name */
-    public final d.g.b.a.g f30943b = new d.g.b.a.g();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30942a = 0;
+    public long f32855a;
 
-    /* loaded from: classes6.dex */
-    public enum Feature {
-        FRONT_CAMERA(1),
-        SHARED_CAMERA(1000);
-        
+    /* renamed from: b  reason: collision with root package name */
+    public final d.f.c.a.g f32856b;
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static final class Feature {
+        public static final /* synthetic */ Feature[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Feature FRONT_CAMERA;
+        public static final Feature SHARED_CAMERA;
+        public transient /* synthetic */ FieldHolder $fh;
         public final int nativeCode;
 
-        Feature(int i2) {
-            this.nativeCode = i2;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(896004705, "Lcom/google/ar/core/Session$Feature;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(896004705, "Lcom/google/ar/core/Session$Feature;");
+                    return;
+                }
+            }
+            FRONT_CAMERA = new Feature("FRONT_CAMERA", 0, 1);
+            Feature feature = new Feature("SHARED_CAMERA", 1, 1000);
+            SHARED_CAMERA = feature;
+            $VALUES = new Feature[]{FRONT_CAMERA, feature};
+        }
+
+        public Feature(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.nativeCode = i3;
+        }
+
+        public static Feature valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Feature) Enum.valueOf(Feature.class, str) : (Feature) invokeL.objValue;
+        }
+
+        public static Feature[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Feature[]) $VALUES.clone() : (Feature[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public enum a {
-        END_OF_LIST(0);
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final a f32857a;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final /* synthetic */ a[] f32858c;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30946b = 0;
+        public final int f32859b;
 
-        a(int i2) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2051806006, "Lcom/google/ar/core/Session$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(2051806006, "Lcom/google/ar/core/Session$a;");
+                    return;
+                }
+            }
+            a aVar = new a("END_OF_LIST", 0, 0);
+            f32857a = aVar;
+            f32858c = new a[]{aVar};
+        }
+
+        public a(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f32859b = 0;
+        }
+
+        public static a[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (a[]) f32858c.clone() : (a[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public enum b {
-        SUCCESS(0, null),
-        ERROR_INVALID_ARGUMENT(-1, IllegalArgumentException.class),
-        ERROR_FATAL(-2, FatalException.class),
-        ERROR_SESSION_PAUSED(-3, SessionPausedException.class),
-        ERROR_SESSION_NOT_PAUSED(-4, SessionNotPausedException.class),
-        ERROR_NOT_TRACKING(-5, NotTrackingException.class),
-        ERROR_TEXTURE_NOT_SET(-6, TextureNotSetException.class),
-        ERROR_MISSING_GL_CONTEXT(-7, MissingGlContextException.class),
-        ERROR_UNSUPPORTED_CONFIGURATION(-8, UnsupportedConfigurationException.class),
-        ERROR_CAMERA_PERMISSION_NOT_GRANTED(-9, SecurityException.class, "Camera permission is not granted"),
-        ERROR_DEADLINE_EXCEEDED(-10, DeadlineExceededException.class),
-        ERROR_RESOURCE_EXHAUSTED(-11, ResourceExhaustedException.class),
-        ERROR_NOT_YET_AVAILABLE(-12, NotYetAvailableException.class),
-        ERROR_CAMERA_NOT_AVAILABLE(-13, CameraNotAvailableException.class),
-        ERROR_ANCHOR_NOT_SUPPORTED_FOR_HOSTING(-16, AnchorNotSupportedForHostingException.class),
-        ERROR_IMAGE_INSUFFICIENT_QUALITY(-17, ImageInsufficientQualityException.class),
-        ERROR_DATA_INVALID_FORMAT(-18, DataInvalidFormatException.class),
-        ERROR_DATA_UNSUPPORTED_VERSION(-19, DataUnsupportedVersionException.class),
-        ERROR_ILLEGAL_STATE(-20, IllegalStateException.class),
-        ERROR_CLOUD_ANCHORS_NOT_CONFIGURED(-14, CloudAnchorsNotConfiguredException.class),
-        ERROR_INTERNET_PERMISSION_NOT_GRANTED(-15, SecurityException.class, "Internet permission is not granted"),
-        UNAVAILABLE_ARCORE_NOT_INSTALLED(-100, UnavailableArcoreNotInstalledException.class),
-        UNAVAILABLE_DEVICE_NOT_COMPATIBLE(-101, UnavailableDeviceNotCompatibleException.class),
-        UNAVAILABLE_APK_TOO_OLD(-103, UnavailableApkTooOldException.class),
-        UNAVAILABLE_SDK_TOO_OLD(-104, UnavailableSdkTooOldException.class),
-        UNAVAILABLE_USER_DECLINED_INSTALLATION(-105, UnavailableUserDeclinedInstallationException.class);
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b A;
+        public static final b B;
+        public static final b C;
+        public static final /* synthetic */ b[] D;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final b f32860a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final b f32861b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final b f32862c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final b f32863d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final b f32864e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public static final b f32865f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public static final b f32866g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public static final b f32867h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public static final b f32868i;
+        public static final b m;
+        public static final b n;
+        public static final b o;
+        public static final b p;
+        public static final b q;
+        public static final b r;
+        public static final b s;
+        public static final b t;
+        public static final b u;
+        public static final b v;
+        public static final b w;
+        public static final b x;
+        public static final b y;
+        public static final b z;
+        public transient /* synthetic */ FieldHolder $fh;
         public final int j;
         public final Class<? extends Exception> k;
         public final String l;
 
-        b(int i2, Class cls) {
-            this(i2, cls, null);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2051806037, "Lcom/google/ar/core/Session$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(2051806037, "Lcom/google/ar/core/Session$b;");
+                    return;
+                }
+            }
+            f32860a = new b(com.alipay.security.mobile.module.http.model.c.f2102g, 0, 0, null);
+            f32861b = new b("ERROR_INVALID_ARGUMENT", 1, -1, IllegalArgumentException.class);
+            f32862c = new b("ERROR_FATAL", 2, -2, FatalException.class);
+            m = new b("ERROR_SESSION_PAUSED", 3, -3, SessionPausedException.class);
+            n = new b("ERROR_SESSION_NOT_PAUSED", 4, -4, SessionNotPausedException.class);
+            o = new b("ERROR_NOT_TRACKING", 5, -5, NotTrackingException.class);
+            p = new b("ERROR_TEXTURE_NOT_SET", 6, -6, TextureNotSetException.class);
+            q = new b("ERROR_MISSING_GL_CONTEXT", 7, -7, MissingGlContextException.class);
+            r = new b("ERROR_UNSUPPORTED_CONFIGURATION", 8, -8, UnsupportedConfigurationException.class);
+            s = new b("ERROR_CAMERA_PERMISSION_NOT_GRANTED", 9, -9, SecurityException.class, "Camera permission is not granted");
+            t = new b("ERROR_DEADLINE_EXCEEDED", 10, -10, DeadlineExceededException.class);
+            f32863d = new b("ERROR_RESOURCE_EXHAUSTED", 11, -11, ResourceExhaustedException.class);
+            u = new b("ERROR_NOT_YET_AVAILABLE", 12, -12, NotYetAvailableException.class);
+            v = new b("ERROR_CAMERA_NOT_AVAILABLE", 13, -13, CameraNotAvailableException.class);
+            w = new b("ERROR_ANCHOR_NOT_SUPPORTED_FOR_HOSTING", 14, -16, AnchorNotSupportedForHostingException.class);
+            x = new b("ERROR_IMAGE_INSUFFICIENT_QUALITY", 15, -17, ImageInsufficientQualityException.class);
+            y = new b("ERROR_DATA_INVALID_FORMAT", 16, -18, DataInvalidFormatException.class);
+            z = new b("ERROR_DATA_UNSUPPORTED_VERSION", 17, -19, DataUnsupportedVersionException.class);
+            A = new b("ERROR_ILLEGAL_STATE", 18, -20, IllegalStateException.class);
+            B = new b("ERROR_CLOUD_ANCHORS_NOT_CONFIGURED", 19, -14, CloudAnchorsNotConfiguredException.class);
+            C = new b("ERROR_INTERNET_PERMISSION_NOT_GRANTED", 20, -15, SecurityException.class, "Internet permission is not granted");
+            f32864e = new b("UNAVAILABLE_ARCORE_NOT_INSTALLED", 21, -100, UnavailableArcoreNotInstalledException.class);
+            f32865f = new b("UNAVAILABLE_DEVICE_NOT_COMPATIBLE", 22, -101, UnavailableDeviceNotCompatibleException.class);
+            f32866g = new b("UNAVAILABLE_APK_TOO_OLD", 23, -103, UnavailableApkTooOldException.class);
+            f32867h = new b("UNAVAILABLE_SDK_TOO_OLD", 24, -104, UnavailableSdkTooOldException.class);
+            b bVar = new b("UNAVAILABLE_USER_DECLINED_INSTALLATION", 25, -105, UnavailableUserDeclinedInstallationException.class);
+            f32868i = bVar;
+            D = new b[]{f32860a, f32861b, f32862c, m, n, o, p, q, r, s, t, f32863d, u, v, w, x, y, z, A, B, C, f32864e, f32865f, f32866g, f32867h, bVar};
         }
 
-        b(int i2, Class cls, String str) {
-            this.j = i2;
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public b(String str, int i2, int i3, Class cls) {
+            this(str, i2, i3, cls, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), cls};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (Class) objArr2[3], (String) objArr2[4]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public static b[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) D.clone() : (b[]) invokeV.objValue;
+        }
+
+        public b(String str, int i2, int i3, Class cls, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), cls, str2};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.j = i3;
             this.k = cls;
-            this.l = str;
+            this.l = str2;
         }
     }
 
-    public static ByteBuffer a(ByteBuffer byteBuffer) {
-        if (byteBuffer == null) {
-            return ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
+    public Session() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return byteBuffer.order(ByteOrder.nativeOrder());
+        this.f32856b = new d.f.c.a.g();
+        this.f32855a = 0L;
+    }
+
+    public static ByteBuffer a(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteBuffer)) == null) {
+            if (byteBuffer == null) {
+                return ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
+            }
+            return byteBuffer.order(ByteOrder.nativeOrder());
+        }
+        return (ByteBuffer) invokeL.objValue;
     }
 
     private native long[] nativeAcquireAllAnchors(long j);
@@ -114,7 +349,7 @@ public class Session {
 
     private native void nativeConfigure(long j, long j2);
 
-    private native long nativeCreateAnchor(long j, d.g.b.a.a aVar);
+    private native long nativeCreateAnchor(long j, d.f.c.a.a aVar);
 
     public static native long nativeCreateSession(Context context);
 
@@ -149,75 +384,120 @@ public class Session {
     private native void nativeUpdate(long j, long j2);
 
     public void finalize() {
-        long j = this.f30942a;
-        if (j != 0) {
-            nativeDestroySession(j);
-            this.f30942a = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.f32855a;
+            if (j != 0) {
+                nativeDestroySession(j);
+                this.f32855a = 0L;
+            }
+            super.finalize();
         }
-        super.finalize();
     }
 
     public native long[] nativeAcquireAllTrackables(long j, int i2);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class c {
-
-        /* renamed from: g  reason: collision with root package name */
-        public static final c f30961g;
-
-        /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ c[] f30962i;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final int f30963b;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final Class<?> f30964h;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final c f30957c = new ad("BASE_TRACKABLE", 0, 1095893248, d.g.b.a.b.class);
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f30956a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
+        public static final c f32869a;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final c f32870c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final c f30958d = new af("PLANE", 2, 1095893249, Plane.class);
+        public static final c f32871d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f30959e = new ag("POINT", 3, 1095893250, Point.class);
+        public static final c f32872e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final c f30960f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
+        public static final c f32873f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public static final c f32874g;
+
+        /* renamed from: i  reason: collision with root package name */
+        public static final /* synthetic */ c[] f32875i;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final int f32876b;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final Class<?> f32877h;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2051806068, "Lcom/google/ar/core/Session$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(2051806068, "Lcom/google/ar/core/Session$c;");
+                    return;
+                }
+            }
+            f32870c = new ad("BASE_TRACKABLE", 0, 1095893248, d.f.c.a.b.class);
+            f32869a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
+            f32871d = new af("PLANE", 2, 1095893249, Plane.class);
+            f32872e = new ag("POINT", 3, 1095893250, Point.class);
+            f32873f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
             ai aiVar = new ai("FACE", 5, 1095893253, AugmentedFace.class);
-            f30961g = aiVar;
-            f30962i = new c[]{f30957c, f30956a, f30958d, f30959e, f30960f, aiVar};
+            f32874g = aiVar;
+            f32875i = new c[]{f32870c, f32869a, f32871d, f32872e, f32873f, aiVar};
         }
 
         public c(String str, int i2, int i3, Class cls) {
-            this.f30963b = i3;
-            this.f30964h = cls;
-        }
-
-        public static c a(Class<? extends d.g.b.a.b> cls) {
-            c[] values;
-            for (c cVar : values()) {
-                Class<?> cls2 = cVar.f30964h;
-                if (cls2 != null && cls2.equals(cls)) {
-                    return cVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), cls};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
             }
-            return f30956a;
+            this.f32876b = i3;
+            this.f32877h = cls;
+        }
+
+        public static c a(Class<? extends d.f.c.a.b> cls) {
+            InterceptResult invokeL;
+            c[] values;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+                for (c cVar : values()) {
+                    Class<?> cls2 = cVar.f32877h;
+                    if (cls2 != null && cls2.equals(cls)) {
+                        return cVar;
+                    }
+                }
+                return f32869a;
+            }
+            return (c) invokeL.objValue;
         }
 
         public static c[] values() {
-            return (c[]) f30962i.clone();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (c[]) f32875i.clone() : (c[]) invokeV.objValue;
         }
 
-        public abstract d.g.b.a.b a(long j, Session session);
+        public abstract d.f.c.a.b a(long j, Session session);
 
         public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b2) {
             this(str, i2, i3, cls);

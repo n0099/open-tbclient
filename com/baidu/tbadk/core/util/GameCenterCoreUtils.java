@@ -1,8 +1,14 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class GameCenterCoreUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String GAME_NATIVE_PREFIX = "game:detail";
     public static final String GAME_WEB_PREFIX = "http";
     public static final int ILLEGAL_URL = 0;
@@ -43,14 +49,34 @@ public class GameCenterCoreUtils {
     public static final String REF_TYPE_SINGLE_GALLERY = "4001001";
     public static final String REF_TYPE_SINGLE_RECOMMEND = "1001001";
     public static final String REF_TYPE_USER_FAVOURITE = "1000303";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public GameCenterCoreUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static int getJumpTypeByUrl(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            if (str.startsWith(GAME_NATIVE_PREFIX)) {
+                return 1;
+            }
+            return str.startsWith("http") ? 2 : 0;
         }
-        if (str.startsWith(GAME_NATIVE_PREFIX)) {
-            return 1;
-        }
-        return str.startsWith("http") ? 2 : 0;
+        return invokeL.intValue;
     }
 }

@@ -1,89 +1,173 @@
 package c;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public final class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f1477c = new b();
+    public static final b f1480c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f1478a;
+    public final ExecutorService f1481a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f1479b;
+    public final Executor f1482b;
+
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(73185169, "Lc/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(73185169, "Lc/b;");
+                return;
+            }
+        }
+        f1480c = new b();
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f1481a = !c() ? Executors.newCachedThreadPool() : c.a.b();
+        Executors.newSingleThreadScheduledExecutor();
+        this.f1482b = new ExecutorC0013b(null);
+    }
+
+    public static ExecutorService a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1480c.f1481a : (ExecutorService) invokeV.objValue;
+    }
+
+    public static Executor b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f1480c.f1482b : (Executor) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            String property = System.getProperty("java.runtime.name");
+            if (property == null) {
+                return false;
+            }
+            return property.toLowerCase(Locale.US).contains("android");
+        }
+        return invokeV.booleanValue;
+    }
 
     /* renamed from: c.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class ExecutorC0013b implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ThreadLocal<Integer> f1480e;
+        public ThreadLocal<Integer> f1483e;
 
         public ExecutorC0013b() {
-            this.f1480e = new ThreadLocal<>();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1483e = new ThreadLocal<>();
         }
 
         public final int a() {
-            Integer num = this.f1480e.get();
-            if (num == null) {
-                num = 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Integer num = this.f1483e.get();
+                if (num == null) {
+                    num = 0;
+                }
+                int intValue = num.intValue() - 1;
+                if (intValue == 0) {
+                    this.f1483e.remove();
+                } else {
+                    this.f1483e.set(Integer.valueOf(intValue));
+                }
+                return intValue;
             }
-            int intValue = num.intValue() - 1;
-            if (intValue == 0) {
-                this.f1480e.remove();
-            } else {
-                this.f1480e.set(Integer.valueOf(intValue));
-            }
-            return intValue;
+            return invokeV.intValue;
         }
 
         public final int b() {
-            Integer num = this.f1480e.get();
-            if (num == null) {
-                num = 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                Integer num = this.f1483e.get();
+                if (num == null) {
+                    num = 0;
+                }
+                int intValue = num.intValue() + 1;
+                this.f1483e.set(Integer.valueOf(intValue));
+                return intValue;
             }
-            int intValue = num.intValue() + 1;
-            this.f1480e.set(Integer.valueOf(intValue));
-            return intValue;
+            return invokeV.intValue;
         }
 
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
-            try {
-                if (b() <= 15) {
-                    runnable.run();
-                } else {
-                    b.a().execute(runnable);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+                try {
+                    if (b() <= 15) {
+                        runnable.run();
+                    } else {
+                        b.a().execute(runnable);
+                    }
+                } finally {
+                    a();
                 }
-            } finally {
-                a();
             }
         }
-    }
 
-    public b() {
-        this.f1478a = !c() ? Executors.newCachedThreadPool() : c.a.b();
-        Executors.newSingleThreadScheduledExecutor();
-        this.f1479b = new ExecutorC0013b();
-    }
-
-    public static ExecutorService a() {
-        return f1477c.f1478a;
-    }
-
-    public static Executor b() {
-        return f1477c.f1479b;
-    }
-
-    public static boolean c() {
-        String property = System.getProperty("java.runtime.name");
-        if (property == null) {
-            return false;
+        public /* synthetic */ ExecutorC0013b(a aVar) {
+            this();
         }
-        return property.toLowerCase(Locale.US).contains("android");
     }
 }

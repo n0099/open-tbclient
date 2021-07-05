@@ -6,8 +6,16 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,125 +23,199 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f8858a = new d();
+    public static d f8931a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8859a;
+        public String f8932a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8860b;
+        public String f8933b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8861c;
+        public String f8934c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f8862d;
+        public String f8935d;
 
         public a(String str, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3, str4};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             str = str == null ? "" : str;
             str2 = str2 == null ? "" : str2;
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
-            this.f8859a = str;
-            this.f8860b = str2;
-            this.f8861c = str3;
-            this.f8862d = str4;
+            this.f8932a = str;
+            this.f8933b = str2;
+            this.f8934c = str3;
+            this.f8935d = str4;
         }
 
         public JSONObject a() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("n", this.f8859a);
-                jSONObject.put("v", this.f8860b);
-                jSONObject.put("c", this.f8861c);
-                jSONObject.put("a", this.f8862d);
-                return jSONObject;
-            } catch (JSONException e2) {
-                bb.c().b(e2);
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("n", this.f8932a);
+                    jSONObject.put("v", this.f8933b);
+                    jSONObject.put("c", this.f8934c);
+                    jSONObject.put("a", this.f8935d);
+                    return jSONObject;
+                } catch (JSONException e2) {
+                    bb.c().b(e2);
+                    return null;
+                }
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1366710144, "Lcom/baidu/mobstat/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1366710144, "Lcom/baidu/mobstat/d;");
+                return;
+            }
+        }
+        f8931a = new d();
+    }
+
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
     private void b(Context context) {
-        a(context, c(context));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            a(context, c(context));
+        }
     }
 
     private ArrayList<a> c(Context context) {
-        ArrayList<a> arrayList = new ArrayList<>();
-        Iterator<PackageInfo> it = d(context).iterator();
-        while (it.hasNext()) {
-            PackageInfo next = it.next();
-            ApplicationInfo applicationInfo = next.applicationInfo;
-            if (applicationInfo != null) {
-                String str = next.packageName;
-                String str2 = next.versionName;
-                Signature[] signatureArr = next.signatures;
-                String a2 = bt.b.a(((signatureArr == null || signatureArr.length == 0) ? "" : signatureArr[0].toChars().toString()).getBytes());
-                String str3 = applicationInfo.sourceDir;
-                arrayList.add(new a(str, str2, a2, TextUtils.isEmpty(str3) ? "" : bt.b.a(new File(str3))));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+            ArrayList<a> arrayList = new ArrayList<>();
+            Iterator<PackageInfo> it = d(context).iterator();
+            while (it.hasNext()) {
+                PackageInfo next = it.next();
+                ApplicationInfo applicationInfo = next.applicationInfo;
+                if (applicationInfo != null) {
+                    String str = next.packageName;
+                    String str2 = next.versionName;
+                    Signature[] signatureArr = next.signatures;
+                    String a2 = bt.b.a(((signatureArr == null || signatureArr.length == 0) ? "" : signatureArr[0].toChars().toString()).getBytes());
+                    String str3 = applicationInfo.sourceDir;
+                    arrayList.add(new a(str, str2, a2, TextUtils.isEmpty(str3) ? "" : bt.b.a(new File(str3))));
+                }
             }
+            return arrayList;
         }
-        return arrayList;
+        return (ArrayList) invokeL.objValue;
     }
 
     private ArrayList<PackageInfo> d(Context context) {
-        ArrayList<PackageInfo> arrayList = new ArrayList<>();
-        PackageManager packageManager = context.getPackageManager();
-        if (packageManager == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+            ArrayList<PackageInfo> arrayList = new ArrayList<>();
+            PackageManager packageManager = context.getPackageManager();
+            if (packageManager == null) {
+                return arrayList;
+            }
+            List<PackageInfo> arrayList2 = new ArrayList<>(1);
+            try {
+                arrayList2 = packageManager.getInstalledPackages(64);
+            } catch (Exception e2) {
+                bb.c().b(e2);
+            }
+            for (PackageInfo packageInfo : arrayList2) {
+                ApplicationInfo applicationInfo = packageInfo.applicationInfo;
+                if (applicationInfo != null && (applicationInfo.flags & 1) == 0) {
+                    arrayList.add(packageInfo);
+                }
+            }
             return arrayList;
         }
-        List<PackageInfo> arrayList2 = new ArrayList<>(1);
-        try {
-            arrayList2 = packageManager.getInstalledPackages(64);
-        } catch (Exception e2) {
-            bb.c().b(e2);
-        }
-        for (PackageInfo packageInfo : arrayList2) {
-            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-            if (applicationInfo != null && (applicationInfo.flags & 1) == 0) {
-                arrayList.add(packageInfo);
-            }
-        }
-        return arrayList;
+        return (ArrayList) invokeL.objValue;
     }
 
     public synchronized void a(Context context) {
-        b(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            synchronized (this) {
+                b(context);
+            }
+        }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0005: INVOKE  (r0v0 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0009: INVOKE  (r0v2 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
     private void a(Context context, ArrayList<a> arrayList) {
         String str;
-        StringBuilder sb = new StringBuilder();
-        sb.append(System.currentTimeMillis());
-        try {
-            JSONArray jSONArray = new JSONArray();
-            Iterator<a> it = arrayList.iterator();
-            while (it.hasNext()) {
-                JSONObject a2 = it.next().a();
-                if (a2 != null) {
-                    jSONArray.put(a2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, this, context, arrayList) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(System.currentTimeMillis());
+            try {
+                JSONArray jSONArray = new JSONArray();
+                Iterator<a> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    JSONObject a2 = it.next().a();
+                    if (a2 != null) {
+                        jSONArray.put(a2);
+                    }
                 }
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("app_apk", jSONArray);
+                jSONObject.put("meta-data", sb.toString());
+                str = bm.a.a(jSONObject.toString().getBytes());
+            } catch (Exception e2) {
+                bb.c().b(e2);
+                str = "";
             }
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("app_apk", jSONArray);
-            jSONObject.put("meta-data", sb.toString());
-            str = bm.a.a(jSONObject.toString().getBytes());
-        } catch (Exception e2) {
-            bb.c().b(e2);
-            str = "";
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            k.f8977e.a(System.currentTimeMillis(), str);
         }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        k.APP_APK.a(System.currentTimeMillis(), str);
     }
 }

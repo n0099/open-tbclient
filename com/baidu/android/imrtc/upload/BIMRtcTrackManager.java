@@ -6,40 +6,117 @@ import com.baidu.android.imrtc.utils.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
 import com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BIMRtcTrackManager {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcTrackManager";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static void clearRtcTrack(Context context, BIMRtcPbGenerator bIMRtcPbGenerator) {
-        bIMRtcPbGenerator.clearRtcActions(context);
+    public BIMRtcTrackManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static void requestRtcUpload(final Context context) {
-        final BIMRtcPbGenerator bIMRtcPbGenerator = new BIMRtcPbGenerator();
-        byte[] generateRtcClient = bIMRtcPbGenerator.generateRtcClient(context);
-        if (generateRtcClient == null) {
+    public static void clearRtcTrack(Context context, BIMRtcPbGenerator bIMRtcPbGenerator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, bIMRtcPbGenerator) == null) {
+            bIMRtcPbGenerator.clearRtcActions(context);
+        }
+    }
+
+    public static void requestRtcUpload(Context context) {
+        BIMRtcPbGenerator bIMRtcPbGenerator;
+        byte[] generateRtcClient;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, null, context) == null) || (generateRtcClient = (bIMRtcPbGenerator = new BIMRtcPbGenerator()).generateRtcClient(context)) == null) {
             return;
         }
-        IMPushUploadManager.getInstance(context).requestUpload(null, generateRtcClient, "", new IMPushUploadResponseListener() { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.2
+        IMPushUploadManager.getInstance(context).requestUpload(null, generateRtcClient, "", new IMPushUploadResponseListener(context, bIMRtcPbGenerator) { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BIMRtcPbGenerator val$action;
+            public final /* synthetic */ Context val$context;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {context, bIMRtcPbGenerator};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.val$context = context;
+                this.val$action = bIMRtcPbGenerator;
+            }
+
             @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
             public void uploadResponse(int i2, String str) {
-                LogUtils.d(BIMRtcTrackManager.TAG, "requestRtcUpload response :" + i2 + ", msg :" + str);
-                if (i2 == 0) {
-                    BIMRtcTrackManager.clearRtcTrack(context, bIMRtcPbGenerator);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    LogUtils.d(BIMRtcTrackManager.TAG, "requestRtcUpload response :" + i2 + ", msg :" + str);
+                    if (i2 == 0) {
+                        BIMRtcTrackManager.clearRtcTrack(this.val$context, this.val$action);
+                    }
                 }
             }
         });
     }
 
-    public static void uploadRtcActionData(final Context context) {
-        if (context == null || !RequsetNetworkUtils.isConnected(context)) {
-            return;
+    public static void uploadRtcActionData(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) && context != null && RequsetNetworkUtils.isConnected(context)) {
+            TaskManager.getInstance().submitForNetWork(new Runnable(context) { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Context val$context;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$context = context;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        BIMRtcTrackManager.requestRtcUpload(this.val$context);
+                    }
+                }
+            });
         }
-        TaskManager.getInstance().submitForNetWork(new Runnable() { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.1
-            @Override // java.lang.Runnable
-            public void run() {
-                BIMRtcTrackManager.requestRtcUpload(context);
-            }
-        });
     }
 }

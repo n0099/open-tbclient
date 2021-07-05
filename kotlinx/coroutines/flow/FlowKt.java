@@ -37,7 +37,7 @@ import kotlinx.coroutines.channels.ProducerScope;
 import kotlinx.coroutines.channels.ReceiveChannel;
 import kotlinx.coroutines.channels.SendChannel;
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlinx/coroutines/flow/FlowKt__BuildersKt", "kotlinx/coroutines/flow/FlowKt__ChannelsKt", "kotlinx/coroutines/flow/FlowKt__CollectKt", "kotlinx/coroutines/flow/FlowKt__CollectionKt", "kotlinx/coroutines/flow/FlowKt__ContextKt", "kotlinx/coroutines/flow/FlowKt__CountKt", "kotlinx/coroutines/flow/FlowKt__DelayKt", "kotlinx/coroutines/flow/FlowKt__DistinctKt", "kotlinx/coroutines/flow/FlowKt__EmittersKt", "kotlinx/coroutines/flow/FlowKt__ErrorsKt", "kotlinx/coroutines/flow/FlowKt__LimitKt", "kotlinx/coroutines/flow/FlowKt__MergeKt", "kotlinx/coroutines/flow/FlowKt__MigrationKt", "kotlinx/coroutines/flow/FlowKt__ReduceKt", "kotlinx/coroutines/flow/FlowKt__TransformKt", "kotlinx/coroutines/flow/FlowKt__ZipKt"}, d2 = {}, k = 4, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class FlowKt {
     public static final String DEFAULT_CONCURRENCY_PROPERTY_NAME = "kotlinx.coroutines.flow.defaultConcurrency";
 
@@ -66,8 +66,8 @@ public final class FlowKt {
 
     @ExperimentalCoroutinesApi
     /* renamed from: catch  reason: not valid java name */
-    public static final <T> Flow<T> m1970catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
-        return FlowKt__ErrorsKt.m1975catch(flow, function3);
+    public static final <T> Flow<T> m1984catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+        return FlowKt__ErrorsKt.m1989catch(flow, function3);
     }
 
     public static final <T> Object catchImpl(Flow<? extends T> flow, FlowCollector<? super T> flowCollector, Continuation<? super Throwable> continuation) {
@@ -136,8 +136,8 @@ public final class FlowKt {
     @FlowPreview
     @ExperimentalTime
     /* renamed from: debounce-8GFy2Ro  reason: not valid java name */
-    public static final <T> Flow<T> m1971debounce8GFy2Ro(Flow<? extends T> flow, double d2) {
-        return FlowKt__DelayKt.m1973debounce8GFy2Ro(flow, d2);
+    public static final <T> Flow<T> m1985debounce8GFy2Ro(Flow<? extends T> flow, double d2) {
+        return FlowKt__DelayKt.m1987debounce8GFy2Ro(flow, d2);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use 'onEach { delay(timeMillis) }'", replaceWith = @ReplaceWith(expression = "onEach { delay(timeMillis) }", imports = {}))
@@ -379,8 +379,8 @@ public final class FlowKt {
     @FlowPreview
     @ExperimentalTime
     /* renamed from: sample-8GFy2Ro  reason: not valid java name */
-    public static final <T> Flow<T> m1972sample8GFy2Ro(Flow<? extends T> flow, double d2) {
-        return FlowKt__DelayKt.m1974sample8GFy2Ro(flow, d2);
+    public static final <T> Flow<T> m1986sample8GFy2Ro(Flow<? extends T> flow, double d2) {
+        return FlowKt__DelayKt.m1988sample8GFy2Ro(flow, d2);
     }
 
     @ExperimentalCoroutinesApi

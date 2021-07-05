@@ -1,22 +1,31 @@
 package com.baidu.tieba.recapp.lego.model;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.c;
 import d.a.d.d;
-import d.a.o0.k1.o.h.b;
-import d.a.o0.k1.o.l.i;
-import d.a.o0.t2.f0.b.a;
-import d.a.o0.t2.f0.b.f;
+import d.a.s0.n1.o.h.b;
+import d.a.s0.n1.o.l.i;
+import d.a.s0.w2.f0.b.a;
+import d.a.s0.w2.f0.b.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
 public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.i, b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public d adFacadeData;
     public boolean autoPlay;
     public a operateData;
@@ -29,8 +38,24 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.
     public VideoInfo video;
     public boolean waitConfirm;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoMiddlePageAdCard(JSONObject jSONObject) {
         super(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.autoPlay = false;
         this.waitConfirm = false;
         this.userName = jSONObject.optString("user_name");
@@ -67,93 +92,130 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.
         b.a aVar = new b.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.f64875a)) {
-            this.operateData.f64875a = this.userName;
+        if (TextUtils.isEmpty(this.operateData.f69131a)) {
+            this.operateData.f69131a = this.userName;
         }
     }
 
     private JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("card_type", this.cardType);
-            jSONObject.put("user_portrait", this.userPortrait);
-            jSONObject.put("user_name", this.userPortrait);
-            jSONObject.put(MissonDetailsActivityConfig.THREAD_TITLE, this.userPortrait);
-            jSONObject.put("scheme", this.userPortrait);
-            jSONObject.put("tag_name", this.userPortrait);
-            JSONObject jSONObject2 = new JSONObject();
-            if (this.video != null) {
-                jSONObject2.put("thumbnail_url", this.video.thumbnail_url);
-                jSONObject2.put("thumbnail_width", this.video.thumbnail_width);
-                jSONObject2.put("thumbnail_height", this.video.video_height);
-                jSONObject2.put("thumbnail_width", this.video.thumbnail_width);
-                jSONObject2.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, this.video.video_duration);
-                jSONObject2.put("video_width", this.video.video_width);
-                jSONObject2.put("video_height", this.video.video_height);
-                jSONObject2.put("video_url", this.video.video_url);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("card_type", this.cardType);
+                jSONObject.put("user_portrait", this.userPortrait);
+                jSONObject.put("user_name", this.userPortrait);
+                jSONObject.put(MissonDetailsActivityConfig.THREAD_TITLE, this.userPortrait);
+                jSONObject.put("scheme", this.userPortrait);
+                jSONObject.put("tag_name", this.userPortrait);
+                JSONObject jSONObject2 = new JSONObject();
+                if (this.video != null) {
+                    jSONObject2.put("thumbnail_url", this.video.thumbnail_url);
+                    jSONObject2.put("thumbnail_width", this.video.thumbnail_width);
+                    jSONObject2.put("thumbnail_height", this.video.video_height);
+                    jSONObject2.put("thumbnail_width", this.video.thumbnail_width);
+                    jSONObject2.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, this.video.video_duration);
+                    jSONObject2.put("video_width", this.video.video_width);
+                    jSONObject2.put("video_height", this.video.video_height);
+                    jSONObject2.put("video_url", this.video.video_url);
+                }
+                jSONObject.put(WriteActivityConfig.VIDEO_INFO, jSONObject2);
+                jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.d());
+                jSONObject.put("operate", this.operateData.b());
+                if (this.adFacadeData != null && this.adFacadeData.d() != null) {
+                    jSONObject.put("extraparams", this.adFacadeData.d().f45181b);
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            jSONObject.put(WriteActivityConfig.VIDEO_INFO, jSONObject2);
-            jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.d());
-            jSONObject.put("operate", this.operateData.b());
-            if (this.adFacadeData != null && this.adFacadeData.g() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.g().f43322b);
-            }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            return jSONObject;
         }
-        return jSONObject;
+        return (JSONObject) invokeV.objValue;
     }
 
     public String adCollect() {
-        byte[] bytes = toJson().toString().getBytes();
-        for (int i2 = 0; i2 < bytes.length; i2++) {
-            bytes[i2] = (byte) (bytes[i2] ^ 47);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            byte[] bytes = toJson().toString().getBytes();
+            for (int i2 = 0; i2 < bytes.length; i2++) {
+                bytes[i2] = (byte) (bytes[i2] ^ 47);
+            }
+            return new String(c.m(bytes));
         }
-        return new String(c.m(bytes));
+        return (String) invokeV.objValue;
     }
 
     public d getAdFacadeData() {
-        return this.adFacadeData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adFacadeData : (d) invokeV.objValue;
     }
 
     public boolean getAutoPlay() {
-        return this.autoPlay;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.autoPlay : invokeV.booleanValue;
     }
 
     public String getButtonScheme() {
-        a aVar = this.operateData;
-        if (aVar != null && !TextUtils.isEmpty(aVar.f64877c)) {
-            return this.operateData.f64877c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a aVar = this.operateData;
+            if (aVar != null && !TextUtils.isEmpty(aVar.f69133c)) {
+                return this.operateData.f69133c;
+            }
+            return this.scheme;
         }
-        return this.scheme;
+        return (String) invokeV.objValue;
     }
 
-    @Override // d.a.o0.k1.o.h.b
+    @Override // d.a.s0.n1.o.h.b
     public b.a getParallelCharge() {
-        return this.parallelChargeInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.parallelChargeInfo : (b.a) invokeV.objValue;
     }
 
     public boolean getWaitConfirm() {
-        return this.waitConfirm;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.waitConfirm : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public boolean responseAttention(Object obj) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // d.a.d.i
     public void setAdFacadeData(d dVar) {
-        this.adFacadeData = dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
+            this.adFacadeData = dVar;
+        }
     }
 
-    @Override // d.a.o0.k1.o.l.i
+    @Override // d.a.s0.n1.o.l.i
     public void setAutoPlay(boolean z) {
-        this.autoPlay = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.autoPlay = z;
+        }
     }
 
-    @Override // d.a.o0.k1.o.l.i
+    @Override // d.a.s0.n1.o.l.i
     public void setWaitConfirm(boolean z) {
-        this.waitConfirm = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.waitConfirm = z;
+        }
     }
 }

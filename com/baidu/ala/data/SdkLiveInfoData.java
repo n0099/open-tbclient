@@ -2,22 +2,30 @@ package com.baidu.ala.data;
 
 import androidx.core.app.NotificationCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.AlaChallengeInfoData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SdkLiveInfoData {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_CHUSHOU_GAME_LIVE = 1;
     public static final int TYPE_TIEBA_GAME_LIVE = 2;
+    public transient /* synthetic */ FieldHolder $fh;
     public long createTime;
-    public int from = 1;
+    public int from;
     public String labelUrl;
     public LiveAuthor liveAuthor;
     public String liveId;
     public AlaLiveInfo liveInfo;
     public String location;
+    public String logid;
     public SdkMiddleStrategyInfo middleStrategyInfo;
     public String modeUrl;
     public String nid;
@@ -35,6 +43,8 @@ public class SdkLiveInfoData {
 
     /* loaded from: classes.dex */
     public static class AlaLiveInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public long audienceCount;
         public AlaChallengeInfoData challengeInfoData;
         public String cover;
@@ -49,12 +59,27 @@ public class SdkLiveInfoData {
         public String showLabel;
         public YYExt yyExt;
 
+        public AlaLiveInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void fromJson(JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            this.sessionId = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID);
+            this.sessionId = jSONObject.optString("session_id");
             this.rtmpUrl = jSONObject.optString("rtmp_url");
             this.hlsUrl = jSONObject.optString("hls_url");
             this.audienceCount = jSONObject.optLong("audience_count");
@@ -81,14 +106,31 @@ public class SdkLiveInfoData {
 
     /* loaded from: classes.dex */
     public static class LiveAuthor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int gender;
         public String name;
         public String nameShow;
         public String open_id;
         public String portrait;
 
+        public LiveAuthor() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void fromJson(JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.name = jSONObject.optString("name");
@@ -99,22 +141,44 @@ public class SdkLiveInfoData {
         }
 
         public String getName_show() {
-            if (!StringUtils.isNull(this.nameShow)) {
-                return this.nameShow;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (!StringUtils.isNull(this.nameShow)) {
+                    return this.nameShow;
+                }
+                return this.name;
             }
-            return this.name;
+            return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
     public static class UiTransParam {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String abTag;
         public String extra;
         public String sourceFrom;
         public String starId;
 
+        public UiTransParam() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void fromJson(JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.abTag = jSONObject.optString("ab_tag");
@@ -126,14 +190,31 @@ public class SdkLiveInfoData {
 
     /* loaded from: classes.dex */
     public static class YYExt {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int isYYGame;
         public String sid;
         public String ssid;
         public String templateId;
         public String yyUid;
 
+        public YYExt() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void fromJson(JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.sid = jSONObject.optString("sid");
@@ -144,14 +225,32 @@ public class SdkLiveInfoData {
         }
     }
 
-    public void fromJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+    public SdkLiveInfoData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.from = 1;
+    }
+
+    public void fromJson(JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) || jSONObject == null) {
             return;
         }
         this.liveId = jSONObject.optString("live_id");
         this.roomId = jSONObject.optString("room_id");
         this.tid = jSONObject.optString("tid");
         this.nid = jSONObject.optString("nid");
+        this.logid = str;
         this.routerType = jSONObject.optInt("routerType");
         this.title = jSONObject.optString("title");
         this.createTime = jSONObject.optLong("create_time");
@@ -183,6 +282,8 @@ public class SdkLiveInfoData {
     }
 
     public boolean shouldJumpChushouLiveRoom() {
-        return this.from != 2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.from != 2 : invokeV.booleanValue;
     }
 }

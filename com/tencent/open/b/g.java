@@ -16,19 +16,27 @@ Caused by: jadx.core.utils.exceptions.JadxRuntimeException: Method generation er
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
 	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
-Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x000b: INVOKE  
-  (wrap: java.lang.Runnable : 0x0008: CONSTRUCTOR  (r6v0 java.lang.Runnable A[REMOVE]) = 
+Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x000f: INVOKE  
+  (wrap: java.lang.Runnable : 0x000c: CONSTRUCTOR  (r6v0 java.lang.Runnable A[REMOVE]) = 
   (r7v0 'this' com.tencent.open.b.g A[IMMUTABLE_TYPE, THIS])
-  (r10v0 'bundle' android.os.Bundle A[DONT_INLINE])
-  (r8v0 'str' java.lang.String A[DONT_INLINE])
-  (r11v0 'z' boolean A[DONT_INLINE])
-  (r9v0 'str2' java.lang.String A[DONT_INLINE])
+  (r10v0 'bundle' android.os.Bundle)
+  (r8v0 'str' java.lang.String)
+  (r11v0 'z' boolean)
+  (r9v0 'str2' java.lang.String)
  call: com.tencent.open.b.g.6.<init>(com.tencent.open.b.g, android.os.Bundle, java.lang.String, boolean, java.lang.String):void type: CONSTRUCTOR)
  type: STATIC call: com.tencent.open.utils.i.a(java.lang.Runnable):void in method: com.tencent.open.b.g.a(java.lang.String, java.lang.String, android.os.Bundle, boolean):void, file: classes7.dex
 	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:287)
 	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:250)
 	at jadx.core.codegen.RegionGen.makeSimpleBlock(RegionGen.java:91)
 	at jadx.core.dex.nodes.IBlock.generate(IBlock.java:15)
+	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
+	at jadx.core.dex.regions.Region.generate(Region.java:35)
+	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
+	at jadx.core.codegen.RegionGen.makeRegionIndent(RegionGen.java:80)
+	at jadx.core.codegen.RegionGen.makeIf(RegionGen.java:123)
+	at jadx.core.dex.regions.conditions.IfRegion.generate(IfRegion.java:90)
+	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
+	at jadx.core.dex.regions.Region.generate(Region.java:35)
 	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
 	at jadx.core.dex.regions.Region.generate(Region.java:35)
 	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
@@ -40,7 +48,7 @@ Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x0
 Caused by: jadx.core.utils.exceptions.JadxRuntimeException: Method generation error
 	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:309)
 	... 5 more
-Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x00de: IF  (r4v13 'i2' int) >= (r1v3 'a2' int)  -> B:52:0x00e0 in method: com.tencent.open.b.g.6.run():void, file: classes7.dex
+Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x00e2: IF  (r4v13 'i2' int) >= (r1v3 'a2' int)  -> B:55:0x00e4 in method: com.tencent.open.b.g.6.run():void, file: classes7.dex
 	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:287)
 	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:250)
 	at jadx.core.codegen.RegionGen.makeSimpleBlock(RegionGen.java:91)
@@ -64,6 +72,14 @@ Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x0
 	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
 	at jadx.core.dex.regions.Region.generate(Region.java:35)
 	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
+	at jadx.core.codegen.RegionGen.makeRegionIndent(RegionGen.java:80)
+	at jadx.core.codegen.RegionGen.makeIf(RegionGen.java:123)
+	at jadx.core.dex.regions.conditions.IfRegion.generate(IfRegion.java:90)
+	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
+	at jadx.core.dex.regions.Region.generate(Region.java:35)
+	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
+	at jadx.core.dex.regions.Region.generate(Region.java:35)
+	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
 	at jadx.core.codegen.MethodGen.addRegionInsns(MethodGen.java:296)
 	at jadx.core.codegen.MethodGen.addInstructions(MethodGen.java:275)
 	at jadx.core.codegen.ClassGen.addMethodCode(ClassGen.java:377)
@@ -73,5 +89,5 @@ Caused by: jadx.core.utils.exceptions.CodegenException: IF instruction can be us
 	at jadx.core.codegen.InsnGen.fallbackOnlyInsn(InsnGen.java:664)
 	at jadx.core.codegen.InsnGen.makeInsnBody(InsnGen.java:522)
 	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:280)
-	... 31 more
+	... 39 more
 

@@ -1,30 +1,74 @@
 package com.baidu.searchbox.dns.util;
 
 import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsUtil {
+    public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
     public static final String TAG = "SMART_HTTP_DNS";
     public static int stackType;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x001a  */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0042  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0046  */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1214779843, "Lcom/baidu/searchbox/dns/util/DnsUtil;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1214779843, "Lcom/baidu/searchbox/dns/util/DnsUtil;");
+        }
+    }
+
+    public DnsUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:18:0x001e  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0046  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x004a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void initNetworkStackType() {
         boolean z;
         boolean z2;
-        try {
-            z = DnsChecker.isIPv4Reachable();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             try {
-                z2 = DnsChecker.isIPv6Reachable();
+                z = DnsChecker.isIPv4Reachable();
             } catch (Throwable th) {
                 th = th;
+                z = false;
+            }
+            try {
+                z2 = DnsChecker.isIPv6Reachable();
+            } catch (Throwable th2) {
+                th = th2;
                 if (DEBUG) {
                     th.printStackTrace();
                 }
@@ -36,43 +80,50 @@ public class DnsUtil {
                 if (!z) {
                 }
             }
-        } catch (Throwable th2) {
-            th = th2;
-            z = false;
-        }
-        if (DEBUG) {
-            Log.i(TAG, " IPv4Reachable: " + z + ", isIPv6Reachable: " + z2);
-        }
-        if (!z && z2) {
-            stackType = 3;
-        } else if (!z) {
-            stackType = 1;
-        } else if (z2) {
-            stackType = 2;
-        } else {
-            stackType = 0;
+            if (DEBUG) {
+                Log.i(TAG, " IPv4Reachable: " + z + ", isIPv6Reachable: " + z2);
+            }
+            if (!z && z2) {
+                stackType = 3;
+            } else if (!z) {
+                stackType = 1;
+            } else if (z2) {
+                stackType = 2;
+            } else {
+                stackType = 0;
+            }
         }
     }
 
     public static List<InetAddress> parseInetAddressList(List<String> list) {
-        if (list == null || list.size() <= 0) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
+            if (list == null || list.size() <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (String str : list) {
+                arrayList.add(InetAddress.getByName(str));
+            }
+            return arrayList;
         }
-        ArrayList arrayList = new ArrayList(list.size());
-        for (String str : list) {
-            arrayList.add(InetAddress.getByName(str));
-        }
-        return arrayList;
+        return (List) invokeL.objValue;
     }
 
     public static List<String> parseRawAddressList(List<InetAddress> list) {
-        if (list == null || list.size() <= 0) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, list)) == null) {
+            if (list == null || list.size() <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (InetAddress inetAddress : list) {
+                arrayList.add(inetAddress.getHostAddress());
+            }
+            return arrayList;
         }
-        ArrayList arrayList = new ArrayList(list.size());
-        for (InetAddress inetAddress : list) {
-            arrayList.add(inetAddress.getHostAddress());
-        }
-        return arrayList;
+        return (List) invokeL.objValue;
     }
 }

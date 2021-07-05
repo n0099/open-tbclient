@@ -2,6 +2,7 @@ package com.baidu.fsg.api;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.fsg.base.c;
 import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
@@ -13,35 +14,80 @@ import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.base.utils.ChannelUtils;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaiduRIM {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String METHODNAME_FOR_GET_TOKEN = "getRimToken";
     public static final String METHODNAME_FOR_LBS_VERIFY = "LBSVerify";
     public static final String METHODNAME_FOR_RISKSEARCH = "riskSearch";
     public static final String METHODNMAE_FOR_FACERECOGNATION = "startLivenessRecognize";
     public static final String METHODNMAE_FOR_RECONGNIZE_BANKCARD = "reconginzeBankcard";
     public static final String METHODNMAE_FOR_RECONGNIZE_IDCARD = "reconginzeIdCard";
-    public static final String[] ROUTER_ENTRANCES = {"com.baidu.fsg.ocr.idcard.router.OCRIdcardApplicationLogic", "com.baidu.fsg.ocr.bankcard.router.OCRBankcardApplicationLogic", "com.baidu.fsg.face.liveness.livenessrouter.LivenessApplicationLogic", "com.baidu.fsg.rim.riskmanager.router.RMApplicationLogic", "com.baidu.fsg.sec.router.SecApplicationLogic", "com.baidu.fsg.rim.lbsverify.router.LBSVerifyApplicationLogic", "com.baidu.fsg.rim.rimtoken.router.RimTokenApplicationLogic", "com.baidu.fsg.sec2.router.SecApplicationLogic"};
+    public static final String[] ROUTER_ENTRANCES;
     public static final String TAG = "BaiduRIM";
     public static BaiduRIM mInstance;
+    public transient /* synthetic */ FieldHolder $fh;
     public Context mAppContext;
 
-    public static BaiduRIM getInstance() {
-        if (mInstance == null) {
-            synchronized (BaiduRIM.class) {
-                mInstance = new BaiduRIM();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-683856024, "Lcom/baidu/fsg/api/BaiduRIM;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-683856024, "Lcom/baidu/fsg/api/BaiduRIM;");
+                return;
             }
         }
-        return mInstance;
+        ROUTER_ENTRANCES = new String[]{"com.baidu.fsg.ocr.idcard.router.OCRIdcardApplicationLogic", "com.baidu.fsg.ocr.bankcard.router.OCRBankcardApplicationLogic", "com.baidu.fsg.face.liveness.livenessrouter.LivenessApplicationLogic", "com.baidu.fsg.rim.riskmanager.router.RMApplicationLogic", "com.baidu.fsg.sec.router.SecApplicationLogic", "com.baidu.fsg.rim.lbsverify.router.LBSVerifyApplicationLogic", "com.baidu.fsg.rim.rimtoken.router.RimTokenApplicationLogic", "com.baidu.fsg.sec2.router.SecApplicationLogic"};
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.fsg.base.router.RouterManager */
+    public BaiduRIM() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static BaiduRIM getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (mInstance == null) {
+                synchronized (BaiduRIM.class) {
+                    mInstance = new BaiduRIM();
+                }
+            }
+            return mInstance;
+        }
+        return (BaiduRIM) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: com.baidu.fsg.base.router.RouterManager */
     /* JADX WARN: Multi-variable type inference failed */
     private void initRounter(Context context, HashMap<String, Object> hashMap) {
         String[] strArr;
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, this, context, hashMap) == null) || context == null) {
             return;
         }
         for (String str : ROUTER_ENTRANCES) {
@@ -54,8 +100,9 @@ public class BaiduRIM {
         RouterManager.getInstance().init(context.getApplicationContext(), hashMap);
     }
 
-    public void accessRimService(Context context, Map<String, Object> map, final RimServiceCallback rimServiceCallback) {
-        if (context == null || map == null) {
+    public void accessRimService(Context context, Map<String, Object> map, RimServiceCallback rimServiceCallback) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, map, rimServiceCallback) == null) || context == null || map == null) {
             return;
         }
         if (!BdWalletUtils.isSpnoValidate(map) && rimServiceCallback != null) {
@@ -72,20 +119,47 @@ public class BaiduRIM {
             if (TextUtils.isEmpty(obj2)) {
                 return;
             }
-            RouterManager.getInstance().route(context.getApplicationContext(), new RouterRequest().action(obj2).data((HashMap) map), new RouterCallback() { // from class: com.baidu.fsg.api.BaiduRIM.1
+            RouterManager.getInstance().route(context.getApplicationContext(), new RouterRequest().action(obj2).data((HashMap) map), new RouterCallback(this, rimServiceCallback) { // from class: com.baidu.fsg.api.BaiduRIM.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRIM this$0;
+                public final /* synthetic */ RimServiceCallback val$callback;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, rimServiceCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$callback = rimServiceCallback;
+                }
+
                 @Override // com.baidu.fsg.base.router.RouterCallback
                 public void onResult(int i2, HashMap hashMap2) {
-                    RimServiceCallback rimServiceCallback2 = rimServiceCallback;
-                    if (rimServiceCallback2 != null) {
-                        rimServiceCallback2.onResult(i2, hashMap2);
+                    RimServiceCallback rimServiceCallback2;
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, hashMap2) == null) || (rimServiceCallback2 = this.val$callback) == null) {
+                        return;
                     }
+                    rimServiceCallback2.onResult(i2, hashMap2);
                 }
             });
         }
     }
 
     public void initRIM(Context context, HashMap<String, Object> hashMap) {
-        if (context == null || hashMap == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap) == null) || context == null || hashMap == null) {
             return;
         }
         Context applicationContext = context.getApplicationContext();

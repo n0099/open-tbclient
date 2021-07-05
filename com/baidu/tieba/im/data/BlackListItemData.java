@@ -1,58 +1,106 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BlackListItemData extends AbstractImageProvider {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f17290e;
+    public long f17416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17291f;
+    public String f17417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17292g;
+    public String f17418g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17293h;
+    public String f17419h;
+
+    public BlackListItemData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getPhotoUrl() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(w());
-        return arrayList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add(w());
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public long getUserId() {
-        return this.f17290e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17416e : invokeV.longValue;
     }
 
     public void setUserId(long j) {
-        this.f17290e = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.f17416e = j;
+        }
     }
 
     public void setUserName(String str) {
-        this.f17291f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f17417f = str;
+        }
     }
 
     public String w() {
-        return this.f17292g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17418g : (String) invokeV.objValue;
     }
 
     public String x() {
-        if (StringUtils.isNull(this.f17293h)) {
-            return this.f17291f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (StringUtils.isNull(this.f17419h)) {
+                return this.f17417f;
+            }
+            return this.f17419h;
         }
-        return this.f17293h;
+        return (String) invokeV.objValue;
     }
 
     public void y(String str) {
-        this.f17292g = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f17418g = str;
+        }
     }
 
     public void z(String str) {
-        this.f17293h = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f17419h = str;
+        }
     }
 }

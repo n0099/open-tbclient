@@ -47,13 +47,22 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.text.BidiFormatter;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.widget.TextViewCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.badge.BadgeDrawable;
@@ -71,12 +80,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TextInputLayout extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int BOX_BACKGROUND_FILLED = 1;
     public static final int BOX_BACKGROUND_NONE = 0;
     public static final int BOX_BACKGROUND_OUTLINE = 2;
-    public static final int DEF_STYLE_RES = R.style.Widget_Design_TextInputLayout;
+    public static final int DEF_STYLE_RES;
     public static final int END_ICON_CLEAR_TEXT = 2;
     public static final int END_ICON_CUSTOM = -1;
     public static final int END_ICON_DROPDOWN_MENU = 3;
@@ -85,6 +95,7 @@ public class TextInputLayout extends LinearLayout {
     public static final int INVALID_MAX_LENGTH = -1;
     public static final int LABEL_SCALE_ANIMATION_DURATION = 167;
     public static final String LOG_TAG = "TextInputLayout";
+    public transient /* synthetic */ FieldHolder $fh;
     public ValueAnimator animator;
     @Nullable
     public MaterialShapeDrawable boxBackground;
@@ -199,157 +210,294 @@ public class TextInputLayout extends LinearLayout {
     public final RectF tmpRectF;
     public Typeface typeface;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class AccessibilityDelegate extends AccessibilityDelegateCompat {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final TextInputLayout layout;
 
         public AccessibilityDelegate(@NonNull TextInputLayout textInputLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {textInputLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.layout = textInputLayout;
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
         public void onInitializeAccessibilityNodeInfo(@NonNull View view, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-            super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
-            EditText editText = this.layout.getEditText();
-            CharSequence text = editText != null ? editText.getText() : null;
-            CharSequence hint = this.layout.getHint();
-            CharSequence helperText = this.layout.getHelperText();
-            CharSequence error = this.layout.getError();
-            int counterMaxLength = this.layout.getCounterMaxLength();
-            CharSequence counterOverflowDescription = this.layout.getCounterOverflowDescription();
-            boolean z = !TextUtils.isEmpty(text);
-            boolean z2 = !TextUtils.isEmpty(hint);
-            boolean z3 = !TextUtils.isEmpty(helperText);
-            boolean z4 = !TextUtils.isEmpty(error);
-            boolean z5 = z4 || !TextUtils.isEmpty(counterOverflowDescription);
-            String charSequence = z2 ? hint.toString() : "";
-            StringBuilder sb = new StringBuilder();
-            sb.append(charSequence);
-            sb.append(((z4 || z3) && !TextUtils.isEmpty(charSequence)) ? StringUtil.ARRAY_ELEMENT_SEPARATOR : "");
-            String sb2 = sb.toString();
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append(sb2);
-            if (z4) {
-                helperText = error;
-            } else if (!z3) {
-                helperText = "";
-            }
-            sb3.append((Object) helperText);
-            String sb4 = sb3.toString();
-            if (z) {
-                accessibilityNodeInfoCompat.setText(text);
-            } else if (!TextUtils.isEmpty(sb4)) {
-                accessibilityNodeInfoCompat.setText(sb4);
-            }
-            if (!TextUtils.isEmpty(sb4)) {
-                if (Build.VERSION.SDK_INT >= 26) {
-                    accessibilityNodeInfoCompat.setHintText(sb4);
-                } else {
-                    if (z) {
-                        sb4 = ((Object) text) + StringUtil.ARRAY_ELEMENT_SEPARATOR + sb4;
-                    }
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view, accessibilityNodeInfoCompat) == null) {
+                super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+                EditText editText = this.layout.getEditText();
+                CharSequence text = editText != null ? editText.getText() : null;
+                CharSequence hint = this.layout.getHint();
+                CharSequence helperText = this.layout.getHelperText();
+                CharSequence error = this.layout.getError();
+                int counterMaxLength = this.layout.getCounterMaxLength();
+                CharSequence counterOverflowDescription = this.layout.getCounterOverflowDescription();
+                boolean z = !TextUtils.isEmpty(text);
+                boolean z2 = !TextUtils.isEmpty(hint);
+                boolean z3 = !TextUtils.isEmpty(helperText);
+                boolean z4 = !TextUtils.isEmpty(error);
+                boolean z5 = z4 || !TextUtils.isEmpty(counterOverflowDescription);
+                String charSequence = z2 ? hint.toString() : "";
+                StringBuilder sb = new StringBuilder();
+                sb.append(charSequence);
+                sb.append(((z4 || z3) && !TextUtils.isEmpty(charSequence)) ? StringUtil.ARRAY_ELEMENT_SEPARATOR : "");
+                String sb2 = sb.toString();
+                StringBuilder sb3 = new StringBuilder();
+                sb3.append(sb2);
+                if (z4) {
+                    helperText = error;
+                } else if (!z3) {
+                    helperText = "";
+                }
+                sb3.append((Object) helperText);
+                String sb4 = sb3.toString();
+                if (z) {
+                    accessibilityNodeInfoCompat.setText(text);
+                } else if (!TextUtils.isEmpty(sb4)) {
                     accessibilityNodeInfoCompat.setText(sb4);
                 }
-                accessibilityNodeInfoCompat.setShowingHintText(!z);
-            }
-            accessibilityNodeInfoCompat.setMaxTextLength((text == null || text.length() != counterMaxLength) ? -1 : -1);
-            if (z5) {
-                if (!z4) {
-                    error = counterOverflowDescription;
+                if (!TextUtils.isEmpty(sb4)) {
+                    if (Build.VERSION.SDK_INT >= 26) {
+                        accessibilityNodeInfoCompat.setHintText(sb4);
+                    } else {
+                        if (z) {
+                            sb4 = ((Object) text) + StringUtil.ARRAY_ELEMENT_SEPARATOR + sb4;
+                        }
+                        accessibilityNodeInfoCompat.setText(sb4);
+                    }
+                    accessibilityNodeInfoCompat.setShowingHintText(!z);
                 }
-                accessibilityNodeInfoCompat.setError(error);
+                accessibilityNodeInfoCompat.setMaxTextLength((text == null || text.length() != counterMaxLength) ? -1 : -1);
+                if (z5) {
+                    if (!z4) {
+                        error = counterOverflowDescription;
+                    }
+                    accessibilityNodeInfoCompat.setError(error);
+                }
             }
         }
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface BoxBackgroundMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface EndIconMode {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface OnEditTextAttachedListener {
         void onEditTextAttached(@NonNull TextInputLayout textInputLayout);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface OnEndIconChangedListener {
         void onEndIconChanged(@NonNull TextInputLayout textInputLayout, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
-        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.textfield.TextInputLayout.SavedState.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            @NonNull
-            public SavedState[] newArray(int i2) {
-                return new SavedState[i2];
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.ClassLoaderCreator
-            @NonNull
-            public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
-                return new SavedState(parcel, classLoader);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            @Nullable
-            public SavedState createFromParcel(@NonNull Parcel parcel) {
-                return new SavedState(parcel, null);
-            }
-        };
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator<SavedState> CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public CharSequence error;
         public boolean isEndIconChecked;
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(619141446, "Lcom/google/android/material/textfield/TextInputLayout$SavedState;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(619141446, "Lcom/google/android/material/textfield/TextInputLayout$SavedState;");
+                    return;
+                }
+            }
+            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.textfield.TextInputLayout.SavedState.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                @NonNull
+                public SavedState[] newArray(int i2) {
+                    InterceptResult invokeI;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // android.os.Parcelable.ClassLoaderCreator
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) ? new SavedState(parcel, classLoader) : (SavedState) invokeLL.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                @Nullable
+                public SavedState createFromParcel(@NonNull Parcel parcel) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SavedState(parcel, null) : (SavedState) invokeL.objValue;
+                }
+            };
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(Parcelable parcelable) {
             super(parcelable);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcelable};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Parcelable) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
         }
 
         @NonNull
         public String toString() {
-            return "TextInputLayout.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " error=" + ((Object) this.error) + "}";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "TextInputLayout.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " error=" + ((Object) this.error) + "}";
+            }
+            return (String) invokeV.objValue;
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(@NonNull Parcel parcel, int i2) {
-            super.writeToParcel(parcel, i2);
-            TextUtils.writeToParcel(this.error, parcel, i2);
-            parcel.writeInt(this.isEndIconChecked ? 1 : 0);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+                super.writeToParcel(parcel, i2);
+                TextUtils.writeToParcel(this.error, parcel, i2);
+                parcel.writeInt(this.isEndIconChecked ? 1 : 0);
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(@NonNull Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel, classLoader};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.error = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
             this.isEndIconChecked = parcel.readInt() == 1;
         }
     }
 
-    public TextInputLayout(@NonNull Context context) {
-        this(context, null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1020361470, "Lcom/google/android/material/textfield/TextInputLayout;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1020361470, "Lcom/google/android/material/textfield/TextInputLayout;");
+                return;
+            }
+        }
+        DEF_STYLE_RES = R.style.Widget_Design_TextInputLayout;
     }
 
-    private void addPlaceholderTextView() {
-        TextView textView = this.placeholderTextView;
-        if (textView != null) {
-            this.inputFrame.addView(textView);
-            this.placeholderTextView.setVisibility(0);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public TextInputLayout(@NonNull Context context) {
+        this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
+    private void addPlaceholderTextView() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (textView = this.placeholderTextView) == null) {
+            return;
+        }
+        this.inputFrame.addView(textView);
+        this.placeholderTextView.setVisibility(0);
+    }
+
     private void applyBoxAttributes() {
-        MaterialShapeDrawable materialShapeDrawable = this.boxBackground;
-        if (materialShapeDrawable == null) {
+        MaterialShapeDrawable materialShapeDrawable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (materialShapeDrawable = this.boxBackground) == null) {
             return;
         }
         materialShapeDrawable.setShapeAppearanceModel(this.shapeAppearanceModel);
@@ -367,7 +515,8 @@ public class TextInputLayout extends LinearLayout {
     }
 
     private void applyBoxUnderlineAttributes() {
-        if (this.boxUnderline == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || this.boxUnderline == null) {
             return;
         }
         if (canDrawStroke()) {
@@ -377,276 +526,373 @@ public class TextInputLayout extends LinearLayout {
     }
 
     private void applyCutoutPadding(@NonNull RectF rectF) {
-        float f2 = rectF.left;
-        int i2 = this.boxLabelCutoutPaddingPx;
-        rectF.left = f2 - i2;
-        rectF.top -= i2;
-        rectF.right += i2;
-        rectF.bottom += i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, this, rectF) == null) {
+            float f2 = rectF.left;
+            int i2 = this.boxLabelCutoutPaddingPx;
+            rectF.left = f2 - i2;
+            rectF.top -= i2;
+            rectF.right += i2;
+            rectF.bottom += i2;
+        }
     }
 
     private void applyEndIconTint() {
-        applyIconTint(this.endIconView, this.hasEndIconTintList, this.endIconTintList, this.hasEndIconTintMode, this.endIconTintMode);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            applyIconTint(this.endIconView, this.hasEndIconTintList, this.endIconTintList, this.hasEndIconTintMode, this.endIconTintMode);
+        }
     }
 
     private void applyIconTint(@NonNull CheckableImageButton checkableImageButton, boolean z, ColorStateList colorStateList, boolean z2, PorterDuff.Mode mode) {
-        Drawable drawable = checkableImageButton.getDrawable();
-        if (drawable != null && (z || z2)) {
-            drawable = DrawableCompat.wrap(drawable).mutate();
-            if (z) {
-                DrawableCompat.setTintList(drawable, colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{checkableImageButton, Boolean.valueOf(z), colorStateList, Boolean.valueOf(z2), mode}) == null) {
+            Drawable drawable = checkableImageButton.getDrawable();
+            if (drawable != null && (z || z2)) {
+                drawable = DrawableCompat.wrap(drawable).mutate();
+                if (z) {
+                    DrawableCompat.setTintList(drawable, colorStateList);
+                }
+                if (z2) {
+                    DrawableCompat.setTintMode(drawable, mode);
+                }
             }
-            if (z2) {
-                DrawableCompat.setTintMode(drawable, mode);
+            if (checkableImageButton.getDrawable() != drawable) {
+                checkableImageButton.setImageDrawable(drawable);
             }
-        }
-        if (checkableImageButton.getDrawable() != drawable) {
-            checkableImageButton.setImageDrawable(drawable);
         }
     }
 
     private void applyStartIconTint() {
-        applyIconTint(this.startIconView, this.hasStartIconTintList, this.startIconTintList, this.hasStartIconTintMode, this.startIconTintMode);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            applyIconTint(this.startIconView, this.hasStartIconTintList, this.startIconTintList, this.hasStartIconTintMode, this.startIconTintMode);
+        }
     }
 
     private void assignBoxBackgroundByMode() {
-        int i2 = this.boxBackgroundMode;
-        if (i2 == 0) {
-            this.boxBackground = null;
-            this.boxUnderline = null;
-        } else if (i2 == 1) {
-            this.boxBackground = new MaterialShapeDrawable(this.shapeAppearanceModel);
-            this.boxUnderline = new MaterialShapeDrawable();
-        } else if (i2 == 2) {
-            if (this.hintEnabled && !(this.boxBackground instanceof CutoutDrawable)) {
-                this.boxBackground = new CutoutDrawable(this.shapeAppearanceModel);
-            } else {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            int i2 = this.boxBackgroundMode;
+            if (i2 == 0) {
+                this.boxBackground = null;
+                this.boxUnderline = null;
+            } else if (i2 == 1) {
                 this.boxBackground = new MaterialShapeDrawable(this.shapeAppearanceModel);
+                this.boxUnderline = new MaterialShapeDrawable();
+            } else if (i2 == 2) {
+                if (this.hintEnabled && !(this.boxBackground instanceof CutoutDrawable)) {
+                    this.boxBackground = new CutoutDrawable(this.shapeAppearanceModel);
+                } else {
+                    this.boxBackground = new MaterialShapeDrawable(this.shapeAppearanceModel);
+                }
+                this.boxUnderline = null;
+            } else {
+                throw new IllegalArgumentException(this.boxBackgroundMode + " is illegal; only @BoxBackgroundMode constants are supported.");
             }
-            this.boxUnderline = null;
-        } else {
-            throw new IllegalArgumentException(this.boxBackgroundMode + " is illegal; only @BoxBackgroundMode constants are supported.");
         }
     }
 
     private int calculateBoxBackgroundColor() {
-        return this.boxBackgroundMode == 1 ? MaterialColors.layer(MaterialColors.getColor(this, R.attr.colorSurface, 0), this.boxBackgroundColor) : this.boxBackgroundColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            return this.boxBackgroundMode == 1 ? MaterialColors.layer(MaterialColors.getColor(this, R.attr.colorSurface, 0), this.boxBackgroundColor) : this.boxBackgroundColor;
+        }
+        return invokeV.intValue;
     }
 
     @NonNull
     private Rect calculateCollapsedTextBounds(@NonNull Rect rect) {
-        if (this.editText != null) {
-            Rect rect2 = this.tmpBoundsRect;
-            boolean z = ViewCompat.getLayoutDirection(this) == 1;
-            rect2.bottom = rect.bottom;
-            int i2 = this.boxBackgroundMode;
-            if (i2 == 1) {
-                rect2.left = getLabelLeftBoundAlightWithPrefix(rect.left, z);
-                rect2.top = rect.top + this.boxCollapsedPaddingTopPx;
-                rect2.right = getLabelRightBoundAlignedWithSuffix(rect.right, z);
-                return rect2;
-            } else if (i2 != 2) {
-                rect2.left = getLabelLeftBoundAlightWithPrefix(rect.left, z);
-                rect2.top = getPaddingTop();
-                rect2.right = getLabelRightBoundAlignedWithSuffix(rect.right, z);
-                return rect2;
-            } else {
-                rect2.left = rect.left + this.editText.getPaddingLeft();
-                rect2.top = rect.top - calculateLabelMarginTop();
-                rect2.right = rect.right - this.editText.getPaddingRight();
-                return rect2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, rect)) == null) {
+            if (this.editText != null) {
+                Rect rect2 = this.tmpBoundsRect;
+                boolean z = ViewCompat.getLayoutDirection(this) == 1;
+                rect2.bottom = rect.bottom;
+                int i2 = this.boxBackgroundMode;
+                if (i2 == 1) {
+                    rect2.left = getLabelLeftBoundAlightWithPrefix(rect.left, z);
+                    rect2.top = rect.top + this.boxCollapsedPaddingTopPx;
+                    rect2.right = getLabelRightBoundAlignedWithSuffix(rect.right, z);
+                    return rect2;
+                } else if (i2 != 2) {
+                    rect2.left = getLabelLeftBoundAlightWithPrefix(rect.left, z);
+                    rect2.top = getPaddingTop();
+                    rect2.right = getLabelRightBoundAlignedWithSuffix(rect.right, z);
+                    return rect2;
+                } else {
+                    rect2.left = rect.left + this.editText.getPaddingLeft();
+                    rect2.top = rect.top - calculateLabelMarginTop();
+                    rect2.right = rect.right - this.editText.getPaddingRight();
+                    return rect2;
+                }
             }
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
+        return (Rect) invokeL.objValue;
     }
 
     private int calculateExpandedLabelBottom(@NonNull Rect rect, @NonNull Rect rect2, float f2) {
-        if (isSingleLineFilledTextField()) {
-            return (int) (rect2.top + f2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{rect, rect2, Float.valueOf(f2)})) == null) {
+            if (isSingleLineFilledTextField()) {
+                return (int) (rect2.top + f2);
+            }
+            return rect.bottom - this.editText.getCompoundPaddingBottom();
         }
-        return rect.bottom - this.editText.getCompoundPaddingBottom();
+        return invokeCommon.intValue;
     }
 
     private int calculateExpandedLabelTop(@NonNull Rect rect, float f2) {
-        if (isSingleLineFilledTextField()) {
-            return (int) (rect.centerY() - (f2 / 2.0f));
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65555, this, rect, f2)) == null) {
+            if (isSingleLineFilledTextField()) {
+                return (int) (rect.centerY() - (f2 / 2.0f));
+            }
+            return rect.top + this.editText.getCompoundPaddingTop();
         }
-        return rect.top + this.editText.getCompoundPaddingTop();
+        return invokeLF.intValue;
     }
 
     @NonNull
     private Rect calculateExpandedTextBounds(@NonNull Rect rect) {
-        if (this.editText != null) {
-            Rect rect2 = this.tmpBoundsRect;
-            float expandedTextHeight = this.collapsingTextHelper.getExpandedTextHeight();
-            rect2.left = rect.left + this.editText.getCompoundPaddingLeft();
-            rect2.top = calculateExpandedLabelTop(rect, expandedTextHeight);
-            rect2.right = rect.right - this.editText.getCompoundPaddingRight();
-            rect2.bottom = calculateExpandedLabelBottom(rect, rect2, expandedTextHeight);
-            return rect2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, rect)) == null) {
+            if (this.editText != null) {
+                Rect rect2 = this.tmpBoundsRect;
+                float expandedTextHeight = this.collapsingTextHelper.getExpandedTextHeight();
+                rect2.left = rect.left + this.editText.getCompoundPaddingLeft();
+                rect2.top = calculateExpandedLabelTop(rect, expandedTextHeight);
+                rect2.right = rect.right - this.editText.getCompoundPaddingRight();
+                rect2.bottom = calculateExpandedLabelBottom(rect, rect2, expandedTextHeight);
+                return rect2;
+            }
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
+        return (Rect) invokeL.objValue;
     }
 
     private int calculateLabelMarginTop() {
+        InterceptResult invokeV;
         float collapsedTextHeight;
-        if (this.hintEnabled) {
-            int i2 = this.boxBackgroundMode;
-            if (i2 == 0 || i2 == 1) {
-                collapsedTextHeight = this.collapsingTextHelper.getCollapsedTextHeight();
-            } else if (i2 != 2) {
-                return 0;
-            } else {
-                collapsedTextHeight = this.collapsingTextHelper.getCollapsedTextHeight() / 2.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
+            if (this.hintEnabled) {
+                int i2 = this.boxBackgroundMode;
+                if (i2 == 0 || i2 == 1) {
+                    collapsedTextHeight = this.collapsingTextHelper.getCollapsedTextHeight();
+                } else if (i2 != 2) {
+                    return 0;
+                } else {
+                    collapsedTextHeight = this.collapsingTextHelper.getCollapsedTextHeight() / 2.0f;
+                }
+                return (int) collapsedTextHeight;
             }
-            return (int) collapsedTextHeight;
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     private boolean canDrawOutlineStroke() {
-        return this.boxBackgroundMode == 2 && canDrawStroke();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) ? this.boxBackgroundMode == 2 && canDrawStroke() : invokeV.booleanValue;
     }
 
     private boolean canDrawStroke() {
-        return this.boxStrokeWidthPx > -1 && this.boxStrokeColor != 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) ? this.boxStrokeWidthPx > -1 && this.boxStrokeColor != 0 : invokeV.booleanValue;
     }
 
     private void closeCutout() {
-        if (cutoutEnabled()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65560, this) == null) && cutoutEnabled()) {
             ((CutoutDrawable) this.boxBackground).removeCutout();
         }
     }
 
     private void collapseHint(boolean z) {
-        ValueAnimator valueAnimator = this.animator;
-        if (valueAnimator != null && valueAnimator.isRunning()) {
-            this.animator.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65561, this, z) == null) {
+            ValueAnimator valueAnimator = this.animator;
+            if (valueAnimator != null && valueAnimator.isRunning()) {
+                this.animator.cancel();
+            }
+            if (z && this.hintAnimationEnabled) {
+                animateToExpansionFraction(1.0f);
+            } else {
+                this.collapsingTextHelper.setExpansionFraction(1.0f);
+            }
+            this.hintExpanded = false;
+            if (cutoutEnabled()) {
+                openCutout();
+            }
+            updatePlaceholderText();
+            updatePrefixTextVisibility();
+            updateSuffixTextVisibility();
         }
-        if (z && this.hintAnimationEnabled) {
-            animateToExpansionFraction(1.0f);
-        } else {
-            this.collapsingTextHelper.setExpansionFraction(1.0f);
-        }
-        this.hintExpanded = false;
-        if (cutoutEnabled()) {
-            openCutout();
-        }
-        updatePlaceholderText();
-        updatePrefixTextVisibility();
-        updateSuffixTextVisibility();
     }
 
     private boolean cutoutEnabled() {
-        return this.hintEnabled && !TextUtils.isEmpty(this.hint) && (this.boxBackground instanceof CutoutDrawable);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, this)) == null) ? this.hintEnabled && !TextUtils.isEmpty(this.hint) && (this.boxBackground instanceof CutoutDrawable) : invokeV.booleanValue;
     }
 
     private void dispatchOnEditTextAttached() {
-        Iterator<OnEditTextAttachedListener> it = this.editTextAttachedListeners.iterator();
-        while (it.hasNext()) {
-            it.next().onEditTextAttached(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+            Iterator<OnEditTextAttachedListener> it = this.editTextAttachedListeners.iterator();
+            while (it.hasNext()) {
+                it.next().onEditTextAttached(this);
+            }
         }
     }
 
     private void dispatchOnEndIconChanged(int i2) {
-        Iterator<OnEndIconChangedListener> it = this.endIconChangedListeners.iterator();
-        while (it.hasNext()) {
-            it.next().onEndIconChanged(this, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65564, this, i2) == null) {
+            Iterator<OnEndIconChangedListener> it = this.endIconChangedListeners.iterator();
+            while (it.hasNext()) {
+                it.next().onEndIconChanged(this, i2);
+            }
         }
     }
 
     private void drawBoxUnderline(Canvas canvas) {
-        MaterialShapeDrawable materialShapeDrawable = this.boxUnderline;
-        if (materialShapeDrawable != null) {
-            Rect bounds = materialShapeDrawable.getBounds();
-            bounds.top = bounds.bottom - this.boxStrokeWidthPx;
-            this.boxUnderline.draw(canvas);
+        MaterialShapeDrawable materialShapeDrawable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65565, this, canvas) == null) || (materialShapeDrawable = this.boxUnderline) == null) {
+            return;
         }
+        Rect bounds = materialShapeDrawable.getBounds();
+        bounds.top = bounds.bottom - this.boxStrokeWidthPx;
+        this.boxUnderline.draw(canvas);
     }
 
     private void drawHint(@NonNull Canvas canvas) {
-        if (this.hintEnabled) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65566, this, canvas) == null) && this.hintEnabled) {
             this.collapsingTextHelper.draw(canvas);
         }
     }
 
     private void expandHint(boolean z) {
-        ValueAnimator valueAnimator = this.animator;
-        if (valueAnimator != null && valueAnimator.isRunning()) {
-            this.animator.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65567, this, z) == null) {
+            ValueAnimator valueAnimator = this.animator;
+            if (valueAnimator != null && valueAnimator.isRunning()) {
+                this.animator.cancel();
+            }
+            if (z && this.hintAnimationEnabled) {
+                animateToExpansionFraction(0.0f);
+            } else {
+                this.collapsingTextHelper.setExpansionFraction(0.0f);
+            }
+            if (cutoutEnabled() && ((CutoutDrawable) this.boxBackground).hasCutout()) {
+                closeCutout();
+            }
+            this.hintExpanded = true;
+            hidePlaceholderText();
+            updatePrefixTextVisibility();
+            updateSuffixTextVisibility();
         }
-        if (z && this.hintAnimationEnabled) {
-            animateToExpansionFraction(0.0f);
-        } else {
-            this.collapsingTextHelper.setExpansionFraction(0.0f);
-        }
-        if (cutoutEnabled() && ((CutoutDrawable) this.boxBackground).hasCutout()) {
-            closeCutout();
-        }
-        this.hintExpanded = true;
-        hidePlaceholderText();
-        updatePrefixTextVisibility();
-        updateSuffixTextVisibility();
     }
 
     private EndIconDelegate getEndIconDelegate() {
-        EndIconDelegate endIconDelegate = this.endIconDelegates.get(this.endIconMode);
-        return endIconDelegate != null ? endIconDelegate : this.endIconDelegates.get(0);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
+            EndIconDelegate endIconDelegate = this.endIconDelegates.get(this.endIconMode);
+            return endIconDelegate != null ? endIconDelegate : this.endIconDelegates.get(0);
+        }
+        return (EndIconDelegate) invokeV.objValue;
     }
 
     @Nullable
     private CheckableImageButton getEndIconToUpdateDummyDrawable() {
-        if (this.errorIconView.getVisibility() == 0) {
-            return this.errorIconView;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) {
+            if (this.errorIconView.getVisibility() == 0) {
+                return this.errorIconView;
+            }
+            if (hasEndIcon() && isEndIconVisible()) {
+                return this.endIconView;
+            }
+            return null;
         }
-        if (hasEndIcon() && isEndIconVisible()) {
-            return this.endIconView;
-        }
-        return null;
+        return (CheckableImageButton) invokeV.objValue;
     }
 
     private int getLabelLeftBoundAlightWithPrefix(int i2, boolean z) {
-        int compoundPaddingLeft = i2 + this.editText.getCompoundPaddingLeft();
-        return (this.prefixText == null || z) ? compoundPaddingLeft : (compoundPaddingLeft - this.prefixTextView.getMeasuredWidth()) + this.prefixTextView.getPaddingLeft();
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            int compoundPaddingLeft = i2 + this.editText.getCompoundPaddingLeft();
+            return (this.prefixText == null || z) ? compoundPaddingLeft : (compoundPaddingLeft - this.prefixTextView.getMeasuredWidth()) + this.prefixTextView.getPaddingLeft();
+        }
+        return invokeCommon.intValue;
     }
 
     private int getLabelRightBoundAlignedWithSuffix(int i2, boolean z) {
-        int compoundPaddingRight = i2 - this.editText.getCompoundPaddingRight();
-        return (this.prefixText == null || !z) ? compoundPaddingRight : compoundPaddingRight + (this.prefixTextView.getMeasuredWidth() - this.prefixTextView.getPaddingRight());
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            int compoundPaddingRight = i2 - this.editText.getCompoundPaddingRight();
+            return (this.prefixText == null || !z) ? compoundPaddingRight : compoundPaddingRight + (this.prefixTextView.getMeasuredWidth() - this.prefixTextView.getPaddingRight());
+        }
+        return invokeCommon.intValue;
     }
 
     private boolean hasEndIcon() {
-        return this.endIconMode != 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) ? this.endIconMode != 0 : invokeV.booleanValue;
     }
 
     private void hidePlaceholderText() {
-        TextView textView = this.placeholderTextView;
-        if (textView == null || !this.placeholderEnabled) {
-            return;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65573, this) == null) && (textView = this.placeholderTextView) != null && this.placeholderEnabled) {
+            textView.setText((CharSequence) null);
+            this.placeholderTextView.setVisibility(4);
         }
-        textView.setText((CharSequence) null);
-        this.placeholderTextView.setVisibility(4);
     }
 
     private boolean isErrorIconVisible() {
-        return this.errorIconView.getVisibility() == 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65574, this)) == null) ? this.errorIconView.getVisibility() == 0 : invokeV.booleanValue;
     }
 
     private boolean isSingleLineFilledTextField() {
-        return this.boxBackgroundMode == 1 && (Build.VERSION.SDK_INT < 16 || this.editText.getMinLines() <= 1);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65575, this)) == null) ? this.boxBackgroundMode == 1 && (Build.VERSION.SDK_INT < 16 || this.editText.getMinLines() <= 1) : invokeV.booleanValue;
     }
 
     private void onApplyBoxBackgroundMode() {
-        assignBoxBackgroundByMode();
-        setEditTextBoxBackground();
-        updateTextInputBoxState();
-        if (this.boxBackgroundMode != 0) {
-            updateInputLayoutMargins();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65576, this) == null) {
+            assignBoxBackgroundByMode();
+            setEditTextBoxBackground();
+            updateTextInputBoxState();
+            if (this.boxBackgroundMode != 0) {
+                updateInputLayoutMargins();
+            }
         }
     }
 
     private void openCutout() {
-        if (cutoutEnabled()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65577, this) == null) && cutoutEnabled()) {
             RectF rectF = this.tmpRectF;
             this.collapsingTextHelper.getCollapsedTextActualBounds(rectF, this.editText.getWidth(), this.editText.getGravity());
             applyCutoutPadding(rectF);
@@ -656,109 +902,153 @@ public class TextInputLayout extends LinearLayout {
     }
 
     public static void recursiveSetEnabled(@NonNull ViewGroup viewGroup, boolean z) {
-        int childCount = viewGroup.getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = viewGroup.getChildAt(i2);
-            childAt.setEnabled(z);
-            if (childAt instanceof ViewGroup) {
-                recursiveSetEnabled((ViewGroup) childAt, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65578, null, viewGroup, z) == null) {
+            int childCount = viewGroup.getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = viewGroup.getChildAt(i2);
+                childAt.setEnabled(z);
+                if (childAt instanceof ViewGroup) {
+                    recursiveSetEnabled((ViewGroup) childAt, z);
+                }
             }
         }
     }
 
     private void removePlaceholderTextView() {
-        TextView textView = this.placeholderTextView;
-        if (textView != null) {
-            textView.setVisibility(8);
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65579, this) == null) || (textView = this.placeholderTextView) == null) {
+            return;
         }
+        textView.setVisibility(8);
     }
 
     private void setEditText(EditText editText) {
-        if (this.editText == null) {
-            if (this.endIconMode != 3 && !(editText instanceof TextInputEditText)) {
-                Log.i(LOG_TAG, "EditText added is not a TextInputEditText. Please switch to using that class instead.");
-            }
-            this.editText = editText;
-            onApplyBoxBackgroundMode();
-            setTextInputAccessibilityDelegate(new AccessibilityDelegate(this));
-            this.collapsingTextHelper.setTypefaces(this.editText.getTypeface());
-            this.collapsingTextHelper.setExpandedTextSize(this.editText.getTextSize());
-            int gravity = this.editText.getGravity();
-            this.collapsingTextHelper.setCollapsedTextGravity((gravity & OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR) | 48);
-            this.collapsingTextHelper.setExpandedTextGravity(gravity);
-            this.editText.addTextChangedListener(new TextWatcher() { // from class: com.google.android.material.textfield.TextInputLayout.1
-                @Override // android.text.TextWatcher
-                public void afterTextChanged(@NonNull Editable editable) {
-                    TextInputLayout textInputLayout = TextInputLayout.this;
-                    textInputLayout.updateLabelState(!textInputLayout.restoringSavedState);
-                    TextInputLayout textInputLayout2 = TextInputLayout.this;
-                    if (textInputLayout2.counterEnabled) {
-                        textInputLayout2.updateCounter(editable.length());
-                    }
-                    if (TextInputLayout.this.placeholderEnabled) {
-                        TextInputLayout.this.updatePlaceholderText(editable.length());
-                    }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65580, this, editText) == null) {
+            if (this.editText == null) {
+                if (this.endIconMode != 3 && !(editText instanceof TextInputEditText)) {
+                    Log.i(LOG_TAG, "EditText added is not a TextInputEditText. Please switch to using that class instead.");
                 }
+                this.editText = editText;
+                onApplyBoxBackgroundMode();
+                setTextInputAccessibilityDelegate(new AccessibilityDelegate(this));
+                this.collapsingTextHelper.setTypefaces(this.editText.getTypeface());
+                this.collapsingTextHelper.setExpandedTextSize(this.editText.getTextSize());
+                int gravity = this.editText.getGravity();
+                this.collapsingTextHelper.setCollapsedTextGravity((gravity & OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR) | 48);
+                this.collapsingTextHelper.setExpandedTextGravity(gravity);
+                this.editText.addTextChangedListener(new TextWatcher(this) { // from class: com.google.android.material.textfield.TextInputLayout.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TextInputLayout this$0;
 
-                @Override // android.text.TextWatcher
-                public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-                }
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
 
-                @Override // android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                    @Override // android.text.TextWatcher
+                    public void afterTextChanged(@NonNull Editable editable) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
+                            TextInputLayout textInputLayout = this.this$0;
+                            textInputLayout.updateLabelState(!textInputLayout.restoringSavedState);
+                            TextInputLayout textInputLayout2 = this.this$0;
+                            if (textInputLayout2.counterEnabled) {
+                                textInputLayout2.updateCounter(editable.length());
+                            }
+                            if (this.this$0.placeholderEnabled) {
+                                this.this$0.updatePlaceholderText(editable.length());
+                            }
+                        }
+                    }
+
+                    @Override // android.text.TextWatcher
+                    public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+                        }
+                    }
+
+                    @Override // android.text.TextWatcher
+                    public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+                        }
+                    }
+                });
+                if (this.defaultHintTextColor == null) {
+                    this.defaultHintTextColor = this.editText.getHintTextColors();
                 }
-            });
-            if (this.defaultHintTextColor == null) {
-                this.defaultHintTextColor = this.editText.getHintTextColors();
-            }
-            if (this.hintEnabled) {
-                if (TextUtils.isEmpty(this.hint)) {
-                    CharSequence hint = this.editText.getHint();
-                    this.originalHint = hint;
-                    setHint(hint);
-                    this.editText.setHint((CharSequence) null);
+                if (this.hintEnabled) {
+                    if (TextUtils.isEmpty(this.hint)) {
+                        CharSequence hint = this.editText.getHint();
+                        this.originalHint = hint;
+                        setHint(hint);
+                        this.editText.setHint((CharSequence) null);
+                    }
+                    this.isProvidingHint = true;
                 }
-                this.isProvidingHint = true;
+                if (this.counterView != null) {
+                    updateCounter(this.editText.getText().length());
+                }
+                updateEditTextBackground();
+                this.indicatorViewController.adjustIndicatorPadding();
+                this.startLayout.bringToFront();
+                this.endLayout.bringToFront();
+                this.endIconFrame.bringToFront();
+                this.errorIconView.bringToFront();
+                dispatchOnEditTextAttached();
+                updatePrefixTextViewPadding();
+                updateSuffixTextViewPadding();
+                if (!isEnabled()) {
+                    editText.setEnabled(false);
+                }
+                updateLabelState(false, true);
+                return;
             }
-            if (this.counterView != null) {
-                updateCounter(this.editText.getText().length());
-            }
-            updateEditTextBackground();
-            this.indicatorViewController.adjustIndicatorPadding();
-            this.startLayout.bringToFront();
-            this.endLayout.bringToFront();
-            this.endIconFrame.bringToFront();
-            this.errorIconView.bringToFront();
-            dispatchOnEditTextAttached();
-            updatePrefixTextViewPadding();
-            updateSuffixTextViewPadding();
-            if (!isEnabled()) {
-                editText.setEnabled(false);
-            }
-            updateLabelState(false, true);
-            return;
+            throw new IllegalArgumentException("We already have an EditText, can only have one");
         }
-        throw new IllegalArgumentException("We already have an EditText, can only have one");
     }
 
     private void setEditTextBoxBackground() {
-        if (shouldUseEditTextBackgroundForBoxBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65581, this) == null) && shouldUseEditTextBackgroundForBoxBackground()) {
             ViewCompat.setBackground(this.editText, this.boxBackground);
         }
     }
 
     private void setErrorIconVisible(boolean z) {
-        this.errorIconView.setVisibility(z ? 0 : 8);
-        this.endIconFrame.setVisibility(z ? 8 : 0);
-        updateSuffixTextViewPadding();
-        if (hasEndIcon()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65582, this, z) == null) {
+            this.errorIconView.setVisibility(z ? 0 : 8);
+            this.endIconFrame.setVisibility(z ? 8 : 0);
+            updateSuffixTextViewPadding();
+            if (hasEndIcon()) {
+                return;
+            }
+            updateDummyDrawables();
         }
-        updateDummyDrawables();
     }
 
     private void setHintInternal(CharSequence charSequence) {
-        if (TextUtils.equals(charSequence, this.hint)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65583, this, charSequence) == null) || TextUtils.equals(charSequence, this.hint)) {
             return;
         }
         this.hint = charSequence;
@@ -770,29 +1060,39 @@ public class TextInputLayout extends LinearLayout {
     }
 
     public static void setIconClickable(@NonNull CheckableImageButton checkableImageButton, @Nullable View.OnLongClickListener onLongClickListener) {
-        boolean hasOnClickListeners = ViewCompat.hasOnClickListeners(checkableImageButton);
-        boolean z = false;
-        boolean z2 = onLongClickListener != null;
-        z = (hasOnClickListeners || z2) ? true : true;
-        checkableImageButton.setFocusable(z);
-        checkableImageButton.setClickable(hasOnClickListeners);
-        checkableImageButton.setPressable(hasOnClickListeners);
-        checkableImageButton.setLongClickable(z2);
-        ViewCompat.setImportantForAccessibility(checkableImageButton, z ? 1 : 2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65584, null, checkableImageButton, onLongClickListener) == null) {
+            boolean hasOnClickListeners = ViewCompat.hasOnClickListeners(checkableImageButton);
+            boolean z = false;
+            boolean z2 = onLongClickListener != null;
+            z = (hasOnClickListeners || z2) ? true : true;
+            checkableImageButton.setFocusable(z);
+            checkableImageButton.setClickable(hasOnClickListeners);
+            checkableImageButton.setPressable(hasOnClickListeners);
+            checkableImageButton.setLongClickable(z2);
+            ViewCompat.setImportantForAccessibility(checkableImageButton, z ? 1 : 2);
+        }
     }
 
     public static void setIconOnClickListener(@NonNull CheckableImageButton checkableImageButton, @Nullable View.OnClickListener onClickListener, @Nullable View.OnLongClickListener onLongClickListener) {
-        checkableImageButton.setOnClickListener(onClickListener);
-        setIconClickable(checkableImageButton, onLongClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65585, null, checkableImageButton, onClickListener, onLongClickListener) == null) {
+            checkableImageButton.setOnClickListener(onClickListener);
+            setIconClickable(checkableImageButton, onLongClickListener);
+        }
     }
 
     public static void setIconOnLongClickListener(@NonNull CheckableImageButton checkableImageButton, @Nullable View.OnLongClickListener onLongClickListener) {
-        checkableImageButton.setOnLongClickListener(onLongClickListener);
-        setIconClickable(checkableImageButton, onLongClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65586, null, checkableImageButton, onLongClickListener) == null) {
+            checkableImageButton.setOnLongClickListener(onLongClickListener);
+            setIconClickable(checkableImageButton, onLongClickListener);
+        }
     }
 
     private void setPlaceholderTextEnabled(boolean z) {
-        if (this.placeholderEnabled == z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(65587, this, z) == null) || this.placeholderEnabled == z) {
             return;
         }
         if (z) {
@@ -811,180 +1111,217 @@ public class TextInputLayout extends LinearLayout {
     }
 
     private boolean shouldUpdateEndDummyDrawable() {
-        return (this.errorIconView.getVisibility() == 0 || ((hasEndIcon() && isEndIconVisible()) || this.suffixText != null)) && this.endLayout.getMeasuredWidth() > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65588, this)) == null) ? (this.errorIconView.getVisibility() == 0 || ((hasEndIcon() && isEndIconVisible()) || this.suffixText != null)) && this.endLayout.getMeasuredWidth() > 0 : invokeV.booleanValue;
     }
 
     private boolean shouldUpdateStartDummyDrawable() {
-        return !(getStartIconDrawable() == null && this.prefixText == null) && this.startLayout.getMeasuredWidth() > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65589, this)) == null) ? !(getStartIconDrawable() == null && this.prefixText == null) && this.startLayout.getMeasuredWidth() > 0 : invokeV.booleanValue;
     }
 
     private boolean shouldUseEditTextBackgroundForBoxBackground() {
-        EditText editText = this.editText;
-        return (editText == null || this.boxBackground == null || editText.getBackground() != null || this.boxBackgroundMode == 0) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65590, this)) == null) {
+            EditText editText = this.editText;
+            return (editText == null || this.boxBackground == null || editText.getBackground() != null || this.boxBackgroundMode == 0) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     private void showPlaceholderText() {
-        TextView textView = this.placeholderTextView;
-        if (textView == null || !this.placeholderEnabled) {
-            return;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65591, this) == null) && (textView = this.placeholderTextView) != null && this.placeholderEnabled) {
+            textView.setText(this.placeholderText);
+            this.placeholderTextView.setVisibility(0);
+            this.placeholderTextView.bringToFront();
         }
-        textView.setText(this.placeholderText);
-        this.placeholderTextView.setVisibility(0);
-        this.placeholderTextView.bringToFront();
     }
 
     private void tintEndIconOnError(boolean z) {
-        if (z && getEndIconDrawable() != null) {
-            Drawable mutate = DrawableCompat.wrap(getEndIconDrawable()).mutate();
-            DrawableCompat.setTint(mutate, this.indicatorViewController.getErrorViewCurrentTextColor());
-            this.endIconView.setImageDrawable(mutate);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65592, this, z) == null) {
+            if (z && getEndIconDrawable() != null) {
+                Drawable mutate = DrawableCompat.wrap(getEndIconDrawable()).mutate();
+                DrawableCompat.setTint(mutate, this.indicatorViewController.getErrorViewCurrentTextColor());
+                this.endIconView.setImageDrawable(mutate);
+                return;
+            }
+            applyEndIconTint();
         }
-        applyEndIconTint();
     }
 
     private void updateBoxUnderlineBounds(@NonNull Rect rect) {
-        MaterialShapeDrawable materialShapeDrawable = this.boxUnderline;
-        if (materialShapeDrawable != null) {
-            int i2 = rect.bottom;
-            materialShapeDrawable.setBounds(rect.left, i2 - this.boxStrokeWidthFocusedPx, rect.right, i2);
+        MaterialShapeDrawable materialShapeDrawable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65593, this, rect) == null) || (materialShapeDrawable = this.boxUnderline) == null) {
+            return;
         }
+        int i2 = rect.bottom;
+        materialShapeDrawable.setBounds(rect.left, i2 - this.boxStrokeWidthFocusedPx, rect.right, i2);
     }
 
     private void updateCounter() {
-        if (this.counterView != null) {
-            EditText editText = this.editText;
-            updateCounter(editText == null ? 0 : editText.getText().length());
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65594, this) == null) || this.counterView == null) {
+            return;
         }
+        EditText editText = this.editText;
+        updateCounter(editText == null ? 0 : editText.getText().length());
     }
 
     public static void updateCounterContentDescription(@NonNull Context context, @NonNull TextView textView, int i2, int i3, boolean z) {
-        textView.setContentDescription(context.getString(z ? R.string.character_counter_overflowed_content_description : R.string.character_counter_content_description, Integer.valueOf(i2), Integer.valueOf(i3)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65595, null, new Object[]{context, textView, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+            textView.setContentDescription(context.getString(z ? R.string.character_counter_overflowed_content_description : R.string.character_counter_content_description, Integer.valueOf(i2), Integer.valueOf(i3)));
+        }
     }
 
     private void updateCounterTextAppearanceAndColor() {
+        TextView textView;
         ColorStateList colorStateList;
         ColorStateList colorStateList2;
-        TextView textView = this.counterView;
-        if (textView != null) {
-            setTextAppearanceCompatWithErrorFallback(textView, this.counterOverflowed ? this.counterOverflowTextAppearance : this.counterTextAppearance);
-            if (!this.counterOverflowed && (colorStateList2 = this.counterTextColor) != null) {
-                this.counterView.setTextColor(colorStateList2);
-            }
-            if (!this.counterOverflowed || (colorStateList = this.counterOverflowTextColor) == null) {
-                return;
-            }
-            this.counterView.setTextColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65596, this) == null) || (textView = this.counterView) == null) {
+            return;
         }
+        setTextAppearanceCompatWithErrorFallback(textView, this.counterOverflowed ? this.counterOverflowTextAppearance : this.counterTextAppearance);
+        if (!this.counterOverflowed && (colorStateList2 = this.counterTextColor) != null) {
+            this.counterView.setTextColor(colorStateList2);
+        }
+        if (!this.counterOverflowed || (colorStateList = this.counterOverflowTextColor) == null) {
+            return;
+        }
+        this.counterView.setTextColor(colorStateList);
     }
 
     private boolean updateDummyDrawables() {
+        InterceptResult invokeV;
         boolean z;
-        if (this.editText == null) {
-            return false;
-        }
-        boolean z2 = true;
-        if (shouldUpdateStartDummyDrawable()) {
-            int measuredWidth = this.startLayout.getMeasuredWidth() - this.editText.getPaddingLeft();
-            if (this.startDummyDrawable == null || this.startDummyDrawableWidth != measuredWidth) {
-                ColorDrawable colorDrawable = new ColorDrawable();
-                this.startDummyDrawable = colorDrawable;
-                this.startDummyDrawableWidth = measuredWidth;
-                colorDrawable.setBounds(0, 0, measuredWidth, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65597, this)) == null) {
+            if (this.editText == null) {
+                return false;
             }
-            Drawable[] compoundDrawablesRelative = TextViewCompat.getCompoundDrawablesRelative(this.editText);
-            Drawable drawable = compoundDrawablesRelative[0];
-            Drawable drawable2 = this.startDummyDrawable;
-            if (drawable != drawable2) {
-                TextViewCompat.setCompoundDrawablesRelative(this.editText, drawable2, compoundDrawablesRelative[1], compoundDrawablesRelative[2], compoundDrawablesRelative[3]);
-                z = true;
-            }
-            z = false;
-        } else {
-            if (this.startDummyDrawable != null) {
-                Drawable[] compoundDrawablesRelative2 = TextViewCompat.getCompoundDrawablesRelative(this.editText);
-                TextViewCompat.setCompoundDrawablesRelative(this.editText, null, compoundDrawablesRelative2[1], compoundDrawablesRelative2[2], compoundDrawablesRelative2[3]);
-                this.startDummyDrawable = null;
-                z = true;
-            }
-            z = false;
-        }
-        if (shouldUpdateEndDummyDrawable()) {
-            int measuredWidth2 = this.suffixTextView.getMeasuredWidth() - this.editText.getPaddingRight();
-            CheckableImageButton endIconToUpdateDummyDrawable = getEndIconToUpdateDummyDrawable();
-            if (endIconToUpdateDummyDrawable != null) {
-                measuredWidth2 = measuredWidth2 + endIconToUpdateDummyDrawable.getMeasuredWidth() + MarginLayoutParamsCompat.getMarginStart((ViewGroup.MarginLayoutParams) endIconToUpdateDummyDrawable.getLayoutParams());
-            }
-            Drawable[] compoundDrawablesRelative3 = TextViewCompat.getCompoundDrawablesRelative(this.editText);
-            Drawable drawable3 = this.endDummyDrawable;
-            if (drawable3 != null && this.endDummyDrawableWidth != measuredWidth2) {
-                this.endDummyDrawableWidth = measuredWidth2;
-                drawable3.setBounds(0, 0, measuredWidth2, 1);
-                TextViewCompat.setCompoundDrawablesRelative(this.editText, compoundDrawablesRelative3[0], compoundDrawablesRelative3[1], this.endDummyDrawable, compoundDrawablesRelative3[3]);
-            } else {
-                if (this.endDummyDrawable == null) {
-                    ColorDrawable colorDrawable2 = new ColorDrawable();
-                    this.endDummyDrawable = colorDrawable2;
-                    this.endDummyDrawableWidth = measuredWidth2;
-                    colorDrawable2.setBounds(0, 0, measuredWidth2, 1);
+            boolean z2 = true;
+            if (shouldUpdateStartDummyDrawable()) {
+                int measuredWidth = this.startLayout.getMeasuredWidth() - this.editText.getPaddingLeft();
+                if (this.startDummyDrawable == null || this.startDummyDrawableWidth != measuredWidth) {
+                    ColorDrawable colorDrawable = new ColorDrawable();
+                    this.startDummyDrawable = colorDrawable;
+                    this.startDummyDrawableWidth = measuredWidth;
+                    colorDrawable.setBounds(0, 0, measuredWidth, 1);
                 }
-                Drawable drawable4 = compoundDrawablesRelative3[2];
-                Drawable drawable5 = this.endDummyDrawable;
-                if (drawable4 != drawable5) {
-                    this.originalEditTextEndDrawable = compoundDrawablesRelative3[2];
-                    TextViewCompat.setCompoundDrawablesRelative(this.editText, compoundDrawablesRelative3[0], compoundDrawablesRelative3[1], drawable5, compoundDrawablesRelative3[3]);
+                Drawable[] compoundDrawablesRelative = TextViewCompat.getCompoundDrawablesRelative(this.editText);
+                Drawable drawable = compoundDrawablesRelative[0];
+                Drawable drawable2 = this.startDummyDrawable;
+                if (drawable != drawable2) {
+                    TextViewCompat.setCompoundDrawablesRelative(this.editText, drawable2, compoundDrawablesRelative[1], compoundDrawablesRelative[2], compoundDrawablesRelative[3]);
+                    z = true;
+                }
+                z = false;
+            } else {
+                if (this.startDummyDrawable != null) {
+                    Drawable[] compoundDrawablesRelative2 = TextViewCompat.getCompoundDrawablesRelative(this.editText);
+                    TextViewCompat.setCompoundDrawablesRelative(this.editText, null, compoundDrawablesRelative2[1], compoundDrawablesRelative2[2], compoundDrawablesRelative2[3]);
+                    this.startDummyDrawable = null;
+                    z = true;
+                }
+                z = false;
+            }
+            if (shouldUpdateEndDummyDrawable()) {
+                int measuredWidth2 = this.suffixTextView.getMeasuredWidth() - this.editText.getPaddingRight();
+                CheckableImageButton endIconToUpdateDummyDrawable = getEndIconToUpdateDummyDrawable();
+                if (endIconToUpdateDummyDrawable != null) {
+                    measuredWidth2 = measuredWidth2 + endIconToUpdateDummyDrawable.getMeasuredWidth() + MarginLayoutParamsCompat.getMarginStart((ViewGroup.MarginLayoutParams) endIconToUpdateDummyDrawable.getLayoutParams());
+                }
+                Drawable[] compoundDrawablesRelative3 = TextViewCompat.getCompoundDrawablesRelative(this.editText);
+                Drawable drawable3 = this.endDummyDrawable;
+                if (drawable3 != null && this.endDummyDrawableWidth != measuredWidth2) {
+                    this.endDummyDrawableWidth = measuredWidth2;
+                    drawable3.setBounds(0, 0, measuredWidth2, 1);
+                    TextViewCompat.setCompoundDrawablesRelative(this.editText, compoundDrawablesRelative3[0], compoundDrawablesRelative3[1], this.endDummyDrawable, compoundDrawablesRelative3[3]);
+                } else {
+                    if (this.endDummyDrawable == null) {
+                        ColorDrawable colorDrawable2 = new ColorDrawable();
+                        this.endDummyDrawable = colorDrawable2;
+                        this.endDummyDrawableWidth = measuredWidth2;
+                        colorDrawable2.setBounds(0, 0, measuredWidth2, 1);
+                    }
+                    Drawable drawable4 = compoundDrawablesRelative3[2];
+                    Drawable drawable5 = this.endDummyDrawable;
+                    if (drawable4 != drawable5) {
+                        this.originalEditTextEndDrawable = compoundDrawablesRelative3[2];
+                        TextViewCompat.setCompoundDrawablesRelative(this.editText, compoundDrawablesRelative3[0], compoundDrawablesRelative3[1], drawable5, compoundDrawablesRelative3[3]);
+                    } else {
+                        z2 = z;
+                    }
+                }
+            } else if (this.endDummyDrawable == null) {
+                return z;
+            } else {
+                Drawable[] compoundDrawablesRelative4 = TextViewCompat.getCompoundDrawablesRelative(this.editText);
+                if (compoundDrawablesRelative4[2] == this.endDummyDrawable) {
+                    TextViewCompat.setCompoundDrawablesRelative(this.editText, compoundDrawablesRelative4[0], compoundDrawablesRelative4[1], this.originalEditTextEndDrawable, compoundDrawablesRelative4[3]);
                 } else {
                     z2 = z;
                 }
+                this.endDummyDrawable = null;
             }
-        } else if (this.endDummyDrawable == null) {
-            return z;
-        } else {
-            Drawable[] compoundDrawablesRelative4 = TextViewCompat.getCompoundDrawablesRelative(this.editText);
-            if (compoundDrawablesRelative4[2] == this.endDummyDrawable) {
-                TextViewCompat.setCompoundDrawablesRelative(this.editText, compoundDrawablesRelative4[0], compoundDrawablesRelative4[1], this.originalEditTextEndDrawable, compoundDrawablesRelative4[3]);
-            } else {
-                z2 = z;
-            }
-            this.endDummyDrawable = null;
+            return z2;
         }
-        return z2;
+        return invokeV.booleanValue;
     }
 
     private boolean updateEditTextHeightBasedOnIcon() {
+        InterceptResult invokeV;
         int max;
-        if (this.editText != null && this.editText.getMeasuredHeight() < (max = Math.max(this.endLayout.getMeasuredHeight(), this.startLayout.getMeasuredHeight()))) {
-            this.editText.setMinimumHeight(max);
-            return true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65598, this)) == null) {
+            if (this.editText != null && this.editText.getMeasuredHeight() < (max = Math.max(this.endLayout.getMeasuredHeight(), this.startLayout.getMeasuredHeight()))) {
+                this.editText.setMinimumHeight(max);
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     private void updateIconColorOnState(CheckableImageButton checkableImageButton, ColorStateList colorStateList) {
-        Drawable drawable = checkableImageButton.getDrawable();
-        if (checkableImageButton.getDrawable() == null || colorStateList == null || !colorStateList.isStateful()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65599, this, checkableImageButton, colorStateList) == null) {
+            Drawable drawable = checkableImageButton.getDrawable();
+            if (checkableImageButton.getDrawable() == null || colorStateList == null || !colorStateList.isStateful()) {
+                return;
+            }
+            int colorForState = colorStateList.getColorForState(getDrawableState(), colorStateList.getDefaultColor());
+            Drawable mutate = DrawableCompat.wrap(drawable).mutate();
+            DrawableCompat.setTintList(mutate, ColorStateList.valueOf(colorForState));
+            checkableImageButton.setImageDrawable(mutate);
         }
-        int colorForState = colorStateList.getColorForState(getDrawableState(), colorStateList.getDefaultColor());
-        Drawable mutate = DrawableCompat.wrap(drawable).mutate();
-        DrawableCompat.setTintList(mutate, ColorStateList.valueOf(colorForState));
-        checkableImageButton.setImageDrawable(mutate);
     }
 
     private void updateInputLayoutMargins() {
-        if (this.boxBackgroundMode != 1) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.inputFrame.getLayoutParams();
-            int calculateLabelMarginTop = calculateLabelMarginTop();
-            if (calculateLabelMarginTop != layoutParams.topMargin) {
-                layoutParams.topMargin = calculateLabelMarginTop;
-                this.inputFrame.requestLayout();
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65600, this) == null) || this.boxBackgroundMode == 1) {
+            return;
+        }
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.inputFrame.getLayoutParams();
+        int calculateLabelMarginTop = calculateLabelMarginTop();
+        if (calculateLabelMarginTop != layoutParams.topMargin) {
+            layoutParams.topMargin = calculateLabelMarginTop;
+            this.inputFrame.requestLayout();
         }
     }
 
     private void updatePlaceholderMeasurementsBasedOnEditText() {
         EditText editText;
-        if (this.placeholderTextView == null || (editText = this.editText) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65602, this) == null) || this.placeholderTextView == null || (editText = this.editText) == null) {
             return;
         }
         this.placeholderTextView.setGravity(editText.getGravity());
@@ -992,80 +1329,104 @@ public class TextInputLayout extends LinearLayout {
     }
 
     private void updatePlaceholderText() {
-        EditText editText = this.editText;
-        updatePlaceholderText(editText == null ? 0 : editText.getText().length());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65603, this) == null) {
+            EditText editText = this.editText;
+            updatePlaceholderText(editText == null ? 0 : editText.getText().length());
+        }
     }
 
     private void updatePrefixTextViewPadding() {
-        if (this.editText == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65605, this) == null) || this.editText == null) {
             return;
         }
         ViewCompat.setPaddingRelative(this.prefixTextView, isStartIconVisible() ? 0 : ViewCompat.getPaddingStart(this.editText), this.editText.getCompoundPaddingTop(), 0, this.editText.getCompoundPaddingBottom());
     }
 
     private void updatePrefixTextVisibility() {
-        this.prefixTextView.setVisibility((this.prefixText == null || isHintExpanded()) ? 8 : 0);
-        updateDummyDrawables();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65606, this) == null) {
+            this.prefixTextView.setVisibility((this.prefixText == null || isHintExpanded()) ? 8 : 0);
+            updateDummyDrawables();
+        }
     }
 
     private void updateStrokeErrorColor(boolean z, boolean z2) {
-        int defaultColor = this.strokeErrorColor.getDefaultColor();
-        int colorForState = this.strokeErrorColor.getColorForState(new int[]{16843623, 16842910}, defaultColor);
-        int colorForState2 = this.strokeErrorColor.getColorForState(new int[]{16843518, 16842910}, defaultColor);
-        if (z) {
-            this.boxStrokeColor = colorForState2;
-        } else if (z2) {
-            this.boxStrokeColor = colorForState;
-        } else {
-            this.boxStrokeColor = defaultColor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65607, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            int defaultColor = this.strokeErrorColor.getDefaultColor();
+            int colorForState = this.strokeErrorColor.getColorForState(new int[]{16843623, 16842910}, defaultColor);
+            int colorForState2 = this.strokeErrorColor.getColorForState(new int[]{16843518, 16842910}, defaultColor);
+            if (z) {
+                this.boxStrokeColor = colorForState2;
+            } else if (z2) {
+                this.boxStrokeColor = colorForState;
+            } else {
+                this.boxStrokeColor = defaultColor;
+            }
         }
     }
 
     private void updateSuffixTextViewPadding() {
-        if (this.editText == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65608, this) == null) || this.editText == null) {
             return;
         }
         ViewCompat.setPaddingRelative(this.suffixTextView, 0, this.editText.getPaddingTop(), (isEndIconVisible() || isErrorIconVisible()) ? 0 : ViewCompat.getPaddingEnd(this.editText), this.editText.getPaddingBottom());
     }
 
     private void updateSuffixTextVisibility() {
-        int visibility = this.suffixTextView.getVisibility();
-        boolean z = (this.suffixText == null || isHintExpanded()) ? false : true;
-        this.suffixTextView.setVisibility(z ? 0 : 8);
-        if (visibility != this.suffixTextView.getVisibility()) {
-            getEndIconDelegate().onSuffixVisibilityChanged(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65609, this) == null) {
+            int visibility = this.suffixTextView.getVisibility();
+            boolean z = (this.suffixText == null || isHintExpanded()) ? false : true;
+            this.suffixTextView.setVisibility(z ? 0 : 8);
+            if (visibility != this.suffixTextView.getVisibility()) {
+                getEndIconDelegate().onSuffixVisibilityChanged(z);
+            }
+            updateDummyDrawables();
         }
-        updateDummyDrawables();
     }
 
     public void addOnEditTextAttachedListener(@NonNull OnEditTextAttachedListener onEditTextAttachedListener) {
-        this.editTextAttachedListeners.add(onEditTextAttachedListener);
-        if (this.editText != null) {
-            onEditTextAttachedListener.onEditTextAttached(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onEditTextAttachedListener) == null) {
+            this.editTextAttachedListeners.add(onEditTextAttachedListener);
+            if (this.editText != null) {
+                onEditTextAttachedListener.onEditTextAttached(this);
+            }
         }
     }
 
     public void addOnEndIconChangedListener(@NonNull OnEndIconChangedListener onEndIconChangedListener) {
-        this.endIconChangedListeners.add(onEndIconChangedListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onEndIconChangedListener) == null) {
+            this.endIconChangedListeners.add(onEndIconChangedListener);
+        }
     }
 
     @Override // android.view.ViewGroup
     public void addView(@NonNull View view, int i2, @NonNull ViewGroup.LayoutParams layoutParams) {
-        if (view instanceof EditText) {
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(layoutParams);
-            layoutParams2.gravity = (layoutParams2.gravity & OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR) | 16;
-            this.inputFrame.addView(view, layoutParams2);
-            this.inputFrame.setLayoutParams(layoutParams);
-            updateInputLayoutMargins();
-            setEditText((EditText) view);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i2, layoutParams) == null) {
+            if (view instanceof EditText) {
+                FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(layoutParams);
+                layoutParams2.gravity = (layoutParams2.gravity & OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR) | 16;
+                this.inputFrame.addView(view, layoutParams2);
+                this.inputFrame.setLayoutParams(layoutParams);
+                updateInputLayoutMargins();
+                setEditText((EditText) view);
+                return;
+            }
+            super.addView(view, i2, layoutParams);
         }
-        super.addView(view, i2, layoutParams);
     }
 
     @VisibleForTesting
     public void animateToExpansionFraction(float f2) {
-        if (this.collapsingTextHelper.getExpansionFraction() == f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048579, this, f2) == null) || this.collapsingTextHelper.getExpansionFraction() == f2) {
             return;
         }
         if (this.animator == null) {
@@ -1073,10 +1434,35 @@ public class TextInputLayout extends LinearLayout {
             this.animator = valueAnimator;
             valueAnimator.setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
             this.animator.setDuration(167L);
-            this.animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.google.android.material.textfield.TextInputLayout.4
+            this.animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.google.android.material.textfield.TextInputLayout.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TextInputLayout this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator2) {
-                    TextInputLayout.this.collapsingTextHelper.setExpansionFraction(((Float) valueAnimator2.getAnimatedValue()).floatValue());
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
+                        this.this$0.collapsingTextHelper.setExpansionFraction(((Float) valueAnimator2.getAnimatedValue()).floatValue());
+                    }
                 }
             });
         }
@@ -1085,54 +1471,72 @@ public class TextInputLayout extends LinearLayout {
     }
 
     public void clearOnEditTextAttachedListeners() {
-        this.editTextAttachedListeners.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.editTextAttachedListeners.clear();
+        }
     }
 
     public void clearOnEndIconChangedListeners() {
-        this.endIconChangedListeners.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.endIconChangedListeners.clear();
+        }
     }
 
     @VisibleForTesting
     public boolean cutoutIsOpen() {
-        return cutoutEnabled() && ((CutoutDrawable) this.boxBackground).hasCutout();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? cutoutEnabled() && ((CutoutDrawable) this.boxBackground).hasCutout() : invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchProvideAutofillStructure(@NonNull ViewStructure viewStructure, int i2) {
         EditText editText;
-        if (this.originalHint != null && (editText = this.editText) != null) {
-            boolean z = this.isProvidingHint;
-            this.isProvidingHint = false;
-            CharSequence hint = editText.getHint();
-            this.editText.setHint(this.originalHint);
-            try {
-                super.dispatchProvideAutofillStructure(viewStructure, i2);
-                return;
-            } finally {
-                this.editText.setHint(hint);
-                this.isProvidingHint = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, viewStructure, i2) == null) {
+            if (this.originalHint != null && (editText = this.editText) != null) {
+                boolean z = this.isProvidingHint;
+                this.isProvidingHint = false;
+                CharSequence hint = editText.getHint();
+                this.editText.setHint(this.originalHint);
+                try {
+                    super.dispatchProvideAutofillStructure(viewStructure, i2);
+                    return;
+                } finally {
+                    this.editText.setHint(hint);
+                    this.isProvidingHint = z;
+                }
             }
+            super.dispatchProvideAutofillStructure(viewStructure, i2);
         }
-        super.dispatchProvideAutofillStructure(viewStructure, i2);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchRestoreInstanceState(@NonNull SparseArray<Parcelable> sparseArray) {
-        this.restoringSavedState = true;
-        super.dispatchRestoreInstanceState(sparseArray);
-        this.restoringSavedState = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sparseArray) == null) {
+            this.restoringSavedState = true;
+            super.dispatchRestoreInstanceState(sparseArray);
+            this.restoringSavedState = false;
+        }
     }
 
     @Override // android.view.View
     public void draw(@NonNull Canvas canvas) {
-        super.draw(canvas);
-        drawHint(canvas);
-        drawBoxUnderline(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
+            super.draw(canvas);
+            drawHint(canvas);
+            drawBoxUnderline(canvas);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void drawableStateChanged() {
-        if (this.inDrawableStateChanged) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.inDrawableStateChanged) {
             return;
         }
         boolean z = true;
@@ -1154,387 +1558,593 @@ public class TextInputLayout extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.View
     public int getBaseline() {
-        EditText editText = this.editText;
-        if (editText != null) {
-            return editText.getBaseline() + getPaddingTop() + calculateLabelMarginTop();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            EditText editText = this.editText;
+            if (editText != null) {
+                return editText.getBaseline() + getPaddingTop() + calculateLabelMarginTop();
+            }
+            return super.getBaseline();
         }
-        return super.getBaseline();
+        return invokeV.intValue;
     }
 
     @NonNull
     public MaterialShapeDrawable getBoxBackground() {
-        int i2 = this.boxBackgroundMode;
-        if (i2 != 1 && i2 != 2) {
-            throw new IllegalStateException();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i2 = this.boxBackgroundMode;
+            if (i2 != 1 && i2 != 2) {
+                throw new IllegalStateException();
+            }
+            return this.boxBackground;
         }
-        return this.boxBackground;
+        return (MaterialShapeDrawable) invokeV.objValue;
     }
 
     public int getBoxBackgroundColor() {
-        return this.boxBackgroundColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.boxBackgroundColor : invokeV.intValue;
     }
 
     public int getBoxBackgroundMode() {
-        return this.boxBackgroundMode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.boxBackgroundMode : invokeV.intValue;
     }
 
     public float getBoxCornerRadiusBottomEnd() {
-        return this.boxBackground.getBottomLeftCornerResolvedSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.boxBackground.getBottomLeftCornerResolvedSize() : invokeV.floatValue;
     }
 
     public float getBoxCornerRadiusBottomStart() {
-        return this.boxBackground.getBottomRightCornerResolvedSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.boxBackground.getBottomRightCornerResolvedSize() : invokeV.floatValue;
     }
 
     public float getBoxCornerRadiusTopEnd() {
-        return this.boxBackground.getTopRightCornerResolvedSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.boxBackground.getTopRightCornerResolvedSize() : invokeV.floatValue;
     }
 
     public float getBoxCornerRadiusTopStart() {
-        return this.boxBackground.getTopLeftCornerResolvedSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.boxBackground.getTopLeftCornerResolvedSize() : invokeV.floatValue;
     }
 
     public int getBoxStrokeColor() {
-        return this.focusedStrokeColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.focusedStrokeColor : invokeV.intValue;
     }
 
     @Nullable
     public ColorStateList getBoxStrokeErrorColor() {
-        return this.strokeErrorColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.strokeErrorColor : (ColorStateList) invokeV.objValue;
     }
 
     public int getBoxStrokeWidth() {
-        return this.boxStrokeWidthDefaultPx;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.boxStrokeWidthDefaultPx : invokeV.intValue;
     }
 
     public int getBoxStrokeWidthFocused() {
-        return this.boxStrokeWidthFocusedPx;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.boxStrokeWidthFocusedPx : invokeV.intValue;
     }
 
     public int getCounterMaxLength() {
-        return this.counterMaxLength;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.counterMaxLength : invokeV.intValue;
     }
 
     @Nullable
     public CharSequence getCounterOverflowDescription() {
+        InterceptResult invokeV;
         TextView textView;
-        if (this.counterEnabled && this.counterOverflowed && (textView = this.counterView) != null) {
-            return textView.getContentDescription();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            if (this.counterEnabled && this.counterOverflowed && (textView = this.counterView) != null) {
+                return textView.getContentDescription();
+            }
+            return null;
         }
-        return null;
+        return (CharSequence) invokeV.objValue;
     }
 
     @Nullable
     public ColorStateList getCounterOverflowTextColor() {
-        return this.counterTextColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.counterTextColor : (ColorStateList) invokeV.objValue;
     }
 
     @Nullable
     public ColorStateList getCounterTextColor() {
-        return this.counterTextColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.counterTextColor : (ColorStateList) invokeV.objValue;
     }
 
     @Nullable
     public ColorStateList getDefaultHintTextColor() {
-        return this.defaultHintTextColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.defaultHintTextColor : (ColorStateList) invokeV.objValue;
     }
 
     @Nullable
     public EditText getEditText() {
-        return this.editText;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.editText : (EditText) invokeV.objValue;
     }
 
     @Nullable
     public CharSequence getEndIconContentDescription() {
-        return this.endIconView.getContentDescription();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.endIconView.getContentDescription() : (CharSequence) invokeV.objValue;
     }
 
     @Nullable
     public Drawable getEndIconDrawable() {
-        return this.endIconView.getDrawable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.endIconView.getDrawable() : (Drawable) invokeV.objValue;
     }
 
     public int getEndIconMode() {
-        return this.endIconMode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.endIconMode : invokeV.intValue;
     }
 
     @NonNull
     public CheckableImageButton getEndIconView() {
-        return this.endIconView;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.endIconView : (CheckableImageButton) invokeV.objValue;
     }
 
     @Nullable
     public CharSequence getError() {
-        if (this.indicatorViewController.isErrorEnabled()) {
-            return this.indicatorViewController.getErrorText();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            if (this.indicatorViewController.isErrorEnabled()) {
+                return this.indicatorViewController.getErrorText();
+            }
+            return null;
         }
-        return null;
+        return (CharSequence) invokeV.objValue;
     }
 
     @Nullable
     public CharSequence getErrorContentDescription() {
-        return this.indicatorViewController.getErrorContentDescription();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.indicatorViewController.getErrorContentDescription() : (CharSequence) invokeV.objValue;
     }
 
     @ColorInt
     public int getErrorCurrentTextColors() {
-        return this.indicatorViewController.getErrorViewCurrentTextColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.indicatorViewController.getErrorViewCurrentTextColor() : invokeV.intValue;
     }
 
     @Nullable
     public Drawable getErrorIconDrawable() {
-        return this.errorIconView.getDrawable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.errorIconView.getDrawable() : (Drawable) invokeV.objValue;
     }
 
     @VisibleForTesting
     public final int getErrorTextCurrentColor() {
-        return this.indicatorViewController.getErrorViewCurrentTextColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.indicatorViewController.getErrorViewCurrentTextColor() : invokeV.intValue;
     }
 
     @Nullable
     public CharSequence getHelperText() {
-        if (this.indicatorViewController.isHelperTextEnabled()) {
-            return this.indicatorViewController.getHelperText();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (this.indicatorViewController.isHelperTextEnabled()) {
+                return this.indicatorViewController.getHelperText();
+            }
+            return null;
         }
-        return null;
+        return (CharSequence) invokeV.objValue;
     }
 
     @ColorInt
     public int getHelperTextCurrentTextColor() {
-        return this.indicatorViewController.getHelperTextViewCurrentTextColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.indicatorViewController.getHelperTextViewCurrentTextColor() : invokeV.intValue;
     }
 
     @Nullable
     public CharSequence getHint() {
-        if (this.hintEnabled) {
-            return this.hint;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            if (this.hintEnabled) {
+                return this.hint;
+            }
+            return null;
         }
-        return null;
+        return (CharSequence) invokeV.objValue;
     }
 
     @VisibleForTesting
     public final float getHintCollapsedTextHeight() {
-        return this.collapsingTextHelper.getCollapsedTextHeight();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.collapsingTextHelper.getCollapsedTextHeight() : invokeV.floatValue;
     }
 
     @VisibleForTesting
     public final int getHintCurrentCollapsedTextColor() {
-        return this.collapsingTextHelper.getCurrentCollapsedTextColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.collapsingTextHelper.getCurrentCollapsedTextColor() : invokeV.intValue;
     }
 
     @Nullable
     public ColorStateList getHintTextColor() {
-        return this.focusedTextColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.focusedTextColor : (ColorStateList) invokeV.objValue;
     }
 
     @Nullable
     @Deprecated
     public CharSequence getPasswordVisibilityToggleContentDescription() {
-        return this.endIconView.getContentDescription();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.endIconView.getContentDescription() : (CharSequence) invokeV.objValue;
     }
 
     @Nullable
     @Deprecated
     public Drawable getPasswordVisibilityToggleDrawable() {
-        return this.endIconView.getDrawable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.endIconView.getDrawable() : (Drawable) invokeV.objValue;
     }
 
     @Nullable
     public CharSequence getPlaceholderText() {
-        if (this.placeholderEnabled) {
-            return this.placeholderText;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            if (this.placeholderEnabled) {
+                return this.placeholderText;
+            }
+            return null;
         }
-        return null;
+        return (CharSequence) invokeV.objValue;
     }
 
     @StyleRes
     public int getPlaceholderTextAppearance() {
-        return this.placeholderTextAppearance;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.placeholderTextAppearance : invokeV.intValue;
     }
 
     @Nullable
     public ColorStateList getPlaceholderTextColor() {
-        return this.placeholderTextColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.placeholderTextColor : (ColorStateList) invokeV.objValue;
     }
 
     @Nullable
     public CharSequence getPrefixText() {
-        return this.prefixText;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.prefixText : (CharSequence) invokeV.objValue;
     }
 
     @Nullable
     public ColorStateList getPrefixTextColor() {
-        return this.prefixTextView.getTextColors();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.prefixTextView.getTextColors() : (ColorStateList) invokeV.objValue;
     }
 
     @NonNull
     public TextView getPrefixTextView() {
-        return this.prefixTextView;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.prefixTextView : (TextView) invokeV.objValue;
     }
 
     @Nullable
     public CharSequence getStartIconContentDescription() {
-        return this.startIconView.getContentDescription();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.startIconView.getContentDescription() : (CharSequence) invokeV.objValue;
     }
 
     @Nullable
     public Drawable getStartIconDrawable() {
-        return this.startIconView.getDrawable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.startIconView.getDrawable() : (Drawable) invokeV.objValue;
     }
 
     @Nullable
     public CharSequence getSuffixText() {
-        return this.suffixText;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.suffixText : (CharSequence) invokeV.objValue;
     }
 
     @Nullable
     public ColorStateList getSuffixTextColor() {
-        return this.suffixTextView.getTextColors();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.suffixTextView.getTextColors() : (ColorStateList) invokeV.objValue;
     }
 
     @NonNull
     public TextView getSuffixTextView() {
-        return this.suffixTextView;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.suffixTextView : (TextView) invokeV.objValue;
     }
 
     @Nullable
     public Typeface getTypeface() {
-        return this.typeface;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.typeface : (Typeface) invokeV.objValue;
     }
 
     public boolean isCounterEnabled() {
-        return this.counterEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.counterEnabled : invokeV.booleanValue;
     }
 
     public boolean isEndIconCheckable() {
-        return this.endIconView.isCheckable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.endIconView.isCheckable() : invokeV.booleanValue;
     }
 
     public boolean isEndIconVisible() {
-        return this.endIconFrame.getVisibility() == 0 && this.endIconView.getVisibility() == 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.endIconFrame.getVisibility() == 0 && this.endIconView.getVisibility() == 0 : invokeV.booleanValue;
     }
 
     public boolean isErrorEnabled() {
-        return this.indicatorViewController.isErrorEnabled();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.indicatorViewController.isErrorEnabled() : invokeV.booleanValue;
     }
 
     @VisibleForTesting
     public final boolean isHelperTextDisplayed() {
-        return this.indicatorViewController.helperTextIsDisplayed();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.indicatorViewController.helperTextIsDisplayed() : invokeV.booleanValue;
     }
 
     public boolean isHelperTextEnabled() {
-        return this.indicatorViewController.isHelperTextEnabled();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.indicatorViewController.isHelperTextEnabled() : invokeV.booleanValue;
     }
 
     public boolean isHintAnimationEnabled() {
-        return this.hintAnimationEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.hintAnimationEnabled : invokeV.booleanValue;
     }
 
     public boolean isHintEnabled() {
-        return this.hintEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.hintEnabled : invokeV.booleanValue;
     }
 
     @VisibleForTesting
     public final boolean isHintExpanded() {
-        return this.hintExpanded;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) ? this.hintExpanded : invokeV.booleanValue;
     }
 
     @Deprecated
     public boolean isPasswordVisibilityToggleEnabled() {
-        return this.endIconMode == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? this.endIconMode == 1 : invokeV.booleanValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean isProvidingHint() {
-        return this.isProvidingHint;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.isProvidingHint : invokeV.booleanValue;
     }
 
     public boolean isStartIconCheckable() {
-        return this.startIconView.isCheckable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.startIconView.isCheckable() : invokeV.booleanValue;
     }
 
     public boolean isStartIconVisible() {
-        return this.startIconView.getVisibility() == 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? this.startIconView.getVisibility() == 0 : invokeV.booleanValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
-        EditText editText = this.editText;
-        if (editText != null) {
-            Rect rect = this.tmpRect;
-            DescendantOffsetUtils.getDescendantRect(this, editText, rect);
-            updateBoxUnderlineBounds(rect);
-            if (this.hintEnabled) {
-                this.collapsingTextHelper.setExpandedTextSize(this.editText.getTextSize());
-                int gravity = this.editText.getGravity();
-                this.collapsingTextHelper.setCollapsedTextGravity((gravity & OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR) | 48);
-                this.collapsingTextHelper.setExpandedTextGravity(gravity);
-                this.collapsingTextHelper.setCollapsedBounds(calculateCollapsedTextBounds(rect));
-                this.collapsingTextHelper.setExpandedBounds(calculateExpandedTextBounds(rect));
-                this.collapsingTextHelper.recalculate();
-                if (!cutoutEnabled() || this.hintExpanded) {
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048647, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            EditText editText = this.editText;
+            if (editText != null) {
+                Rect rect = this.tmpRect;
+                DescendantOffsetUtils.getDescendantRect(this, editText, rect);
+                updateBoxUnderlineBounds(rect);
+                if (this.hintEnabled) {
+                    this.collapsingTextHelper.setExpandedTextSize(this.editText.getTextSize());
+                    int gravity = this.editText.getGravity();
+                    this.collapsingTextHelper.setCollapsedTextGravity((gravity & OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR) | 48);
+                    this.collapsingTextHelper.setExpandedTextGravity(gravity);
+                    this.collapsingTextHelper.setCollapsedBounds(calculateCollapsedTextBounds(rect));
+                    this.collapsingTextHelper.setExpandedBounds(calculateExpandedTextBounds(rect));
+                    this.collapsingTextHelper.recalculate();
+                    if (!cutoutEnabled() || this.hintExpanded) {
+                        return;
+                    }
+                    openCutout();
                 }
-                openCutout();
             }
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        boolean updateEditTextHeightBasedOnIcon = updateEditTextHeightBasedOnIcon();
-        boolean updateDummyDrawables = updateDummyDrawables();
-        if (updateEditTextHeightBasedOnIcon || updateDummyDrawables) {
-            this.editText.post(new Runnable() { // from class: com.google.android.material.textfield.TextInputLayout.3
-                @Override // java.lang.Runnable
-                public void run() {
-                    TextInputLayout.this.editText.requestLayout();
-                }
-            });
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048648, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            boolean updateEditTextHeightBasedOnIcon = updateEditTextHeightBasedOnIcon();
+            boolean updateDummyDrawables = updateDummyDrawables();
+            if (updateEditTextHeightBasedOnIcon || updateDummyDrawables) {
+                this.editText.post(new Runnable(this) { // from class: com.google.android.material.textfield.TextInputLayout.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TextInputLayout this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$0.editText.requestLayout();
+                        }
+                    }
+                });
+            }
+            updatePlaceholderMeasurementsBasedOnEditText();
+            updatePrefixTextViewPadding();
+            updateSuffixTextViewPadding();
         }
-        updatePlaceholderMeasurementsBasedOnEditText();
-        updatePrefixTextViewPadding();
-        updateSuffixTextViewPadding();
     }
 
     @Override // android.view.View
     public void onRestoreInstanceState(@Nullable Parcelable parcelable) {
-        if (!(parcelable instanceof SavedState)) {
-            super.onRestoreInstanceState(parcelable);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048649, this, parcelable) == null) {
+            if (!(parcelable instanceof SavedState)) {
+                super.onRestoreInstanceState(parcelable);
+                return;
+            }
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            setError(savedState.error);
+            if (savedState.isEndIconChecked) {
+                this.endIconView.post(new Runnable(this) { // from class: com.google.android.material.textfield.TextInputLayout.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TextInputLayout this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$0.endIconView.performClick();
+                            this.this$0.endIconView.jumpDrawablesToCurrentState();
+                        }
+                    }
+                });
+            }
+            requestLayout();
         }
-        SavedState savedState = (SavedState) parcelable;
-        super.onRestoreInstanceState(savedState.getSuperState());
-        setError(savedState.error);
-        if (savedState.isEndIconChecked) {
-            this.endIconView.post(new Runnable() { // from class: com.google.android.material.textfield.TextInputLayout.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    TextInputLayout.this.endIconView.performClick();
-                    TextInputLayout.this.endIconView.jumpDrawablesToCurrentState();
-                }
-            });
-        }
-        requestLayout();
     }
 
     @Override // android.view.View
     @Nullable
     public Parcelable onSaveInstanceState() {
-        SavedState savedState = new SavedState(super.onSaveInstanceState());
-        if (this.indicatorViewController.errorShouldBeShown()) {
-            savedState.error = getError();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
+            SavedState savedState = new SavedState(super.onSaveInstanceState());
+            if (this.indicatorViewController.errorShouldBeShown()) {
+                savedState.error = getError();
+            }
+            savedState.isEndIconChecked = hasEndIcon() && this.endIconView.isChecked();
+            return savedState;
         }
-        savedState.isEndIconChecked = hasEndIcon() && this.endIconView.isChecked();
-        return savedState;
+        return (Parcelable) invokeV.objValue;
     }
 
     @Deprecated
     public void passwordVisibilityToggleRequested(boolean z) {
-        if (this.endIconMode == 1) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048651, this, z) == null) && this.endIconMode == 1) {
             this.endIconView.performClick();
             if (z) {
                 this.endIconView.jumpDrawablesToCurrentState();
@@ -1543,39 +2153,54 @@ public class TextInputLayout extends LinearLayout {
     }
 
     public void removeOnEditTextAttachedListener(@NonNull OnEditTextAttachedListener onEditTextAttachedListener) {
-        this.editTextAttachedListeners.remove(onEditTextAttachedListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048652, this, onEditTextAttachedListener) == null) {
+            this.editTextAttachedListeners.remove(onEditTextAttachedListener);
+        }
     }
 
     public void removeOnEndIconChangedListener(@NonNull OnEndIconChangedListener onEndIconChangedListener) {
-        this.endIconChangedListeners.remove(onEndIconChangedListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048653, this, onEndIconChangedListener) == null) {
+            this.endIconChangedListeners.remove(onEndIconChangedListener);
+        }
     }
 
     public void setBoxBackgroundColor(@ColorInt int i2) {
-        if (this.boxBackgroundColor != i2) {
-            this.boxBackgroundColor = i2;
-            this.defaultFilledBackgroundColor = i2;
-            this.focusedFilledBackgroundColor = i2;
-            this.hoveredFilledBackgroundColor = i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048654, this, i2) == null) || this.boxBackgroundColor == i2) {
+            return;
+        }
+        this.boxBackgroundColor = i2;
+        this.defaultFilledBackgroundColor = i2;
+        this.focusedFilledBackgroundColor = i2;
+        this.hoveredFilledBackgroundColor = i2;
+        applyBoxAttributes();
+    }
+
+    public void setBoxBackgroundColorResource(@ColorRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048655, this, i2) == null) {
+            setBoxBackgroundColor(ContextCompat.getColor(getContext(), i2));
+        }
+    }
+
+    public void setBoxBackgroundColorStateList(@NonNull ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048656, this, colorStateList) == null) {
+            int defaultColor = colorStateList.getDefaultColor();
+            this.defaultFilledBackgroundColor = defaultColor;
+            this.boxBackgroundColor = defaultColor;
+            this.disabledFilledBackgroundColor = colorStateList.getColorForState(new int[]{-16842910}, -1);
+            this.focusedFilledBackgroundColor = colorStateList.getColorForState(new int[]{16842908, 16842910}, -1);
+            this.hoveredFilledBackgroundColor = colorStateList.getColorForState(new int[]{16843623, 16842910}, -1);
             applyBoxAttributes();
         }
     }
 
-    public void setBoxBackgroundColorResource(@ColorRes int i2) {
-        setBoxBackgroundColor(ContextCompat.getColor(getContext(), i2));
-    }
-
-    public void setBoxBackgroundColorStateList(@NonNull ColorStateList colorStateList) {
-        int defaultColor = colorStateList.getDefaultColor();
-        this.defaultFilledBackgroundColor = defaultColor;
-        this.boxBackgroundColor = defaultColor;
-        this.disabledFilledBackgroundColor = colorStateList.getColorForState(new int[]{-16842910}, -1);
-        this.focusedFilledBackgroundColor = colorStateList.getColorForState(new int[]{16842908, 16842910}, -1);
-        this.hoveredFilledBackgroundColor = colorStateList.getColorForState(new int[]{16843623, 16842910}, -1);
-        applyBoxAttributes();
-    }
-
     public void setBoxBackgroundMode(int i2) {
-        if (i2 == this.boxBackgroundMode) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048657, this, i2) == null) || i2 == this.boxBackgroundMode) {
             return;
         }
         this.boxBackgroundMode = i2;
@@ -1585,344 +2210,167 @@ public class TextInputLayout extends LinearLayout {
     }
 
     public void setBoxCornerRadii(float f2, float f3, float f4, float f5) {
-        MaterialShapeDrawable materialShapeDrawable = this.boxBackground;
-        if (materialShapeDrawable != null && materialShapeDrawable.getTopLeftCornerResolvedSize() == f2 && this.boxBackground.getTopRightCornerResolvedSize() == f3 && this.boxBackground.getBottomRightCornerResolvedSize() == f5 && this.boxBackground.getBottomLeftCornerResolvedSize() == f4) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048658, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            MaterialShapeDrawable materialShapeDrawable = this.boxBackground;
+            if (materialShapeDrawable != null && materialShapeDrawable.getTopLeftCornerResolvedSize() == f2 && this.boxBackground.getTopRightCornerResolvedSize() == f3 && this.boxBackground.getBottomRightCornerResolvedSize() == f5 && this.boxBackground.getBottomLeftCornerResolvedSize() == f4) {
+                return;
+            }
+            this.shapeAppearanceModel = this.shapeAppearanceModel.toBuilder().setTopLeftCornerSize(f2).setTopRightCornerSize(f3).setBottomRightCornerSize(f5).setBottomLeftCornerSize(f4).build();
+            applyBoxAttributes();
         }
-        this.shapeAppearanceModel = this.shapeAppearanceModel.toBuilder().setTopLeftCornerSize(f2).setTopRightCornerSize(f3).setBottomRightCornerSize(f5).setBottomLeftCornerSize(f4).build();
-        applyBoxAttributes();
     }
 
     public void setBoxCornerRadiiResources(@DimenRes int i2, @DimenRes int i3, @DimenRes int i4, @DimenRes int i5) {
-        setBoxCornerRadii(getContext().getResources().getDimension(i2), getContext().getResources().getDimension(i3), getContext().getResources().getDimension(i5), getContext().getResources().getDimension(i4));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048659, this, i2, i3, i4, i5) == null) {
+            setBoxCornerRadii(getContext().getResources().getDimension(i2), getContext().getResources().getDimension(i3), getContext().getResources().getDimension(i5), getContext().getResources().getDimension(i4));
+        }
     }
 
     public void setBoxStrokeColor(@ColorInt int i2) {
-        if (this.focusedStrokeColor != i2) {
-            this.focusedStrokeColor = i2;
-            updateTextInputBoxState();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048660, this, i2) == null) || this.focusedStrokeColor == i2) {
+            return;
         }
+        this.focusedStrokeColor = i2;
+        updateTextInputBoxState();
     }
 
     public void setBoxStrokeColorStateList(@NonNull ColorStateList colorStateList) {
-        if (colorStateList.isStateful()) {
-            this.defaultStrokeColor = colorStateList.getDefaultColor();
-            this.disabledColor = colorStateList.getColorForState(new int[]{-16842910}, -1);
-            this.hoveredStrokeColor = colorStateList.getColorForState(new int[]{16843623, 16842910}, -1);
-            this.focusedStrokeColor = colorStateList.getColorForState(new int[]{16842908, 16842910}, -1);
-        } else if (this.focusedStrokeColor != colorStateList.getDefaultColor()) {
-            this.focusedStrokeColor = colorStateList.getDefaultColor();
-        }
-        updateTextInputBoxState();
-    }
-
-    public void setBoxStrokeErrorColor(@Nullable ColorStateList colorStateList) {
-        if (this.strokeErrorColor != colorStateList) {
-            this.strokeErrorColor = colorStateList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048661, this, colorStateList) == null) {
+            if (colorStateList.isStateful()) {
+                this.defaultStrokeColor = colorStateList.getDefaultColor();
+                this.disabledColor = colorStateList.getColorForState(new int[]{-16842910}, -1);
+                this.hoveredStrokeColor = colorStateList.getColorForState(new int[]{16843623, 16842910}, -1);
+                this.focusedStrokeColor = colorStateList.getColorForState(new int[]{16842908, 16842910}, -1);
+            } else if (this.focusedStrokeColor != colorStateList.getDefaultColor()) {
+                this.focusedStrokeColor = colorStateList.getDefaultColor();
+            }
             updateTextInputBoxState();
         }
     }
 
+    public void setBoxStrokeErrorColor(@Nullable ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048662, this, colorStateList) == null) || this.strokeErrorColor == colorStateList) {
+            return;
+        }
+        this.strokeErrorColor = colorStateList;
+        updateTextInputBoxState();
+    }
+
     public void setBoxStrokeWidth(int i2) {
-        this.boxStrokeWidthDefaultPx = i2;
-        updateTextInputBoxState();
-    }
-
-    public void setBoxStrokeWidthFocused(int i2) {
-        this.boxStrokeWidthFocusedPx = i2;
-        updateTextInputBoxState();
-    }
-
-    public void setBoxStrokeWidthFocusedResource(@DimenRes int i2) {
-        setBoxStrokeWidthFocused(getResources().getDimensionPixelSize(i2));
-    }
-
-    public void setBoxStrokeWidthResource(@DimenRes int i2) {
-        setBoxStrokeWidth(getResources().getDimensionPixelSize(i2));
-    }
-
-    public void setCounterEnabled(boolean z) {
-        if (this.counterEnabled != z) {
-            if (z) {
-                AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
-                this.counterView = appCompatTextView;
-                appCompatTextView.setId(R.id.textinput_counter);
-                Typeface typeface = this.typeface;
-                if (typeface != null) {
-                    this.counterView.setTypeface(typeface);
-                }
-                this.counterView.setMaxLines(1);
-                this.indicatorViewController.addIndicator(this.counterView, 2);
-                MarginLayoutParamsCompat.setMarginStart((ViewGroup.MarginLayoutParams) this.counterView.getLayoutParams(), getResources().getDimensionPixelOffset(R.dimen.mtrl_textinput_counter_margin_start));
-                updateCounterTextAppearanceAndColor();
-                updateCounter();
-            } else {
-                this.indicatorViewController.removeIndicator(this.counterView, 2);
-                this.counterView = null;
-            }
-            this.counterEnabled = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048663, this, i2) == null) {
+            this.boxStrokeWidthDefaultPx = i2;
+            updateTextInputBoxState();
         }
     }
 
+    public void setBoxStrokeWidthFocused(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048664, this, i2) == null) {
+            this.boxStrokeWidthFocusedPx = i2;
+            updateTextInputBoxState();
+        }
+    }
+
+    public void setBoxStrokeWidthFocusedResource(@DimenRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048665, this, i2) == null) {
+            setBoxStrokeWidthFocused(getResources().getDimensionPixelSize(i2));
+        }
+    }
+
+    public void setBoxStrokeWidthResource(@DimenRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048666, this, i2) == null) {
+            setBoxStrokeWidth(getResources().getDimensionPixelSize(i2));
+        }
+    }
+
+    public void setCounterEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048667, this, z) == null) || this.counterEnabled == z) {
+            return;
+        }
+        if (z) {
+            AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
+            this.counterView = appCompatTextView;
+            appCompatTextView.setId(R.id.textinput_counter);
+            Typeface typeface = this.typeface;
+            if (typeface != null) {
+                this.counterView.setTypeface(typeface);
+            }
+            this.counterView.setMaxLines(1);
+            this.indicatorViewController.addIndicator(this.counterView, 2);
+            MarginLayoutParamsCompat.setMarginStart((ViewGroup.MarginLayoutParams) this.counterView.getLayoutParams(), getResources().getDimensionPixelOffset(R.dimen.mtrl_textinput_counter_margin_start));
+            updateCounterTextAppearanceAndColor();
+            updateCounter();
+        } else {
+            this.indicatorViewController.removeIndicator(this.counterView, 2);
+            this.counterView = null;
+        }
+        this.counterEnabled = z;
+    }
+
     public void setCounterMaxLength(int i2) {
-        if (this.counterMaxLength != i2) {
-            if (i2 > 0) {
-                this.counterMaxLength = i2;
-            } else {
-                this.counterMaxLength = -1;
-            }
-            if (this.counterEnabled) {
-                updateCounter();
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048668, this, i2) == null) || this.counterMaxLength == i2) {
+            return;
+        }
+        if (i2 > 0) {
+            this.counterMaxLength = i2;
+        } else {
+            this.counterMaxLength = -1;
+        }
+        if (this.counterEnabled) {
+            updateCounter();
         }
     }
 
     public void setCounterOverflowTextAppearance(int i2) {
-        if (this.counterOverflowTextAppearance != i2) {
-            this.counterOverflowTextAppearance = i2;
-            updateCounterTextAppearanceAndColor();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048669, this, i2) == null) || this.counterOverflowTextAppearance == i2) {
+            return;
         }
+        this.counterOverflowTextAppearance = i2;
+        updateCounterTextAppearanceAndColor();
     }
 
     public void setCounterOverflowTextColor(@Nullable ColorStateList colorStateList) {
-        if (this.counterOverflowTextColor != colorStateList) {
-            this.counterOverflowTextColor = colorStateList;
-            updateCounterTextAppearanceAndColor();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048670, this, colorStateList) == null) || this.counterOverflowTextColor == colorStateList) {
+            return;
         }
+        this.counterOverflowTextColor = colorStateList;
+        updateCounterTextAppearanceAndColor();
     }
 
     public void setCounterTextAppearance(int i2) {
-        if (this.counterTextAppearance != i2) {
-            this.counterTextAppearance = i2;
-            updateCounterTextAppearanceAndColor();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048671, this, i2) == null) || this.counterTextAppearance == i2) {
+            return;
         }
+        this.counterTextAppearance = i2;
+        updateCounterTextAppearanceAndColor();
     }
 
     public void setCounterTextColor(@Nullable ColorStateList colorStateList) {
-        if (this.counterTextColor != colorStateList) {
-            this.counterTextColor = colorStateList;
-            updateCounterTextAppearanceAndColor();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048672, this, colorStateList) == null) || this.counterTextColor == colorStateList) {
+            return;
         }
+        this.counterTextColor = colorStateList;
+        updateCounterTextAppearanceAndColor();
     }
 
     public void setDefaultHintTextColor(@Nullable ColorStateList colorStateList) {
-        this.defaultHintTextColor = colorStateList;
-        this.focusedTextColor = colorStateList;
-        if (this.editText != null) {
-            updateLabelState(false);
-        }
-    }
-
-    @Override // android.view.View
-    public void setEnabled(boolean z) {
-        recursiveSetEnabled(this, z);
-        super.setEnabled(z);
-    }
-
-    public void setEndIconActivated(boolean z) {
-        this.endIconView.setActivated(z);
-    }
-
-    public void setEndIconCheckable(boolean z) {
-        this.endIconView.setCheckable(z);
-    }
-
-    public void setEndIconContentDescription(@StringRes int i2) {
-        setEndIconContentDescription(i2 != 0 ? getResources().getText(i2) : null);
-    }
-
-    public void setEndIconDrawable(@DrawableRes int i2) {
-        setEndIconDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
-    }
-
-    public void setEndIconMode(int i2) {
-        int i3 = this.endIconMode;
-        this.endIconMode = i2;
-        dispatchOnEndIconChanged(i3);
-        setEndIconVisible(i2 != 0);
-        if (getEndIconDelegate().isBoxBackgroundModeSupported(this.boxBackgroundMode)) {
-            getEndIconDelegate().initialize();
-            applyEndIconTint();
-            return;
-        }
-        throw new IllegalStateException("The current box background mode " + this.boxBackgroundMode + " is not supported by the end icon mode " + i2);
-    }
-
-    public void setEndIconOnClickListener(@Nullable View.OnClickListener onClickListener) {
-        setIconOnClickListener(this.endIconView, onClickListener, this.endIconOnLongClickListener);
-    }
-
-    public void setEndIconOnLongClickListener(@Nullable View.OnLongClickListener onLongClickListener) {
-        this.endIconOnLongClickListener = onLongClickListener;
-        setIconOnLongClickListener(this.endIconView, onLongClickListener);
-    }
-
-    public void setEndIconTintList(@Nullable ColorStateList colorStateList) {
-        if (this.endIconTintList != colorStateList) {
-            this.endIconTintList = colorStateList;
-            this.hasEndIconTintList = true;
-            applyEndIconTint();
-        }
-    }
-
-    public void setEndIconTintMode(@Nullable PorterDuff.Mode mode) {
-        if (this.endIconTintMode != mode) {
-            this.endIconTintMode = mode;
-            this.hasEndIconTintMode = true;
-            applyEndIconTint();
-        }
-    }
-
-    public void setEndIconVisible(boolean z) {
-        if (isEndIconVisible() != z) {
-            this.endIconView.setVisibility(z ? 0 : 8);
-            updateSuffixTextViewPadding();
-            updateDummyDrawables();
-        }
-    }
-
-    public void setError(@Nullable CharSequence charSequence) {
-        if (!this.indicatorViewController.isErrorEnabled()) {
-            if (TextUtils.isEmpty(charSequence)) {
-                return;
-            }
-            setErrorEnabled(true);
-        }
-        if (!TextUtils.isEmpty(charSequence)) {
-            this.indicatorViewController.showError(charSequence);
-        } else {
-            this.indicatorViewController.hideError();
-        }
-    }
-
-    public void setErrorContentDescription(@Nullable CharSequence charSequence) {
-        this.indicatorViewController.setErrorContentDescription(charSequence);
-    }
-
-    public void setErrorEnabled(boolean z) {
-        this.indicatorViewController.setErrorEnabled(z);
-    }
-
-    public void setErrorIconDrawable(@DrawableRes int i2) {
-        setErrorIconDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
-    }
-
-    public void setErrorIconOnClickListener(@Nullable View.OnClickListener onClickListener) {
-        setIconOnClickListener(this.errorIconView, onClickListener, this.errorIconOnLongClickListener);
-    }
-
-    public void setErrorIconOnLongClickListener(@Nullable View.OnLongClickListener onLongClickListener) {
-        this.errorIconOnLongClickListener = onLongClickListener;
-        setIconOnLongClickListener(this.errorIconView, onLongClickListener);
-    }
-
-    public void setErrorIconTintList(@Nullable ColorStateList colorStateList) {
-        this.errorIconTintList = colorStateList;
-        Drawable drawable = this.errorIconView.getDrawable();
-        if (drawable != null) {
-            drawable = DrawableCompat.wrap(drawable).mutate();
-            DrawableCompat.setTintList(drawable, colorStateList);
-        }
-        if (this.errorIconView.getDrawable() != drawable) {
-            this.errorIconView.setImageDrawable(drawable);
-        }
-    }
-
-    public void setErrorIconTintMode(@Nullable PorterDuff.Mode mode) {
-        Drawable drawable = this.errorIconView.getDrawable();
-        if (drawable != null) {
-            drawable = DrawableCompat.wrap(drawable).mutate();
-            DrawableCompat.setTintMode(drawable, mode);
-        }
-        if (this.errorIconView.getDrawable() != drawable) {
-            this.errorIconView.setImageDrawable(drawable);
-        }
-    }
-
-    public void setErrorTextAppearance(@StyleRes int i2) {
-        this.indicatorViewController.setErrorTextAppearance(i2);
-    }
-
-    public void setErrorTextColor(@Nullable ColorStateList colorStateList) {
-        this.indicatorViewController.setErrorViewTextColor(colorStateList);
-    }
-
-    public void setHelperText(@Nullable CharSequence charSequence) {
-        if (TextUtils.isEmpty(charSequence)) {
-            if (isHelperTextEnabled()) {
-                setHelperTextEnabled(false);
-                return;
-            }
-            return;
-        }
-        if (!isHelperTextEnabled()) {
-            setHelperTextEnabled(true);
-        }
-        this.indicatorViewController.showHelper(charSequence);
-    }
-
-    public void setHelperTextColor(@Nullable ColorStateList colorStateList) {
-        this.indicatorViewController.setHelperTextViewTextColor(colorStateList);
-    }
-
-    public void setHelperTextEnabled(boolean z) {
-        this.indicatorViewController.setHelperTextEnabled(z);
-    }
-
-    public void setHelperTextTextAppearance(@StyleRes int i2) {
-        this.indicatorViewController.setHelperTextAppearance(i2);
-    }
-
-    public void setHint(@Nullable CharSequence charSequence) {
-        if (this.hintEnabled) {
-            setHintInternal(charSequence);
-            sendAccessibilityEvent(2048);
-        }
-    }
-
-    public void setHintAnimationEnabled(boolean z) {
-        this.hintAnimationEnabled = z;
-    }
-
-    public void setHintEnabled(boolean z) {
-        if (z != this.hintEnabled) {
-            this.hintEnabled = z;
-            if (!z) {
-                this.isProvidingHint = false;
-                if (!TextUtils.isEmpty(this.hint) && TextUtils.isEmpty(this.editText.getHint())) {
-                    this.editText.setHint(this.hint);
-                }
-                setHintInternal(null);
-            } else {
-                CharSequence hint = this.editText.getHint();
-                if (!TextUtils.isEmpty(hint)) {
-                    if (TextUtils.isEmpty(this.hint)) {
-                        setHint(hint);
-                    }
-                    this.editText.setHint((CharSequence) null);
-                }
-                this.isProvidingHint = true;
-            }
-            if (this.editText != null) {
-                updateInputLayoutMargins();
-            }
-        }
-    }
-
-    public void setHintTextAppearance(@StyleRes int i2) {
-        this.collapsingTextHelper.setCollapsedTextAppearance(i2);
-        this.focusedTextColor = this.collapsingTextHelper.getCollapsedTextColor();
-        if (this.editText != null) {
-            updateLabelState(false);
-            updateInputLayoutMargins();
-        }
-    }
-
-    public void setHintTextColor(@Nullable ColorStateList colorStateList) {
-        if (this.focusedTextColor != colorStateList) {
-            if (this.defaultHintTextColor == null) {
-                this.collapsingTextHelper.setCollapsedTextColor(colorStateList);
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048673, this, colorStateList) == null) {
+            this.defaultHintTextColor = colorStateList;
             this.focusedTextColor = colorStateList;
             if (this.editText != null) {
                 updateLabelState(false);
@@ -1930,189 +2378,559 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    @Deprecated
-    public void setPasswordVisibilityToggleContentDescription(@StringRes int i2) {
-        setPasswordVisibilityToggleContentDescription(i2 != 0 ? getResources().getText(i2) : null);
-    }
-
-    @Deprecated
-    public void setPasswordVisibilityToggleDrawable(@DrawableRes int i2) {
-        setPasswordVisibilityToggleDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
-    }
-
-    @Deprecated
-    public void setPasswordVisibilityToggleEnabled(boolean z) {
-        if (z && this.endIconMode != 1) {
-            setEndIconMode(1);
-        } else if (z) {
-        } else {
-            setEndIconMode(0);
+    @Override // android.view.View
+    public void setEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048674, this, z) == null) {
+            recursiveSetEnabled(this, z);
+            super.setEnabled(z);
         }
     }
 
-    @Deprecated
-    public void setPasswordVisibilityToggleTintList(@Nullable ColorStateList colorStateList) {
+    public void setEndIconActivated(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048675, this, z) == null) {
+            this.endIconView.setActivated(z);
+        }
+    }
+
+    public void setEndIconCheckable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048676, this, z) == null) {
+            this.endIconView.setCheckable(z);
+        }
+    }
+
+    public void setEndIconContentDescription(@StringRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048677, this, i2) == null) {
+            setEndIconContentDescription(i2 != 0 ? getResources().getText(i2) : null);
+        }
+    }
+
+    public void setEndIconDrawable(@DrawableRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048679, this, i2) == null) {
+            setEndIconDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        }
+    }
+
+    public void setEndIconMode(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048681, this, i2) == null) {
+            int i3 = this.endIconMode;
+            this.endIconMode = i2;
+            dispatchOnEndIconChanged(i3);
+            setEndIconVisible(i2 != 0);
+            if (getEndIconDelegate().isBoxBackgroundModeSupported(this.boxBackgroundMode)) {
+                getEndIconDelegate().initialize();
+                applyEndIconTint();
+                return;
+            }
+            throw new IllegalStateException("The current box background mode " + this.boxBackgroundMode + " is not supported by the end icon mode " + i2);
+        }
+    }
+
+    public void setEndIconOnClickListener(@Nullable View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048682, this, onClickListener) == null) {
+            setIconOnClickListener(this.endIconView, onClickListener, this.endIconOnLongClickListener);
+        }
+    }
+
+    public void setEndIconOnLongClickListener(@Nullable View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048683, this, onLongClickListener) == null) {
+            this.endIconOnLongClickListener = onLongClickListener;
+            setIconOnLongClickListener(this.endIconView, onLongClickListener);
+        }
+    }
+
+    public void setEndIconTintList(@Nullable ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048684, this, colorStateList) == null) || this.endIconTintList == colorStateList) {
+            return;
+        }
         this.endIconTintList = colorStateList;
         this.hasEndIconTintList = true;
         applyEndIconTint();
     }
 
-    @Deprecated
-    public void setPasswordVisibilityToggleTintMode(@Nullable PorterDuff.Mode mode) {
+    public void setEndIconTintMode(@Nullable PorterDuff.Mode mode) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048685, this, mode) == null) || this.endIconTintMode == mode) {
+            return;
+        }
         this.endIconTintMode = mode;
         this.hasEndIconTintMode = true;
         applyEndIconTint();
     }
 
-    public void setPlaceholderText(@Nullable CharSequence charSequence) {
-        if (this.placeholderEnabled && TextUtils.isEmpty(charSequence)) {
-            setPlaceholderTextEnabled(false);
-        } else {
-            if (!this.placeholderEnabled) {
-                setPlaceholderTextEnabled(true);
-            }
-            this.placeholderText = charSequence;
+    public void setEndIconVisible(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048686, this, z) == null) || isEndIconVisible() == z) {
+            return;
         }
-        updatePlaceholderText();
+        this.endIconView.setVisibility(z ? 0 : 8);
+        updateSuffixTextViewPadding();
+        updateDummyDrawables();
+    }
+
+    public void setError(@Nullable CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048687, this, charSequence) == null) {
+            if (!this.indicatorViewController.isErrorEnabled()) {
+                if (TextUtils.isEmpty(charSequence)) {
+                    return;
+                }
+                setErrorEnabled(true);
+            }
+            if (!TextUtils.isEmpty(charSequence)) {
+                this.indicatorViewController.showError(charSequence);
+            } else {
+                this.indicatorViewController.hideError();
+            }
+        }
+    }
+
+    public void setErrorContentDescription(@Nullable CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048688, this, charSequence) == null) {
+            this.indicatorViewController.setErrorContentDescription(charSequence);
+        }
+    }
+
+    public void setErrorEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048689, this, z) == null) {
+            this.indicatorViewController.setErrorEnabled(z);
+        }
+    }
+
+    public void setErrorIconDrawable(@DrawableRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048690, this, i2) == null) {
+            setErrorIconDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        }
+    }
+
+    public void setErrorIconOnClickListener(@Nullable View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048692, this, onClickListener) == null) {
+            setIconOnClickListener(this.errorIconView, onClickListener, this.errorIconOnLongClickListener);
+        }
+    }
+
+    public void setErrorIconOnLongClickListener(@Nullable View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048693, this, onLongClickListener) == null) {
+            this.errorIconOnLongClickListener = onLongClickListener;
+            setIconOnLongClickListener(this.errorIconView, onLongClickListener);
+        }
+    }
+
+    public void setErrorIconTintList(@Nullable ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048694, this, colorStateList) == null) {
+            this.errorIconTintList = colorStateList;
+            Drawable drawable = this.errorIconView.getDrawable();
+            if (drawable != null) {
+                drawable = DrawableCompat.wrap(drawable).mutate();
+                DrawableCompat.setTintList(drawable, colorStateList);
+            }
+            if (this.errorIconView.getDrawable() != drawable) {
+                this.errorIconView.setImageDrawable(drawable);
+            }
+        }
+    }
+
+    public void setErrorIconTintMode(@Nullable PorterDuff.Mode mode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048695, this, mode) == null) {
+            Drawable drawable = this.errorIconView.getDrawable();
+            if (drawable != null) {
+                drawable = DrawableCompat.wrap(drawable).mutate();
+                DrawableCompat.setTintMode(drawable, mode);
+            }
+            if (this.errorIconView.getDrawable() != drawable) {
+                this.errorIconView.setImageDrawable(drawable);
+            }
+        }
+    }
+
+    public void setErrorTextAppearance(@StyleRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048696, this, i2) == null) {
+            this.indicatorViewController.setErrorTextAppearance(i2);
+        }
+    }
+
+    public void setErrorTextColor(@Nullable ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048697, this, colorStateList) == null) {
+            this.indicatorViewController.setErrorViewTextColor(colorStateList);
+        }
+    }
+
+    public void setHelperText(@Nullable CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048698, this, charSequence) == null) {
+            if (TextUtils.isEmpty(charSequence)) {
+                if (isHelperTextEnabled()) {
+                    setHelperTextEnabled(false);
+                    return;
+                }
+                return;
+            }
+            if (!isHelperTextEnabled()) {
+                setHelperTextEnabled(true);
+            }
+            this.indicatorViewController.showHelper(charSequence);
+        }
+    }
+
+    public void setHelperTextColor(@Nullable ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048699, this, colorStateList) == null) {
+            this.indicatorViewController.setHelperTextViewTextColor(colorStateList);
+        }
+    }
+
+    public void setHelperTextEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048700, this, z) == null) {
+            this.indicatorViewController.setHelperTextEnabled(z);
+        }
+    }
+
+    public void setHelperTextTextAppearance(@StyleRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048701, this, i2) == null) {
+            this.indicatorViewController.setHelperTextAppearance(i2);
+        }
+    }
+
+    public void setHint(@Nullable CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048702, this, charSequence) == null) && this.hintEnabled) {
+            setHintInternal(charSequence);
+            sendAccessibilityEvent(2048);
+        }
+    }
+
+    public void setHintAnimationEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048703, this, z) == null) {
+            this.hintAnimationEnabled = z;
+        }
+    }
+
+    public void setHintEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048704, this, z) == null) || z == this.hintEnabled) {
+            return;
+        }
+        this.hintEnabled = z;
+        if (!z) {
+            this.isProvidingHint = false;
+            if (!TextUtils.isEmpty(this.hint) && TextUtils.isEmpty(this.editText.getHint())) {
+                this.editText.setHint(this.hint);
+            }
+            setHintInternal(null);
+        } else {
+            CharSequence hint = this.editText.getHint();
+            if (!TextUtils.isEmpty(hint)) {
+                if (TextUtils.isEmpty(this.hint)) {
+                    setHint(hint);
+                }
+                this.editText.setHint((CharSequence) null);
+            }
+            this.isProvidingHint = true;
+        }
+        if (this.editText != null) {
+            updateInputLayoutMargins();
+        }
+    }
+
+    public void setHintTextAppearance(@StyleRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048705, this, i2) == null) {
+            this.collapsingTextHelper.setCollapsedTextAppearance(i2);
+            this.focusedTextColor = this.collapsingTextHelper.getCollapsedTextColor();
+            if (this.editText != null) {
+                updateLabelState(false);
+                updateInputLayoutMargins();
+            }
+        }
+    }
+
+    public void setHintTextColor(@Nullable ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048706, this, colorStateList) == null) || this.focusedTextColor == colorStateList) {
+            return;
+        }
+        if (this.defaultHintTextColor == null) {
+            this.collapsingTextHelper.setCollapsedTextColor(colorStateList);
+        }
+        this.focusedTextColor = colorStateList;
+        if (this.editText != null) {
+            updateLabelState(false);
+        }
+    }
+
+    @Deprecated
+    public void setPasswordVisibilityToggleContentDescription(@StringRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048707, this, i2) == null) {
+            setPasswordVisibilityToggleContentDescription(i2 != 0 ? getResources().getText(i2) : null);
+        }
+    }
+
+    @Deprecated
+    public void setPasswordVisibilityToggleDrawable(@DrawableRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048709, this, i2) == null) {
+            setPasswordVisibilityToggleDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        }
+    }
+
+    @Deprecated
+    public void setPasswordVisibilityToggleEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048711, this, z) == null) {
+            if (z && this.endIconMode != 1) {
+                setEndIconMode(1);
+            } else if (z) {
+            } else {
+                setEndIconMode(0);
+            }
+        }
+    }
+
+    @Deprecated
+    public void setPasswordVisibilityToggleTintList(@Nullable ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048712, this, colorStateList) == null) {
+            this.endIconTintList = colorStateList;
+            this.hasEndIconTintList = true;
+            applyEndIconTint();
+        }
+    }
+
+    @Deprecated
+    public void setPasswordVisibilityToggleTintMode(@Nullable PorterDuff.Mode mode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048713, this, mode) == null) {
+            this.endIconTintMode = mode;
+            this.hasEndIconTintMode = true;
+            applyEndIconTint();
+        }
+    }
+
+    public void setPlaceholderText(@Nullable CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048714, this, charSequence) == null) {
+            if (this.placeholderEnabled && TextUtils.isEmpty(charSequence)) {
+                setPlaceholderTextEnabled(false);
+            } else {
+                if (!this.placeholderEnabled) {
+                    setPlaceholderTextEnabled(true);
+                }
+                this.placeholderText = charSequence;
+            }
+            updatePlaceholderText();
+        }
     }
 
     public void setPlaceholderTextAppearance(@StyleRes int i2) {
-        this.placeholderTextAppearance = i2;
-        TextView textView = this.placeholderTextView;
-        if (textView != null) {
-            TextViewCompat.setTextAppearance(textView, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048715, this, i2) == null) {
+            this.placeholderTextAppearance = i2;
+            TextView textView = this.placeholderTextView;
+            if (textView != null) {
+                TextViewCompat.setTextAppearance(textView, i2);
+            }
         }
     }
 
     public void setPlaceholderTextColor(@Nullable ColorStateList colorStateList) {
-        if (this.placeholderTextColor != colorStateList) {
-            this.placeholderTextColor = colorStateList;
-            TextView textView = this.placeholderTextView;
-            if (textView == null || colorStateList == null) {
-                return;
-            }
-            textView.setTextColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048716, this, colorStateList) == null) || this.placeholderTextColor == colorStateList) {
+            return;
         }
+        this.placeholderTextColor = colorStateList;
+        TextView textView = this.placeholderTextView;
+        if (textView == null || colorStateList == null) {
+            return;
+        }
+        textView.setTextColor(colorStateList);
     }
 
     public void setPrefixText(@Nullable CharSequence charSequence) {
-        this.prefixText = TextUtils.isEmpty(charSequence) ? null : charSequence;
-        this.prefixTextView.setText(charSequence);
-        updatePrefixTextVisibility();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048717, this, charSequence) == null) {
+            this.prefixText = TextUtils.isEmpty(charSequence) ? null : charSequence;
+            this.prefixTextView.setText(charSequence);
+            updatePrefixTextVisibility();
+        }
     }
 
     public void setPrefixTextAppearance(@StyleRes int i2) {
-        TextViewCompat.setTextAppearance(this.prefixTextView, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048718, this, i2) == null) {
+            TextViewCompat.setTextAppearance(this.prefixTextView, i2);
+        }
     }
 
     public void setPrefixTextColor(@NonNull ColorStateList colorStateList) {
-        this.prefixTextView.setTextColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048719, this, colorStateList) == null) {
+            this.prefixTextView.setTextColor(colorStateList);
+        }
     }
 
     public void setStartIconCheckable(boolean z) {
-        this.startIconView.setCheckable(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048720, this, z) == null) {
+            this.startIconView.setCheckable(z);
+        }
     }
 
     public void setStartIconContentDescription(@StringRes int i2) {
-        setStartIconContentDescription(i2 != 0 ? getResources().getText(i2) : null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048721, this, i2) == null) {
+            setStartIconContentDescription(i2 != 0 ? getResources().getText(i2) : null);
+        }
     }
 
     public void setStartIconDrawable(@DrawableRes int i2) {
-        setStartIconDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048723, this, i2) == null) {
+            setStartIconDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        }
     }
 
     public void setStartIconOnClickListener(@Nullable View.OnClickListener onClickListener) {
-        setIconOnClickListener(this.startIconView, onClickListener, this.startIconOnLongClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048725, this, onClickListener) == null) {
+            setIconOnClickListener(this.startIconView, onClickListener, this.startIconOnLongClickListener);
+        }
     }
 
     public void setStartIconOnLongClickListener(@Nullable View.OnLongClickListener onLongClickListener) {
-        this.startIconOnLongClickListener = onLongClickListener;
-        setIconOnLongClickListener(this.startIconView, onLongClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048726, this, onLongClickListener) == null) {
+            this.startIconOnLongClickListener = onLongClickListener;
+            setIconOnLongClickListener(this.startIconView, onLongClickListener);
+        }
     }
 
     public void setStartIconTintList(@Nullable ColorStateList colorStateList) {
-        if (this.startIconTintList != colorStateList) {
-            this.startIconTintList = colorStateList;
-            this.hasStartIconTintList = true;
-            applyStartIconTint();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048727, this, colorStateList) == null) || this.startIconTintList == colorStateList) {
+            return;
         }
+        this.startIconTintList = colorStateList;
+        this.hasStartIconTintList = true;
+        applyStartIconTint();
     }
 
     public void setStartIconTintMode(@Nullable PorterDuff.Mode mode) {
-        if (this.startIconTintMode != mode) {
-            this.startIconTintMode = mode;
-            this.hasStartIconTintMode = true;
-            applyStartIconTint();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048728, this, mode) == null) || this.startIconTintMode == mode) {
+            return;
         }
+        this.startIconTintMode = mode;
+        this.hasStartIconTintMode = true;
+        applyStartIconTint();
     }
 
     public void setStartIconVisible(boolean z) {
-        if (isStartIconVisible() != z) {
-            this.startIconView.setVisibility(z ? 0 : 8);
-            updatePrefixTextViewPadding();
-            updateDummyDrawables();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048729, this, z) == null) || isStartIconVisible() == z) {
+            return;
         }
+        this.startIconView.setVisibility(z ? 0 : 8);
+        updatePrefixTextViewPadding();
+        updateDummyDrawables();
     }
 
     public void setSuffixText(@Nullable CharSequence charSequence) {
-        this.suffixText = TextUtils.isEmpty(charSequence) ? null : charSequence;
-        this.suffixTextView.setText(charSequence);
-        updateSuffixTextVisibility();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048730, this, charSequence) == null) {
+            this.suffixText = TextUtils.isEmpty(charSequence) ? null : charSequence;
+            this.suffixTextView.setText(charSequence);
+            updateSuffixTextVisibility();
+        }
     }
 
     public void setSuffixTextAppearance(@StyleRes int i2) {
-        TextViewCompat.setTextAppearance(this.suffixTextView, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048731, this, i2) == null) {
+            TextViewCompat.setTextAppearance(this.suffixTextView, i2);
+        }
     }
 
     public void setSuffixTextColor(@NonNull ColorStateList colorStateList) {
-        this.suffixTextView.setTextColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048732, this, colorStateList) == null) {
+            this.suffixTextView.setTextColor(colorStateList);
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0015, code lost:
-        if (r3.getTextColors().getDefaultColor() == (-65281)) goto L8;
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0019, code lost:
+        if (r5.getTextColors().getDefaultColor() == (-65281)) goto L10;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void setTextAppearanceCompatWithErrorFallback(@NonNull TextView textView, @StyleRes int i2) {
-        boolean z = true;
-        try {
-            TextViewCompat.setTextAppearance(textView, i2);
-            if (Build.VERSION.SDK_INT >= 23) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048733, this, textView, i2) == null) {
+            boolean z = true;
+            try {
+                TextViewCompat.setTextAppearance(textView, i2);
+                if (Build.VERSION.SDK_INT >= 23) {
+                }
+                z = false;
+            } catch (Exception unused) {
             }
-            z = false;
-        } catch (Exception unused) {
-        }
-        if (z) {
-            TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat_Caption);
-            textView.setTextColor(ContextCompat.getColor(getContext(), R.color.design_error));
+            if (z) {
+                TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat_Caption);
+                textView.setTextColor(ContextCompat.getColor(getContext(), R.color.design_error));
+            }
         }
     }
 
     public void setTextInputAccessibilityDelegate(@Nullable AccessibilityDelegate accessibilityDelegate) {
-        EditText editText = this.editText;
-        if (editText != null) {
-            ViewCompat.setAccessibilityDelegate(editText, accessibilityDelegate);
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048734, this, accessibilityDelegate) == null) || (editText = this.editText) == null) {
+            return;
         }
+        ViewCompat.setAccessibilityDelegate(editText, accessibilityDelegate);
     }
 
     public void setTypeface(@Nullable Typeface typeface) {
-        if (typeface != this.typeface) {
-            this.typeface = typeface;
-            this.collapsingTextHelper.setTypefaces(typeface);
-            this.indicatorViewController.setTypefaces(typeface);
-            TextView textView = this.counterView;
-            if (textView != null) {
-                textView.setTypeface(typeface);
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048735, this, typeface) == null) || typeface == this.typeface) {
+            return;
+        }
+        this.typeface = typeface;
+        this.collapsingTextHelper.setTypefaces(typeface);
+        this.indicatorViewController.setTypefaces(typeface);
+        TextView textView = this.counterView;
+        if (textView != null) {
+            textView.setTypeface(typeface);
         }
     }
 
     public void updateEditTextBackground() {
+        EditText editText;
         Drawable background;
         TextView textView;
-        EditText editText = this.editText;
-        if (editText == null || this.boxBackgroundMode != 0 || (background = editText.getBackground()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048737, this) == null) || (editText = this.editText) == null || this.boxBackgroundMode != 0 || (background = editText.getBackground()) == null) {
             return;
         }
         if (DrawableUtils.canSafelyMutateDrawable(background)) {
@@ -2129,14 +2947,18 @@ public class TextInputLayout extends LinearLayout {
     }
 
     public void updateLabelState(boolean z) {
-        updateLabelState(z, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048738, this, z) == null) {
+            updateLabelState(z, false);
+        }
     }
 
     public void updateTextInputBoxState() {
         TextView textView;
         EditText editText;
         EditText editText2;
-        if (this.boxBackground == null || this.boxBackgroundMode == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048739, this) == null) || this.boxBackground == null || this.boxBackgroundMode == 0) {
             return;
         }
         boolean z = false;
@@ -2192,90 +3014,143 @@ public class TextInputLayout extends LinearLayout {
         applyBoxAttributes();
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TextInputLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.textInputStyle);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     private void updateLabelState(boolean z, boolean z2) {
         ColorStateList colorStateList;
         TextView textView;
-        boolean isEnabled = isEnabled();
-        EditText editText = this.editText;
-        boolean z3 = (editText == null || TextUtils.isEmpty(editText.getText())) ? false : true;
-        EditText editText2 = this.editText;
-        boolean z4 = editText2 != null && editText2.hasFocus();
-        boolean errorShouldBeShown = this.indicatorViewController.errorShouldBeShown();
-        ColorStateList colorStateList2 = this.defaultHintTextColor;
-        if (colorStateList2 != null) {
-            this.collapsingTextHelper.setCollapsedTextColor(colorStateList2);
-            this.collapsingTextHelper.setExpandedTextColor(this.defaultHintTextColor);
-        }
-        if (!isEnabled) {
-            ColorStateList colorStateList3 = this.defaultHintTextColor;
-            int colorForState = colorStateList3 != null ? colorStateList3.getColorForState(new int[]{-16842910}, this.disabledColor) : this.disabledColor;
-            this.collapsingTextHelper.setCollapsedTextColor(ColorStateList.valueOf(colorForState));
-            this.collapsingTextHelper.setExpandedTextColor(ColorStateList.valueOf(colorForState));
-        } else if (errorShouldBeShown) {
-            this.collapsingTextHelper.setCollapsedTextColor(this.indicatorViewController.getErrorViewTextColors());
-        } else if (this.counterOverflowed && (textView = this.counterView) != null) {
-            this.collapsingTextHelper.setCollapsedTextColor(textView.getTextColors());
-        } else if (z4 && (colorStateList = this.focusedTextColor) != null) {
-            this.collapsingTextHelper.setCollapsedTextColor(colorStateList);
-        }
-        if (!z3 && (!isEnabled() || (!z4 && !errorShouldBeShown))) {
-            if (z2 || !this.hintExpanded) {
-                expandHint(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65601, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            boolean isEnabled = isEnabled();
+            EditText editText = this.editText;
+            boolean z3 = (editText == null || TextUtils.isEmpty(editText.getText())) ? false : true;
+            EditText editText2 = this.editText;
+            boolean z4 = editText2 != null && editText2.hasFocus();
+            boolean errorShouldBeShown = this.indicatorViewController.errorShouldBeShown();
+            ColorStateList colorStateList2 = this.defaultHintTextColor;
+            if (colorStateList2 != null) {
+                this.collapsingTextHelper.setCollapsedTextColor(colorStateList2);
+                this.collapsingTextHelper.setExpandedTextColor(this.defaultHintTextColor);
             }
-        } else if (z2 || this.hintExpanded) {
-            collapseHint(z);
+            if (!isEnabled) {
+                ColorStateList colorStateList3 = this.defaultHintTextColor;
+                int colorForState = colorStateList3 != null ? colorStateList3.getColorForState(new int[]{-16842910}, this.disabledColor) : this.disabledColor;
+                this.collapsingTextHelper.setCollapsedTextColor(ColorStateList.valueOf(colorForState));
+                this.collapsingTextHelper.setExpandedTextColor(ColorStateList.valueOf(colorForState));
+            } else if (errorShouldBeShown) {
+                this.collapsingTextHelper.setCollapsedTextColor(this.indicatorViewController.getErrorViewTextColors());
+            } else if (this.counterOverflowed && (textView = this.counterView) != null) {
+                this.collapsingTextHelper.setCollapsedTextColor(textView.getTextColors());
+            } else if (z4 && (colorStateList = this.focusedTextColor) != null) {
+                this.collapsingTextHelper.setCollapsedTextColor(colorStateList);
+            }
+            if (!z3 && (!isEnabled() || (!z4 && !errorShouldBeShown))) {
+                if (z2 || !this.hintExpanded) {
+                    expandHint(z);
+                }
+            } else if (z2 || this.hintExpanded) {
+                collapseHint(z);
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updatePlaceholderText(int i2) {
-        if (i2 == 0 && !this.hintExpanded) {
-            showPlaceholderText();
-        } else {
-            hidePlaceholderText();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65604, this, i2) == null) {
+            if (i2 == 0 && !this.hintExpanded) {
+                showPlaceholderText();
+            } else {
+                hidePlaceholderText();
+            }
         }
     }
 
     public void setEndIconContentDescription(@Nullable CharSequence charSequence) {
-        if (getEndIconContentDescription() != charSequence) {
-            this.endIconView.setContentDescription(charSequence);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048678, this, charSequence) == null) || getEndIconContentDescription() == charSequence) {
+            return;
         }
+        this.endIconView.setContentDescription(charSequence);
     }
 
     public void setEndIconDrawable(@Nullable Drawable drawable) {
-        this.endIconView.setImageDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048680, this, drawable) == null) {
+            this.endIconView.setImageDrawable(drawable);
+        }
     }
 
     public void setErrorIconDrawable(@Nullable Drawable drawable) {
-        this.errorIconView.setImageDrawable(drawable);
-        setErrorIconVisible(drawable != null && this.indicatorViewController.isErrorEnabled());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048691, this, drawable) == null) {
+            this.errorIconView.setImageDrawable(drawable);
+            setErrorIconVisible(drawable != null && this.indicatorViewController.isErrorEnabled());
+        }
     }
 
     public void setStartIconContentDescription(@Nullable CharSequence charSequence) {
-        if (getStartIconContentDescription() != charSequence) {
-            this.startIconView.setContentDescription(charSequence);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048722, this, charSequence) == null) || getStartIconContentDescription() == charSequence) {
+            return;
         }
+        this.startIconView.setContentDescription(charSequence);
     }
 
     public void setStartIconDrawable(@Nullable Drawable drawable) {
-        this.startIconView.setImageDrawable(drawable);
-        if (drawable != null) {
-            setStartIconVisible(true);
-            applyStartIconTint();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048724, this, drawable) == null) {
+            this.startIconView.setImageDrawable(drawable);
+            if (drawable != null) {
+                setStartIconVisible(true);
+                applyStartIconTint();
+                return;
+            }
+            setStartIconVisible(false);
+            setStartIconOnClickListener(null);
+            setStartIconOnLongClickListener(null);
+            setStartIconContentDescription((CharSequence) null);
         }
-        setStartIconVisible(false);
-        setStartIconOnClickListener(null);
-        setStartIconOnLongClickListener(null);
-        setStartIconContentDescription((CharSequence) null);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TextInputLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.indicatorViewController = new IndicatorViewController(this);
         this.tmpRect = new Rect();
         this.tmpBoundsRect = new Rect();
@@ -2528,34 +3403,43 @@ public class TextInputLayout extends LinearLayout {
 
     @Deprecated
     public void setPasswordVisibilityToggleContentDescription(@Nullable CharSequence charSequence) {
-        this.endIconView.setContentDescription(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048708, this, charSequence) == null) {
+            this.endIconView.setContentDescription(charSequence);
+        }
     }
 
     @Deprecated
     public void setPasswordVisibilityToggleDrawable(@Nullable Drawable drawable) {
-        this.endIconView.setImageDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048710, this, drawable) == null) {
+            this.endIconView.setImageDrawable(drawable);
+        }
     }
 
     public void updateCounter(int i2) {
-        boolean z = this.counterOverflowed;
-        int i3 = this.counterMaxLength;
-        if (i3 == -1) {
-            this.counterView.setText(String.valueOf(i2));
-            this.counterView.setContentDescription(null);
-            this.counterOverflowed = false;
-        } else {
-            this.counterOverflowed = i2 > i3;
-            updateCounterContentDescription(getContext(), this.counterView, i2, this.counterMaxLength, this.counterOverflowed);
-            if (z != this.counterOverflowed) {
-                updateCounterTextAppearanceAndColor();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048736, this, i2) == null) {
+            boolean z = this.counterOverflowed;
+            int i3 = this.counterMaxLength;
+            if (i3 == -1) {
+                this.counterView.setText(String.valueOf(i2));
+                this.counterView.setContentDescription(null);
+                this.counterOverflowed = false;
+            } else {
+                this.counterOverflowed = i2 > i3;
+                updateCounterContentDescription(getContext(), this.counterView, i2, this.counterMaxLength, this.counterOverflowed);
+                if (z != this.counterOverflowed) {
+                    updateCounterTextAppearanceAndColor();
+                }
+                this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.character_counter_pattern, Integer.valueOf(i2), Integer.valueOf(this.counterMaxLength))));
             }
-            this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.character_counter_pattern, Integer.valueOf(i2), Integer.valueOf(this.counterMaxLength))));
+            if (this.editText == null || z == this.counterOverflowed) {
+                return;
+            }
+            updateLabelState(false);
+            updateTextInputBoxState();
+            updateEditTextBackground();
         }
-        if (this.editText == null || z == this.counterOverflowed) {
-            return;
-        }
-        updateLabelState(false);
-        updateTextInputBoxState();
-        updateEditTextBackground();
     }
 }

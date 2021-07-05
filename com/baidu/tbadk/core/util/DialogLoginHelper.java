@@ -2,46 +2,83 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.a.n0.b.d;
-import d.a.n0.r.q.r0;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.b.d;
+import d.a.r0.r.q.s0;
+/* loaded from: classes4.dex */
 public class DialogLoginHelper {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOG_TYPE_ONE_KEY = "yijiandenglu";
     public static final String DIALOG_TYPE_SHARE = "hutongdenglu";
     public static final String FULL_SCREEN_TYPE_ONE_KEY = "yijiandenglu_2";
     public static final String FULL_SCREEN_TYPE_SHARE = "hutongdenglu_2";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public DialogLoginHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static void addLoginDialogInvokeLog(String str, String str2) {
-        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOGIN_DIALOG_INVOKE);
-        statisticItem.param("obj_locate", str);
-        statisticItem.param("obj_type", str2);
-        TiebaStatic.log(statisticItem);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOGIN_DIALOG_INVOKE);
+            statisticItem.param("obj_locate", str);
+            statisticItem.param("obj_type", str2);
+            TiebaStatic.log(statisticItem);
+        }
     }
 
     public static void addLoginDialogSuccessLog(String str, String str2, String str3) {
-        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOGIN_DIALOG_SUCCESS);
-        statisticItem.param("obj_locate", str);
-        statisticItem.param("obj_type", str2);
-        statisticItem.param("obj_source", str3);
-        TiebaStatic.log(statisticItem);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOGIN_DIALOG_SUCCESS);
+            statisticItem.param("obj_locate", str);
+            statisticItem.param("obj_type", str2);
+            statisticItem.param("obj_source", str3);
+            TiebaStatic.log(statisticItem);
+        }
     }
 
-    public static boolean checkUpIsLogin(r0 r0Var) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            skipToLoginDialogActivity(r0Var);
+    public static boolean checkUpIsLogin(s0 s0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, s0Var)) == null) {
+            boolean isLogin = TbadkCoreApplication.isLogin();
+            if (!isLogin) {
+                skipToLoginDialogActivity(s0Var);
+            }
+            return isLogin;
         }
-        return isLogin;
+        return invokeL.booleanValue;
     }
 
     public static String getOneKeyLoginActivityLocate() {
-        return d.k() ? "new_start_1" : d.l() ? "new_start_2" : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? d.k() ? "new_start_1" : d.l() ? "new_start_2" : "" : (String) invokeV.objValue;
     }
 
-    public static void skipToLoginDialogActivity(r0 r0Var) {
-        if (r0Var != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921530, r0Var));
+    public static void skipToLoginDialogActivity(s0 s0Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, s0Var) == null) || s0Var == null) {
+            return;
         }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2921530, s0Var));
     }
 }

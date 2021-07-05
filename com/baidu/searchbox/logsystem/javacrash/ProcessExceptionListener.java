@@ -2,7 +2,7 @@ package com.baidu.searchbox.logsystem.javacrash;
 
 import androidx.annotation.NonNull;
 import java.lang.Thread;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ProcessExceptionListener {
     void onProcessExceptionFail(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th, @NonNull Throwable th2);
 

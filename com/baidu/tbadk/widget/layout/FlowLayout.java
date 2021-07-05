@@ -8,77 +8,110 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.internal.view.SupportMenu;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R$styleable;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class FlowLayout extends ViewGroup {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13281e;
+    public int f13366e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13282f;
+    public int f13367f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13283g;
+    public int f13368g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13284h;
+    public boolean f13369h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLayout(Context context) {
         super(context);
-        this.f13281e = 0;
-        this.f13282f = 0;
-        this.f13283g = 0;
-        this.f13284h = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13366e = 0;
+        this.f13367f = 0;
+        this.f13368g = 0;
+        this.f13369h = false;
         h(context, null);
     }
 
     public final Paint a(int i2) {
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setColor(i2);
-        paint.setStrokeWidth(2.0f);
-        return paint;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setColor(i2);
+            paint.setStrokeWidth(2.0f);
+            return paint;
+        }
+        return (Paint) invokeI.objValue;
     }
 
     public final void b(Canvas canvas, View view) {
-        if (this.f13284h) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, view) == null) && this.f13369h) {
             Paint a2 = a(-256);
             Paint a3 = a(-16711936);
             Paint a4 = a(SupportMenu.CATEGORY_MASK);
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-            if (layoutParams.f13288c > 0) {
+            if (layoutParams.f13373c > 0) {
                 float right = view.getRight();
                 float top = view.getTop() + (view.getHeight() / 2.0f);
-                canvas.drawLine(right, top, right + layoutParams.f13288c, top, a2);
-                canvas.drawLine((layoutParams.f13288c + right) - 4.0f, top - 4.0f, right + layoutParams.f13288c, top, a2);
-                canvas.drawLine((layoutParams.f13288c + right) - 4.0f, top + 4.0f, right + layoutParams.f13288c, top, a2);
-            } else if (this.f13281e > 0) {
+                canvas.drawLine(right, top, right + layoutParams.f13373c, top, a2);
+                canvas.drawLine((layoutParams.f13373c + right) - 4.0f, top - 4.0f, right + layoutParams.f13373c, top, a2);
+                canvas.drawLine((layoutParams.f13373c + right) - 4.0f, top + 4.0f, right + layoutParams.f13373c, top, a2);
+            } else if (this.f13366e > 0) {
                 float right2 = view.getRight();
                 float top2 = view.getTop() + (view.getHeight() / 2.0f);
-                canvas.drawLine(right2, top2, right2 + this.f13281e, top2, a3);
-                int i2 = this.f13281e;
+                canvas.drawLine(right2, top2, right2 + this.f13366e, top2, a3);
+                int i2 = this.f13366e;
                 canvas.drawLine((i2 + right2) - 4.0f, top2 - 4.0f, right2 + i2, top2, a3);
-                int i3 = this.f13281e;
+                int i3 = this.f13366e;
                 canvas.drawLine((i3 + right2) - 4.0f, top2 + 4.0f, right2 + i3, top2, a3);
             }
-            if (layoutParams.f13289d > 0) {
+            if (layoutParams.f13374d > 0) {
                 float left = view.getLeft() + (view.getWidth() / 2.0f);
                 float bottom = view.getBottom();
-                canvas.drawLine(left, bottom, left, bottom + layoutParams.f13289d, a2);
-                canvas.drawLine(left - 4.0f, (layoutParams.f13289d + bottom) - 4.0f, left, bottom + layoutParams.f13289d, a2);
-                canvas.drawLine(left + 4.0f, (layoutParams.f13289d + bottom) - 4.0f, left, bottom + layoutParams.f13289d, a2);
-            } else if (this.f13282f > 0) {
+                canvas.drawLine(left, bottom, left, bottom + layoutParams.f13374d, a2);
+                canvas.drawLine(left - 4.0f, (layoutParams.f13374d + bottom) - 4.0f, left, bottom + layoutParams.f13374d, a2);
+                canvas.drawLine(left + 4.0f, (layoutParams.f13374d + bottom) - 4.0f, left, bottom + layoutParams.f13374d, a2);
+            } else if (this.f13367f > 0) {
                 float left2 = view.getLeft() + (view.getWidth() / 2.0f);
                 float bottom2 = view.getBottom();
-                canvas.drawLine(left2, bottom2, left2, bottom2 + this.f13282f, a3);
-                int i4 = this.f13282f;
+                canvas.drawLine(left2, bottom2, left2, bottom2 + this.f13367f, a3);
+                int i4 = this.f13367f;
                 canvas.drawLine(left2 - 4.0f, (i4 + bottom2) - 4.0f, left2, bottom2 + i4, a3);
-                int i5 = this.f13282f;
+                int i5 = this.f13367f;
                 canvas.drawLine(left2 + 4.0f, (i5 + bottom2) - 4.0f, left2, bottom2 + i5, a3);
             }
-            if (layoutParams.f13290e) {
-                if (this.f13283g == 0) {
+            if (layoutParams.f13375e) {
+                if (this.f13368g == 0) {
                     float left3 = view.getLeft();
                     float top3 = view.getTop() + (view.getHeight() / 2.0f);
                     canvas.drawLine(left3, top3 - 6.0f, left3, top3 + 6.0f, a4);
@@ -95,68 +128,97 @@ public class FlowLayout extends ViewGroup {
     @Override // android.view.ViewGroup
     /* renamed from: c */
     public LayoutParams generateDefaultLayoutParams() {
-        return new LayoutParams(-2, -2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new LayoutParams(-2, -2) : (LayoutParams) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup
     public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        return layoutParams instanceof LayoutParams;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, layoutParams)) == null) ? layoutParams instanceof LayoutParams : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
     /* renamed from: d */
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
-        return new LayoutParams(getContext(), attributeSet);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, attributeSet)) == null) ? new LayoutParams(getContext(), attributeSet) : (LayoutParams) invokeL.objValue;
     }
 
     @Override // android.view.ViewGroup
     public boolean drawChild(Canvas canvas, View view, long j) {
-        boolean drawChild = super.drawChild(canvas, view, j);
-        b(canvas, view);
-        return drawChild;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
+            boolean drawChild = super.drawChild(canvas, view, j);
+            b(canvas, view);
+            return drawChild;
+        }
+        return invokeCommon.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
     /* renamed from: e */
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        return new LayoutParams(layoutParams);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (LayoutParams) invokeL.objValue;
     }
 
     public final int f(LayoutParams layoutParams) {
-        if (layoutParams.f()) {
-            return layoutParams.f13288c;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, layoutParams)) == null) {
+            if (layoutParams.f()) {
+                return layoutParams.f13373c;
+            }
+            return this.f13366e;
         }
-        return this.f13281e;
+        return invokeL.intValue;
     }
 
     public final int g(LayoutParams layoutParams) {
-        if (layoutParams.i()) {
-            return layoutParams.f13289d;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutParams)) == null) {
+            if (layoutParams.i()) {
+                return layoutParams.f13374d;
+            }
+            return this.f13367f;
         }
-        return this.f13282f;
+        return invokeL.intValue;
     }
 
     public final void h(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.FlowLayout);
-        try {
-            this.f13281e = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_horizontalSpacing, 0);
-            this.f13282f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_verticalSpacing, 0);
-            this.f13283g = obtainStyledAttributes.getInteger(R$styleable.FlowLayout_orientation, 0);
-            this.f13284h = obtainStyledAttributes.getBoolean(R$styleable.FlowLayout_debugDraw, false);
-        } finally {
-            obtainStyledAttributes.recycle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.FlowLayout);
+            try {
+                this.f13366e = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_horizontalSpacing, 0);
+                this.f13367f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_verticalSpacing, 0);
+                this.f13368g = obtainStyledAttributes.getInteger(R$styleable.FlowLayout_orientation, 0);
+                this.f13369h = obtainStyledAttributes.getBoolean(R$styleable.FlowLayout_debugDraw, false);
+            } finally {
+                obtainStyledAttributes.recycle();
+            }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        int childCount = getChildCount();
-        for (int i6 = 0; i6 < childCount; i6++) {
-            View childAt = getChildAt(i6);
-            LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-            childAt.layout(layoutParams.f13286a, layoutParams.f13287b, layoutParams.f13286a + childAt.getMeasuredWidth(), layoutParams.f13287b + childAt.getMeasuredHeight());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            int childCount = getChildCount();
+            for (int i6 = 0; i6 < childCount; i6++) {
+                View childAt = getChildAt(i6);
+                LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
+                childAt.layout(layoutParams.f13371a, layoutParams.f13372b, layoutParams.f13371a + childAt.getMeasuredWidth(), layoutParams.f13372b + childAt.getMeasuredHeight());
+            }
         }
     }
 
@@ -170,181 +232,301 @@ public class FlowLayout extends ViewGroup {
         int i6;
         int paddingLeft2;
         int paddingTop;
-        int size = (View.MeasureSpec.getSize(i2) - getPaddingRight()) - getPaddingLeft();
-        int size2 = (View.MeasureSpec.getSize(i3) - getPaddingTop()) - getPaddingBottom();
-        int mode = View.MeasureSpec.getMode(i2);
-        int mode2 = View.MeasureSpec.getMode(i3);
-        if (this.f13283g != 0) {
-            size = size2;
-            mode = mode2;
-        }
-        int childCount = getChildCount();
-        int i7 = 0;
-        int i8 = 0;
-        int i9 = 0;
-        int i10 = 0;
-        int i11 = 0;
-        int i12 = 0;
-        int i13 = 0;
-        while (i7 < childCount) {
-            View childAt = getChildAt(i7);
-            if (childAt.getVisibility() == 8) {
-                i4 = childCount;
-            } else {
-                LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                i4 = childCount;
-                childAt.measure(ViewGroup.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight(), ((ViewGroup.LayoutParams) layoutParams).width), ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom(), ((ViewGroup.LayoutParams) layoutParams).height));
-                int f2 = f(layoutParams);
-                int g2 = g(layoutParams);
-                int measuredWidth = childAt.getMeasuredWidth();
-                int measuredHeight = childAt.getMeasuredHeight();
-                int i14 = f2;
-                if (this.f13283g == 0) {
-                    i5 = i14;
-                    i14 = g2;
-                    i6 = measuredHeight;
-                } else {
-                    i5 = g2;
-                    i6 = measuredWidth;
-                    measuredWidth = measuredHeight;
-                }
-                int i15 = i10 + measuredWidth;
-                int i16 = i15 + i5;
-                if (layoutParams.f13290e || (mode != 0 && i15 > size)) {
-                    i13 += i11;
-                    i11 = i6 + i14;
-                    i16 = i5 + measuredWidth;
-                    i12 = i6;
-                    i15 = measuredWidth;
-                }
-                i11 = Math.max(i11, i6 + i14);
-                i12 = Math.max(i12, i6);
-                if (this.f13283g == 0) {
-                    paddingLeft2 = (getPaddingLeft() + i15) - measuredWidth;
-                    paddingTop = getPaddingTop() + i13;
-                } else {
-                    paddingLeft2 = getPaddingLeft() + i13;
-                    paddingTop = (getPaddingTop() + i15) - measuredHeight;
-                }
-                layoutParams.h(paddingLeft2, paddingTop);
-                i8 = Math.max(i8, i15);
-                i9 = i13 + i12;
-                i10 = i16;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) {
+            int size = (View.MeasureSpec.getSize(i2) - getPaddingRight()) - getPaddingLeft();
+            int size2 = (View.MeasureSpec.getSize(i3) - getPaddingTop()) - getPaddingBottom();
+            int mode = View.MeasureSpec.getMode(i2);
+            int mode2 = View.MeasureSpec.getMode(i3);
+            if (this.f13368g != 0) {
+                size = size2;
+                mode = mode2;
             }
-            i7++;
-            childCount = i4;
-        }
-        if (this.f13283g == 0) {
-            paddingBottom = i8 + getPaddingLeft() + getPaddingRight();
-            paddingLeft = getPaddingBottom();
-            paddingRight = getPaddingTop();
-        } else {
-            paddingBottom = i8 + getPaddingBottom() + getPaddingTop();
-            paddingLeft = getPaddingLeft();
-            paddingRight = getPaddingRight();
-        }
-        int i17 = i9 + paddingLeft + paddingRight;
-        if (this.f13283g == 0) {
-            setMeasuredDimension(ViewGroup.resolveSize(paddingBottom, i2), ViewGroup.resolveSize(i17, i3));
-        } else {
-            setMeasuredDimension(ViewGroup.resolveSize(i17, i2), ViewGroup.resolveSize(paddingBottom, i3));
+            int childCount = getChildCount();
+            int i7 = 0;
+            int i8 = 0;
+            int i9 = 0;
+            int i10 = 0;
+            int i11 = 0;
+            int i12 = 0;
+            int i13 = 0;
+            while (i7 < childCount) {
+                View childAt = getChildAt(i7);
+                if (childAt.getVisibility() == 8) {
+                    i4 = childCount;
+                } else {
+                    LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
+                    i4 = childCount;
+                    childAt.measure(ViewGroup.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight(), ((ViewGroup.LayoutParams) layoutParams).width), ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom(), ((ViewGroup.LayoutParams) layoutParams).height));
+                    int f2 = f(layoutParams);
+                    int g2 = g(layoutParams);
+                    int measuredWidth = childAt.getMeasuredWidth();
+                    int measuredHeight = childAt.getMeasuredHeight();
+                    int i14 = f2;
+                    if (this.f13368g == 0) {
+                        i5 = i14;
+                        i14 = g2;
+                        i6 = measuredHeight;
+                    } else {
+                        i5 = g2;
+                        i6 = measuredWidth;
+                        measuredWidth = measuredHeight;
+                    }
+                    int i15 = i10 + measuredWidth;
+                    int i16 = i15 + i5;
+                    if (layoutParams.f13375e || (mode != 0 && i15 > size)) {
+                        i13 += i11;
+                        i11 = i6 + i14;
+                        i16 = i5 + measuredWidth;
+                        i12 = i6;
+                        i15 = measuredWidth;
+                    }
+                    i11 = Math.max(i11, i6 + i14);
+                    i12 = Math.max(i12, i6);
+                    if (this.f13368g == 0) {
+                        paddingLeft2 = (getPaddingLeft() + i15) - measuredWidth;
+                        paddingTop = getPaddingTop() + i13;
+                    } else {
+                        paddingLeft2 = getPaddingLeft() + i13;
+                        paddingTop = (getPaddingTop() + i15) - measuredHeight;
+                    }
+                    layoutParams.h(paddingLeft2, paddingTop);
+                    i8 = Math.max(i8, i15);
+                    i9 = i13 + i12;
+                    i10 = i16;
+                }
+                i7++;
+                childCount = i4;
+            }
+            if (this.f13368g == 0) {
+                paddingBottom = i8 + getPaddingLeft() + getPaddingRight();
+                paddingLeft = getPaddingBottom();
+                paddingRight = getPaddingTop();
+            } else {
+                paddingBottom = i8 + getPaddingBottom() + getPaddingTop();
+                paddingLeft = getPaddingLeft();
+                paddingRight = getPaddingRight();
+            }
+            int i17 = i9 + paddingLeft + paddingRight;
+            if (this.f13368g == 0) {
+                setMeasuredDimension(ViewGroup.resolveSize(paddingBottom, i2), ViewGroup.resolveSize(i17, i3));
+            } else {
+                setMeasuredDimension(ViewGroup.resolveSize(i17, i2), ViewGroup.resolveSize(paddingBottom, i3));
+            }
         }
     }
 
     public void setHorizontalSpacing(int i2) {
-        this.f13281e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.f13366e = i2;
+        }
     }
 
     public void setVerticalSpacing(int i2) {
-        this.f13282f = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.f13367f = i2;
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
+        public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public static int f13285f = -1;
+        public static int f13370f = -1;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13286a;
+        public int f13371a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13287b;
+        public int f13372b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f13288c;
+        public int f13373c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f13289d;
+        public int f13374d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f13290e;
+        public boolean f13375e;
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-457444100, "Lcom/baidu/tbadk/widget/layout/FlowLayout$LayoutParams;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-457444100, "Lcom/baidu/tbadk/widget/layout/FlowLayout$LayoutParams;");
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            int i2 = f13285f;
-            this.f13288c = i2;
-            this.f13289d = i2;
-            this.f13290e = false;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            int i4 = f13370f;
+            this.f13373c = i4;
+            this.f13374d = i4;
+            this.f13375e = false;
             g(context, attributeSet);
         }
 
         public boolean f() {
-            return this.f13288c != f13285f;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13373c != f13370f : invokeV.booleanValue;
         }
 
         public final void g(Context context, AttributeSet attributeSet) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.FlowLayout_LayoutParams);
-            try {
-                this.f13288c = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_LayoutParams_layout_horizontalSpacing, f13285f);
-                this.f13289d = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_LayoutParams_layout_verticalSpacing, f13285f);
-                this.f13290e = obtainStyledAttributes.getBoolean(R$styleable.FlowLayout_LayoutParams_layout_newLine, false);
-            } finally {
-                obtainStyledAttributes.recycle();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.FlowLayout_LayoutParams);
+                try {
+                    this.f13373c = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_LayoutParams_layout_horizontalSpacing, f13370f);
+                    this.f13374d = obtainStyledAttributes.getDimensionPixelSize(R$styleable.FlowLayout_LayoutParams_layout_verticalSpacing, f13370f);
+                    this.f13375e = obtainStyledAttributes.getBoolean(R$styleable.FlowLayout_LayoutParams_layout_newLine, false);
+                } finally {
+                    obtainStyledAttributes.recycle();
+                }
             }
         }
 
         public void h(int i2, int i3) {
-            this.f13286a = i2;
-            this.f13287b = i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+                this.f13371a = i2;
+                this.f13372b = i3;
+            }
         }
 
         public boolean i() {
-            return this.f13289d != f13285f;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13374d != f13370f : invokeV.booleanValue;
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(int i2, int i3) {
             super(i2, i3);
-            int i4 = f13285f;
-            this.f13288c = i4;
-            this.f13289d = i4;
-            this.f13290e = false;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            int i6 = f13370f;
+            this.f13373c = i6;
+            this.f13374d = i6;
+            this.f13375e = false;
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            int i2 = f13285f;
-            this.f13288c = i2;
-            this.f13289d = i2;
-            this.f13290e = false;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutParams};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
+            int i4 = f13370f;
+            this.f13373c = i4;
+            this.f13374d = i4;
+            this.f13375e = false;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13281e = 0;
-        this.f13282f = 0;
-        this.f13283g = 0;
-        this.f13284h = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f13366e = 0;
+        this.f13367f = 0;
+        this.f13368g = 0;
+        this.f13369h = false;
         h(context, attributeSet);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13281e = 0;
-        this.f13282f = 0;
-        this.f13283g = 0;
-        this.f13284h = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f13366e = 0;
+        this.f13367f = 0;
+        this.f13368g = 0;
+        this.f13369h = false;
         h(context, attributeSet);
     }
 }

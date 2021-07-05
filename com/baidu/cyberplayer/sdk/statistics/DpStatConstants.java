@@ -1,9 +1,14 @@
 package com.baidu.cyberplayer.sdk.statistics;
 
 import com.baidu.cyberplayer.sdk.Keep;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DpStatConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_ACTIVATE_CORE_RESULT = 20737;
     public static final int ACTION_LIB_LOAD_RESULT = 20736;
     public static final String KEY_ABTEST_SID = "abtest_sid";
@@ -60,4 +65,19 @@ public class DpStatConstants {
     public static final int SESSION_TYPE_PLAY_COMMON = 24322;
     public static final int SESSION_TYPE_RTC_COMMON = 20488;
     public static final int SESSION_TYPE_STAGE_INFO = 20484;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public DpStatConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

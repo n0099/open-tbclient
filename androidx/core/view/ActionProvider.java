@@ -6,9 +6,17 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import androidx.annotation.RestrictTo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public abstract class ActionProvider {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ActionProvider(support)";
+    public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public SubUiVisibilityListener mSubUiVisibilityListener;
     public VisibilityListener mVisibilityListener;
@@ -25,68 +33,120 @@ public abstract class ActionProvider {
     }
 
     public ActionProvider(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
     }
 
     public Context getContext() {
-        return this.mContext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
     public boolean hasSubMenu() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isVisible() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public abstract View onCreateActionView();
 
     public View onCreateActionView(MenuItem menuItem) {
-        return onCreateActionView();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, menuItem)) == null) ? onCreateActionView() : (View) invokeL.objValue;
     }
 
     public boolean onPerformDefaultAction() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void onPrepareSubMenu(SubMenu subMenu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, subMenu) == null) {
+        }
     }
 
     public boolean overridesItemVisibility() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void refreshVisibility() {
-        if (this.mVisibilityListener == null || !overridesItemVisibility()) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.mVisibilityListener != null && overridesItemVisibility()) {
+            this.mVisibilityListener.onActionProviderVisibilityChanged(isVisible());
         }
-        this.mVisibilityListener.onActionProviderVisibilityChanged(isVisible());
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void reset() {
-        this.mVisibilityListener = null;
-        this.mSubUiVisibilityListener = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.mVisibilityListener = null;
+            this.mSubUiVisibilityListener = null;
+        }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSubUiVisibilityListener(SubUiVisibilityListener subUiVisibilityListener) {
-        this.mSubUiVisibilityListener = subUiVisibilityListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, subUiVisibilityListener) == null) {
+            this.mSubUiVisibilityListener = subUiVisibilityListener;
+        }
     }
 
     public void setVisibilityListener(VisibilityListener visibilityListener) {
-        if (this.mVisibilityListener != null && visibilityListener != null) {
-            Log.w(TAG, "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, visibilityListener) == null) {
+            if (this.mVisibilityListener != null && visibilityListener != null) {
+                Log.w(TAG, "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
+            }
+            this.mVisibilityListener = visibilityListener;
         }
-        this.mVisibilityListener = visibilityListener;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void subUiVisibilityChanged(boolean z) {
-        SubUiVisibilityListener subUiVisibilityListener = this.mSubUiVisibilityListener;
-        if (subUiVisibilityListener != null) {
-            subUiVisibilityListener.onSubUiVisibilityChanged(z);
+        SubUiVisibilityListener subUiVisibilityListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (subUiVisibilityListener = this.mSubUiVisibilityListener) == null) {
+            return;
         }
+        subUiVisibilityListener.onSubUiVisibilityChanged(z);
     }
 }

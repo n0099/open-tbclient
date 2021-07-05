@@ -4,37 +4,60 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class bv extends Handler {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f41902a;
+    public final /* synthetic */ XMPushService f43645a;
 
     public bv(XMPushService xMPushService) {
-        this.f41902a = xMPushService;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xMPushService};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43645a = xMPushService;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         String str;
-        super.handleMessage(message);
-        if (message != null) {
-            try {
-                int i2 = message.what;
-                if (i2 != 17) {
-                    if (i2 == 18) {
-                        Message obtain = Message.obtain((Handler) null, 0);
-                        obtain.what = 18;
-                        Bundle bundle = new Bundle();
-                        str = this.f41902a.f850a;
-                        bundle.putString("xmsf_region", str);
-                        obtain.setData(bundle);
-                        message.replyTo.send(obtain);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            if (message != null) {
+                try {
+                    int i2 = message.what;
+                    if (i2 != 17) {
+                        if (i2 == 18) {
+                            Message obtain = Message.obtain((Handler) null, 0);
+                            obtain.what = 18;
+                            Bundle bundle = new Bundle();
+                            str = this.f43645a.f853a;
+                            bundle.putString("xmsf_region", str);
+                            obtain.setData(bundle);
+                            message.replyTo.send(obtain);
+                        }
+                    } else if (message.obj != null) {
+                        this.f43645a.onStart((Intent) message.obj, 1);
                     }
-                } else if (message.obj != null) {
-                    this.f41902a.onStart((Intent) message.obj, 1);
+                } catch (Throwable unused) {
                 }
-            } catch (Throwable unused) {
             }
         }
     }

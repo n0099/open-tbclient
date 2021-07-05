@@ -1,41 +1,50 @@
 package com.bytedance.sdk.openadsdk.core.dynamic.b;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlinx.coroutines.DebugKt;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f28178a;
+    public float f29840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f28179b;
+    public float f29841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f28180c;
+    public float f29842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28181d;
+    public float f29843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28182e;
+    public float f29844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f28183f;
+    public float f29845f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f28184g;
+    public float f29846g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f28185h;
+    public float f29847h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f28186i;
+    public float f29848i;
     public float j;
     public int k;
     public int l;
@@ -54,211 +63,344 @@ public class d {
     public String y;
     public String z;
 
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public float a() {
-        return this.f28178a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29840a : invokeV.floatValue;
     }
 
     public float b() {
-        return this.f28179b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29841b : invokeV.floatValue;
     }
 
     public void c(float f2) {
-        this.f28180c = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
+            this.f29842c = f2;
+        }
     }
 
     public void d(float f2) {
-        this.f28181d = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
+            this.f29843d = f2;
+        }
     }
 
     public void e(float f2) {
-        this.f28182e = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
+            this.f29844e = f2;
+        }
     }
 
     public void f(float f2) {
-        this.f28183f = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
+            this.f29845f = f2;
+        }
     }
 
     public void g(float f2) {
-        this.f28184g = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048598, this, f2) == null) {
+            this.f29846g = f2;
+        }
     }
 
     public void h(float f2) {
-        this.f28185h = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
+            this.f29847h = f2;
+        }
     }
 
     public void i(float f2) {
-        this.f28186i = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048604, this, f2) == null) {
+            this.f29848i = f2;
+        }
     }
 
     public void j(float f2) {
-        this.j = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048607, this, f2) == null) {
+            this.j = f2;
+        }
     }
 
     public String k() {
-        return this.q;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.q : (String) invokeV.objValue;
     }
 
     public String l() {
-        return this.r;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.r : (String) invokeV.objValue;
     }
 
     public String m() {
-        return this.x;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.x : (String) invokeV.objValue;
     }
 
     public String n() {
-        return this.y;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.y : (String) invokeV.objValue;
     }
 
     public void o(String str) {
-        this.A = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+            this.A = str;
+        }
     }
 
     public void a(float f2) {
-        this.f28178a = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
+            this.f29840a = f2;
+        }
     }
 
     public void b(float f2) {
-        this.f28179b = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
+            this.f29841b = f2;
+        }
     }
 
     public float c() {
-        return this.f28183f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29845f : invokeV.floatValue;
     }
 
     public float d() {
-        return this.f28184g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f29846g : invokeV.floatValue;
     }
 
     public float e() {
-        return this.f28185h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f29847h : invokeV.floatValue;
     }
 
     public float f() {
-        return this.f28186i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f29848i : invokeV.floatValue;
     }
 
     public float g() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.j : invokeV.floatValue;
     }
 
     public int h() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public String i() {
-        return this.o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.o : (String) invokeV.objValue;
     }
 
     public String j() {
-        return this.p;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.p : (String) invokeV.objValue;
     }
 
     public void k(String str) {
-        this.w = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+            this.w = str;
+        }
     }
 
     public void l(String str) {
-        this.x = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+            this.x = str;
+        }
     }
 
     public void m(String str) {
-        this.y = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+            this.y = str;
+        }
     }
 
     public void n(String str) {
-        this.z = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+            this.z = str;
+        }
     }
 
     public boolean o() {
-        return this.B;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.B : invokeV.booleanValue;
     }
 
     public void a(int i2) {
-        this.k = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.k = i2;
+        }
     }
 
     public void b(int i2) {
-        this.l = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.l = i2;
+        }
     }
 
     public void c(String str) {
-        this.o = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.o = str;
+        }
     }
 
     public void d(String str) {
-        this.p = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.p = str;
+        }
     }
 
     public void e(String str) {
-        this.q = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.q = str;
+        }
     }
 
     public void f(String str) {
-        this.r = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.r = str;
+        }
     }
 
     public void g(String str) {
-        this.s = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.s = str;
+        }
     }
 
     public void h(String str) {
-        this.t = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.t = str;
+        }
     }
 
     public void i(String str) {
-        this.u = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            this.u = str;
+        }
     }
 
     public void j(String str) {
-        this.v = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+            this.v = str;
+        }
     }
 
     public void a(String str) {
-        this.m = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.m = str;
+        }
     }
 
     public void b(String str) {
-        this.n = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.n = str;
+        }
     }
 
     public void a(boolean z) {
-        this.B = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.B = z;
+        }
     }
 
     public static d a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            d dVar = new d();
+            dVar.a(jSONObject.optString("adType", "embeded"));
+            dVar.l(jSONObject.optString("clickArea", "creative"));
+            dVar.m(jSONObject.optString("clickTigger", PrefetchEvent.STATE_CLICK));
+            dVar.b(jSONObject.optString("fontFamily", "PingFangSC"));
+            dVar.c(jSONObject.optString("textAlign", CustomDialogData.POS_LEFT));
+            dVar.d(jSONObject.optString("color", "#999999"));
+            dVar.e(jSONObject.optString("bgColor", OpenFlutter.EXTRA_TRANSPARANT));
+            dVar.f(jSONObject.optString("borderColor", "#000000"));
+            dVar.g(jSONObject.optString("borderStyle", "solid"));
+            dVar.h(jSONObject.optString("heightMode", DebugKt.DEBUG_PROPERTY_VALUE_AUTO));
+            dVar.i(jSONObject.optString("widthMode", "fixed"));
+            dVar.j(jSONObject.optString("interactText", ""));
+            dVar.k(jSONObject.optString("interactType", ""));
+            dVar.n(jSONObject.optString("justifyHorizontal", "space-around"));
+            dVar.o(jSONObject.optString("justifyVertical", "flex-start"));
+            dVar.a(jSONObject.optInt("timingStart"));
+            dVar.b(jSONObject.optInt("timingEnd"));
+            dVar.d((float) jSONObject.optDouble("width", 0.0d));
+            dVar.c((float) jSONObject.optDouble("height", 0.0d));
+            dVar.a((float) jSONObject.optDouble("borderRadius", 0.0d));
+            dVar.b((float) jSONObject.optDouble("borderSize", 0.0d));
+            dVar.e((float) jSONObject.optDouble("interactValidate", 0.0d));
+            dVar.j((float) jSONObject.optDouble("fontSize", 0.0d));
+            dVar.f((float) jSONObject.optDouble("paddingBottom", 0.0d));
+            dVar.g((float) jSONObject.optDouble("paddingLeft", 0.0d));
+            dVar.h((float) jSONObject.optDouble("paddingRight", 0.0d));
+            dVar.i((float) jSONObject.optDouble("paddingTop", 0.0d));
+            dVar.a(jSONObject.optBoolean("lineFeed", false));
+            return dVar;
         }
-        d dVar = new d();
-        dVar.a(jSONObject.optString("adType", "embeded"));
-        dVar.l(jSONObject.optString("clickArea", "creative"));
-        dVar.m(jSONObject.optString("clickTigger", PrefetchEvent.STATE_CLICK));
-        dVar.b(jSONObject.optString("fontFamily", "PingFangSC"));
-        dVar.c(jSONObject.optString("textAlign", CustomDialogData.POS_LEFT));
-        dVar.d(jSONObject.optString("color", "#999999"));
-        dVar.e(jSONObject.optString("bgColor", OpenFlutter.EXTRA_TRANSPARANT));
-        dVar.f(jSONObject.optString("borderColor", "#000000"));
-        dVar.g(jSONObject.optString("borderStyle", "solid"));
-        dVar.h(jSONObject.optString("heightMode", DebugKt.DEBUG_PROPERTY_VALUE_AUTO));
-        dVar.i(jSONObject.optString("widthMode", "fixed"));
-        dVar.j(jSONObject.optString("interactText", ""));
-        dVar.k(jSONObject.optString("interactType", ""));
-        dVar.n(jSONObject.optString("justifyHorizontal", "space-around"));
-        dVar.o(jSONObject.optString("justifyVertical", "flex-start"));
-        dVar.a(jSONObject.optInt("timingStart"));
-        dVar.b(jSONObject.optInt("timingEnd"));
-        dVar.d((float) jSONObject.optDouble("width", 0.0d));
-        dVar.c((float) jSONObject.optDouble("height", 0.0d));
-        dVar.a((float) jSONObject.optDouble("borderRadius", 0.0d));
-        dVar.b((float) jSONObject.optDouble("borderSize", 0.0d));
-        dVar.e((float) jSONObject.optDouble("interactValidate", 0.0d));
-        dVar.j((float) jSONObject.optDouble("fontSize", 0.0d));
-        dVar.f((float) jSONObject.optDouble("paddingBottom", 0.0d));
-        dVar.g((float) jSONObject.optDouble("paddingLeft", 0.0d));
-        dVar.h((float) jSONObject.optDouble("paddingRight", 0.0d));
-        dVar.i((float) jSONObject.optDouble("paddingTop", 0.0d));
-        dVar.a(jSONObject.optBoolean("lineFeed", false));
-        return dVar;
+        return (d) invokeL.objValue;
     }
 }

@@ -1,78 +1,162 @@
 package com.squareup.wire2;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.ProtocolException;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes7.dex */
-public enum FieldEncoding {
-    VARINT(0),
-    FIXED64(1),
-    LENGTH_DELIMITED(2),
-    FIXED32(5);
-    
+public final class FieldEncoding {
+    public static final /* synthetic */ FieldEncoding[] $VALUES;
+    public static /* synthetic */ Interceptable $ic;
+    public static final FieldEncoding FIXED32;
+    public static final FieldEncoding FIXED64;
+    public static final FieldEncoding LENGTH_DELIMITED;
+    public static final FieldEncoding VARINT;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f39533a;
+        public static final /* synthetic */ int[] f41284a;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(265940048, "Lcom/squareup/wire2/FieldEncoding$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(265940048, "Lcom/squareup/wire2/FieldEncoding$a;");
+                    return;
+                }
+            }
             int[] iArr = new int[FieldEncoding.values().length];
-            f39533a = iArr;
+            f41284a = iArr;
             try {
                 iArr[FieldEncoding.VARINT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f39533a[FieldEncoding.FIXED32.ordinal()] = 2;
+                f41284a[FieldEncoding.FIXED32.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f39533a[FieldEncoding.FIXED64.ordinal()] = 3;
+                f41284a[FieldEncoding.FIXED64.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f39533a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
+                f41284a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
     }
 
-    FieldEncoding(int i2) {
-        this.value = i2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1604190739, "Lcom/squareup/wire2/FieldEncoding;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1604190739, "Lcom/squareup/wire2/FieldEncoding;");
+                return;
+            }
+        }
+        VARINT = new FieldEncoding("VARINT", 0, 0);
+        FIXED64 = new FieldEncoding("FIXED64", 1, 1);
+        LENGTH_DELIMITED = new FieldEncoding("LENGTH_DELIMITED", 2, 2);
+        FieldEncoding fieldEncoding = new FieldEncoding("FIXED32", 3, 5);
+        FIXED32 = fieldEncoding;
+        $VALUES = new FieldEncoding[]{VARINT, FIXED64, LENGTH_DELIMITED, fieldEncoding};
+    }
+
+    public FieldEncoding(String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.value = i3;
     }
 
     public static FieldEncoding get(int i2) throws IOException {
-        if (i2 != 0) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 5) {
-                        return FIXED32;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 == 5) {
+                            return FIXED32;
+                        }
+                        throw new ProtocolException("Unexpected FieldEncoding: " + i2);
                     }
-                    throw new ProtocolException("Unexpected FieldEncoding: " + i2);
+                    return LENGTH_DELIMITED;
                 }
-                return LENGTH_DELIMITED;
+                return FIXED64;
             }
-            return FIXED64;
+            return VARINT;
         }
-        return VARINT;
+        return (FieldEncoding) invokeI.objValue;
+    }
+
+    public static FieldEncoding valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (FieldEncoding) Enum.valueOf(FieldEncoding.class, str) : (FieldEncoding) invokeL.objValue;
+    }
+
+    public static FieldEncoding[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (FieldEncoding[]) $VALUES.clone() : (FieldEncoding[]) invokeV.objValue;
     }
 
     public ProtoAdapter<?> rawProtoAdapter() {
-        int i2 = a.f39533a[ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    if (i2 == 4) {
-                        return ProtoAdapter.BYTES;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i2 = a.f41284a[ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 == 4) {
+                            return ProtoAdapter.BYTES;
+                        }
+                        throw new AssertionError();
                     }
-                    throw new AssertionError();
+                    return ProtoAdapter.FIXED64;
                 }
-                return ProtoAdapter.FIXED64;
+                return ProtoAdapter.FIXED32;
             }
-            return ProtoAdapter.FIXED32;
+            return ProtoAdapter.UINT64;
         }
-        return ProtoAdapter.UINT64;
+        return (ProtoAdapter) invokeV.objValue;
     }
 }

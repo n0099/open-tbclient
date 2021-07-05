@@ -1,19 +1,41 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.VipShowInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MembershipUserInfo extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public String mContent;
     public String mLink;
     public String mTitle;
     public String mVipIcon;
 
+    public MembershipUserInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.mVipIcon = jSONObject.optString("vip_icon");
@@ -23,7 +45,8 @@ public class MembershipUserInfo extends OrmObject implements Serializable {
     }
 
     public void parserProtobuf(VipShowInfo vipShowInfo) {
-        if (vipShowInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vipShowInfo) == null) || vipShowInfo == null) {
             return;
         }
         this.mVipIcon = vipShowInfo.vip_icon;

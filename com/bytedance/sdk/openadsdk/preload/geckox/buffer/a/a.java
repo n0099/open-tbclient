@@ -1,65 +1,119 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.buffer.a;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class a extends InputStream {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f30197a;
+    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f32047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30198b;
+    public long f32048b;
 
     public a(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
-        this.f30197a = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32047a = aVar;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        long b2 = this.f30197a.b() - this.f30197a.c();
-        if (b2 > 2147483647L) {
-            return Integer.MAX_VALUE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long b2 = this.f32047a.b() - this.f32047a.c();
+            if (b2 > 2147483647L) {
+                return Integer.MAX_VALUE;
+            }
+            return (int) b2;
         }
-        return (int) b2;
+        return invokeV.intValue;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
     }
 
     @Override // java.io.InputStream
     public synchronized void mark(int i2) {
-        this.f30198b = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            synchronized (this) {
+                this.f32048b = i2;
+            }
+        }
     }
 
     @Override // java.io.InputStream
     public boolean markSupported() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        return this.f30197a.b(bArr);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) ? this.f32047a.b(bArr) : invokeL.intValue;
     }
 
     @Override // java.io.InputStream
     public synchronized void reset() throws IOException {
-        this.f30197a.b(this.f30198b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                this.f32047a.b(this.f32048b);
+            }
+        }
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        return this.f30197a.a(j);
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) ? this.f32047a.a(j) : invokeJ.longValue;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i2, int i3) throws IOException {
-        return this.f30197a.b(bArr, i2, i3);
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) ? this.f32047a.b(bArr, i2, i3) : invokeLII.intValue;
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        return this.f30197a.d();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32047a.d() : invokeV.intValue;
     }
 }

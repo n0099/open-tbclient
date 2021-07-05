@@ -1,62 +1,117 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes2.dex */
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class UiSettings {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.map.e f7097a;
+    public com.baidu.mapsdkplatform.comapi.map.e f7127a;
 
     public UiSettings(com.baidu.mapsdkplatform.comapi.map.e eVar) {
-        this.f7097a = eVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f7127a = eVar;
     }
 
     public boolean isCompassEnabled() {
-        return this.f7097a.r();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7127a.r() : invokeV.booleanValue;
     }
 
     public boolean isOverlookingGesturesEnabled() {
-        return this.f7097a.z();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7127a.z() : invokeV.booleanValue;
     }
 
     public boolean isRotateGesturesEnabled() {
-        return this.f7097a.y();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7127a.y() : invokeV.booleanValue;
     }
 
     public boolean isScrollGesturesEnabled() {
-        return this.f7097a.w();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7127a.w() : invokeV.booleanValue;
     }
 
     public boolean isZoomGesturesEnabled() {
-        return this.f7097a.x();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7127a.x() : invokeV.booleanValue;
     }
 
     public void setAllGesturesEnabled(boolean z) {
-        setRotateGesturesEnabled(z);
-        setScrollGesturesEnabled(z);
-        setOverlookingGesturesEnabled(z);
-        setZoomGesturesEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            setRotateGesturesEnabled(z);
+            setScrollGesturesEnabled(z);
+            setOverlookingGesturesEnabled(z);
+            setZoomGesturesEnabled(z);
+        }
     }
 
     public void setCompassEnabled(boolean z) {
-        this.f7097a.k(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f7127a.k(z);
+        }
     }
 
     public void setEnlargeCenterWithDoubleClickEnable(boolean z) {
-        this.f7097a.r(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f7127a.r(z);
+        }
     }
 
     public void setOverlookingGesturesEnabled(boolean z) {
-        this.f7097a.t(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f7127a.t(z);
+        }
     }
 
     public void setRotateGesturesEnabled(boolean z) {
-        this.f7097a.s(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f7127a.s(z);
+        }
     }
 
     public void setScrollGesturesEnabled(boolean z) {
-        this.f7097a.p(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.f7127a.p(z);
+        }
     }
 
     public void setZoomGesturesEnabled(boolean z) {
-        this.f7097a.q(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f7127a.q(z);
+        }
     }
 }

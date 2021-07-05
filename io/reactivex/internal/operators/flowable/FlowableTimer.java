@@ -1,5 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.Scheduler;
 import io.reactivex.disposables.Disposable;
@@ -11,54 +16,95 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableTimer extends Flowable<Long> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class TimerSubscriber extends AtomicReference<Disposable> implements Subscription, Runnable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2809475196591179431L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super Long> actual;
         public volatile boolean requested;
 
         public TimerSubscriber(Subscriber<? super Long> subscriber) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            DisposableHelper.dispose(this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                DisposableHelper.dispose(this);
+            }
         }
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            if (SubscriptionHelper.validate(j)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
                 this.requested = true;
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (get() != DisposableHelper.DISPOSED) {
-                if (this.requested) {
-                    this.actual.onNext(0L);
-                    lazySet(EmptyDisposable.INSTANCE);
-                    this.actual.onComplete();
-                    return;
-                }
-                lazySet(EmptyDisposable.INSTANCE);
-                this.actual.onError(new MissingBackpressureException("Can't deliver value due to lack of requests"));
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || get() == DisposableHelper.DISPOSED) {
+                return;
             }
+            if (this.requested) {
+                this.actual.onNext(0L);
+                lazySet(EmptyDisposable.INSTANCE);
+                this.actual.onComplete();
+                return;
+            }
+            lazySet(EmptyDisposable.INSTANCE);
+            this.actual.onError(new MissingBackpressureException("Can't deliver value due to lack of requests"));
         }
 
         public void setResource(Disposable disposable) {
-            DisposableHelper.trySet(this, disposable);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
+                DisposableHelper.trySet(this, disposable);
+            }
         }
     }
 
     public FlowableTimer(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), timeUnit, scheduler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.delay = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
@@ -66,8 +112,11 @@ public final class FlowableTimer extends Flowable<Long> {
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super Long> subscriber) {
-        TimerSubscriber timerSubscriber = new TimerSubscriber(subscriber);
-        subscriber.onSubscribe(timerSubscriber);
-        timerSubscriber.setResource(this.scheduler.scheduleDirect(timerSubscriber, this.delay, this.unit));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            TimerSubscriber timerSubscriber = new TimerSubscriber(subscriber);
+            subscriber.onSubscribe(timerSubscriber);
+            timerSubscriber.setResource(this.scheduler.scheduleDirect(timerSubscriber, this.delay, this.unit));
+        }
     }
 }

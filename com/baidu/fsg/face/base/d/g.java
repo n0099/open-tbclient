@@ -3,99 +3,189 @@ package com.baidu.fsg.face.base.d;
 import android.content.Context;
 import android.os.Environment;
 import com.baidu.fsg.base.ApollonConstants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5601a = ApollonConstants.VIDEO_DEBUG;
+    public static boolean f5631a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5602b = "SapiBioFileUtils";
+    public static final String f5632b = "SapiBioFileUtils";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5603c = "liveness_video.mp4";
+    public static final String f5633c = "liveness_video.mp4";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5604d = "liveness_action_video.mp4";
+    public static final String f5634d = "liveness_action_video.mp4";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5605e = "BI0_VIDEO";
+    public static final String f5635e = "BI0_VIDEO";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-365275506, "Lcom/baidu/fsg/face/base/d/g;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-365275506, "Lcom/baidu/fsg/face/base/d/g;");
+                return;
+            }
+        }
+        f5631a = ApollonConstants.VIDEO_DEBUG;
+    }
+
+    public g() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static String a(Context context) {
-        return context.getDir(f5605e, 0).getAbsolutePath();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getDir(f5635e, 0).getAbsolutePath() : (String) invokeL.objValue;
     }
 
     public static String b(Context context) {
-        String a2 = f5601a ? a() : a(context);
-        return a2 + File.separator + f5603c;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            String a2 = f5631a ? a() : a(context);
+            return a2 + File.separator + f5633c;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String c(Context context) {
-        String a2 = f5601a ? a() : a(context);
-        return a2 + File.separator + f5604d;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            String a2 = f5631a ? a() : a(context);
+            return a2 + File.separator + f5634d;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String d(Context context) {
-        return context.getDir(f5605e, 0).getAbsolutePath();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? context.getDir(f5635e, 0).getAbsolutePath() : (String) invokeL.objValue;
     }
 
     public static String a() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Environment.getExternalStorageDirectory().getAbsolutePath() : (String) invokeV.objValue;
     }
 
     public static boolean b(String str) {
-        if (c(str)) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (c(str)) {
+                return false;
+            }
+            if (a(str)) {
+                return a(new File(str));
+            }
+            return true;
         }
-        if (a(str)) {
-            return a(new File(str));
-        }
-        return true;
+        return invokeL.booleanValue;
     }
 
     public static boolean c(String str) {
-        return str == null || "".equals(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? str == null || "".equals(str) : invokeL.booleanValue;
     }
 
     public static String a(String str, String str2) {
-        if (!str2.startsWith(".")) {
-            str2 = "." + str2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+            if (!str2.startsWith(".")) {
+                str2 = "." + str2;
+            }
+            return str + str2;
         }
-        return str + str2;
+        return (String) invokeLL.objValue;
     }
 
     public static boolean a(String str) {
-        if (str == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            return new File(str).exists();
         }
-        return new File(str).exists();
+        return invokeL.booleanValue;
     }
 
     public static boolean b(File file) throws IOException {
-        if (file.exists()) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, file)) == null) {
+            if (file.exists()) {
+                return true;
+            }
+            file.getParentFile().mkdirs();
+            return file.createNewFile();
         }
-        file.getParentFile().mkdirs();
-        return file.createNewFile();
+        return invokeL.booleanValue;
     }
 
     public static boolean a(File file) {
-        try {
-            return file.delete();
-        } catch (Exception e2) {
-            d.a(e2);
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
+            try {
+                return file.delete();
+            } catch (Exception e2) {
+                d.a(e2);
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 
     public static boolean a(File file, byte[] bArr) throws IOException {
-        return a(file, bArr, true);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, file, bArr)) == null) ? a(file, bArr, true) : invokeLL.booleanValue;
     }
 
     public static boolean a(File file, byte[] bArr, boolean z) throws IOException {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65543, null, file, bArr, z)) != null) {
+            return invokeLLZ.booleanValue;
+        }
         FileOutputStream fileOutputStream = null;
         try {
             if (!file.exists()) {

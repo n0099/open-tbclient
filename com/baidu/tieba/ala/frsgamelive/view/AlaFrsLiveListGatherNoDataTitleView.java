@@ -3,58 +3,111 @@ package com.baidu.tieba.ala.frsgamelive.view;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.o0.v.e.b.a;
-import d.a.o0.z.b;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.a0.b;
+import d.a.s0.v.e.b.a;
+/* loaded from: classes5.dex */
 public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public TextView m;
     public TextView n;
     public TbPageContext o;
     public int p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaFrsLiveListNoDataViewHolder(AlaFrsLiveListGatherNoDataTitleView alaFrsLiveListGatherNoDataTitleView) {
-            super(alaFrsLiveListGatherNoDataTitleView.m());
+            super(alaFrsLiveListGatherNoDataTitleView.l());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaFrsLiveListGatherNoDataTitleView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaFrsLiveListGatherNoDataTitleView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.p = 3;
         this.o = tbPageContext;
-        View m = m();
-        this.m = (TextView) m.findViewById(R.id.frs_game_live_recommand1);
-        this.n = (TextView) m.findViewById(R.id.frs_game_live_recommand2);
-        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        View l = l();
+        this.m = (TextView) l.findViewById(R.id.frs_game_live_recommand1);
+        this.n = (TextView) l.findViewById(R.id.frs_game_live_recommand2);
+        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.o0.z.b
+    @Override // d.a.s0.a0.b
     public int h() {
-        return R.layout.ala_frs_game_live_no_data_view;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_frs_game_live_no_data_view : invokeV.intValue;
     }
 
-    @Override // d.a.o0.z.b
-    public void o(TbPageContext<?> tbPageContext, int i2) {
-        if (this.p != i2) {
-            SkinManager.setViewTextColor(this.m, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
-            this.p = i2;
+    @Override // d.a.s0.a0.b
+    public void n(TbPageContext<?> tbPageContext, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.p == i2) {
+            return;
         }
+        SkinManager.setViewTextColor(this.m, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
+        this.p = i2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.o0.z.b
-    /* renamed from: t */
-    public void n(a aVar) {
-        o(this.o, TbadkCoreApplication.getInst().getSkinType());
+    @Override // d.a.s0.a0.b
+    /* renamed from: s */
+    public void m(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            n(this.o, TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

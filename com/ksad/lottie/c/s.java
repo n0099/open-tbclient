@@ -6,389 +6,405 @@ import android.util.JsonReader;
 import androidx.appcompat.widget.SearchView;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.fun.ad.sdk.FunAdSdk;
 import com.ksad.lottie.model.layer.Layer;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class s {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static Layer a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
+        InterceptResult invokeLL;
         ArrayList arrayList;
         ArrayList arrayList2;
         char c2;
         char c3;
-        Layer.MatteType matteType = Layer.MatteType.None;
-        ArrayList arrayList3 = new ArrayList();
-        ArrayList arrayList4 = new ArrayList();
-        jsonReader.beginObject();
-        Float valueOf = Float.valueOf(1.0f);
-        Float valueOf2 = Float.valueOf(0.0f);
-        boolean z = false;
-        Layer.MatteType matteType2 = matteType;
-        Layer.LayerType layerType = null;
-        String str = null;
-        com.ksad.lottie.model.a.l lVar = null;
-        com.ksad.lottie.model.a.j jVar = null;
-        com.ksad.lottie.model.a.k kVar = null;
-        com.ksad.lottie.model.a.b bVar = null;
-        long j = 0;
-        long j2 = -1;
-        float f2 = 0.0f;
-        float f3 = 0.0f;
-        int i2 = 0;
-        int i3 = 0;
-        int i4 = 0;
-        float f4 = 1.0f;
-        float f5 = 0.0f;
-        int i5 = 0;
-        int i6 = 0;
-        String str2 = null;
-        String str3 = "UNSET";
-        while (jsonReader.hasNext()) {
-            String nextName = jsonReader.nextName();
-            switch (nextName.hashCode()) {
-                case -995424086:
-                    if (nextName.equals("parent")) {
-                        c2 = 4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jsonReader, dVar)) == null) {
+            Layer.MatteType matteType = Layer.MatteType.None;
+            ArrayList arrayList3 = new ArrayList();
+            ArrayList arrayList4 = new ArrayList();
+            jsonReader.beginObject();
+            Float valueOf = Float.valueOf(1.0f);
+            Float valueOf2 = Float.valueOf(0.0f);
+            boolean z = false;
+            Layer.MatteType matteType2 = matteType;
+            Layer.LayerType layerType = null;
+            String str = null;
+            com.ksad.lottie.model.a.l lVar = null;
+            com.ksad.lottie.model.a.j jVar = null;
+            com.ksad.lottie.model.a.k kVar = null;
+            com.ksad.lottie.model.a.b bVar = null;
+            long j = 0;
+            long j2 = -1;
+            float f2 = 0.0f;
+            float f3 = 0.0f;
+            int i2 = 0;
+            int i3 = 0;
+            int i4 = 0;
+            float f4 = 1.0f;
+            float f5 = 0.0f;
+            int i5 = 0;
+            int i6 = 0;
+            String str2 = null;
+            String str3 = "UNSET";
+            while (jsonReader.hasNext()) {
+                String nextName = jsonReader.nextName();
+                switch (nextName.hashCode()) {
+                    case -995424086:
+                        if (nextName.equals("parent")) {
+                            c2 = 4;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -903568142:
-                    if (nextName.equals("shapes")) {
-                        c2 = 11;
+                    case -903568142:
+                        if (nextName.equals("shapes")) {
+                            c2 = 11;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 104:
-                    if (nextName.equals("h")) {
-                        c2 = 17;
+                    case 104:
+                        if (nextName.equals("h")) {
+                            c2 = 17;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 116:
-                    if (nextName.equals("t")) {
-                        c2 = '\f';
+                    case 116:
+                        if (nextName.equals("t")) {
+                            c2 = '\f';
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 119:
-                    if (nextName.equals("w")) {
-                        c2 = 16;
+                    case 119:
+                        if (nextName.equals("w")) {
+                            c2 = 16;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3177:
-                    if (nextName.equals(Config.CELL_LOCATION)) {
-                        c2 = 21;
+                    case 3177:
+                        if (nextName.equals(Config.CELL_LOCATION)) {
+                            c2 = 21;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3233:
-                    if (nextName.equals("ef")) {
-                        c2 = '\r';
+                    case 3233:
+                        if (nextName.equals("ef")) {
+                            c2 = '\r';
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3367:
-                    if (nextName.equals("ip")) {
-                        c2 = 18;
+                    case 3367:
+                        if (nextName.equals("ip")) {
+                            c2 = 18;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3432:
-                    if (nextName.equals(FunAdSdk.PLATFORM_KS)) {
-                        c2 = '\b';
+                    case 3432:
+                        if (nextName.equals(FunAdSdk.PLATFORM_KS)) {
+                            c2 = '\b';
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3519:
-                    if (nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
-                        c2 = 0;
+                    case 3519:
+                        if (nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
+                            c2 = 0;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3553:
-                    if (nextName.equals("op")) {
-                        c2 = 19;
+                    case 3553:
+                        if (nextName.equals("op")) {
+                            c2 = 19;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3664:
-                    if (nextName.equals(Config.STAT_SDK_CHANNEL)) {
-                        c2 = 7;
+                    case 3664:
+                        if (nextName.equals(Config.STAT_SDK_CHANNEL)) {
+                            c2 = 7;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3669:
-                    if (nextName.equals(IAdRequestParam.SCREEN_HEIGHT)) {
-                        c2 = 6;
+                    case 3669:
+                        if (nextName.equals(IAdRequestParam.SCREEN_HEIGHT)) {
+                            c2 = 6;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3679:
-                    if (nextName.equals(BaseStatisContent.SR)) {
-                        c2 = 14;
+                    case 3679:
+                        if (nextName.equals(BaseStatisContent.SR)) {
+                            c2 = 14;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3681:
-                    if (nextName.equals("st")) {
-                        c2 = 15;
+                    case 3681:
+                        if (nextName.equals("st")) {
+                            c2 = 15;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3684:
-                    if (nextName.equals("sw")) {
-                        c2 = 5;
+                    case 3684:
+                        if (nextName.equals("sw")) {
+                            c2 = 5;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3705:
-                    if (nextName.equals("tm")) {
-                        c2 = 20;
+                    case 3705:
+                        if (nextName.equals("tm")) {
+                            c2 = 20;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3712:
-                    if (nextName.equals(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP)) {
-                        c2 = '\t';
+                    case 3712:
+                        if (nextName.equals(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP)) {
+                            c2 = '\t';
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3717:
-                    if (nextName.equals("ty")) {
-                        c2 = 3;
+                    case 3717:
+                        if (nextName.equals("ty")) {
+                            c2 = 3;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 104415:
-                    if (nextName.equals("ind")) {
-                        c2 = 1;
+                    case 104415:
+                        if (nextName.equals("ind")) {
+                            c2 = 1;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 108390670:
-                    if (nextName.equals("refId")) {
-                        c2 = 2;
+                    case 108390670:
+                        if (nextName.equals("refId")) {
+                            c2 = 2;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1441620890:
-                    if (nextName.equals("masksProperties")) {
-                        c2 = '\n';
+                    case 1441620890:
+                        if (nextName.equals("masksProperties")) {
+                            c2 = '\n';
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    str3 = jsonReader.nextString();
-                    continue;
-                    z = false;
-                case 1:
-                    j = jsonReader.nextInt();
-                    continue;
-                    z = false;
-                case 2:
-                    str = jsonReader.nextString();
-                    continue;
-                    z = false;
-                case 3:
-                    int nextInt = jsonReader.nextInt();
-                    if (nextInt < Layer.LayerType.Unknown.ordinal()) {
-                        layerType = Layer.LayerType.values()[nextInt];
+                    default:
+                        c2 = 65535;
+                        break;
+                }
+                switch (c2) {
+                    case 0:
+                        str3 = jsonReader.nextString();
                         continue;
-                    } else {
-                        layerType = Layer.LayerType.Unknown;
-                    }
-                    z = false;
-                case 4:
-                    j2 = jsonReader.nextInt();
-                    continue;
-                    z = false;
-                case 5:
-                    i2 = (int) (jsonReader.nextInt() * com.ksad.lottie.d.f.a());
-                    continue;
-                    z = false;
-                case 6:
-                    i3 = (int) (jsonReader.nextInt() * com.ksad.lottie.d.f.a());
-                    continue;
-                    z = false;
-                case 7:
-                    i4 = Color.parseColor(jsonReader.nextString());
-                    continue;
-                    z = false;
-                case '\b':
-                    lVar = c.a(jsonReader, dVar);
-                    continue;
-                    z = false;
-                case '\t':
-                    matteType2 = Layer.MatteType.values()[jsonReader.nextInt()];
-                    continue;
-                    z = false;
-                case '\n':
-                    jsonReader.beginArray();
-                    while (jsonReader.hasNext()) {
-                        arrayList3.add(u.a(jsonReader, dVar));
-                    }
-                    break;
-                case 11:
-                    jsonReader.beginArray();
-                    while (jsonReader.hasNext()) {
-                        com.ksad.lottie.model.content.b a2 = g.a(jsonReader, dVar);
-                        if (a2 != null) {
-                            arrayList4.add(a2);
-                        }
-                    }
-                    break;
-                case '\f':
-                    jsonReader.beginObject();
-                    while (jsonReader.hasNext()) {
-                        String nextName2 = jsonReader.nextName();
-                        int hashCode = nextName2.hashCode();
-                        if (hashCode != 97) {
-                            if (hashCode == 100 && nextName2.equals("d")) {
-                                c3 = 0;
-                            }
-                            c3 = 65535;
+                        z = false;
+                    case 1:
+                        j = jsonReader.nextInt();
+                        continue;
+                        z = false;
+                    case 2:
+                        str = jsonReader.nextString();
+                        continue;
+                        z = false;
+                    case 3:
+                        int nextInt = jsonReader.nextInt();
+                        if (nextInt < Layer.LayerType.Unknown.ordinal()) {
+                            layerType = Layer.LayerType.values()[nextInt];
+                            continue;
                         } else {
-                            if (nextName2.equals("a")) {
-                                c3 = 1;
-                            }
-                            c3 = 65535;
+                            layerType = Layer.LayerType.Unknown;
                         }
-                        if (c3 == 0) {
-                            jVar = d.f(jsonReader, dVar);
-                        } else if (c3 != 1) {
-                            jsonReader.skipValue();
-                        } else {
-                            jsonReader.beginArray();
-                            if (jsonReader.hasNext()) {
-                                kVar = b.a(jsonReader, dVar);
-                            }
-                            while (jsonReader.hasNext()) {
-                                jsonReader.skipValue();
-                            }
-                            jsonReader.endArray();
+                        z = false;
+                    case 4:
+                        j2 = jsonReader.nextInt();
+                        continue;
+                        z = false;
+                    case 5:
+                        i2 = (int) (jsonReader.nextInt() * com.ksad.lottie.d.f.a());
+                        continue;
+                        z = false;
+                    case 6:
+                        i3 = (int) (jsonReader.nextInt() * com.ksad.lottie.d.f.a());
+                        continue;
+                        z = false;
+                    case 7:
+                        i4 = Color.parseColor(jsonReader.nextString());
+                        continue;
+                        z = false;
+                    case '\b':
+                        lVar = c.a(jsonReader, dVar);
+                        continue;
+                        z = false;
+                    case '\t':
+                        matteType2 = Layer.MatteType.values()[jsonReader.nextInt()];
+                        continue;
+                        z = false;
+                    case '\n':
+                        jsonReader.beginArray();
+                        while (jsonReader.hasNext()) {
+                            arrayList3.add(u.a(jsonReader, dVar));
                         }
-                    }
-                    jsonReader.endObject();
-                    continue;
-                    z = false;
-                    break;
-                case '\r':
-                    jsonReader.beginArray();
-                    ArrayList arrayList5 = new ArrayList();
-                    while (jsonReader.hasNext()) {
+                        break;
+                    case 11:
+                        jsonReader.beginArray();
+                        while (jsonReader.hasNext()) {
+                            com.ksad.lottie.model.content.b a2 = g.a(jsonReader, dVar);
+                            if (a2 != null) {
+                                arrayList4.add(a2);
+                            }
+                        }
+                        break;
+                    case '\f':
                         jsonReader.beginObject();
                         while (jsonReader.hasNext()) {
-                            String nextName3 = jsonReader.nextName();
-                            if (((nextName3.hashCode() == 3519 && nextName3.equals(SearchView.IME_OPTION_NO_MICROPHONE)) ? (char) 0 : (char) 65535) != 0) {
+                            String nextName2 = jsonReader.nextName();
+                            int hashCode = nextName2.hashCode();
+                            if (hashCode != 97) {
+                                if (hashCode == 100 && nextName2.equals("d")) {
+                                    c3 = 0;
+                                }
+                                c3 = 65535;
+                            } else {
+                                if (nextName2.equals("a")) {
+                                    c3 = 1;
+                                }
+                                c3 = 65535;
+                            }
+                            if (c3 == 0) {
+                                jVar = d.f(jsonReader, dVar);
+                            } else if (c3 != 1) {
                                 jsonReader.skipValue();
                             } else {
-                                arrayList5.add(jsonReader.nextString());
+                                jsonReader.beginArray();
+                                if (jsonReader.hasNext()) {
+                                    kVar = b.a(jsonReader, dVar);
+                                }
+                                while (jsonReader.hasNext()) {
+                                    jsonReader.skipValue();
+                                }
+                                jsonReader.endArray();
                             }
                         }
                         jsonReader.endObject();
-                    }
-                    jsonReader.endArray();
-                    dVar.a("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + arrayList5);
-                    continue;
-                    z = false;
-                    break;
-                case 14:
-                    f4 = (float) jsonReader.nextDouble();
-                    continue;
-                    z = false;
-                case 15:
-                    f5 = (float) jsonReader.nextDouble();
-                    continue;
-                    z = false;
-                case 16:
-                    i5 = (int) (jsonReader.nextInt() * com.ksad.lottie.d.f.a());
-                    continue;
-                    z = false;
-                case 17:
-                    i6 = (int) (jsonReader.nextInt() * com.ksad.lottie.d.f.a());
-                    continue;
-                    z = false;
-                case 18:
-                    f2 = (float) jsonReader.nextDouble();
-                    continue;
-                    z = false;
-                case 19:
-                    f3 = (float) jsonReader.nextDouble();
-                    continue;
-                    z = false;
-                case 20:
-                    bVar = d.a(jsonReader, dVar, z);
-                    continue;
-                    z = false;
-                case 21:
-                    str2 = jsonReader.nextString();
-                    continue;
-                    z = false;
-                default:
-                    jsonReader.skipValue();
-                    continue;
-                    z = false;
+                        continue;
+                        z = false;
+                        break;
+                    case '\r':
+                        jsonReader.beginArray();
+                        ArrayList arrayList5 = new ArrayList();
+                        while (jsonReader.hasNext()) {
+                            jsonReader.beginObject();
+                            while (jsonReader.hasNext()) {
+                                String nextName3 = jsonReader.nextName();
+                                if (((nextName3.hashCode() == 3519 && nextName3.equals(SearchView.IME_OPTION_NO_MICROPHONE)) ? (char) 0 : (char) 65535) != 0) {
+                                    jsonReader.skipValue();
+                                } else {
+                                    arrayList5.add(jsonReader.nextString());
+                                }
+                            }
+                            jsonReader.endObject();
+                        }
+                        jsonReader.endArray();
+                        dVar.a("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + arrayList5);
+                        continue;
+                        z = false;
+                        break;
+                    case 14:
+                        f4 = (float) jsonReader.nextDouble();
+                        continue;
+                        z = false;
+                    case 15:
+                        f5 = (float) jsonReader.nextDouble();
+                        continue;
+                        z = false;
+                    case 16:
+                        i5 = (int) (jsonReader.nextInt() * com.ksad.lottie.d.f.a());
+                        continue;
+                        z = false;
+                    case 17:
+                        i6 = (int) (jsonReader.nextInt() * com.ksad.lottie.d.f.a());
+                        continue;
+                        z = false;
+                    case 18:
+                        f2 = (float) jsonReader.nextDouble();
+                        continue;
+                        z = false;
+                    case 19:
+                        f3 = (float) jsonReader.nextDouble();
+                        continue;
+                        z = false;
+                    case 20:
+                        bVar = d.a(jsonReader, dVar, z);
+                        continue;
+                        z = false;
+                    case 21:
+                        str2 = jsonReader.nextString();
+                        continue;
+                        z = false;
+                    default:
+                        jsonReader.skipValue();
+                        continue;
+                        z = false;
+                }
+                jsonReader.endArray();
+                z = false;
             }
-            jsonReader.endArray();
-            z = false;
+            jsonReader.endObject();
+            float f6 = f2 / f4;
+            float f7 = f3 / f4;
+            ArrayList arrayList6 = new ArrayList();
+            if (f6 > 0.0f) {
+                arrayList = arrayList3;
+                arrayList2 = arrayList6;
+                arrayList2.add(new com.ksad.lottie.e.a(dVar, valueOf2, valueOf2, null, 0.0f, Float.valueOf(f6)));
+            } else {
+                arrayList = arrayList3;
+                arrayList2 = arrayList6;
+            }
+            if (f7 <= 0.0f) {
+                f7 = dVar.e();
+            }
+            arrayList2.add(new com.ksad.lottie.e.a(dVar, valueOf, valueOf, null, f6, Float.valueOf(f7)));
+            arrayList2.add(new com.ksad.lottie.e.a(dVar, valueOf2, valueOf2, null, f7, Float.valueOf(Float.MAX_VALUE)));
+            if (str3.endsWith(".ai") || "ai".equals(str2)) {
+                dVar.a("Convert your Illustrator layers to shape layers.");
+            }
+            return new Layer(arrayList4, dVar, str3, j, layerType, j2, str, arrayList, lVar, i2, i3, i4, f4, f5, i5, i6, jVar, kVar, arrayList2, matteType2, bVar);
         }
-        jsonReader.endObject();
-        float f6 = f2 / f4;
-        float f7 = f3 / f4;
-        ArrayList arrayList6 = new ArrayList();
-        if (f6 > 0.0f) {
-            arrayList = arrayList3;
-            arrayList2 = arrayList6;
-            arrayList2.add(new com.ksad.lottie.e.a(dVar, valueOf2, valueOf2, null, 0.0f, Float.valueOf(f6)));
-        } else {
-            arrayList = arrayList3;
-            arrayList2 = arrayList6;
-        }
-        if (f7 <= 0.0f) {
-            f7 = dVar.e();
-        }
-        arrayList2.add(new com.ksad.lottie.e.a(dVar, valueOf, valueOf, null, f6, Float.valueOf(f7)));
-        arrayList2.add(new com.ksad.lottie.e.a(dVar, valueOf2, valueOf2, null, f7, Float.valueOf(Float.MAX_VALUE)));
-        if (str3.endsWith(".ai") || "ai".equals(str2)) {
-            dVar.a("Convert your Illustrator layers to shape layers.");
-        }
-        return new Layer(arrayList4, dVar, str3, j, layerType, j2, str, arrayList, lVar, i2, i3, i4, f4, f5, i5, i6, jVar, kVar, arrayList2, matteType2, bVar);
+        return (Layer) invokeLL.objValue;
     }
 
     public static Layer a(com.ksad.lottie.d dVar) {
-        Rect b2 = dVar.b();
-        return new Layer(Collections.emptyList(), dVar, "__container", -1L, Layer.LayerType.PreComp, -1L, null, Collections.emptyList(), new com.ksad.lottie.model.a.l(), 0, 0, 0, 0.0f, 0.0f, b2.width(), b2.height(), null, null, Collections.emptyList(), Layer.MatteType.None, null);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dVar)) == null) {
+            Rect b2 = dVar.b();
+            return new Layer(Collections.emptyList(), dVar, "__container", -1L, Layer.LayerType.PreComp, -1L, null, Collections.emptyList(), new com.ksad.lottie.model.a.l(), 0, 0, 0, 0.0f, 0.0f, b2.width(), b2.height(), null, null, Collections.emptyList(), Layer.MatteType.None, null);
+        }
+        return (Layer) invokeL.objValue;
     }
 }

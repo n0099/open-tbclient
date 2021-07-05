@@ -6,96 +6,176 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.widget.SwipeBackLayout;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class ListViewPager extends ViewPager {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f13481e;
+    public float f13564e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13482f;
+    public float f13565f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13483g;
+    public float f13566g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13484h;
+    public float f13567h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f13485i;
+    public GestureDetector f13568i;
     public boolean j;
     public SwipeBackLayout.c k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ListViewPager f13569e;
+
+        public b(ListViewPager listViewPager) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {listViewPager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13569e = listViewPager;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-            if (ListViewPager.this.k != null) {
-                ListViewPager.this.k.enableSwipeBack();
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                if (this.f13569e.k != null) {
+                    this.f13569e.k.enableSwipeBack();
+                }
+                return Math.abs(f2) > Math.abs(f3);
             }
-            return Math.abs(f2) > Math.abs(f3);
+            return invokeCommon.booleanValue;
+        }
+
+        public /* synthetic */ b(ListViewPager listViewPager, a aVar) {
+            this(listViewPager);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ListViewPager(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.j = false;
         c();
     }
 
     public final void c() {
-        this.f13485i = new GestureDetector((Context) null, new b());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f13568i = new GestureDetector((Context) null, new b(this, null));
+        }
     }
 
     public final boolean d(MotionEvent motionEvent) {
-        int action = (motionEvent.getAction() & 65280) >> 8;
-        return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = (motionEvent.getAction() & 65280) >> 8;
+            return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
+        }
+        return invokeL.booleanValue;
     }
 
     public final void e(boolean z) {
-        if (getParent() != null) {
-            getParent().requestDisallowInterceptTouchEvent(z);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getParent() == null) {
+            return;
         }
+        getParent().requestDisallowInterceptTouchEvent(z);
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (d(motionEvent)) {
-            return true;
-        }
-        if (this.j) {
-            if (getParent() != null) {
-                getParent().requestDisallowInterceptTouchEvent(true);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (d(motionEvent)) {
+                return true;
+            }
+            if (this.j) {
+                if (getParent() != null) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                }
+                try {
+                    return super.onInterceptTouchEvent(motionEvent);
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            if (getCurrentItem() != 0 && this.f13568i.onTouchEvent(motionEvent)) {
+                e(true);
             }
             try {
                 return super.onInterceptTouchEvent(motionEvent);
-            } catch (Exception unused) {
+            } catch (Exception unused2) {
                 return false;
             }
         }
-        if (getCurrentItem() != 0 && this.f13485i.onTouchEvent(motionEvent)) {
-            e(true);
-        }
-        try {
-            return super.onInterceptTouchEvent(motionEvent);
-        } catch (Exception unused2) {
-            return false;
-        }
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x002d, code lost:
-        if (r0 != 6) goto L23;
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0031, code lost:
+        if (r0 != 6) goto L25;
      */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0099 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x009a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x009d A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x009e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, motionEvent)) != null) {
+            return invokeL.booleanValue;
+        }
         if (this.j) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
@@ -114,11 +194,11 @@ public class ListViewPager extends ViewPager {
                     if (cVar != null) {
                         cVar.enableSwipeBack();
                     }
-                    this.f13483g = motionEvent.getX() - this.f13481e;
-                    this.f13484h = motionEvent.getY() - this.f13482f;
-                    this.f13481e = motionEvent.getX();
-                    this.f13482f = motionEvent.getY();
-                    if (getCurrentItem() != 0 && Math.abs(this.f13483g) > Math.abs(this.f13484h)) {
+                    this.f13566g = motionEvent.getX() - this.f13564e;
+                    this.f13567h = motionEvent.getY() - this.f13565f;
+                    this.f13564e = motionEvent.getX();
+                    this.f13565f = motionEvent.getY();
+                    if (getCurrentItem() != 0 && Math.abs(this.f13566g) > Math.abs(this.f13567h)) {
                         e(true);
                     }
                 } else if (action != 3) {
@@ -138,10 +218,10 @@ public class ListViewPager extends ViewPager {
             if (cVar2 != null) {
                 cVar2.enableSwipeBack();
             }
-            this.f13481e = 0.0f;
-            this.f13482f = 0.0f;
-            this.f13483g = 0.0f;
-            this.f13484h = 0.0f;
+            this.f13564e = 0.0f;
+            this.f13565f = 0.0f;
+            this.f13566g = 0.0f;
+            this.f13567h = 0.0f;
             if (d(motionEvent)) {
             }
         }
@@ -149,22 +229,45 @@ public class ListViewPager extends ViewPager {
         if (cVar3 != null) {
             cVar3.enableSwipeBack();
         }
-        this.f13481e = motionEvent.getX();
-        this.f13482f = motionEvent.getY();
+        this.f13564e = motionEvent.getX();
+        this.f13565f = motionEvent.getY();
         if (d(motionEvent)) {
         }
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.j = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.j = z;
+        }
     }
 
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
-        this.k = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.k = cVar;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ListViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.j = false;
         c();
     }

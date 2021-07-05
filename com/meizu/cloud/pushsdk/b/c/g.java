@@ -8,36 +8,36 @@ import java.util.regex.Pattern;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f38399a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
+    public static final Pattern f40162a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f38400b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
+    public static final Pattern f40163b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f38401c;
+    public final String f40164c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f38402d;
+    public final String f40165d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f38403e;
+    public final String f40166e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f38404f;
+    public final String f40167f;
 
     public g(String str, String str2, String str3, String str4) {
-        this.f38401c = str;
-        this.f38402d = str2;
-        this.f38403e = str3;
-        this.f38404f = str4;
+        this.f40164c = str;
+        this.f40165d = str2;
+        this.f40166e = str3;
+        this.f40167f = str4;
     }
 
     public static g a(String str) {
-        Matcher matcher = f38399a.matcher(str);
+        Matcher matcher = f40162a.matcher(str);
         if (matcher.lookingAt()) {
             String lowerCase = matcher.group(1).toLowerCase(Locale.US);
             String lowerCase2 = matcher.group(2).toLowerCase(Locale.US);
-            Matcher matcher2 = f38400b.matcher(str);
+            Matcher matcher2 = f40163b.matcher(str);
             String str2 = null;
             for (int end = matcher.end(); end < str.length(); end = matcher2.end()) {
                 matcher2.region(end, str.length());
@@ -59,11 +59,11 @@ public class g {
     }
 
     public String a() {
-        return this.f38402d;
+        return this.f40165d;
     }
 
     public Charset b() {
-        String str = this.f38404f;
+        String str = this.f40167f;
         if (str != null) {
             return Charset.forName(str);
         }
@@ -71,14 +71,14 @@ public class g {
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof g) && ((g) obj).f38401c.equals(this.f38401c);
+        return (obj instanceof g) && ((g) obj).f40164c.equals(this.f40164c);
     }
 
     public int hashCode() {
-        return this.f38401c.hashCode();
+        return this.f40164c.hashCode();
     }
 
     public String toString() {
-        return this.f38401c;
+        return this.f40164c;
     }
 }

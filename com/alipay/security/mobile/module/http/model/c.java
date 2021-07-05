@@ -1,45 +1,79 @@
 package com.alipay.security.mobile.module.http.model;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class c extends a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2095c = 1;
+    public static final int f2098c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f2096d = 2;
+    public static final int f2099d = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f2097e = 3;
+    public static final int f2100e = 3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f2098f = "APPKEY_ERROR";
+    public static final String f2101f = "APPKEY_ERROR";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f2099g = "SUCCESS";
+    public static final String f2102g = "SUCCESS";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2100h;
+    public String f2103h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2101i;
+    public String f2104i;
     public String j;
     public String k;
     public String l;
     public String m;
     public String n;
     public String o;
-    public String p = "";
+    public String p;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.p = "";
+    }
 
     public int a() {
-        return this.f2093a ? com.alipay.security.mobile.module.a.a.a(this.f2100h) ? 2 : 1 : f2098f.equals(this.f2094b) ? 3 : 2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2096a ? com.alipay.security.mobile.module.a.a.a(this.f2103h) ? 2 : 1 : f2101f.equals(this.f2097b) ? 3 : 2 : invokeV.intValue;
     }
 
     public boolean b() {
-        return "1".equals(this.j);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.j) : invokeV.booleanValue;
     }
 
     public String c() {
-        String str = this.k;
-        return str == null ? "0" : str;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.k;
+            return str == null ? "0" : str;
+        }
+        return (String) invokeV.objValue;
     }
 }

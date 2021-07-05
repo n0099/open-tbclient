@@ -9,77 +9,126 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class LivenessCircleProgressView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f6094a;
+    public Paint f6124a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f6095b;
+    public Paint f6125b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f6096c;
+    public Paint f6126c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6097d;
+    public int f6127d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f6098e;
+    public RectF f6128e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6099f;
+    public int f6129f;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LivenessCircleProgressView(@NonNull Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a();
     }
 
     private void a() {
-        this.f6099f = 12;
-        Paint paint = new Paint();
-        this.f6094a = paint;
-        paint.setColor(Color.argb(127, 255, 255, 255));
-        this.f6094a.setAntiAlias(true);
-        this.f6094a.setStrokeWidth(this.f6099f);
-        this.f6094a.setStyle(Paint.Style.STROKE);
-        Paint paint2 = new Paint();
-        this.f6095b = paint2;
-        paint2.setColor(Color.argb(255, 255, 255, 255));
-        this.f6095b.setAntiAlias(true);
-        this.f6095b.setStrokeWidth(this.f6099f);
-        this.f6095b.setStyle(Paint.Style.STROKE);
-        Paint paint3 = new Paint();
-        this.f6096c = paint3;
-        paint3.setColor(Color.rgb(255, 255, 255));
-        this.f6096c.setAntiAlias(true);
-        this.f6096c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
-        this.f6096c.setTextAlign(Paint.Align.CENTER);
-        this.f6098e = new RectF();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.f6129f = 12;
+            Paint paint = new Paint();
+            this.f6124a = paint;
+            paint.setColor(Color.argb(127, 255, 255, 255));
+            this.f6124a.setAntiAlias(true);
+            this.f6124a.setStrokeWidth(this.f6129f);
+            this.f6124a.setStyle(Paint.Style.STROKE);
+            Paint paint2 = new Paint();
+            this.f6125b = paint2;
+            paint2.setColor(Color.argb(255, 255, 255, 255));
+            this.f6125b.setAntiAlias(true);
+            this.f6125b.setStrokeWidth(this.f6129f);
+            this.f6125b.setStyle(Paint.Style.STROKE);
+            Paint paint3 = new Paint();
+            this.f6126c = paint3;
+            paint3.setColor(Color.rgb(255, 255, 255));
+            this.f6126c.setAntiAlias(true);
+            this.f6126c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
+            this.f6126c.setTextAlign(Paint.Align.CENTER);
+            this.f6128e = new RectF();
+        }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f6099f / 2), this.f6094a);
-        RectF rectF = this.f6098e;
-        int i2 = this.f6099f;
-        rectF.left = i2 / 2;
-        rectF.top = i2 / 2;
-        rectF.right = getWidth() - (this.f6099f / 2);
-        this.f6098e.bottom = getHeight() - (this.f6099f / 2);
-        canvas.drawArc(this.f6098e, -90.0f, (this.f6097d / 100.0f) * 360.0f, false, this.f6095b);
-        canvas.drawText(this.f6097d + "%", getWidth() / 2, getHeight() / 2, this.f6096c);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            super.onDraw(canvas);
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f6129f / 2), this.f6124a);
+            RectF rectF = this.f6128e;
+            int i2 = this.f6129f;
+            rectF.left = i2 / 2;
+            rectF.top = i2 / 2;
+            rectF.right = getWidth() - (this.f6129f / 2);
+            this.f6128e.bottom = getHeight() - (this.f6129f / 2);
+            canvas.drawArc(this.f6128e, -90.0f, (this.f6127d / 100.0f) * 360.0f, false, this.f6125b);
+            canvas.drawText(this.f6127d + "%", getWidth() / 2, getHeight() / 2, this.f6126c);
+        }
     }
 
     public void updateProgress(int i2) {
-        this.f6097d = i2;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f6127d = i2;
+            invalidate();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LivenessCircleProgressView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a();
     }
 }

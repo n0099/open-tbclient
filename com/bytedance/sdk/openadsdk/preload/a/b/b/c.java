@@ -1,31 +1,62 @@
 package com.bytedance.sdk.openadsdk.preload.a.b.b;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.m;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
 public final class c extends b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f29963a;
+    public static Class f31813a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f29964b = b();
+    public final Object f31814b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Field f29965c = c();
+    public final Field f31815c;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f31814b = b();
+        this.f31815c = c();
+    }
 
     public static Field c() {
-        try {
-            return AccessibleObject.class.getDeclaredField("override");
-        } catch (NoSuchFieldException unused) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                return AccessibleObject.class.getDeclaredField("override");
+            } catch (NoSuchFieldException unused) {
+                return null;
+            }
         }
+        return (Field) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.b.b.b
     public void a(AccessibleObject accessibleObject) {
-        if (b(accessibleObject)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, accessibleObject) == null) || b(accessibleObject)) {
             return;
         }
         try {
@@ -36,25 +67,35 @@ public final class c extends b {
     }
 
     public boolean b(AccessibleObject accessibleObject) {
-        if (this.f29964b != null && this.f29965c != null) {
-            try {
-                f29963a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f29964b, accessibleObject, Long.valueOf(((Long) f29963a.getMethod("objectFieldOffset", Field.class).invoke(this.f29964b, this.f29965c)).longValue()), Boolean.TRUE);
-                return true;
-            } catch (Exception unused) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accessibleObject)) == null) {
+            if (this.f31814b != null && this.f31815c != null) {
+                try {
+                    f31813a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f31814b, accessibleObject, Long.valueOf(((Long) f31813a.getMethod("objectFieldOffset", Field.class).invoke(this.f31814b, this.f31815c)).longValue()), Boolean.TRUE);
+                    return true;
+                } catch (Exception unused) {
+                }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static Object b() {
-        try {
-            Class<?> cls = Class.forName("sun.misc.Unsafe");
-            f29963a = cls;
-            Field declaredField = cls.getDeclaredField("theUnsafe");
-            declaredField.setAccessible(true);
-            return declaredField.get(null);
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                Class<?> cls = Class.forName("sun.misc.Unsafe");
+                f31813a = cls;
+                Field declaredField = cls.getDeclaredField("theUnsafe");
+                declaredField.setAccessible(true);
+                return declaredField.get(null);
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return invokeV.objValue;
     }
 }

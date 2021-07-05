@@ -1,11 +1,20 @@
 package com.baidu.tbadk.data;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.UserVipInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UserVipInfoData implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1412620310378890L;
+    public transient /* synthetic */ FieldHolder $fh;
     public int dayAddScore;
     public int getScore;
     public int nextLevelScore;
@@ -15,40 +24,71 @@ public class UserVipInfoData implements Serializable {
     public int vipStartTime;
     public int vipStatus;
 
+    public UserVipInfoData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public int getDayAddScore() {
-        return this.dayAddScore;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dayAddScore : invokeV.intValue;
     }
 
     public int getGetScore() {
-        return this.getScore;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.getScore : invokeV.intValue;
     }
 
     public int getNextLevelScore() {
-        return this.nextLevelScore;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.nextLevelScore : invokeV.intValue;
     }
 
     public int getVipEndTime() {
-        return this.vipEndTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.vipEndTime : invokeV.intValue;
     }
 
     public String getVipIconUrl() {
-        return this.vipIconUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.vipIconUrl : (String) invokeV.objValue;
     }
 
     public int getVipLevel() {
-        return this.vipLevel;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.vipLevel : invokeV.intValue;
     }
 
     public int getVipStartTime() {
-        return this.vipStartTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.vipStartTime : invokeV.intValue;
     }
 
     public int getVipStatus() {
-        return this.vipStatus;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.vipStatus : invokeV.intValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.vipStatus = jSONObject.optInt("v_status", 0);
@@ -62,7 +102,8 @@ public class UserVipInfoData implements Serializable {
     }
 
     public void parserProtobuf(UserVipInfo userVipInfo) {
-        if (userVipInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, userVipInfo) == null) || userVipInfo == null) {
             return;
         }
         Integer num = userVipInfo.v_status;

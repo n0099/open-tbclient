@@ -1,10 +1,16 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.statistic.model;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public long A;
     public boolean B;
     public boolean C;
@@ -13,28 +19,31 @@ public class a {
     public String F;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30294a;
+    public String f32144a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30295b;
+    public String f32145b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30296c;
+    public String f32146c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30297d;
+    public String f32147d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f32148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f30299f;
+    public long f32149f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30300g;
+    public long f32150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30301h;
+    public boolean f32151h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f30302i;
+    public boolean f32152i;
     public boolean j;
     public boolean k;
     public long l;
@@ -48,11 +57,25 @@ public class a {
     public String t;
     public String u;
     public String v;
+    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> w;
     public long x;
     public long y;
     public long z;
 
-    /* renamed from: e  reason: collision with root package name */
-    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f30298e = new CopyOnWriteArrayList();
-    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> w = new CopyOnWriteArrayList();
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32148e = new CopyOnWriteArrayList();
+        this.w = new CopyOnWriteArrayList();
+    }
 }

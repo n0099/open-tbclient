@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -23,15 +25,21 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.constant.WBConstants;
-import d.a.a0.a.f;
+import d.a.e0.a.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OauthActivity extends BaseActivity {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String E = "extra_calling_app_id";
     public static final String F = "extra_oauth_result_json";
     public static final String G = "extra_redirect_url";
@@ -47,8 +55,9 @@ public class OauthActivity extends BaseActivity {
     public static final int Q = -204;
     public static final int R = -205;
     public static final int S = -208;
+    public transient /* synthetic */ FieldHolder $fh;
     public Dialog A;
-    public int B = 0;
+    public int B;
     public String C;
     public boolean D;
     public String t;
@@ -59,344 +68,641 @@ public class OauthActivity extends BaseActivity {
     public String y;
     public String z;
 
+    public OauthActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.B = 0;
+    }
+
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
-        super.init();
-        this.t = getCallingPackage();
-        Intent intent = getIntent();
-        this.u = intent.getStringExtra(E);
-        this.v = intent.getStringExtra(G);
-        this.w = intent.getStringExtra(H);
-        this.B = intent.getIntExtra(I, 0);
-        this.C = intent.getStringExtra(J);
-        this.x = intent.getStringExtra(M);
-        this.y = intent.getStringExtra(K);
-        if (TextUtils.isEmpty(this.t) || TextUtils.isEmpty(this.u) || TextUtils.isEmpty(this.v) || TextUtils.isEmpty(this.w)) {
-            setResult(0, a(-202));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.init();
+            this.t = getCallingPackage();
+            Intent intent = getIntent();
+            this.u = intent.getStringExtra(E);
+            this.v = intent.getStringExtra(G);
+            this.w = intent.getStringExtra(H);
+            this.B = intent.getIntExtra(I, 0);
+            this.C = intent.getStringExtra(J);
+            this.x = intent.getStringExtra(M);
+            this.y = intent.getStringExtra(K);
+            if (TextUtils.isEmpty(this.t) || TextUtils.isEmpty(this.u) || TextUtils.isEmpty(this.v) || TextUtils.isEmpty(this.w)) {
+                setResult(0, a(-202));
+                finish();
+                this.D = true;
+            }
+            if (!TextUtils.isEmpty(this.C) && !a(this.C)) {
+                setResult(0, a(-202));
+                finish();
+                this.D = true;
+            }
+            String stringExtra = intent.getStringExtra(L);
+            this.z = stringExtra;
+            if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.z, "9.3.7.1") <= 0) {
+                return;
+            }
+            setResult(0, a(-208));
             finish();
             this.D = true;
         }
-        if (!TextUtils.isEmpty(this.C) && !a(this.C)) {
-            setResult(0, a(-202));
-            finish();
-            this.D = true;
-        }
-        String stringExtra = intent.getStringExtra(L);
-        this.z = stringExtra;
-        if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.z, "9.3.6") <= 0) {
-            return;
-        }
-        setResult(0, a(S));
-        finish();
-        this.D = true;
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        try {
-            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
-            if (b()) {
-                this.configuration = SapiAccountManager.getInstance().getConfignation();
-                init();
-                if (this.D) {
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            try {
+                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                if (b()) {
+                    this.configuration = SapiAccountManager.getInstance().getConfignation();
+                    init();
+                    if (this.D) {
+                        return;
+                    }
+                    setupViews();
                 }
-                setupViews();
+            } catch (Throwable unused) {
+                setResult(0, a(-201));
+                finish();
             }
-        } catch (Throwable unused) {
-            setResult(0, a(-201));
-            finish();
         }
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
-        if (this.B == 1) {
-            SapiAccountManager.getInstance().getAccountService().qrAppLogin(new SapiCallback<QrAppLoginResult>() { // from class: com.baidu.sapi2.activity.OauthActivity.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFailure(QrAppLoginResult qrAppLoginResult) {
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.B == 1) {
+                SapiAccountManager.getInstance().getAccountService().qrAppLogin(new SapiCallback<QrAppLoginResult>(this) { // from class: com.baidu.sapi2.activity.OauthActivity.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFinish() {
-                }
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ OauthActivity f9824a;
 
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onStart() {
-                }
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f9824a = this;
+                    }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onSuccess(QrAppLoginResult qrAppLoginResult) {
-                }
-            }, this.C, QrLoginAction.CANCEL.getName());
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFailure(QrAppLoginResult qrAppLoginResult) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, qrAppLoginResult) == null) {
+                        }
+                    }
+
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFinish() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                        }
+                    }
+
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onStart() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                        }
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onSuccess(QrAppLoginResult qrAppLoginResult) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048580, this, qrAppLoginResult) == null) {
+                        }
+                    }
+                }, this.C, QrLoginAction.CANCEL.getName());
+            }
+            a();
         }
-        a();
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
-        super.setupViews();
-        this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.OauthActivity.2
-            @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
-            public boolean onBack() {
-                OauthActivity.this.a();
-                return false;
-            }
-        });
-        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.OauthActivity.3
-            @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-            public void onFinish() {
-                OauthActivity oauthActivity = OauthActivity.this;
-                oauthActivity.setResult(0, oauthActivity.a(-205));
-                OauthActivity.this.finish();
-            }
-        });
-        this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.OauthActivity.4
-            @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-            public void onFailed(int i2, String str) {
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.setupViews();
+            this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback(this) { // from class: com.baidu.sapi2.activity.OauthActivity.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-            public void onSuccess() {
-                OauthActivity.this.c();
-                SapiAccountManager.getGlobalCallback().onLoginStatusChange();
-            }
-        });
-        SapiJsCallBacks.BdOauthCallback bdOauthCallback = new SapiJsCallBacks.BdOauthCallback() { // from class: com.baidu.sapi2.activity.OauthActivity.5
-            @Override // com.baidu.sapi2.SapiJsCallBacks.BdOauthCallback
-            public void onCallback(String str) {
-                Intent intent = new Intent();
-                if (OauthActivity.this.B == 0) {
-                    Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str.substring(str.indexOf("#") + 1, str.length()));
-                    if (urlParamsToMap.containsKey("error")) {
-                        OauthActivity oauthActivity = OauthActivity.this;
-                        oauthActivity.setResult(0, oauthActivity.a(-204, urlParamsToMap.get("error")));
-                    } else {
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("refreshToken", urlParamsToMap.get("refresh_token"));
-                            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, urlParamsToMap.get("access_token"));
-                            jSONObject.put("expiresIn", urlParamsToMap.get("expires_in"));
-                            jSONObject.put("scope", urlParamsToMap.get("scope"));
-                            jSONObject.put("extra", urlParamsToMap.get("extra"));
-                            jSONObject.put("code", urlParamsToMap.get("code"));
-                            jSONObject.put("state", urlParamsToMap.get("state"));
-                            intent.putExtra(OauthActivity.F, jSONObject.toString());
-                            OauthActivity.this.setResult(-1, intent);
-                        } catch (JSONException e2) {
-                            Log.e(e2);
-                            OauthActivity oauthActivity2 = OauthActivity.this;
-                            oauthActivity2.setResult(0, oauthActivity2.a(-201));
-                        }
-                    }
-                } else {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(str);
-                        int optInt = jSONObject2.optInt("errNo");
-                        jSONObject2.optInt("msg");
-                        if (optInt != -301) {
-                            if (optInt != 400021 && optInt != 400022) {
-                                JSONObject jSONObject3 = new JSONObject();
-                                jSONObject3.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, jSONObject2.optString("access_token"));
-                                jSONObject3.put("openid", jSONObject2.optString("openid"));
-                                jSONObject3.put("expiresIn", jSONObject2.optString("expires_in"));
-                                jSONObject3.put("scope", OauthActivity.this.w);
-                                jSONObject3.put("code", jSONObject2.optString("authorization_code"));
-                                jSONObject2.put("state", jSONObject2.optString("state"));
-                                intent.putExtra(OauthActivity.F, jSONObject3.toString());
-                                OauthActivity.this.setResult(-1, intent);
-                            }
-                            OauthActivity.this.d();
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ OauthActivity f9825a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
-                        OauthActivity.this.setResult(0, OauthActivity.this.a(-205));
-                        OauthActivity.this.finish();
-                        return;
-                    } catch (JSONException e3) {
-                        Log.e(e3);
-                        OauthActivity oauthActivity3 = OauthActivity.this;
-                        oauthActivity3.setResult(0, oauthActivity3.a(-201));
+                    }
+                    this.f9825a = this;
+                }
+
+                @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
+                public boolean onBack() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        this.f9825a.a();
+                        return false;
+                    }
+                    return invokeV.booleanValue;
+                }
+            });
+            this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.OauthActivity.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ OauthActivity f9826a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f9826a = this;
+                }
+
+                @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
+                public void onFinish() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        OauthActivity oauthActivity = this.f9826a;
+                        oauthActivity.setResult(0, oauthActivity.a(-205));
+                        this.f9826a.finish();
                     }
                 }
-                OauthActivity.this.finish();
+            });
+            this.sapiWebView.setAuthorizationListener(new AuthorizationListener(this) { // from class: com.baidu.sapi2.activity.OauthActivity.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ OauthActivity f9827a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f9827a = this;
+                }
+
+                @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+                public void onFailed(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    }
+                }
+
+                @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+                public void onSuccess() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        this.f9827a.c();
+                        SapiAccountManager.getGlobalCallback().onLoginStatusChange();
+                    }
+                }
+            });
+            SapiJsCallBacks.BdOauthCallback bdOauthCallback = new SapiJsCallBacks.BdOauthCallback(this) { // from class: com.baidu.sapi2.activity.OauthActivity.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ OauthActivity f9828a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f9828a = this;
+                }
+
+                @Override // com.baidu.sapi2.SapiJsCallBacks.BdOauthCallback
+                public void onCallback(String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                        Intent intent = new Intent();
+                        if (this.f9828a.B == 0) {
+                            Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str.substring(str.indexOf("#") + 1, str.length()));
+                            if (urlParamsToMap.containsKey("error")) {
+                                OauthActivity oauthActivity = this.f9828a;
+                                oauthActivity.setResult(0, oauthActivity.a(-204, urlParamsToMap.get("error")));
+                            } else {
+                                JSONObject jSONObject = new JSONObject();
+                                try {
+                                    jSONObject.put("refreshToken", urlParamsToMap.get("refresh_token"));
+                                    jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, urlParamsToMap.get("access_token"));
+                                    jSONObject.put("expiresIn", urlParamsToMap.get("expires_in"));
+                                    jSONObject.put("scope", urlParamsToMap.get("scope"));
+                                    jSONObject.put("extra", urlParamsToMap.get("extra"));
+                                    jSONObject.put("code", urlParamsToMap.get("code"));
+                                    jSONObject.put("state", urlParamsToMap.get("state"));
+                                    intent.putExtra(OauthActivity.F, jSONObject.toString());
+                                    this.f9828a.setResult(-1, intent);
+                                } catch (JSONException e2) {
+                                    Log.e(e2);
+                                    OauthActivity oauthActivity2 = this.f9828a;
+                                    oauthActivity2.setResult(0, oauthActivity2.a(-201));
+                                }
+                            }
+                        } else {
+                            try {
+                                JSONObject jSONObject2 = new JSONObject(str);
+                                int optInt = jSONObject2.optInt("errNo");
+                                jSONObject2.optInt("msg");
+                                if (optInt != -301) {
+                                    if (optInt != 400021 && optInt != 400022) {
+                                        JSONObject jSONObject3 = new JSONObject();
+                                        jSONObject3.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, jSONObject2.optString("access_token"));
+                                        jSONObject3.put("openid", jSONObject2.optString("openid"));
+                                        jSONObject3.put("expiresIn", jSONObject2.optString("expires_in"));
+                                        jSONObject3.put("scope", this.f9828a.w);
+                                        jSONObject3.put("code", jSONObject2.optString("authorization_code"));
+                                        jSONObject2.put("state", jSONObject2.optString("state"));
+                                        intent.putExtra(OauthActivity.F, jSONObject3.toString());
+                                        this.f9828a.setResult(-1, intent);
+                                    }
+                                    this.f9828a.d();
+                                    return;
+                                }
+                                this.f9828a.setResult(0, this.f9828a.a(-205));
+                                this.f9828a.finish();
+                                return;
+                            } catch (JSONException e3) {
+                                Log.e(e3);
+                                OauthActivity oauthActivity3 = this.f9828a;
+                                oauthActivity3.setResult(0, oauthActivity3.a(-201));
+                            }
+                        }
+                        this.f9828a.finish();
+                    }
+                }
+            };
+            SapiJsCallBacks.BdOauthLoginParams bdOauthLoginParams = new SapiJsCallBacks.BdOauthLoginParams();
+            bdOauthLoginParams.callingPkg = this.t;
+            bdOauthLoginParams.callingAppId = this.u;
+            bdOauthLoginParams.redirectUrl = this.v;
+            bdOauthLoginParams.callback = bdOauthCallback;
+            this.sapiWebView.setBdOauthLoginParams(bdOauthLoginParams);
+            if (SapiAccountManager.getInstance().isLogin() && !TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
+                c();
+            } else {
+                d();
             }
-        };
-        SapiJsCallBacks.BdOauthLoginParams bdOauthLoginParams = new SapiJsCallBacks.BdOauthLoginParams();
-        bdOauthLoginParams.callingPkg = this.t;
-        bdOauthLoginParams.callingAppId = this.u;
-        bdOauthLoginParams.redirectUrl = this.v;
-        bdOauthLoginParams.callback = bdOauthCallback;
-        this.sapiWebView.setBdOauthLoginParams(bdOauthLoginParams);
-        if (SapiAccountManager.getInstance().isLogin() && !TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
-            c();
-        } else {
-            d();
         }
     }
 
     private boolean b() {
-        if (SapiAccountManager.getInstance().getConfignation() == null) {
-            SapiAccountManager.getGlobalCallback().onNeedInitPassSdk();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            if (SapiAccountManager.getInstance().getConfignation() == null) {
+                SapiAccountManager.getGlobalCallback().onNeedInitPassSdk();
+            }
+            if (SapiAccountManager.getInstance().getConfignation() == null) {
+                Log.e("pass sdk have not been initialized", new Object[0]);
+                setResult(0, a(-201));
+                return false;
+            }
+            return true;
         }
-        if (SapiAccountManager.getInstance().getConfignation() == null) {
-            Log.e("pass sdk have not been initialized", new Object[0]);
-            setResult(0, a(-201));
-            return false;
-        }
-        return true;
+        return invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        SapiAccountManager.getInstance().getAccountService().generateSsoHash(new SsoHashCallback() { // from class: com.baidu.sapi2.activity.OauthActivity.7
-            @Override // com.baidu.sapi2.callback.SsoHashCallback, com.baidu.sapi2.callback.SapiCallback
-            public void onFinish() {
-                OauthActivity oauthActivity = OauthActivity.this;
-                ViewUtility.dismissDialog(oauthActivity, oauthActivity.A);
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            SapiAccountManager.getInstance().getAccountService().generateSsoHash(new SsoHashCallback(this) { // from class: com.baidu.sapi2.activity.OauthActivity.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.sapi2.callback.SsoHashCallback, com.baidu.sapi2.callback.SapiCallback
-            public void onStart() {
-                OauthActivity oauthActivity = OauthActivity.this;
-                oauthActivity.A = new LoadingDialog.Builder(oauthActivity).setMessage("正在加载中...").setCancelable(false).setCancelOutside(false).createDialog();
-                if (OauthActivity.this.isFinishing() || OauthActivity.this.A.isShowing()) {
-                    return;
-                }
-                OauthActivity.this.A.show();
-            }
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ OauthActivity f9832a;
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onSuccess(SsoHashResult ssoHashResult) {
-                String str;
-                HashMap hashMap = new HashMap();
-                hashMap.put("client", "android");
-                hashMap.put("clientfrom", "native");
-                hashMap.put("suppcheck", "1");
-                if (OauthActivity.this.B == 0) {
-                    if (SapiUtils.versionCompareTo(OauthActivity.this.y, OauthActivity.N) >= 0) {
-                        hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_auth_code");
-                        hashMap.put("state", OauthActivity.this.x);
-                    } else {
-                        hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_token");
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                    hashMap.put("display", "mobile");
-                    hashMap.put("scope", OauthActivity.this.w);
-                    hashMap.put("sso_hash", ssoHashResult.ssoHash);
-                    hashMap.put("client_id", OauthActivity.this.u);
-                    hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, OauthActivity.this.v);
-                    str = (SapiAccountManager.getInstance().getConfignation().environment.getDeviceUrl() + "/oauth/2.0/authorize") + SapiUtils.mapToUrlParams(hashMap, false);
-                } else {
-                    hashMap.put("oauth_sso_hash", ssoHashResult.ssoHash);
-                    hashMap.put("oauth_redirect_uri", OauthActivity.this.v);
-                    if (SapiUtils.versionCompareTo(OauthActivity.this.y, OauthActivity.N) >= 0) {
-                        hashMap.put("getauthorizationcode", "1");
-                    } else {
-                        hashMap.put("getaccesstoken", "1");
-                    }
-                    str = OauthActivity.this.C + SapiUtils.mapToUrlParams(hashMap, true);
+                    this.f9832a = this;
                 }
-                OauthActivity.this.sapiWebView.loadUrl(str);
-            }
-        }, this.t, this.u);
+
+                @Override // com.baidu.sapi2.callback.SsoHashCallback, com.baidu.sapi2.callback.SapiCallback
+                public void onFinish() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        OauthActivity oauthActivity = this.f9832a;
+                        ViewUtility.dismissDialog(oauthActivity, oauthActivity.A);
+                    }
+                }
+
+                @Override // com.baidu.sapi2.callback.SsoHashCallback, com.baidu.sapi2.callback.SapiCallback
+                public void onStart() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        OauthActivity oauthActivity = this.f9832a;
+                        oauthActivity.A = new LoadingDialog.Builder(oauthActivity).setMessage("正在加载中...").setCancelable(false).setCancelOutside(false).createDialog();
+                        if (this.f9832a.isFinishing() || this.f9832a.A.isShowing()) {
+                            return;
+                        }
+                        this.f9832a.A.show();
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onSuccess(SsoHashResult ssoHashResult) {
+                    String str;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, ssoHashResult) == null) {
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("client", "android");
+                        hashMap.put("clientfrom", "native");
+                        hashMap.put("suppcheck", "1");
+                        if (this.f9832a.B == 0) {
+                            if (SapiUtils.versionCompareTo(this.f9832a.y, OauthActivity.N) >= 0) {
+                                hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_auth_code");
+                                hashMap.put("state", this.f9832a.x);
+                            } else {
+                                hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_token");
+                            }
+                            hashMap.put("display", "mobile");
+                            hashMap.put("scope", this.f9832a.w);
+                            hashMap.put("sso_hash", ssoHashResult.ssoHash);
+                            hashMap.put("client_id", this.f9832a.u);
+                            hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, this.f9832a.v);
+                            str = (SapiAccountManager.getInstance().getConfignation().environment.getDeviceUrl() + "/oauth/2.0/authorize") + SapiUtils.mapToUrlParams(hashMap, false);
+                        } else {
+                            hashMap.put("oauth_sso_hash", ssoHashResult.ssoHash);
+                            hashMap.put("oauth_redirect_uri", this.f9832a.v);
+                            if (SapiUtils.versionCompareTo(this.f9832a.y, OauthActivity.N) >= 0) {
+                                hashMap.put("getauthorizationcode", "1");
+                            } else {
+                                hashMap.put("getaccesstoken", "1");
+                            }
+                            str = this.f9832a.C + SapiUtils.mapToUrlParams(hashMap, true);
+                        }
+                        this.f9832a.sapiWebView.loadUrl(str);
+                    }
+                }
+            }, this.t, this.u);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        final boolean z = SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
-        WebLoginDTO webLoginDTO = new WebLoginDTO();
-        webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
-        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = false;
-        LoginActivity.supportShareLogin = false;
-        WebLoginDTO.Config config = new WebLoginDTO.Config();
-        config.fastLoginFeatureList = new ArrayList();
-        webLoginDTO.config = config;
-        CoreViewRouter.getInstance().startLogin(this, new WebAuthListener() { // from class: com.baidu.sapi2.activity.OauthActivity.6
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onFailure(WebAuthResult webAuthResult) {
-                if (webAuthResult.getResultCode() == -301) {
-                    OauthActivity oauthActivity = OauthActivity.this;
-                    oauthActivity.setResult(0, oauthActivity.a(-205));
-                    OauthActivity.this.finish();
-                } else {
-                    OauthActivity oauthActivity2 = OauthActivity.this;
-                    oauthActivity2.setResult(0, oauthActivity2.a(-201));
-                    OauthActivity.this.finish();
-                }
-                LoginActivity.supportShareLogin = true;
-                SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            boolean z = SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
+            WebLoginDTO webLoginDTO = new WebLoginDTO();
+            webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
+            SapiAccountManager.getInstance().getConfignation().supportFaceLogin = false;
+            LoginActivity.supportShareLogin = false;
+            WebLoginDTO.Config config = new WebLoginDTO.Config();
+            config.fastLoginFeatureList = new ArrayList();
+            webLoginDTO.config = config;
+            CoreViewRouter.getInstance().startLogin(this, new WebAuthListener(this, z) { // from class: com.baidu.sapi2.activity.OauthActivity.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onSuccess(WebAuthResult webAuthResult) {
-                OauthActivity.this.c();
-                SapiAccountManager.getGlobalCallback().onLoginStatusChange();
-                LoginActivity.supportShareLogin = true;
-                SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
-                new Handler().postDelayed(new Runnable() { // from class: com.baidu.sapi2.activity.OauthActivity.6.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        SapiUtils.hideSoftInput(OauthActivity.this);
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ boolean f9829a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ OauthActivity f9830b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                }, 300L);
-            }
-        }, webLoginDTO);
+                    this.f9830b = this;
+                    this.f9829a = z;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFailure(WebAuthResult webAuthResult) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+                        if (webAuthResult.getResultCode() == -301) {
+                            OauthActivity oauthActivity = this.f9830b;
+                            oauthActivity.setResult(0, oauthActivity.a(-205));
+                            this.f9830b.finish();
+                        } else {
+                            OauthActivity oauthActivity2 = this.f9830b;
+                            oauthActivity2.setResult(0, oauthActivity2.a(-201));
+                            this.f9830b.finish();
+                        }
+                        LoginActivity.supportShareLogin = true;
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f9829a;
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onSuccess(WebAuthResult webAuthResult) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
+                        this.f9830b.c();
+                        SapiAccountManager.getGlobalCallback().onLoginStatusChange();
+                        LoginActivity.supportShareLogin = true;
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f9829a;
+                        new Handler().postDelayed(new Runnable(this) { // from class: com.baidu.sapi2.activity.OauthActivity.6.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            /* renamed from: a  reason: collision with root package name */
+                            public final /* synthetic */ AnonymousClass6 f9831a;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.f9831a = this;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                    SapiUtils.hideSoftInput(this.f9831a.f9830b);
+                                }
+                            }
+                        }, 300L);
+                    }
+                }
+            }, webLoginDTO);
+        }
     }
 
     private boolean a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        Uri parse = Uri.parse(str);
-        parse.getHost();
-        String[] strArr = {Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter("cmd")), Uri.decode(parse.getQueryParameter("tpl"))};
-        for (int i2 = 0; i2 < 4; i2++) {
-            if (TextUtils.isEmpty(strArr[i2])) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
+            Uri parse = Uri.parse(str);
+            parse.getHost();
+            String[] strArr = {Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter("cmd")), Uri.decode(parse.getQueryParameter("tpl"))};
+            for (int i2 = 0; i2 < 4; i2++) {
+                if (TextUtils.isEmpty(strArr[i2])) {
+                    return false;
+                }
+            }
+            String wap = SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap();
+            StringBuilder sb = new StringBuilder();
+            sb.append(parse.getScheme());
+            sb.append("://");
+            sb.append(parse.getHost());
+            return wap.equals(sb.toString());
         }
-        String wap = SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap();
-        StringBuilder sb = new StringBuilder();
-        sb.append(parse.getScheme());
-        sb.append("://");
-        sb.append(parse.getHost());
-        return wap.equals(sb.toString());
+        return invokeL.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        SapiWebView sapiWebView = this.sapiWebView;
-        if (sapiWebView != null && sapiWebView.canGoBack()) {
-            this.sapiWebView.goBack();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.goBack();
+                return;
+            }
+            setResult(0, a(-205));
+            finish();
         }
-        setResult(0, a(-205));
-        finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Intent a(int i2, String str) {
-        Intent intent = new Intent();
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("code", i2);
-            if (!TextUtils.isEmpty(str)) {
-                jSONObject.put("msg", str);
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i2, str)) == null) {
+            Intent intent = new Intent();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("code", i2);
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("msg", str);
+                }
+            } catch (JSONException e2) {
+                Log.e(e2);
             }
-        } catch (JSONException e2) {
-            Log.e(e2);
+            intent.putExtra(F, jSONObject.toString());
+            return intent;
         }
-        intent.putExtra(F, jSONObject.toString());
-        return intent;
+        return (Intent) invokeIL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Intent a(int i2) {
-        return a(i2, "");
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? a(i2, "") : (Intent) invokeI.objValue;
     }
 }

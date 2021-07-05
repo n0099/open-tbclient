@@ -1,16 +1,24 @@
 package rx.internal.util;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.f;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class BackpressureDrainManager extends AtomicLong implements f {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2826241102729529449L;
+    public transient /* synthetic */ FieldHolder $fh;
     public final a actual;
     public boolean emitting;
     public Throwable exception;
     public volatile boolean terminated;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(Throwable th);
 
@@ -22,88 +30,106 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
     }
 
     public BackpressureDrainManager(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.actual = aVar;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x002d, code lost:
-        if (r9 == 0) goto L18;
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0031, code lost:
+        if (r9 == 0) goto L20;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0036, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x003a, code lost:
         monitor-enter(r13);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0037, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x003b, code lost:
         r1 = r13.terminated;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x003d, code lost:
-        if (r5.peek() == null) goto L50;
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0041, code lost:
+        if (r5.peek() == null) goto L52;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x003f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0043, code lost:
         r2 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0041, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0045, code lost:
         r2 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x004d, code lost:
-        if (get() != Long.MAX_VALUE) goto L36;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x004f, code lost:
-        if (r2 != false) goto L33;
-     */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x0051, code lost:
-        if (r1 != false) goto L33;
+        if (get() != Long.MAX_VALUE) goto L38;
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0053, code lost:
-        r13.emitting = false;
+        if (r2 != false) goto L35;
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x0055, code lost:
-        monitor-exit(r13);
+        if (r1 != false) goto L35;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0056, code lost:
-        return;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0057, code lost:
-        r2 = Long.MAX_VALUE;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x005b, code lost:
-        r9 = addAndGet(-r6);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x0061, code lost:
-        if (r9 == 0) goto L42;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x0063, code lost:
-        if (r2 != false) goto L40;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x0065, code lost:
-        if (r1 == false) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0067, code lost:
-        if (r2 == false) goto L40;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x006a, code lost:
-        r2 = r9;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x006d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x0057, code lost:
         r13.emitting = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x006f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x0059, code lost:
         monitor-exit(r13);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0070, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x005a, code lost:
         return;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0071, code lost:
-        r1 = th;
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x005b, code lost:
+        r2 = Long.MAX_VALUE;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0073, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x005f, code lost:
+        r9 = addAndGet(-r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x0065, code lost:
+        if (r9 == 0) goto L44;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0067, code lost:
+        if (r2 != false) goto L42;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0069, code lost:
+        if (r1 == false) goto L51;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x006b, code lost:
+        if (r2 == false) goto L42;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x006e, code lost:
+        r2 = r9;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x0071, code lost:
+        r13.emitting = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0073, code lost:
         monitor-exit(r13);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0074, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0074, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0075, code lost:
+        r1 = th;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x0077, code lost:
+        monitor-exit(r13);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x0078, code lost:
         throw r1;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void drain() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
         synchronized (this) {
             if (this.emitting) {
                 return;
@@ -159,14 +185,17 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
     }
 
     public boolean isTerminated() {
-        return this.terminated;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.terminated : invokeV.booleanValue;
     }
 
     @Override // h.f
     public void request(long j) {
         boolean z;
         long j2;
-        if (j == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || j == 0) {
             return;
         }
         while (true) {
@@ -193,16 +222,23 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
     }
 
     public void terminate() {
-        this.terminated = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.terminated = true;
+        }
     }
 
     public void terminateAndDrain() {
-        this.terminated = true;
-        drain();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.terminated = true;
+            drain();
+        }
     }
 
     public void terminate(Throwable th) {
-        if (this.terminated) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, th) == null) || this.terminated) {
             return;
         }
         this.exception = th;
@@ -210,7 +246,8 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
     }
 
     public void terminateAndDrain(Throwable th) {
-        if (this.terminated) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, th) == null) || this.terminated) {
             return;
         }
         this.exception = th;

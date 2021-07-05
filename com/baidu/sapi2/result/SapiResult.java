@@ -2,8 +2,15 @@ package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-/* loaded from: classes2.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class SapiResult {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_METHOD_DEPRECATED = -206;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
     public static final int ERROR_CODE_PARAMS_ERROR = -204;
@@ -25,11 +32,24 @@ public class SapiResult {
     public static final int RESULT_CODE_SUCCESS = 0;
     public static final int RESULT_CODE_WAPPASS_SUCCESS = 110000;
     public static final String RESULT_MSG_SUCCESS = "成功";
+    public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<String> msgMap;
     public int resultCode;
     public String resultMsg;
 
     public SapiResult() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         SparseArray<String> sparseArray = new SparseArray<>();
         this.msgMap = sparseArray;
         this.resultCode = -202;
@@ -46,30 +66,43 @@ public class SapiResult {
     }
 
     public int getResultCode() {
-        return this.resultCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.resultCode : invokeV.intValue;
     }
 
     public String getResultMsg() {
+        InterceptResult invokeV;
         SparseArray<String> sparseArray;
         int i2;
-        if (!TextUtils.isEmpty(this.resultMsg)) {
-            return this.resultMsg;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.resultMsg)) {
+                return this.resultMsg;
+            }
+            if (this.msgMap.get(this.resultCode) != null) {
+                sparseArray = this.msgMap;
+                i2 = this.resultCode;
+            } else {
+                sparseArray = this.msgMap;
+                i2 = -202;
+            }
+            return sparseArray.get(i2);
         }
-        if (this.msgMap.get(this.resultCode) != null) {
-            sparseArray = this.msgMap;
-            i2 = this.resultCode;
-        } else {
-            sparseArray = this.msgMap;
-            i2 = -202;
-        }
-        return sparseArray.get(i2);
+        return (String) invokeV.objValue;
     }
 
     public void setResultCode(int i2) {
-        this.resultCode = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.resultCode = i2;
+        }
     }
 
     public void setResultMsg(String str) {
-        this.resultMsg = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.resultMsg = str;
+        }
     }
 }

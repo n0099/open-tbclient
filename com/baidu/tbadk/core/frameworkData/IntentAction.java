@@ -1,8 +1,72 @@
 package com.baidu.tbadk.core.frameworkData;
-/* loaded from: classes3.dex */
-public enum IntentAction {
-    Activity,
-    ActivityForResult,
-    StartService,
-    StopService
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes4.dex */
+public final class IntentAction {
+    public static final /* synthetic */ IntentAction[] $VALUES;
+    public static /* synthetic */ Interceptable $ic;
+    public static final IntentAction Activity;
+    public static final IntentAction ActivityForResult;
+    public static final IntentAction StartService;
+    public static final IntentAction StopService;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1265922699, "Lcom/baidu/tbadk/core/frameworkData/IntentAction;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1265922699, "Lcom/baidu/tbadk/core/frameworkData/IntentAction;");
+                return;
+            }
+        }
+        Activity = new IntentAction("Activity", 0);
+        ActivityForResult = new IntentAction("ActivityForResult", 1);
+        StartService = new IntentAction("StartService", 2);
+        IntentAction intentAction = new IntentAction("StopService", 3);
+        StopService = intentAction;
+        $VALUES = new IntentAction[]{Activity, ActivityForResult, StartService, intentAction};
+    }
+
+    public IntentAction(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static IntentAction valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (IntentAction) Enum.valueOf(IntentAction.class, str) : (IntentAction) invokeL.objValue;
+    }
+
+    public static IntentAction[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (IntentAction[]) $VALUES.clone() : (IntentAction[]) invokeV.objValue;
+    }
 }

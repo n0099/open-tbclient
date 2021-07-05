@@ -19,14 +19,21 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.core.view.GravityCompat;
 import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.landingpage.JsWithPlayerData;
 import com.baidu.mobads.container.util.CommonUtils;
 import com.baidu.mobads.container.util.ConvertUtils;
 import com.baidu.mobads.container.util.XAdSimpleImageLoader;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CpuLpVideoControllerDecoration {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BACK_ICON = "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADB/VeXAAAA00lEQVRIDe2QOQoCQRBFB0MDA8EV1xO4oiiiN/BGXtBYRQUdNTHRcY/HJ3RgVANFdzYNjw5+1auiPC9+ri4QhmEJpk78iOtwAt/6AKQ1OMIFGlYHGPnBlbyK2IcrNG1vXvmTt1zI9wwIoG1bXka6M/KObXnKyG/8Xa08ITQmydIQwFmo00ds3oM7bKGoNwmdiPvwgA0UhFJ9hHgAT1hDXm8SOhEP4QUryAml+gjxyAxZ8mf1JqET8RjesICMUKqPEE/gA3O9JaIT+e9cs4iyOI6+wBd/v9uNmlHQWwAAAABJRU5ErkJggg==";
     public static final String FULL_ICON = "iVBORw0KGgoAAAANSUhEUgAAAD8AAAA/CAYAAABXXxDfAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAP6ADAAQAAAABAAAAPwAAAAC8LeoyAAAEnklEQVRoBe2bz0sWQRzGtTI1ooIiMsiIoijoJF466L0ggyCIutXfkBAdEjKPBXWzDgldgiSFiOjSqaAfdJAKNQz6oUSSFRGm6dvnMTf3nXfed3+67y7tFx7emdn5zjzPzOzszO68NTW55S2Qt8D/1AK1QcQWCoVG8jeBdUH8linvV8qdqK2t/RW2fE/xCG6h8JOgA+wIW9Ey+o1Q9iDooyGGYqkH0c3gFsiKzUG0D2hk+jJrz1NAG963wSZfpaQr0zh0jjAKnnrRKhG/KPwBjqu9nFN8/Sfc2miA55U4FolH+HYyPwO2Hn9Nej8YBt9BtW0DBPaCo2CXhcxH0lpogE+Wa6VJiLfd49Okd4KVpR7VT4FXHegCs8C0Xl8M8WoxPYlLuGb71Bs828Fv4DbFd3uSJ9Mlt9diuNPTMUUZ4HzRouG8J0WcxgzHV8RTOdTLiYHvavDO0PGiXP4VukBmrdzMBUw/k8VcOcc0psN3Bl4DBjdNilZbEM8V28JAs3oWzeRdT+dutAlxxNvW6ml4nNk4e6XZeNv01azyKinu6/RCHWUeA+ZtZqtqnsRR8Jgh/cGWIUpa4uIhewccDEhaz/AL+HTHOQ85wz4gl3DZEaC5JahwVabR0gXOKBKXJSoe0lPgRwTy52lA29I7VJGJimfITsPyBHgfiu3fzVZrSN8St0TFq3YaYBA0E9R844Wt8jFspxEPHa3GhLdA1s/ExRD/ZVFWtBO1XPedlHjP+2aWQMZcfAKNnMoq8p5PZbckQCrv+SiNzONoC2iIUka1fEP3PIL14vAuxCfAZ8KHExJRiKue0OIhoG2ps0lZS/hqXKRc5WgvMOmKK6gtbiwWRby5H99G78f6zo9VoHr5NNBHSe3te0m7z28sVrXlrV/2iB2gUfUaqoGwvsTEZqkXL6WIVq/HKlzlRhn28s+05eIz3X0RyOc9H6HxMu36X/d8lEedHj+mbeaZbHv1ZOab4vEV2zLVLNxvPIr4N5ZKdB7Gj03SSKdoAJ2iqppFGfaPYD0bkrnevd+gAaLUH7LqJbfQldNrHyjmwlJRgUP6eFjVrXBo8YtSu/k9C/RdPKhdpwFjX7IGIRHlnteaW4cXehi+vfzqS4o+KHi9V9dEN4pvbLszygtlkcQ7NSJEe+57Tjwrv86w137ZtPVmQkbiOp9nmk3fv12dXkWZts9MyEjcPIMzzcjUG6Hyxn07Atw2SkTfxTNj8G0E424RhJ+UE+AMe103TzHtIu1cOceUpvfAq8ng5r2QooX2Ax3bdpuOg7QbhaUyCs9DYN5NnvAMMN812vmTUefVTdMRTp1sTOUpbHhpqF8GpnCSClfsSv+mFj2Tyawho1PXtkMBOk2hW2MY2I57kZyoaVbX5NYBzKEuImOglcnuiyI2KxKvDDSAFisPwRqQVVPnHED4y0oC3BPeQj4c9A+FNvCxkmOKr6nHPYWLf4l4JdIA+oeCjppfA1k5f6sdpr4aaahX7HHyLFjJsHcuOL/cBnsIHwe6t3SP1YO0mE53DQE9zm4i+m0QYp7izcJoDH09sZ5lNfMuc/wbYstOZstcd158plvgDxOx6VQUO6kiAAAAAElFTkSuQmCC";
     public static final String GRAY_PLAY_NEXT_ICON = "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";
@@ -45,6 +52,8 @@ public class CpuLpVideoControllerDecoration {
     public static final String SPEED150 = "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";
     public static final String SPEED200 = "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";
     public static final String TAG = "CpuLpVideoC";
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean isMute;
     public boolean isVideoAtTop;
     public ImageView mAdImg;
     public LinearLayout mBottomControlView;
@@ -53,10 +62,13 @@ public class CpuLpVideoControllerDecoration {
     public final Context mCtx;
     public TextView mCurTimeTv;
     public ImageView mFullScreenImg;
+    public boolean mIsCanFull;
+    public boolean mIsVisibleToptips;
     public LinearLayout mMidControlView;
     public ImageView mMidImg;
     public ImageView mNextImg;
     public final CpuLpVideoLayout mParent;
+    public float mPlayBackSpeed;
     public ImageView mPlaybackSpeedImg;
     public RelativeLayout mPrerollsView;
     public ImageView mPrevImg;
@@ -65,15 +77,30 @@ public class CpuLpVideoControllerDecoration {
     public TextView mTopTipsView;
     public LinearLayout mTopVideoTitleView;
     public boolean mUserWantBlue;
+    public int mVideoStatus;
     public TextView timeTv;
     public TextView videotitleTv;
-    public boolean mIsCanFull = true;
-    public int mVideoStatus = 10;
-    public boolean isMute = false;
-    public boolean mIsVisibleToptips = true;
-    public float mPlayBackSpeed = 1.0f;
 
     public CpuLpVideoControllerDecoration(Context context, CpuLpVideoLayout cpuLpVideoLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, cpuLpVideoLayout};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mIsCanFull = true;
+        this.mVideoStatus = 10;
+        this.isMute = false;
+        this.mIsVisibleToptips = true;
+        this.mPlayBackSpeed = 1.0f;
         this.mCtx = context;
         this.mParent = cpuLpVideoLayout;
         initTopVideoTitleView();
@@ -83,413 +110,742 @@ public class CpuLpVideoControllerDecoration {
     }
 
     private void initBottomControlView() {
-        this.mBottomControlView = new LinearLayout(this.mCtx);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        this.mBottomControlView.setPadding(15, 0, 15, 10);
-        this.mBottomControlView.setOrientation(0);
-        layoutParams.addRule(12);
-        final ImageView imageView = new ImageView(this.mCtx);
-        imageView.setImageBitmap(ConvertUtils.string2bitmap(PLAY_SOUND_ICON));
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 22.0f), CommonUtils.dip2px(this.mCtx, 22.0f));
-        layoutParams2.gravity = 17;
-        this.mBottomControlView.addView(imageView, layoutParams2);
-        imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (CpuLpVideoControllerDecoration.this.isMute) {
-                    imageView.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PLAY_SOUND_ICON));
-                } else {
-                    imageView.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PLAY_MUTE_ICON));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            this.mBottomControlView = new LinearLayout(this.mCtx);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            this.mBottomControlView.setPadding(15, 0, 15, 10);
+            this.mBottomControlView.setOrientation(0);
+            layoutParams.addRule(12);
+            ImageView imageView = new ImageView(this.mCtx);
+            imageView.setImageBitmap(ConvertUtils.string2bitmap(PLAY_SOUND_ICON));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 22.0f), CommonUtils.dip2px(this.mCtx, 22.0f));
+            layoutParams2.gravity = 17;
+            this.mBottomControlView.addView(imageView, layoutParams2);
+            imageView.setOnClickListener(new View.OnClickListener(this, imageView) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+                public final /* synthetic */ ImageView val$volumeImg;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, imageView};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$volumeImg = imageView;
                 }
-                CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = CpuLpVideoControllerDecoration.this;
-                cpuLpVideoControllerDecoration.isMute = !cpuLpVideoControllerDecoration.isMute;
-                CpuLpVideoControllerDecoration.this.mParent.changeVideoSound(CpuLpVideoControllerDecoration.this.isMute);
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        if (this.this$0.isMute) {
+                            this.val$volumeImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PLAY_SOUND_ICON));
+                        } else {
+                            this.val$volumeImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PLAY_MUTE_ICON));
+                        }
+                        CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = this.this$0;
+                        cpuLpVideoControllerDecoration.isMute = !cpuLpVideoControllerDecoration.isMute;
+                        this.this$0.mParent.changeVideoSound(this.this$0.isMute);
+                    }
+                }
+            });
+            this.mCurTimeTv = new TextView(this.mCtx);
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
+            this.mCurTimeTv.setTextColor(-1);
+            this.mCurTimeTv.setText("00:00");
+            layoutParams3.gravity = 17;
+            layoutParams3.leftMargin = 10;
+            layoutParams3.rightMargin = 10;
+            this.mBottomControlView.addView(this.mCurTimeTv, layoutParams3);
+            this.mProgressSeekBar = new SeekBar(this.mCtx);
+            LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(0, -2);
+            if (Build.VERSION.SDK_INT >= 29) {
+                this.mProgressSeekBar.setMinHeight(CommonUtils.dip2px(this.mCtx, 3.0f));
+                this.mProgressSeekBar.setMaxHeight(CommonUtils.dip2px(this.mCtx, 3.0f));
+            } else {
+                try {
+                    Class<? super Object> superclass = this.mProgressSeekBar.getClass().getSuperclass().getSuperclass();
+                    Field declaredField = superclass.getDeclaredField("mMaxHeight");
+                    declaredField.setAccessible(true);
+                    declaredField.set(this.mProgressSeekBar, Integer.valueOf(CommonUtils.dip2px(this.mCtx, 3.0f)));
+                    Field declaredField2 = superclass.getDeclaredField("mMinHeight");
+                    declaredField2.setAccessible(true);
+                    declaredField2.set(this.mProgressSeekBar, Integer.valueOf(CommonUtils.dip2px(this.mCtx, 3.0f)));
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
-        });
-        this.mCurTimeTv = new TextView(this.mCtx);
-        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-        this.mCurTimeTv.setTextColor(-1);
-        this.mCurTimeTv.setText("00:00");
-        layoutParams3.gravity = 17;
-        layoutParams3.leftMargin = 10;
-        layoutParams3.rightMargin = 10;
-        this.mBottomControlView.addView(this.mCurTimeTv, layoutParams3);
-        this.mProgressSeekBar = new SeekBar(this.mCtx);
-        LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(0, -2);
-        if (Build.VERSION.SDK_INT >= 29) {
-            this.mProgressSeekBar.setMinHeight(CommonUtils.dip2px(this.mCtx, 3.0f));
-            this.mProgressSeekBar.setMaxHeight(CommonUtils.dip2px(this.mCtx, 3.0f));
-        } else {
-            try {
-                Class<? super Object> superclass = this.mProgressSeekBar.getClass().getSuperclass().getSuperclass();
-                Field declaredField = superclass.getDeclaredField("mMaxHeight");
-                declaredField.setAccessible(true);
-                declaredField.set(this.mProgressSeekBar, Integer.valueOf(CommonUtils.dip2px(this.mCtx, 3.0f)));
-                Field declaredField2 = superclass.getDeclaredField("mMinHeight");
-                declaredField2.setAccessible(true);
-                declaredField2.set(this.mProgressSeekBar, Integer.valueOf(CommonUtils.dip2px(this.mCtx, 3.0f)));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+            layoutParams4.weight = 1.0f;
+            layoutParams4.gravity = 17;
+            ShapeDrawable shapeDrawable = new ShapeDrawable(new RoundRectShape(new float[]{8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f}, null, null));
+            shapeDrawable.getPaint().setColor(-7829368);
+            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new RoundRectShape(new float[]{8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f}, null, null));
+            shapeDrawable2.getPaint().setColor(-1);
+            this.mProgressSeekBar.setProgressDrawable(new LayerDrawable(new Drawable[]{shapeDrawable, new ClipDrawable(shapeDrawable2, GravityCompat.START, 1)}));
+            this.mProgressSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.widget.SeekBar.OnSeekBarChangeListener
+                public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && z) {
+                        this.this$0.mParent.changePlayProgress(i2);
+                    }
+                }
+
+                @Override // android.widget.SeekBar.OnSeekBarChangeListener
+                public void onStartTrackingTouch(SeekBar seekBar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
+                    }
+                }
+
+                @Override // android.widget.SeekBar.OnSeekBarChangeListener
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
+                    }
+                }
+            });
+            this.mProgressSeekBar.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.View.OnTouchListener
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) ? this.this$0.mVideoStatus != 10 : invokeLL.booleanValue;
+                }
+            });
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setShape(1);
+            gradientDrawable.setColors(new int[]{-1, 1308622847});
+            gradientDrawable.setGradientType(1);
+            gradientDrawable.setGradientRadius(25.0f);
+            gradientDrawable.setDither(true);
+            gradientDrawable.setSize(50, 50);
+            this.mProgressSeekBar.setThumb(gradientDrawable);
+            this.mProgressSeekBar.setThumbOffset(0);
+            this.mBottomControlView.addView(this.mProgressSeekBar, layoutParams4);
+            TextView textView = new TextView(this.mCtx);
+            this.timeTv = textView;
+            textView.setTextColor(-1);
+            LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams5.rightMargin = 12;
+            layoutParams5.leftMargin = 12;
+            layoutParams5.gravity = 17;
+            this.mBottomControlView.addView(this.timeTv, layoutParams5);
+            this.mFullScreenImg = new ImageView(this.mCtx);
+            LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 20.0f), CommonUtils.dip2px(this.mCtx, 20.0f));
+            layoutParams6.gravity = 17;
+            this.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(FULL_ICON));
+            this.mBottomControlView.addView(this.mFullScreenImg, layoutParams6);
+            this.mFullScreenImg.setVisibility(8);
+            this.mFullScreenImg.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        if (this.this$0.mIsCanFull) {
+                            this.this$0.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SHRINK_ICON));
+                            this.this$0.mParent.fullScreen();
+                        } else {
+                            this.this$0.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.FULL_ICON));
+                            this.this$0.mParent.shrinkScreen();
+                        }
+                        CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = this.this$0;
+                        cpuLpVideoControllerDecoration.mIsCanFull = !cpuLpVideoControllerDecoration.mIsCanFull;
+                    }
+                }
+            });
+            this.mParent.addView(this.mBottomControlView, layoutParams);
         }
-        layoutParams4.weight = 1.0f;
-        layoutParams4.gravity = 17;
-        ShapeDrawable shapeDrawable = new ShapeDrawable(new RoundRectShape(new float[]{8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f}, null, null));
-        shapeDrawable.getPaint().setColor(-7829368);
-        ShapeDrawable shapeDrawable2 = new ShapeDrawable(new RoundRectShape(new float[]{8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f}, null, null));
-        shapeDrawable2.getPaint().setColor(-1);
-        this.mProgressSeekBar.setProgressDrawable(new LayerDrawable(new Drawable[]{shapeDrawable, new ClipDrawable(shapeDrawable2, GravityCompat.START, 1)}));
-        this.mProgressSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.5
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
-                if (z) {
-                    CpuLpVideoControllerDecoration.this.mParent.changePlayProgress(i2);
-                }
-            }
-
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
-        this.mProgressSeekBar.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.6
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                return CpuLpVideoControllerDecoration.this.mVideoStatus != 10;
-            }
-        });
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setShape(1);
-        gradientDrawable.setColors(new int[]{-1, 1308622847});
-        gradientDrawable.setGradientType(1);
-        gradientDrawable.setGradientRadius(25.0f);
-        gradientDrawable.setDither(true);
-        gradientDrawable.setSize(50, 50);
-        this.mProgressSeekBar.setThumb(gradientDrawable);
-        this.mProgressSeekBar.setThumbOffset(0);
-        this.mBottomControlView.addView(this.mProgressSeekBar, layoutParams4);
-        TextView textView = new TextView(this.mCtx);
-        this.timeTv = textView;
-        textView.setTextColor(-1);
-        LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams5.rightMargin = 12;
-        layoutParams5.leftMargin = 12;
-        layoutParams5.gravity = 17;
-        this.mBottomControlView.addView(this.timeTv, layoutParams5);
-        this.mFullScreenImg = new ImageView(this.mCtx);
-        LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 20.0f), CommonUtils.dip2px(this.mCtx, 20.0f));
-        layoutParams6.gravity = 17;
-        this.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(FULL_ICON));
-        this.mBottomControlView.addView(this.mFullScreenImg, layoutParams6);
-        this.mFullScreenImg.setVisibility(8);
-        this.mFullScreenImg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.7
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (CpuLpVideoControllerDecoration.this.mIsCanFull) {
-                    CpuLpVideoControllerDecoration.this.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SHRINK_ICON));
-                    CpuLpVideoControllerDecoration.this.mParent.fullScreen();
-                } else {
-                    CpuLpVideoControllerDecoration.this.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.FULL_ICON));
-                    CpuLpVideoControllerDecoration.this.mParent.shrinkScreen();
-                }
-                CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = CpuLpVideoControllerDecoration.this;
-                cpuLpVideoControllerDecoration.mIsCanFull = !cpuLpVideoControllerDecoration.mIsCanFull;
-            }
-        });
-        this.mParent.addView(this.mBottomControlView, layoutParams);
     }
 
     private void initMiddleControlView() {
-        this.mMidControlView = new LinearLayout(this.mCtx);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(13);
-        this.mMidControlView.setOrientation(0);
-        this.mPrevImg = new ImageView(this.mCtx);
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 45.0f), CommonUtils.dip2px(this.mCtx, 45.0f));
-        layoutParams2.weight = 1.0f;
-        this.mPrevImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_PREV_ICON));
-        this.mPrevImg.setVisibility(8);
-        this.mMidControlView.addView(this.mPrevImg, layoutParams2);
-        this.mPrevImg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.8
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (CpuLpVideoControllerDecoration.this.mCanClickPrev) {
-                    CpuLpVideoControllerDecoration.this.mParent.prevVideo();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            this.mMidControlView = new LinearLayout(this.mCtx);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(13);
+            this.mMidControlView.setOrientation(0);
+            this.mPrevImg = new ImageView(this.mCtx);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 45.0f), CommonUtils.dip2px(this.mCtx, 45.0f));
+            layoutParams2.weight = 1.0f;
+            this.mPrevImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_PREV_ICON));
+            this.mPrevImg.setVisibility(8);
+            this.mMidControlView.addView(this.mPrevImg, layoutParams2);
+            this.mPrevImg.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
                 }
-            }
-        });
-        this.mMidImg = new ImageView(this.mCtx);
-        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 45.0f), CommonUtils.dip2px(this.mCtx, 45.0f));
-        layoutParams3.weight = 1.0f;
-        int dip2px = CommonUtils.dip2px(this.mCtx, 20.0f);
-        layoutParams3.rightMargin = dip2px;
-        layoutParams3.leftMargin = dip2px;
-        this.mMidControlView.addView(this.mMidImg, layoutParams3);
-        this.mMidImg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.9
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = CpuLpVideoControllerDecoration.this;
-                int i2 = cpuLpVideoControllerDecoration.mVideoStatus;
-                if (i2 == 10) {
-                    cpuLpVideoControllerDecoration.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PAUSE_ICON));
-                    CpuLpVideoControllerDecoration.this.mParent.pauseVideo();
-                } else if (i2 == 11) {
-                    cpuLpVideoControllerDecoration.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PLAY_ICON));
-                    CpuLpVideoControllerDecoration.this.mParent.resumeVideo();
-                } else if (i2 == 12) {
-                    cpuLpVideoControllerDecoration.mParent.retryPlay();
-                    CpuLpVideoControllerDecoration.this.mVideoStatus = 10;
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.this$0.mCanClickPrev) {
+                        this.this$0.mParent.prevVideo();
+                    }
                 }
-            }
-        });
-        this.mNextImg = new ImageView(this.mCtx);
-        LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 45.0f), CommonUtils.dip2px(this.mCtx, 45.0f));
-        layoutParams4.weight = 1.0f;
-        this.mNextImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_NEXT_ICON));
-        this.mNextImg.setVisibility(8);
-        this.mMidControlView.addView(this.mNextImg, layoutParams4);
-        this.mNextImg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.10
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (CpuLpVideoControllerDecoration.this.mCanClickNext) {
-                    CpuLpVideoControllerDecoration.this.mParent.nextVideo();
+            });
+            this.mMidImg = new ImageView(this.mCtx);
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 45.0f), CommonUtils.dip2px(this.mCtx, 45.0f));
+            layoutParams3.weight = 1.0f;
+            int dip2px = CommonUtils.dip2px(this.mCtx, 20.0f);
+            layoutParams3.rightMargin = dip2px;
+            layoutParams3.leftMargin = dip2px;
+            this.mMidControlView.addView(this.mMidImg, layoutParams3);
+            this.mMidImg.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
                 }
-            }
-        });
-        this.mParent.addView(this.mMidControlView, layoutParams);
-        this.mTopTipsView = new TextView(this.mCtx);
-        RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams5.addRule(13);
-        layoutParams5.addRule(21);
-        this.mTopTipsView.setId(33);
-        layoutParams5.rightMargin = CommonUtils.dip2px(this.mCtx, 6.0f);
-        layoutParams5.bottomMargin = CommonUtils.dip2px(this.mCtx, 5.0f);
-        this.mParent.addView(this.mTopTipsView, layoutParams5);
-        this.mTopTipsView.setText("置顶");
-        this.mTopTipsView.setTextSize(12.0f);
-        this.mTopTipsView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.11
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (CpuLpVideoControllerDecoration.this.isVideoAtTop) {
-                    CpuLpVideoControllerDecoration.this.mTopTipsView.setTextColor(-1);
-                    CpuLpVideoControllerDecoration.this.mTopShapeDrawable.getPaint().setColor(-1);
-                    CpuLpVideoControllerDecoration.this.mUserWantBlue = false;
-                } else {
-                    CpuLpVideoControllerDecoration.this.mTopTipsView.setTextColor(-2147483393);
-                    CpuLpVideoControllerDecoration.this.mTopShapeDrawable.getPaint().setColor(-2147483393);
-                    CpuLpVideoControllerDecoration.this.mUserWantBlue = true;
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = this.this$0;
+                        int i2 = cpuLpVideoControllerDecoration.mVideoStatus;
+                        if (i2 == 10) {
+                            cpuLpVideoControllerDecoration.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PAUSE_ICON));
+                            this.this$0.mParent.pauseVideo();
+                        } else if (i2 == 11) {
+                            cpuLpVideoControllerDecoration.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PLAY_ICON));
+                            this.this$0.mParent.resumeVideo();
+                        } else if (i2 == 12) {
+                            cpuLpVideoControllerDecoration.mParent.retryPlay();
+                            this.this$0.mVideoStatus = 10;
+                        }
+                    }
                 }
-                CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = CpuLpVideoControllerDecoration.this;
-                cpuLpVideoControllerDecoration.isVideoAtTop = true ^ cpuLpVideoControllerDecoration.isVideoAtTop;
-                CpuLpVideoControllerDecoration.this.mParent.setVideoLocation(CpuLpVideoControllerDecoration.this.isVideoAtTop);
-            }
-        });
-        this.mPlaybackSpeedImg = new ImageView(this.mCtx);
-        RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 22.0f), CommonUtils.dip2px(this.mCtx, 22.0f));
-        layoutParams6.addRule(13);
-        layoutParams6.addRule(21);
-        layoutParams6.addRule(3, 33);
-        int dip2px2 = CommonUtils.dip2px(this.mCtx, 5.0f);
-        layoutParams6.rightMargin = dip2px2;
-        layoutParams6.topMargin = dip2px2;
-        this.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(SPEED100));
-        this.mParent.addView(this.mPlaybackSpeedImg, layoutParams6);
-        this.mPlaybackSpeedImg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.12
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = CpuLpVideoControllerDecoration.this;
-                if (cpuLpVideoControllerDecoration.mVideoStatus != 10) {
-                    return;
+            });
+            this.mNextImg = new ImageView(this.mCtx);
+            LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 45.0f), CommonUtils.dip2px(this.mCtx, 45.0f));
+            layoutParams4.weight = 1.0f;
+            this.mNextImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_NEXT_ICON));
+            this.mNextImg.setVisibility(8);
+            this.mMidControlView.addView(this.mNextImg, layoutParams4);
+            this.mNextImg.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.10
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
                 }
-                float f2 = cpuLpVideoControllerDecoration.mPlayBackSpeed;
-                if (f2 == 0.75f) {
-                    cpuLpVideoControllerDecoration.mPlayBackSpeed = 1.0f;
-                    cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED100));
-                } else if (f2 == 1.0f) {
-                    cpuLpVideoControllerDecoration.mPlayBackSpeed = 1.25f;
-                    cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED125));
-                } else if (f2 == 1.25f) {
-                    cpuLpVideoControllerDecoration.mPlayBackSpeed = 1.5f;
-                    cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED150));
-                } else if (f2 == 1.5f) {
-                    cpuLpVideoControllerDecoration.mPlayBackSpeed = 2.0f;
-                    cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED200));
-                } else if (f2 == 2.0f) {
-                    cpuLpVideoControllerDecoration.mPlayBackSpeed = 0.75f;
-                    cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED075));
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.this$0.mCanClickNext) {
+                        this.this$0.mParent.nextVideo();
+                    }
                 }
-                CpuLpVideoControllerDecoration.this.mParent.setPlayBackSpeed(CpuLpVideoControllerDecoration.this.mPlayBackSpeed);
-            }
-        });
+            });
+            this.mParent.addView(this.mMidControlView, layoutParams);
+            this.mTopTipsView = new TextView(this.mCtx);
+            RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams5.addRule(13);
+            layoutParams5.addRule(21);
+            this.mTopTipsView.setId(33);
+            layoutParams5.rightMargin = CommonUtils.dip2px(this.mCtx, 6.0f);
+            layoutParams5.bottomMargin = CommonUtils.dip2px(this.mCtx, 5.0f);
+            this.mParent.addView(this.mTopTipsView, layoutParams5);
+            this.mTopTipsView.setText("置顶");
+            this.mTopTipsView.setTextSize(12.0f);
+            this.mTopTipsView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.11
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        if (this.this$0.isVideoAtTop) {
+                            this.this$0.mTopTipsView.setTextColor(-1);
+                            this.this$0.mTopShapeDrawable.getPaint().setColor(-1);
+                            this.this$0.mUserWantBlue = false;
+                        } else {
+                            this.this$0.mTopTipsView.setTextColor(-2147483393);
+                            this.this$0.mTopShapeDrawable.getPaint().setColor(-2147483393);
+                            this.this$0.mUserWantBlue = true;
+                        }
+                        CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = this.this$0;
+                        cpuLpVideoControllerDecoration.isVideoAtTop = true ^ cpuLpVideoControllerDecoration.isVideoAtTop;
+                        this.this$0.mParent.setVideoLocation(this.this$0.isVideoAtTop);
+                    }
+                }
+            });
+            this.mPlaybackSpeedImg = new ImageView(this.mCtx);
+            RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 22.0f), CommonUtils.dip2px(this.mCtx, 22.0f));
+            layoutParams6.addRule(13);
+            layoutParams6.addRule(21);
+            layoutParams6.addRule(3, 33);
+            int dip2px2 = CommonUtils.dip2px(this.mCtx, 5.0f);
+            layoutParams6.rightMargin = dip2px2;
+            layoutParams6.topMargin = dip2px2;
+            this.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(SPEED100));
+            this.mParent.addView(this.mPlaybackSpeedImg, layoutParams6);
+            this.mPlaybackSpeedImg.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.12
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = this.this$0;
+                        if (cpuLpVideoControllerDecoration.mVideoStatus != 10) {
+                            return;
+                        }
+                        float f2 = cpuLpVideoControllerDecoration.mPlayBackSpeed;
+                        if (f2 == 0.75f) {
+                            cpuLpVideoControllerDecoration.mPlayBackSpeed = 1.0f;
+                            cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED100));
+                        } else if (f2 == 1.0f) {
+                            cpuLpVideoControllerDecoration.mPlayBackSpeed = 1.25f;
+                            cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED125));
+                        } else if (f2 == 1.25f) {
+                            cpuLpVideoControllerDecoration.mPlayBackSpeed = 1.5f;
+                            cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED150));
+                        } else if (f2 == 1.5f) {
+                            cpuLpVideoControllerDecoration.mPlayBackSpeed = 2.0f;
+                            cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED200));
+                        } else if (f2 == 2.0f) {
+                            cpuLpVideoControllerDecoration.mPlayBackSpeed = 0.75f;
+                            cpuLpVideoControllerDecoration.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.SPEED075));
+                        }
+                        this.this$0.mParent.setPlayBackSpeed(this.this$0.mPlayBackSpeed);
+                    }
+                }
+            });
+        }
     }
 
     private void initPrerollsView() {
-        this.mPrerollsView = new RelativeLayout(this.mCtx);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 170.0f), CommonUtils.dip2px(this.mCtx, 100.0f));
-        layoutParams.addRule(13);
-        this.mAdImg = new ImageView(this.mCtx);
-        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -1);
-        this.mAdImg.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.mPrerollsView.addView(this.mAdImg, layoutParams2);
-        TextView textView = new TextView(this.mCtx);
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams3.addRule(12);
-        layoutParams3.addRule(11);
-        layoutParams3.rightMargin = 10;
-        layoutParams3.bottomMargin = 10;
-        textView.setPadding(4, 4, 4, 4);
-        textView.setText("广告");
-        textView.setTextSize(13.0f);
-        textView.setTextColor(-1);
-        textView.setBackgroundColor(-16777216);
-        this.mPrerollsView.addView(textView, layoutParams3);
-        TextView textView2 = new TextView(this.mCtx);
-        textView2.setText("x 关闭");
-        textView2.setTextSize(15.0f);
-        RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
-        textView2.setTextColor(-1);
-        textView2.setBackgroundColor(-16777216);
-        layoutParams4.addRule(10);
-        layoutParams4.addRule(11);
-        textView2.setPadding(4, 4, 4, 4);
-        this.mPrerollsView.addView(textView2, layoutParams4);
-        textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                CpuLpVideoControllerDecoration.this.mPrerollsView.setVisibility(8);
-                CpuLpVideoControllerDecoration.this.mParent.closePrerollsAd();
-            }
-        });
-        this.mPrerollsView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                CpuLpVideoControllerDecoration.this.mParent.clickPreRollsAd();
-            }
-        });
-        this.mPrerollsView.setVisibility(8);
-        this.mParent.addView(this.mPrerollsView, layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+            this.mPrerollsView = new RelativeLayout(this.mCtx);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 170.0f), CommonUtils.dip2px(this.mCtx, 100.0f));
+            layoutParams.addRule(13);
+            this.mAdImg = new ImageView(this.mCtx);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -1);
+            this.mAdImg.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.mPrerollsView.addView(this.mAdImg, layoutParams2);
+            TextView textView = new TextView(this.mCtx);
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams3.addRule(12);
+            layoutParams3.addRule(11);
+            layoutParams3.rightMargin = 10;
+            layoutParams3.bottomMargin = 10;
+            textView.setPadding(4, 4, 4, 4);
+            textView.setText("广告");
+            textView.setTextSize(13.0f);
+            textView.setTextColor(-1);
+            textView.setBackgroundColor(-16777216);
+            this.mPrerollsView.addView(textView, layoutParams3);
+            TextView textView2 = new TextView(this.mCtx);
+            textView2.setText("x 关闭");
+            textView2.setTextSize(15.0f);
+            RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
+            textView2.setTextColor(-1);
+            textView2.setBackgroundColor(-16777216);
+            layoutParams4.addRule(10);
+            layoutParams4.addRule(11);
+            textView2.setPadding(4, 4, 4, 4);
+            this.mPrerollsView.addView(textView2, layoutParams4);
+            textView2.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.this$0.mPrerollsView.setVisibility(8);
+                        this.this$0.mParent.closePrerollsAd();
+                    }
+                }
+            });
+            this.mPrerollsView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.this$0.mParent.clickPreRollsAd();
+                    }
+                }
+            });
+            this.mPrerollsView.setVisibility(8);
+            this.mParent.addView(this.mPrerollsView, layoutParams);
+        }
     }
 
     private void initTopVideoTitleView() {
-        this.mTopVideoTitleView = new LinearLayout(this.mCtx);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        int dip2px = CommonUtils.dip2px(this.mCtx, 7.0f);
-        layoutParams.topMargin = dip2px;
-        layoutParams.leftMargin = dip2px;
-        ImageView imageView = new ImageView(this.mCtx);
-        imageView.setImageBitmap(ConvertUtils.string2bitmap(BACK_ICON));
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 24.0f), CommonUtils.dip2px(this.mCtx, 24.0f));
-        layoutParams2.gravity = 17;
-        this.mTopVideoTitleView.addView(imageView, layoutParams2);
-        imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                CpuLpVideoControllerDecoration.this.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.FULL_ICON));
-                CpuLpVideoControllerDecoration.this.mParent.shrinkScreen();
-            }
-        });
-        TextView textView = new TextView(this.mCtx);
-        this.videotitleTv = textView;
-        textView.setTextColor(-1);
-        this.videotitleTv.setTextSize(16.0f);
-        this.mTopVideoTitleView.addView(this.videotitleTv, new LinearLayout.LayoutParams(-2, -2));
-        this.mTopVideoTitleView.setVisibility(4);
-        this.mParent.addView(this.mTopVideoTitleView, layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            this.mTopVideoTitleView = new LinearLayout(this.mCtx);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            int dip2px = CommonUtils.dip2px(this.mCtx, 7.0f);
+            layoutParams.topMargin = dip2px;
+            layoutParams.leftMargin = dip2px;
+            ImageView imageView = new ImageView(this.mCtx);
+            imageView.setImageBitmap(ConvertUtils.string2bitmap(BACK_ICON));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(CommonUtils.dip2px(this.mCtx, 24.0f), CommonUtils.dip2px(this.mCtx, 24.0f));
+            layoutParams2.gravity = 17;
+            this.mTopVideoTitleView.addView(imageView, layoutParams2);
+            imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.this$0.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.FULL_ICON));
+                        this.this$0.mParent.shrinkScreen();
+                    }
+                }
+            });
+            TextView textView = new TextView(this.mCtx);
+            this.videotitleTv = textView;
+            textView.setTextColor(-1);
+            this.videotitleTv.setTextSize(16.0f);
+            this.mTopVideoTitleView.addView(this.videotitleTv, new LinearLayout.LayoutParams(-2, -2));
+            this.mTopVideoTitleView.setVisibility(4);
+            this.mParent.addView(this.mTopVideoTitleView, layoutParams);
+        }
     }
 
     public void fillFloatViewWithData(JsWithPlayerData jsWithPlayerData, int i2) {
-        if (i2 == 2) {
-            this.mUserWantBlue = false;
-            this.mPlayBackSpeed = 1.0f;
-            this.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(SPEED100));
-        }
-        this.videotitleTv.setText(jsWithPlayerData.videoTitle);
-        ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());
-        this.mTopShapeDrawable = shapeDrawable;
-        shapeDrawable.getPaint().setStyle(Paint.Style.STROKE);
-        this.mTopShapeDrawable.getPaint().setAntiAlias(true);
-        this.mTopShapeDrawable.getPaint().setStrokeWidth(9.0f);
-        this.mTopShapeDrawable.setPadding(5, 5, 5, 5);
-        if (jsWithPlayerData.isAutoPlayThis) {
-            this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_ICON));
-            this.mVideoStatus = 10;
-        } else {
-            this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(PAUSE_ICON));
-            this.mVideoStatus = 11;
-        }
-        if (this.mUserWantBlue) {
-            this.mTopTipsView.setTextColor(-2147483393);
-            this.mTopShapeDrawable.getPaint().setColor(-2147483393);
-        } else if (!jsWithPlayerData.isPlayerTopLocation) {
-            this.mTopTipsView.setTextColor(-1);
-            this.mTopShapeDrawable.getPaint().setColor(-1);
-        } else {
-            this.mTopTipsView.setTextColor(-2147483393);
-            this.mTopShapeDrawable.getPaint().setColor(-2147483393);
-        }
-        this.isVideoAtTop = jsWithPlayerData.isPlayerTopLocation;
-        this.mTopTipsView.setBackground(this.mTopShapeDrawable);
-        if (jsWithPlayerData.isFullScreenPlay) {
-            this.mFullScreenImg.setVisibility(0);
-        } else {
-            this.mFullScreenImg.setVisibility(8);
-        }
-        if (jsWithPlayerData.isExistPreVideo) {
-            this.mPrevImg.setVisibility(0);
-            this.mPrevImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_PREV_ICON));
-            this.mCanClickPrev = true;
-        } else {
-            this.mPrevImg.setVisibility(0);
-            this.mPrevImg.setImageBitmap(ConvertUtils.string2bitmap(GRAY_PLAY_PREV_ICON));
-            this.mCanClickPrev = false;
-        }
-        if (jsWithPlayerData.isExistNextVideo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, jsWithPlayerData, i2) == null) {
+            if (i2 == 2) {
+                this.mUserWantBlue = false;
+                this.mPlayBackSpeed = 1.0f;
+                this.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(SPEED100));
+            }
+            this.videotitleTv.setText(jsWithPlayerData.videoTitle);
+            ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());
+            this.mTopShapeDrawable = shapeDrawable;
+            shapeDrawable.getPaint().setStyle(Paint.Style.STROKE);
+            this.mTopShapeDrawable.getPaint().setAntiAlias(true);
+            this.mTopShapeDrawable.getPaint().setStrokeWidth(9.0f);
+            this.mTopShapeDrawable.setPadding(5, 5, 5, 5);
+            if (jsWithPlayerData.isAutoPlayThis) {
+                this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_ICON));
+                this.mVideoStatus = 10;
+            } else {
+                this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(PAUSE_ICON));
+                this.mVideoStatus = 11;
+            }
+            if (this.mUserWantBlue) {
+                this.mTopTipsView.setTextColor(-2147483393);
+                this.mTopShapeDrawable.getPaint().setColor(-2147483393);
+            } else if (!jsWithPlayerData.isPlayerTopLocation) {
+                this.mTopTipsView.setTextColor(-1);
+                this.mTopShapeDrawable.getPaint().setColor(-1);
+            } else {
+                this.mTopTipsView.setTextColor(-2147483393);
+                this.mTopShapeDrawable.getPaint().setColor(-2147483393);
+            }
+            this.isVideoAtTop = jsWithPlayerData.isPlayerTopLocation;
+            this.mTopTipsView.setBackground(this.mTopShapeDrawable);
+            if (jsWithPlayerData.isFullScreenPlay) {
+                this.mFullScreenImg.setVisibility(0);
+            } else {
+                this.mFullScreenImg.setVisibility(8);
+            }
+            if (jsWithPlayerData.isExistPreVideo) {
+                this.mPrevImg.setVisibility(0);
+                this.mPrevImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_PREV_ICON));
+                this.mCanClickPrev = true;
+            } else {
+                this.mPrevImg.setVisibility(0);
+                this.mPrevImg.setImageBitmap(ConvertUtils.string2bitmap(GRAY_PLAY_PREV_ICON));
+                this.mCanClickPrev = false;
+            }
+            if (jsWithPlayerData.isExistNextVideo) {
+                this.mNextImg.setVisibility(0);
+                this.mNextImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_NEXT_ICON));
+                this.mCanClickNext = true;
+                return;
+            }
             this.mNextImg.setVisibility(0);
-            this.mNextImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_NEXT_ICON));
-            this.mCanClickNext = true;
-            return;
+            this.mNextImg.setImageBitmap(ConvertUtils.string2bitmap(GRAY_PLAY_NEXT_ICON));
+            this.mCanClickNext = false;
         }
-        this.mNextImg.setVisibility(0);
-        this.mNextImg.setImageBitmap(ConvertUtils.string2bitmap(GRAY_PLAY_NEXT_ICON));
-        this.mCanClickNext = false;
     }
 
     public void modifyUIAfterOrientationChanged(boolean z) {
-        this.mIsVisibleToptips = z;
-        if (!z) {
-            this.mTopVideoTitleView.setVisibility(0);
-            this.mPlaybackSpeedImg.setScaleX(1.5f);
-            this.mPlaybackSpeedImg.setScaleY(1.5f);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.mIsVisibleToptips = z;
+            if (!z) {
+                this.mTopVideoTitleView.setVisibility(0);
+                this.mPlaybackSpeedImg.setScaleX(1.5f);
+                this.mPlaybackSpeedImg.setScaleY(1.5f);
+                return;
+            }
+            this.mTopVideoTitleView.setVisibility(4);
+            this.mPlaybackSpeedImg.setScaleX(1.0f);
+            this.mPlaybackSpeedImg.setScaleY(1.0f);
+            this.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(FULL_ICON));
         }
-        this.mTopVideoTitleView.setVisibility(4);
-        this.mPlaybackSpeedImg.setScaleX(1.0f);
-        this.mPlaybackSpeedImg.setScaleY(1.0f);
-        this.mFullScreenImg.setImageBitmap(ConvertUtils.string2bitmap(FULL_ICON));
     }
 
     public void pausePlayIcon() {
-        setChildrenVisible();
-        this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(PAUSE_ICON));
-        this.mPrerollsView.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setChildrenVisible();
+            this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(PAUSE_ICON));
+            this.mPrerollsView.setVisibility(8);
+        }
     }
 
     public void replayPlayIcon() {
-        setChildrenVisible();
-        this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(REPLAY_ICON));
-        this.mVideoStatus = 12;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            setChildrenVisible();
+            this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(REPLAY_ICON));
+            this.mVideoStatus = 12;
+        }
     }
 
     public void resumePlayIcon() {
-        this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_ICON));
-        this.mPrerollsView.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(PLAY_ICON));
+            this.mPrerollsView.setVisibility(8);
+        }
     }
 
     public void setAdData(JsWithPlayerData jsWithPlayerData) {
-        if (this.mAdImg == null || this.mPrerollsView == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jsWithPlayerData) == null) || this.mAdImg == null || this.mPrerollsView == null) {
             return;
         }
         XAdSimpleImageLoader.obtain(this.mCtx).load(this.mAdImg, jsWithPlayerData.mPrerolls_Img);
@@ -497,39 +853,95 @@ public class CpuLpVideoControllerDecoration {
     }
 
     public void setChildrenVisible() {
-        this.mMidControlView.setVisibility(0);
-        this.mBottomControlView.setVisibility(0);
-        this.mPlaybackSpeedImg.setVisibility(0);
-        if (this.mIsVisibleToptips) {
-            this.mTopTipsView.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.mMidControlView.setVisibility(0);
+            this.mBottomControlView.setVisibility(0);
+            this.mPlaybackSpeedImg.setVisibility(0);
+            if (this.mIsVisibleToptips) {
+                this.mTopTipsView.setVisibility(0);
+            }
+            this.mMidControlView.postDelayed(new Runnable(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.13
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = this.this$0;
+                        if (cpuLpVideoControllerDecoration.mVideoStatus == 10) {
+                            cpuLpVideoControllerDecoration.mMidControlView.setVisibility(8);
+                            this.this$0.mTopTipsView.setVisibility(8);
+                            this.this$0.mPlaybackSpeedImg.setVisibility(8);
+                        }
+                    }
+                }
+            }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+            this.mBottomControlView.postDelayed(new Runnable(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.14
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuLpVideoControllerDecoration this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = this.this$0;
+                        if (cpuLpVideoControllerDecoration.mVideoStatus == 10) {
+                            cpuLpVideoControllerDecoration.mBottomControlView.setVisibility(8);
+                        }
+                    }
+                }
+            }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
         }
-        this.mMidControlView.postDelayed(new Runnable() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.13
-            @Override // java.lang.Runnable
-            public void run() {
-                CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = CpuLpVideoControllerDecoration.this;
-                if (cpuLpVideoControllerDecoration.mVideoStatus == 10) {
-                    cpuLpVideoControllerDecoration.mMidControlView.setVisibility(8);
-                    CpuLpVideoControllerDecoration.this.mTopTipsView.setVisibility(8);
-                    CpuLpVideoControllerDecoration.this.mPlaybackSpeedImg.setVisibility(8);
-                }
-            }
-        }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
-        this.mBottomControlView.postDelayed(new Runnable() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.14
-            @Override // java.lang.Runnable
-            public void run() {
-                CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = CpuLpVideoControllerDecoration.this;
-                if (cpuLpVideoControllerDecoration.mVideoStatus == 10) {
-                    cpuLpVideoControllerDecoration.mBottomControlView.setVisibility(8);
-                }
-            }
-        }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
     }
 
     public void upDateVideoTime(int i2, int i3) {
-        this.mProgressSeekBar.setProgress(i2);
-        int i4 = i2 / 1000;
-        this.mCurTimeTv.setText(String.format(Locale.getDefault(), "%02d:%02d", Integer.valueOf(i4 / 60), Integer.valueOf(i4 % 60)));
-        int i5 = i3 / 1000;
-        this.timeTv.setText(String.format(Locale.getDefault(), "%02d:%02d", Integer.valueOf(i5 / 60), Integer.valueOf(i5 % 60)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
+            this.mProgressSeekBar.setProgress(i2);
+            int i4 = i2 / 1000;
+            this.mCurTimeTv.setText(String.format(Locale.getDefault(), "%02d:%02d", Integer.valueOf(i4 / 60), Integer.valueOf(i4 % 60)));
+            int i5 = i3 / 1000;
+            this.timeTv.setText(String.format(Locale.getDefault(), "%02d:%02d", Integer.valueOf(i5 / 60), Integer.valueOf(i5 % 60)));
+        }
     }
 }

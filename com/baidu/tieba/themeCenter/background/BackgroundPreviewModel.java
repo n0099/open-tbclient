@@ -3,52 +3,85 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public DressItemData f21251e;
+    public DressItemData f21402e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21252f;
+    public int f21403f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21253g;
+    public int f21404g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21254h;
+    public b f21405h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.c.c.g.a f21255i = new a(CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
+    public d.a.c.c.g.a f21406i;
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
-        public a(int i2, int i3) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ BackgroundPreviewModel f21407a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(BackgroundPreviewModel backgroundPreviewModel, int i2, int i3) {
             super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {backgroundPreviewModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21407a = backgroundPreviewModel;
         }
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof BackgroundGetHttpResponseMessage;
             if (z || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
-                        BackgroundPreviewModel.this.f21251e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
+                        this.f21407a.f21402e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
                     } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
-                        BackgroundPreviewModel.this.f21251e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
+                        this.f21407a.f21402e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                     }
                 }
-                if (BackgroundPreviewModel.this.f21254h != null) {
-                    if (BackgroundPreviewModel.this.f21251e != null) {
-                        BackgroundPreviewModel.this.f21251e.setPropsId(BackgroundPreviewModel.this.f21252f);
-                        BackgroundPreviewModel.this.f21251e.setInUse(BackgroundPreviewModel.this.f21253g == 1);
+                if (this.f21407a.f21405h != null) {
+                    if (this.f21407a.f21402e != null) {
+                        this.f21407a.f21402e.setPropsId(this.f21407a.f21403f);
+                        this.f21407a.f21402e.setInUse(this.f21407a.f21404g == 1);
                     }
-                    BackgroundPreviewModel.this.f21254h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.f21251e);
+                    this.f21407a.f21405h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f21407a.f21402e);
                 }
             }
         }
@@ -60,35 +93,69 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     }
 
     public BackgroundPreviewModel(int i2, int i3) {
-        this.f21252f = i2;
-        this.f21253g = i3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f21406i = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
+        this.f21403f = i2;
+        this.f21404g = i3;
         registerTask();
-        registerListener(this.f21255i);
+        registerListener(this.f21406i);
     }
 
     public void B(b bVar) {
-        this.f21254h = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.f21405h = bVar;
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-        backgroundGetRequestMessage.setPropId(this.f21252f);
-        sendMessage(backgroundGetRequestMessage);
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
+            backgroundGetRequestMessage.setPropId(this.f21403f);
+            sendMessage(backgroundGetRequestMessage);
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.f21255i);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f21406i);
+        }
     }
 
     public final void registerTask() {
-        d.a.o0.e3.d0.a.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
-        d.a.o0.e3.d0.a.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d.a.s0.h3.d0.a.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+            d.a.s0.h3.d0.a.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+        }
     }
 }

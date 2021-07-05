@@ -5,6 +5,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import com.alipay.sdk.util.c;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -22,254 +30,347 @@ import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1890a = "msp";
+    public static final String f1893a = "msp";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1891b = "application/octet-stream;binary/octet-stream";
+    public static final String f1894b = "application/octet-stream;binary/octet-stream";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CookieManager f1892c = new CookieManager();
+    public static final CookieManager f1895c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.alipay.sdk.net.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static final class C0017a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1893a;
+        public final String f1896a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f1894b;
+        public final byte[] f1897b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Map<String, String> f1895c;
+        public final Map<String, String> f1898c;
 
         public C0017a(String str, Map<String, String> map, byte[] bArr) {
-            this.f1893a = str;
-            this.f1894b = bArr;
-            this.f1895c = map;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, map, bArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1896a = str;
+            this.f1897b = bArr;
+            this.f1898c = map;
         }
 
         public String toString() {
-            return String.format("<UrlConnectionConfigure url=%s requestBody=%s headers=%s>", this.f1893a, this.f1894b, this.f1895c);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("<UrlConnectionConfigure url=%s requestBody=%s headers=%s>", this.f1896a, this.f1897b, this.f1898c) : (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
     public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, List<String>> f1896a;
+        public final Map<String, List<String>> f1899a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f1897b;
+        public final String f1900b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f1898c;
+        public final byte[] f1901c;
 
         public b(Map<String, List<String>> map, String str, byte[] bArr) {
-            this.f1896a = map;
-            this.f1897b = str;
-            this.f1898c = bArr;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, str, bArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1899a = map;
+            this.f1900b = str;
+            this.f1901c = bArr;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:112:0x01ad A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:120:0x01b4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x01bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(796329004, "Lcom/alipay/sdk/net/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(796329004, "Lcom/alipay/sdk/net/a;");
+                return;
+            }
+        }
+        f1895c = new CookieManager();
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:111:0x01bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x01b1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:132:0x01b8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static b a(Context context, C0017a c0017a) {
+        InterceptResult invokeLL;
         HttpURLConnection httpURLConnection;
         BufferedInputStream bufferedInputStream;
         BufferedOutputStream bufferedOutputStream;
+        URL url;
         HttpURLConnection httpURLConnection2;
         BufferedOutputStream bufferedOutputStream2;
-        if (context == null) {
-            return null;
-        }
-        try {
-            c.c(f1890a, "config : " + c0017a);
-            URL url = new URL(c0017a.f1893a);
-            Proxy a2 = a(context);
-            c.c(f1890a, "proxy: " + a2);
-            if (a2 != null) {
-                httpURLConnection2 = (HttpURLConnection) url.openConnection(a2);
-            } else {
-                httpURLConnection2 = (HttpURLConnection) url.openConnection();
+        BufferedInputStream bufferedInputStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, c0017a)) == null) {
+            if (context == null) {
+                return null;
             }
             try {
-                System.setProperty("http.keepAlive", "false");
-                if (httpURLConnection2 instanceof HttpsURLConnection) {
-                    HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection2;
-                }
-                if (f1892c.getCookieStore().getCookies().size() > 0) {
-                    httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f1892c.getCookieStore().getCookies()));
-                }
-                httpURLConnection2.setConnectTimeout(20000);
-                httpURLConnection2.setReadTimeout(30000);
-                httpURLConnection2.setInstanceFollowRedirects(true);
-                httpURLConnection2.setRequestProperty("User-Agent", f1890a);
-                if (c0017a.f1894b != null && c0017a.f1894b.length > 0) {
-                    httpURLConnection2.setRequestMethod("POST");
-                    httpURLConnection2.setRequestProperty("Content-Type", f1891b);
-                    httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
-                    httpURLConnection2.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                    httpURLConnection2.setRequestProperty(HTTP.CONN_KEEP_ALIVE, "timeout=180, max=100");
+                c.c(f1893a, "config : " + c0017a);
+                url = new URL(c0017a.f1896a);
+                Proxy a2 = a(context);
+                c.c(f1893a, "proxy: " + a2);
+                if (a2 != null) {
+                    httpURLConnection2 = (HttpURLConnection) url.openConnection(a2);
                 } else {
-                    httpURLConnection2.setRequestMethod("GET");
+                    httpURLConnection2 = (HttpURLConnection) url.openConnection();
                 }
-                if (c0017a.f1895c != null) {
-                    for (Map.Entry<String, String> entry : c0017a.f1895c.entrySet()) {
-                        if (entry.getKey() != null) {
-                            httpURLConnection2.setRequestProperty(entry.getKey(), entry.getValue());
-                        }
-                    }
-                }
-                httpURLConnection2.setDoInput(true);
-                if ("POST".equals(httpURLConnection2.getRequestMethod())) {
-                    httpURLConnection2.setDoOutput(true);
-                }
-                if ("POST".equals(httpURLConnection2.getRequestMethod())) {
-                    bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection2.getOutputStream());
-                    try {
-                        bufferedOutputStream2.write(c0017a.f1894b);
-                        bufferedOutputStream2.flush();
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedOutputStream = bufferedOutputStream2;
-                        bufferedInputStream = null;
-                        Throwable th2 = th;
-                        httpURLConnection = httpURLConnection2;
-                        th = th2;
-                        try {
-                            c.a(th);
-                            return null;
-                        } finally {
-                            if (httpURLConnection != null) {
-                                try {
-                                    httpURLConnection.disconnect();
-                                } catch (Throwable unused) {
-                                }
-                            }
-                            if (bufferedInputStream != null) {
-                                try {
-                                    bufferedInputStream.close();
-                                } catch (Throwable unused2) {
-                                }
-                            }
-                            if (bufferedOutputStream != null) {
-                                try {
-                                    bufferedOutputStream.close();
-                                } catch (Throwable unused3) {
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    bufferedOutputStream2 = null;
-                }
-                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(httpURLConnection2.getInputStream());
                 try {
-                    byte[] a3 = a(bufferedInputStream2);
-                    Map<String, List<String>> headerFields = httpURLConnection2.getHeaderFields();
-                    String join = (headerFields == null || headerFields.get(null) == null) ? null : TextUtils.join(",", headerFields.get(null));
-                    List<String> list = headerFields.get("Set-Cookie");
-                    if (list != null) {
-                        for (String str : list) {
-                            List<HttpCookie> parse = HttpCookie.parse(str);
-                            if (parse != null && !parse.isEmpty()) {
-                                f1892c.getCookieStore().add(url.toURI(), parse.get(0));
+                    System.setProperty("http.keepAlive", "false");
+                    if (httpURLConnection2 instanceof HttpsURLConnection) {
+                        HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection2;
+                    }
+                    if (f1895c.getCookieStore().getCookies().size() > 0) {
+                        httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f1895c.getCookieStore().getCookies()));
+                    }
+                    httpURLConnection2.setConnectTimeout(20000);
+                    httpURLConnection2.setReadTimeout(30000);
+                    httpURLConnection2.setInstanceFollowRedirects(true);
+                    httpURLConnection2.setRequestProperty("User-Agent", f1893a);
+                    if (c0017a.f1897b != null && c0017a.f1897b.length > 0) {
+                        httpURLConnection2.setRequestMethod("POST");
+                        httpURLConnection2.setRequestProperty("Content-Type", f1894b);
+                        httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
+                        httpURLConnection2.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                        httpURLConnection2.setRequestProperty(HTTP.CONN_KEEP_ALIVE, "timeout=180, max=100");
+                    } else {
+                        httpURLConnection2.setRequestMethod("GET");
+                    }
+                    if (c0017a.f1898c != null) {
+                        for (Map.Entry<String, String> entry : c0017a.f1898c.entrySet()) {
+                            if (entry.getKey() != null) {
+                                httpURLConnection2.setRequestProperty(entry.getKey(), entry.getValue());
                             }
                         }
                     }
-                    b bVar = new b(headerFields, join, a3);
-                    if (httpURLConnection2 != null) {
+                    httpURLConnection2.setDoInput(true);
+                    if ("POST".equals(httpURLConnection2.getRequestMethod())) {
+                        httpURLConnection2.setDoOutput(true);
+                    }
+                    if ("POST".equals(httpURLConnection2.getRequestMethod())) {
+                        bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection2.getOutputStream());
                         try {
-                            httpURLConnection2.disconnect();
-                        } catch (Throwable unused4) {
+                            bufferedOutputStream2.write(c0017a.f1897b);
+                            bufferedOutputStream2.flush();
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedOutputStream = bufferedOutputStream2;
+                            bufferedInputStream = null;
+                            Throwable th2 = th;
+                            httpURLConnection = httpURLConnection2;
+                            th = th2;
+                            try {
+                                c.a(th);
+                                return null;
+                            } finally {
+                                if (httpURLConnection != null) {
+                                    try {
+                                        httpURLConnection.disconnect();
+                                    } catch (Throwable unused) {
+                                    }
+                                }
+                                if (bufferedInputStream != null) {
+                                    try {
+                                        bufferedInputStream.close();
+                                    } catch (Throwable unused2) {
+                                    }
+                                }
+                                if (bufferedOutputStream != null) {
+                                    try {
+                                        bufferedOutputStream.close();
+                                    } catch (Throwable unused3) {
+                                    }
+                                }
+                            }
                         }
+                    } else {
+                        bufferedOutputStream2 = null;
                     }
-                    try {
-                        bufferedInputStream2.close();
-                    } catch (Throwable unused5) {
-                    }
-                    if (bufferedOutputStream2 != null) {
-                        try {
-                            bufferedOutputStream2.close();
-                        } catch (Throwable unused6) {
-                        }
-                    }
-                    return bVar;
+                    bufferedInputStream2 = new BufferedInputStream(httpURLConnection2.getInputStream());
                 } catch (Throwable th3) {
-                    httpURLConnection = httpURLConnection2;
                     th = th3;
-                    bufferedOutputStream = bufferedOutputStream2;
-                    bufferedInputStream = bufferedInputStream2;
-                    c.a(th);
-                    if (bufferedOutputStream != null) {
-                        try {
-                            bufferedOutputStream.close();
-                        } catch (Throwable unused7) {
-                        }
-                    }
-                    return null;
+                    bufferedInputStream = null;
+                    bufferedOutputStream = null;
                 }
             } catch (Throwable th4) {
                 th = th4;
+                httpURLConnection = null;
                 bufferedInputStream = null;
                 bufferedOutputStream = null;
             }
-        } catch (Throwable th5) {
-            th = th5;
-            httpURLConnection = null;
-            bufferedInputStream = null;
-            bufferedOutputStream = null;
-        }
-    }
-
-    public static NetworkInfo b(Context context) {
-        if (context == null) {
-            return null;
-        }
-        try {
-            return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        } catch (Exception unused) {
-            return null;
-        }
-    }
-
-    public static String c(Context context) {
-        try {
-            NetworkInfo b2 = b(context);
-            if (b2 != null && b2.isAvailable()) {
-                return b2.getType() == 1 ? "wifi" : b2.getExtraInfo().toLowerCase();
-            }
-        } catch (Exception unused) {
-        }
-        return "none";
-    }
-
-    public static Proxy a(Context context) {
-        String c2 = c(context);
-        if (c2 == null || c2.contains("wap")) {
             try {
-                String property = System.getProperty("https.proxyHost");
-                String property2 = System.getProperty("https.proxyPort");
-                if (TextUtils.isEmpty(property)) {
-                    return null;
+                byte[] a3 = a(bufferedInputStream2);
+                Map<String, List<String>> headerFields = httpURLConnection2.getHeaderFields();
+                String join = (headerFields == null || headerFields.get(null) == null) ? null : TextUtils.join(",", headerFields.get(null));
+                List<String> list = headerFields.get("Set-Cookie");
+                if (list != null) {
+                    for (String str : list) {
+                        List<HttpCookie> parse = HttpCookie.parse(str);
+                        if (parse != null && !parse.isEmpty()) {
+                            f1895c.getCookieStore().add(url.toURI(), parse.get(0));
+                        }
+                    }
                 }
-                return new Proxy(Proxy.Type.HTTP, new InetSocketAddress(property, Integer.parseInt(property2)));
-            } catch (Throwable unused) {
+                b bVar = new b(headerFields, join, a3);
+                if (httpURLConnection2 != null) {
+                    try {
+                        httpURLConnection2.disconnect();
+                    } catch (Throwable unused4) {
+                    }
+                }
+                try {
+                    bufferedInputStream2.close();
+                } catch (Throwable unused5) {
+                }
+                if (bufferedOutputStream2 != null) {
+                    try {
+                        bufferedOutputStream2.close();
+                    } catch (Throwable unused6) {
+                    }
+                }
+                return bVar;
+            } catch (Throwable th5) {
+                httpURLConnection = httpURLConnection2;
+                th = th5;
+                bufferedOutputStream = bufferedOutputStream2;
+                bufferedInputStream = bufferedInputStream2;
+                c.a(th);
+                if (bufferedOutputStream != null) {
+                    try {
+                        bufferedOutputStream.close();
+                    } catch (Throwable unused7) {
+                    }
+                }
                 return null;
             }
         }
-        return null;
+        return (b) invokeLL.objValue;
+    }
+
+    public static NetworkInfo b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (NetworkInfo) invokeL.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            try {
+                NetworkInfo b2 = b(context);
+                if (b2 != null && b2.isAvailable()) {
+                    return b2.getType() == 1 ? "wifi" : b2.getExtraInfo().toLowerCase();
+                }
+            } catch (Exception unused) {
+            }
+            return "none";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Proxy a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String c2 = c(context);
+            if (c2 == null || c2.contains("wap")) {
+                try {
+                    String property = System.getProperty("https.proxyHost");
+                    String property2 = System.getProperty("https.proxyPort");
+                    if (TextUtils.isEmpty(property)) {
+                        return null;
+                    }
+                    return new Proxy(Proxy.Type.HTTP, new InetSocketAddress(property, Integer.parseInt(property2)));
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (Proxy) invokeL.objValue;
     }
 
     public static byte[] a(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, inputStream)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] bArr = new byte[1024];
         while (true) {

@@ -5,17 +5,38 @@ import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class ee implements TextWatcher {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f22971a;
+    public final /* synthetic */ FeedbackReportActivity f23487a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f22972b;
+    public int f23488b;
 
     public ee(FeedbackReportActivity feedbackReportActivity) {
-        this.f22971a = feedbackReportActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackReportActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23487a = feedbackReportActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -32,67 +53,76 @@ public final class ee implements TextWatcher {
         Button button4;
         TextView textView3;
         TextView textView4;
-        z = this.f22971a.E;
-        if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f22971a);
-            dVar.b(dVar.b() + 1);
-            this.f22971a.E = true;
-        }
-        editText = this.f22971a.t;
-        int length = editText.getText().toString().trim().length();
-        if (editable.length() <= 4) {
-            textView4 = this.f22971a.v;
-            textView4.setText("4-" + com.baidu.ufosdk.b.aa + "字");
-        } else {
-            textView = this.f22971a.v;
-            textView.setText(String.valueOf(editable.length()) + "-" + com.baidu.ufosdk.b.aa + "字");
-        }
-        if (length > com.baidu.ufosdk.b.aa) {
-            textView3 = this.f22971a.v;
-            textView3.setTextColor(-568497);
-            this.f22971a.H = true;
-        } else {
-            textView2 = this.f22971a.v;
-            textView2.setTextColor(-5131855);
-            this.f22971a.H = false;
-        }
-        int i2 = this.f22972b;
-        if (i2 == 0) {
-            aVar = this.f22971a.U;
-            if (aVar.c().size() <= 0) {
-                button = this.f22971a.m;
-                button.setTextColor(com.baidu.ufosdk.b.y);
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+            z = this.f23487a.E;
+            if (!z) {
+                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23487a);
+                dVar.b(dVar.b() + 1);
+                this.f23487a.E = true;
             }
-            button2 = this.f22971a.m;
-            int i3 = com.baidu.ufosdk.b.v;
-            int i4 = com.baidu.ufosdk.b.y;
-            int i5 = com.baidu.ufosdk.b.v;
-            button2.setTextColor(com.baidu.ufosdk.f.i.a(i3, i4, i5, i5));
-        } else if (i2 != 1) {
-        } else {
-            aVar2 = this.f22971a.U;
-            if (aVar2.c().size() <= 0) {
-                button3 = this.f22971a.m;
-                button3.setTextColor(com.baidu.ufosdk.b.y);
-                return;
+            editText = this.f23487a.t;
+            int length = editText.getText().toString().trim().length();
+            if (editable.length() <= 4) {
+                textView4 = this.f23487a.v;
+                textView4.setText("4-" + com.baidu.ufosdk.b.aa + "字");
+            } else {
+                textView = this.f23487a.v;
+                textView.setText(String.valueOf(editable.length()) + "-" + com.baidu.ufosdk.b.aa + "字");
             }
-            button4 = this.f22971a.m;
-            int i6 = com.baidu.ufosdk.b.v;
-            int i7 = com.baidu.ufosdk.b.y;
-            int i8 = com.baidu.ufosdk.b.v;
-            button4.setTextColor(com.baidu.ufosdk.f.i.a(i6, i7, i8, i8));
+            if (length > com.baidu.ufosdk.b.aa) {
+                textView3 = this.f23487a.v;
+                textView3.setTextColor(-568497);
+                this.f23487a.H = true;
+            } else {
+                textView2 = this.f23487a.v;
+                textView2.setTextColor(-5131855);
+                this.f23487a.H = false;
+            }
+            int i2 = this.f23488b;
+            if (i2 == 0) {
+                aVar = this.f23487a.U;
+                if (aVar.c().size() <= 0) {
+                    button = this.f23487a.m;
+                    button.setTextColor(com.baidu.ufosdk.b.y);
+                    return;
+                }
+                button2 = this.f23487a.m;
+                int i3 = com.baidu.ufosdk.b.v;
+                int i4 = com.baidu.ufosdk.b.y;
+                int i5 = com.baidu.ufosdk.b.v;
+                button2.setTextColor(com.baidu.ufosdk.f.i.a(i3, i4, i5, i5));
+            } else if (i2 != 1) {
+            } else {
+                aVar2 = this.f23487a.U;
+                if (aVar2.c().size() <= 0) {
+                    button3 = this.f23487a.m;
+                    button3.setTextColor(com.baidu.ufosdk.b.y);
+                    return;
+                }
+                button4 = this.f23487a.m;
+                int i6 = com.baidu.ufosdk.b.v;
+                int i7 = com.baidu.ufosdk.b.y;
+                int i8 = com.baidu.ufosdk.b.v;
+                button4.setTextColor(com.baidu.ufosdk.f.i.a(i6, i7, i8, i8));
+            }
         }
     }
 
     @Override // android.text.TextWatcher
     public final void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         EditText editText;
-        editText = this.f22971a.t;
-        this.f22972b = editText.getText().toString().trim().length() < 4 ? 0 : 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            editText = this.f23487a.t;
+            this.f23488b = editText.getText().toString().trim().length() < 4 ? 0 : 1;
+        }
     }
 
     @Override // android.text.TextWatcher
     public final void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+        }
     }
 }

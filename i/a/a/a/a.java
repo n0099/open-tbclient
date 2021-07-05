@@ -1,49 +1,76 @@
 package i.a.a.a;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.DataSenderConfig;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.util.ArrayList;
 import tv.athena.revenue.http.HttpDataSenderAdapter;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a implements IDataSenderAdapter {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IDataSenderAdapter f72124a;
+    public IDataSenderAdapter f75716a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IDataSenderAdapter f72125b;
+    public IDataSenderAdapter f75717b;
 
     public a(IDataSenderAdapter iDataSenderAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iDataSenderAdapter};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         RLog.debug("DataSenderAdapter", "DataSenderAdapter construct");
-        this.f72124a = iDataSenderAdapter;
+        this.f75716a = iDataSenderAdapter;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter
     public void init(DataSenderConfig dataSenderConfig) {
-        RLog.debug("DataSenderAdapter", "DataSenderAdapter init");
-        IDataSenderAdapter iDataSenderAdapter = this.f72124a;
-        if (iDataSenderAdapter == null) {
-            HttpDataSenderAdapter httpDataSenderAdapter = new HttpDataSenderAdapter();
-            this.f72125b = httpDataSenderAdapter;
-            httpDataSenderAdapter.init(dataSenderConfig);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dataSenderConfig) == null) {
+            RLog.debug("DataSenderAdapter", "DataSenderAdapter init");
+            IDataSenderAdapter iDataSenderAdapter = this.f75716a;
+            if (iDataSenderAdapter == null) {
+                HttpDataSenderAdapter httpDataSenderAdapter = new HttpDataSenderAdapter();
+                this.f75717b = httpDataSenderAdapter;
+                httpDataSenderAdapter.init(dataSenderConfig);
+                return;
+            }
+            iDataSenderAdapter.init(dataSenderConfig);
         }
-        iDataSenderAdapter.init(dataSenderConfig);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
     public void sendData(int i2, int i3, String str, ArrayList<Integer> arrayList, byte[] bArr) {
-        IDataSenderAdapter iDataSenderAdapter = this.f72124a;
-        if (iDataSenderAdapter != null) {
-            iDataSenderAdapter.sendData(i2, i3, str, arrayList, bArr);
-            return;
-        }
-        IDataSenderAdapter iDataSenderAdapter2 = this.f72125b;
-        if (iDataSenderAdapter2 != null) {
-            iDataSenderAdapter2.sendData(i2, i3, str, arrayList, bArr);
-        } else {
-            RLog.error("DataSenderAdapter", "sendData senderAdapter is null ", new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, arrayList, bArr}) == null) {
+            IDataSenderAdapter iDataSenderAdapter = this.f75716a;
+            if (iDataSenderAdapter != null) {
+                iDataSenderAdapter.sendData(i2, i3, str, arrayList, bArr);
+                return;
+            }
+            IDataSenderAdapter iDataSenderAdapter2 = this.f75717b;
+            if (iDataSenderAdapter2 != null) {
+                iDataSenderAdapter2.sendData(i2, i3, str, arrayList, bArr);
+            } else {
+                RLog.error("DataSenderAdapter", "sendData senderAdapter is null ", new Object[0]);
+            }
         }
     }
 }

@@ -1,5 +1,9 @@
 package rx.internal.operators;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.j;
 import h.k;
@@ -7,13 +11,29 @@ import h.n.b;
 import h.p.a;
 import h.q.f;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.a<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final b<? super k> connection;
     public final int numberOfSubscribers;
     public final a<? extends T> source;
 
     public OnSubscribeAutoConnect(a<? extends T> aVar, int i2, b<? super k> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, Integer.valueOf(i2), bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         if (i2 > 0) {
             this.source = aVar;
             this.numberOfSubscribers = i2;
@@ -29,9 +49,12 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.
     }
 
     public void call(j<? super T> jVar) {
-        this.source.I(f.c(jVar));
-        if (incrementAndGet() == this.numberOfSubscribers) {
-            this.source.J(this.connection);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
+            this.source.I(f.c(jVar));
+            if (incrementAndGet() == this.numberOfSubscribers) {
+                this.source.J(this.connection);
+            }
         }
     }
 }

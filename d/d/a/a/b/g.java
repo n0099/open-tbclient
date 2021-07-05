@@ -1,31 +1,84 @@
 package d.d.a.a.b;
 
 import android.os.HandlerThread;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes10.dex */
 public class g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f69887a;
+    public HandlerThread f72010a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes10.dex */
     public static class b {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f69888a = new g();
+        public static g f72011a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1909347327, "Ld/d/a/a/b/g$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1909347327, "Ld/d/a/a/b/g$b;");
+                    return;
+                }
+            }
+            f72011a = new g(null);
+        }
+    }
+
+    public /* synthetic */ g(a aVar) {
+        this();
     }
 
     public static g a() {
-        return b.f69888a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f72011a : (g) invokeV.objValue;
     }
 
     public HandlerThread b() {
-        return this.f69887a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72010a : (HandlerThread) invokeV.objValue;
     }
 
     public g() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         HandlerThread handlerThread = new HandlerThread("SensorCacheThread");
-        this.f69887a = handlerThread;
+        this.f72010a = handlerThread;
         handlerThread.start();
-        this.f69887a.setPriority(10);
+        this.f72010a.setPriority(10);
     }
 }

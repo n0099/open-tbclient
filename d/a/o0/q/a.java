@@ -1,178 +1,47 @@
 package d.a.o0.q;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
-import d.a.c.e.m.e;
-import d.a.c.e.p.l;
-import d.a.o0.t2.m;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
-public final class a implements m {
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f61979d = Pattern.compile(UrlManager.patternText, 2);
-
-    /* renamed from: e  reason: collision with root package name */
-    public static a f61980e = new a();
+import android.database.ContentObserver;
+import android.os.Handler;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class a extends ContentObserver {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<m.a> f61981a = new LinkedList();
+    public c f46468a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<String, m.b> f61982b = new ConcurrentHashMap<>();
-
-    /* renamed from: c  reason: collision with root package name */
-    public m.c f61983c = null;
-
-    /* renamed from: d.a.o0.q.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class RunnableC1531a implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m.a f61984e;
-
-        public RunnableC1531a(m.a aVar) {
-            this.f61984e = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(c cVar) {
+        super(null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Handler) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            a.this.f(this.f61984e);
-        }
+        this.f46468a = cVar;
     }
 
-    public static a l() {
-        return f61980e;
-    }
-
-    @Override // d.a.o0.t2.m
-    public boolean a(String str) {
-        return f61979d.matcher(str).find();
-    }
-
-    @Override // d.a.o0.t2.m
-    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
-        h(context, strArr, false, null, z, bundle);
-    }
-
-    @Override // d.a.o0.t2.m
-    public boolean c(Context context, String[] strArr, Bundle bundle) {
-        return h(context, strArr, false, null, false, bundle);
-    }
-
-    public void e(m.a aVar) {
-        if (l.C()) {
-            f(aVar);
-        } else {
-            e.a().post(new RunnableC1531a(aVar));
-        }
-    }
-
-    public final void f(m.a aVar) {
-        if (this.f61981a.contains(aVar)) {
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (cVar = this.f46468a) == null) {
             return;
         }
-        this.f61981a.add(aVar);
-    }
-
-    public boolean g(Context context, String str, String[] strArr, boolean z, m.d dVar, boolean z2, Bundle bundle) {
-        boolean z3;
-        if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
-            return false;
-        }
-        String str2 = strArr[0];
-        m.b bVar = this.f61982b.get(m(str2));
-        if (bVar != null) {
-            bVar.a(context, j(k(str2)));
-            return true;
-        }
-        Iterator<m.a> it = this.f61981a.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z3 = false;
-                break;
-            }
-            m.a next = it.next();
-            if (next != null && next.a(context, strArr) != 3) {
-                z3 = true;
-                break;
-            }
-        }
-        if (!z3 && this.f61983c != null) {
-            if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                return true;
-            }
-            n(context, str, strArr[0], z, dVar, z2, bundle);
-        }
-        return z3;
-    }
-
-    public boolean h(Context context, String[] strArr, boolean z, m.d dVar, boolean z2, Bundle bundle) {
-        return g(context, "", strArr, z, dVar, z2, bundle);
-    }
-
-    public int i(Context context, String[] strArr) {
-        int a2;
-        if (strArr != null && strArr.length != 0) {
-            for (m.a aVar : this.f61981a) {
-                if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
-                    return a2;
-                }
-            }
-        }
-        return 3;
-    }
-
-    public final Map<String, String> j(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        HashMap hashMap = new HashMap();
-        String[] split = str.split("[&]");
-        if (split == null) {
-            hashMap.put(UrlManager.DEFAULT_PARAM, str);
-            return hashMap;
-        }
-        for (String str2 : split) {
-            String[] split2 = str2.split("[=]");
-            if (split2.length > 1) {
-                hashMap.put(split2[0], split2[1]);
-            }
-        }
-        return hashMap;
-    }
-
-    public final String k(String str) {
-        int lastIndexOf;
-        if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
-            return str.substring(lastIndexOf + 1);
-        }
-        return null;
-    }
-
-    public final String m(String str) {
-        if (StringUtils.isNull(str)) {
-            return null;
-        }
-        return str.contains(":") ? str.substring(0, str.lastIndexOf(":")) : str;
-    }
-
-    public final void n(Context context, String str, String str2, boolean z, m.d dVar, boolean z2, Bundle bundle) {
-        if (f61979d.matcher(str2).find()) {
-            this.f61983c.a(context, str, str2, z, dVar, z2, bundle);
-        }
-    }
-
-    public void o(m.c cVar) {
-        this.f61983c = cVar;
+        cVar.f46471b = cVar.f46470a.a(0, null);
     }
 }

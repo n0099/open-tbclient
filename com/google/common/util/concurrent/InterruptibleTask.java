@@ -1,41 +1,109 @@
 package com.google.common.util.concurrent;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> implements Runnable {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final Runnable DONE;
+    public static final Runnable INTERRUPTING;
+    public static final int MAX_BUSY_WAIT_SPINS = 1000;
+    public static final Runnable PARKED;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public static final Runnable f31630e = new b();
+    /* renamed from: com.google.common.util.concurrent.InterruptibleTask$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    /* renamed from: f  reason: collision with root package name */
-    public static final Runnable f31631f = new b();
+    /* loaded from: classes7.dex */
+    public static final class DoNothingRunnable implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final Runnable f31632g = new b();
-
-    /* loaded from: classes6.dex */
-    public static final class b implements Runnable {
-        public b() {
+        public DoNothingRunnable() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         @Override // java.lang.Runnable
         public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public /* synthetic */ DoNothingRunnable(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1591365452, "Lcom/google/common/util/concurrent/InterruptibleTask;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1591365452, "Lcom/google/common/util/concurrent/InterruptibleTask;");
+                return;
+            }
+        }
+        DONE = new DoNothingRunnable(null);
+        INTERRUPTING = new DoNothingRunnable(null);
+        PARKED = new DoNothingRunnable(null);
+    }
+
+    public InterruptibleTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
     public abstract void afterRanInterruptibly(T t, Throwable th);
 
     public final void interruptTask() {
-        Runnable runnable = get();
-        if ((runnable instanceof Thread) && compareAndSet(runnable, f31631f)) {
-            try {
-                ((Thread) runnable).interrupt();
-            } finally {
-                if (getAndSet(f31630e) == f31632g) {
-                    LockSupport.unpark((Thread) runnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Runnable runnable = get();
+            if ((runnable instanceof Thread) && compareAndSet(runnable, INTERRUPTING)) {
+                try {
+                    ((Thread) runnable).interrupt();
+                } finally {
+                    if (getAndSet(DONE) == PARKED) {
+                        LockSupport.unpark((Thread) runnable);
+                    }
                 }
             }
         }
@@ -46,72 +114,75 @@ public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> imp
     @Override // java.lang.Runnable
     public final void run() {
         T runInterruptibly;
-        Thread currentThread = Thread.currentThread();
-        if (compareAndSet(null, currentThread)) {
-            boolean z = !isDone();
-            if (z) {
-                try {
-                    runInterruptibly = runInterruptibly();
-                } catch (Throwable th) {
-                    if (!compareAndSet(currentThread, f31630e)) {
-                        Runnable runnable = get();
-                        boolean z2 = false;
-                        int i2 = 0;
-                        while (true) {
-                            if (runnable != f31631f && runnable != f31632g) {
-                                break;
-                            }
-                            i2++;
-                            if (i2 > 1000) {
-                                Runnable runnable2 = f31632g;
-                                if (runnable == runnable2 || compareAndSet(f31631f, runnable2)) {
-                                    z2 = Thread.interrupted() || z2;
-                                    LockSupport.park(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Thread currentThread = Thread.currentThread();
+            if (compareAndSet(null, currentThread)) {
+                boolean z = !isDone();
+                if (z) {
+                    try {
+                        runInterruptibly = runInterruptibly();
+                    } catch (Throwable th) {
+                        if (!compareAndSet(currentThread, DONE)) {
+                            Runnable runnable = get();
+                            boolean z2 = false;
+                            int i2 = 0;
+                            while (true) {
+                                if (runnable != INTERRUPTING && runnable != PARKED) {
+                                    break;
                                 }
-                            } else {
-                                Thread.yield();
+                                i2++;
+                                if (i2 > 1000) {
+                                    Runnable runnable2 = PARKED;
+                                    if (runnable == runnable2 || compareAndSet(INTERRUPTING, runnable2)) {
+                                        z2 = Thread.interrupted() || z2;
+                                        LockSupport.park(this);
+                                    }
+                                } else {
+                                    Thread.yield();
+                                }
+                                runnable = get();
                             }
-                            runnable = get();
+                            if (z2) {
+                                currentThread.interrupt();
+                            }
                         }
-                        if (z2) {
-                            currentThread.interrupt();
+                        if (z) {
+                            afterRanInterruptibly(null, th);
+                            return;
                         }
-                    }
-                    if (z) {
-                        afterRanInterruptibly(null, th);
                         return;
                     }
-                    return;
+                } else {
+                    runInterruptibly = null;
                 }
-            } else {
-                runInterruptibly = null;
-            }
-            if (!compareAndSet(currentThread, f31630e)) {
-                Runnable runnable3 = get();
-                boolean z3 = false;
-                int i3 = 0;
-                while (true) {
-                    if (runnable3 != f31631f && runnable3 != f31632g) {
-                        break;
-                    }
-                    i3++;
-                    if (i3 > 1000) {
-                        Runnable runnable4 = f31632g;
-                        if (runnable3 == runnable4 || compareAndSet(f31631f, runnable4)) {
-                            z3 = Thread.interrupted() || z3;
-                            LockSupport.park(this);
+                if (!compareAndSet(currentThread, DONE)) {
+                    Runnable runnable3 = get();
+                    boolean z3 = false;
+                    int i3 = 0;
+                    while (true) {
+                        if (runnable3 != INTERRUPTING && runnable3 != PARKED) {
+                            break;
                         }
-                    } else {
-                        Thread.yield();
+                        i3++;
+                        if (i3 > 1000) {
+                            Runnable runnable4 = PARKED;
+                            if (runnable3 == runnable4 || compareAndSet(INTERRUPTING, runnable4)) {
+                                z3 = Thread.interrupted() || z3;
+                                LockSupport.park(this);
+                            }
+                        } else {
+                            Thread.yield();
+                        }
+                        runnable3 = get();
                     }
-                    runnable3 = get();
+                    if (z3) {
+                        currentThread.interrupt();
+                    }
                 }
-                if (z3) {
-                    currentThread.interrupt();
+                if (z) {
+                    afterRanInterruptibly(runInterruptibly, null);
                 }
-            }
-            if (z) {
-                afterRanInterruptibly(runInterruptibly, null);
             }
         }
     }
@@ -122,17 +193,22 @@ public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> imp
 
     @Override // java.util.concurrent.atomic.AtomicReference
     public final String toString() {
+        InterceptResult invokeV;
         String str;
-        Runnable runnable = get();
-        if (runnable == f31630e) {
-            str = "running=[DONE]";
-        } else if (runnable == f31631f) {
-            str = "running=[INTERRUPTED]";
-        } else if (runnable instanceof Thread) {
-            str = "running=[RUNNING ON " + ((Thread) runnable).getName() + PreferencesUtil.RIGHT_MOUNT;
-        } else {
-            str = "running=[NOT STARTED YET]";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Runnable runnable = get();
+            if (runnable == DONE) {
+                str = "running=[DONE]";
+            } else if (runnable == INTERRUPTING) {
+                str = "running=[INTERRUPTED]";
+            } else if (runnable instanceof Thread) {
+                str = "running=[RUNNING ON " + ((Thread) runnable).getName() + PreferencesUtil.RIGHT_MOUNT;
+            } else {
+                str = "running=[NOT STARTED YET]";
+            }
+            return str + StringUtil.ARRAY_ELEMENT_SEPARATOR + toPendingString();
         }
-        return str + StringUtil.ARRAY_ELEMENT_SEPARATOR + toPendingString();
+        return (String) invokeV.objValue;
     }
 }

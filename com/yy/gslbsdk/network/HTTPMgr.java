@@ -2,6 +2,12 @@ package com.yy.gslbsdk.network;
 
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.network.TlsSniSocketFactory;
 import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
@@ -17,30 +23,51 @@ import java.util.Locale;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HTTPMgr {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HTTPMgr";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00e5, code lost:
-        if (r2 != null) goto L30;
+    public HTTPMgr() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00e9, code lost:
+        if (r2 != null) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x0106, code lost:
-        if (r2 == null) goto L29;
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x010a, code lost:
+        if (r2 == null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0108, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x010c, code lost:
         r2.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x010b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x010f, code lost:
         return null;
      */
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x010d: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:44:0x010d */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0110  */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0111: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:46:0x0111 */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0114  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String[] doHttpURLConnection(String str, String str2, HashMap<String, String> hashMap, String str3) {
+        InterceptResult invokeLLLL;
         HttpURLConnection httpURLConnection;
         HttpURLConnection httpURLConnection2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, hashMap, str3)) != null) {
+            return (String[]) invokeLLLL.objValue;
+        }
         HttpURLConnection httpURLConnection3 = null;
         try {
             try {
@@ -115,26 +142,31 @@ public class HTTPMgr {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00f5, code lost:
-        if (r2 != null) goto L41;
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00f9, code lost:
+        if (r2 != null) goto L43;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0116, code lost:
-        if (r2 == null) goto L40;
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x011a, code lost:
+        if (r2 == null) goto L42;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0118, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x011c, code lost:
         r2.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x011b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x011f, code lost:
         return null;
      */
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x011d: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:49:0x011d */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0120  */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0121: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:51:0x0121 */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0124  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String[] doHttpsURLConnection(String str, String str2, String str3, HashMap<String, String> hashMap, String str4) {
+        InterceptResult invokeLLLLL;
         HttpsURLConnection httpsURLConnection;
         HttpsURLConnection httpsURLConnection2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLLL = interceptable.invokeLLLLL(65538, null, str, str2, str3, hashMap, str4)) != null) {
+            return (String[]) invokeLLLLL.objValue;
+        }
         HttpsURLConnection httpsURLConnection3 = null;
         try {
             try {
@@ -159,13 +191,41 @@ public class HTTPMgr {
                     httpsURLConnection.setReadTimeout(GlobalTools.HTTP_TIMEOUT);
                     httpsURLConnection.setRequestProperty("Host", str2);
                     httpsURLConnection.setHostnameVerifier(new TlsSniSocketFactory.HostnameVerifierEx(httpsURLConnection) { // from class: com.yy.gslbsdk.network.HTTPMgr.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                        {
+                            super(httpsURLConnection);
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {httpsURLConnection};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    super((HttpsURLConnection) newInitContext.callArgs[0]);
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                        }
+
                         @Override // com.yy.gslbsdk.network.TlsSniSocketFactory.HostnameVerifierEx, javax.net.ssl.HostnameVerifier
                         public boolean verify(String str6, SSLSession sSLSession) {
-                            String requestProperty = this.mConn.getRequestProperty("Host");
-                            if (requestProperty == null) {
-                                requestProperty = this.mConn.getURL().getHost();
+                            InterceptResult invokeLL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str6, sSLSession)) == null) {
+                                String requestProperty = this.mConn.getRequestProperty("Host");
+                                if (requestProperty == null) {
+                                    requestProperty = this.mConn.getURL().getHost();
+                                }
+                                return !TextUtils.isEmpty(requestProperty) && requestProperty.equals(GlobalTools.HTTPDNS_SERVER_HOST);
                             }
-                            return !TextUtils.isEmpty(requestProperty) && requestProperty.equals(GlobalTools.HTTPDNS_SERVER_HOST);
+                            return invokeLL.booleanValue;
                         }
                     });
                     httpsURLConnection.setDoInput(true);
@@ -230,64 +290,89 @@ public class HTTPMgr {
     }
 
     public static String[] getHttp(String str, HashMap<String, String> hashMap) {
-        return doHttpURLConnection(str, null, hashMap, "GET");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, hashMap)) == null) ? doHttpURLConnection(str, null, hashMap, "GET") : (String[]) invokeLL.objValue;
     }
 
     public static String[] getHttps(String str, String str2, HashMap<String, String> hashMap) {
-        return doHttpsURLConnection(str, str2, null, hashMap, "GET");
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, hashMap)) == null) ? doHttpsURLConnection(str, str2, null, hashMap, "GET") : (String[]) invokeLLL.objValue;
     }
 
     public static String[] headHttp(String str, HashMap<String, String> hashMap) {
-        return doHttpURLConnection(str, null, hashMap, "HEAD");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, hashMap)) == null) ? doHttpURLConnection(str, null, hashMap, "HEAD") : (String[]) invokeLL.objValue;
     }
 
     public static String inputStreamToString(InputStream inputStream) {
-        String str = "";
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            while (true) {
-                String readLine = bufferedReader.readLine();
-                if (readLine == null) {
-                    break;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream)) == null) {
+            String str = "";
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    str = str + readLine;
                 }
-                str = str + readLine;
+            } catch (IOException e2) {
+                LogTools.printError(TAG, "inputStreamToString：" + e2.getMessage());
             }
-        } catch (IOException e2) {
-            LogTools.printError(TAG, "inputStreamToString：" + e2.getMessage());
+            return str;
         }
-        return str;
+        return (String) invokeL.objValue;
     }
 
     public static String[] post(String str, String str2, HashMap<String, String> hashMap, boolean z) {
-        if (str != null) {
-            if (z && str.startsWith("http://")) {
-                str = str.replace("http://", "https://");
-            } else if (!z && str.startsWith("https://")) {
-                str = str.replace("https://", "http://");
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, hashMap, Boolean.valueOf(z)})) == null) {
+            if (str != null) {
+                if (z && str.startsWith("http://")) {
+                    str = str.replace("http://", "https://");
+                } else if (!z && str.startsWith("https://")) {
+                    str = str.replace("https://", "http://");
+                }
             }
+            if (z) {
+                return doHttpsURLConnection(str, GlobalTools.HTTPDNS_REPORT_HOST, str2, hashMap, "POST");
+            }
+            return doHttpURLConnection(str, str2, hashMap, "POST");
         }
-        if (z) {
-            return doHttpsURLConnection(str, GlobalTools.HTTPDNS_REPORT_HOST, str2, hashMap, "POST");
-        }
-        return doHttpURLConnection(str, str2, hashMap, "POST");
+        return (String[]) invokeCommon.objValue;
     }
 
     public static String[] postHttp(String str, String str2, HashMap<String, String> hashMap) {
-        return doHttpURLConnection(str, str2, hashMap, "POST");
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, hashMap)) == null) ? doHttpURLConnection(str, str2, hashMap, "POST") : (String[]) invokeLLL.objValue;
     }
 
     public static String[] postSniHttps(String str, String str2, String str3, HashMap<String, String> hashMap) {
-        return doHttpsURLConnection(str, str2, str3, hashMap, "POST");
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, str, str2, str3, hashMap)) == null) ? doHttpsURLConnection(str, str2, str3, hashMap, "POST") : (String[]) invokeLLLL.objValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00a7: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:30:0x00a7 */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00aa  */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00ab: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:32:0x00ab */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00ae  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String[] postHttp(String str, String str2) {
+        InterceptResult invokeLL;
         HttpURLConnection httpURLConnection;
         HttpURLConnection httpURLConnection2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, str, str2)) != null) {
+            return (String[]) invokeLL.objValue;
+        }
         HttpURLConnection httpURLConnection3 = null;
         try {
             try {

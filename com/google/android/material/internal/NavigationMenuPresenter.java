@@ -23,25 +23,35 @@ import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.view.menu.SubMenuBuilder;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NavigationMenuPresenter implements MenuPresenter {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String STATE_ADAPTER = "android:menu:adapter";
     public static final String STATE_HEADER = "android:menu:header";
     public static final String STATE_HIERARCHY = "android:menu:list";
+    public transient /* synthetic */ FieldHolder $fh;
     public NavigationMenuAdapter adapter;
     public MenuPresenter.Callback callback;
     public boolean hasCustomItemIconSize;
     public LinearLayout headerLayout;
     public ColorStateList iconTintList;
     public int id;
+    public boolean isBehindStatusBar;
     public Drawable itemBackground;
     public int itemHorizontalPadding;
     public int itemIconPadding;
@@ -50,76 +60,99 @@ public class NavigationMenuPresenter implements MenuPresenter {
     public LayoutInflater layoutInflater;
     public MenuBuilder menu;
     public NavigationMenuView menuView;
+    public final View.OnClickListener onClickListener;
+    public int overScrollMode;
     public int paddingSeparator;
     public int paddingTopDefault;
     public int textAppearance;
     public boolean textAppearanceSet;
     public ColorStateList textColor;
-    public boolean isBehindStatusBar = true;
-    public int overScrollMode = -1;
-    public final View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.google.android.material.internal.NavigationMenuPresenter.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            boolean z = true;
-            NavigationMenuPresenter.this.setUpdateSuspended(true);
-            MenuItemImpl itemData = ((NavigationMenuItemView) view).getItemData();
-            NavigationMenuPresenter navigationMenuPresenter = NavigationMenuPresenter.this;
-            boolean performItemAction = navigationMenuPresenter.menu.performItemAction(itemData, navigationMenuPresenter, 0);
-            if (itemData != null && itemData.isCheckable() && performItemAction) {
-                NavigationMenuPresenter.this.adapter.setCheckedItem(itemData);
-            } else {
-                z = false;
-            }
-            NavigationMenuPresenter.this.setUpdateSuspended(false);
-            if (z) {
-                NavigationMenuPresenter.this.updateMenuView(false);
-            }
-        }
-    };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class HeaderViewHolder extends ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public HeaderViewHolder(View view) {
             super(view);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class NavigationMenuAdapter extends RecyclerView.Adapter<ViewHolder> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String STATE_ACTION_VIEWS = "android:menu:action_views";
         public static final String STATE_CHECKED_ITEM = "android:menu:checked";
         public static final int VIEW_TYPE_HEADER = 3;
         public static final int VIEW_TYPE_NORMAL = 0;
         public static final int VIEW_TYPE_SEPARATOR = 2;
         public static final int VIEW_TYPE_SUBHEADER = 1;
+        public transient /* synthetic */ FieldHolder $fh;
         public MenuItemImpl checkedItem;
-        public final ArrayList<NavigationMenuItem> items = new ArrayList<>();
+        public final ArrayList<NavigationMenuItem> items;
+        public final /* synthetic */ NavigationMenuPresenter this$0;
         public boolean updateSuspended;
 
-        public NavigationMenuAdapter() {
+        public NavigationMenuAdapter(NavigationMenuPresenter navigationMenuPresenter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {navigationMenuPresenter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = navigationMenuPresenter;
+            this.items = new ArrayList<>();
             prepareMenuItems();
         }
 
         private void appendTransparentIconIfMissing(int i2, int i3) {
-            while (i2 < i3) {
-                ((NavigationMenuTextItem) this.items.get(i2)).needsEmptyIcon = true;
-                i2++;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(65537, this, i2, i3) == null) {
+                while (i2 < i3) {
+                    ((NavigationMenuTextItem) this.items.get(i2)).needsEmptyIcon = true;
+                    i2++;
+                }
             }
         }
 
         private void prepareMenuItems() {
-            if (this.updateSuspended) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.updateSuspended) {
                 return;
             }
             this.updateSuspended = true;
             this.items.clear();
             this.items.add(new NavigationMenuHeaderItem());
             int i2 = -1;
-            int size = NavigationMenuPresenter.this.menu.getVisibleItems().size();
+            int size = this.this$0.menu.getVisibleItems().size();
             boolean z = false;
             int i3 = 0;
             for (int i4 = 0; i4 < size; i4++) {
-                MenuItemImpl menuItemImpl = NavigationMenuPresenter.this.menu.getVisibleItems().get(i4);
+                MenuItemImpl menuItemImpl = this.this$0.menu.getVisibleItems().get(i4);
                 if (menuItemImpl.isChecked()) {
                     setCheckedItem(menuItemImpl);
                 }
@@ -130,7 +163,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
                     SubMenu subMenu = menuItemImpl.getSubMenu();
                     if (subMenu.hasVisibleItems()) {
                         if (i4 != 0) {
-                            this.items.add(new NavigationMenuSeparatorItem(NavigationMenuPresenter.this.paddingSeparator, 0));
+                            this.items.add(new NavigationMenuSeparatorItem(this.this$0.paddingSeparator, 0));
                         }
                         this.items.add(new NavigationMenuTextItem(menuItemImpl));
                         int size2 = this.items.size();
@@ -163,7 +196,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
                         if (i4 != 0) {
                             i3++;
                             ArrayList<NavigationMenuItem> arrayList = this.items;
-                            int i6 = NavigationMenuPresenter.this.paddingSeparator;
+                            int i6 = this.this$0.paddingSeparator;
                             arrayList.add(new NavigationMenuSeparatorItem(i6, i6));
                         }
                     } else if (!z && menuItemImpl.getIcon() != null) {
@@ -181,66 +214,87 @@ public class NavigationMenuPresenter implements MenuPresenter {
 
         @NonNull
         public Bundle createInstanceState() {
-            Bundle bundle = new Bundle();
-            MenuItemImpl menuItemImpl = this.checkedItem;
-            if (menuItemImpl != null) {
-                bundle.putInt(STATE_CHECKED_ITEM, menuItemImpl.getItemId());
-            }
-            SparseArray<? extends Parcelable> sparseArray = new SparseArray<>();
-            int size = this.items.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                NavigationMenuItem navigationMenuItem = this.items.get(i2);
-                if (navigationMenuItem instanceof NavigationMenuTextItem) {
-                    MenuItemImpl menuItem = ((NavigationMenuTextItem) navigationMenuItem).getMenuItem();
-                    View actionView = menuItem != null ? menuItem.getActionView() : null;
-                    if (actionView != null) {
-                        ParcelableSparseArray parcelableSparseArray = new ParcelableSparseArray();
-                        actionView.saveHierarchyState(parcelableSparseArray);
-                        sparseArray.put(menuItem.getItemId(), parcelableSparseArray);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Bundle bundle = new Bundle();
+                MenuItemImpl menuItemImpl = this.checkedItem;
+                if (menuItemImpl != null) {
+                    bundle.putInt(STATE_CHECKED_ITEM, menuItemImpl.getItemId());
+                }
+                SparseArray<? extends Parcelable> sparseArray = new SparseArray<>();
+                int size = this.items.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    NavigationMenuItem navigationMenuItem = this.items.get(i2);
+                    if (navigationMenuItem instanceof NavigationMenuTextItem) {
+                        MenuItemImpl menuItem = ((NavigationMenuTextItem) navigationMenuItem).getMenuItem();
+                        View actionView = menuItem != null ? menuItem.getActionView() : null;
+                        if (actionView != null) {
+                            ParcelableSparseArray parcelableSparseArray = new ParcelableSparseArray();
+                            actionView.saveHierarchyState(parcelableSparseArray);
+                            sparseArray.put(menuItem.getItemId(), parcelableSparseArray);
+                        }
                     }
                 }
+                bundle.putSparseParcelableArray(STATE_ACTION_VIEWS, sparseArray);
+                return bundle;
             }
-            bundle.putSparseParcelableArray(STATE_ACTION_VIEWS, sparseArray);
-            return bundle;
+            return (Bundle) invokeV.objValue;
         }
 
         public MenuItemImpl getCheckedItem() {
-            return this.checkedItem;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.checkedItem : (MenuItemImpl) invokeV.objValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return this.items.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.items.size() : invokeV.intValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public long getItemId(int i2) {
-            return i2;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? i2 : invokeI.longValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemViewType(int i2) {
-            NavigationMenuItem navigationMenuItem = this.items.get(i2);
-            if (navigationMenuItem instanceof NavigationMenuSeparatorItem) {
-                return 2;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+                NavigationMenuItem navigationMenuItem = this.items.get(i2);
+                if (navigationMenuItem instanceof NavigationMenuSeparatorItem) {
+                    return 2;
+                }
+                if (navigationMenuItem instanceof NavigationMenuHeaderItem) {
+                    return 3;
+                }
+                if (navigationMenuItem instanceof NavigationMenuTextItem) {
+                    return ((NavigationMenuTextItem) navigationMenuItem).getMenuItem().hasSubMenu() ? 1 : 0;
+                }
+                throw new RuntimeException("Unknown item type.");
             }
-            if (navigationMenuItem instanceof NavigationMenuHeaderItem) {
-                return 3;
-            }
-            if (navigationMenuItem instanceof NavigationMenuTextItem) {
-                return ((NavigationMenuTextItem) navigationMenuItem).getMenuItem().hasSubMenu() ? 1 : 0;
-            }
-            throw new RuntimeException("Unknown item type.");
+            return invokeI.intValue;
         }
 
         public int getRowCount() {
-            int i2 = NavigationMenuPresenter.this.headerLayout.getChildCount() == 0 ? 0 : 1;
-            for (int i3 = 0; i3 < NavigationMenuPresenter.this.adapter.getItemCount(); i3++) {
-                if (NavigationMenuPresenter.this.adapter.getItemViewType(i3) == 0) {
-                    i2++;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                int i2 = this.this$0.headerLayout.getChildCount() == 0 ? 0 : 1;
+                for (int i3 = 0; i3 < this.this$0.adapter.getItemCount(); i3++) {
+                    if (this.this$0.adapter.getItemViewType(i3) == 0) {
+                        i2++;
+                    }
                 }
+                return i2;
             }
-            return i2;
+            return invokeV.intValue;
         }
 
         public void restoreInstanceState(@NonNull Bundle bundle) {
@@ -248,340 +302,635 @@ public class NavigationMenuPresenter implements MenuPresenter {
             View actionView;
             ParcelableSparseArray parcelableSparseArray;
             MenuItemImpl menuItem2;
-            int i2 = bundle.getInt(STATE_CHECKED_ITEM, 0);
-            if (i2 != 0) {
-                this.updateSuspended = true;
-                int size = this.items.size();
-                int i3 = 0;
-                while (true) {
-                    if (i3 >= size) {
-                        break;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+                int i2 = bundle.getInt(STATE_CHECKED_ITEM, 0);
+                if (i2 != 0) {
+                    this.updateSuspended = true;
+                    int size = this.items.size();
+                    int i3 = 0;
+                    while (true) {
+                        if (i3 >= size) {
+                            break;
+                        }
+                        NavigationMenuItem navigationMenuItem = this.items.get(i3);
+                        if ((navigationMenuItem instanceof NavigationMenuTextItem) && (menuItem2 = ((NavigationMenuTextItem) navigationMenuItem).getMenuItem()) != null && menuItem2.getItemId() == i2) {
+                            setCheckedItem(menuItem2);
+                            break;
+                        }
+                        i3++;
                     }
-                    NavigationMenuItem navigationMenuItem = this.items.get(i3);
-                    if ((navigationMenuItem instanceof NavigationMenuTextItem) && (menuItem2 = ((NavigationMenuTextItem) navigationMenuItem).getMenuItem()) != null && menuItem2.getItemId() == i2) {
-                        setCheckedItem(menuItem2);
-                        break;
-                    }
-                    i3++;
+                    this.updateSuspended = false;
+                    prepareMenuItems();
                 }
-                this.updateSuspended = false;
-                prepareMenuItems();
-            }
-            SparseArray sparseParcelableArray = bundle.getSparseParcelableArray(STATE_ACTION_VIEWS);
-            if (sparseParcelableArray != null) {
-                int size2 = this.items.size();
-                for (int i4 = 0; i4 < size2; i4++) {
-                    NavigationMenuItem navigationMenuItem2 = this.items.get(i4);
-                    if ((navigationMenuItem2 instanceof NavigationMenuTextItem) && (menuItem = ((NavigationMenuTextItem) navigationMenuItem2).getMenuItem()) != null && (actionView = menuItem.getActionView()) != null && (parcelableSparseArray = (ParcelableSparseArray) sparseParcelableArray.get(menuItem.getItemId())) != null) {
-                        actionView.restoreHierarchyState(parcelableSparseArray);
+                SparseArray sparseParcelableArray = bundle.getSparseParcelableArray(STATE_ACTION_VIEWS);
+                if (sparseParcelableArray != null) {
+                    int size2 = this.items.size();
+                    for (int i4 = 0; i4 < size2; i4++) {
+                        NavigationMenuItem navigationMenuItem2 = this.items.get(i4);
+                        if ((navigationMenuItem2 instanceof NavigationMenuTextItem) && (menuItem = ((NavigationMenuTextItem) navigationMenuItem2).getMenuItem()) != null && (actionView = menuItem.getActionView()) != null && (parcelableSparseArray = (ParcelableSparseArray) sparseParcelableArray.get(menuItem.getItemId())) != null) {
+                            actionView.restoreHierarchyState(parcelableSparseArray);
+                        }
                     }
                 }
             }
         }
 
         public void setCheckedItem(@NonNull MenuItemImpl menuItemImpl) {
-            if (this.checkedItem == menuItemImpl || !menuItemImpl.isCheckable()) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048589, this, menuItemImpl) == null) && this.checkedItem != menuItemImpl && menuItemImpl.isCheckable()) {
+                MenuItemImpl menuItemImpl2 = this.checkedItem;
+                if (menuItemImpl2 != null) {
+                    menuItemImpl2.setChecked(false);
+                }
+                this.checkedItem = menuItemImpl;
+                menuItemImpl.setChecked(true);
             }
-            MenuItemImpl menuItemImpl2 = this.checkedItem;
-            if (menuItemImpl2 != null) {
-                menuItemImpl2.setChecked(false);
-            }
-            this.checkedItem = menuItemImpl;
-            menuItemImpl.setChecked(true);
         }
 
         public void setUpdateSuspended(boolean z) {
-            this.updateSuspended = z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+                this.updateSuspended = z;
+            }
         }
 
         public void update() {
-            prepareMenuItems();
-            notifyDataSetChanged();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+                prepareMenuItems();
+                notifyDataSetChanged();
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
-            int itemViewType = getItemViewType(i2);
-            if (itemViewType != 0) {
-                if (itemViewType == 1) {
-                    ((TextView) viewHolder.itemView).setText(((NavigationMenuTextItem) this.items.get(i2)).getMenuItem().getTitle());
-                    return;
-                } else if (itemViewType != 2) {
-                    return;
-                } else {
-                    NavigationMenuSeparatorItem navigationMenuSeparatorItem = (NavigationMenuSeparatorItem) this.items.get(i2);
-                    viewHolder.itemView.setPadding(0, navigationMenuSeparatorItem.getPaddingTop(), 0, navigationMenuSeparatorItem.getPaddingBottom());
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i2) == null) {
+                int itemViewType = getItemViewType(i2);
+                if (itemViewType != 0) {
+                    if (itemViewType == 1) {
+                        ((TextView) viewHolder.itemView).setText(((NavigationMenuTextItem) this.items.get(i2)).getMenuItem().getTitle());
+                        return;
+                    } else if (itemViewType != 2) {
+                        return;
+                    } else {
+                        NavigationMenuSeparatorItem navigationMenuSeparatorItem = (NavigationMenuSeparatorItem) this.items.get(i2);
+                        viewHolder.itemView.setPadding(0, navigationMenuSeparatorItem.getPaddingTop(), 0, navigationMenuSeparatorItem.getPaddingBottom());
+                        return;
+                    }
                 }
+                NavigationMenuItemView navigationMenuItemView = (NavigationMenuItemView) viewHolder.itemView;
+                navigationMenuItemView.setIconTintList(this.this$0.iconTintList);
+                NavigationMenuPresenter navigationMenuPresenter = this.this$0;
+                if (navigationMenuPresenter.textAppearanceSet) {
+                    navigationMenuItemView.setTextAppearance(navigationMenuPresenter.textAppearance);
+                }
+                ColorStateList colorStateList = this.this$0.textColor;
+                if (colorStateList != null) {
+                    navigationMenuItemView.setTextColor(colorStateList);
+                }
+                Drawable drawable = this.this$0.itemBackground;
+                ViewCompat.setBackground(navigationMenuItemView, drawable != null ? drawable.getConstantState().newDrawable() : null);
+                NavigationMenuTextItem navigationMenuTextItem = (NavigationMenuTextItem) this.items.get(i2);
+                navigationMenuItemView.setNeedsEmptyIcon(navigationMenuTextItem.needsEmptyIcon);
+                navigationMenuItemView.setHorizontalPadding(this.this$0.itemHorizontalPadding);
+                navigationMenuItemView.setIconPadding(this.this$0.itemIconPadding);
+                NavigationMenuPresenter navigationMenuPresenter2 = this.this$0;
+                if (navigationMenuPresenter2.hasCustomItemIconSize) {
+                    navigationMenuItemView.setIconSize(navigationMenuPresenter2.itemIconSize);
+                }
+                navigationMenuItemView.setMaxLines(this.this$0.itemMaxLines);
+                navigationMenuItemView.initialize(navigationMenuTextItem.getMenuItem(), 0);
             }
-            NavigationMenuItemView navigationMenuItemView = (NavigationMenuItemView) viewHolder.itemView;
-            navigationMenuItemView.setIconTintList(NavigationMenuPresenter.this.iconTintList);
-            NavigationMenuPresenter navigationMenuPresenter = NavigationMenuPresenter.this;
-            if (navigationMenuPresenter.textAppearanceSet) {
-                navigationMenuItemView.setTextAppearance(navigationMenuPresenter.textAppearance);
-            }
-            ColorStateList colorStateList = NavigationMenuPresenter.this.textColor;
-            if (colorStateList != null) {
-                navigationMenuItemView.setTextColor(colorStateList);
-            }
-            Drawable drawable = NavigationMenuPresenter.this.itemBackground;
-            ViewCompat.setBackground(navigationMenuItemView, drawable != null ? drawable.getConstantState().newDrawable() : null);
-            NavigationMenuTextItem navigationMenuTextItem = (NavigationMenuTextItem) this.items.get(i2);
-            navigationMenuItemView.setNeedsEmptyIcon(navigationMenuTextItem.needsEmptyIcon);
-            navigationMenuItemView.setHorizontalPadding(NavigationMenuPresenter.this.itemHorizontalPadding);
-            navigationMenuItemView.setIconPadding(NavigationMenuPresenter.this.itemIconPadding);
-            NavigationMenuPresenter navigationMenuPresenter2 = NavigationMenuPresenter.this;
-            if (navigationMenuPresenter2.hasCustomItemIconSize) {
-                navigationMenuItemView.setIconSize(navigationMenuPresenter2.itemIconSize);
-            }
-            navigationMenuItemView.setMaxLines(NavigationMenuPresenter.this.itemMaxLines);
-            navigationMenuItemView.initialize(navigationMenuTextItem.getMenuItem(), 0);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         @Nullable
         public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
-            if (i2 == 0) {
-                NavigationMenuPresenter navigationMenuPresenter = NavigationMenuPresenter.this;
-                return new NormalViewHolder(navigationMenuPresenter.layoutInflater, viewGroup, navigationMenuPresenter.onClickListener);
-            } else if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        return null;
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i2)) == null) {
+                if (i2 == 0) {
+                    NavigationMenuPresenter navigationMenuPresenter = this.this$0;
+                    return new NormalViewHolder(navigationMenuPresenter.layoutInflater, viewGroup, navigationMenuPresenter.onClickListener);
+                } else if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            return null;
+                        }
+                        return new HeaderViewHolder(this.this$0.headerLayout);
                     }
-                    return new HeaderViewHolder(NavigationMenuPresenter.this.headerLayout);
+                    return new SeparatorViewHolder(this.this$0.layoutInflater, viewGroup);
+                } else {
+                    return new SubheaderViewHolder(this.this$0.layoutInflater, viewGroup);
                 }
-                return new SeparatorViewHolder(NavigationMenuPresenter.this.layoutInflater, viewGroup);
-            } else {
-                return new SubheaderViewHolder(NavigationMenuPresenter.this.layoutInflater, viewGroup);
             }
+            return (ViewHolder) invokeLI.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onViewRecycled(ViewHolder viewHolder) {
-            if (viewHolder instanceof NormalViewHolder) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048587, this, viewHolder) == null) && (viewHolder instanceof NormalViewHolder)) {
                 ((NavigationMenuItemView) viewHolder.itemView).recycle();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class NavigationMenuHeaderItem implements NavigationMenuItem {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public NavigationMenuHeaderItem() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface NavigationMenuItem {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class NavigationMenuSeparatorItem implements NavigationMenuItem {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final int paddingBottom;
         public final int paddingTop;
 
         public NavigationMenuSeparatorItem(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.paddingTop = i2;
             this.paddingBottom = i3;
         }
 
         public int getPaddingBottom() {
-            return this.paddingBottom;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.paddingBottom : invokeV.intValue;
         }
 
         public int getPaddingTop() {
-            return this.paddingTop;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.paddingTop : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class NavigationMenuTextItem implements NavigationMenuItem {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final MenuItemImpl menuItem;
         public boolean needsEmptyIcon;
 
         public NavigationMenuTextItem(MenuItemImpl menuItemImpl) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {menuItemImpl};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.menuItem = menuItemImpl;
         }
 
         public MenuItemImpl getMenuItem() {
-            return this.menuItem;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.menuItem : (MenuItemImpl) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class NavigationMenuViewAccessibilityDelegate extends RecyclerViewAccessibilityDelegate {
-        public NavigationMenuViewAccessibilityDelegate(@NonNull RecyclerView recyclerView) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NavigationMenuPresenter this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public NavigationMenuViewAccessibilityDelegate(@NonNull NavigationMenuPresenter navigationMenuPresenter, RecyclerView recyclerView) {
             super(recyclerView);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {navigationMenuPresenter, recyclerView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((RecyclerView) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = navigationMenuPresenter;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate, androidx.core.view.AccessibilityDelegateCompat
         public void onInitializeAccessibilityNodeInfo(View view, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-            super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
-            accessibilityNodeInfoCompat.setCollectionInfo(AccessibilityNodeInfoCompat.CollectionInfoCompat.obtain(NavigationMenuPresenter.this.adapter.getRowCount(), 0, false));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view, accessibilityNodeInfoCompat) == null) {
+                super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+                accessibilityNodeInfoCompat.setCollectionInfo(AccessibilityNodeInfoCompat.CollectionInfoCompat.obtain(this.this$0.adapter.getRowCount(), 0, false));
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class NormalViewHolder extends ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public NormalViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, View.OnClickListener onClickListener) {
             super(layoutInflater.inflate(R.layout.design_navigation_item, viewGroup, false));
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutInflater, viewGroup, onClickListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.itemView.setOnClickListener(onClickListener);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SeparatorViewHolder extends ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SeparatorViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
             super(layoutInflater.inflate(R.layout.design_navigation_item_separator, viewGroup, false));
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutInflater, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SubheaderViewHolder extends ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SubheaderViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
             super(layoutInflater.inflate(R.layout.design_navigation_item_subheader, viewGroup, false));
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutInflater, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class ViewHolder extends RecyclerView.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
             super(view);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
+    }
+
+    public NavigationMenuPresenter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.isBehindStatusBar = true;
+        this.overScrollMode = -1;
+        this.onClickListener = new View.OnClickListener(this) { // from class: com.google.android.material.internal.NavigationMenuPresenter.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ NavigationMenuPresenter this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    boolean z = true;
+                    this.this$0.setUpdateSuspended(true);
+                    MenuItemImpl itemData = ((NavigationMenuItemView) view).getItemData();
+                    NavigationMenuPresenter navigationMenuPresenter = this.this$0;
+                    boolean performItemAction = navigationMenuPresenter.menu.performItemAction(itemData, navigationMenuPresenter, 0);
+                    if (itemData != null && itemData.isCheckable() && performItemAction) {
+                        this.this$0.adapter.setCheckedItem(itemData);
+                    } else {
+                        z = false;
+                    }
+                    this.this$0.setUpdateSuspended(false);
+                    if (z) {
+                        this.this$0.updateMenuView(false);
+                    }
+                }
+            }
+        };
     }
 
     private void updateTopPadding() {
-        int i2 = (this.headerLayout.getChildCount() == 0 && this.isBehindStatusBar) ? this.paddingTopDefault : 0;
-        NavigationMenuView navigationMenuView = this.menuView;
-        navigationMenuView.setPadding(0, i2, 0, navigationMenuView.getPaddingBottom());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            int i2 = (this.headerLayout.getChildCount() == 0 && this.isBehindStatusBar) ? this.paddingTopDefault : 0;
+            NavigationMenuView navigationMenuView = this.menuView;
+            navigationMenuView.setPadding(0, i2, 0, navigationMenuView.getPaddingBottom());
+        }
     }
 
     public void addHeaderView(@NonNull View view) {
-        this.headerLayout.addView(view);
-        NavigationMenuView navigationMenuView = this.menuView;
-        navigationMenuView.setPadding(0, 0, 0, navigationMenuView.getPaddingBottom());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            this.headerLayout.addView(view);
+            NavigationMenuView navigationMenuView = this.menuView;
+            navigationMenuView.setPadding(0, 0, 0, navigationMenuView.getPaddingBottom());
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean collapseItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
-        return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder, menuItemImpl)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public void dispatchApplyWindowInsets(@NonNull WindowInsetsCompat windowInsetsCompat) {
-        int systemWindowInsetTop = windowInsetsCompat.getSystemWindowInsetTop();
-        if (this.paddingTopDefault != systemWindowInsetTop) {
-            this.paddingTopDefault = systemWindowInsetTop;
-            updateTopPadding();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, windowInsetsCompat) == null) {
+            int systemWindowInsetTop = windowInsetsCompat.getSystemWindowInsetTop();
+            if (this.paddingTopDefault != systemWindowInsetTop) {
+                this.paddingTopDefault = systemWindowInsetTop;
+                updateTopPadding();
+            }
+            NavigationMenuView navigationMenuView = this.menuView;
+            navigationMenuView.setPadding(0, navigationMenuView.getPaddingTop(), 0, windowInsetsCompat.getSystemWindowInsetBottom());
+            ViewCompat.dispatchApplyWindowInsets(this.headerLayout, windowInsetsCompat);
         }
-        NavigationMenuView navigationMenuView = this.menuView;
-        navigationMenuView.setPadding(0, navigationMenuView.getPaddingTop(), 0, windowInsetsCompat.getSystemWindowInsetBottom());
-        ViewCompat.dispatchApplyWindowInsets(this.headerLayout, windowInsetsCompat);
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean expandItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
-        return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, menuBuilder, menuItemImpl)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean flagActionItems() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Nullable
     public MenuItemImpl getCheckedItem() {
-        return this.adapter.getCheckedItem();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.adapter.getCheckedItem() : (MenuItemImpl) invokeV.objValue;
     }
 
     public int getHeaderCount() {
-        return this.headerLayout.getChildCount();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.headerLayout.getChildCount() : invokeV.intValue;
     }
 
     public View getHeaderView(int i2) {
-        return this.headerLayout.getChildAt(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.headerLayout.getChildAt(i2) : (View) invokeI.objValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public int getId() {
-        return this.id;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.id : invokeV.intValue;
     }
 
     @Nullable
     public Drawable getItemBackground() {
-        return this.itemBackground;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.itemBackground : (Drawable) invokeV.objValue;
     }
 
     public int getItemHorizontalPadding() {
-        return this.itemHorizontalPadding;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.itemHorizontalPadding : invokeV.intValue;
     }
 
     public int getItemIconPadding() {
-        return this.itemIconPadding;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.itemIconPadding : invokeV.intValue;
     }
 
     public int getItemMaxLines() {
-        return this.itemMaxLines;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.itemMaxLines : invokeV.intValue;
     }
 
     @Nullable
     public ColorStateList getItemTextColor() {
-        return this.textColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.textColor : (ColorStateList) invokeV.objValue;
     }
 
     @Nullable
     public ColorStateList getItemTintList() {
-        return this.iconTintList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.iconTintList : (ColorStateList) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
-        if (this.menuView == null) {
-            NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.design_navigation_menu, viewGroup, false);
-            this.menuView = navigationMenuView;
-            navigationMenuView.setAccessibilityDelegateCompat(new NavigationMenuViewAccessibilityDelegate(this.menuView));
-            if (this.adapter == null) {
-                this.adapter = new NavigationMenuAdapter();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, viewGroup)) == null) {
+            if (this.menuView == null) {
+                NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.design_navigation_menu, viewGroup, false);
+                this.menuView = navigationMenuView;
+                navigationMenuView.setAccessibilityDelegateCompat(new NavigationMenuViewAccessibilityDelegate(this, this.menuView));
+                if (this.adapter == null) {
+                    this.adapter = new NavigationMenuAdapter(this);
+                }
+                int i2 = this.overScrollMode;
+                if (i2 != -1) {
+                    this.menuView.setOverScrollMode(i2);
+                }
+                this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.design_navigation_item_header, (ViewGroup) this.menuView, false);
+                this.menuView.setAdapter(this.adapter);
             }
-            int i2 = this.overScrollMode;
-            if (i2 != -1) {
-                this.menuView.setOverScrollMode(i2);
-            }
-            this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.design_navigation_item_header, (ViewGroup) this.menuView, false);
-            this.menuView.setAdapter(this.adapter);
+            return this.menuView;
         }
-        return this.menuView;
+        return (MenuView) invokeL.objValue;
     }
 
     public View inflateHeaderView(@LayoutRes int i2) {
-        View inflate = this.layoutInflater.inflate(i2, (ViewGroup) this.headerLayout, false);
-        addHeaderView(inflate);
-        return inflate;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+            View inflate = this.layoutInflater.inflate(i2, (ViewGroup) this.headerLayout, false);
+            addHeaderView(inflate);
+            return inflate;
+        }
+        return (View) invokeI.objValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void initForMenu(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
-        this.layoutInflater = LayoutInflater.from(context);
-        this.menu = menuBuilder;
-        this.paddingSeparator = context.getResources().getDimensionPixelOffset(R.dimen.design_navigation_separator_vertical_padding);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, context, menuBuilder) == null) {
+            this.layoutInflater = LayoutInflater.from(context);
+            this.menu = menuBuilder;
+            this.paddingSeparator = context.getResources().getDimensionPixelOffset(R.dimen.design_navigation_separator_vertical_padding);
+        }
     }
 
     public boolean isBehindStatusBar() {
-        return this.isBehindStatusBar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.isBehindStatusBar : invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
-        MenuPresenter.Callback callback = this.callback;
-        if (callback != null) {
-            callback.onCloseMenu(menuBuilder, z);
+        MenuPresenter.Callback callback;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048595, this, menuBuilder, z) == null) || (callback = this.callback) == null) {
+            return;
         }
+        callback.onCloseMenu(menuBuilder, z);
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void onRestoreInstanceState(Parcelable parcelable) {
-        if (parcelable instanceof Bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, parcelable) == null) && (parcelable instanceof Bundle)) {
             Bundle bundle = (Bundle) parcelable;
             SparseArray<Parcelable> sparseParcelableArray = bundle.getSparseParcelableArray("android:menu:list");
             if (sparseParcelableArray != null) {
@@ -601,121 +950,175 @@ public class NavigationMenuPresenter implements MenuPresenter {
     @Override // androidx.appcompat.view.menu.MenuPresenter
     @NonNull
     public Parcelable onSaveInstanceState() {
-        Bundle bundle = new Bundle();
-        if (this.menuView != null) {
-            SparseArray<Parcelable> sparseArray = new SparseArray<>();
-            this.menuView.saveHierarchyState(sparseArray);
-            bundle.putSparseParcelableArray("android:menu:list", sparseArray);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            Bundle bundle = new Bundle();
+            if (this.menuView != null) {
+                SparseArray<Parcelable> sparseArray = new SparseArray<>();
+                this.menuView.saveHierarchyState(sparseArray);
+                bundle.putSparseParcelableArray("android:menu:list", sparseArray);
+            }
+            NavigationMenuAdapter navigationMenuAdapter = this.adapter;
+            if (navigationMenuAdapter != null) {
+                bundle.putBundle(STATE_ADAPTER, navigationMenuAdapter.createInstanceState());
+            }
+            if (this.headerLayout != null) {
+                SparseArray<? extends Parcelable> sparseArray2 = new SparseArray<>();
+                this.headerLayout.saveHierarchyState(sparseArray2);
+                bundle.putSparseParcelableArray(STATE_HEADER, sparseArray2);
+            }
+            return bundle;
         }
-        NavigationMenuAdapter navigationMenuAdapter = this.adapter;
-        if (navigationMenuAdapter != null) {
-            bundle.putBundle(STATE_ADAPTER, navigationMenuAdapter.createInstanceState());
-        }
-        if (this.headerLayout != null) {
-            SparseArray<? extends Parcelable> sparseArray2 = new SparseArray<>();
-            this.headerLayout.saveHierarchyState(sparseArray2);
-            bundle.putSparseParcelableArray(STATE_HEADER, sparseArray2);
-        }
-        return bundle;
+        return (Parcelable) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean onSubMenuSelected(SubMenuBuilder subMenuBuilder) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, subMenuBuilder)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public void removeHeaderView(@NonNull View view) {
-        this.headerLayout.removeView(view);
-        if (this.headerLayout.getChildCount() == 0) {
-            NavigationMenuView navigationMenuView = this.menuView;
-            navigationMenuView.setPadding(0, this.paddingTopDefault, 0, navigationMenuView.getPaddingBottom());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, view) == null) {
+            this.headerLayout.removeView(view);
+            if (this.headerLayout.getChildCount() == 0) {
+                NavigationMenuView navigationMenuView = this.menuView;
+                navigationMenuView.setPadding(0, this.paddingTopDefault, 0, navigationMenuView.getPaddingBottom());
+            }
         }
     }
 
     public void setBehindStatusBar(boolean z) {
-        if (this.isBehindStatusBar != z) {
-            this.isBehindStatusBar = z;
-            updateTopPadding();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || this.isBehindStatusBar == z) {
+            return;
         }
+        this.isBehindStatusBar = z;
+        updateTopPadding();
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void setCallback(MenuPresenter.Callback callback) {
-        this.callback = callback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, callback) == null) {
+            this.callback = callback;
+        }
     }
 
     public void setCheckedItem(@NonNull MenuItemImpl menuItemImpl) {
-        this.adapter.setCheckedItem(menuItemImpl);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, menuItemImpl) == null) {
+            this.adapter.setCheckedItem(menuItemImpl);
+        }
     }
 
     public void setId(int i2) {
-        this.id = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
+            this.id = i2;
+        }
     }
 
     public void setItemBackground(@Nullable Drawable drawable) {
-        this.itemBackground = drawable;
-        updateMenuView(false);
-    }
-
-    public void setItemHorizontalPadding(int i2) {
-        this.itemHorizontalPadding = i2;
-        updateMenuView(false);
-    }
-
-    public void setItemIconPadding(int i2) {
-        this.itemIconPadding = i2;
-        updateMenuView(false);
-    }
-
-    public void setItemIconSize(@Dimension int i2) {
-        if (this.itemIconSize != i2) {
-            this.itemIconSize = i2;
-            this.hasCustomItemIconSize = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, drawable) == null) {
+            this.itemBackground = drawable;
             updateMenuView(false);
         }
     }
 
-    public void setItemIconTintList(@Nullable ColorStateList colorStateList) {
-        this.iconTintList = colorStateList;
+    public void setItemHorizontalPadding(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
+            this.itemHorizontalPadding = i2;
+            updateMenuView(false);
+        }
+    }
+
+    public void setItemIconPadding(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+            this.itemIconPadding = i2;
+            updateMenuView(false);
+        }
+    }
+
+    public void setItemIconSize(@Dimension int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048607, this, i2) == null) || this.itemIconSize == i2) {
+            return;
+        }
+        this.itemIconSize = i2;
+        this.hasCustomItemIconSize = true;
         updateMenuView(false);
+    }
+
+    public void setItemIconTintList(@Nullable ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, colorStateList) == null) {
+            this.iconTintList = colorStateList;
+            updateMenuView(false);
+        }
     }
 
     public void setItemMaxLines(int i2) {
-        this.itemMaxLines = i2;
-        updateMenuView(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+            this.itemMaxLines = i2;
+            updateMenuView(false);
+        }
     }
 
     public void setItemTextAppearance(@StyleRes int i2) {
-        this.textAppearance = i2;
-        this.textAppearanceSet = true;
-        updateMenuView(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
+            this.textAppearance = i2;
+            this.textAppearanceSet = true;
+            updateMenuView(false);
+        }
     }
 
     public void setItemTextColor(@Nullable ColorStateList colorStateList) {
-        this.textColor = colorStateList;
-        updateMenuView(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, colorStateList) == null) {
+            this.textColor = colorStateList;
+            updateMenuView(false);
+        }
     }
 
     public void setOverScrollMode(int i2) {
-        this.overScrollMode = i2;
-        NavigationMenuView navigationMenuView = this.menuView;
-        if (navigationMenuView != null) {
-            navigationMenuView.setOverScrollMode(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            this.overScrollMode = i2;
+            NavigationMenuView navigationMenuView = this.menuView;
+            if (navigationMenuView != null) {
+                navigationMenuView.setOverScrollMode(i2);
+            }
         }
     }
 
     public void setUpdateSuspended(boolean z) {
-        NavigationMenuAdapter navigationMenuAdapter = this.adapter;
-        if (navigationMenuAdapter != null) {
-            navigationMenuAdapter.setUpdateSuspended(z);
+        NavigationMenuAdapter navigationMenuAdapter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048613, this, z) == null) || (navigationMenuAdapter = this.adapter) == null) {
+            return;
         }
+        navigationMenuAdapter.setUpdateSuspended(z);
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void updateMenuView(boolean z) {
-        NavigationMenuAdapter navigationMenuAdapter = this.adapter;
-        if (navigationMenuAdapter != null) {
-            navigationMenuAdapter.update();
+        NavigationMenuAdapter navigationMenuAdapter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048614, this, z) == null) || (navigationMenuAdapter = this.adapter) == null) {
+            return;
         }
+        navigationMenuAdapter.update();
     }
 }

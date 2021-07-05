@@ -5,18 +5,26 @@ import android.os.Looper;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class h implements com.kwad.sdk.core.webview.a.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f35094a = new Handler(Looper.getMainLooper());
+    public Handler f36857a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f35095b;
+    public a f36858b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f35096c;
+    public com.kwad.sdk.core.webview.a.c f36859c;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -25,41 +33,93 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     }
 
     public h(a aVar) {
-        this.f35095b = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f36858b = aVar;
+        this.f36857a = new Handler(Looper.getMainLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        a aVar = this.f35095b;
-        if (aVar != null) {
-            aVar.a();
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (aVar = this.f36858b) == null) {
+            return;
         }
+        aVar.a();
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     @NonNull
     public String a() {
-        return "hide";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "hide" : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.f35096c = cVar;
-        this.f35094a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.h.1
-            @Override // java.lang.Runnable
-            public void run() {
-                h.this.c();
-                if (h.this.f35096c != null) {
-                    h.this.f35096c.a(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
+            this.f36859c = cVar;
+            this.f36857a.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.h.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ h f36860a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f36860a = this;
                 }
-            }
-        });
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f36860a.c();
+                        if (this.f36860a.f36859c != null) {
+                            this.f36860a.f36859c.a(null);
+                        }
+                    }
+                }
+            });
+        }
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f35095b = null;
-        this.f35096c = null;
-        this.f35094a.removeCallbacksAndMessages(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f36858b = null;
+            this.f36859c = null;
+            this.f36857a.removeCallbacksAndMessages(null);
+        }
     }
 }

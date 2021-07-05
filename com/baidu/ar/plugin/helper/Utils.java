@@ -2,6 +2,14 @@ package com.baidu.ar.plugin.helper;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -14,15 +22,51 @@ import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class Utils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM = "MD5";
-    public static final Pattern ANDROID_DATA_PATTERN = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
-    public static final char[] HEX = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final Pattern ANDROID_DATA_PATTERN;
+    public static final char[] HEX;
     public static final String VALID_JAVA_IDENTIFIER = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-571511361, "Lcom/baidu/ar/plugin/helper/Utils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-571511361, "Lcom/baidu/ar/plugin/helper/Utils;");
+                return;
+            }
+        }
+        ANDROID_DATA_PATTERN = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
+        HEX = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    }
+
+    public Utils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static void copyFile(String str, String str2, boolean z, Context context) {
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
-        BufferedOutputStream bufferedOutputStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, str2, Boolean.valueOf(z), context}) != null) {
+            return;
+        }
         BufferedInputStream bufferedInputStream2 = null;
         try {
             if (z) {
@@ -31,85 +75,106 @@ public class Utils {
                 bufferedInputStream = new BufferedInputStream(new FileInputStream(str));
             }
             try {
-                bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(str2));
-            } catch (Throwable th) {
-                th = th;
+                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(str2));
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = bufferedInputStream.read(bArr);
+                        if (read != -1) {
+                            bufferedOutputStream2.write(bArr, 0, read);
+                        } else {
+                            try {
+                                break;
+                            } catch (Exception unused) {
+                            }
+                        }
+                    }
+                    bufferedInputStream.close();
+                    try {
+                        bufferedOutputStream2.close();
+                    } catch (Exception unused2) {
+                    }
+                } catch (Throwable th) {
+                    bufferedInputStream2 = bufferedInputStream;
+                    bufferedOutputStream = bufferedOutputStream2;
+                    th = th;
+                    if (bufferedInputStream2 != null) {
+                        try {
+                            bufferedInputStream2.close();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    if (bufferedOutputStream != null) {
+                        try {
+                            bufferedOutputStream.close();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
                 bufferedOutputStream = null;
                 bufferedInputStream2 = bufferedInputStream;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedOutputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[8192];
-            while (true) {
-                int read = bufferedInputStream.read(bArr);
-                if (read != -1) {
-                    bufferedOutputStream2.write(bArr, 0, read);
-                } else {
-                    try {
-                        break;
-                    } catch (Exception unused) {
-                    }
-                }
-            }
-            bufferedInputStream.close();
-            try {
-                bufferedOutputStream2.close();
-            } catch (Exception unused2) {
-            }
         } catch (Throwable th3) {
-            bufferedInputStream2 = bufferedInputStream;
-            bufferedOutputStream = bufferedOutputStream2;
             th = th3;
-            if (bufferedInputStream2 != null) {
-                try {
-                    bufferedInputStream2.close();
-                } catch (Exception unused3) {
-                }
-            }
-            if (bufferedOutputStream != null) {
-                try {
-                    bufferedOutputStream.close();
-                } catch (Exception unused4) {
-                }
-            }
-            throw th;
+            bufferedOutputStream = null;
         }
     }
 
     public static void deleteDir(String str) {
-        deleteFile(new File(str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            deleteFile(new File(str));
+        }
     }
 
     public static void deleteFile(File file) {
-        if (file.isDirectory()) {
-            for (File file2 : file.listFiles()) {
-                deleteFile(file2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, file) == null) {
+            if (file.isDirectory()) {
+                for (File file2 : file.listFiles()) {
+                    deleteFile(file2);
+                }
             }
+            file.delete();
         }
-        file.delete();
     }
 
     public static String getProcessName(Context context, int i2) {
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-            if (runningAppProcessInfo != null && runningAppProcessInfo.pid == i2) {
-                return runningAppProcessInfo.processName;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2)) == null) {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == i2) {
+                    return runningAppProcessInfo.processName;
+                }
             }
+            return null;
         }
-        return null;
+        return (String) invokeLI.objValue;
     }
 
     public static String md5(byte[] bArr) {
-        try {
-            return toHex(MessageDigest.getInstance("MD5").digest(bArr));
-        } catch (NoSuchAlgorithmException unused) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) {
+            try {
+                return toHex(MessageDigest.getInstance("MD5").digest(bArr));
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public static byte[] readFromFile(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, file)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
         FileInputStream fileInputStream = null;
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -147,42 +212,52 @@ public class Utils {
     }
 
     public static String toHex(byte[] bArr) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            sb.append(HEX[(b2 & 240) >> 4]);
-            sb.append(HEX[b2 & 15]);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : bArr) {
+                sb.append(HEX[(b2 & 240) >> 4]);
+                sb.append(HEX[b2 & 15]);
+            }
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeL.objValue;
     }
 
     public static boolean validateJavaIdentifier(String str) {
-        return ANDROID_DATA_PATTERN.matcher(str).matches();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? ANDROID_DATA_PATTERN.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void writeToFile(File file, byte[] bArr) {
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            fileOutputStream = new FileOutputStream(file);
-        } catch (Throwable th) {
-            th = th;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65546, null, file, bArr) != null) {
+            return;
         }
+        FileOutputStream fileOutputStream = null;
         try {
-            fileOutputStream.write(bArr);
+            FileOutputStream fileOutputStream2 = new FileOutputStream(file);
             try {
-                fileOutputStream.close();
-            } catch (IOException unused) {
+                fileOutputStream2.write(bArr);
+                try {
+                    fileOutputStream2.close();
+                } catch (IOException unused) {
+                }
+            } catch (Throwable th) {
+                th = th;
+                fileOutputStream = fileOutputStream2;
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException unused2) {
+                    }
+                }
+                throw th;
             }
         } catch (Throwable th2) {
             th = th2;
-            fileOutputStream2 = fileOutputStream;
-            if (fileOutputStream2 != null) {
-                try {
-                    fileOutputStream2.close();
-                } catch (IOException unused2) {
-                }
-            }
-            throw th;
         }
     }
 }

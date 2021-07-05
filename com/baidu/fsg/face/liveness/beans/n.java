@@ -2,7 +2,9 @@ package com.baidu.fsg.face.liveness.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
@@ -14,132 +16,194 @@ import com.baidu.fsg.base.utils.SafeUtils;
 import com.baidu.fsg.face.liveness.datamodel.VideoFaceMatchModel;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.NetworkBean;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n extends l {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5923b;
+    public String f5953b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5924c;
+    public String f5954c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5925d;
+    public String f5955d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5926e;
+    public String f5956e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LivenessRecogDTO f5927f;
+    public LivenessRecogDTO f5957f;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         String zid2 = RimGlobalUtils.getZid2();
-        this.f5925d = zid2;
+        this.f5955d = zid2;
         if (TextUtils.isEmpty(zid2)) {
-            this.f5924c = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.f5954c = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
     public void a(LivenessRecogDTO livenessRecogDTO) {
-        this.f5927f = livenessRecogDTO;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, livenessRecogDTO) == null) {
+            this.f5957f = livenessRecogDTO;
+        }
     }
 
     public void b(String str) {
-        this.f5926e = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f5956e = str;
+        }
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public void execBean() {
-        execBean(VideoFaceMatchModel.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            execBean(VideoFaceMatchModel.class);
+        }
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
-        ArrayList arrayList = new ArrayList();
-        LivenessRecogDTO livenessRecogDTO = this.f5927f;
-        if (livenessRecogDTO != null) {
-            setSpParameter(livenessRecogDTO.spParams);
-            arrayList.add(new RestNameValuePair("processid", this.f5927f.processid));
-            LivenessRecogType livenessRecogType = this.f5927f.livenessType;
-            if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
-                arrayList.add(new RestNameValuePair("type", "bduss"));
-                arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
-            } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
-                arrayList.add(new RestNameValuePair("type", "certinfo"));
-                arrayList.add(new RestNameValuePair("exuid", this.f5927f.exUid));
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("name", this.f5927f.realName);
-                    jSONObject.put("cert", this.f5927f.idCardNum);
-                    jSONObject.put("bankmobile", this.f5927f.phoneNum);
-                    arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt("phone_number", jSONObject.toString())));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            LivenessRecogDTO livenessRecogDTO = this.f5957f;
+            if (livenessRecogDTO != null) {
+                setSpParameter(livenessRecogDTO.spParams);
+                arrayList.add(new RestNameValuePair("processid", this.f5957f.processid));
+                LivenessRecogType livenessRecogType = this.f5957f.livenessType;
+                if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
+                    arrayList.add(new RestNameValuePair("type", "bduss"));
+                    arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
+                } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
+                    arrayList.add(new RestNameValuePair("type", "certinfo"));
+                    arrayList.add(new RestNameValuePair("exuid", this.f5957f.exUid));
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("name", this.f5957f.realName);
+                        jSONObject.put("cert", this.f5957f.idCardNum);
+                        jSONObject.put("bankmobile", this.f5957f.phoneNum);
+                        arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt("phone_number", jSONObject.toString())));
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
+                    arrayList.add(new RestNameValuePair("type", "authtoken"));
+                    arrayList.add(new RestNameValuePair("authtoken", this.f5957f.authToken));
+                } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER) {
+                    arrayList.add(new RestNameValuePair("type", "outer"));
+                    arrayList.add(new RestNameValuePair("exuid", this.f5957f.exUid));
                 }
-            } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
-                arrayList.add(new RestNameValuePair("type", "authtoken"));
-                arrayList.add(new RestNameValuePair("authtoken", this.f5927f.authToken));
-            } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER) {
-                arrayList.add(new RestNameValuePair("type", "outer"));
-                arrayList.add(new RestNameValuePair("exuid", this.f5927f.exUid));
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5957f.serviceType));
             }
-            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5927f.serviceType));
+            String randomString = RandomUtils.getRandomString(4096);
+            arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
+            try {
+                arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f5945a, randomString).getBytes("UTF-8"))));
+            } catch (UnsupportedEncodingException e3) {
+                e3.printStackTrace();
+            }
+            arrayList.add(new RestNameValuePair("imgdigests", this.f5953b));
+            if (!TextUtils.isEmpty(this.f5955d)) {
+                arrayList.add(new RestNameValuePair("zid2", this.f5955d));
+            } else if (!TextUtils.isEmpty(this.f5954c)) {
+                arrayList.add(new RestNameValuePair("zid", this.f5954c));
+            }
+            if (!TextUtils.isEmpty(this.f5956e)) {
+                arrayList.add(new RestNameValuePair("reqTimes", this.f5956e));
+            }
+            return arrayList;
         }
-        String randomString = RandomUtils.getRandomString(4096);
-        arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-        try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f5915a, randomString).getBytes("UTF-8"))));
-        } catch (UnsupportedEncodingException e3) {
-            e3.printStackTrace();
-        }
-        arrayList.add(new RestNameValuePair("imgdigests", this.f5923b));
-        if (!TextUtils.isEmpty(this.f5925d)) {
-            arrayList.add(new RestNameValuePair("zid2", this.f5925d));
-        } else if (!TextUtils.isEmpty(this.f5924c)) {
-            arrayList.add(new RestNameValuePair("zid", this.f5924c));
-        }
-        if (!TextUtils.isEmpty(this.f5926e)) {
-            arrayList.add(new RestNameValuePair("reqTimes", this.f5926e));
-        }
-        return arrayList;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public int getBeanId() {
-        return 10;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f.v;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f.v;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.BaseBean
     public boolean needCheckClientSign() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public Class<?> responseClass() {
-        return VideoFaceMatchModel.class;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? VideoFaceMatchModel.class : (Class) invokeV.objValue;
     }
 
     public void a(String str) {
-        this.f5923b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f5953b = str;
+        }
     }
 
     private String a() {
-        StringBuilder sb = new StringBuilder();
-        if (this.f5927f != null) {
-            sb.append("bduss=" + this.f5927f.bduss);
-            sb.append(";stoken=" + this.f5927f.stoken);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (this.f5957f != null) {
+                sb.append("bduss=" + this.f5957f.bduss);
+                sb.append(";stoken=" + this.f5957f.stoken);
+            }
+            return PayUtils.encrypt("phone_number", sb.toString());
         }
-        return PayUtils.encrypt("phone_number", sb.toString());
+        return (String) invokeV.objValue;
     }
 }

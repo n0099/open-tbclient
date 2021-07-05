@@ -2,6 +2,12 @@ package com.xiaomi.push.service;
 
 import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.cq;
 import com.xiaomi.push.dt;
 import com.xiaomi.push.gx;
@@ -14,21 +20,46 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ag {
-
-    /* renamed from: a  reason: collision with other field name */
-    public static final Pattern f883a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f41826a = 0;
+    public static long f43569a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f882a = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    public static ThreadPoolExecutor f885a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final Pattern f886a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1071162240, "Lcom/xiaomi/push/service/ag;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1071162240, "Lcom/xiaomi/push/service/ag;");
+                return;
+            }
+        }
+        f886a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
+        f43569a = 0L;
+        f885a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    }
 
     public static String a(String str) {
+        InterceptResult invokeL;
         BufferedReader bufferedReader;
         Throwable th;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
         try {
             bufferedReader = new BufferedReader(new FileReader(new File(str)));
             try {
@@ -60,46 +91,60 @@ public class ag {
     }
 
     public static void a() {
-        dt.a m602a;
-        long currentTimeMillis = System.currentTimeMillis();
-        if ((f882a.getActiveCount() <= 0 || currentTimeMillis - f41826a >= 1800000) && gx.m349a().m354a() && (m602a = bi.a().m602a()) != null && m602a.e() > 0) {
-            f41826a = currentTimeMillis;
-            a(m602a.a(), true);
+        dt.a m616a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if ((f885a.getActiveCount() <= 0 || currentTimeMillis - f43569a >= 1800000) && gx.m363a().m368a() && (m616a = bi.a().m616a()) != null && m616a.e() > 0) {
+                f43569a = currentTimeMillis;
+                a(m616a.a(), true);
+            }
         }
     }
 
     public static void a(List<String> list, boolean z) {
-        f882a.execute(new ah(list, z));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, list, z) == null) {
+            f885a.execute(new ah(list, z));
+        }
     }
 
     public static void b() {
-        String a2 = a("/proc/self/net/tcp");
-        if (!TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("dump tcp for uid = " + Process.myUid());
-            com.xiaomi.channel.commonutils.logger.b.m56a(a2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            String a2 = a("/proc/self/net/tcp");
+            if (!TextUtils.isEmpty(a2)) {
+                com.xiaomi.channel.commonutils.logger.b.m70a("dump tcp for uid = " + Process.myUid());
+                com.xiaomi.channel.commonutils.logger.b.m70a(a2);
+            }
+            String a3 = a("/proc/self/net/tcp6");
+            if (TextUtils.isEmpty(a3)) {
+                return;
+            }
+            com.xiaomi.channel.commonutils.logger.b.m70a("dump tcp6 for uid = " + Process.myUid());
+            com.xiaomi.channel.commonutils.logger.b.m70a(a3);
         }
-        String a3 = a("/proc/self/net/tcp6");
-        if (TextUtils.isEmpty(a3)) {
-            return;
-        }
-        com.xiaomi.channel.commonutils.logger.b.m56a("dump tcp6 for uid = " + Process.myUid());
-        com.xiaomi.channel.commonutils.logger.b.m56a(a3);
     }
 
     public static boolean b(String str) {
-        long currentTimeMillis = System.currentTimeMillis();
-        try {
-            com.xiaomi.channel.commonutils.logger.b.m56a("ConnectivityTest: begin to connect to " + str);
-            Socket socket = new Socket();
-            socket.connect(cq.m212a(str, 5222), 5000);
-            socket.setTcpNoDelay(true);
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            com.xiaomi.channel.commonutils.logger.b.m56a("ConnectivityTest: connect to " + str + " in " + currentTimeMillis2);
-            socket.close();
-            return true;
-        } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.d("ConnectivityTest: could not connect to:" + str + " exception: " + th.getClass().getSimpleName() + " description: " + th.getMessage());
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                com.xiaomi.channel.commonutils.logger.b.m70a("ConnectivityTest: begin to connect to " + str);
+                Socket socket = new Socket();
+                socket.connect(cq.m226a(str, 5222), 5000);
+                socket.setTcpNoDelay(true);
+                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                com.xiaomi.channel.commonutils.logger.b.m70a("ConnectivityTest: connect to " + str + " in " + currentTimeMillis2);
+                socket.close();
+                return true;
+            } catch (Throwable th) {
+                com.xiaomi.channel.commonutils.logger.b.d("ConnectivityTest: could not connect to:" + str + " exception: " + th.getClass().getSimpleName() + " description: " + th.getMessage());
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 }

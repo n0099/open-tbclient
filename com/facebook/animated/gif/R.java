@@ -1,9 +1,20 @@
 package com.facebook.animated.gif;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public final class R {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
     public static final class attr {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int actualImageResource = 0x7f040024;
         public static final int actualImageScaleType = 0x7f040025;
         public static final int actualImageUri = 0x7f040026;
@@ -34,26 +45,59 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
-        public static final int svgImage = 0x7f040507;
+        public static final int svgImage = 0x7f04052b;
         public static final int viewAspectRatio = 0x7f040489;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public attr() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes6.dex */
     public static final class id {
-        public static final int center = 0x7f090682;
-        public static final int centerCrop = 0x7f090686;
-        public static final int centerInside = 0x7f090687;
-        public static final int fitBottomStart = 0x7f090b63;
-        public static final int fitCenter = 0x7f090b64;
-        public static final int fitEnd = 0x7f090b65;
-        public static final int fitStart = 0x7f090b66;
-        public static final int fitXY = 0x7f090b68;
-        public static final int focusCrop = 0x7f090b91;
-        public static final int none = 0x7f09175b;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int center = 0x7f0906b0;
+        public static final int centerCrop = 0x7f0906b4;
+        public static final int centerInside = 0x7f0906b5;
+        public static final int fitBottomStart = 0x7f090bb7;
+        public static final int fitCenter = 0x7f090bb8;
+        public static final int fitEnd = 0x7f090bb9;
+        public static final int fitStart = 0x7f090bba;
+        public static final int fitXY = 0x7f090bbc;
+        public static final int focusCrop = 0x7f090be7;
+        public static final int none = 0x7f0917e3;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public id() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes6.dex */
     public static final class styleable {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int[] GenericDraweeHierarchy;
         public static final int GenericDraweeHierarchy_actualImageScaleType = 0x00000000;
         public static final int GenericDraweeHierarchy_backgroundImage = 0x00000001;
         public static final int GenericDraweeHierarchy_fadeDuration = 0x00000002;
@@ -83,6 +127,7 @@ public final class R {
         public static final int GenericDraweeHierarchy_roundingBorderPadding = 0x0000001a;
         public static final int GenericDraweeHierarchy_roundingBorderWidth = 0x0000001b;
         public static final int GenericDraweeHierarchy_viewAspectRatio = 0x0000001c;
+        public static final int[] SimpleDraweeView;
         public static final int SimpleDraweeView_actualImageResource = 0x00000000;
         public static final int SimpleDraweeView_actualImageScaleType = 0x00000001;
         public static final int SimpleDraweeView_actualImageUri = 0x00000002;
@@ -115,7 +160,51 @@ public final class R {
         public static final int SimpleDraweeView_roundingBorderWidth = 0x0000001d;
         public static final int SimpleDraweeView_svgImage = 0x0000001f;
         public static final int SimpleDraweeView_viewAspectRatio = 0x0000001e;
-        public static final int[] GenericDraweeHierarchy = {com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.viewAspectRatio};
-        public static final int[] SimpleDraweeView = {com.baidu.tieba.R.attr.actualImageResource, com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.actualImageUri, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.viewAspectRatio, com.baidu.tieba.R.attr.svgImage};
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1817068170, "Lcom/facebook/animated/gif/R$styleable;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1817068170, "Lcom/facebook/animated/gif/R$styleable;");
+                    return;
+                }
+            }
+            GenericDraweeHierarchy = new int[]{com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.viewAspectRatio};
+            SimpleDraweeView = new int[]{com.baidu.tieba.R.attr.actualImageResource, com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.actualImageUri, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.viewAspectRatio, com.baidu.tieba.R.attr.svgImage};
+        }
+
+        public styleable() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    public R() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

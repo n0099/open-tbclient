@@ -3,7 +3,7 @@ package org.apache.http.client.methods;
 import java.net.URI;
 import org.apache.http.HttpRequest;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface HttpUriRequest extends HttpRequest {
     void abort() throws UnsupportedOperationException;
 

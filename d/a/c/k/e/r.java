@@ -1,9 +1,9 @@
 package d.a.c.k.e;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public interface r<T> extends o<T> {
-    int a(int i2, int i3);
+    int b(int i2, int i3);
 
-    a<n, TypeAdapter.ViewHolder> b(n nVar);
+    a<n, TypeAdapter.ViewHolder> c(n nVar);
 }

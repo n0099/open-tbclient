@@ -9,63 +9,129 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
 /* loaded from: classes6.dex */
 public final class CSJNativeAdLargeVideoView extends b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f30811f;
+    public FrameLayout f32582f;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdLargeVideoView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdLargeVideoView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdLargeVideoView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // a.a.a.a.u.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
-        super.a(activity, tTNativeAd, adInteractionListener);
-        View adView = tTNativeAd.getAdView();
-        if (adView != null && adView.getParent() != null) {
-            ((ViewGroup) adView.getParent()).removeView(adView);
-        }
-        if (adView != null) {
-            if (tTNativeAd instanceof TTFeedAd) {
-                TTFeedAd tTFeedAd = (TTFeedAd) tTNativeAd;
-                int adViewHeight = tTFeedAd.getAdViewHeight();
-                int adViewWidth = tTFeedAd.getAdViewWidth();
-                ViewGroup.LayoutParams layoutParams = this.f30811f.getLayoutParams();
-                layoutParams.width = adViewWidth;
-                layoutParams.height = adViewHeight;
-                this.f30811f.setLayoutParams(layoutParams);
-                this.f30811f.requestLayout();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, tTNativeAd, adInteractionListener) == null) {
+            super.a(activity, tTNativeAd, adInteractionListener);
+            View adView = tTNativeAd.getAdView();
+            if (adView != null && adView.getParent() != null) {
+                ((ViewGroup) adView.getParent()).removeView(adView);
             }
-            this.f30811f.removeAllViews();
-            this.f30811f.addView(adView);
+            if (adView != null) {
+                if (tTNativeAd instanceof TTFeedAd) {
+                    TTFeedAd tTFeedAd = (TTFeedAd) tTNativeAd;
+                    int adViewHeight = tTFeedAd.getAdViewHeight();
+                    int adViewWidth = tTFeedAd.getAdViewWidth();
+                    ViewGroup.LayoutParams layoutParams = this.f32582f.getLayoutParams();
+                    layoutParams.width = adViewWidth;
+                    layoutParams.height = adViewHeight;
+                    this.f32582f.setLayoutParams(layoutParams);
+                    this.f32582f.requestLayout();
+                }
+                this.f32582f.removeAllViews();
+                this.f32582f.addView(adView);
+            }
         }
     }
 
     @Override // a.a.a.a.u.b.a.b, android.view.View
     public void onFinishInflate() {
-        super.onFinishInflate();
-        this.f30811f = (FrameLayout) findViewById(R.id.ad_video);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onFinishInflate();
+            this.f32582f = (FrameLayout) findViewById(R.id.ad_video);
+        }
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30811f.getLayoutParams();
-        int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-        layoutParams.width = i6;
-        layoutParams.height = (int) (i6 / 1.78f);
-        this.f30811f.setLayoutParams(layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32582f.getLayoutParams();
+            int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
+            layoutParams.width = i6;
+            layoutParams.height = (int) (i6 / 1.78f);
+            this.f32582f.setLayoutParams(layoutParams);
+        }
     }
 }

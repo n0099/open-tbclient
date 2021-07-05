@@ -16,78 +16,113 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.f;
+import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.q;
 import com.bytedance.sdk.openadsdk.multipro.b;
-import com.bytedance.sdk.openadsdk.utils.ac;
-import com.bytedance.sdk.openadsdk.utils.l;
-import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class GifView extends ImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Movie f28881a;
+    public Movie f30774a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28882b;
+    public long f30775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28883c;
+    public int f30776c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AnimatedImageDrawable f28884d;
+    public AnimatedImageDrawable f30777d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28885e;
+    public boolean f30778e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28886f;
+    public boolean f30779f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f28887g;
+    public float f30780g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f28888h;
+    public float f30781h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f28889i;
+    public float f30782i;
     public int j;
     public int k;
     public volatile boolean l;
     public boolean m;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GifView(Context context) {
         super(context);
-        this.f28885e = Build.VERSION.SDK_INT >= 28;
-        this.f28886f = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f30778e = Build.VERSION.SDK_INT >= 28;
+        this.f30779f = false;
         this.m = true;
         a();
     }
 
     @TargetApi(28)
     private AnimatedImageDrawable b(byte[] bArr) {
-        ImageDecoder.Source source = null;
-        if (bArr == null) {
-            return null;
-        }
-        if (this.f28886f) {
-            try {
-                source = (ImageDecoder.Source) ImageDecoder.class.getMethod("createSource", Resources.class, InputStream.class).invoke(null, getResources(), new ByteArrayInputStream(bArr));
-            } catch (Throwable th) {
-                u.c("GifView", "GifView android P  : Use Reflection fail : ", th);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, bArr)) == null) {
+            ImageDecoder.Source source = null;
+            if (bArr == null) {
+                return null;
             }
+            if (this.f30779f) {
+                try {
+                    source = (ImageDecoder.Source) ImageDecoder.class.getMethod("createSource", Resources.class, InputStream.class).invoke(null, getResources(), new ByteArrayInputStream(bArr));
+                } catch (Throwable th) {
+                    j.c("GifView", "GifView android P  : Use Reflection fail : ", th);
+                }
+            }
+            if (source == null) {
+                source = c(bArr);
+            }
+            return a(source);
         }
-        if (source == null) {
-            source = c(bArr);
-        }
-        return a(source);
+        return (AnimatedImageDrawable) invokeL.objValue;
     }
 
     @RequiresApi(api = 28)
     private ImageDecoder.Source c(byte[] bArr) {
+        InterceptResult invokeL;
         FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65546, this, bArr)) != null) {
+            return (ImageDecoder.Source) invokeL.objValue;
+        }
         try {
             File a2 = a(getContext(), b.b() ? "GIF_AD_CACHE/" : "/GIF_CACHE/", "TT_GIF_FILE");
             fileOutputStream = new FileOutputStream(a2);
@@ -102,7 +137,7 @@ public class GifView extends ImageView {
             } catch (Throwable th) {
                 th = th;
                 try {
-                    u.c("GifView", "GifView  getSourceByFile fail : ", th);
+                    j.c("GifView", "GifView  getSourceByFile fail : ", th);
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
@@ -127,42 +162,51 @@ public class GifView extends ImageView {
     }
 
     public void a() {
-        if (!this.f28885e) {
-            setLayerType(1, null);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.f30778e) {
+                setLayerType(1, null);
+                return;
+            }
+            this.f30779f = q.a();
+            j.b("GifView", "android p 反射解锁：exempt result: " + this.f30779f);
         }
-        this.f28886f = ac.a();
-        u.b("GifView", "android p 反射解锁：exempt result: " + this.f28886f);
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.f28881a != null && !this.f28885e) {
-            try {
-                if (!this.l) {
-                    c();
-                    a(canvas);
-                    b();
-                } else {
-                    a(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            if (this.f30774a != null && !this.f30778e) {
+                try {
+                    if (!this.l) {
+                        c();
+                        a(canvas);
+                        b();
+                    } else {
+                        a(canvas);
+                    }
+                    return;
+                } catch (Throwable th) {
+                    j.c("GifView", "onDraw->Throwable->", th);
+                    return;
                 }
-                return;
-            } catch (Throwable th) {
-                u.c("GifView", "onDraw->Throwable->", th);
-                return;
             }
+            super.onDraw(canvas);
         }
-        super.onDraw(canvas);
     }
 
     @Override // android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
-        if (this.f28881a != null && !this.f28885e) {
-            this.f28887g = (getWidth() - this.j) / 2.0f;
-            this.f28888h = (getHeight() - this.k) / 2.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            if (this.f30774a != null && !this.f30778e) {
+                this.f30780g = (getWidth() - this.j) / 2.0f;
+                this.f30781h = (getHeight() - this.k) / 2.0f;
+            }
+            this.m = getVisibility() == 0;
         }
-        this.m = getVisibility() == 0;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -170,71 +214,104 @@ public class GifView extends ImageView {
         Movie movie;
         int size;
         int size2;
-        super.onMeasure(i2, i3);
-        if (this.f28885e || (movie = this.f28881a) == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            if (this.f30778e || (movie = this.f30774a) == null) {
+                return;
+            }
+            int width = movie.width();
+            int height = this.f30774a.height();
+            float max = 1.0f / Math.max((View.MeasureSpec.getMode(i2) == 0 || width <= (size2 = View.MeasureSpec.getSize(i2))) ? 1.0f : width / size2, (View.MeasureSpec.getMode(i3) == 0 || height <= (size = View.MeasureSpec.getSize(i3))) ? 1.0f : height / size);
+            this.f30782i = max;
+            int i4 = (int) (width * max);
+            this.j = i4;
+            int i5 = (int) (height * max);
+            this.k = i5;
+            setMeasuredDimension(i4, i5);
         }
-        int width = movie.width();
-        int height = this.f28881a.height();
-        float max = 1.0f / Math.max((View.MeasureSpec.getMode(i2) == 0 || width <= (size2 = View.MeasureSpec.getSize(i2))) ? 1.0f : width / size2, (View.MeasureSpec.getMode(i3) == 0 || height <= (size = View.MeasureSpec.getSize(i3))) ? 1.0f : height / size);
-        this.f28889i = max;
-        int i4 = (int) (width * max);
-        this.j = i4;
-        int i5 = (int) (height * max);
-        this.k = i5;
-        setMeasuredDimension(i4, i5);
     }
 
     @Override // android.view.View
     @SuppressLint({"NewApi"})
     public void onScreenStateChanged(int i2) {
-        super.onScreenStateChanged(i2);
-        if (this.f28881a != null) {
-            this.m = i2 == 1;
-            b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            super.onScreenStateChanged(i2);
+            if (this.f30774a != null) {
+                this.m = i2 == 1;
+                b();
+            }
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"NewApi"})
     public void onVisibilityChanged(View view, int i2) {
-        super.onVisibilityChanged(view, i2);
-        if (this.f28881a != null) {
-            this.m = i2 == 0;
-            b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, view, i2) == null) {
+            super.onVisibilityChanged(view, i2);
+            if (this.f30774a != null) {
+                this.m = i2 == 0;
+                b();
+            }
         }
     }
 
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
-        super.onWindowVisibilityChanged(i2);
-        if (this.f28881a != null) {
-            this.m = i2 == 0;
-            b();
-        }
-    }
-
-    public void a(byte[] bArr, boolean z) {
-        this.l = z;
-        if (bArr != null) {
-            if (!this.f28885e) {
-                this.f28881a = a(bArr);
-            } else {
-                this.f28884d = b(bArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            super.onWindowVisibilityChanged(i2);
+            if (this.f30774a != null) {
+                this.m = i2 == 0;
+                b();
             }
         }
     }
 
+    public void a(byte[] bArr, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, z) == null) {
+            this.l = z;
+            if (bArr != null) {
+                if (!this.f30778e) {
+                    this.f30774a = a(bArr);
+                } else {
+                    this.f30777d = b(bArr);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GifView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f28885e = Build.VERSION.SDK_INT >= 28;
-        this.f28886f = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f30778e = Build.VERSION.SDK_INT >= 28;
+        this.f30779f = false;
         this.m = true;
         a();
     }
 
     private void b() {
-        if (this.f28881a == null || this.f28885e || !this.m) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f30774a == null || this.f30778e || !this.m) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 16) {
@@ -245,84 +322,135 @@ public class GifView extends ImageView {
     }
 
     private Movie a(byte[] bArr) {
-        try {
-            return Movie.decodeByteArray(bArr, 0, bArr.length);
-        } catch (Throwable th) {
-            u.a("GifView", "createMovieWithByteArrayBySafely error1", th);
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, bArr)) == null) {
+            try {
+                return Movie.decodeByteArray(bArr, 0, bArr.length);
+            } catch (Throwable th) {
+                j.a("GifView", "createMovieWithByteArrayBySafely error1", th);
+                return null;
+            }
         }
+        return (Movie) invokeL.objValue;
     }
 
     private void c() {
-        if (this.f28881a == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f30774a == null) {
             return;
         }
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (this.f28882b == 0) {
-            this.f28882b = uptimeMillis;
+        if (this.f30775b == 0) {
+            this.f30775b = uptimeMillis;
         }
-        int duration = this.f28881a.duration();
+        int duration = this.f30774a.duration();
         if (duration == 0) {
             duration = 1000;
         }
-        this.f28883c = (int) ((uptimeMillis - this.f28882b) % duration);
+        this.f30776c = (int) ((uptimeMillis - this.f30775b) % duration);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GifView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f28885e = Build.VERSION.SDK_INT >= 28;
-        this.f28886f = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f30778e = Build.VERSION.SDK_INT >= 28;
+        this.f30779f = false;
         this.m = true;
         a();
     }
 
     @RequiresApi(api = 28)
     private AnimatedImageDrawable a(ImageDecoder.Source source) {
-        try {
-            Drawable decodeDrawable = ImageDecoder.decodeDrawable(source);
-            setImageDrawable(decodeDrawable);
-            if (decodeDrawable instanceof AnimatedImageDrawable) {
-                AnimatedImageDrawable animatedImageDrawable = (AnimatedImageDrawable) decodeDrawable;
-                if (!this.l) {
-                    animatedImageDrawable.start();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, source)) == null) {
+            try {
+                Drawable decodeDrawable = ImageDecoder.decodeDrawable(source);
+                setImageDrawable(decodeDrawable);
+                if (decodeDrawable instanceof AnimatedImageDrawable) {
+                    AnimatedImageDrawable animatedImageDrawable = (AnimatedImageDrawable) decodeDrawable;
+                    if (!this.l) {
+                        animatedImageDrawable.start();
+                    }
+                    return animatedImageDrawable;
                 }
-                return animatedImageDrawable;
+                return null;
+            } catch (Throwable th) {
+                j.a("GifView", "getAnimatedImageDrawable error", th);
+                return null;
             }
-            return null;
-        } catch (Throwable th) {
-            u.a("GifView", "getAnimatedImageDrawable error", th);
-            return null;
         }
+        return (AnimatedImageDrawable) invokeL.objValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @RequiresApi(api = 21)
     public GifView(Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
         super(context, attributeSet, i2, i3);
-        this.f28885e = Build.VERSION.SDK_INT >= 28;
-        this.f28886f = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f30778e = Build.VERSION.SDK_INT >= 28;
+        this.f30779f = false;
         this.m = true;
         a();
     }
 
     private File a(Context context, String str, String str2) {
-        if (context == null) {
-            return null;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, context, str, str2)) == null) {
+            if (context == null) {
+                return null;
+            }
+            return f.a(context, b.b(), str, str2);
         }
-        return l.a(context, b.b(), str, str2);
+        return (File) invokeLLL.objValue;
     }
 
     private void a(Canvas canvas) {
-        Movie movie = this.f28881a;
-        if (movie == null) {
+        Movie movie;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, this, canvas) == null) || (movie = this.f30774a) == null) {
             return;
         }
-        movie.setTime(this.f28883c);
-        float f2 = this.f28889i;
+        movie.setTime(this.f30776c);
+        float f2 = this.f30782i;
         canvas.scale(f2, f2);
-        Movie movie2 = this.f28881a;
-        float f3 = this.f28887g;
-        float f4 = this.f28889i;
-        movie2.draw(canvas, f3 / f4, this.f28888h / f4);
+        Movie movie2 = this.f30774a;
+        float f3 = this.f30780g;
+        float f4 = this.f30782i;
+        movie2.draw(canvas, f3 / f4, this.f30781h / f4);
         canvas.restore();
     }
 }

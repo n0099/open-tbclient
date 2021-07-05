@@ -12,6 +12,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -38,499 +39,789 @@ import com.baidu.tbadk.switchs.LoginDefaultTypeSmsSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.g;
 import d.a.c.e.m.h;
 import d.a.c.e.p.k;
-import d.a.n0.r.l.a;
-import d.a.n0.s.i.b;
+import d.a.r0.r.l.a;
+import d.a.r0.s.i.b;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class LoginActivity extends BaseActivity<LoginActivity> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int SOCIAL_TYPE_QQ = 3;
     public static final int SOCIAL_TYPE_WEIBO = 1;
     public static final int SOCIAL_TYPE_WEIXIN = 2;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean isAutoLogin;
     public boolean isFromAiapp;
+    public int jumpTo;
     public ILoginListener loginListener;
+    public int loginResult;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
     public String mActivityId;
+    public boolean mClose;
     public String mCustomLoginCssUrl;
     public String mFromUrl;
-    public d.a.n0.s.i.b mInputUserNameDialog;
+    public d.a.r0.s.i.b mInputUserNameDialog;
+    public int mLoginTypeForStatistic;
+    public String mOldTbs;
     public Activity mPassActivity;
+    public final a.InterfaceC1260a mReLoginCallback;
+    public String mScheme;
     public int mSocialType;
+    public int mTab;
     public WebAuthResult mWebAuthResult;
-    public int mLoginTypeForStatistic = 1;
-    public String mOldTbs = null;
-    public int loginResult = -2;
-    public boolean mClose = false;
-    public int jumpTo = -1;
-    public boolean isAutoLogin = false;
-    public String mScheme = null;
-    public int mTab = -1;
-    public final a.InterfaceC1200a mReLoginCallback = new d();
 
     /* loaded from: classes5.dex */
     public class a extends WebAuthListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ LoginActivity f19022e;
+
+        public a(LoginActivity loginActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loginActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19022e = loginActivity;
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener
         public void beforeSuccess(SapiAccount sapiAccount) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
+            }
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener, com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
-            super.onFinish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.onFinish();
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
-            LoginActivity.this.loginResult = -1;
-            LoginActivity.this.finishForResult(0);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
+                d.a.r0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+                this.f19022e.loginResult = -1;
+                this.f19022e.finishForResult(0);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            LoginActivity.this.mWebAuthResult = webAuthResult;
-            LoginActivity.this.mPassActivity = webAuthResult.activity;
-            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
-            LoginActivity.this.passLoginSucc();
-            LoginActivity.this.loginResult = 0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
+                this.f19022e.mWebAuthResult = webAuthResult;
+                this.f19022e.mPassActivity = webAuthResult.activity;
+                d.a.r0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
+                this.f19022e.passLoginSucc();
+                this.f19022e.loginResult = 0;
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public class b extends WebAuthListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ LoginActivity f19023e;
+
+        public b(LoginActivity loginActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loginActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19023e = loginActivity;
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener
         public void beforeSuccess(SapiAccount sapiAccount) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
+            }
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener, com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
-            super.onFinish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.onFinish();
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
-            LoginActivity.this.loginResult = -1;
-            LoginActivity.this.finishForResult(0);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
+                d.a.r0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+                this.f19023e.loginResult = -1;
+                this.f19023e.finishForResult(0);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            LoginActivity.this.mWebAuthResult = webAuthResult;
-            LoginActivity.this.mPassActivity = webAuthResult.activity;
-            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
-            LoginActivity.this.passLoginSucc();
-            LoginActivity.this.loginResult = 0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
+                this.f19023e.mWebAuthResult = webAuthResult;
+                this.f19023e.mPassActivity = webAuthResult.activity;
+                d.a.r0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
+                this.f19023e.passLoginSucc();
+                this.f19023e.loginResult = 0;
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public class c extends WebAuthListener {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ LoginActivity f19024e;
+
+        public c(LoginActivity loginActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loginActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19024e = loginActivity;
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener
         public void beforeSuccess(SapiAccount sapiAccount) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
+            }
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener, com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
-            super.onFinish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.onFinish();
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            LoginActivity.this.loginResult = -1;
-            LoginActivity.this.finishForResult(0);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
+                this.f19024e.loginResult = -1;
+                this.f19024e.finishForResult(0);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            LoginActivity.this.mWebAuthResult = webAuthResult;
-            LoginActivity.this.mPassActivity = webAuthResult.activity;
-            LoginActivity.this.passLoginSucc();
-            LoginActivity.this.loginResult = 0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
+                this.f19024e.mWebAuthResult = webAuthResult;
+                this.f19024e.mPassActivity = webAuthResult.activity;
+                this.f19024e.passLoginSucc();
+                this.f19024e.loginResult = 0;
+            }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements a.InterfaceC1200a {
+    public class d implements a.InterfaceC1260a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LoginActivity f19025a;
 
         /* loaded from: classes5.dex */
         public class a implements DialogInterface.OnCancelListener {
-            public a() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ d f19026e;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f19026e = dVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                LoginActivity.this.destroyWaitingDialog();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                    this.f19026e.f19025a.destroyWaitingDialog();
+                }
             }
         }
 
-        public d() {
-        }
-
-        @Override // d.a.n0.r.l.a.InterfaceC1200a
-        public void a(String str, int i2, String str2) {
-            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_fail", i2, str2, new Object[0]);
-            LoginActivity.this.closeLoadingDialog();
-            LoginActivity.this.showToast(str2);
-            if (LoginActivity.this.mPassActivity instanceof BaseSSOLoginActivity) {
-                LoginActivity.this.mPassActivity.finish();
-            }
-            LoginActivity.this.finishForResult(0);
-        }
-
-        @Override // d.a.n0.r.l.a.InterfaceC1200a
-        public void b(String str) {
-            if (LoginActivity.this.getLoadingDialog() == null || !LoginActivity.this.getLoadingDialog().c()) {
-                LoginActivity loginActivity = LoginActivity.this;
-                loginActivity.showLoadingDialog(loginActivity.getPageContext().getString(R.string.sapi_logining), new a());
-            }
-        }
-
-        @Override // d.a.n0.r.l.a.InterfaceC1200a
-        public void c(AccountData accountData) {
-            d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
-            TiebaStatic.log(new StatisticItem("c12948").param("obj_type", LoginActivity.this.mLoginTypeForStatistic).param(TiebaStatic.Params.OBJ_URL, LoginActivity.this.mFromUrl));
-            LoginActivity.this.closeLoadingDialog();
-            if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
-                LoginActivity.this.goToMainEntrance(accountData);
-                if (d.a.n0.b.d.f()) {
-                    d.a.n0.a.d.y().r();
+        public d(LoginActivity loginActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loginActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                return;
             }
-            LoginActivity.this.showInputDialog(accountData);
+            this.f19025a = loginActivity;
+        }
+
+        @Override // d.a.r0.r.l.a.InterfaceC1260a
+        public void a(String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
+                d.a.r0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_fail", i2, str2, new Object[0]);
+                this.f19025a.closeLoadingDialog();
+                this.f19025a.showToast(str2);
+                if (this.f19025a.mPassActivity instanceof BaseSSOLoginActivity) {
+                    this.f19025a.mPassActivity.finish();
+                }
+                this.f19025a.finishForResult(0);
+            }
+        }
+
+        @Override // d.a.r0.r.l.a.InterfaceC1260a
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (this.f19025a.getLoadingDialog() == null || !this.f19025a.getLoadingDialog().c()) {
+                    LoginActivity loginActivity = this.f19025a;
+                    loginActivity.showLoadingDialog(loginActivity.getPageContext().getString(R.string.sapi_logining), new a(this));
+                }
+            }
+        }
+
+        @Override // d.a.r0.r.l.a.InterfaceC1260a
+        public void c(AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+                d.a.r0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
+                TiebaStatic.log(new StatisticItem("c12948").param("obj_type", this.f19025a.mLoginTypeForStatistic).param(TiebaStatic.Params.OBJ_URL, this.f19025a.mFromUrl));
+                this.f19025a.closeLoadingDialog();
+                if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
+                    this.f19025a.goToMainEntrance(accountData);
+                    if (d.a.r0.b.d.f()) {
+                        d.a.r0.a.d.y().r();
+                        return;
+                    }
+                    return;
+                }
+                this.f19025a.showInputDialog(accountData);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f18906e;
+        public final /* synthetic */ AccountData f19027e;
 
-        public e(AccountData accountData) {
-            this.f18906e = accountData;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ LoginActivity f19028f;
+
+        public e(LoginActivity loginActivity, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loginActivity, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19028f = loginActivity;
+            this.f19027e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.n0.r.l.c.g(this.f18906e);
-            d.a.n0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d.a.r0.r.l.c.g(this.f19027e);
+                d.a.r0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public class f implements b.e {
-        public f() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LoginActivity f19029a;
+
+        public f(LoginActivity loginActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loginActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19029a = loginActivity;
         }
 
-        @Override // d.a.n0.s.i.b.e
+        @Override // d.a.r0.s.i.b.e
         public void a(AccountData accountData) {
-            TbadkCoreApplication.getInst().setTbs(LoginActivity.this.mOldTbs);
-            if (LoginActivity.this.mWebAuthResult != null) {
-                LoginActivity.this.mWebAuthResult.finishActivity();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
+                TbadkCoreApplication.getInst().setTbs(this.f19029a.mOldTbs);
+                if (this.f19029a.mWebAuthResult != null) {
+                    this.f19029a.mWebAuthResult.finishActivity();
+                }
+                this.f19029a.finish();
             }
-            LoginActivity.this.finish();
         }
     }
 
+    public LoginActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mLoginTypeForStatistic = 1;
+        this.mOldTbs = null;
+        this.loginResult = -2;
+        this.mClose = false;
+        this.jumpTo = -1;
+        this.isAutoLogin = false;
+        this.mScheme = null;
+        this.mTab = -1;
+        this.mReLoginCallback = new d(this);
+    }
+
     private void autoLogin() {
-        try {
-            this.jumpTo = 1;
-            Uri parse = Uri.parse(this.mScheme);
-            PassportSDK.getInstance().startSchemeLoginForQA(getActivity(), String.format(LoginActivityConfig.AUTO_LOGIN_URL, parse.getQueryParameter("username"), parse.getQueryParameter("password")), new a());
-        } catch (Exception unused) {
-            this.loginResult = -1;
-            finishForResult(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            try {
+                this.jumpTo = 1;
+                Uri parse = Uri.parse(this.mScheme);
+                PassportSDK.getInstance().startSchemeLoginForQA(getActivity(), String.format(LoginActivityConfig.AUTO_LOGIN_URL, parse.getQueryParameter("username"), parse.getQueryParameter("password")), new a(this));
+            } catch (Exception unused) {
+                this.loginResult = -1;
+                finishForResult(0);
+            }
         }
     }
 
     private boolean checkAndSetCustomLoginCss() {
-        if (!k.isEmpty(this.mCustomLoginCssUrl)) {
-            String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(this.mCustomLoginCssUrl);
-            if (!k.isEmpty(customLoginCssStoragePath) && FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
-                if (SapiAccountManager.getInstance().getConfignation() != null) {
-                    SapiAccountManager.getInstance().getConfignation().skin = customLoginCssStoragePath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+            if (!k.isEmpty(this.mCustomLoginCssUrl)) {
+                String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(this.mCustomLoginCssUrl);
+                if (!k.isEmpty(customLoginCssStoragePath) && FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
+                    if (SapiAccountManager.getInstance().getConfignation() != null) {
+                        SapiAccountManager.getInstance().getConfignation().skin = customLoginCssStoragePath;
+                        return true;
+                    }
                     return true;
                 }
-                return true;
             }
-        }
-        if (SapiAccountManager.getInstance().getConfignation() != null) {
-            SapiAccountManager.getInstance().getConfignation().skin = "file:///android_asset/sapi_theme/style.css";
+            if (SapiAccountManager.getInstance().getConfignation() != null) {
+                SapiAccountManager.getInstance().getConfignation().skin = "file:///android_asset/sapi_theme/style.css";
+                return false;
+            }
             return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finishForResult(int i2) {
-        ILoginListener iLoginListener = this.loginListener;
-        if (iLoginListener != null) {
-            if (i2 == 0) {
-                iLoginListener.onFail();
-            } else if (i2 == -1) {
-                iLoginListener.onSuccess();
-            } else {
-                iLoginListener.onCancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65551, this, i2) == null) {
+            ILoginListener iLoginListener = this.loginListener;
+            if (iLoginListener != null) {
+                if (i2 == 0) {
+                    iLoginListener.onFail();
+                } else if (i2 == -1) {
+                    iLoginListener.onSuccess();
+                } else {
+                    iLoginListener.onCancel();
+                }
+                this.loginListener = null;
             }
-            this.loginListener = null;
+            Intent intent = new Intent();
+            intent.putExtra(HttpRequest.BDUSS, TbadkCoreApplication.getCurrentBduss());
+            intent.putExtra("social_type", this.mSocialType);
+            intent.putExtra("activity_id", this.mActivityId);
+            intent.putExtra(LoginActivityConfig.IS_FROM_AIAPP, this.isFromAiapp);
+            setResult(i2, intent);
+            finish();
         }
-        Intent intent = new Intent();
-        intent.putExtra(HttpRequest.BDUSS, TbadkCoreApplication.getCurrentBduss());
-        intent.putExtra("social_type", this.mSocialType);
-        intent.putExtra("activity_id", this.mActivityId);
-        intent.putExtra(LoginActivityConfig.IS_FROM_AIAPP, this.isFromAiapp);
-        setResult(i2, intent);
-        finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goToMainEntrance(AccountData accountData) {
-        saveAccountInfo(accountData);
-        d.a.n0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
-        TbadkCoreApplication.getInst().onUserChanged(getIntent());
-        if (this.mClose) {
-            WebAuthResult webAuthResult = this.mWebAuthResult;
-            if (webAuthResult != null) {
-                webAuthResult.finishActivity();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, this, accountData) == null) {
+            saveAccountInfo(accountData);
+            d.a.r0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            TbadkCoreApplication.getInst().onUserChanged(getIntent());
+            if (this.mClose) {
+                WebAuthResult webAuthResult = this.mWebAuthResult;
+                if (webAuthResult != null) {
+                    webAuthResult.finishActivity();
+                }
+                finishForResult(-1);
+                return;
             }
-            finishForResult(-1);
-            return;
-        }
-        int intExtra = getIntent().getIntExtra("locate_type", -1);
-        this.mTab = intExtra;
-        if (intExtra == -1) {
-            d.a.n0.r.d0.b j = d.a.n0.r.d0.b.j();
-            if (j.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                this.mTab = 2;
-                d.a.n0.r.d0.b j2 = d.a.n0.r.d0.b.j();
-                j2.t("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+            int intExtra = getIntent().getIntExtra("locate_type", -1);
+            this.mTab = intExtra;
+            if (intExtra == -1) {
+                d.a.r0.r.d0.b j = d.a.r0.r.d0.b.j();
+                if (j.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                    this.mTab = 2;
+                    d.a.r0.r.d0.b j2 = d.a.r0.r.d0.b.j();
+                    j2.t("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+                } else {
+                    this.mTab = 2;
+                }
+            }
+            if (d.a.r0.r.a0.b.b() != null) {
+                d.a.r0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
             } else {
-                this.mTab = 2;
+                sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mTab)));
             }
+            this.jumpTo = -1;
+            WebAuthResult webAuthResult2 = this.mWebAuthResult;
+            if (webAuthResult2 != null) {
+                webAuthResult2.finishActivity();
+            }
+            finish();
         }
-        if (d.a.n0.r.a0.b.b() != null) {
-            d.a.n0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
-        } else {
-            sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mTab)));
-        }
-        this.jumpTo = -1;
-        WebAuthResult webAuthResult2 = this.mWebAuthResult;
-        if (webAuthResult2 != null) {
-            webAuthResult2.finishActivity();
-        }
-        finish();
     }
 
     private void initWeiboSdk() {
-        sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
+        }
     }
 
     private boolean isAutoLogin() {
-        return this.isAutoLogin && !TextUtils.isEmpty(this.mScheme) && this.mScheme.startsWith("tiebaclient://passlogin");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) ? this.isAutoLogin && !TextUtils.isEmpty(this.mScheme) && this.mScheme.startsWith("tiebaclient://passlogin") : invokeV.booleanValue;
     }
 
     private boolean isThirdLogin() {
-        int i2 = this.mSocialType;
-        return i2 == 1 || i2 == 2 || i2 == 3;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
+            int i2 = this.mSocialType;
+            return i2 == 1 || i2 == 2 || i2 == 3;
+        }
+        return invokeV.booleanValue;
     }
 
     private void loadThirdPartyLogin(int i2) {
-        PassportSDK passportSDK = PassportSDK.getInstance();
-        WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-        if (i2 == 1) {
-            webSocialLoginDTO.socialType = SocialType.SINA_WEIBO_SSO;
-        } else if (i2 == 2) {
-            webSocialLoginDTO.socialType = SocialType.WEIXIN;
-        } else if (i2 == 3) {
-            webSocialLoginDTO.socialType = SocialType.QQ_SSO;
-        }
-        c cVar = new c();
-        if (this.isFromAiapp) {
-            try {
-                Field declaredField = passportSDK.getClass().getDeclaredField("webAuthListener");
-                declaredField.setAccessible(true);
-                declaredField.set(passportSDK, cVar);
-                Field declaredField2 = passportSDK.getClass().getDeclaredField("socialLoginDTO");
-                declaredField2.setAccessible(true);
-                declaredField2.set(passportSDK, webSocialLoginDTO);
-                passportSDK.loadThirdPartyLogin(cVar, webSocialLoginDTO);
-                return;
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-                return;
-            } catch (NoSuchFieldException e3) {
-                e3.printStackTrace();
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65556, this, i2) == null) {
+            PassportSDK passportSDK = PassportSDK.getInstance();
+            WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
+            if (i2 == 1) {
+                webSocialLoginDTO.socialType = SocialType.SINA_WEIBO_SSO;
+            } else if (i2 == 2) {
+                webSocialLoginDTO.socialType = SocialType.WEIXIN;
+            } else if (i2 == 3) {
+                webSocialLoginDTO.socialType = SocialType.QQ_SSO;
             }
+            c cVar = new c(this);
+            if (this.isFromAiapp) {
+                try {
+                    Field declaredField = passportSDK.getClass().getDeclaredField("webAuthListener");
+                    declaredField.setAccessible(true);
+                    declaredField.set(passportSDK, cVar);
+                    Field declaredField2 = passportSDK.getClass().getDeclaredField("socialLoginDTO");
+                    declaredField2.setAccessible(true);
+                    declaredField2.set(passportSDK, webSocialLoginDTO);
+                    passportSDK.loadThirdPartyLogin(cVar, webSocialLoginDTO);
+                    return;
+                } catch (IllegalAccessException e2) {
+                    e2.printStackTrace();
+                    return;
+                } catch (NoSuchFieldException e3) {
+                    e3.printStackTrace();
+                    return;
+                }
+            }
+            passportSDK.loadThirdPartyLogin(cVar, webSocialLoginDTO);
         }
-        passportSDK.loadThirdPartyLogin(cVar, webSocialLoginDTO);
     }
 
     private void parseIntent() {
-        Intent intent = getIntent();
-        this.mClose = intent.getBooleanExtra(IntentConfig.CLOSE, false);
-        this.jumpTo = intent.getIntExtra(LoginActivityConfig.JUMP_AFTER_DESTROY, -1);
-        this.mFromUrl = intent.getStringExtra("url");
-        this.mSocialType = intent.getIntExtra("social_type", 0);
-        this.mCustomLoginCssUrl = intent.getStringExtra(LoginActivityConfig.CUSTOM_LOGIN_CSS_URL);
-        this.mActivityId = intent.getStringExtra("activity_id");
-        this.isFromAiapp = intent.getBooleanExtra(LoginActivityConfig.IS_FROM_AIAPP, false);
-        this.isAutoLogin = intent.getBooleanExtra(LoginActivityConfig.AUTO_LOGIN, false);
-        this.mScheme = intent.getStringExtra("scheme");
-        Serializable serializableExtra = getIntent().getSerializableExtra("login_dialog_login_listener");
-        if (serializableExtra instanceof ILoginListener) {
-            this.loginListener = (ILoginListener) serializableExtra;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+            Intent intent = getIntent();
+            this.mClose = intent.getBooleanExtra(IntentConfig.CLOSE, false);
+            this.jumpTo = intent.getIntExtra(LoginActivityConfig.JUMP_AFTER_DESTROY, -1);
+            this.mFromUrl = intent.getStringExtra("url");
+            this.mSocialType = intent.getIntExtra("social_type", 0);
+            this.mCustomLoginCssUrl = intent.getStringExtra(LoginActivityConfig.CUSTOM_LOGIN_CSS_URL);
+            this.mActivityId = intent.getStringExtra("activity_id");
+            this.isFromAiapp = intent.getBooleanExtra(LoginActivityConfig.IS_FROM_AIAPP, false);
+            this.isAutoLogin = intent.getBooleanExtra(LoginActivityConfig.AUTO_LOGIN, false);
+            this.mScheme = intent.getStringExtra("scheme");
+            Serializable serializableExtra = getIntent().getSerializableExtra("login_dialog_login_listener");
+            if (serializableExtra instanceof ILoginListener) {
+                this.loginListener = (ILoginListener) serializableExtra;
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void passLoginSucc() {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
-        SapiAccount session = SapiAccountManager.getInstance().getSession();
-        if (session != null) {
-            BdAsyncTask<?, ?, ?> bdAsyncTask = this.mAccountLoginTask;
-            if (bdAsyncTask != null) {
-                bdAsyncTask.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            if (session != null) {
+                BdAsyncTask<?, ?, ?> bdAsyncTask = this.mAccountLoginTask;
+                if (bdAsyncTask != null) {
+                    bdAsyncTask.cancel();
+                }
+                this.mAccountLoginTask = d.a.r0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+                return;
             }
-            this.mAccountLoginTask = d.a.n0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
-            return;
+            finish();
         }
-        finish();
     }
 
     private void saveAccountInfo(AccountData accountData) {
-        h.a().c(new e(accountData));
-        d.a.n0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
-        TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-        d.a.n0.l.a.f(TbadkCoreApplication.getInst());
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65559, this, accountData) == null) {
+            h.a().c(new e(this, accountData));
+            d.a.r0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
+            d.a.r0.l.a.f(TbadkCoreApplication.getInst());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showInputDialog(AccountData accountData) {
-        this.mOldTbs = TbadkCoreApplication.getCurrentTbs();
-        if (this.mInputUserNameDialog == null) {
-            d.a.n0.s.i.b bVar = new d.a.n0.s.i.b(this.mPassActivity);
-            this.mInputUserNameDialog = bVar;
-            bVar.x(this.mReLoginCallback);
-            this.mInputUserNameDialog.v(new f());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65560, this, accountData) == null) {
+            this.mOldTbs = TbadkCoreApplication.getCurrentTbs();
+            if (this.mInputUserNameDialog == null) {
+                d.a.r0.s.i.b bVar = new d.a.r0.s.i.b(this.mPassActivity);
+                this.mInputUserNameDialog = bVar;
+                bVar.x(this.mReLoginCallback);
+                this.mInputUserNameDialog.v(new f(this));
+            }
+            this.mInputUserNameDialog.p();
+            this.mInputUserNameDialog.u(accountData);
+            this.mInputUserNameDialog.y();
         }
-        this.mInputUserNameDialog.p();
-        this.mInputUserNameDialog.u(accountData);
-        this.mInputUserNameDialog.y();
     }
 
     private void startLogin() {
-        PassportSDK passportSDK = PassportSDK.getInstance();
-        WebLoginDTO webLoginDTO = new WebLoginDTO();
-        webLoginDTO.finishActivityAfterSuc = false;
-        if (SwitchManager.getInstance().findType(LoginDefaultTypeSmsSwitch.SWITCH_NAME) == 1) {
-            webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_SMS;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
+            PassportSDK passportSDK = PassportSDK.getInstance();
+            WebLoginDTO webLoginDTO = new WebLoginDTO();
+            webLoginDTO.finishActivityAfterSuc = false;
+            if (SwitchManager.getInstance().findType(LoginDefaultTypeSmsSwitch.SWITCH_NAME) == 1) {
+                webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_SMS;
+            }
+            passportSDK.startLogin(getActivity(), new b(this), webLoginDTO);
         }
-        passportSDK.startLogin(getActivity(), new b(), webLoginDTO);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921362, Integer.valueOf(this.loginResult)));
-        super.finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921362, Integer.valueOf(this.loginResult)));
+            super.finish();
+        }
     }
 
     public void initPass() {
         List<FastLoginFeature> list;
-        try {
-            SapiAccountManager.getInstance().getConfignation();
-        } catch (Exception unused) {
-            sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
-        }
-        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
-        if (confignation != null && !confignation.isAgreeDangerousProtocol()) {
-            confignation.setAgreeDangerousProtocol(true);
-        }
-        MessageManager.getInstance().runTask(2921332, (Class) null);
-        PassManagerStatic.z();
-        SapiConfiguration confignation2 = SapiAccountManager.getInstance().getConfignation();
-        if (confignation2 != null && (list = confignation2.fastLoginFeatureList) != null) {
-            list.clear();
-            confignation2.fastLoginFeatureList.addAll(PassManagerStatic.l());
-        }
-        checkAndSetCustomLoginCss();
-        if (isAutoLogin()) {
-            autoLogin();
-        } else if (isThirdLogin()) {
-            loadThirdPartyLogin(this.mSocialType);
-        } else {
-            startLogin();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                SapiAccountManager.getInstance().getConfignation();
+            } catch (Exception unused) {
+                sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
+            }
+            SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+            if (confignation != null && !confignation.isAgreeDangerousProtocol()) {
+                SapiAccountManager.getInstance().setAgreeDangerousProtocol(true);
+            }
+            MessageManager.getInstance().runTask(2921332, (Class) null);
+            PassManagerStatic.z();
+            SapiConfiguration confignation2 = SapiAccountManager.getInstance().getConfignation();
+            if (confignation2 != null && (list = confignation2.fastLoginFeatureList) != null) {
+                list.clear();
+                confignation2.fastLoginFeatureList.addAll(PassManagerStatic.l());
+            }
+            checkAndSetCustomLoginCss();
+            if (isAutoLogin()) {
+                autoLogin();
+            } else if (isThirdLogin()) {
+                loadThirdPartyLogin(this.mSocialType);
+            } else {
+                startLogin();
+            }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        LoginActivityConfig.lastStartActivityTime = System.currentTimeMillis();
-        parseIntent();
-        initPass();
-        initWeiboSdk();
-        TiebaStatic.log(new StatisticItem("c12947").param(TiebaStatic.Params.OBJ_URL, this.mFromUrl));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            LoginActivityConfig.lastStartActivityTime = System.currentTimeMillis();
+            parseIntent();
+            initPass();
+            initWeiboSdk();
+            TiebaStatic.log(new StatisticItem("c12947").param(TiebaStatic.Params.OBJ_URL, this.mFromUrl));
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.jumpTo == 1) {
-            int i2 = this.mTab;
-            if (i2 == -1) {
-                i2 = 2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.jumpTo == 1) {
+                int i2 = this.mTab;
+                if (i2 == -1) {
+                    i2 = 2;
+                }
+                this.mTab = i2;
+                d.a.r0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
             }
-            this.mTab = i2;
-            d.a.n0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
+            BdAsyncTask<?, ?, ?> bdAsyncTask = this.mAccountLoginTask;
+            if (bdAsyncTask != null) {
+                bdAsyncTask.cancel();
+            }
+            d.a.r0.s.i.b bVar = this.mInputUserNameDialog;
+            if (bVar != null) {
+                bVar.s();
+            }
+            this.mWebAuthResult = null;
+            this.mPassActivity = null;
+            super.onDestroy();
         }
-        BdAsyncTask<?, ?, ?> bdAsyncTask = this.mAccountLoginTask;
-        if (bdAsyncTask != null) {
-            bdAsyncTask.cancel();
-        }
-        d.a.n0.s.i.b bVar = this.mInputUserNameDialog;
-        if (bVar != null) {
-            bVar.s();
-        }
-        this.mWebAuthResult = null;
-        this.mPassActivity = null;
-        super.onDestroy();
     }
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        finish();
-        return super.onTouchEvent(motionEvent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            finish();
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (g.e(this.mPassActivity)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, onCancelListener) == null) && g.e(this.mPassActivity)) {
             if (str == null) {
                 str = getString(R.string.Waiting);
             }
-            d.a.n0.r.f0.a aVar = new d.a.n0.r.f0.a(this.mPassActivity);
+            d.a.r0.r.f0.a aVar = new d.a.r0.r.f0.a(this.mPassActivity);
             this.mWaitingDialog = aVar;
             aVar.j(str);
             this.mWaitingDialog.e(onCancelListener);

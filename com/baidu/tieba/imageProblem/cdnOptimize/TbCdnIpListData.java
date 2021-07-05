@@ -1,54 +1,82 @@
 package com.baidu.tieba.imageProblem.cdnOptimize;
 
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TbCdnIpListData {
-
-    /* renamed from: e  reason: collision with root package name */
-    public ArrayList<ArrayList<String>> f17821e;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17817a = 0;
+    public int f17943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17818b = null;
+    public String f17944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f17819c = null;
+    public String f17945c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f17820d = null;
+    public String f17946d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ArrayList<ArrayList<String>> f17947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17822f = false;
+    public boolean f17948f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17823g = null;
+    public String f17949g;
+
+    public TbCdnIpListData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f17943a = 0;
+        this.f17944b = null;
+        this.f17945c = null;
+        this.f17946d = null;
+        this.f17948f = false;
+        this.f17949g = null;
+    }
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             if (optJSONObject != null) {
-                this.f17817a = optJSONObject.optInt("errorno");
-                this.f17818b = optJSONObject.optString("errmsg");
+                this.f17943a = optJSONObject.optInt("errorno");
+                this.f17944b = optJSONObject.optString("errmsg");
             }
             if (1 == jSONObject.optInt("cdn_switch")) {
-                this.f17822f = true;
+                this.f17948f = true;
             } else {
-                this.f17822f = false;
+                this.f17948f = false;
             }
-            this.f17823g = jSONObject.optString("cdn_domain");
+            this.f17949g = jSONObject.optString("cdn_domain");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
             if (optJSONObject2 != null) {
-                this.f17819c = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                this.f17820d = optJSONObject2.optString("img_md5");
+                this.f17945c = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
+                this.f17946d = optJSONObject2.optString("img_md5");
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
             if (optJSONArray2 != null) {
@@ -71,7 +99,7 @@ public class TbCdnIpListData {
                     }
                 }
                 if (arrayList.size() > 0) {
-                    this.f17821e = arrayList;
+                    this.f17947e = arrayList;
                 }
             }
         } catch (Exception e2) {

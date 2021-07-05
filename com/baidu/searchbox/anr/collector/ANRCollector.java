@@ -3,37 +3,68 @@ package com.baidu.searchbox.anr.collector;
 import android.os.Looper;
 import com.baidu.searchbox.anr.impl.ANRMonitor;
 import com.baidu.searchbox.anr.utils.Utils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ANRCollector {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_TRACE_PATH = "/data/anr/traces.txt";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static String getAllStackTrace() {
-        if (!new File("/data/anr/traces.txt").canRead()) {
-            return ThreadCollector.getAllThreadStacks();
+    public ANRCollector() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return getAllTraceFromFile("/data/anr/traces.txt");
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x009f */
+    public static String getAllStackTrace() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!new File("/data/anr/traces.txt").canRead()) {
+                return ThreadCollector.getAllThreadStacks();
+            }
+            return getAllTraceFromFile("/data/anr/traces.txt");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x00a3 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.BufferedReader] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String getAllTraceFromFile(String str) {
+        InterceptResult invokeL;
         Throwable th;
         BufferedReader bufferedReader;
         IOException e2;
         String readLine;
         String readLine2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
         ?? r1 = "";
         if (str == null) {
             return "";
@@ -81,7 +112,11 @@ public class ANRCollector {
                     e2 = e3;
                     e2.printStackTrace();
                     if (bufferedReader != null) {
-                        bufferedReader.close();
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused3) {
+                            return sb.toString();
+                        }
                     }
                     return sb.toString();
                 }
@@ -90,7 +125,7 @@ public class ANRCollector {
                 if (r1 != 0) {
                     try {
                         r1.close();
-                    } catch (IOException unused3) {
+                    } catch (IOException unused4) {
                     }
                 }
                 throw th;
@@ -105,31 +140,42 @@ public class ANRCollector {
             }
             throw th;
         }
-        try {
-            bufferedReader.close();
-        } catch (IOException unused4) {
-            return sb.toString();
-        }
     }
 
     public static String getMainThreadStackTrace() {
-        if (!new File("/data/anr/traces.txt").canRead()) {
-            return ThreadCollector.getThreadStack(Looper.getMainLooper().getThread());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!new File("/data/anr/traces.txt").canRead()) {
+                return ThreadCollector.getThreadStack(Looper.getMainLooper().getThread());
+            }
+            return getMainTraceFromFile("/data/anr/traces.txt");
         }
-        return getMainTraceFromFile("/data/anr/traces.txt");
+        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:74:0x00cb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x00cc */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x00cf A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r5v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r5v2 */
+    /* JADX WARN: Type inference failed for: r5v4, types: [java.io.BufferedReader] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String getMainTraceFromFile(String str) {
+        ?? r5;
+        InterceptResult invokeL;
         Throwable th;
         BufferedReader bufferedReader;
         IOException e2;
         String readLine;
         String readLine2;
         String readLine3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = (r5 = interceptable).invokeL(65540, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
         if (str == null) {
             return "";
         }
@@ -138,7 +184,6 @@ public class ANRCollector {
         if (!file.exists()) {
             return "";
         }
-        BufferedReader bufferedReader2 = null;
         try {
             try {
                 bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
@@ -191,16 +236,20 @@ public class ANRCollector {
                     e2 = e3;
                     e2.printStackTrace();
                     if (bufferedReader != null) {
-                        bufferedReader.close();
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused4) {
+                            return sb.toString();
+                        }
                     }
                     return sb.toString();
                 }
             } catch (Throwable th2) {
                 th = th2;
-                if (0 != 0) {
+                if (r5 != 0) {
                     try {
-                        bufferedReader2.close();
-                    } catch (IOException unused4) {
+                        r5.close();
+                    } catch (IOException unused5) {
                     }
                 }
                 throw th;
@@ -209,15 +258,11 @@ public class ANRCollector {
             bufferedReader = null;
             e2 = e4;
         } catch (Throwable th3) {
+            r5 = 0;
             th = th3;
-            if (0 != 0) {
+            if (r5 != 0) {
             }
             throw th;
-        }
-        try {
-            bufferedReader.close();
-        } catch (IOException unused5) {
-            return sb.toString();
         }
     }
 }

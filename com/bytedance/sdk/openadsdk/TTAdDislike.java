@@ -6,18 +6,18 @@ public interface TTAdDislike {
     public interface DislikeInteractionCallback {
         void onCancel();
 
-        void onRefuse();
+        void onSelected(int i2, String str, boolean z);
 
-        void onSelected(int i2, String str);
+        void onShow();
     }
 
-    void sendDislikeSource(String str);
+    boolean isShow();
+
+    void resetDislikeStatus();
 
     void setDislikeInteractionCallback(DislikeInteractionCallback dislikeInteractionCallback);
 
-    void setIsInteractionAd();
+    void setDislikeSource(String str);
 
     void showDislikeDialog();
-
-    void showDislikeDialog(int i2);
 }

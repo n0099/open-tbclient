@@ -11,27 +11,51 @@ import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class UnEffectiveMsgTask implements Runnable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UnEffectiveMsgTask";
+    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
     public UnEffectiveMsgTask(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
     }
 
     private void sendStatusChangeBroadcast(long j, int i2) {
-        Intent intent = new Intent(IMConstants.MESSAGE_STATUS_CHANGE);
-        intent.setPackage(this.mContext.getApplicationContext().getPackageName());
-        intent.putExtra("_id", j);
-        intent.putExtra(IMConstants.MSG_STATUS, i2);
-        this.mContext.sendBroadcast(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            Intent intent = new Intent(IMConstants.MESSAGE_STATUS_CHANGE);
+            intent.setPackage(this.mContext.getApplicationContext().getPackageName());
+            intent.putExtra("_id", j);
+            intent.putExtra(IMConstants.MSG_STATUS, i2);
+            this.mContext.sendBroadcast(intent);
+        }
     }
 
     @Override // java.lang.Runnable
     public void run() {
         long j;
-        if (DBManager.getInstance(this.mContext).setCentainTypeIDel(new int[]{2}) < 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || DBManager.getInstance(this.mContext).setCentainTypeIDel(new int[]{2}) < 0) {
             return;
         }
         while (true) {

@@ -2,7 +2,7 @@ package okhttp3.internal.cache;
 
 import java.io.IOException;
 import okio.Sink;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface CacheRequest {
     void abort();
 

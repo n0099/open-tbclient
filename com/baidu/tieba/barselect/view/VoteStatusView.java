@@ -8,26 +8,33 @@ import android.graphics.Path;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.o0.x.e.c;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.x.e.c;
+/* loaded from: classes5.dex */
 public class VoteStatusView extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14349e;
+    public int f14436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14350f;
+    public boolean f14437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f14351g;
+    public Paint f14438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Shader f14352h;
+    public Shader f14439h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14353i;
+    public int f14440i;
     public int j;
     public int k;
     public Path l;
@@ -36,83 +43,129 @@ public class VoteStatusView extends View {
     public Path o;
     public Path p;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VoteStatusView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void a() {
-        this.k = SkinManager.getColor(R.color.CAM_X0204);
-        this.f14353i = SkinManager.getColor(R.color.CAM_X0303);
-        this.j = SkinManager.getColor(R.color.CAM_X0302);
-        Paint paint = new Paint();
-        this.f14351g = paint;
-        paint.setAntiAlias(true);
-        this.f14351g.setStyle(Paint.Style.FILL);
-        this.f14351g.setColor(this.k);
-        this.l = new Path();
-        this.m = new Path();
-        this.n = new Path();
-        this.o = new Path();
-        this.p = new Path();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.k = SkinManager.getColor(R.color.CAM_X0204);
+            this.f14440i = SkinManager.getColor(R.color.CAM_X0303);
+            this.j = SkinManager.getColor(R.color.CAM_X0302);
+            Paint paint = new Paint();
+            this.f14438g = paint;
+            paint.setAntiAlias(true);
+            this.f14438g.setStyle(Paint.Style.FILL);
+            this.f14438g.setColor(this.k);
+            this.l = new Path();
+            this.m = new Path();
+            this.n = new Path();
+            this.o = new Path();
+            this.p = new Path();
+        }
     }
 
     public void b(int i2) {
-        this.f14353i = SkinManager.getColor(i2, R.color.CAM_X0303);
-        this.j = SkinManager.getColor(i2, R.color.CAM_X0302);
-        this.k = SkinManager.getColor(i2, R.color.CAM_X0204);
-        this.f14350f = true;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f14440i = SkinManager.getColor(i2, R.color.CAM_X0303);
+            this.j = SkinManager.getColor(i2, R.color.CAM_X0302);
+            this.k = SkinManager.getColor(i2, R.color.CAM_X0204);
+            this.f14437f = true;
+            invalidate();
+        }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
-        int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
-        if (height * 6 >= width) {
-            height = width / 6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
+            int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
+            if (height * 6 >= width) {
+                height = width / 6;
+            }
+            int i2 = height / 2;
+            float f2 = i2;
+            this.l.addCircle(f2, f2, f2, Path.Direction.CW);
+            float f3 = width / 2;
+            this.m.addCircle(f3, f2, f2, Path.Direction.CW);
+            float f4 = width - i2;
+            this.n.addCircle(f4, f2, f2, Path.Direction.CW);
+            float f5 = (height * 9) / 26;
+            float f6 = (height * 17) / 26;
+            this.o.addRect(f2, f5, f3, f6, Path.Direction.CW);
+            this.p.addRect(f3, f5, f4, f6, Path.Direction.CW);
+            this.f14438g.setColor(this.k);
+            this.f14438g.setShader(null);
+            if (this.f14439h == null || this.f14437f) {
+                this.f14439h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.f14440i, this.j, Shader.TileMode.CLAMP);
+                this.f14437f = false;
+            }
+            if (this.f14436e == c.f69388c) {
+                this.f14438g.setShader(this.f14439h);
+            }
+            canvas.drawPath(this.p, this.f14438g);
+            canvas.drawPath(this.n, this.f14438g);
+            if (this.f14436e == c.f69387b) {
+                this.f14438g.setShader(this.f14439h);
+            }
+            canvas.drawPath(this.o, this.f14438g);
+            canvas.drawPath(this.m, this.f14438g);
+            if (this.f14436e == c.f69386a) {
+                this.f14438g.setShader(this.f14439h);
+            }
+            canvas.drawPath(this.l, this.f14438g);
         }
-        int i2 = height / 2;
-        float f2 = i2;
-        this.l.addCircle(f2, f2, f2, Path.Direction.CW);
-        float f3 = width / 2;
-        this.m.addCircle(f3, f2, f2, Path.Direction.CW);
-        float f4 = width - i2;
-        this.n.addCircle(f4, f2, f2, Path.Direction.CW);
-        float f5 = (height * 9) / 26;
-        float f6 = (height * 17) / 26;
-        this.o.addRect(f2, f5, f3, f6, Path.Direction.CW);
-        this.p.addRect(f3, f5, f4, f6, Path.Direction.CW);
-        this.f14351g.setColor(this.k);
-        this.f14351g.setShader(null);
-        if (this.f14352h == null || this.f14350f) {
-            this.f14352h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.f14353i, this.j, Shader.TileMode.CLAMP);
-            this.f14350f = false;
-        }
-        if (this.f14349e == c.f67047c) {
-            this.f14351g.setShader(this.f14352h);
-        }
-        canvas.drawPath(this.p, this.f14351g);
-        canvas.drawPath(this.n, this.f14351g);
-        if (this.f14349e == c.f67046b) {
-            this.f14351g.setShader(this.f14352h);
-        }
-        canvas.drawPath(this.o, this.f14351g);
-        canvas.drawPath(this.m, this.f14351g);
-        if (this.f14349e == c.f67045a) {
-            this.f14351g.setShader(this.f14352h);
-        }
-        canvas.drawPath(this.l, this.f14351g);
     }
 
     public void setStatus(int i2) {
-        this.f14349e = i2;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.f14436e = i2;
+            invalidate();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14349e = -1;
-        this.f14350f = true;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f14436e = -1;
+        this.f14437f = true;
         a();
     }
 }

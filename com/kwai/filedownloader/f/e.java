@@ -1,60 +1,94 @@
 package com.kwai.filedownloader.f;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 /* loaded from: classes7.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f37875a;
+    public final int f39638a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f37876b;
+    public final long f39639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f37877c;
+    public final boolean f39640c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f37878d;
+    public final boolean f39641d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f37879e;
+    public final int f39642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f37880f;
+    public final boolean f39643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f37881g;
+    public final boolean f39644g;
+
+    /* renamed from: com.kwai.filedownloader.f.e$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* loaded from: classes7.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f37882a = new e();
+        public static final e f39645a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1244123617, "Lcom/kwai/filedownloader/f/e$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1244123617, "Lcom/kwai/filedownloader/f/e$a;");
+                    return;
+                }
+            }
+            f39645a = new e(null);
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:124:0x0098 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:130:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0087 A[Catch: all -> 0x01df, TryCatch #11 {all -> 0x01df, blocks: (B:7:0x0033, B:8:0x003a, B:9:0x003e, B:10:0x0042, B:11:0x0046, B:12:0x004a, B:42:0x0083, B:44:0x0087, B:46:0x008b, B:47:0x0093), top: B:122:0x0033 }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0093 A[Catch: all -> 0x01df, TRY_LEAVE, TryCatch #11 {all -> 0x01df, blocks: (B:7:0x0033, B:8:0x003a, B:9:0x003e, B:10:0x0042, B:11:0x0046, B:12:0x004a, B:42:0x0083, B:44:0x0087, B:46:0x008b, B:47:0x0093), top: B:122:0x0033 }] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00b1  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x00dd  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x00e7  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x00f6  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x00fc  */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x010e  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0117  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0127  */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x012c  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0155  */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x015a  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0182  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0188  */
-    /* JADX WARN: Type inference failed for: r4v10 */
-    /* JADX WARN: Type inference failed for: r4v8 */
-    /* JADX WARN: Type inference failed for: r4v9, types: [boolean] */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x019c  */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:136:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0091 A[Catch: all -> 0x01f5, TryCatch #3 {all -> 0x01f5, blocks: (B:9:0x0037, B:10:0x003e, B:11:0x0042, B:12:0x0046, B:13:0x004a, B:14:0x004e, B:44:0x008d, B:46:0x0091, B:48:0x0095, B:49:0x009d), top: B:122:0x0037 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x009d A[Catch: all -> 0x01f5, TRY_LEAVE, TryCatch #3 {all -> 0x01f5, blocks: (B:9:0x0037, B:10:0x003e, B:11:0x0042, B:12:0x0046, B:13:0x004a, B:14:0x004e, B:44:0x008d, B:46:0x0091, B:48:0x0095, B:49:0x009d), top: B:122:0x0037 }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00bd  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00e9  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x00f3  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0102  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0108  */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x011b  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0125  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0135  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x013a  */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x0163  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0168  */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x0196  */
+    /* JADX WARN: Type inference failed for: r6v10 */
+    /* JADX WARN: Type inference failed for: r6v11, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r6v12 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -77,7 +111,19 @@ public class e {
         Object obj3;
         long j2;
         int i3;
-        ?? r4;
+        ?? r6;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         if (c.a() == null) {
             throw new IllegalStateException("Please invoke the 'FileDownloader#setup' before using FileDownloader. If you want to register some components on FileDownloader please invoke the 'FileDownloader#setupOnApplicationOnCreate' on the 'Application#onCreate' first.");
         }
@@ -90,172 +136,156 @@ public class e {
                     try {
                         properties.load(inputStream2);
                         str = properties.getProperty("http.lenient");
-                        try {
-                            str2 = properties.getProperty("download.min-progress-step");
-                        } catch (IOException e2) {
-                            e = e2;
-                            str2 = null;
-                            str3 = null;
-                            str4 = null;
-                            str5 = null;
-                            if (e instanceof FileNotFoundException) {
-                                e.printStackTrace();
-                            } else if (d.f37874a) {
-                                d.c(e.class, "not found filedownloader.properties", new Object[0]);
-                            }
-                            if (inputStream2 != null) {
-                                try {
-                                    inputStream2.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            str6 = str;
-                            str7 = str5;
-                            str8 = null;
-                            if (str6 == null) {
-                            }
-                            this.f37878d = true;
-                            if (str2 != null) {
-                            }
-                            if (str3 != null) {
-                            }
-                            this.f37876b = j2;
-                            if (str4 != null) {
-                            }
-                            if (str7 == null) {
-                            }
-                            if (str8 == null) {
-                            }
-                            if (d.f37874a) {
+                    } catch (Throwable th2) {
+                        th = th2;
+                        inputStream = inputStream2;
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
                             }
                         }
-                        try {
-                            str3 = properties.getProperty("download.min-progress-time");
-                        } catch (IOException e4) {
-                            e = e4;
-                            str3 = null;
-                            str4 = null;
-                            str5 = null;
-                            if (e instanceof FileNotFoundException) {
-                            }
-                            if (inputStream2 != null) {
-                            }
-                            str6 = str;
-                            str7 = str5;
-                            str8 = null;
-                            if (str6 == null) {
-                            }
-                            this.f37878d = true;
-                            if (str2 != null) {
-                            }
-                            if (str3 != null) {
-                            }
-                            this.f37876b = j2;
-                            if (str4 != null) {
-                            }
-                            if (str7 == null) {
-                            }
-                            if (str8 == null) {
-                            }
-                            if (d.f37874a) {
+                        throw th;
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                    str = null;
+                    str2 = null;
+                    str3 = null;
+                    str4 = null;
+                    str5 = null;
+                    if (e instanceof FileNotFoundException) {
+                    }
+                    if (inputStream2 != null) {
+                    }
+                    str6 = str;
+                    str7 = str5;
+                    str8 = null;
+                    if (str6 == null) {
+                    }
+                    this.f39641d = true;
+                    if (str2 != null) {
+                    }
+                    if (str3 != null) {
+                    }
+                    this.f39639b = j2;
+                    if (str4 != null) {
+                    }
+                    if (str7 == null) {
+                    }
+                    if (str8 == null) {
+                    }
+                    if (d.f39637a) {
+                    }
+                }
+                try {
+                    str2 = properties.getProperty("download.min-progress-step");
+                } catch (IOException e4) {
+                    e = e4;
+                    str2 = null;
+                    str3 = null;
+                    str4 = null;
+                    str5 = null;
+                    if (e instanceof FileNotFoundException) {
+                    }
+                    if (inputStream2 != null) {
+                    }
+                    str6 = str;
+                    str7 = str5;
+                    str8 = null;
+                    if (str6 == null) {
+                    }
+                    this.f39641d = true;
+                    if (str2 != null) {
+                    }
+                    if (str3 != null) {
+                    }
+                    this.f39639b = j2;
+                    if (str4 != null) {
+                    }
+                    if (str7 == null) {
+                    }
+                    if (str8 == null) {
+                    }
+                    if (d.f39637a) {
+                    }
+                }
+                try {
+                    str3 = properties.getProperty("download.min-progress-time");
+                } catch (IOException e5) {
+                    e = e5;
+                    str3 = null;
+                    str4 = null;
+                    str5 = null;
+                    if (e instanceof FileNotFoundException) {
+                    }
+                    if (inputStream2 != null) {
+                    }
+                    str6 = str;
+                    str7 = str5;
+                    str8 = null;
+                    if (str6 == null) {
+                    }
+                    this.f39641d = true;
+                    if (str2 != null) {
+                    }
+                    if (str3 != null) {
+                    }
+                    this.f39639b = j2;
+                    if (str4 != null) {
+                    }
+                    if (str7 == null) {
+                    }
+                    if (str8 == null) {
+                    }
+                    if (d.f39637a) {
+                    }
+                }
+                try {
+                    str4 = properties.getProperty("download.max-network-thread-count");
+                    try {
+                        str5 = properties.getProperty("file.non-pre-allocation");
+                    } catch (IOException e6) {
+                        e = e6;
+                        str5 = null;
+                        if (e instanceof FileNotFoundException) {
+                            e.printStackTrace();
+                        } else if (d.f39637a) {
+                            d.c(e.class, "not found filedownloader.properties", new Object[0]);
+                        }
+                        if (inputStream2 != null) {
+                            try {
+                                inputStream2.close();
+                            } catch (IOException e7) {
+                                e7.printStackTrace();
                             }
                         }
-                        try {
-                            str4 = properties.getProperty("download.max-network-thread-count");
-                        } catch (IOException e5) {
-                            e = e5;
-                            str4 = null;
-                            str5 = null;
-                            if (e instanceof FileNotFoundException) {
-                            }
-                            if (inputStream2 != null) {
-                            }
-                            str6 = str;
-                            str7 = str5;
-                            str8 = null;
-                            if (str6 == null) {
-                            }
-                            this.f37878d = true;
-                            if (str2 != null) {
-                            }
-                            if (str3 != null) {
-                            }
-                            this.f37876b = j2;
-                            if (str4 != null) {
-                            }
-                            if (str7 == null) {
-                            }
-                            if (str8 == null) {
-                            }
-                            if (d.f37874a) {
-                            }
+                        str6 = str;
+                        str7 = str5;
+                        str8 = null;
+                        if (str6 == null) {
                         }
-                        try {
-                            str5 = properties.getProperty("file.non-pre-allocation");
-                        } catch (IOException e6) {
-                            e = e6;
-                            str5 = null;
-                            if (e instanceof FileNotFoundException) {
-                            }
-                            if (inputStream2 != null) {
-                            }
-                            str6 = str;
-                            str7 = str5;
-                            str8 = null;
-                            if (str6 == null) {
-                            }
-                            this.f37878d = true;
-                            if (str2 != null) {
-                            }
-                            if (str3 != null) {
-                            }
-                            this.f37876b = j2;
-                            if (str4 != null) {
-                            }
-                            if (str7 == null) {
-                            }
-                            if (str8 == null) {
-                            }
-                            if (d.f37874a) {
-                            }
+                        this.f39641d = true;
+                        if (str2 != null) {
                         }
-                        try {
-                            str6 = str;
-                            str8 = properties.getProperty("broadcast.completed");
-                        } catch (IOException e7) {
-                            e = e7;
-                            if (e instanceof FileNotFoundException) {
-                            }
-                            if (inputStream2 != null) {
-                            }
-                            str6 = str;
-                            str7 = str5;
-                            str8 = null;
-                            if (str6 == null) {
-                            }
-                            this.f37878d = true;
-                            if (str2 != null) {
-                            }
-                            if (str3 != null) {
-                            }
-                            this.f37876b = j2;
-                            if (str4 != null) {
-                            }
-                            if (str7 == null) {
-                            }
-                            if (str8 == null) {
-                            }
-                            if (d.f37874a) {
-                            }
+                        if (str3 != null) {
                         }
+                        this.f39639b = j2;
+                        if (str4 != null) {
+                        }
+                        if (str7 == null) {
+                        }
+                        if (str8 == null) {
+                        }
+                        if (d.f39637a) {
+                        }
+                    }
+                    try {
+                        str6 = str;
+                        str8 = properties.getProperty("broadcast.completed");
                     } catch (IOException e8) {
                         e = e8;
-                        str = null;
-                        str2 = null;
-                        str3 = null;
-                        str4 = null;
-                        str5 = null;
                         if (e instanceof FileNotFoundException) {
                         }
                         if (inputStream2 != null) {
@@ -265,32 +295,48 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f37878d = true;
+                        this.f39641d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f37876b = j2;
+                        this.f39639b = j2;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
                         }
                         if (str8 == null) {
                         }
-                        if (d.f37874a) {
+                        if (d.f39637a) {
                         }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    inputStream = inputStream2;
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e9) {
-                            e9.printStackTrace();
-                        }
+                } catch (IOException e9) {
+                    e = e9;
+                    str4 = null;
+                    str5 = null;
+                    if (e instanceof FileNotFoundException) {
                     }
-                    throw th;
+                    if (inputStream2 != null) {
+                    }
+                    str6 = str;
+                    str7 = str5;
+                    str8 = null;
+                    if (str6 == null) {
+                    }
+                    this.f39641d = true;
+                    if (str2 != null) {
+                    }
+                    if (str3 != null) {
+                    }
+                    this.f39639b = j2;
+                    if (str4 != null) {
+                    }
+                    if (str7 == null) {
+                    }
+                    if (str8 == null) {
+                    }
+                    if (d.f39637a) {
+                    }
                 }
             } else {
                 str6 = null;
@@ -318,19 +364,19 @@ public class e {
         if (str6 == null) {
             obj = "download.max-network-thread-count";
             i2 = 0;
-            this.f37877c = false;
+            this.f39640c = false;
         } else if (!str6.equals("true") && !str6.equals("false")) {
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", "http.lenient", "true", "false"));
         } else {
             obj = "download.max-network-thread-count";
             i2 = 0;
-            this.f37877c = str6.equals("true");
+            this.f39640c = str6.equals("true");
         }
-        this.f37878d = true;
+        this.f39641d = true;
         if (str2 != null) {
-            this.f37875a = Math.max(i2, Integer.valueOf(str2).intValue());
+            this.f39638a = Math.max(i2, Integer.valueOf(str2).intValue());
         } else {
-            this.f37875a = 65536;
+            this.f39638a = 65536;
         }
         if (str3 != null) {
             obj2 = "download.min-progress-time";
@@ -343,17 +389,17 @@ public class e {
             obj3 = "http.lenient";
             j2 = 2000;
         }
-        this.f37876b = j2;
+        this.f39639b = j2;
         if (str4 != null) {
-            this.f37879e = a(Integer.valueOf(str4).intValue());
+            this.f39642e = a(Integer.valueOf(str4).intValue());
             i3 = 3;
         } else {
             i3 = 3;
-            this.f37879e = 3;
+            this.f39642e = 3;
         }
         if (str7 == null) {
-            r4 = 0;
-            this.f37880f = false;
+            r6 = 0;
+            this.f39643f = false;
         } else if (!str7.equals("true") && !str7.equals("false")) {
             Object[] objArr = new Object[i3];
             objArr[0] = "file.non-pre-allocation";
@@ -361,50 +407,61 @@ public class e {
             objArr[2] = "false";
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr));
         } else {
-            r4 = 0;
-            this.f37880f = str7.equals("true");
+            r6 = 0;
+            this.f39643f = str7.equals("true");
         }
         if (str8 == null) {
-            this.f37881g = r4;
+            this.f39644g = r6;
         } else if (!str8.equals("true") && !str8.equals("false")) {
             Object[] objArr2 = new Object[3];
-            objArr2[r4] = "broadcast.completed";
+            objArr2[r6] = "broadcast.completed";
             objArr2[1] = "true";
             objArr2[2] = "false";
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr2));
         } else {
-            this.f37881g = str8.equals("true");
+            this.f39644g = str8.equals("true");
         }
-        if (d.f37874a) {
+        if (d.f39637a) {
             Object[] objArr3 = new Object[11];
-            objArr3[r4] = Long.valueOf(System.currentTimeMillis() - j);
+            objArr3[r6] = Long.valueOf(System.currentTimeMillis() - j);
             objArr3[1] = obj3;
-            objArr3[2] = Boolean.valueOf(this.f37877c);
+            objArr3[2] = Boolean.valueOf(this.f39640c);
             objArr3[3] = "process.non-separate";
-            objArr3[4] = Boolean.valueOf(this.f37878d);
+            objArr3[4] = Boolean.valueOf(this.f39641d);
             objArr3[5] = "download.min-progress-step";
-            objArr3[6] = Integer.valueOf(this.f37875a);
+            objArr3[6] = Integer.valueOf(this.f39638a);
             objArr3[7] = obj2;
-            objArr3[8] = Long.valueOf(this.f37876b);
+            objArr3[8] = Long.valueOf(this.f39639b);
             objArr3[9] = obj;
-            objArr3[10] = Integer.valueOf(this.f37879e);
+            objArr3[10] = Integer.valueOf(this.f39642e);
             d.b(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", objArr3);
         }
     }
 
+    public /* synthetic */ e(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
     public static int a(int i2) {
-        if (i2 > 12) {
-            d.d(e.class, "require the count of network thread  is %d, what is more than the max valid count(%d), so adjust to %d auto", Integer.valueOf(i2), 12, 12);
-            return 12;
-        } else if (i2 < 1) {
-            d.d(e.class, "require the count of network thread  is %d, what is less than the min valid count(%d), so adjust to %d auto", Integer.valueOf(i2), 1, 1);
-            return 1;
-        } else {
-            return i2;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (i2 > 12) {
+                d.d(e.class, "require the count of network thread  is %d, what is more than the max valid count(%d), so adjust to %d auto", Integer.valueOf(i2), 12, 12);
+                return 12;
+            } else if (i2 < 1) {
+                d.d(e.class, "require the count of network thread  is %d, what is less than the min valid count(%d), so adjust to %d auto", Integer.valueOf(i2), 1, 1);
+                return 1;
+            } else {
+                return i2;
+            }
         }
+        return invokeI.intValue;
     }
 
     public static e a() {
-        return a.f37882a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f39645a : (e) invokeV.objValue;
     }
 }

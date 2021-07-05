@@ -1,109 +1,210 @@
 package com.xiaomi.push;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class fw extends Exception {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public gf f41397a;
+    public gf f43140a;
 
     /* renamed from: a  reason: collision with other field name */
-    public gg f413a;
+    public gg f416a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Throwable f414a;
+    public Throwable f417a;
 
     public fw() {
-        this.f41397a = null;
-        this.f413a = null;
-        this.f414a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43140a = null;
+        this.f416a = null;
+        this.f417a = null;
     }
 
     public fw(gf gfVar) {
-        this.f41397a = null;
-        this.f413a = null;
-        this.f414a = null;
-        this.f41397a = gfVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gfVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f43140a = null;
+        this.f416a = null;
+        this.f417a = null;
+        this.f43140a = gfVar;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fw(String str) {
         super(str);
-        this.f41397a = null;
-        this.f413a = null;
-        this.f414a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f43140a = null;
+        this.f416a = null;
+        this.f417a = null;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fw(String str, Throwable th) {
         super(str);
-        this.f41397a = null;
-        this.f413a = null;
-        this.f414a = null;
-        this.f414a = th;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, th};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f43140a = null;
+        this.f416a = null;
+        this.f417a = null;
+        this.f417a = th;
     }
 
     public fw(Throwable th) {
-        this.f41397a = null;
-        this.f413a = null;
-        this.f414a = null;
-        this.f414a = th;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {th};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
+        this.f43140a = null;
+        this.f416a = null;
+        this.f417a = null;
+        this.f417a = th;
     }
 
     public Throwable a() {
-        return this.f414a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f417a : (Throwable) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable
     public String getMessage() {
+        InterceptResult invokeV;
         gf gfVar;
         gg ggVar;
-        String message = super.getMessage();
-        return (message != null || (ggVar = this.f413a) == null) ? (message != null || (gfVar = this.f41397a) == null) ? message : gfVar.toString() : ggVar.toString();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String message = super.getMessage();
+            return (message != null || (ggVar = this.f416a) == null) ? (message != null || (gfVar = this.f43140a) == null) ? message : gfVar.toString() : ggVar.toString();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
-        printStackTrace(System.err);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            printStackTrace(System.err);
+        }
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintStream printStream) {
-        super.printStackTrace(printStream);
-        if (this.f414a != null) {
-            printStream.println("Nested Exception: ");
-            this.f414a.printStackTrace(printStream);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, printStream) == null) {
+            super.printStackTrace(printStream);
+            if (this.f417a != null) {
+                printStream.println("Nested Exception: ");
+                this.f417a.printStackTrace(printStream);
+            }
         }
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintWriter printWriter) {
-        super.printStackTrace(printWriter);
-        if (this.f414a != null) {
-            printWriter.println("Nested Exception: ");
-            this.f414a.printStackTrace(printWriter);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, printWriter) == null) {
+            super.printStackTrace(printWriter);
+            if (this.f417a != null) {
+                printWriter.println("Nested Exception: ");
+                this.f417a.printStackTrace(printWriter);
+            }
         }
     }
 
     @Override // java.lang.Throwable
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        String message = super.getMessage();
-        if (message != null) {
-            sb.append(message);
-            sb.append(": ");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            String message = super.getMessage();
+            if (message != null) {
+                sb.append(message);
+                sb.append(": ");
+            }
+            gg ggVar = this.f416a;
+            if (ggVar != null) {
+                sb.append(ggVar);
+            }
+            gf gfVar = this.f43140a;
+            if (gfVar != null) {
+                sb.append(gfVar);
+            }
+            if (this.f417a != null) {
+                sb.append("\n  -- caused by: ");
+                sb.append(this.f417a);
+            }
+            return sb.toString();
         }
-        gg ggVar = this.f413a;
-        if (ggVar != null) {
-            sb.append(ggVar);
-        }
-        gf gfVar = this.f41397a;
-        if (gfVar != null) {
-            sb.append(gfVar);
-        }
-        if (this.f414a != null) {
-            sb.append("\n  -- caused by: ");
-            sb.append(this.f414a);
-        }
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 }

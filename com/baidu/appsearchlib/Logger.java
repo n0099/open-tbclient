@@ -2,6 +2,14 @@ package com.baidu.appsearchlib;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -14,6 +22,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 /* loaded from: classes.dex */
 public class Logger {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_SERVER = "http://nsclick.baidu.com/v.gif";
     public static final HashSet<Integer> LOG_TIMES;
     public static final long ONE_SECOND = 1000;
@@ -24,8 +33,21 @@ public class Logger {
     public static boolean looperDisabled;
     public static String packageName;
     public static ExecutorService pool;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1523925914, "Lcom/baidu/appsearchlib/Logger;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1523925914, "Lcom/baidu/appsearchlib/Logger;");
+                return;
+            }
+        }
         HashSet<Integer> hashSet = new HashSet<>();
         LOG_TIMES = hashSet;
         hashSet.add(2);
@@ -40,131 +62,237 @@ public class Logger {
         lastStartTime = 0L;
     }
 
-    public static void checkOnForeground(final Context context) {
-        activityManager = (ActivityManager) context.getSystemService("activity");
-        packageName = context.getPackageName();
-        if (checkThread != null) {
-            return;
+    public Logger() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        Thread thread = new Thread() { // from class: com.baidu.appsearchlib.Logger.1
-            @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
-                int i2 = 0;
-                while (!Logger.looperDisabled) {
-                    try {
-                        Thread.sleep(1000L);
-                        i2++;
-                        if (Logger.isAppOnForeground()) {
-                            if (Logger.LOG_TIMES.contains(Integer.valueOf(i2))) {
-                                Logger.onAlive(context);
-                            }
-                        } else {
-                            Logger.onClientExit(context);
-                            Logger.checkThread = null;
+    }
+
+    public static void checkOnForeground(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            activityManager = (ActivityManager) context.getSystemService("activity");
+            packageName = context.getPackageName();
+            if (checkThread != null) {
+                return;
+            }
+            Thread thread = new Thread(context) { // from class: com.baidu.appsearchlib.Logger.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Context val$context;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
-                    } catch (Exception e2) {
-                        Logger.checkThread = null;
-                        e2.printStackTrace();
-                        return;
+                    }
+                    this.val$context = context;
+                }
+
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        int i2 = 0;
+                        while (!Logger.looperDisabled) {
+                            try {
+                                Thread.sleep(1000L);
+                                i2++;
+                                if (Logger.isAppOnForeground()) {
+                                    if (Logger.LOG_TIMES.contains(Integer.valueOf(i2))) {
+                                        Logger.onAlive(this.val$context);
+                                    }
+                                } else {
+                                    Logger.onClientExit(this.val$context);
+                                    Logger.checkThread = null;
+                                    return;
+                                }
+                            } catch (Exception e2) {
+                                Logger.checkThread = null;
+                                e2.printStackTrace();
+                                return;
+                            }
+                        }
                     }
                 }
-            }
-        };
-        checkThread = thread;
-        pool.execute(thread);
+            };
+            checkThread = thread;
+            pool.execute(thread);
+        }
     }
 
     public static String encode(String str) {
-        try {
-            return URLEncoder.encode(str, "utf-8");
-        } catch (UnsupportedEncodingException e2) {
-            e2.printStackTrace();
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            try {
+                return URLEncoder.encode(str, "utf-8");
+            } catch (UnsupportedEncodingException e2) {
+                e2.printStackTrace();
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public static boolean isAppOnForeground() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
-        if (runningAppProcesses == null) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return false;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.processName.equals(packageName) && runningAppProcessInfo.importance == 100) {
+                    return true;
+                }
+            }
             return false;
         }
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-            if (runningAppProcessInfo.processName.equals(packageName) && runningAppProcessInfo.importance == 100) {
-                return true;
-            }
-        }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public static void onAlive(Context context) {
-        if (lastCallTime < 1) {
-            recordClientAction(context, Info.kBaiduClient_Alive_On_Noraml, Long.valueOf(Util.getTime() - lastStartTime));
-        } else {
-            recordClientAction(context, Info.kBaiduClient_Alive_On_Call, Long.valueOf(Util.getTime() - lastStartTime), Long.valueOf(Util.getTime() - lastCallTime));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+            if (lastCallTime < 1) {
+                recordClientAction(context, Info.kBaiduClient_Alive_On_Noraml, Long.valueOf(Util.getTime() - lastStartTime));
+            } else {
+                recordClientAction(context, Info.kBaiduClient_Alive_On_Call, Long.valueOf(Util.getTime() - lastStartTime), Long.valueOf(Util.getTime() - lastCallTime));
+            }
         }
     }
 
     public static void onCallUp() {
-        lastCallTime = Util.getTime();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            lastCallTime = Util.getTime();
+        }
     }
 
     public static void onClientBoot(Context context) {
-        if (lastStartTime < 1) {
-            lastStartTime = Util.getTime();
-            recordCustomAction(context, "appstart");
-            checkOnForeground(context.getApplicationContext());
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || lastStartTime >= 1) {
+            return;
         }
+        lastStartTime = Util.getTime();
+        recordCustomAction(context, "appstart");
+        checkOnForeground(context.getApplicationContext());
     }
 
     public static void onClientExit(Context context) {
-        if (lastCallTime < 1) {
-            recordClientAction(context, Info.kBaiduClient_Exit_On_Noraml, Long.valueOf(Util.getTime() - lastStartTime));
-        } else {
-            recordClientAction(context, Info.kBaiduClient_Exit_On_Call, Long.valueOf(Util.getTime() - lastStartTime), Long.valueOf(Util.getTime() - lastCallTime));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            if (lastCallTime < 1) {
+                recordClientAction(context, Info.kBaiduClient_Exit_On_Noraml, Long.valueOf(Util.getTime() - lastStartTime));
+            } else {
+                recordClientAction(context, Info.kBaiduClient_Exit_On_Call, Long.valueOf(Util.getTime() - lastStartTime), Long.valueOf(Util.getTime() - lastCallTime));
+            }
+            lastCallTime = 0L;
+            lastStartTime = 0L;
         }
-        lastCallTime = 0L;
-        lastStartTime = 0L;
     }
 
     public static void recordAction(Context context, String str, Object... objArr) {
-        reportWithString(context, String.format(str, objArr));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, objArr) == null) {
+            reportWithString(context, String.format(str, objArr));
+        }
     }
 
     public static void recordClientAction(Context context, String str, Object... objArr) {
-        recordAction(context, "&%s=%s&%s", Info.kBaiduActionType, Info.kBaiduClientActionKey, String.format(str, objArr));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, context, str, objArr) == null) {
+            recordAction(context, "&%s=%s&%s", Info.kBaiduActionType, Info.kBaiduClientActionKey, String.format(str, objArr));
+        }
     }
 
     public static void recordCustomAction(Context context, String str) {
-        recordClientAction(context, "%s=%s", Info.kBaiduClientActionKey, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
+            recordClientAction(context, "%s=%s", Info.kBaiduClientActionKey, str);
+        }
     }
 
     public static void recordServerAction(Context context, String str, Object... objArr) {
-        recordAction(context, "&%s=%s&%s", Info.kBaiduActionType, Info.kBaiduServerActionKey, String.format(str, objArr));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, context, str, objArr) == null) {
+            recordAction(context, "&%s=%s&%s", Info.kBaiduActionType, Info.kBaiduServerActionKey, String.format(str, objArr));
+        }
     }
 
     public static void reportWithString(Context context, String str) {
-        String timeStr = Util.getTimeStr();
-        String encode = encode(Util.getDeviceId(context));
-        StringBuilder sb = new StringBuilder(String.valueOf(String.format("%s?%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", LOG_SERVER, "pid", "201", Info.kBaiduPJKey, Info.kBaiduPJValue, Info.kBaiduVersionKey, encode(Util.getCurrentVersion(context)), "t", timeStr, Info.kBaiduDevice, encode(Util.getPlatformCode()), Info.kBaiduOpenudid, encode, Info.kBaiduIOSVersion, encode(Util.getOSVersion()), "module_name", Info.kBaiduBaseModule, Info.kBaiduAppIDKey, Info.APPID, Info.kBaiduSDKVersionKey, Info.SDK_VERSION, "vcode1", Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD))));
-        sb.append(str);
-        StringBuilder sb2 = new StringBuilder(String.valueOf(String.valueOf(sb.toString()) + "&vcode2="));
-        sb2.append(Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD + str));
-        reportWithUrl(sb2.toString());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, str) == null) {
+            String timeStr = Util.getTimeStr();
+            String encode = encode(Util.getDeviceId(context));
+            StringBuilder sb = new StringBuilder(String.valueOf(String.format("%s?%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", LOG_SERVER, "pid", "201", Info.kBaiduPJKey, Info.kBaiduPJValue, Info.kBaiduVersionKey, encode(Util.getCurrentVersion(context)), "t", timeStr, Info.kBaiduDevice, encode(Util.getPlatformCode()), Info.kBaiduOpenudid, encode, Info.kBaiduIOSVersion, encode(Util.getOSVersion()), "module_name", Info.kBaiduBaseModule, Info.kBaiduAppIDKey, Info.APPID, Info.kBaiduSDKVersionKey, Info.SDK_VERSION, "vcode1", Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD))));
+            sb.append(str);
+            StringBuilder sb2 = new StringBuilder(String.valueOf(String.valueOf(sb.toString()) + "&vcode2="));
+            sb2.append(Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD + str));
+            reportWithUrl(sb2.toString());
+        }
     }
 
-    public static void reportWithUrl(final String str) {
-        pool.execute(new Thread() { // from class: com.baidu.appsearchlib.Logger.2
-            @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
-                try {
-                    new DefaultHttpClient().execute(new HttpGet(str));
-                } catch (ClientProtocolException e2) {
-                    e2.printStackTrace();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+    public static void reportWithUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
+            pool.execute(new Thread(str) { // from class: com.baidu.appsearchlib.Logger.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String val$url;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$url = str;
                 }
-            }
-        });
+
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            new DefaultHttpClient().execute(new HttpGet(this.val$url));
+                        } catch (ClientProtocolException e2) {
+                            e2.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                }
+            });
+        }
     }
 }

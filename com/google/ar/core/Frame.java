@@ -1,21 +1,54 @@
 package com.google.ar.core;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Frame {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30937a;
+    public long f32850a;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1863843292, "Lcom/google/ar/core/Frame;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1863843292, "Lcom/google/ar/core/Frame;");
+                return;
+            }
+        }
         new ArrayList();
         new ArrayList();
     }
 
     public Frame() {
-        this.f30937a = 0L;
-        this.f30937a = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f32850a = 0L;
+        this.f32850a = 0L;
     }
 
     private native long nativeAcquireCameraImage(long j, long j2);
@@ -30,7 +63,7 @@ public class Frame {
 
     private native long nativeGetAndroidCameraTimestamp(long j, long j2);
 
-    private native d.g.b.a.a nativeGetAndroidSensorPose(long j, long j2);
+    private native d.f.c.a.a nativeGetAndroidSensorPose(long j, long j2);
 
     private native void nativeGetLightEstimate(long j, long j2, long j3);
 
@@ -43,11 +76,14 @@ public class Frame {
     private native void nativeTransformDisplayUvCoords(long j, long j2, FloatBuffer floatBuffer, FloatBuffer floatBuffer2);
 
     public void finalize() {
-        long j = this.f30937a;
-        if (j != 0) {
-            nativeDestroyFrame(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.f32850a;
+            if (j != 0) {
+                nativeDestroyFrame(j);
+            }
+            super.finalize();
         }
-        super.finalize();
     }
 
     public native long nativeAcquirePointCloud(long j, long j2);

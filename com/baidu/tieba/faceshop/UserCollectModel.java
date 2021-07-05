@@ -6,121 +6,229 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialConstants;
-import d.a.n0.a0.d;
-import d.a.n0.l.c;
-import d.a.o0.m0.g;
+import d.a.r0.a0.d;
+import d.a.r0.l.c;
+import d.a.s0.p0.g;
 import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UserCollectModel extends FaceBaseModel {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ALL_DELETE = "all_delete";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f14901e = new b(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+    public final HttpMessageListener f14992e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ UserCollectModel f14993e;
+
+        public a(UserCollectModel userCollectModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {userCollectModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14993e = userCollectModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            List<CollectEmotionData> n = g.k().n(TbadkCoreApplication.getCurrentAccountForEmotion());
-            HashSet hashSet = new HashSet();
-            if (n == null) {
-                return;
-            }
-            JSONArray jSONArray = new JSONArray();
-            try {
-                for (CollectEmotionData collectEmotionData : n) {
-                    if (!d.f52597d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
-                        jSONArray.put(collectEmotionData.toJSON());
-                        hashSet.add(collectEmotionData.sharpText);
-                    }
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                List<CollectEmotionData> n = g.k().n(TbadkCoreApplication.getCurrentAccountForEmotion());
+                HashSet hashSet = new HashSet();
+                if (n == null) {
+                    return;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                JSONArray jSONArray = new JSONArray();
+                try {
+                    for (CollectEmotionData collectEmotionData : n) {
+                        if (!d.f54733d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                            jSONArray.put(collectEmotionData.toJSON());
+                            hashSet.add(collectEmotionData.sharpText);
+                        }
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+                if (jSONArray.length() > 0) {
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, c.o(jSONArray.toString()));
+                } else {
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
+                }
+                httpMessage.addParam("pic_update_time", currentTimeMillis);
+                this.f14993e.sendMessage(httpMessage);
+                d.a.s0.c2.d.s(currentTimeMillis);
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
-            if (jSONArray.length() > 0) {
-                httpMessage.addParam(SocialConstants.PARAM_IMAGE, c.o(jSONArray.toString()));
-            } else {
-                httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
-            }
-            httpMessage.addParam("pic_update_time", currentTimeMillis);
-            UserCollectModel.this.sendMessage(httpMessage);
-            d.a.o0.z1.d.s(currentTimeMillis);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UserCollectModel f14994a;
+
+        /* loaded from: classes5.dex */
         public class a implements Runnable {
-            public a() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ b f14995e;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f14995e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                try {
-                    UserCollectModel.this.cancelLoadData();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    try {
+                        this.f14995e.f14994a.cancelLoadData();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
                 }
             }
         }
 
-        public b(int i2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(UserCollectModel userCollectModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {userCollectModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14994a = userCollectModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003339 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003339 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
-                new Handler().postDelayed(new a(), 2000L);
+                new Handler().postDelayed(new a(this), 2000L);
             }
         }
     }
 
     public UserCollectModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f14992e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f14901e.setTag(getUniqueId());
-        this.f14901e.setSelfListener(true);
-        registerListener(this.f14901e);
+        this.f14992e.setTag(getUniqueId());
+        this.f14992e.setSelfListener(true);
+        registerListener(this.f14992e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f14901e);
-        MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f14992e);
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO, TbConfig.SERVER_ADDRESS + "c/e/meme/collect");
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO, TbConfig.SERVER_ADDRESS + "c/e/meme/collect");
+            tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public void w() {
-        new Thread(new a()).start();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            new Thread(new a(this)).start();
+        }
     }
 }

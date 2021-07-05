@@ -2,6 +2,7 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.http.ReqPriority;
 import com.baidu.sapi2.callback.GetHistoryPortraitsCallback;
 import com.baidu.sapi2.callback.GetPopularPortraitsCallback;
@@ -22,316 +23,495 @@ import com.baidu.sapi2.result.SetPortraitResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PortraitService extends AbstractService implements NoProguard {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpHandlerWrap {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SetPortraitCallback f9537a;
+        public final /* synthetic */ SetPortraitCallback f9609a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SetPortraitResult f9538b;
+        public final /* synthetic */ SetPortraitResult f9610b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ PortraitService f9611c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper, SetPortraitCallback setPortraitCallback, SetPortraitResult setPortraitResult) {
+        public a(PortraitService portraitService, Looper looper, SetPortraitCallback setPortraitCallback, SetPortraitResult setPortraitResult) {
             super(looper);
-            this.f9537a = setPortraitCallback;
-            this.f9538b = setPortraitResult;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {portraitService, looper, setPortraitCallback, setPortraitResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9611c = portraitService;
+            this.f9609a = setPortraitCallback;
+            this.f9610b = setPortraitResult;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
-            this.f9538b.setResultCode(i2);
-            this.f9537a.onFailure(this.f9538b);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
+                this.f9610b.setResultCode(i2);
+                this.f9609a.onFailure(this.f9610b);
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f9537a.onFinish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.f9609a.onFinish();
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            this.f9537a.onStart();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.f9609a.onStart();
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i2, String str) {
-            this.f9538b.setResultCode(PortraitService.this.getErrorCode(str));
-            this.f9538b.setResultMsg(PortraitService.this.getErrorMsg(str));
-            int resultCode = this.f9538b.getResultCode();
-            if (resultCode != 0) {
-                if (resultCode != 160103) {
-                    this.f9537a.onFailure(this.f9538b);
-                    return;
-                } else {
-                    this.f9537a.onBdussExpired(this.f9538b);
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
+                this.f9610b.setResultCode(this.f9611c.getErrorCode(str));
+                this.f9610b.setResultMsg(this.f9611c.getErrorMsg(str));
+                int resultCode = this.f9610b.getResultCode();
+                if (resultCode != 0) {
+                    if (resultCode != 160103) {
+                        this.f9609a.onFailure(this.f9610b);
+                        return;
+                    } else {
+                        this.f9609a.onBdussExpired(this.f9610b);
+                        return;
+                    }
                 }
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.f9538b.portraitSign = jSONObject.optString("portrait_tag");
-                String optString = jSONObject.optString("portrait");
-                if (!TextUtils.isEmpty(optString)) {
-                    this.f9538b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f9538b.portraitSign);
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    this.f9610b.portraitSign = jSONObject.optString("portrait_tag");
+                    String optString = jSONObject.optString("portrait");
+                    if (!TextUtils.isEmpty(optString)) {
+                        this.f9610b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f9610b.portraitSign);
+                    }
+                } catch (JSONException unused) {
                 }
-            } catch (JSONException unused) {
+                this.f9609a.onSuccess(this.f9610b);
             }
-            this.f9537a.onSuccess(this.f9538b);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpHandlerWrap {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SetPopularPortraitResult f9540a;
+        public final /* synthetic */ SetPopularPortraitResult f9612a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SetPopularPortraitCallback f9541b;
+        public final /* synthetic */ SetPopularPortraitCallback f9613b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ PortraitService f9614c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper, SetPopularPortraitResult setPopularPortraitResult, SetPopularPortraitCallback setPopularPortraitCallback) {
+        public b(PortraitService portraitService, Looper looper, SetPopularPortraitResult setPopularPortraitResult, SetPopularPortraitCallback setPopularPortraitCallback) {
             super(looper);
-            this.f9540a = setPopularPortraitResult;
-            this.f9541b = setPopularPortraitCallback;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {portraitService, looper, setPopularPortraitResult, setPopularPortraitCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9614c = portraitService;
+            this.f9612a = setPopularPortraitResult;
+            this.f9613b = setPopularPortraitCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
-            this.f9540a.setResultCode(i2);
-            this.f9541b.onFailure(this.f9540a);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
+                this.f9612a.setResultCode(i2);
+                this.f9613b.onFailure(this.f9612a);
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f9541b.onFinish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.f9613b.onFinish();
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            this.f9541b.onStart();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.f9613b.onStart();
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i2, String str) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int i3 = jSONObject.getInt("errno");
-                this.f9540a.setResultCode(i3);
-                this.f9540a.setResultMsg(jSONObject.optString("errmsg"));
-                if (i3 == 0) {
-                    this.f9541b.onSuccess(this.f9540a);
-                } else {
-                    this.f9541b.onFailure(this.f9540a);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int i3 = jSONObject.getInt("errno");
+                    this.f9612a.setResultCode(i3);
+                    this.f9612a.setResultMsg(jSONObject.optString("errmsg"));
+                    if (i3 == 0) {
+                        this.f9613b.onSuccess(this.f9612a);
+                    } else {
+                        this.f9613b.onFailure(this.f9612a);
+                    }
+                } catch (JSONException e2) {
+                    this.f9612a.setResultCode(-202);
+                    this.f9613b.onFailure(this.f9612a);
+                    Log.e(e2);
                 }
-            } catch (JSONException e2) {
-                this.f9540a.setResultCode(-202);
-                this.f9541b.onFailure(this.f9540a);
-                Log.e(e2);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends HttpHandlerWrap {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetHistoryPortraitsResult f9543a;
+        public final /* synthetic */ GetHistoryPortraitsResult f9615a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GetHistoryPortraitsCallback f9544b;
+        public final /* synthetic */ GetHistoryPortraitsCallback f9616b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ PortraitService f9617c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(Looper looper, GetHistoryPortraitsResult getHistoryPortraitsResult, GetHistoryPortraitsCallback getHistoryPortraitsCallback) {
+        public c(PortraitService portraitService, Looper looper, GetHistoryPortraitsResult getHistoryPortraitsResult, GetHistoryPortraitsCallback getHistoryPortraitsCallback) {
             super(looper);
-            this.f9543a = getHistoryPortraitsResult;
-            this.f9544b = getHistoryPortraitsCallback;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {portraitService, looper, getHistoryPortraitsResult, getHistoryPortraitsCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9617c = portraitService;
+            this.f9615a = getHistoryPortraitsResult;
+            this.f9616b = getHistoryPortraitsCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
-            this.f9543a.setResultCode(i2);
-            this.f9544b.onFailure(this.f9543a);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
+                this.f9615a.setResultCode(i2);
+                this.f9616b.onFailure(this.f9615a);
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i2, String str) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int i3 = jSONObject.getInt("errno");
-                this.f9543a.setResultCode(i3);
-                this.f9543a.setResultMsg(jSONObject.optString("errmsg"));
-                if (i3 == 0) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("history");
-                    int length = optJSONArray.length();
-                    this.f9543a.historyPortraits = new ArrayList(length);
-                    for (int i4 = 0; i4 < length; i4++) {
-                        this.f9543a.historyPortraits.add(optJSONArray.optString(i4));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int i3 = jSONObject.getInt("errno");
+                    this.f9615a.setResultCode(i3);
+                    this.f9615a.setResultMsg(jSONObject.optString("errmsg"));
+                    if (i3 == 0) {
+                        JSONArray optJSONArray = jSONObject.optJSONArray("history");
+                        int length = optJSONArray.length();
+                        this.f9615a.historyPortraits = new ArrayList(length);
+                        for (int i4 = 0; i4 < length; i4++) {
+                            this.f9615a.historyPortraits.add(optJSONArray.optString(i4));
+                        }
+                        this.f9616b.onSuccess(this.f9615a);
+                        return;
                     }
-                    this.f9544b.onSuccess(this.f9543a);
-                    return;
+                    this.f9616b.onFailure(this.f9615a);
+                } catch (JSONException e2) {
+                    this.f9615a.setResultCode(-202);
+                    this.f9616b.onFailure(this.f9615a);
+                    Log.e(e2);
                 }
-                this.f9544b.onFailure(this.f9543a);
-            } catch (JSONException e2) {
-                this.f9543a.setResultCode(-202);
-                this.f9544b.onFailure(this.f9543a);
-                Log.e(e2);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends HttpHandlerWrap {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetPopularPortraitsCallback f9546a;
+        public final /* synthetic */ GetPopularPortraitsCallback f9618a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GetPopularPortraitsInfoResult f9547b;
+        public final /* synthetic */ GetPopularPortraitsInfoResult f9619b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ PortraitService f9620c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(Looper looper, GetPopularPortraitsCallback getPopularPortraitsCallback, GetPopularPortraitsInfoResult getPopularPortraitsInfoResult) {
+        public d(PortraitService portraitService, Looper looper, GetPopularPortraitsCallback getPopularPortraitsCallback, GetPopularPortraitsInfoResult getPopularPortraitsInfoResult) {
             super(looper);
-            this.f9546a = getPopularPortraitsCallback;
-            this.f9547b = getPopularPortraitsInfoResult;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {portraitService, looper, getPopularPortraitsCallback, getPopularPortraitsInfoResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9620c = portraitService;
+            this.f9618a = getPopularPortraitsCallback;
+            this.f9619b = getPopularPortraitsInfoResult;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
-            this.f9547b.setResultCode(i2);
-            this.f9546a.onFailure(this.f9547b);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
+                this.f9619b.setResultCode(i2);
+                this.f9618a.onFailure(this.f9619b);
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f9546a.onFinish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.f9618a.onFinish();
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            this.f9546a.onStart();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.f9618a.onStart();
+            }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i2, String str) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("errno");
-                this.f9547b.setResultCode(optInt);
-                this.f9547b.setResultMsg(jSONObject.optString("errmsg"));
-                if (optInt == 0) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("list");
-                    int length = optJSONArray.length();
-                    this.f9547b.popularPortraitsInfoList = new ArrayList(length);
-                    for (int i3 = 0; i3 < length; i3++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                        if (optJSONObject != null) {
-                            GetPopularPortraitsInfoResult.PopularPortraitsInfo popularPortraitsInfo = new GetPopularPortraitsInfoResult.PopularPortraitsInfo();
-                            popularPortraitsInfo.num = optJSONObject.optInt("num");
-                            popularPortraitsInfo.serie = optJSONObject.optString("serie");
-                            popularPortraitsInfo.url = optJSONObject.optString("url");
-                            popularPortraitsInfo.myItem = optJSONObject.optInt("myitem");
-                            popularPortraitsInfo.color = optJSONObject.optString("color");
-                            popularPortraitsInfo.category = optJSONObject.optString("category");
-                            this.f9547b.popularPortraitsInfoList.add(popularPortraitsInfo);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno");
+                    this.f9619b.setResultCode(optInt);
+                    this.f9619b.setResultMsg(jSONObject.optString("errmsg"));
+                    if (optInt == 0) {
+                        JSONArray optJSONArray = jSONObject.optJSONArray("list");
+                        int length = optJSONArray.length();
+                        this.f9619b.popularPortraitsInfoList = new ArrayList(length);
+                        for (int i3 = 0; i3 < length; i3++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                            if (optJSONObject != null) {
+                                GetPopularPortraitsInfoResult.PopularPortraitsInfo popularPortraitsInfo = new GetPopularPortraitsInfoResult.PopularPortraitsInfo();
+                                popularPortraitsInfo.num = optJSONObject.optInt("num");
+                                popularPortraitsInfo.serie = optJSONObject.optString("serie");
+                                popularPortraitsInfo.url = optJSONObject.optString("url");
+                                popularPortraitsInfo.myItem = optJSONObject.optInt("myitem");
+                                popularPortraitsInfo.color = optJSONObject.optString("color");
+                                popularPortraitsInfo.category = optJSONObject.optString("category");
+                                this.f9619b.popularPortraitsInfoList.add(popularPortraitsInfo);
+                            }
                         }
+                        this.f9618a.onSuccess(this.f9619b);
+                        return;
                     }
-                    this.f9546a.onSuccess(this.f9547b);
-                    return;
+                    this.f9618a.onFailure(this.f9619b);
+                } catch (JSONException e2) {
+                    this.f9619b.setResultCode(-202);
+                    this.f9618a.onFailure(this.f9619b);
+                    Log.e(e2);
                 }
-                this.f9546a.onFailure(this.f9547b);
-            } catch (JSONException e2) {
-                this.f9547b.setResultCode(-202);
-                this.f9546a.onFailure(this.f9547b);
-                Log.e(e2);
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PortraitService(SapiConfiguration sapiConfiguration, String str) {
         super(sapiConfiguration, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sapiConfiguration, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((SapiConfiguration) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public String a() {
-        return this.configuration.environment.getPortraitUrl() + "/sys/history";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.configuration.environment.getPortraitUrl() + "/sys/history";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String b() {
-        return this.configuration.environment.getPortraitUrl() + "/sys/portrait/hotitemlist";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.configuration.environment.getPortraitUrl() + "/sys/portrait/hotitemlist";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String c() {
-        return this.configuration.environment.getPortraitUrl() + "/sys/sethotitem";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.configuration.environment.getPortraitUrl() + "/sys/sethotitem";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String d() {
-        return "/v2/sapi/center/setportrait";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "/v2/sapi/center/setportrait" : (String) invokeV.objValue;
     }
 
     public void getHistoryPortraits(GetHistoryPortraitsCallback getHistoryPortraitsCallback, GetHistoryPortraitsDTO getHistoryPortraitsDTO) {
-        SapiUtils.notNull(getHistoryPortraitsCallback, GetHistoryPortraitsCallback.class.getSimpleName() + " can't be null");
-        SapiUtils.notNull(getHistoryPortraitsDTO, "getHistoryPortrats dto can't be null");
-        SapiUtils.notEmpty(getHistoryPortraitsDTO.bduss, "bduss can't be empty");
-        int i2 = getHistoryPortraitsDTO.maxNum;
-        if (i2 >= 0 && i2 <= 10) {
-            GetHistoryPortraitsResult getHistoryPortraitsResult = new GetHistoryPortraitsResult();
-            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put(CloudStabilityUBCUtils.KEY_LENGTH, String.valueOf(getHistoryPortraitsDTO.maxNum));
-            httpHashMapWrap.put("bduss", getHistoryPortraitsDTO.bduss);
-            new HttpClientWrap().post(a(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new c(Looper.getMainLooper(), getHistoryPortraitsResult, getHistoryPortraitsCallback));
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, getHistoryPortraitsCallback, getHistoryPortraitsDTO) == null) {
+            SapiUtils.notNull(getHistoryPortraitsCallback, GetHistoryPortraitsCallback.class.getSimpleName() + " can't be null");
+            SapiUtils.notNull(getHistoryPortraitsDTO, "getHistoryPortrats dto can't be null");
+            SapiUtils.notEmpty(getHistoryPortraitsDTO.bduss, "bduss can't be empty");
+            int i2 = getHistoryPortraitsDTO.maxNum;
+            if (i2 >= 0 && i2 <= 10) {
+                GetHistoryPortraitsResult getHistoryPortraitsResult = new GetHistoryPortraitsResult();
+                HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+                httpHashMapWrap.put(CloudStabilityUBCUtils.KEY_LENGTH, String.valueOf(getHistoryPortraitsDTO.maxNum));
+                httpHashMapWrap.put("bduss", getHistoryPortraitsDTO.bduss);
+                new HttpClientWrap().post(a(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new c(this, Looper.getMainLooper(), getHistoryPortraitsResult, getHistoryPortraitsCallback));
+                return;
+            }
+            throw new IllegalArgumentException("abnormal request history number");
         }
-        throw new IllegalArgumentException("abnormal request history number");
     }
 
     public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str, PortraitCategory portraitCategory) {
-        SapiUtils.notNull(getPopularPortraitsCallback, GetPopularPortraitsCallback.class.getSimpleName() + " can't be null");
-        SapiUtils.notEmpty(str, "bduss can't be empty");
-        GetPopularPortraitsInfoResult getPopularPortraitsInfoResult = new GetPopularPortraitsInfoResult();
-        HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put("bduss", str);
-        if (portraitCategory != null) {
-            httpHashMapWrap.put("category", portraitCategory.getValue());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, getPopularPortraitsCallback, str, portraitCategory) == null) {
+            SapiUtils.notNull(getPopularPortraitsCallback, GetPopularPortraitsCallback.class.getSimpleName() + " can't be null");
+            SapiUtils.notEmpty(str, "bduss can't be empty");
+            GetPopularPortraitsInfoResult getPopularPortraitsInfoResult = new GetPopularPortraitsInfoResult();
+            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+            httpHashMapWrap.put("bduss", str);
+            if (portraitCategory != null) {
+                httpHashMapWrap.put("category", portraitCategory.getValue());
+            }
+            new HttpClientWrap().post(b(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new d(this, Looper.getMainLooper(), getPopularPortraitsCallback, getPopularPortraitsInfoResult));
         }
-        new HttpClientWrap().post(b(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new d(Looper.getMainLooper(), getPopularPortraitsCallback, getPopularPortraitsInfoResult));
     }
 
     public void setPopularPortrait(SetPopularPortraitCallback setPopularPortraitCallback, SetPopularPortraitDTO setPopularPortraitDTO) {
-        SapiUtils.notNull(setPopularPortraitCallback, SetPopularPortraitCallback.class.getSimpleName() + " can't be null");
-        SapiUtils.notNull(setPopularPortraitDTO, "SetPopularPortraitDto can't be null");
-        SapiUtils.notEmpty(setPopularPortraitDTO.bduss, "bduss can't be empty");
-        SapiUtils.notEmpty(setPopularPortraitDTO.series, "series can't be empty");
-        SetPopularPortraitResult setPopularPortraitResult = new SetPopularPortraitResult();
-        HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put("bduss", setPopularPortraitDTO.bduss);
-        httpHashMapWrap.put("serie", setPopularPortraitDTO.series);
-        httpHashMapWrap.put("num", String.valueOf(setPopularPortraitDTO.num));
-        new HttpClientWrap().post(c(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new b(Looper.getMainLooper(), setPopularPortraitResult, setPopularPortraitCallback));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, setPopularPortraitCallback, setPopularPortraitDTO) == null) {
+            SapiUtils.notNull(setPopularPortraitCallback, SetPopularPortraitCallback.class.getSimpleName() + " can't be null");
+            SapiUtils.notNull(setPopularPortraitDTO, "SetPopularPortraitDto can't be null");
+            SapiUtils.notEmpty(setPopularPortraitDTO.bduss, "bduss can't be empty");
+            SapiUtils.notEmpty(setPopularPortraitDTO.series, "series can't be empty");
+            SetPopularPortraitResult setPopularPortraitResult = new SetPopularPortraitResult();
+            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+            httpHashMapWrap.put("bduss", setPopularPortraitDTO.bduss);
+            httpHashMapWrap.put("serie", setPopularPortraitDTO.series);
+            httpHashMapWrap.put("num", String.valueOf(setPopularPortraitDTO.num));
+            new HttpClientWrap().post(c(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new b(this, Looper.getMainLooper(), setPopularPortraitResult, setPopularPortraitCallback));
+        }
     }
 
     public void setPortrait(SetPortraitDTO setPortraitDTO, SetPortraitCallback setPortraitCallback) {
-        SapiUtils.notNull(setPortraitDTO, "SetPortraitDTO can't be null");
-        SapiUtils.notNull(setPortraitCallback, "SetPortraitCallback can't be null");
-        SapiUtils.notEmpty(setPortraitDTO.bduss, "bduss can't be empty");
-        byte[] bArr = setPortraitDTO.file;
-        if (bArr != null && bArr.length != 0) {
-            SetPortraitResult setPortraitResult = new SetPortraitResult();
-            MultipartHashMapWrap multipartHashMapWrap = new MultipartHashMapWrap();
-            multipartHashMapWrap.put("bduss", setPortraitDTO.bduss);
-            multipartHashMapWrap.put("portrait_type", setPortraitDTO.portraitType + "");
-            multipartHashMapWrap.put("file", new ByteArrayInputStream(setPortraitDTO.file), "portrait.jpg", TextUtils.isEmpty(setPortraitDTO.contentType) ? "image/jpeg" : setPortraitDTO.contentType);
-            new HttpClientWrap().post(d(), ReqPriority.HIGH, multipartHashMapWrap, null, getUaInfo(), new a(Looper.getMainLooper(), setPortraitCallback, setPortraitResult));
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, setPortraitDTO, setPortraitCallback) == null) {
+            SapiUtils.notNull(setPortraitDTO, "SetPortraitDTO can't be null");
+            SapiUtils.notNull(setPortraitCallback, "SetPortraitCallback can't be null");
+            SapiUtils.notEmpty(setPortraitDTO.bduss, "bduss can't be empty");
+            byte[] bArr = setPortraitDTO.file;
+            if (bArr != null && bArr.length != 0) {
+                SetPortraitResult setPortraitResult = new SetPortraitResult();
+                MultipartHashMapWrap multipartHashMapWrap = new MultipartHashMapWrap();
+                multipartHashMapWrap.put("bduss", setPortraitDTO.bduss);
+                multipartHashMapWrap.put("portrait_type", setPortraitDTO.portraitType + "");
+                multipartHashMapWrap.put("file", new ByteArrayInputStream(setPortraitDTO.file), "portrait.jpg", TextUtils.isEmpty(setPortraitDTO.contentType) ? "image/jpeg" : setPortraitDTO.contentType);
+                new HttpClientWrap().post(d(), ReqPriority.HIGH, multipartHashMapWrap, null, getUaInfo(), new a(this, Looper.getMainLooper(), setPortraitCallback, setPortraitResult));
+                return;
+            }
+            throw new IllegalArgumentException("file can't be empty");
         }
-        throw new IllegalArgumentException("file can't be empty");
     }
 }

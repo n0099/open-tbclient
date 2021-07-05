@@ -2,39 +2,80 @@ package io.flutter.embedding.engine;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class FlutterEngineCache {
+    public static /* synthetic */ Interceptable $ic;
     public static FlutterEngineCache instance;
-    public final Map<String, FlutterEngine> cachedEngines = new HashMap();
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, FlutterEngine> cachedEngines;
+
+    @VisibleForTesting
+    public FlutterEngineCache() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.cachedEngines = new HashMap();
+    }
 
     @NonNull
     public static FlutterEngineCache getInstance() {
-        if (instance == null) {
-            instance = new FlutterEngineCache();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (instance == null) {
+                instance = new FlutterEngineCache();
+            }
+            return instance;
         }
-        return instance;
+        return (FlutterEngineCache) invokeV.objValue;
     }
 
     public boolean contains(@NonNull String str) {
-        return this.cachedEngines.containsKey(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.cachedEngines.containsKey(str) : invokeL.booleanValue;
     }
 
     @Nullable
     public FlutterEngine get(@NonNull String str) {
-        return this.cachedEngines.get(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.cachedEngines.get(str) : (FlutterEngine) invokeL.objValue;
     }
 
     public void put(@NonNull String str, @Nullable FlutterEngine flutterEngine) {
-        if (flutterEngine != null) {
-            this.cachedEngines.put(str, flutterEngine);
-        } else {
-            this.cachedEngines.remove(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, flutterEngine) == null) {
+            if (flutterEngine != null) {
+                this.cachedEngines.put(str, flutterEngine);
+            } else {
+                this.cachedEngines.remove(str);
+            }
         }
     }
 
     public void remove(@NonNull String str) {
-        put(str, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            put(str, null);
+        }
     }
 }

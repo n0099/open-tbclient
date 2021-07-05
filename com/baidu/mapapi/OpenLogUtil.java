@@ -1,12 +1,36 @@
 package com.baidu.mapapi;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class OpenLogUtil {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ModuleName f6775a;
+    public static ModuleName f6805a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public OpenLogUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static void setModuleLogEnable(ModuleName moduleName, boolean z) {
-        f6775a = moduleName;
-        com.baidu.mapsdkplatform.comjni.tools.a.a(z, moduleName.ordinal());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65537, null, moduleName, z) == null) {
+            f6805a = moduleName;
+            com.baidu.mapsdkplatform.comjni.tools.a.a(z, moduleName.ordinal());
+        }
     }
 }

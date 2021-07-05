@@ -8,12 +8,12 @@ import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface KsSplashScreenAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface SplashScreenAdInteractionListener {
         @KsAdSdkApi
         @Keep

@@ -1,121 +1,144 @@
 package com.bytedance.sdk.openadsdk.core.a;
 
-import android.util.SparseArray;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewConfiguration;
-import com.bytedance.sdk.openadsdk.core.h.g;
-import com.bytedance.sdk.openadsdk.core.p;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
+import com.bytedance.sdk.openadsdk.core.l;
+import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class c implements View.OnClickListener, View.OnTouchListener {
-    public static int B = 8;
+public class c implements TTAdNative.FeedAdListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f27916a;
+    public TTAdNative.FeedAdListener f29677a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static float f27917b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static float f27918c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static float f27919d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static long f27920e;
-    public int A;
-    public SparseArray<a> C = new SparseArray<>();
-    public int s;
-    public int t;
-    public int u;
-    public int v;
-    public long w;
-    public long x;
-    public int y;
-    public int z;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f27921a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public double f27922b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public double f27923c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public long f27924d;
-
-        public a(int i2, double d2, double d3, long j) {
-            this.f27921a = -1;
-            this.f27921a = i2;
-            this.f27922b = d2;
-            this.f27923c = d3;
-            this.f27924d = j;
-        }
-    }
-
-    static {
-        if (ViewConfiguration.get(p.a()) != null) {
-            B = ViewConfiguration.get(p.a()).getScaledTouchSlop();
-        }
-        f27916a = 0.0f;
-        f27917b = 0.0f;
-        f27918c = 0.0f;
-        f27919d = 0.0f;
-        f27920e = 0L;
-    }
-
-    public abstract void a(View view, int i2, int i3, int i4, int i5);
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (g.a()) {
-            a(view, this.s, this.t, this.u, this.v);
-        }
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        int i2;
-        int actionMasked = motionEvent.getActionMasked();
-        if (actionMasked == 0) {
-            this.s = (int) motionEvent.getRawX();
-            this.t = (int) motionEvent.getRawY();
-            this.w = System.currentTimeMillis();
-            this.y = motionEvent.getToolType(0);
-            this.z = motionEvent.getDeviceId();
-            this.A = motionEvent.getSource();
-            f27920e = System.currentTimeMillis();
-            i2 = 0;
-        } else if (actionMasked == 1) {
-            this.u = (int) motionEvent.getRawX();
-            this.v = (int) motionEvent.getRawY();
-            this.x = System.currentTimeMillis();
-            i2 = 3;
-        } else if (actionMasked != 2) {
-            i2 = actionMasked != 3 ? -1 : 4;
-        } else {
-            f27918c += Math.abs(motionEvent.getX() - f27916a);
-            f27919d += Math.abs(motionEvent.getY() - f27917b);
-            f27916a = motionEvent.getX();
-            f27917b = motionEvent.getY();
-            if (System.currentTimeMillis() - f27920e > 200) {
-                float f2 = f27918c;
-                int i3 = B;
-                if (f2 > i3 || f27919d > i3) {
-                    i2 = 1;
-                }
+    public c(TTAdNative.FeedAdListener feedAdListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedAdListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            i2 = 2;
         }
-        if (this.C.get(motionEvent.getActionMasked()) == null) {
-            this.C.put(motionEvent.getActionMasked(), new a(i2, motionEvent.getSize(), motionEvent.getPressure(), System.currentTimeMillis()));
+        this.f29677a = null;
+        this.f29677a = feedAdListener;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener, com.bytedance.sdk.openadsdk.c.b
+    public void onError(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.f29677a == null) {
+            return;
         }
-        return false;
+        if (str == null) {
+            str = "未知异常";
+        }
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            this.f29677a.onError(i2, str);
+        } else {
+            l.d().post(new Runnable(this, i2, str) { // from class: com.bytedance.sdk.openadsdk.core.a.c.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f29678a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ String f29679b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ c f29680c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f29680c = this;
+                    this.f29678a = i2;
+                    this.f29679b = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f29680c.f29677a.onError(this.f29678a, this.f29679b);
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
+    public void onFeedAdLoad(List<TTFeedAd> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f29677a == null) {
+            return;
+        }
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            this.f29677a.onFeedAdLoad(list);
+        } else {
+            l.d().post(new Runnable(this, list) { // from class: com.bytedance.sdk.openadsdk.core.a.c.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ List f29681a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ c f29682b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, list};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f29682b = this;
+                    this.f29681a = list;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f29682b.f29677a.onFeedAdLoad(this.f29681a);
+                    }
+                }
+            });
+        }
     }
 }

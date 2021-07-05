@@ -1,7 +1,13 @@
 package com.baidu.appsearch.update.patchupdate;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.map.r;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import java.io.BufferedInputStream;
@@ -22,6 +28,7 @@ import java.nio.ByteBuffer;
 import java.util.zip.GZIPInputStream;
 /* loaded from: classes.dex */
 public class GDiffPatcher {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int COPY_INT_INT = 254;
     public static final int COPY_INT_UBYTE = 252;
     public static final int COPY_INT_USHORT = 253;
@@ -38,124 +45,152 @@ public class GDiffPatcher {
     public static final byte EOF = 0;
     public static final int ONE_MB = 1048576;
     public static final int QUARTER_MB = 262144;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ByteBuffer f4190a;
+    public ByteBuffer f4188a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f4191b;
+    public byte[] f4189b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4192c;
+    public boolean f4190c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f4193d;
+    public long f4191d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4194e;
+    public int f4192e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f4195f;
+    public byte[] f4193f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4196g;
+    public int f4194g;
     public long totalLength;
 
     public GDiffPatcher() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         ByteBuffer allocate = ByteBuffer.allocate(5120);
-        this.f4190a = allocate;
-        this.f4191b = allocate.array();
-        this.f4192c = false;
-        this.f4193d = 0L;
-        this.f4194e = 246;
+        this.f4188a = allocate;
+        this.f4189b = allocate.array();
+        this.f4190c = false;
+        this.f4191d = 0L;
+        this.f4192e = 246;
         this.totalLength = 0L;
-        this.f4195f = new byte[1048576];
-        this.f4196g = 0;
+        this.f4193f = new byte[1048576];
+        this.f4194g = 0;
     }
 
     private void a(byte[] bArr, int i2, int i3, OutputStream outputStream) {
-        try {
-            if (this.f4196g + i3 >= this.f4195f.length) {
-                outputStream.write(this.f4195f, 0, this.f4196g);
-                this.f4196g = 0;
-                System.arraycopy(bArr, 0, this.f4195f, 0, i3);
-                this.f4196g = i3;
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), outputStream}) == null) {
+            try {
+                if (this.f4194g + i3 >= this.f4193f.length) {
+                    outputStream.write(this.f4193f, 0, this.f4194g);
+                    this.f4194g = 0;
+                    System.arraycopy(bArr, 0, this.f4193f, 0, i3);
+                    this.f4194g = i3;
+                    return;
+                }
+                if (this.f4194g == 0) {
+                    System.arraycopy(bArr, 0, this.f4193f, 0, i3);
+                } else {
+                    System.arraycopy(bArr, 0, this.f4193f, this.f4194g, i3);
+                }
+                this.f4194g += i3;
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
-            if (this.f4196g == 0) {
-                System.arraycopy(bArr, 0, this.f4195f, 0, i3);
-            } else {
-                System.arraycopy(bArr, 0, this.f4195f, this.f4196g, i3);
-            }
-            this.f4196g += i3;
-        } catch (IOException e2) {
-            e2.printStackTrace();
         }
     }
 
     public static void unGZip(String str, String str2) {
-        long currentTimeMillis = System.currentTimeMillis();
-        LogUtil.logD("GDiffPatcher", "unGzip thread name:" + Thread.currentThread().getName());
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        File file = new File(str);
-        File file2 = new File(str2);
-        if (file.exists()) {
-            try {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                BufferedInputStream bufferedInputStream = new BufferedInputStream(new GZIPInputStream(fileInputStream));
-                byte[] bArr = new byte[10240];
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
-                while (true) {
-                    int read = bufferedInputStream.read(bArr, 0, 10240);
-                    if (read == -1) {
-                        break;
-                    }
-                    bufferedOutputStream.write(bArr, 0, read);
-                }
-                bufferedOutputStream.flush();
-                bufferedOutputStream.close();
-                fileInputStream.close();
-                bufferedInputStream.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            LogUtil.logD("GDiffPatcher", "unGzip thread name:" + Thread.currentThread().getName());
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return;
             }
-            LogUtil.logD("GDiffPatcher", "unzip time:" + (System.currentTimeMillis() - currentTimeMillis));
+            File file = new File(str);
+            File file2 = new File(str2);
+            if (file.exists()) {
+                try {
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    BufferedInputStream bufferedInputStream = new BufferedInputStream(new GZIPInputStream(fileInputStream));
+                    byte[] bArr = new byte[10240];
+                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
+                    while (true) {
+                        int read = bufferedInputStream.read(bArr, 0, 10240);
+                        if (read == -1) {
+                            break;
+                        }
+                        bufferedOutputStream.write(bArr, 0, read);
+                    }
+                    bufferedOutputStream.flush();
+                    bufferedOutputStream.close();
+                    fileInputStream.close();
+                    bufferedInputStream.close();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                LogUtil.logD("GDiffPatcher", "unzip time:" + (System.currentTimeMillis() - currentTimeMillis));
+            }
         }
     }
 
     public void a(int i2, InputStream inputStream, OutputStream outputStream) {
-        while (i2 > 0) {
-            int read = inputStream.read(this.f4191b, 0, Math.min(this.f4191b.length, i2));
-            if (read == -1) {
-                throw new EOFException("cannot read " + i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, inputStream, outputStream) == null) {
+            while (i2 > 0) {
+                int read = inputStream.read(this.f4189b, 0, Math.min(this.f4189b.length, i2));
+                if (read == -1) {
+                    throw new EOFException("cannot read " + i2);
+                }
+                a(this.f4189b, 0, read, outputStream);
+                i2 -= read;
             }
-            a(this.f4191b, 0, read, outputStream);
-            i2 -= read;
         }
     }
 
     public void a(long j, int i2, d dVar, OutputStream outputStream) {
-        dVar.a(j);
-        while (i2 > 0) {
-            this.f4190a.clear().limit(Math.min(this.f4190a.capacity(), i2));
-            int a2 = dVar.a(this.f4190a);
-            if (a2 == -1) {
-                throw new EOFException("in copy " + j + " " + i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), dVar, outputStream}) == null) {
+            dVar.a(j);
+            while (i2 > 0) {
+                this.f4188a.clear().limit(Math.min(this.f4188a.capacity(), i2));
+                int a2 = dVar.a(this.f4188a);
+                if (a2 == -1) {
+                    throw new EOFException("in copy " + j + " " + i2);
+                }
+                a(this.f4188a.array(), 0, a2, outputStream);
+                i2 -= a2;
             }
-            a(this.f4190a.array(), 0, a2, outputStream);
-            i2 -= a2;
         }
     }
 
     public void a(OutputStream outputStream) {
-        int i2 = this.f4196g;
-        if (i2 > 0) {
-            outputStream.write(this.f4195f, 0, i2);
-            this.f4196g = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, outputStream) == null) {
+            int i2 = this.f4194g;
+            if (i2 > 0) {
+                outputStream.write(this.f4193f, 0, i2);
+                this.f4194g = 0;
+            }
+            outputStream.flush();
         }
-        outputStream.flush();
     }
 
     public void patch(d dVar, InputStream inputStream, OutputStream outputStream) {
@@ -163,6 +198,10 @@ public class GDiffPatcher {
         long readUnsignedByte2;
         long readUnsignedByte3;
         long j;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(1048579, this, dVar, inputStream, outputStream) != null) {
+            return;
+        }
         OutputStream dataOutputStream = new DataOutputStream(outputStream);
         DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(inputStream, 262144));
         if (dataInputStream.readUnsignedByte() != 209 || dataInputStream.readUnsignedByte() != 255 || dataInputStream.readUnsignedByte() != 209 || dataInputStream.readUnsignedByte() != 255) {
@@ -170,8 +209,8 @@ public class GDiffPatcher {
         }
         int readUnsignedByte4 = dataInputStream.readUnsignedByte();
         if (readUnsignedByte4 == 5) {
-            this.f4192c = true;
-            this.f4194e = LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK;
+            this.f4190c = true;
+            this.f4192e = LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK;
         } else if (readUnsignedByte4 != 4) {
             throw new b("magic string not found, aborting!");
         }
@@ -183,12 +222,12 @@ public class GDiffPatcher {
                 a(dataOutputStream);
                 return;
             }
-            if (readUnsignedByte5 > this.f4194e) {
+            if (readUnsignedByte5 > this.f4192e) {
                 switch (readUnsignedByte5) {
                     case 244:
-                        if (this.f4192c) {
-                            readUnsignedByte = dataInputStream.readByte() + this.f4193d;
-                            this.f4193d = readUnsignedByte;
+                        if (this.f4190c) {
+                            readUnsignedByte = dataInputStream.readByte() + this.f4191d;
+                            this.f4191d = readUnsignedByte;
                         } else {
                             readUnsignedByte = dataInputStream.readUnsignedByte();
                         }
@@ -197,9 +236,9 @@ public class GDiffPatcher {
                         a(j, readUnsignedByte5, dVar, dataOutputStream);
                         j2 = this.totalLength + readUnsignedByte5;
                     case 245:
-                        if (this.f4192c) {
-                            readUnsignedByte2 = dataInputStream.readByte() + this.f4193d;
-                            this.f4193d = readUnsignedByte2;
+                        if (this.f4190c) {
+                            readUnsignedByte2 = dataInputStream.readByte() + this.f4191d;
+                            this.f4191d = readUnsignedByte2;
                         } else {
                             readUnsignedByte2 = dataInputStream.readUnsignedByte();
                         }
@@ -208,9 +247,9 @@ public class GDiffPatcher {
                         a(j, readUnsignedByte5, dVar, dataOutputStream);
                         j2 = this.totalLength + readUnsignedByte5;
                     case 246:
-                        if (this.f4192c) {
-                            readUnsignedByte3 = dataInputStream.readByte() + this.f4193d;
-                            this.f4193d = readUnsignedByte3;
+                        if (this.f4190c) {
+                            readUnsignedByte3 = dataInputStream.readByte() + this.f4191d;
+                            this.f4191d = readUnsignedByte3;
                         } else {
                             readUnsignedByte3 = dataInputStream.readUnsignedByte();
                         }
@@ -225,9 +264,9 @@ public class GDiffPatcher {
                         readUnsignedByte5 = dataInputStream.readInt();
                         break;
                     case 249:
-                        if (this.f4192c) {
-                            readUnsignedByte = dataInputStream.readShort() + this.f4193d;
-                            this.f4193d = readUnsignedByte;
+                        if (this.f4190c) {
+                            readUnsignedByte = dataInputStream.readShort() + this.f4191d;
+                            this.f4191d = readUnsignedByte;
                         } else {
                             readUnsignedByte = dataInputStream.readUnsignedShort();
                         }
@@ -236,9 +275,9 @@ public class GDiffPatcher {
                         a(j, readUnsignedByte5, dVar, dataOutputStream);
                         j2 = this.totalLength + readUnsignedByte5;
                     case 250:
-                        if (this.f4192c) {
-                            readUnsignedByte2 = dataInputStream.readShort() + this.f4193d;
-                            this.f4193d = readUnsignedByte2;
+                        if (this.f4190c) {
+                            readUnsignedByte2 = dataInputStream.readShort() + this.f4191d;
+                            this.f4191d = readUnsignedByte2;
                         } else {
                             readUnsignedByte2 = dataInputStream.readUnsignedShort();
                         }
@@ -247,9 +286,9 @@ public class GDiffPatcher {
                         a(j, readUnsignedByte5, dVar, dataOutputStream);
                         j2 = this.totalLength + readUnsignedByte5;
                     case COPY_USHORT_INT /* 251 */:
-                        if (this.f4192c) {
-                            readUnsignedByte3 = dataInputStream.readShort() + this.f4193d;
-                            this.f4193d = readUnsignedByte3;
+                        if (this.f4190c) {
+                            readUnsignedByte3 = dataInputStream.readShort() + this.f4191d;
+                            this.f4191d = readUnsignedByte3;
                         } else {
                             readUnsignedByte3 = dataInputStream.readUnsignedShort();
                         }
@@ -259,9 +298,9 @@ public class GDiffPatcher {
                         j2 = this.totalLength + readUnsignedByte5;
                     case COPY_INT_UBYTE /* 252 */:
                         readUnsignedByte = dataInputStream.readInt();
-                        if (this.f4192c) {
-                            readUnsignedByte += this.f4193d;
-                            this.f4193d = readUnsignedByte;
+                        if (this.f4190c) {
+                            readUnsignedByte += this.f4191d;
+                            this.f4191d = readUnsignedByte;
                         }
                         j = readUnsignedByte;
                         readUnsignedByte5 = dataInputStream.readUnsignedByte();
@@ -269,9 +308,9 @@ public class GDiffPatcher {
                         j2 = this.totalLength + readUnsignedByte5;
                     case COPY_INT_USHORT /* 253 */:
                         readUnsignedByte2 = dataInputStream.readInt();
-                        if (this.f4192c) {
-                            readUnsignedByte2 += this.f4193d;
-                            this.f4193d = readUnsignedByte2;
+                        if (this.f4190c) {
+                            readUnsignedByte2 += this.f4191d;
+                            this.f4191d = readUnsignedByte2;
                         }
                         j = readUnsignedByte2;
                         readUnsignedByte5 = dataInputStream.readUnsignedShort();
@@ -279,9 +318,9 @@ public class GDiffPatcher {
                         j2 = this.totalLength + readUnsignedByte5;
                     case 254:
                         readUnsignedByte3 = dataInputStream.readInt();
-                        if (this.f4192c) {
-                            readUnsignedByte3 += this.f4193d;
-                            this.f4193d = readUnsignedByte3;
+                        if (this.f4190c) {
+                            readUnsignedByte3 += this.f4191d;
+                            this.f4191d = readUnsignedByte3;
                         }
                         j = readUnsignedByte3;
                         readUnsignedByte5 = dataInputStream.readInt();
@@ -289,9 +328,9 @@ public class GDiffPatcher {
                         j2 = this.totalLength + readUnsignedByte5;
                     case 255:
                         readUnsignedByte3 = dataInputStream.readLong();
-                        if (this.f4192c) {
-                            readUnsignedByte3 += this.f4193d;
-                            this.f4193d = readUnsignedByte3;
+                        if (this.f4190c) {
+                            readUnsignedByte3 += this.f4191d;
+                            this.f4191d = readUnsignedByte3;
                         }
                         j = readUnsignedByte3;
                         readUnsignedByte5 = dataInputStream.readInt();
@@ -307,30 +346,41 @@ public class GDiffPatcher {
     }
 
     public void patch(File file, File file2, File file3) {
-        c cVar = new c(new RandomAccessFile(file, r.f7715a));
-        FileInputStream fileInputStream = new FileInputStream(file2);
-        FileOutputStream fileOutputStream = new FileOutputStream(file3);
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, file, file2, file3) == null) {
+            c cVar = new c(new RandomAccessFile(file, r.f7745a));
+            FileInputStream fileInputStream = new FileInputStream(file2);
+            FileOutputStream fileOutputStream = new FileOutputStream(file3);
             try {
-                patch(cVar, fileInputStream, fileOutputStream);
-            } catch (IOException e2) {
-                throw e2;
+                try {
+                    patch(cVar, fileInputStream, fileOutputStream);
+                } catch (IOException e2) {
+                    throw e2;
+                }
+            } finally {
+                cVar.close();
+                fileInputStream.close();
+                fileOutputStream.close();
+                file3.length();
             }
-        } finally {
-            cVar.close();
-            fileInputStream.close();
-            fileOutputStream.close();
-            file3.length();
         }
     }
 
     public void patch(byte[] bArr, InputStream inputStream, OutputStream outputStream) {
-        patch(new a(bArr), inputStream, outputStream);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, bArr, inputStream, outputStream) == null) {
+            patch(new a(bArr), inputStream, outputStream);
+        }
     }
 
     public byte[] patch(byte[] bArr, byte[] bArr2) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        patch(bArr, new ByteArrayInputStream(bArr2), byteArrayOutputStream);
-        return byteArrayOutputStream.toByteArray();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bArr, bArr2)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            patch(bArr, new ByteArrayInputStream(bArr2), byteArrayOutputStream);
+            return byteArrayOutputStream.toByteArray();
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

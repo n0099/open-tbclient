@@ -1,33 +1,71 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.c;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.d.c;
 import com.bytedance.sdk.openadsdk.preload.a.p;
 import com.bytedance.sdk.openadsdk.preload.a.v;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public class a extends v<Boolean> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.c.a$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30213a;
+        public static final /* synthetic */ int[] f32063a;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1869019486, "Lcom/bytedance/sdk/openadsdk/preload/geckox/c/a$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1869019486, "Lcom/bytedance/sdk/openadsdk/preload/geckox/c/a$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f30213a = iArr;
+            f32063a = iArr;
             try {
-                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN.ordinal()] = 1;
+                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f31917h.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30213a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 2;
+                f32063a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30213a[com.bytedance.sdk.openadsdk.preload.a.d.b.NUMBER.ordinal()] = 3;
+                f32063a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
@@ -35,10 +73,13 @@ public class a extends v<Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public void a(c cVar, Boolean bool) throws IOException {
-        if (bool == null) {
-            cVar.f();
-        } else {
-            cVar.a(bool);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, bool) == null) {
+            if (bool == null) {
+                cVar.f();
+            } else {
+                cVar.a(bool);
+            }
         }
     }
 
@@ -46,18 +87,23 @@ public class a extends v<Boolean> {
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     /* renamed from: a */
     public Boolean b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-        com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-        int i2 = AnonymousClass1.f30213a[f2.ordinal()];
-        if (i2 != 1) {
-            if (i2 == 2) {
-                aVar.j();
-                return null;
-            } else if (i2 == 3) {
-                return Boolean.valueOf(aVar.m() != 0);
-            } else {
-                throw new p("Expected BOOLEAN or NUMBER but was " + f2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
+            int i2 = AnonymousClass1.f32063a[f2.ordinal()];
+            if (i2 != 1) {
+                if (i2 == 2) {
+                    aVar.j();
+                    return null;
+                } else if (i2 == 3) {
+                    return Boolean.valueOf(aVar.m() != 0);
+                } else {
+                    throw new p("Expected BOOLEAN or NUMBER but was " + f2);
+                }
             }
+            return Boolean.valueOf(aVar.i());
         }
-        return Boolean.valueOf(aVar.i());
+        return (Boolean) invokeL.objValue;
     }
 }

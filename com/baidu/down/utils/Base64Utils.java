@@ -1,10 +1,34 @@
 package com.baidu.down.utils;
 
 import android.util.Base64;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Base64Utils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public Base64Utils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static String encode(byte[] bArr) {
-        return (bArr == null || bArr.length <= 0) ? "" : new String(Base64.encode(bArr, 0), Charset.forName("UTF-8"));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? (bArr == null || bArr.length <= 0) ? "" : new String(Base64.encode(bArr, 0), Charset.forName("UTF-8")) : (String) invokeL.objValue;
     }
 }

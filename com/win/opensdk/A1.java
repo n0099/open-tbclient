@@ -7,49 +7,82 @@ import android.os.Handler;
 import android.os.Message;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class A1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40564a;
+    public Context f42307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f40565b;
+    public Info f42308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f40566c = new y1(this);
+    public Handler f42309c;
+
+    public A1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42309c = new y1(this);
+    }
 
     public static boolean a(Uri uri) {
-        return "appmarket".equalsIgnoreCase(uri.getScheme());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) ? "appmarket".equalsIgnoreCase(uri.getScheme()) : invokeL.booleanValue;
     }
 
     public static boolean b(Uri uri) {
-        String scheme = uri.getScheme();
-        String host = uri.getHost();
-        return "market".equalsIgnoreCase(scheme) || "market.android.com".equalsIgnoreCase(host) || "play.google.com".equalsIgnoreCase(host);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            String scheme = uri.getScheme();
+            String host = uri.getHost();
+            return "market".equalsIgnoreCase(scheme) || "market.android.com".equalsIgnoreCase(host) || "play.google.com".equalsIgnoreCase(host);
+        }
+        return invokeL.booleanValue;
     }
 
     public void a(Context context, String str, Info info) {
-        this.f40564a = context;
-        this.f40565b = info;
-        WebView webView = new WebView(context);
-        WebSettings settings = webView.getSettings();
-        settings.setAllowContentAccess(true);
-        settings.setJavaScriptEnabled(true);
-        if (Build.VERSION.SDK_INT >= 11) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, info) == null) {
+            this.f42307a = context;
+            this.f42308b = info;
+            WebView webView = new WebView(context);
+            WebSettings settings = webView.getSettings();
+            settings.setAllowContentAccess(true);
+            settings.setJavaScriptEnabled(true);
+            if (Build.VERSION.SDK_INT >= 11) {
+                webView.removeJavascriptInterface("searchBoxJavaBridge_");
+                webView.removeJavascriptInterface("accessibility");
+                webView.removeJavascriptInterface("accessibilityTraversal");
+            }
+            webView.setWebViewClient(new z1(this, context, info, str));
+            HashMap hashMap = new HashMap();
+            hashMap.put("X-Requested-With", "");
+            webView.loadUrl(str, hashMap);
+            Message obtain = Message.obtain();
+            obtain.what = 11;
+            obtain.obj = str;
+            this.f42309c.sendMessageDelayed(obtain, 5000L);
         }
-        webView.setWebViewClient(new z1(this, context, info, str));
-        HashMap hashMap = new HashMap();
-        hashMap.put("X-Requested-With", "");
-        webView.loadUrl(str, hashMap);
-        Message obtain = Message.obtain();
-        obtain.what = 11;
-        obtain.obj = str;
-        this.f40566c.sendMessageDelayed(obtain, 5000L);
     }
 }

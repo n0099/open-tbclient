@@ -1,70 +1,52 @@
 package d.b.c.b.c;
 
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class d {
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes10.dex */
+public class d extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f69550a = false;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(@Nullable Context context) {
+        super(context, "npth_log.db", (SQLiteDatabase.CursorFactory) null, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f69551b = true;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            new d.b.c.b.c.c.b().c(sQLiteDatabase);
+        }
+    }
 
-    /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f69552c = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f69553d = null;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f69554e = 10;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f69555f = 1;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f69556g = 1;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f69557h = 10;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f69558i = 1;
-    public int j = 1;
-    public int k = 900;
-    public int l = 120;
-    public String m = null;
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(" localEnable: ");
-        sb.append(this.f69550a);
-        sb.append(" probeEnable: ");
-        sb.append(this.f69551b);
-        sb.append(" hostFilter: ");
-        Map<String, Integer> map = this.f69552c;
-        sb.append(map != null ? map.size() : 0);
-        sb.append(" hostMap: ");
-        Map<String, String> map2 = this.f69553d;
-        sb.append(map2 != null ? map2.size() : 0);
-        sb.append(" reqTo: ");
-        sb.append(this.f69554e);
-        sb.append("#");
-        sb.append(this.f69555f);
-        sb.append("#");
-        sb.append(this.f69556g);
-        sb.append(" reqErr: ");
-        sb.append(this.f69557h);
-        sb.append("#");
-        sb.append(this.f69558i);
-        sb.append("#");
-        sb.append(this.j);
-        sb.append(" updateInterval: ");
-        sb.append(this.k);
-        sb.append(" updateRandom: ");
-        sb.append(this.l);
-        sb.append(" httpBlack: ");
-        sb.append(this.m);
-        return sb.toString();
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+        }
     }
 }

@@ -14,130 +14,179 @@ import com.baidu.adp.plugin.proxy.activity.FragmentActivityProxy;
 import com.baidu.adp.plugin.proxy.activity.RemoteActivityProxy;
 import com.baidu.adp.plugin.proxy.activity.ThirdActivityProxy;
 import com.baidu.adp.plugin.proxy.activity.ThirdFragmentActivityProxy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile c f42820g;
+    public static volatile c f44629g;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<Class<?>, Class<?>> f42821a;
+    public Map<Class<?>, Class<?>> f44630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Class<?>, Class<?>> f42822b;
+    public Map<Class<?>, Class<?>> f44631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Class<?>, Class<?>> f42823c;
+    public Map<Class<?>, Class<?>> f44632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42824d = 0;
+    public int f44633d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42825e = 0;
+    public int f44634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42826f = 0;
+    public int f44635f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1754096272, "Ld/a/c/h/c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1754096272, "Ld/a/c/h/c;");
+        }
+    }
 
     public c() {
-        this.f42821a = null;
-        this.f42822b = null;
-        this.f42823c = null;
-        this.f42821a = new HashMap();
-        this.f42822b = new HashMap();
-        this.f42823c = new HashMap();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f44630a = null;
+        this.f44631b = null;
+        this.f44632c = null;
+        this.f44633d = 0;
+        this.f44634e = 0;
+        this.f44635f = 0;
+        this.f44630a = new HashMap();
+        this.f44631b = new HashMap();
+        this.f44632c = new HashMap();
     }
 
     public static c a() {
-        if (f42820g == null) {
-            synchronized (c.class) {
-                if (f42820g == null) {
-                    f42820g = new c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f44629g == null) {
+                synchronized (c.class) {
+                    if (f44629g == null) {
+                        f44629g = new c();
+                    }
                 }
             }
+            return f44629g;
         }
-        return f42820g;
+        return (c) invokeV.objValue;
     }
 
     public Class<?> b(Class<?> cls) {
-        if (cls == null) {
-            return null;
-        }
-        if (PluginBaseSingleTaskActivity.class.isAssignableFrom(cls)) {
-            Class<?> cls2 = this.f42821a.get(cls);
-            if (cls2 != null) {
-                return cls2;
-            }
-            int i2 = this.f42825e;
-            if (i2 == 20) {
-                BdLog.e("can not find singletaskactivity,Has started 20 singletaskactivity");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            if (cls == null) {
                 return null;
             }
-            this.f42825e = i2 + 1;
-            try {
-                cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.f42825e);
-                this.f42821a.put(cls, cls2);
-                return cls2;
-            } catch (Exception e2) {
-                BdLog.e(e2);
-                return cls2;
-            }
-        } else if (PluginBaseRemoteSingleTaskActivity.class.isAssignableFrom(cls)) {
-            Class<?> cls3 = this.f42822b.get(cls);
-            if (cls3 != null) {
-                return cls3;
-            }
-            int i3 = this.f42826f;
-            if (i3 == 10) {
-                BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
-                return null;
-            }
-            this.f42826f = i3 + 1;
-            try {
-                cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.f42826f);
-                this.f42822b.put(cls, cls3);
-                return cls3;
-            } catch (Exception e3) {
-                BdLog.e(e3);
-                return cls3;
-            }
-        } else if (PluginBaseRemoteActivity.class.isAssignableFrom(cls)) {
-            return RemoteActivityProxy.class;
-        } else {
-            if (PluginBaseThirdSingleTaskActivity.class.isAssignableFrom(cls)) {
-                Class<?> cls4 = this.f42823c.get(cls);
-                if (cls4 != null) {
-                    return cls4;
+            if (PluginBaseSingleTaskActivity.class.isAssignableFrom(cls)) {
+                Class<?> cls2 = this.f44630a.get(cls);
+                if (cls2 != null) {
+                    return cls2;
                 }
-                int i4 = this.f42824d;
-                if (i4 == 10) {
+                int i2 = this.f44634e;
+                if (i2 == 20) {
+                    BdLog.e("can not find singletaskactivity,Has started 20 singletaskactivity");
+                    return null;
+                }
+                this.f44634e = i2 + 1;
+                try {
+                    cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.f44634e);
+                    this.f44630a.put(cls, cls2);
+                    return cls2;
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                    return cls2;
+                }
+            } else if (PluginBaseRemoteSingleTaskActivity.class.isAssignableFrom(cls)) {
+                Class<?> cls3 = this.f44631b.get(cls);
+                if (cls3 != null) {
+                    return cls3;
+                }
+                int i3 = this.f44635f;
+                if (i3 == 10) {
                     BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
                     return null;
                 }
-                this.f42824d = i4 + 1;
+                this.f44635f = i3 + 1;
                 try {
-                    cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.f42824d);
-                    this.f42823c.put(cls, cls4);
-                    return cls4;
-                } catch (Exception e4) {
-                    BdLog.e(e4);
-                    return cls4;
+                    cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.f44635f);
+                    this.f44631b.put(cls, cls3);
+                    return cls3;
+                } catch (Exception e3) {
+                    BdLog.e(e3);
+                    return cls3;
                 }
-            } else if (PluginBaseThirdActivity.class.isAssignableFrom(cls)) {
-                return ThirdActivityProxy.class;
+            } else if (PluginBaseRemoteActivity.class.isAssignableFrom(cls)) {
+                return RemoteActivityProxy.class;
             } else {
-                if (PluginBaseThirdFragmentActivity.class.isAssignableFrom(cls)) {
-                    return ThirdFragmentActivityProxy.class;
+                if (PluginBaseThirdSingleTaskActivity.class.isAssignableFrom(cls)) {
+                    Class<?> cls4 = this.f44632c.get(cls);
+                    if (cls4 != null) {
+                        return cls4;
+                    }
+                    int i4 = this.f44633d;
+                    if (i4 == 10) {
+                        BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
+                        return null;
+                    }
+                    this.f44633d = i4 + 1;
+                    try {
+                        cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.f44633d);
+                        this.f44632c.put(cls, cls4);
+                        return cls4;
+                    } catch (Exception e4) {
+                        BdLog.e(e4);
+                        return cls4;
+                    }
+                } else if (PluginBaseThirdActivity.class.isAssignableFrom(cls)) {
+                    return ThirdActivityProxy.class;
+                } else {
+                    if (PluginBaseThirdFragmentActivity.class.isAssignableFrom(cls)) {
+                        return ThirdFragmentActivityProxy.class;
+                    }
+                    if (PluginBaseFragmentActivity.class.isAssignableFrom(cls)) {
+                        return FragmentActivityProxy.class;
+                    }
+                    if (PluginBaseActivity.class.isAssignableFrom(cls)) {
+                        return ActivityProxy.class;
+                    }
+                    return null;
                 }
-                if (PluginBaseFragmentActivity.class.isAssignableFrom(cls)) {
-                    return FragmentActivityProxy.class;
-                }
-                if (PluginBaseActivity.class.isAssignableFrom(cls)) {
-                    return ActivityProxy.class;
-                }
-                return null;
             }
         }
+        return (Class) invokeL.objValue;
     }
 }

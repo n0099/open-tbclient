@@ -3,91 +3,105 @@ package com.kwad.sdk.utils;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes7.dex */
 public class ac {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37551a;
+    public static String f39314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37552b;
+    public static String f39315b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
-        return a("MIUI");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a("MIUI") : invokeV.booleanValue;
     }
 
     public static boolean a(String str) {
+        InterceptResult invokeL;
         String upperCase;
-        String str2 = f37551a;
-        if (str2 != null) {
-            return str2.contains(str);
-        }
-        String b2 = b("ro.build.version.opporom");
-        f37552b = b2;
-        if (TextUtils.isEmpty(b2)) {
-            String b3 = b("ro.vivo.os.version");
-            f37552b = b3;
-            if (TextUtils.isEmpty(b3)) {
-                String b4 = b("ro.build.version.emui");
-                f37552b = b4;
-                if (TextUtils.isEmpty(b4)) {
-                    String b5 = b("ro.miui.ui.version.name");
-                    f37552b = b5;
-                    if (TextUtils.isEmpty(b5)) {
-                        String b6 = b("ro.product.system.manufacturer");
-                        f37552b = b6;
-                        if (TextUtils.isEmpty(b6)) {
-                            String b7 = b("ro.smartisan.version");
-                            f37552b = b7;
-                            if (TextUtils.isEmpty(b7)) {
-                                String str3 = "SAMSUNG";
-                                if (!b("ro.product.manufacturer").toUpperCase().contains("SAMSUNG")) {
-                                    String str4 = Build.DISPLAY;
-                                    f37552b = str4;
-                                    str3 = "FLYME";
-                                    if (!str4.toUpperCase().contains("FLYME")) {
-                                        f37552b = "unknown";
-                                        upperCase = Build.MANUFACTURER.toUpperCase();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String str2 = f39314a;
+            if (str2 != null) {
+                return str2.contains(str);
+            }
+            String b2 = b("ro.build.version.opporom");
+            f39315b = b2;
+            if (TextUtils.isEmpty(b2)) {
+                String b3 = b("ro.vivo.os.version");
+                f39315b = b3;
+                if (TextUtils.isEmpty(b3)) {
+                    String b4 = b("ro.build.version.emui");
+                    f39315b = b4;
+                    if (TextUtils.isEmpty(b4)) {
+                        String b5 = b("ro.miui.ui.version.name");
+                        f39315b = b5;
+                        if (TextUtils.isEmpty(b5)) {
+                            String b6 = b("ro.product.system.manufacturer");
+                            f39315b = b6;
+                            if (TextUtils.isEmpty(b6)) {
+                                String b7 = b("ro.smartisan.version");
+                                f39315b = b7;
+                                if (TextUtils.isEmpty(b7)) {
+                                    String str3 = "SAMSUNG";
+                                    if (!b("ro.product.manufacturer").toUpperCase().contains("SAMSUNG")) {
+                                        String str4 = Build.DISPLAY;
+                                        f39315b = str4;
+                                        str3 = "FLYME";
+                                        if (!str4.toUpperCase().contains("FLYME")) {
+                                            f39315b = "unknown";
+                                            upperCase = Build.MANUFACTURER.toUpperCase();
+                                        }
                                     }
+                                    f39314a = str3;
+                                    return f39314a.contains(str);
                                 }
-                                f37551a = str3;
-                                return f37551a.contains(str);
+                                upperCase = "SMARTISAN";
+                            } else {
+                                upperCase = "OnePlus";
                             }
-                            upperCase = "SMARTISAN";
                         } else {
-                            upperCase = "OnePlus";
+                            upperCase = "MIUI";
                         }
                     } else {
-                        upperCase = "MIUI";
+                        upperCase = "EMUI";
                     }
                 } else {
-                    upperCase = "EMUI";
+                    upperCase = "VIVO";
                 }
             } else {
-                upperCase = "VIVO";
+                upperCase = "OPPO";
             }
-        } else {
-            upperCase = "OPPO";
+            f39314a = upperCase;
+            return f39314a.contains(str);
         }
-        f37551a = upperCase;
-        return f37551a.contains(str);
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(7:1|(2:2|3)|4|5|(7:9|10|12|13|14|15|17)|7|(1:(0))) */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x003a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Can't wrap try/catch for region: R(6:3|(2:4|5)|6|7|(6:11|12|14|15|16|17)|9) */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x003e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @SuppressLint({"PrivateApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String b(String str) {
+        InterceptResult invokeL;
         String str2;
         BufferedReader bufferedReader;
-        BufferedReader bufferedReader2 = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            BufferedReader bufferedReader2 = null;
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
                 str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
@@ -118,9 +132,13 @@ public class ac {
             }
             if (TextUtils.isEmpty(str2)) {
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
-                } catch (IOException e6) {
-                    e = e6;
+                    try {
+                        bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
+                    } catch (IOException e6) {
+                        e = e6;
+                    }
+                } catch (Throwable th) {
+                    th = th;
                 }
                 try {
                     str2 = bufferedReader.readLine();
@@ -133,8 +151,8 @@ public class ac {
                         bufferedReader2.close();
                     }
                     return str2;
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                     bufferedReader2 = bufferedReader;
                     if (bufferedReader2 != null) {
                         try {
@@ -146,12 +164,13 @@ public class ac {
                 }
             }
             return str2;
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (String) invokeL.objValue;
     }
 
     public static boolean b() {
-        return a("FLYME");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a("FLYME") : invokeV.booleanValue;
     }
 }

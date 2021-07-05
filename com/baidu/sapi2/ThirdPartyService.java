@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.activity.social.BaseSSOLoginActivity;
@@ -31,124 +33,187 @@ import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class ThirdPartyService implements AbstractThirdPartyService {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f9572b = 500;
+    public static final long f9644b = 500;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThirdLoginCallback f9573c = null;
+    public static ThirdLoginCallback f9645c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f9574d = false;
+    public static boolean f9646d;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f9575a = 0;
+    public long f9647a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-85946249, "Lcom/baidu/sapi2/ThirdPartyService;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-85946249, "Lcom/baidu/sapi2/ThirdPartyService;");
+        }
+    }
 
     public ThirdPartyService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f9647a = 0L;
         CoreViewRouter.getInstance().setThirdPartyService(this);
     }
 
     public static ThirdLoginCallback getThirdLoginCallback() {
-        return f9573c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9645c : (ThirdLoginCallback) invokeV.objValue;
     }
 
     public static void releaseThirdLoginCallback() {
-        f9573c = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            f9645c = null;
+        }
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
-        if (f9574d) {
-            if (i2 == 0) {
-                String urlWeixinBind = ParamsUtil.getUrlWeixinBind(SapiAccountManager.getInstance().getConfignation(), str2, str, false);
-                f9573c.onAuthSuccess();
-                a.a().a(urlWeixinBind, f9573c);
-            } else {
-                f9573c.onAuthFailure(i2, OAuthResult.ERROR_MSG_UNKNOWN);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048576, this, activity, str, str2, i2) == null) {
+            if (f9646d) {
+                if (i2 == 0) {
+                    String urlWeixinBind = ParamsUtil.getUrlWeixinBind(SapiAccountManager.getInstance().getConfignation(), str2, str, false);
+                    f9645c.onAuthSuccess();
+                    a.a().a(urlWeixinBind, f9645c);
+                } else {
+                    f9645c.onAuthFailure(i2, OAuthResult.ERROR_MSG_UNKNOWN);
+                }
+                f9646d = false;
+                return;
             }
-            f9574d = false;
-            return;
+            Intent intent = new Intent(activity, WXLoginActivity.class);
+            intent.putExtra(WXLoginActivity.r, true);
+            intent.putExtra("error_code", i2);
+            intent.putExtra("state", str);
+            intent.putExtra("code", str2);
+            activity.startActivity(intent);
         }
-        Intent intent = new Intent(activity, WXLoginActivity.class);
-        intent.putExtra(WXLoginActivity.r, true);
-        intent.putExtra("error_code", i2);
-        intent.putExtra("state", str);
-        intent.putExtra("code", str2);
-        activity.startActivity(intent);
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadQQLogin(Context context, int i2) {
-        Intent intent = new Intent(context, QQOauthLoginActivity.class);
-        intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2) == null) {
+            Intent intent = new Intent(context, QQOauthLoginActivity.class);
+            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
+            if (!(context instanceof Activity)) {
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            context.startActivity(intent);
         }
-        context.startActivity(intent);
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2) {
-        loadThirdPartyLogin(context, socialType, i2, null, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, socialType, i2) == null) {
+            loadThirdPartyLogin(context, socialType, i2, null, false);
+        }
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadWechatLogin(Context context, int i2) {
-        f9574d = true;
-        Intent intent = new Intent(context, WXLoginActivity.class);
-        intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i2) == null) {
+            f9646d = true;
+            Intent intent = new Intent(context, WXLoginActivity.class);
+            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
+            if (!(context instanceof Activity)) {
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            context.startActivity(intent);
         }
-        context.startActivity(intent);
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadYYSSOLogin(Context context, String str) {
-        Intent intent = new Intent(context, YYInnerSSOLoginActivity.class);
-        intent.putExtra(YYInnerSSOLoginActivity.o, str);
-        intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2002);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, str) == null) {
+            Intent intent = new Intent(context, YYInnerSSOLoginActivity.class);
+            intent.putExtra(YYInnerSSOLoginActivity.o, str);
+            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2002);
+            if (!(context instanceof Activity)) {
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            context.startActivity(intent);
         }
-        context.startActivity(intent);
     }
 
     public SapiAccount sapiAccountResponseToAccount(Context context, SapiAccountResponse sapiAccountResponse) {
-        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-        SapiAccount sapiAccount = new SapiAccount();
-        sapiAccount.uid = sapiAccountResponse.uid;
-        sapiAccount.bduss = sapiAccountResponse.bduss;
-        sapiAccount.displayname = sapiAccountResponse.displayname;
-        sapiAccount.stoken = sapiAccountResponse.stoken;
-        sapiAccount.ptoken = sapiAccountResponse.ptoken;
-        sapiAccount.email = sapiAccountResponse.email;
-        sapiAccount.username = sapiAccountResponse.username;
-        sapiAccount.app = TextUtils.isEmpty(sapiAccountResponse.app) ? SapiUtils.getAppName(context) : sapiAccountResponse.app;
-        sapiAccount.extra = sapiAccountResponse.extra;
-        if (SocialType.UNKNOWN != sapiAccountResponse.socialType) {
-            SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
-            sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
-            sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, sapiAccountResponse)) == null) {
+            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+            SapiAccount sapiAccount = new SapiAccount();
+            sapiAccount.uid = sapiAccountResponse.uid;
+            sapiAccount.bduss = sapiAccountResponse.bduss;
+            sapiAccount.displayname = sapiAccountResponse.displayname;
+            sapiAccount.stoken = sapiAccountResponse.stoken;
+            sapiAccount.ptoken = sapiAccountResponse.ptoken;
+            sapiAccount.email = sapiAccountResponse.email;
+            sapiAccount.username = sapiAccountResponse.username;
+            sapiAccount.app = TextUtils.isEmpty(sapiAccountResponse.app) ? SapiUtils.getAppName(context) : sapiAccountResponse.app;
+            sapiAccount.extra = sapiAccountResponse.extra;
+            if (SocialType.UNKNOWN != sapiAccountResponse.socialType) {
+                SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
+                sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
+                sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
+            }
+            sapiAccount.putExtra("tpl", sapiConfiguration.tpl);
+            if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
+                sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
+            }
+            SapiContext.getInstance().setAccountActionType(sapiAccountResponse.actionType);
+            sapiAccount.addIsGuestAccount(sapiAccountResponse.isGuestAccount);
+            if (!TextUtils.isEmpty(sapiAccountResponse.livingUname)) {
+                new FaceLoginService().syncFaceLoginUID(context, sapiAccountResponse.livingUname);
+            }
+            return sapiAccount;
         }
-        sapiAccount.putExtra("tpl", sapiConfiguration.tpl);
-        if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
-            sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
-        }
-        SapiContext.getInstance().setAccountActionType(sapiAccountResponse.actionType);
-        sapiAccount.addIsGuestAccount(sapiAccountResponse.isGuestAccount);
-        if (!TextUtils.isEmpty(sapiAccountResponse.livingUname)) {
-            new FaceLoginService().syncFaceLoginUID(context, sapiAccountResponse.livingUname);
-        }
-        return sapiAccount;
+        return (SapiAccount) invokeLL.objValue;
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void socialBind(Activity activity, SocialType socialType, int i2, String str) {
-        if (socialType == SocialType.WEIXIN) {
-            f9574d = false;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLIL(1048585, this, activity, socialType, i2, str) == null) && socialType == SocialType.WEIXIN) {
+            f9646d = false;
             Intent intent = new Intent(activity, WXLoginActivity.class);
             intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
             intent.putExtra(AccountCenterActivity.EXTRA_WEIIXIN_BIND_URL, str);
@@ -158,22 +223,29 @@ public class ThirdPartyService implements AbstractThirdPartyService {
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2, ThirdLoginCallback thirdLoginCallback) {
-        f9573c = thirdLoginCallback;
-        loadThirdPartyLogin(context, socialType, i2, null, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, socialType, i2, thirdLoginCallback) == null) {
+            f9645c = thirdLoginCallback;
+            loadThirdPartyLogin(context, socialType, i2, null, false);
+        }
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2, String str) {
-        loadThirdPartyLogin(context, socialType, i2, str, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048580, this, context, socialType, i2, str) == null) {
+            loadThirdPartyLogin(context, socialType, i2, str, false);
+        }
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2, String str, boolean z) {
         Intent intent;
-        if (System.currentTimeMillis() - this.f9575a < 500) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, socialType, Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || System.currentTimeMillis() - this.f9647a < 500) {
             return;
         }
-        this.f9575a = System.currentTimeMillis();
+        this.f9647a = System.currentTimeMillis();
         SapiStatUtil.statThirdLoginEnter(socialType);
         boolean z2 = context instanceof Activity;
         if (socialType == SocialType.SINA_WEIBO_SSO) {
@@ -181,7 +253,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
         } else if (socialType == SocialType.HUAWEI) {
             intent = new Intent(context, HuaweiSSOLoginActivity.class);
         } else if (socialType == SocialType.WEIXIN) {
-            f9574d = false;
+            f9646d = false;
             intent = new Intent(context, WXLoginActivity.class);
         } else if (socialType == SocialType.QQ_SSO) {
             intent = new Intent(context, QQSSOLoginActivity.class);

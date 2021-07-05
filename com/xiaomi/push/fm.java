@@ -1,93 +1,172 @@
 package com.xiaomi.push;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class fm implements Cloneable {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41376a = "wcc-ml-test10.bj";
+    public static String f43119a = "wcc-ml-test10.bj";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f41377b = ae.f41077a;
+    public static final String f43120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f41378c = null;
+    public static String f43121c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f403a;
+    public int f406a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fp f404a;
+    public fp f407a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f405a = fl.f388a;
+    public boolean f408a;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f406b = true;
+    public boolean f409b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41379d;
+    public String f43122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41380e;
+    public String f43123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41381f;
+    public String f43124f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56374695, "Lcom/xiaomi/push/fm;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56374695, "Lcom/xiaomi/push/fm;");
+                return;
+            }
+        }
+        f43120b = ae.f42820a;
+        f43121c = null;
+    }
 
     public fm(Map<String, Integer> map, int i2, String str, fp fpVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map, Integer.valueOf(i2), str, fpVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f408a = fl.f391a;
+        this.f409b = true;
         a(map, i2, str, fpVar);
     }
 
     public static final String a() {
-        String str = f41378c;
-        return str != null ? str : ab.m125a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f41377b : "app.chat.xiaomi.net";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = f43121c;
+            return str != null ? str : ab.m139a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f43120b : "app.chat.xiaomi.net";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static final void a(String str) {
-        f41378c = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            f43121c = str;
+        }
     }
 
     private void a(Map<String, Integer> map, int i2, String str, fp fpVar) {
-        this.f403a = i2;
-        this.f41379d = str;
-        this.f404a = fpVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65540, this, map, i2, str, fpVar) == null) {
+            this.f406a = i2;
+            this.f43122d = str;
+            this.f407a = fpVar;
+        }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo314a() {
-        return this.f403a;
+    public int mo328a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f406a : invokeV.intValue;
     }
 
     public void a(boolean z) {
-        this.f405a = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f408a = z;
+        }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m315a() {
-        return this.f405a;
+    public boolean m329a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f408a : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m316a() {
-        return null;
+    public byte[] m330a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public String b() {
-        return this.f41381f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43124f : (String) invokeV.objValue;
     }
 
     public void b(String str) {
-        this.f41381f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f43124f = str;
+        }
     }
 
     public String c() {
-        if (this.f41380e == null) {
-            this.f41380e = a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.f43123e == null) {
+                this.f43123e = a();
+            }
+            return this.f43123e;
         }
-        return this.f41380e;
+        return (String) invokeV.objValue;
     }
 
     public void c(String str) {
-        this.f41380e = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f43123e = str;
+        }
     }
 }

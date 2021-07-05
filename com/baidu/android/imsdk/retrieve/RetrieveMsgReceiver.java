@@ -6,53 +6,81 @@ import com.baidu.android.imsdk.chatmessage.IMessageReceiveListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ConfigMsg;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class RetrieveMsgReceiver implements IMessageReceiveListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RetrieveMsgReceiver";
     public static volatile RetrieveMsgReceiver mInstance;
+    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
     public RetrieveMsgReceiver(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
     }
 
     public static RetrieveMsgReceiver getInstance(Context context) {
-        if (mInstance == null) {
-            synchronized (RetrieveMsgReceiver.class) {
-                if (mInstance == null) {
-                    mInstance = new RetrieveMsgReceiver(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (mInstance == null) {
+                synchronized (RetrieveMsgReceiver.class) {
+                    if (mInstance == null) {
+                        mInstance = new RetrieveMsgReceiver(context);
+                    }
                 }
             }
+            return mInstance;
         }
-        return mInstance;
+        return (RetrieveMsgReceiver) invokeL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.IMessageReceiveListener
     public void onReceiveMessage(int i2, int i3, ArrayList<ChatMsg> arrayList) {
-        if (i2 == 0 && arrayList != null && arrayList.size() > 0) {
-            synchronized (this) {
-                Iterator<ChatMsg> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    ChatMsg next = it.next();
-                    LogUtils.d(TAG, "retrieve-->msg type is:" + next.getMsgType());
-                    if (next.getMsgType() == 20 && (next instanceof ConfigMsg)) {
-                        String dataList = ((ConfigMsg) next).getDataList();
-                        LogUtils.d(TAG, "retrieve-->retrieve config msg:" + dataList);
-                        if (!TextUtils.isEmpty(dataList)) {
-                            try {
-                                JSONArray jSONArray = new JSONArray(dataList);
-                                if (jSONArray.length() > 0) {
-                                    int length = jSONArray.length();
-                                    for (int i4 = 0; i4 < length; i4++) {
-                                        RetrieveTaskManager.getInstance(this.mContext).dispatch(jSONArray.optJSONObject(i4));
-                                    }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, arrayList) == null) || i2 != 0 || arrayList == null || arrayList.size() <= 0) {
+            return;
+        }
+        synchronized (this) {
+            Iterator<ChatMsg> it = arrayList.iterator();
+            while (it.hasNext()) {
+                ChatMsg next = it.next();
+                LogUtils.d(TAG, "retrieve-->msg type is:" + next.getMsgType());
+                if (next.getMsgType() == 20 && (next instanceof ConfigMsg)) {
+                    String dataList = ((ConfigMsg) next).getDataList();
+                    LogUtils.d(TAG, "retrieve-->retrieve config msg:" + dataList);
+                    if (!TextUtils.isEmpty(dataList)) {
+                        try {
+                            JSONArray jSONArray = new JSONArray(dataList);
+                            if (jSONArray.length() > 0) {
+                                int length = jSONArray.length();
+                                for (int i4 = 0; i4 < length; i4++) {
+                                    RetrieveTaskManager.getInstance(this.mContext).dispatch(jSONArray.optJSONObject(i4));
                                 }
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
                             }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                     }
                 }

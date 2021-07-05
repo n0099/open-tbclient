@@ -2,16 +2,26 @@ package com.baidu.rtc;
 
 import android.content.Context;
 import android.view.Surface;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.internal.BaiduRtcRoomImp;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaiduRtcRoom {
-    public static ArrayList<BaiduRtcRoomImp> mInstanceList = new ArrayList<>();
+    public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<BaiduRtcRoomImp> mInstanceList;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface BaiduRtcRoomDelegate {
         public static final int RTC_ROOM_EVENTS_DISBAND_ROOM = 112;
         public static final int RTC_ROOM_EVENTS_LIVE_INTRERRUPT = 118;
@@ -71,65 +81,314 @@ public abstract class BaiduRtcRoom {
         void onStreamInfoUpdate(String[] strArr);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface BaiduRtcRoomVideoObserver {
         void getInputBuffer(int i2, int i3, RtcVideoFormat rtcVideoFormat);
 
         void onVideoFrame(RTCVideoFrame rTCVideoFrame, long j);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class RoomInfo {
-        public String MediaServerURL = "";
-        public String RoomID = "";
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String MediaServerURL;
+        public String RoomID;
+
+        public RoomInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.MediaServerURL = "";
+            this.RoomID = "";
+        }
     }
 
-    /* loaded from: classes2.dex */
-    public enum RtcLiveTransferMode {
-        RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION,
-        RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes3.dex */
+    public static final class RtcLiveTransferMode {
+        public static final /* synthetic */ RtcLiveTransferMode[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final RtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
+        public static final RtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1767943705, "Lcom/baidu/rtc/BaiduRtcRoom$RtcLiveTransferMode;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1767943705, "Lcom/baidu/rtc/BaiduRtcRoom$RtcLiveTransferMode;");
+                    return;
+                }
+            }
+            RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION = new RtcLiveTransferMode("RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION", 0);
+            RtcLiveTransferMode rtcLiveTransferMode = new RtcLiveTransferMode("RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION", 1);
+            RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION = rtcLiveTransferMode;
+            $VALUES = new RtcLiveTransferMode[]{RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION, rtcLiveTransferMode};
+        }
+
+        public RtcLiveTransferMode(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static RtcLiveTransferMode valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RtcLiveTransferMode) Enum.valueOf(RtcLiveTransferMode.class, str) : (RtcLiveTransferMode) invokeL.objValue;
+        }
+
+        public static RtcLiveTransferMode[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RtcLiveTransferMode[]) $VALUES.clone() : (RtcLiveTransferMode[]) invokeV.objValue;
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class RtcRoomAudioLevel {
-        public long userId = 0;
-        public String nicName = "";
-        public int volumeLevel = 0;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String nicName;
+        public long userId;
+        public int volumeLevel;
+
+        public RtcRoomAudioLevel() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.userId = 0L;
+            this.nicName = "";
+            this.volumeLevel = 0;
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class RtcRoomUserInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String attribute;
         public int role;
         public long userId;
         public String userName;
+
+        public RtcRoomUserInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class RtcRoomVideoDimension {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int videoHeight;
         public int videoRotation;
         public int videoWidth;
+
+        public RtcRoomVideoDimension() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
-    public enum RtcSoundMode {
-        RTC_SOUND_MODE_SPEAKER,
-        RTC_SOUND_MODE_EAR
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes3.dex */
+    public static final class RtcSoundMode {
+        public static final /* synthetic */ RtcSoundMode[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final RtcSoundMode RTC_SOUND_MODE_EAR;
+        public static final RtcSoundMode RTC_SOUND_MODE_SPEAKER;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1644192701, "Lcom/baidu/rtc/BaiduRtcRoom$RtcSoundMode;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1644192701, "Lcom/baidu/rtc/BaiduRtcRoom$RtcSoundMode;");
+                    return;
+                }
+            }
+            RTC_SOUND_MODE_SPEAKER = new RtcSoundMode("RTC_SOUND_MODE_SPEAKER", 0);
+            RtcSoundMode rtcSoundMode = new RtcSoundMode("RTC_SOUND_MODE_EAR", 1);
+            RTC_SOUND_MODE_EAR = rtcSoundMode;
+            $VALUES = new RtcSoundMode[]{RTC_SOUND_MODE_SPEAKER, rtcSoundMode};
+        }
+
+        public RtcSoundMode(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static RtcSoundMode valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RtcSoundMode) Enum.valueOf(RtcSoundMode.class, str) : (RtcSoundMode) invokeL.objValue;
+        }
+
+        public static RtcSoundMode[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RtcSoundMode[]) $VALUES.clone() : (RtcSoundMode[]) invokeV.objValue;
+        }
     }
 
-    /* loaded from: classes2.dex */
-    public enum RtcVideoFormat {
-        RTC_VIDEO_FORMAT_YUV420,
-        RTC_VIDEO_FORMAT_RGBA
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes3.dex */
+    public static final class RtcVideoFormat {
+        public static final /* synthetic */ RtcVideoFormat[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final RtcVideoFormat RTC_VIDEO_FORMAT_RGBA;
+        public static final RtcVideoFormat RTC_VIDEO_FORMAT_YUV420;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1277478083, "Lcom/baidu/rtc/BaiduRtcRoom$RtcVideoFormat;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1277478083, "Lcom/baidu/rtc/BaiduRtcRoom$RtcVideoFormat;");
+                    return;
+                }
+            }
+            RTC_VIDEO_FORMAT_YUV420 = new RtcVideoFormat("RTC_VIDEO_FORMAT_YUV420", 0);
+            RtcVideoFormat rtcVideoFormat = new RtcVideoFormat("RTC_VIDEO_FORMAT_RGBA", 1);
+            RTC_VIDEO_FORMAT_RGBA = rtcVideoFormat;
+            $VALUES = new RtcVideoFormat[]{RTC_VIDEO_FORMAT_YUV420, rtcVideoFormat};
+        }
+
+        public RtcVideoFormat(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static RtcVideoFormat valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RtcVideoFormat) Enum.valueOf(RtcVideoFormat.class, str) : (RtcVideoFormat) invokeL.objValue;
+        }
+
+        public static RtcVideoFormat[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RtcVideoFormat[]) $VALUES.clone() : (RtcVideoFormat[]) invokeV.objValue;
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UserList {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public long[] Listeners;
         public long[] Publishers;
 
         public UserList(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             if (i2 > 0) {
                 this.Publishers = new long[i2];
             } else {
@@ -143,39 +402,89 @@ public abstract class BaiduRtcRoom {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(218527614, "Lcom/baidu/rtc/BaiduRtcRoom;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(218527614, "Lcom/baidu/rtc/BaiduRtcRoom;");
+                return;
+            }
+        }
+        mInstanceList = new ArrayList<>();
+    }
+
+    public BaiduRtcRoom() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static RoomInfo getRoomInfofromPlatformServer(String str, String str2, String str3, String str4) {
-        return BaiduRtcRoomImp.getRoomInfofromPlatformServer(str, str2, str3, str4);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, str2, str3, str4)) == null) ? BaiduRtcRoomImp.getRoomInfofromPlatformServer(str, str2, str3, str4) : (RoomInfo) invokeLLLL.objValue;
     }
 
     public static BaiduRtcRoom initWithAppID(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         BaiduRtcRoom initWithAppID;
-        synchronized (BaiduRtcRoom.class) {
-            initWithAppID = initWithAppID(context, str, str2, "", false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
+            synchronized (BaiduRtcRoom.class) {
+                initWithAppID = initWithAppID(context, str, str2, "", false);
+            }
+            return initWithAppID;
         }
-        return initWithAppID;
+        return (BaiduRtcRoom) invokeLLL.objValue;
     }
 
     public static BaiduRtcRoom initWithAppID(Context context, String str, String str2, String str3, boolean z) {
-        synchronized (BaiduRtcRoom.class) {
-            if (context != null) {
-                BaiduRtcRoomImp baiduRtcRoomImp = new BaiduRtcRoomImp(context, str, str2, str3, z);
-                mInstanceList.add(baiduRtcRoomImp);
-                return baiduRtcRoomImp;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{context, str, str2, str3, Boolean.valueOf(z)})) == null) {
+            synchronized (BaiduRtcRoom.class) {
+                if (context != null) {
+                    BaiduRtcRoomImp baiduRtcRoomImp = new BaiduRtcRoomImp(context, str, str2, str3, z);
+                    mInstanceList.add(baiduRtcRoomImp);
+                    return baiduRtcRoomImp;
+                }
+                return null;
             }
-            return null;
         }
+        return (BaiduRtcRoom) invokeCommon.objValue;
     }
 
     public static void setUseTestEnv(boolean z) {
-        BaiduRtcRoomImp.setUseTestEnv(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
+            BaiduRtcRoomImp.setUseTestEnv(z);
+        }
     }
 
     public static void setVerbose(boolean z) {
-        BaiduRtcRoomImp.setVerbose(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
+            BaiduRtcRoomImp.setVerbose(z);
+        }
     }
 
     public static String version() {
-        return BaiduRtcRoomImp.version();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? BaiduRtcRoomImp.version() : (String) invokeV.objValue;
     }
 
     public abstract void addExternalRenderer(long j, RTCVideoExternalRender rTCVideoExternalRender);
@@ -187,13 +496,16 @@ public abstract class BaiduRtcRoom {
     public abstract boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
     public void destroy() {
-        synchronized (this) {
-            if (mInstanceList.size() > 0) {
-                if (this instanceof BaiduRtcRoomImp) {
-                    ((BaiduRtcRoomImp) this).doDestroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (mInstanceList.size() > 0) {
+                    if (this instanceof BaiduRtcRoomImp) {
+                        ((BaiduRtcRoomImp) this).doDestroy();
+                    }
+                    mInstanceList.remove(this);
+                    System.gc();
                 }
-                mInstanceList.remove(this);
-                System.gc();
             }
         }
     }
@@ -269,6 +581,9 @@ public abstract class BaiduRtcRoom {
     public abstract void setAuidoSamplesReadyCallback(RTCAudioSamples.RTCSamplesReadyCallback rTCSamplesReadyCallback);
 
     public void setBaiduRtcAppID(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048616, this, str, str2) == null) {
+        }
     }
 
     public abstract boolean setBaiduRtcRoomDelegate(BaiduRtcRoomDelegate baiduRtcRoomDelegate);

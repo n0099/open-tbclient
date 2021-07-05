@@ -1,43 +1,131 @@
 package com.baidu.lcp.sdk.pb;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.Internal;
-/* loaded from: classes2.dex */
-public enum RpcMetaPb$CompressType implements Internal.EnumLite {
-    COMPRESS_NONE(0, 0),
-    COMPRESS_GZIP(1, 1);
-    
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes3.dex */
+public final class RpcMetaPb$CompressType implements Internal.EnumLite {
+    public static final /* synthetic */ RpcMetaPb$CompressType[] $VALUES;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final RpcMetaPb$CompressType COMPRESS_GZIP;
     public static final int COMPRESS_GZIP_VALUE = 1;
+    public static final RpcMetaPb$CompressType COMPRESS_NONE;
     public static final int COMPRESS_NONE_VALUE = 0;
-    public static Internal.EnumLiteMap<RpcMetaPb$CompressType> internalValueMap = new Internal.EnumLiteMap<RpcMetaPb$CompressType>() { // from class: com.baidu.lcp.sdk.pb.RpcMetaPb$CompressType.a
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.Internal.EnumLiteMap
-        /* renamed from: a */
-        public RpcMetaPb$CompressType findValueByNumber(int i2) {
-            return RpcMetaPb$CompressType.valueOf(i2);
-        }
-    };
+    public static Internal.EnumLiteMap<RpcMetaPb$CompressType> internalValueMap;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
-    RpcMetaPb$CompressType(int i2, int i3) {
-        this.value = i3;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(517709971, "Lcom/baidu/lcp/sdk/pb/RpcMetaPb$CompressType;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(517709971, "Lcom/baidu/lcp/sdk/pb/RpcMetaPb$CompressType;");
+                return;
+            }
+        }
+        COMPRESS_NONE = new RpcMetaPb$CompressType("COMPRESS_NONE", 0, 0, 0);
+        RpcMetaPb$CompressType rpcMetaPb$CompressType = new RpcMetaPb$CompressType("COMPRESS_GZIP", 1, 1, 1);
+        COMPRESS_GZIP = rpcMetaPb$CompressType;
+        $VALUES = new RpcMetaPb$CompressType[]{COMPRESS_NONE, rpcMetaPb$CompressType};
+        internalValueMap = new Internal.EnumLiteMap<RpcMetaPb$CompressType>() { // from class: com.baidu.lcp.sdk.pb.RpcMetaPb$CompressType.a
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Internal.EnumLiteMap
+            /* renamed from: a */
+            public RpcMetaPb$CompressType findValueByNumber(int i2) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? RpcMetaPb$CompressType.valueOf(i2) : (RpcMetaPb$CompressType) invokeI.objValue;
+            }
+        };
+    }
+
+    public RpcMetaPb$CompressType(String str, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.value = i4;
     }
 
     public static Internal.EnumLiteMap<RpcMetaPb$CompressType> internalGetValueMap() {
-        return internalValueMap;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? internalValueMap : (Internal.EnumLiteMap) invokeV.objValue;
+    }
+
+    public static RpcMetaPb$CompressType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (RpcMetaPb$CompressType) Enum.valueOf(RpcMetaPb$CompressType.class, str) : (RpcMetaPb$CompressType) invokeL.objValue;
+    }
+
+    public static RpcMetaPb$CompressType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (RpcMetaPb$CompressType[]) $VALUES.clone() : (RpcMetaPb$CompressType[]) invokeV.objValue;
     }
 
     @Override // com.google.protobuf.Internal.EnumLite
     public final int getNumber() {
-        return this.value;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
     }
 
     public static RpcMetaPb$CompressType valueOf(int i2) {
-        if (i2 != 0) {
-            if (i2 != 1) {
-                return null;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    return null;
+                }
+                return COMPRESS_GZIP;
             }
-            return COMPRESS_GZIP;
+            return COMPRESS_NONE;
         }
-        return COMPRESS_NONE;
+        return (RpcMetaPb$CompressType) invokeI.objValue;
     }
 }

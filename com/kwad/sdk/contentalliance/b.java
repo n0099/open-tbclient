@@ -6,27 +6,51 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Presenter f32529a;
+    public Presenter f34292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f32530b;
+    public T f34293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f32531c;
+    public ViewGroup f34294c;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public void a() {
-        Presenter presenter = this.f32529a;
-        if (presenter != null) {
-            presenter.j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Presenter presenter = this.f34292a;
+            if (presenter != null) {
+                presenter.j();
+            }
+            this.f34294c = null;
         }
-        this.f32531c = null;
     }
 
     public abstract int b();
@@ -38,32 +62,43 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityCreated(@Nullable Bundle bundle) {
-        super.onActivityCreated(bundle);
-        this.f32530b = c();
-        if (this.f32529a == null) {
-            Presenter d2 = d();
-            this.f32529a = d2;
-            d2.a((View) this.f32531c);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onActivityCreated(bundle);
+            this.f34293b = c();
+            if (this.f34292a == null) {
+                Presenter d2 = d();
+                this.f34292a = d2;
+                d2.a((View) this.f34294c);
+            }
+            this.f34292a.a(this.f34293b);
         }
-        this.f32529a.a(this.f32530b);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.f32531c == null) {
-            this.f32531c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
+            if (this.f34294c == null) {
+                this.f34294c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
+            }
+            return this.f34294c;
         }
-        return this.f32531c;
+        return (View) invokeLLL.objValue;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
-        super.onDestroyView();
-        T t = this.f32530b;
-        if (t != null) {
-            t.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDestroyView();
+            T t = this.f34293b;
+            if (t != null) {
+                t.a();
+            }
+            a();
         }
-        a();
     }
 }

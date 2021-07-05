@@ -1,4 +1,4 @@
 package com.baidu.sofire.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface c {
 }

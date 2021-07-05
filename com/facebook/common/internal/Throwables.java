@@ -1,5 +1,11 @@
 package com.facebook.common.internal;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -8,17 +14,44 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public final class Throwables {
-    public static List<Throwable> getCausalChain(Throwable th) {
-        Preconditions.checkNotNull(th);
-        ArrayList arrayList = new ArrayList(4);
-        while (th != null) {
-            arrayList.add(th);
-            th = th.getCause();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public Throwables() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return Collections.unmodifiableList(arrayList);
+    }
+
+    public static List<Throwable> getCausalChain(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
+            Preconditions.checkNotNull(th);
+            ArrayList arrayList = new ArrayList(4);
+            while (th != null) {
+                arrayList.add(th);
+                th = th.getCause();
+            }
+            return Collections.unmodifiableList(arrayList);
+        }
+        return (List) invokeL.objValue;
     }
 
     public static Throwable getRootCause(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, th)) != null) {
+            return (Throwable) invokeL.objValue;
+        }
         while (true) {
             Throwable cause = th.getCause();
             if (cause == null) {
@@ -29,35 +62,55 @@ public final class Throwables {
     }
 
     public static String getStackTraceAsString(Throwable th) {
-        StringWriter stringWriter = new StringWriter();
-        th.printStackTrace(new PrintWriter(stringWriter));
-        return stringWriter.toString();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            th.printStackTrace(new PrintWriter(stringWriter));
+            return stringWriter.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     public static RuntimeException propagate(Throwable th) {
-        propagateIfPossible((Throwable) Preconditions.checkNotNull(th));
-        throw new RuntimeException(th);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, th)) == null) {
+            propagateIfPossible((Throwable) Preconditions.checkNotNull(th));
+            throw new RuntimeException(th);
+        }
+        return (RuntimeException) invokeL.objValue;
     }
 
     public static <X extends Throwable> void propagateIfInstanceOf(@Nullable Throwable th, Class<X> cls) throws Throwable {
-        if (th != null && cls.isInstance(th)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, th, cls) == null) && th != null && cls.isInstance(th)) {
             throw cls.cast(th);
         }
     }
 
     public static void propagateIfPossible(@Nullable Throwable th) {
-        propagateIfInstanceOf(th, Error.class);
-        propagateIfInstanceOf(th, RuntimeException.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) {
+            propagateIfInstanceOf(th, Error.class);
+            propagateIfInstanceOf(th, RuntimeException.class);
+        }
     }
 
     public static <X extends Throwable> void propagateIfPossible(@Nullable Throwable th, Class<X> cls) throws Throwable {
-        propagateIfInstanceOf(th, cls);
-        propagateIfPossible(th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, th, cls) == null) {
+            propagateIfInstanceOf(th, cls);
+            propagateIfPossible(th);
+        }
     }
 
     public static <X1 extends Throwable, X2 extends Throwable> void propagateIfPossible(@Nullable Throwable th, Class<X1> cls, Class<X2> cls2) throws Throwable, Throwable {
-        Preconditions.checkNotNull(cls2);
-        propagateIfInstanceOf(th, cls);
-        propagateIfPossible(th, cls2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, th, cls, cls2) == null) {
+            Preconditions.checkNotNull(cls2);
+            propagateIfInstanceOf(th, cls);
+            propagateIfPossible(th, cls2);
+        }
     }
 }

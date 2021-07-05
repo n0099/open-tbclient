@@ -1,5 +1,15 @@
 package h.o.d;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.k;
 import h.o.d.j.f0;
 import h.o.d.j.j;
@@ -8,19 +18,33 @@ import java.io.PrintStream;
 import java.util.Queue;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f implements k {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f72033g;
+    public static final int f75625g;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Queue<Object> f72034e;
+    public Queue<Object> f75626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile Object f72035f;
+    public volatile Object f75627f;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1371635821, "Lh/o/d/f;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1371635821, "Lh/o/d/f;");
+                return;
+            }
+        }
         int i2 = e.c() ? 16 : 128;
         String property = System.getProperty("rx.ring-buffer.size");
         if (property != null) {
@@ -31,115 +55,201 @@ public class f implements k {
                 printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e2.getMessage());
             }
         }
-        f72033g = i2;
+        f75625g = i2;
     }
 
     public f(Queue<Object> queue, int i2) {
-        this.f72034e = queue;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {queue, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f75626e = queue;
     }
 
     public static f a() {
-        if (f0.b()) {
-            return new f(true, f72033g);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            if (f0.b()) {
+                return new f(true, f75625g);
+            }
+            return new f();
         }
-        return new f();
+        return (f) invokeV.objValue;
     }
 
     public static f b() {
-        if (f0.b()) {
-            return new f(false, f72033g);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (f0.b()) {
+                return new f(false, f75625g);
+            }
+            return new f();
         }
-        return new f();
+        return (f) invokeV.objValue;
     }
 
     public Object c(Object obj) {
-        return NotificationLite.e(obj);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? NotificationLite.e(obj) : invokeL.objValue;
     }
 
     public boolean d(Object obj) {
-        return NotificationLite.f(obj);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? NotificationLite.f(obj) : invokeL.booleanValue;
     }
 
     public boolean e() {
-        Queue<Object> queue = this.f72034e;
-        return queue == null || queue.isEmpty();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Queue<Object> queue = this.f75626e;
+            return queue == null || queue.isEmpty();
+        }
+        return invokeV.booleanValue;
     }
 
     public void f() {
-        if (this.f72035f == null) {
-            this.f72035f = NotificationLite.b();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f75627f == null) {
+            this.f75627f = NotificationLite.b();
         }
     }
 
     public void g(Object obj) throws MissingBackpressureException {
         boolean z;
         boolean z2;
-        synchronized (this) {
-            Queue<Object> queue = this.f72034e;
-            z = true;
-            z2 = false;
-            if (queue != null) {
-                z2 = !queue.offer(NotificationLite.h(obj));
-                z = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.f75626e;
+                z = true;
+                z2 = false;
+                if (queue != null) {
+                    z2 = !queue.offer(NotificationLite.h(obj));
+                    z = false;
+                }
             }
-        }
-        if (z) {
-            throw new IllegalStateException("This instance has been unsubscribed and the queue is no longer usable.");
-        }
-        if (z2) {
-            throw new MissingBackpressureException();
+            if (z) {
+                throw new IllegalStateException("This instance has been unsubscribed and the queue is no longer usable.");
+            }
+            if (z2) {
+                throw new MissingBackpressureException();
+            }
         }
     }
 
     public Object h() {
-        synchronized (this) {
-            Queue<Object> queue = this.f72034e;
-            if (queue == null) {
-                return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.f75626e;
+                if (queue == null) {
+                    return null;
+                }
+                Object peek = queue.peek();
+                Object obj = this.f75627f;
+                if (peek == null && obj != null && queue.peek() == null) {
+                    peek = obj;
+                }
+                return peek;
             }
-            Object peek = queue.peek();
-            Object obj = this.f72035f;
-            if (peek == null && obj != null && queue.peek() == null) {
-                peek = obj;
-            }
-            return peek;
         }
+        return invokeV.objValue;
     }
 
     public Object i() {
-        synchronized (this) {
-            Queue<Object> queue = this.f72034e;
-            if (queue == null) {
-                return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.f75626e;
+                if (queue == null) {
+                    return null;
+                }
+                Object poll = queue.poll();
+                Object obj = this.f75627f;
+                if (poll == null && obj != null && queue.peek() == null) {
+                    this.f75627f = null;
+                    poll = obj;
+                }
+                return poll;
             }
-            Object poll = queue.poll();
-            Object obj = this.f72035f;
-            if (poll == null && obj != null && queue.peek() == null) {
-                this.f72035f = null;
-                poll = obj;
-            }
-            return poll;
         }
+        return invokeV.objValue;
     }
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f72034e == null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f75626e == null : invokeV.booleanValue;
     }
 
     public synchronized void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+            }
+        }
     }
 
     @Override // h.k
     public void unsubscribe() {
-        j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            j();
+        }
     }
 
     public f(boolean z, int i2) {
-        this.f72034e = z ? new j<>(i2) : new r<>(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f75626e = z ? new j<>(i2) : new r<>(i2);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f() {
-        this(new h.o.d.i.c(f72033g), f72033g);
+        this(new h.o.d.i.c(f75625g), f75625g);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((Queue) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

@@ -1,5 +1,8 @@
 package com.baidu.sofire.utility;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -7,20 +10,32 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static byte[] a(byte[] bArr) throws IOException {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        b(byteArrayInputStream, byteArrayOutputStream);
-        byte[] byteArray = byteArrayOutputStream.toByteArray();
-        byteArrayOutputStream.flush();
-        byteArrayOutputStream.close();
-        byteArrayInputStream.close();
-        return byteArray;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            b(byteArrayInputStream, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+            byteArrayInputStream.close();
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static void b(InputStream inputStream, OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65538, null, inputStream, outputStream) != null) {
+            return;
+        }
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
         byte[] bArr = new byte[2048];
         while (true) {
@@ -37,6 +52,10 @@ public abstract class i {
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65536, null, inputStream, outputStream) != null) {
+            return;
+        }
         GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
         byte[] bArr = new byte[2048];
         while (true) {

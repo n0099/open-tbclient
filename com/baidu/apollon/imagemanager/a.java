@@ -1,28 +1,37 @@
 package com.baidu.apollon.imagemanager;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.CheckUtils;
 import com.baidu.apollon.utils.FileCopyUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f3792a = 52428800;
+    public static final long f3790a = 52428800;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final InterfaceC0062a f3793b;
+    public final InterfaceC0062a f3791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f3794c;
+    public final String f3792c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f3795d;
+    public File f3793d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f3796e;
+    public long f3794e;
 
     /* renamed from: com.baidu.apollon.imagemanager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -30,105 +39,163 @@ public class a {
         List<File> a(File file);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str, InterfaceC0062a interfaceC0062a) {
         this(context, str, "", interfaceC0062a);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, interfaceC0062a};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (InterfaceC0062a) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public static synchronized void a(File file) {
-        synchronized (a.class) {
-            if (file == null) {
-                return;
-            }
-            if (!file.isDirectory()) {
-                if (file.exists()) {
-                    file.delete();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
+            synchronized (a.class) {
+                if (file == null) {
+                    return;
                 }
-                file.mkdirs();
-                try {
-                    Thread.sleep(300L);
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
+                if (!file.isDirectory()) {
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    file.mkdirs();
+                    try {
+                        Thread.sleep(300L);
+                    } catch (InterruptedException e2) {
+                        e2.printStackTrace();
+                    }
                 }
             }
         }
     }
 
     private void b() {
-        if (this.f3796e < 0) {
-            this.f3796e = 52428800 - c();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.f3794e >= 0) {
+            return;
         }
+        this.f3794e = 52428800 - c();
     }
 
     private long c() {
-        File[] listFiles = this.f3795d.listFiles();
-        long j = 0;
-        if (listFiles != null && listFiles.length > 0) {
-            for (File file : listFiles) {
-                j += file.length();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            File[] listFiles = this.f3793d.listFiles();
+            long j = 0;
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file : listFiles) {
+                    j += file.length();
+                }
             }
+            return j;
         }
-        return j;
+        return invokeV.longValue;
     }
 
     public a(Context context, String str, String str2, InterfaceC0062a interfaceC0062a) {
-        this.f3796e = Long.MIN_VALUE;
-        this.f3794c = str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2, interfaceC0062a};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f3794e = Long.MIN_VALUE;
+        this.f3792c = str2;
         if (CheckUtils.isExternalStorageWriteable(context)) {
             File externalFilesDir = context.getExternalFilesDir(null);
             if (externalFilesDir != null) {
-                this.f3795d = new File(externalFilesDir, str);
+                this.f3793d = new File(externalFilesDir, str);
             } else {
-                this.f3795d = new File(context.getCacheDir(), str);
+                this.f3793d = new File(context.getCacheDir(), str);
             }
         } else {
-            this.f3795d = new File(context.getCacheDir(), str);
+            this.f3793d = new File(context.getCacheDir(), str);
         }
-        if (!this.f3795d.exists()) {
-            this.f3795d.mkdirs();
+        if (!this.f3793d.exists()) {
+            this.f3793d.mkdirs();
         }
-        this.f3793b = interfaceC0062a;
+        this.f3791b = interfaceC0062a;
     }
 
     private String b(String str) {
-        return String.valueOf(str.hashCode()) + this.f3794c;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+            return String.valueOf(str.hashCode()) + this.f3792c;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void a(byte[] bArr, File file) {
-        try {
-            FileCopyUtils.copy(bArr, file);
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, bArr, file) == null) {
+            try {
+                FileCopyUtils.copy(bArr, file);
+            } catch (IOException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
     public void a(String str, byte[] bArr) {
         InterfaceC0062a interfaceC0062a;
         List<File> a2;
-        File a3 = a(str);
-        a(a3.getParentFile());
-        a(bArr, a3);
-        b();
-        long length = this.f3796e - a(str).length();
-        if (length < 0 && (interfaceC0062a = this.f3793b) != null && (a2 = interfaceC0062a.a(this.f3795d)) != null) {
-            for (File file : a2) {
-                length += file.length();
-                file.delete();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            File a3 = a(str);
+            a(a3.getParentFile());
+            a(bArr, a3);
+            b();
+            long length = this.f3794e - a(str).length();
+            if (length < 0 && (interfaceC0062a = this.f3791b) != null && (a2 = interfaceC0062a.a(this.f3793d)) != null) {
+                for (File file : a2) {
+                    length += file.length();
+                    file.delete();
+                }
             }
+            this.f3794e = length;
         }
-        this.f3796e = length;
     }
 
     public File a(String str) {
-        File file = new File(this.f3795d, b(str));
-        if (file.exists()) {
-            file.setLastModified(System.currentTimeMillis());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            File file = new File(this.f3793d, b(str));
+            if (file.exists()) {
+                file.setLastModified(System.currentTimeMillis());
+            }
+            return file;
         }
-        return file;
+        return (File) invokeL.objValue;
     }
 
     public void a() {
-        File[] listFiles = this.f3795d.listFiles();
-        if (listFiles == null) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (listFiles = this.f3793d.listFiles()) == null) {
             return;
         }
         for (File file : listFiles) {

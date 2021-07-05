@@ -4,52 +4,103 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.Process;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.o;
 import com.baidu.cyberplayer.sdk.remote.g;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RemotePlayerService extends Service {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public RemotePlayerService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public long getKernelNetHandle() {
-        return 0L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
     }
 
     public long getPCDNNetHandle() {
-        return 0L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        try {
-            CyberPlayerManager.install(getApplicationContext(), intent.getStringExtra("clientID"), null, intent.getIntExtra("installType", 1), null, (Map) intent.getSerializableExtra("installOpts"), null);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
+            try {
+                CyberPlayerManager.install(getApplicationContext(), intent.getStringExtra("clientID"), null, intent.getIntExtra("installType", 1), null, (Map) intent.getSerializableExtra("installOpts"), null);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            return new g.a(this);
         }
-        return new g.a(this);
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        super.onCreate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onCreate();
+        }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        super.onDestroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+        }
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i2, int i3) {
-        return super.onStartCommand(intent, i2, i3);
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, intent, i2, i3)) == null) ? super.onStartCommand(intent, i2, i3) : invokeLII.intValue;
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        if (!o.n()) {
-            Process.killProcess(Process.myPid());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intent)) == null) {
+            if (!o.n()) {
+                Process.killProcess(Process.myPid());
+            }
+            return super.onUnbind(intent);
         }
-        return super.onUnbind(intent);
+        return invokeL.booleanValue;
     }
 }

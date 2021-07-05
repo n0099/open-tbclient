@@ -1,5 +1,5 @@
 package com.kwad.sdk.contentalliance.detail.video;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface e {
     void a();
 

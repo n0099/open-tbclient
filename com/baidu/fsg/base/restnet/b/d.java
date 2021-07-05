@@ -4,25 +4,53 @@ import android.content.Context;
 import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f5153a;
+    public static d f5183a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static synchronized d a() {
+        InterceptResult invokeV;
         d dVar;
-        synchronized (d.class) {
-            if (f5153a == null) {
-                f5153a = new d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (d.class) {
+                if (f5183a == null) {
+                    f5183a = new d();
+                }
+                dVar = f5183a;
             }
-            dVar = f5153a;
+            return dVar;
         }
-        return dVar;
+        return (d) invokeV.objValue;
     }
 
     public com.baidu.fsg.base.restnet.rest.d a(Context context, String str, String str2, String str3, HttpDefines.HttpMethod httpMethod, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str4, boolean z) {
-        return new e(new com.baidu.fsg.base.restnet.rest.c(new b(context, str2, z)), str3, httpMethod, list, restMultipartEntity, str4);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, httpMethod, list, restMultipartEntity, str4, Boolean.valueOf(z)})) == null) ? new e(new com.baidu.fsg.base.restnet.rest.c(new b(context, str2, z)), str3, httpMethod, list, restMultipartEntity, str4) : (com.baidu.fsg.base.restnet.rest.d) invokeCommon.objValue;
     }
 }

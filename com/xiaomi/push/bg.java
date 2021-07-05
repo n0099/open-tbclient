@@ -9,6 +9,14 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.internal.http.multipart.Part;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.io.BufferedReader;
 import java.io.Closeable;
@@ -30,253 +38,336 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bg {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f41134a = Pattern.compile("([^\\s;]+)(.*)");
+    public static final Pattern f42877a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f41135b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+    public static final Pattern f42878b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f41136c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+    public static final Pattern f42879c;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends FilterInputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f41137a;
+        public boolean f42880a;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(InputStream inputStream) {
             super(inputStream);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {inputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((InputStream) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read(byte[] bArr, int i2, int i3) {
+            InterceptResult invokeLII;
             int read;
-            if (this.f41137a || (read = super.read(bArr, i2, i3)) == -1) {
-                this.f41137a = true;
-                return -1;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
+                if (this.f42880a || (read = super.read(bArr, i2, i3)) == -1) {
+                    this.f42880a = true;
+                    return -1;
+                }
+                return read;
             }
-            return read;
+            return invokeLII.intValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41138a;
+        public int f42881a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map<String, String> f148a;
+        public Map<String, String> f151a;
 
         public String toString() {
-            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f41138a), this.f148a.toString());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f42881a), this.f151a.toString()) : (String) invokeV.objValue;
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56378725, "Lcom/xiaomi/push/bg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56378725, "Lcom/xiaomi/push/bg;");
+                return;
+            }
+        }
+        f42877a = Pattern.compile("([^\\s;]+)(.*)");
+        f42878b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+        f42879c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
     }
 
     public static int a(Context context) {
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return -1;
+                }
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null) {
+                    return -1;
+                }
+                return activeNetworkInfo.getType();
+            } catch (Exception unused) {
                 return -1;
             }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo == null) {
-                return -1;
-            }
-            return activeNetworkInfo.getType();
-        } catch (Exception unused) {
-            return -1;
         }
+        return invokeL.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static NetworkInfo m157a(Context context) {
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null) {
+    public static NetworkInfo m171a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return null;
+                }
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (Exception unused) {
                 return null;
             }
-            return connectivityManager.getActiveNetworkInfo();
-        } catch (Exception unused) {
-            return null;
         }
+        return (NetworkInfo) invokeL.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
     public static be a(Context context, String str, String str2, Map<String, String> map, String str3) {
+        InterceptResult invokeLLLLL;
         BufferedReader bufferedReader;
-        be beVar = new be();
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, context, str, str2, map, str3)) == null) {
+            be beVar = new be();
             try {
                 try {
-                    HttpURLConnection m159a = m159a(context, m160a(str));
-                    m159a.setConnectTimeout(10000);
-                    m159a.setReadTimeout(15000);
-                    String str4 = str2;
-                    if (str2 == 0) {
-                        str4 = "GET";
-                    }
-                    m159a.setRequestMethod(str4);
-                    if (map != null) {
-                        for (String str5 : map.keySet()) {
-                            m159a.setRequestProperty(str5, map.get(str5));
+                    try {
+                        HttpURLConnection m173a = m173a(context, m174a(str));
+                        m173a.setConnectTimeout(10000);
+                        m173a.setReadTimeout(15000);
+                        String str4 = str2;
+                        if (str2 == 0) {
+                            str4 = "GET";
                         }
-                    }
-                    int i2 = 0;
-                    if (!TextUtils.isEmpty(str3)) {
-                        m159a.setDoOutput(true);
-                        byte[] bytes = str3.getBytes();
-                        OutputStream outputStream = m159a.getOutputStream();
-                        try {
-                            outputStream.write(bytes, 0, bytes.length);
-                            outputStream.flush();
-                            outputStream.close();
-                        } catch (IOException e2) {
-                            e = e2;
-                            throw new IOException("err while request " + str + ":" + e.getClass().getSimpleName());
-                        } catch (Throwable th) {
-                            th = th;
-                            throw new IOException(th.getMessage());
-                        }
-                    }
-                    beVar.f41133a = m159a.getResponseCode();
-                    Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + beVar.f41133a);
-                    while (true) {
-                        String headerFieldKey = m159a.getHeaderFieldKey(i2);
-                        String headerField = m159a.getHeaderField(i2);
-                        if (headerFieldKey == null && headerField == null) {
-                            try {
-                                break;
-                            } catch (IOException unused) {
-                                bufferedReader = new BufferedReader(new InputStreamReader(new a(m159a.getErrorStream())));
+                        m173a.setRequestMethod(str4);
+                        if (map != null) {
+                            for (String str5 : map.keySet()) {
+                                m173a.setRequestProperty(str5, map.get(str5));
                             }
-                        } else {
-                            beVar.f147a.put(headerFieldKey, headerField);
-                            i2 = i2 + 1 + 1;
                         }
+                        int i2 = 0;
+                        if (!TextUtils.isEmpty(str3)) {
+                            m173a.setDoOutput(true);
+                            byte[] bytes = str3.getBytes();
+                            OutputStream outputStream = m173a.getOutputStream();
+                            try {
+                                outputStream.write(bytes, 0, bytes.length);
+                                outputStream.flush();
+                                outputStream.close();
+                            } catch (IOException e2) {
+                                e = e2;
+                                throw new IOException("err while request " + str + ":" + e.getClass().getSimpleName());
+                            } catch (Throwable th) {
+                                th = th;
+                                throw new IOException(th.getMessage());
+                            }
+                        }
+                        beVar.f42876a = m173a.getResponseCode();
+                        Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + beVar.f42876a);
+                        while (true) {
+                            String headerFieldKey = m173a.getHeaderFieldKey(i2);
+                            String headerField = m173a.getHeaderField(i2);
+                            if (headerFieldKey == null && headerField == null) {
+                                try {
+                                    break;
+                                } catch (IOException unused) {
+                                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m173a.getErrorStream())));
+                                }
+                            } else {
+                                beVar.f150a.put(headerFieldKey, headerField);
+                                i2 = i2 + 1 + 1;
+                            }
+                        }
+                        bufferedReader = new BufferedReader(new InputStreamReader(new a(m173a.getInputStream())));
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
-                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m159a.getInputStream())));
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (IOException e3) {
+                    e = e3;
                 }
-            } catch (IOException e3) {
-                e = e3;
-            }
-            try {
-                StringBuffer stringBuffer = new StringBuffer();
-                String property = System.getProperty("line.separator");
-                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                    stringBuffer.append(readLine);
-                    stringBuffer.append(property);
+                try {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    String property = System.getProperty("line.separator");
+                    for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                        stringBuffer.append(readLine);
+                        stringBuffer.append(property);
+                    }
+                    beVar.f149a = stringBuffer.toString();
+                    bufferedReader.close();
+                    y.a((Closeable) null);
+                    y.a((Closeable) null);
+                    return beVar;
+                } catch (IOException e4) {
+                    e = e4;
+                    throw new IOException("err while request " + str + ":" + e.getClass().getSimpleName());
+                } catch (Throwable th3) {
+                    th = th3;
+                    throw new IOException(th.getMessage());
                 }
-                beVar.f146a = stringBuffer.toString();
-                bufferedReader.close();
+            } catch (Throwable th4) {
                 y.a((Closeable) null);
-                y.a((Closeable) null);
-                return beVar;
-            } catch (IOException e4) {
-                e = e4;
-                throw new IOException("err while request " + str + ":" + e.getClass().getSimpleName());
-            } catch (Throwable th3) {
-                th = th3;
-                throw new IOException(th.getMessage());
+                y.a((Closeable) str2);
+                throw th4;
             }
-        } catch (Throwable th4) {
-            y.a((Closeable) null);
-            y.a((Closeable) str2);
-            throw th4;
         }
+        return (be) invokeLLLLL.objValue;
     }
 
     public static be a(Context context, String str, Map<String, String> map) {
-        return a(context, str, "POST", (Map<String, String>) null, a(map));
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, map)) == null) ? a(context, str, "POST", (Map<String, String>) null, a(map)) : (be) invokeLLL.objValue;
     }
 
     public static InputStream a(Context context, URL url, boolean z, String str, String str2) {
-        return a(context, url, z, str, str2, null, null);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, url, Boolean.valueOf(z), str, str2})) == null) ? a(context, url, z, str, str2, null, null) : (InputStream) invokeCommon.objValue;
     }
 
     public static InputStream a(Context context, URL url, boolean z, String str, String str2, Map<String, String> map, b bVar) {
-        if (context != null) {
-            if (url != null) {
-                URL url2 = !z ? new URL(a(url.toString())) : url;
-                try {
-                    HttpURLConnection.setFollowRedirects(true);
-                    HttpURLConnection m159a = m159a(context, url2);
-                    m159a.setConnectTimeout(10000);
-                    m159a.setReadTimeout(15000);
-                    if (!TextUtils.isEmpty(str)) {
-                        m159a.setRequestProperty("User-Agent", str);
-                    }
-                    if (str2 != null) {
-                        m159a.setRequestProperty("Cookie", str2);
-                    }
-                    if (map != null) {
-                        for (String str3 : map.keySet()) {
-                            m159a.setRequestProperty(str3, map.get(str3));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, url, Boolean.valueOf(z), str, str2, map, bVar})) == null) {
+            if (context != null) {
+                if (url != null) {
+                    URL url2 = !z ? new URL(a(url.toString())) : url;
+                    try {
+                        HttpURLConnection.setFollowRedirects(true);
+                        HttpURLConnection m173a = m173a(context, url2);
+                        m173a.setConnectTimeout(10000);
+                        m173a.setReadTimeout(15000);
+                        if (!TextUtils.isEmpty(str)) {
+                            m173a.setRequestProperty("User-Agent", str);
                         }
-                    }
-                    if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
-                        bVar.f41138a = m159a.getResponseCode();
-                        if (bVar.f148a == null) {
-                            bVar.f148a = new HashMap();
+                        if (str2 != null) {
+                            m173a.setRequestProperty("Cookie", str2);
                         }
-                        int i2 = 0;
-                        while (true) {
-                            String headerFieldKey = m159a.getHeaderFieldKey(i2);
-                            String headerField = m159a.getHeaderField(i2);
-                            if (headerFieldKey == null && headerField == null) {
-                                break;
+                        if (map != null) {
+                            for (String str3 : map.keySet()) {
+                                m173a.setRequestProperty(str3, map.get(str3));
                             }
-                            if (!TextUtils.isEmpty(headerFieldKey) && !TextUtils.isEmpty(headerField)) {
-                                bVar.f148a.put(headerFieldKey, headerField);
-                            }
-                            i2++;
                         }
+                        if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
+                            bVar.f42881a = m173a.getResponseCode();
+                            if (bVar.f151a == null) {
+                                bVar.f151a = new HashMap();
+                            }
+                            int i2 = 0;
+                            while (true) {
+                                String headerFieldKey = m173a.getHeaderFieldKey(i2);
+                                String headerField = m173a.getHeaderField(i2);
+                                if (headerFieldKey == null && headerField == null) {
+                                    break;
+                                }
+                                if (!TextUtils.isEmpty(headerFieldKey) && !TextUtils.isEmpty(headerField)) {
+                                    bVar.f151a.put(headerFieldKey, headerField);
+                                }
+                                i2++;
+                            }
+                        }
+                        return new a(m173a.getInputStream());
+                    } catch (IOException e2) {
+                        throw new IOException("IOException:" + e2.getClass().getSimpleName());
+                    } catch (Throwable th) {
+                        throw new IOException(th.getMessage());
                     }
-                    return new a(m159a.getInputStream());
-                } catch (IOException e2) {
-                    throw new IOException("IOException:" + e2.getClass().getSimpleName());
-                } catch (Throwable th) {
-                    throw new IOException(th.getMessage());
                 }
+                throw new IllegalArgumentException("url");
             }
-            throw new IllegalArgumentException("url");
+            throw new IllegalArgumentException("context");
         }
-        throw new IllegalArgumentException("context");
+        return (InputStream) invokeCommon.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m158a(Context context) {
-        if (e(context)) {
-            return "wifi";
-        }
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null) {
+    public static String m172a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (e(context)) {
+                return "wifi";
+            }
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return "";
+                }
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null) {
+                    return "";
+                }
+                return (activeNetworkInfo.getTypeName() + "-" + activeNetworkInfo.getSubtypeName() + "-" + activeNetworkInfo.getExtraInfo()).toLowerCase();
+            } catch (Exception unused) {
                 return "";
             }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo == null) {
-                return "";
-            }
-            return (activeNetworkInfo.getTypeName() + "-" + activeNetworkInfo.getSubtypeName() + "-" + activeNetworkInfo.getExtraInfo()).toLowerCase();
-        } catch (Exception unused) {
-            return "";
         }
+        return (String) invokeL.objValue;
     }
 
     public static String a(Context context, URL url) {
-        return a(context, url, false, null, "UTF-8", null);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, url)) == null) ? a(context, url, false, null, "UTF-8", null) : (String) invokeLL.objValue;
     }
 
     public static String a(Context context, URL url, boolean z, String str, String str2, String str3) {
         InputStream inputStream;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, url, Boolean.valueOf(z), str, str2, str3})) != null) {
+            return (String) invokeCommon.objValue;
+        }
         try {
             inputStream = a(context, url, z, str, str3);
             try {
@@ -303,16 +394,26 @@ public class bg {
     }
 
     public static String a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            new String();
+            return String.format("%s&key=%s", str, bl.a(String.format("%sbe988a6134bc8254465424e5a70ef037", str)));
         }
-        new String();
-        return String.format("%s&key=%s", str, bl.a(String.format("%sbe988a6134bc8254465424e5a70ef037", str)));
+        return (String) invokeL.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r9v0, resolved type: java.io.File */
     /* JADX WARN: Multi-variable type inference failed */
     public static String a(String str, Map<String, String> map, File file, String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65547, null, str, map, file, str2)) != null) {
+            return (String) invokeLLLL.objValue;
+        }
         if (!file.exists()) {
             return null;
         }
@@ -393,152 +494,206 @@ public class bg {
     }
 
     public static String a(Map<String, String> map) {
-        if (map == null || map.size() <= 0) {
-            return null;
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            if (entry.getKey() != null && entry.getValue() != null) {
-                try {
-                    stringBuffer.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-                    stringBuffer.append("=");
-                    stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-                    stringBuffer.append("&");
-                } catch (UnsupportedEncodingException e2) {
-                    Log.d("com.xiaomi.common.Network", "Failed to convert from params map to string: " + e2.toString());
-                    Log.d("com.xiaomi.common.Network", "map: " + map.toString());
-                    return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, map)) == null) {
+            if (map == null || map.size() <= 0) {
+                return null;
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                if (entry.getKey() != null && entry.getValue() != null) {
+                    try {
+                        stringBuffer.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+                        stringBuffer.append("=");
+                        stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+                        stringBuffer.append("&");
+                    } catch (UnsupportedEncodingException e2) {
+                        Log.d("com.xiaomi.common.Network", "Failed to convert from params map to string: " + e2.toString());
+                        Log.d("com.xiaomi.common.Network", "map: " + map.toString());
+                        return null;
+                    }
                 }
             }
+            if (stringBuffer.length() > 0) {
+                stringBuffer = stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+            }
+            return stringBuffer.toString();
         }
-        if (stringBuffer.length() > 0) {
-            stringBuffer = stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+        return (String) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static HttpURLConnection m173a(Context context, URL url) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, url)) == null) {
+            return (HttpURLConnection) (("http".equals(url.getProtocol()) && m175a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
         }
-        return stringBuffer.toString();
+        return (HttpURLConnection) invokeLL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HttpURLConnection m159a(Context context, URL url) {
-        return (HttpURLConnection) (("http".equals(url.getProtocol()) && m161a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
+    public static URL m174a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) ? new URL(str) : (URL) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static URL m160a(String str) {
-        return new URL(str);
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static boolean m161a(Context context) {
+    public static boolean m175a(Context context) {
+        InterceptResult invokeL;
         ConnectivityManager connectivityManager;
-        if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService("phone")).getSimCountryIso())) {
-            try {
-                connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService("phone")).getSimCountryIso())) {
+                try {
+                    connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                } catch (Exception unused) {
+                }
+                if (connectivityManager == null) {
+                    return false;
+                }
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null) {
+                    return false;
+                }
+                String extraInfo = activeNetworkInfo.getExtraInfo();
+                return !TextUtils.isEmpty(extraInfo) && extraInfo.length() >= 3 && extraInfo.contains(ConectivityUtils.APN_CTWAP);
             }
-            if (connectivityManager == null) {
-                return false;
-            }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo == null) {
-                return false;
-            }
-            String extraInfo = activeNetworkInfo.getExtraInfo();
-            return !TextUtils.isEmpty(extraInfo) && extraInfo.length() >= 3 && extraInfo.contains(ConectivityUtils.APN_CTWAP);
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static boolean b(Context context) {
-        return a(context) >= 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? a(context) >= 0 : invokeL.booleanValue;
     }
 
     public static boolean c(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager != null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                try {
-                    NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
-                    if (networkCapabilities != null) {
-                        return networkCapabilities.hasCapability(16);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager != null) {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    try {
+                        NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+                        if (networkCapabilities != null) {
+                            return networkCapabilities.hasCapability(16);
+                        }
+                        return false;
+                    } catch (Exception unused) {
+                        return false;
                     }
-                    return false;
-                } catch (Exception unused) {
-                    return false;
                 }
+                return b(context);
             }
-            return b(context);
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static boolean d(Context context) {
         NetworkInfo networkInfo;
-        try {
-            networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        } catch (Exception unused) {
-            networkInfo = null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
+            try {
+                networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            } catch (Exception unused) {
+                networkInfo = null;
+            }
+            return networkInfo != null && networkInfo.isConnected();
         }
-        return networkInfo != null && networkInfo.isConnected();
+        return invokeL.booleanValue;
     }
 
     public static boolean e(Context context) {
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return false;
+                }
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                return activeNetworkInfo != null && 1 == activeNetworkInfo.getType();
+            } catch (Exception unused) {
                 return false;
             }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            return activeNetworkInfo != null && 1 == activeNetworkInfo.getType();
-        } catch (Exception unused) {
-            return false;
         }
+        return invokeL.booleanValue;
     }
 
     public static boolean f(Context context) {
-        NetworkInfo m157a = m157a(context);
-        return m157a != null && m157a.getType() == 0 && 20 == m157a.getSubtype();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
+            NetworkInfo m171a = m171a(context);
+            return m171a != null && m171a.getType() == 0 && 20 == m171a.getSubtype();
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean g(Context context) {
-        NetworkInfo m157a = m157a(context);
-        return m157a != null && m157a.getType() == 0 && 13 == m157a.getSubtype();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
+            NetworkInfo m171a = m171a(context);
+            return m171a != null && m171a.getType() == 0 && 13 == m171a.getSubtype();
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean h(Context context) {
-        NetworkInfo m157a = m157a(context);
-        if (m157a != null && m157a.getType() == 0) {
-            String subtypeName = m157a.getSubtypeName();
-            if (!"TD-SCDMA".equalsIgnoreCase(subtypeName) && !"CDMA2000".equalsIgnoreCase(subtypeName) && !"WCDMA".equalsIgnoreCase(subtypeName)) {
-                switch (m157a.getSubtype()) {
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        break;
-                    case 4:
-                    case 7:
-                    case 11:
-                    case 13:
-                    default:
-                        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
+            NetworkInfo m171a = m171a(context);
+            if (m171a != null && m171a.getType() == 0) {
+                String subtypeName = m171a.getSubtypeName();
+                if (!"TD-SCDMA".equalsIgnoreCase(subtypeName) && !"CDMA2000".equalsIgnoreCase(subtypeName) && !"WCDMA".equalsIgnoreCase(subtypeName)) {
+                    switch (m171a.getSubtype()) {
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            break;
+                        case 4:
+                        case 7:
+                        case 11:
+                        case 13:
+                        default:
+                            return false;
+                    }
                 }
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static boolean i(Context context) {
-        NetworkInfo m157a = m157a(context);
-        if (m157a != null && m157a.getType() == 0) {
-            int subtype = m157a.getSubtype();
-            return subtype == 1 || subtype == 2 || subtype == 4 || subtype == 7 || subtype == 11;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
+            NetworkInfo m171a = m171a(context);
+            if (m171a != null && m171a.getType() == 0) {
+                int subtype = m171a.getSubtype();
+                return subtype == 1 || subtype == 2 || subtype == 4 || subtype == 7 || subtype == 11;
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 }

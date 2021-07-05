@@ -12,160 +12,334 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BdMenu;
 import com.baidu.wallet.base.widget.BdMenuItem;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26248a = O2OMenuView.class.getSimpleName();
+    public static final String f26791a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26249b;
+    public boolean f26792b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ListView f26250c;
+    public ListView f26793c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f26251d;
+    public a f26794d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OnO2OMenuItemSelectListener f26252e;
+    public OnO2OMenuItemSelectListener f26795e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnO2OMenuItemSelectListener {
         void onMenuItemClick(String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends BaseAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ O2OMenuView f26797a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f26255b;
+        public String[] f26798b;
 
-        public a() {
+        public a(O2OMenuView o2OMenuView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o2OMenuView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f26797a = o2OMenuView;
         }
 
         public void a(String[] strArr) {
-            this.f26255b = strArr;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, strArr) == null) {
+                this.f26798b = strArr;
+            }
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            String[] strArr = this.f26255b;
-            if (strArr != null) {
-                return strArr.length;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                String[] strArr = this.f26798b;
+                if (strArr != null) {
+                    return strArr.length;
+                }
+                return 0;
             }
-            return 0;
+            return invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
-            return null;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+                return null;
+            }
+            return invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
         public long getItemId(int i2) {
-            return 0L;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+                return 0L;
+            }
+            return invokeI.longValue;
         }
 
         @Override // android.widget.Adapter
         public View getView(int i2, View view, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
             O2OMenuItemView o2OMenuItemView;
-            if (view == null) {
-                o2OMenuItemView = new O2OMenuItemView(O2OMenuView.this.getContext());
-            } else {
-                o2OMenuItemView = (O2OMenuItemView) view;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
+                if (view == null) {
+                    o2OMenuItemView = new O2OMenuItemView(this.f26797a.getContext());
+                } else {
+                    o2OMenuItemView = (O2OMenuItemView) view;
+                }
+                o2OMenuItemView.updateItem(this.f26798b[i2]);
+                return o2OMenuItemView;
             }
-            o2OMenuItemView.updateItem(this.f26255b[i2]);
-            return o2OMenuItemView;
+            return (View) invokeILL.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1832842512, "Lcom/baidu/wallet/paysdk/ui/widget/O2OMenuView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1832842512, "Lcom/baidu/wallet/paysdk/ui/widget/O2OMenuView;");
+                return;
+            }
+        }
+        f26791a = O2OMenuView.class.getSimpleName();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @SuppressLint({"NewApi"})
     public O2OMenuView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f26249b = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f26792b = false;
         a();
     }
 
     public String getBackgroundResId() {
-        return "wallet_base_o2o_bg_pay_more";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "wallet_base_o2o_bg_pay_more" : (String) invokeV.objValue;
     }
 
     public String getMenuItemBackgroudResId(int i2, int i3) {
-        return null;
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
+            return null;
+        }
+        return (String) invokeII.objValue;
     }
 
     public String getMenuItemViewLayoutId() {
-        return "wallet_base_menu_item_view";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "wallet_base_menu_item_view" : (String) invokeV.objValue;
     }
 
     public int getSeparatorColor() {
-        return -1710619;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return -1710619;
+        }
+        return invokeV.intValue;
     }
 
     public void layoutMenu(String[] strArr) {
-        Log.d(f26248a, "layout menu view");
-        a aVar = this.f26251d;
-        if (aVar != null) {
-            aVar.a(strArr);
-            this.f26251d.notifyDataSetChanged();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, strArr) == null) {
+            Log.d(f26791a, "layout menu view");
+            a aVar = this.f26794d;
+            if (aVar != null) {
+                aVar.a(strArr);
+                this.f26794d.notifyDataSetChanged();
+                return;
+            }
+            a aVar2 = new a(this);
+            this.f26794d = aVar2;
+            aVar2.a(strArr);
+            this.f26793c.setAdapter((ListAdapter) this.f26794d);
         }
-        a aVar2 = new a();
-        this.f26251d = aVar2;
-        aVar2.a(strArr);
-        this.f26250c.setAdapter((ListAdapter) this.f26251d);
     }
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
     public void onMenuItemUpdated(BdMenuItem bdMenuItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdMenuItem) == null) {
+        }
     }
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
     public void onMenuSetChanged() {
-        this.f26249b = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f26792b = false;
+        }
     }
 
     public void setMenuSelectListener(OnO2OMenuItemSelectListener onO2OMenuItemSelectListener) {
-        this.f26252e = onO2OMenuItemSelectListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onO2OMenuItemSelectListener) == null) {
+            this.f26795e = onO2OMenuItemSelectListener;
+        }
     }
 
     private void a() {
-        setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        setBackgroundResource(ResUtils.drawable(getContext(), getBackgroundResId()));
-        this.f26250c = new ListView(getContext());
-        int dip2px = DisplayUtils.dip2px(getContext(), 115.0f);
-        this.f26250c.setDivider(new ColorDrawable(getSeparatorColor()));
-        this.f26250c.setDividerHeight(1);
-        this.f26250c.setSelector(new ColorDrawable(0));
-        this.f26250c.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.paysdk.ui.widget.O2OMenuView.1
-            @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                if (view != null && (view instanceof O2OMenuItemView)) {
-                    String string = ((O2OMenuItemView) view).getString();
-                    if (O2OMenuView.this.f26252e != null) {
-                        O2OMenuView.this.f26252e.onMenuItemClick(string);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            setBackgroundResource(ResUtils.drawable(getContext(), getBackgroundResId()));
+            this.f26793c = new ListView(getContext());
+            int dip2px = DisplayUtils.dip2px(getContext(), 115.0f);
+            this.f26793c.setDivider(new ColorDrawable(getSeparatorColor()));
+            this.f26793c.setDividerHeight(1);
+            this.f26793c.setSelector(new ColorDrawable(0));
+            this.f26793c.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.O2OMenuView.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ O2OMenuView f26796a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f26796a = this;
+                }
+
+                @Override // android.widget.AdapterView.OnItemClickListener
+                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) && view != null && (view instanceof O2OMenuItemView)) {
+                        String string = ((O2OMenuItemView) view).getString();
+                        if (this.f26796a.f26795e != null) {
+                            this.f26796a.f26795e.onMenuItemClick(string);
+                        }
                     }
                 }
-            }
-        });
-        addView(this.f26250c, new LinearLayout.LayoutParams(dip2px, -2));
-        setFocusableInTouchMode(true);
+            });
+            addView(this.f26793c, new LinearLayout.LayoutParams(dip2px, -2));
+            setFocusableInTouchMode(true);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public O2OMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26249b = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f26792b = false;
         a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public O2OMenuView(Context context) {
         super(context);
-        this.f26249b = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f26792b = false;
         a();
     }
 }

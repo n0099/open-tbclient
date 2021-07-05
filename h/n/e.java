@@ -1,5 +1,5 @@
 package h.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface e<R> extends Object {
     R call();
 }

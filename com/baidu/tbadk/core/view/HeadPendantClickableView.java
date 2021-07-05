@@ -8,6 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -20,24 +21,52 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
-import d.a.n0.b.d;
-import d.a.n0.r.q.a2;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.b.d;
+import d.a.r0.r.q.b2;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HeadPendantClickableView extends HeadPendantView {
-    public a2 q;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public b2 q;
     public Context r;
     public View.OnClickListener s;
     public View.OnClickListener t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HeadPendantClickableView f12406e;
+
+        public a(HeadPendantClickableView headPendantClickableView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {headPendantClickableView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12406e = headPendantClickableView;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:31:0x0153  */
-        /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:33:0x0157  */
+        /* JADX WARN: Removed duplicated region for block: B:41:? A[RETURN, SYNTHETIC] */
         @Override // android.view.View.OnClickListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -47,31 +76,32 @@ public class HeadPendantClickableView extends HeadPendantView {
             String str2;
             String str3;
             AlaInfoData alaInfo;
-            if (HeadPendantClickableView.this.q == null || HeadPendantClickableView.this.q.T() == null || StringUtils.isNull(HeadPendantClickableView.this.q.T().getName_show()) || StringUtils.isNull(HeadPendantClickableView.this.q.T().getUserId())) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12406e.q == null || this.f12406e.q.H() == null || StringUtils.isNull(this.f12406e.q.H().getName_show()) || StringUtils.isNull(this.f12406e.q.H().getUserId())) {
                 return;
             }
-            if (HeadPendantClickableView.this.q.V1) {
+            if (this.f12406e.q.W1) {
                 str3 = AddFriendActivityConfig.TYPE_HOME_HEAD;
                 str = YYLiveUtil.SOURCE_HOME_RECOMMEND_HEAD;
-            } else if (HeadPendantClickableView.this.q.b2()) {
+            } else if (this.f12406e.q.O1()) {
                 str3 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
                 str = YYLiveUtil.SOURCE_HOME_FOLLOW_TAB_HEAD;
-            } else if (!HeadPendantClickableView.this.q.k()) {
+            } else if (!this.f12406e.q.isFromFrs()) {
                 str = YYLiveUtil.SOURCE_NOT_DEFINE;
                 str2 = "";
                 String str4 = str;
-                alaInfo = HeadPendantClickableView.this.q.T().getAlaInfo();
+                alaInfo = this.f12406e.q.H().getAlaInfo();
                 if (alaInfo == null && alaInfo.isLegalYYLiveData()) {
-                    TbPageContext tbPageContext = HeadPendantClickableView.this.getTbPageContext();
+                    TbPageContext tbPageContext = this.f12406e.getTbPageContext();
                     YyExtData yyExtData = alaInfo.mYyExtData;
                     YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, str4);
-                    HeadPendantClickableView headPendantClickableView = HeadPendantClickableView.this;
-                    headPendantClickableView.r(headPendantClickableView.q.z1(), String.valueOf(HeadPendantClickableView.this.q.c0()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                    HeadPendantClickableView headPendantClickableView = this.f12406e;
+                    headPendantClickableView.r(headPendantClickableView.q.n1(), String.valueOf(this.f12406e.q.Q()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.r, HeadPendantClickableView.this.q.T().getUserId(), HeadPendantClickableView.this.q.T().getName_show(), HeadPendantClickableView.this.q.i0(), str2, HeadPendantClickableView.this.q.z1(), HeadPendantClickableView.this.q.M0())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12406e.r, this.f12406e.q.H().getUserId(), this.f12406e.q.H().getName_show(), this.f12406e.q.W(), str2, this.f12406e.q.n1(), this.f12406e.q.A0())));
                 }
-                if (HeadPendantClickableView.this.s == null) {
-                    HeadPendantClickableView.this.s.onClick(view);
+                if (this.f12406e.s == null) {
+                    this.f12406e.s.onClick(view);
                     return;
                 }
                 return;
@@ -81,103 +111,155 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
             str2 = str3;
             String str42 = str;
-            alaInfo = HeadPendantClickableView.this.q.T().getAlaInfo();
+            alaInfo = this.f12406e.q.H().getAlaInfo();
             if (alaInfo == null) {
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.r, HeadPendantClickableView.this.q.T().getUserId(), HeadPendantClickableView.this.q.T().getName_show(), HeadPendantClickableView.this.q.i0(), str2, HeadPendantClickableView.this.q.z1(), HeadPendantClickableView.this.q.M0())));
-            if (HeadPendantClickableView.this.s == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12406e.r, this.f12406e.q.H().getUserId(), this.f12406e.q.H().getName_show(), this.f12406e.q.W(), str2, this.f12406e.q.n1(), this.f12406e.q.A0())));
+            if (this.f12406e.s == null) {
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeadPendantClickableView(Context context) {
         super(context);
-        a aVar = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this);
         this.t = aVar;
         this.r = context;
         setOnClickListener(aVar);
     }
 
     public TbPageContext getTbPageContext() {
-        Context context = getContext();
-        if (context instanceof BaseActivity) {
-            return ((BaseActivity) context).getPageContext();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Context context = getContext();
+            if (context instanceof BaseActivity) {
+                return ((BaseActivity) context).getPageContext();
+            }
+            if (context instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) context).getPageContext();
+            }
+            return null;
         }
-        if (context instanceof BaseFragmentActivity) {
-            return ((BaseFragmentActivity) context).getPageContext();
-        }
-        return null;
+        return (TbPageContext) invokeV.objValue;
     }
 
     public final void r(String str, String str2, String str3, String str4, String str5) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("tid", str);
-            jSONObject.put("fid", str2);
-            if (TextUtils.equals("0", str3)) {
-                str3 = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("tid", str);
+                jSONObject.put("fid", str2);
+                if (TextUtils.equals("0", str3)) {
+                    str3 = null;
+                }
+                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, str3);
+                if (TextUtils.equals("0", str4)) {
+                    str4 = null;
+                }
+                jSONObject.put("liveId", str4);
+                jSONObject.put("sid", str5);
+                jSONObject.put("roomInfo", "roomInfo");
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, str3);
-            if (TextUtils.equals("0", str4)) {
-                str4 = null;
-            }
-            jSONObject.put("liveId", str4);
-            jSONObject.put("sid", str5);
-            jSONObject.put("roomInfo", "roomInfo");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.s = onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.s = onClickListener;
+        }
     }
 
-    public void setData(a2 a2Var) {
-        setData(a2Var, false);
+    public void setData(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, b2Var) == null) {
+            setData(b2Var, false);
+        }
     }
 
-    public void setData(a2 a2Var, boolean z) {
-        if (a2Var == null || a2Var.T() == null) {
+    public void setData(b2 b2Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, b2Var, z) == null) || b2Var == null || b2Var.H() == null) {
             return;
         }
-        this.q = a2Var;
-        MetaData T = a2Var.T();
-        setContentDescription(T.getName_show() + this.r.getString(R.string.somebodys_portrait));
-        getHeadView().setUserId(T.getUserId());
-        getHeadView().setUserName(T.getUserName());
-        getHeadView().setUrl(T.getAvater());
-        if (T.isDefaultAvatar && d.V()) {
-            getHeadView().U(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
-        } else if (!StringUtils.isNull(T.getAvater()) && T.getAvater().startsWith("http")) {
-            getHeadView().U(T.getAvater(), 10, false);
+        this.q = b2Var;
+        MetaData H = b2Var.H();
+        setContentDescription(H.getName_show() + this.r.getString(R.string.somebodys_portrait));
+        getHeadView().setUserId(H.getUserId());
+        getHeadView().setUserName(H.getUserName());
+        getHeadView().setUrl(H.getAvater());
+        if (H.isDefaultAvatar && d.V()) {
+            getHeadView().M(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
+        } else if (!StringUtils.isNull(H.getAvater()) && H.getAvater().startsWith("http")) {
+            getHeadView().M(H.getAvater(), 10, false);
         } else if (z) {
-            getHeadView().U(T.getAvater(), 25, false);
+            getHeadView().M(H.getAvater(), 25, false);
         } else {
-            getHeadView().U(T.getAvater(), 28, false);
+            getHeadView().M(H.getAvater(), 28, false);
         }
-        i(T, 0);
+        i(H, 0);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeadPendantClickableView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        a aVar = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this);
         this.t = aVar;
         this.r = context;
         setOnClickListener(aVar);
     }
 
     public void setData(MetaData metaData) {
-        setData(metaData, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
+            setData(metaData, false);
+        }
     }
 
     public void setData(MetaData metaData, boolean z) {
-        if (metaData == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, metaData, z) == null) || metaData == null) {
             return;
         }
-        a2 a2Var = new a2();
-        a2Var.u3(metaData);
-        setData(a2Var, z);
+        b2 b2Var = new b2();
+        b2Var.h3(metaData);
+        setData(b2Var, z);
     }
 }

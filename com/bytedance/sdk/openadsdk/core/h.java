@@ -1,137 +1,807 @@
 package com.bytedance.sdk.openadsdk.core;
 
-import com.baidu.android.imsdk.IMConstants;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.pm.ShortcutManager;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
+import com.bytedance.sdk.openadsdk.AppLogHelper;
+import com.bytedance.sdk.openadsdk.TTCustomController;
+import com.bytedance.sdk.openadsdk.TTDownloadEventLogger;
+import com.bytedance.sdk.openadsdk.TTGlobalAppDownloadListener;
+import com.bytedance.sdk.openadsdk.TTSecAbs;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h {
-    public static String a(int i2) {
-        if (i2 != 201) {
-            if (i2 != 202) {
-                if (i2 != 20001) {
-                    if (i2 != 50001) {
-                        if (i2 != 60007) {
-                            switch (i2) {
-                                case -14:
-                                    return "开屏视频加载失败";
-                                case -13:
-                                    return "广告请求使用了错误代码位";
-                                case -12:
-                                    return "缓存中没有开屏广告";
-                                case -11:
-                                    return "缓存过期";
-                                case -10:
-                                    return "缓存解析失败";
-                                case -9:
-                                    return "请求实体为空";
-                                case -8:
-                                    return "广告请求频率过高";
-                                case -7:
-                                    return "开屏广告图片加载失败";
-                                case -6:
-                                    return "插屏广告图片加载失败";
-                                case -5:
-                                    return "Banner广告加载图片失败";
-                                case -4:
-                                    return "返回数据缺少必要字段";
-                                case -3:
-                                    return "没有解析到广告";
-                                case -2:
-                                    return "网络请求失败";
-                                case -1:
-                                    return "解析失败";
-                                default:
-                                    switch (i2) {
-                                        case 101:
-                                            return "渲染结果数据解析失败";
-                                        case 102:
-                                            return "主模板无效";
-                                        case 103:
-                                            return "模板差量无效";
-                                        case 104:
-                                            return "模板物料数据异常";
-                                        case 105:
-                                            return "模板数据解析异常";
-                                        case 106:
-                                            return "渲染未知报错";
-                                        case 107:
-                                            return "渲染超时未回调";
-                                        case 108:
-                                            return "模板广告加载超时无返回";
-                                        case 109:
-                                            return "模板主引擎加载失败";
-                                        case 110:
-                                            return "模板广告请求参数不合法，如传入宽度不大于0";
-                                        default:
-                                            switch (i2) {
-                                                case 40000:
-                                                    return "http conent_type错误";
-                                                case 40001:
-                                                    return "http request pb错误";
-                                                case 40002:
-                                                    return "请求app不能为空 ";
-                                                case 40003:
-                                                    return "请求wap不能为空";
-                                                case 40004:
-                                                    return "广告位不能为空";
-                                                case 40005:
-                                                    return "广告位尺寸不能为空";
-                                                case 40006:
-                                                    return "广告位ID不合法";
-                                                case 40007:
-                                                    return "广告数量错误";
-                                                case 40008:
-                                                    return "图片尺寸错误";
-                                                case 40009:
-                                                    return "媒体ID不合法";
-                                                case 40010:
-                                                    return "媒体类型不合法";
-                                                case 40011:
-                                                    return "广告类型不合法";
-                                                case 40012:
-                                                case 40017:
-                                                    return "媒体接入类型不合法";
-                                                case 40013:
-                                                    return "开屏广告类型异常";
-                                                case 40014:
-                                                    return "redirect参数不正确";
-                                                case 40015:
-                                                    return "媒体整改超过期限，请求非法";
-                                                case 40016:
-                                                    return "SlotId和AppId匹配异常";
-                                                case 40018:
-                                                    return "媒体包名异常";
-                                                case 40019:
-                                                    return "媒体配置adtype和请求不一致";
-                                                case 40020:
-                                                    return "开发注册新上线广告位超出日请求量限制";
-                                                case 40021:
-                                                    return "apk签名sha1值与媒体平台录入不一致";
-                                                case 40022:
-                                                    return "媒体请求素材是否原生与媒体平台录入不一致";
-                                                case 40023:
-                                                    return "os字段填的不对";
-                                                case 40024:
-                                                    return "sdk 版本过低不返回广告";
-                                                default:
-                                                    switch (i2) {
-                                                        case IMConstants.ERROR_JOIN_GROUP_NUMBER_FULL /* 60001 */:
-                                                            return "show event处理错误";
-                                                        case IMConstants.ERROR_GROUP_NAME_NOT_VALID /* 60002 */:
-                                                            return "click event处理错误";
-                                                        default:
-                                                            return "未知报错";
-                                                    }
-                                            }
-                                    }
-                            }
-                        }
-                        return "激励视频验证服务器异常或处理失败";
-                    }
-                    return "服务器错误";
-                }
-                return "没有广告";
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile h u;
+    public static TTCustomController x;
+    public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+
+    /* renamed from: a  reason: collision with root package name */
+    public volatile String f30110a;
+    @NonNull
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f30111b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f30112c;
+    @Nullable
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f30113d;
+    @Nullable
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f30114e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f30115f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f30116g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f30117h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TTGlobalAppDownloadListener f30118i;
+    public final Set<Integer> j;
+    public boolean k;
+    public Bitmap l;
+    public com.bytedance.sdk.openadsdk.r.a m;
+    public TTDownloadEventLogger n;
+    public TTSecAbs o;
+    public String[] p;
+    public TTCustomController q;
+    public String r;
+    public String s;
+    public boolean t;
+    public com.bytedance.sdk.openadsdk.d.c v;
+    public com.bytedance.sdk.openadsdk.core.h.c w;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(210334734, "Lcom/bytedance/sdk/openadsdk/core/h;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return "icon图标加载失败";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(210334734, "Lcom/bytedance/sdk/openadsdk/core/h;");
+                return;
+            }
         }
-        return "icon加载response错误";
+        x = new TTCustomController() { // from class: com.bytedance.sdk.openadsdk.core.h.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        };
+    }
+
+    public h() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f30115f = 0;
+        this.f30116g = true;
+        this.f30117h = false;
+        this.j = Collections.synchronizedSet(new HashSet());
+        this.k = false;
+        this.l = null;
+        this.m = new com.bytedance.sdk.openadsdk.r.a();
+        this.t = false;
+        Context a2 = o.a();
+        if (a2 != null) {
+            com.bytedance.sdk.openadsdk.o.g.a.a(a2);
+        }
+        this.j.add(4);
+        if (a2 instanceof Application) {
+            ((Application) a2).registerActivityLifecycleCallbacks(this.m);
+        } else if (a2 != null && a2.getApplicationContext() != null) {
+            ((Application) a2.getApplicationContext()).registerActivityLifecycleCallbacks(this.m);
+        }
+        if (Build.VERSION.SDK_INT >= 26) {
+            try {
+                this.t = ((ShortcutManager) o.a().getSystemService(ShortcutManager.class)).isRequestPinShortcutSupported();
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static h d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            if (u == null) {
+                synchronized (h.class) {
+                    if (u == null) {
+                        u = new h();
+                    }
+                }
+            }
+            return u;
+        }
+        return (h) invokeV.objValue;
+    }
+
+    public int A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "sdk_key_theme_status", 0);
+            }
+            return com.bytedance.sdk.component.utils.s.a((String) null, o.a()).b("sdk_key_theme_status", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.m.a() : invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.t : invokeV.booleanValue;
+    }
+
+    public com.bytedance.sdk.openadsdk.r.a c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.m : (com.bytedance.sdk.openadsdk.r.a) invokeV.objValue;
+    }
+
+    public void e() {
+        TTCustomController f2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (f2 = f()) == null) {
+            return;
+        }
+        com.bytedance.sdk.openadsdk.p.a.b(7, String.valueOf(f2.isCanUseLocation() ? 1 : 0));
+        com.bytedance.sdk.openadsdk.p.a.b(8, String.valueOf(f2.getTTLocation() == null ? 0 : 1));
+        com.bytedance.sdk.openadsdk.p.a.b(9, String.valueOf(f2.isCanUsePhoneState() ? 1 : 0));
+        com.bytedance.sdk.openadsdk.p.a.b(10, String.valueOf(!TextUtils.isEmpty(f2.getDevImei()) ? 1 : 0));
+        com.bytedance.sdk.openadsdk.p.a.b(11, String.valueOf(f2.isCanUseWifiState() ? 1 : 0));
+        com.bytedance.sdk.openadsdk.p.a.b(12, String.valueOf(f2.isCanUseWriteExternal() ? 1 : 0));
+        com.bytedance.sdk.openadsdk.p.a.b(13, String.valueOf(!TextUtils.isEmpty(f2.getDevOaid()) ? 1 : 0));
+        com.bytedance.sdk.openadsdk.p.a.b(14, String.valueOf(d().u() ? 1 : 0));
+    }
+
+    @NonNull
+    public TTCustomController f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            if (l.f30233b != null) {
+                return l.f30233b;
+            }
+            TTCustomController tTCustomController = this.q;
+            return tTCustomController == null ? x : tTCustomController;
+        }
+        return (TTCustomController) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "sdk_activate_init", true);
+            }
+            return com.bytedance.sdk.component.utils.s.a((String) null, o.a()).b("sdk_activate_init", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (!TextUtils.isEmpty(this.f30110a)) {
+                return this.f30110a;
+            }
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "app_id", (String) null);
+            }
+            return this.f30110a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            String h2 = d().h();
+            if (TextUtils.isEmpty(h2)) {
+                h2 = String.valueOf(164362);
+            }
+            hashMap.put("host_appid", h2);
+            hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3.6.1.3");
+            AppLogHelper.getInstance().setHeaderInfo(hashMap);
+        }
+    }
+
+    @NonNull
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "name", (String) null);
+            }
+            return this.f30111b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_paid", false);
+            }
+            return this.f30112c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Nullable
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "keywords", (String) null);
+            }
+            return this.f30113d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "extra_data", (String) null);
+            }
+            return this.f30114e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", 0);
+            }
+            return this.f30115f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_show_notify", true);
+            }
+            return this.f30116g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public TTDownloadEventLogger p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.n : (TTDownloadEventLogger) invokeV.objValue;
+    }
+
+    public TTSecAbs q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.o : (TTSecAbs) invokeV.objValue;
+    }
+
+    public com.bytedance.sdk.openadsdk.d.c r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            if (this.v == null) {
+                this.v = new com.bytedance.sdk.openadsdk.d.c(10, 8);
+            }
+            return this.v;
+        }
+        return (com.bytedance.sdk.openadsdk.d.c) invokeV.objValue;
+    }
+
+    public com.bytedance.sdk.openadsdk.d.c s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (this.v == null) {
+                this.v = new com.bytedance.sdk.openadsdk.d.c(10, 8, true);
+            }
+            return this.v;
+        }
+        return (com.bytedance.sdk.openadsdk.d.c) invokeV.objValue;
+    }
+
+    public com.bytedance.sdk.openadsdk.core.h.c t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            if (this.w == null) {
+                this.w = new com.bytedance.sdk.openadsdk.core.h.c(10, 8);
+            }
+            return this.w;
+        }
+        return (com.bytedance.sdk.openadsdk.core.h.c) invokeV.objValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_use_texture", false);
+            }
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Bitmap v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.component.utils.d.a(com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "pause_icon", (String) null));
+            }
+            return this.l;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public String w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return TextUtils.isEmpty(this.r) ? "" : this.r;
+            }
+            String b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "tob_ab_sdk_version", (String) null);
+            return TextUtils.isEmpty(b2) ? "" : b2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? "5001121".equals(this.f30110a) : invokeV.booleanValue;
+    }
+
+    public boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? "com.union_test.toutiao".equals(com.bytedance.sdk.openadsdk.r.o.d()) : invokeV.booleanValue;
+    }
+
+    public String z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            if (!TextUtils.isEmpty(this.s)) {
+                return this.s;
+            }
+            String a2 = com.bytedance.sdk.openadsdk.r.d.a();
+            this.s = a2;
+            if (!TextUtils.isEmpty(a2)) {
+                return this.s;
+            }
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            com.bytedance.sdk.openadsdk.r.d.a(valueOf);
+            this.s = valueOf;
+            return valueOf;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, activity)) == null) ? this.m.a(activity) : invokeL.booleanValue;
+    }
+
+    public void b(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            f(str);
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "name", str);
+            }
+            this.f30111b = str;
+        }
+    }
+
+    public void c(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            g(str);
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "keywords", str);
+            }
+            this.f30113d = str;
+        }
+    }
+
+    public void a(TTCustomController tTCustomController) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, tTCustomController) == null) {
+            this.q = tTCustomController;
+            e();
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
+            com.bytedance.sdk.component.utils.n.a(str, "name不能为空");
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        com.bytedance.sdk.component.utils.n.a(str.length() <= 1000, "keyword超长, 最长为1000");
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "sdk_activate_init", Boolean.valueOf(z));
+            }
+            com.bytedance.sdk.component.utils.s.a((String) null, o.a()).a("sdk_activate_init", z);
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        com.bytedance.sdk.component.utils.n.a(str.length() <= 1000, "data超长, 最长为1000");
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_paid", Boolean.valueOf(z));
+            }
+            this.f30112c = z;
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_show_notify", Boolean.valueOf(z));
+            }
+            this.f30116g = z;
+        }
+    }
+
+    public void d(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            h(str);
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "extra_data", str);
+            }
+            this.f30114e = str;
+        }
+    }
+
+    public static JSONObject i(String str) {
+        InterceptResult invokeL;
+        String b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", str, (String) null);
+            } else {
+                b2 = com.bytedance.sdk.component.utils.s.a((String) null, o.a()).b(str, (String) null);
+            }
+            if (TextUtils.isEmpty(b2)) {
+                return null;
+            }
+            try {
+                return new JSONObject(b2);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public void a(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            e(str);
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "app_id", str);
+            }
+            this.f30110a = str;
+        }
+    }
+
+    public boolean b(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                String b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "network_state", (String) null);
+                if (TextUtils.isEmpty(b2)) {
+                    return false;
+                }
+                String[] split = b2.split(",");
+                if (split.length > 0) {
+                    for (String str : split) {
+                        if (!TextUtils.isEmpty(str) && String.valueOf(i2).equals(str)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                return false;
+            }
+            return this.j.contains(Integer.valueOf(i2));
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void c(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "sdk_key_theme_status", Integer.valueOf(i2));
+            } else {
+                com.bytedance.sdk.component.utils.s.a((String) null, o.a()).a("sdk_key_theme_status", i2);
+            }
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_lp_when_screen_lock", Boolean.valueOf(z));
+            }
+            this.f30117h = z;
+        }
+    }
+
+    public void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", Integer.valueOf(i2));
+            }
+            this.f30115f = i2;
+        }
+    }
+
+    public void a(TTGlobalAppDownloadListener tTGlobalAppDownloadListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tTGlobalAppDownloadListener) == null) {
+            this.f30118i = tTGlobalAppDownloadListener;
+        }
+    }
+
+    public void a(TTDownloadEventLogger tTDownloadEventLogger) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tTDownloadEventLogger) == null) {
+            this.n = tTDownloadEventLogger;
+        }
+    }
+
+    public void a(TTSecAbs tTSecAbs) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tTSecAbs) == null) {
+            this.o = tTSecAbs;
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+            com.bytedance.sdk.component.utils.n.a(str, "appid不能为空");
+        }
+    }
+
+    public void a(int... iArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, iArr) == null) || iArr == null) {
+            return;
+        }
+        try {
+            this.j.clear();
+            for (int i2 : iArr) {
+                this.j.add(Integer.valueOf(i2));
+            }
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                if (!this.j.isEmpty()) {
+                    StringBuilder sb = new StringBuilder();
+                    for (Integer num : this.j) {
+                        sb.append(num);
+                        sb.append(",");
+                    }
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "network_state", sb.toString());
+                    return;
+                }
+                com.bytedance.sdk.openadsdk.multipro.d.a.c("sp_global_info", "network_state");
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_use_texture", Boolean.valueOf(z));
+            }
+            this.k = z;
+        }
+    }
+
+    public void a(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                String a2 = com.bytedance.sdk.component.utils.d.a(bitmap);
+                if (!TextUtils.isEmpty(a2)) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "pause_icon", a2);
+                }
+            }
+            this.l = bitmap;
+        }
+    }
+
+    public void a(String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, strArr) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b() && strArr != null && strArr.length > 0) {
+                StringBuilder sb = new StringBuilder();
+                int i2 = 0;
+                for (String str : strArr) {
+                    if (!TextUtils.isEmpty(str)) {
+                        int i3 = i2 + 1;
+                        if (i2 > 0) {
+                            sb.append(",");
+                        }
+                        sb.append(str);
+                        i2 = i3;
+                    }
+                }
+                String sb2 = sb.toString();
+                if (!TextUtils.isEmpty(sb2)) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "need_clear_task_reset", sb2);
+                }
+            }
+            this.p = strArr;
+        }
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("value", str2);
+            jSONObject.put("time", System.currentTimeMillis());
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", str, jSONObject.toString());
+            } else {
+                com.bytedance.sdk.component.utils.s.a((String) null, o.a()).a(str, jSONObject.toString());
+            }
+            com.bytedance.sdk.component.utils.j.b("GlobalInfo", "update cache", str, " value = ", str2);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static String a(String str, long j) {
+        InterceptResult invokeLJ;
+        JSONObject i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                i2 = i(str);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            if (i2 == null) {
+                com.bytedance.sdk.component.utils.j.b("GlobalInfo", "without cache key=", str);
+                return null;
+            }
+            if (System.currentTimeMillis() - i2.getLong("time") <= j) {
+                String string = i2.getString("value");
+                com.bytedance.sdk.component.utils.j.b("GlobalInfo", "use cache key=", str, " value = ", string);
+                return string;
+            }
+            com.bytedance.sdk.component.utils.j.b("GlobalInfo", "without cache key=", str);
+            return null;
+        }
+        return (String) invokeLJ.objValue;
     }
 }

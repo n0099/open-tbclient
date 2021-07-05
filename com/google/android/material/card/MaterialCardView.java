@@ -21,199 +21,319 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
+    public static final int[] CHECKABLE_STATE_SET;
+    public static final int[] CHECKED_STATE_SET;
+    public static final int DEF_STYLE_RES;
+    public static final int[] DRAGGED_STATE_SET;
     public static final String LOG_TAG = "MaterialCardView";
+    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final MaterialCardViewHelper cardViewHelper;
     public boolean checked;
     public boolean dragged;
     public boolean isParentCardViewDoneInitializing;
     public OnCheckedChangeListener onCheckedChangeListener;
-    public static final int[] CHECKABLE_STATE_SET = {16842911};
-    public static final int[] CHECKED_STATE_SET = {16842912};
-    public static final int[] DRAGGED_STATE_SET = {R.attr.state_dragged};
-    public static final int DEF_STYLE_RES = R.style.Widget_MaterialComponents_CardView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialCardView materialCardView, boolean z);
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(537892428, "Lcom/google/android/material/card/MaterialCardView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(537892428, "Lcom/google/android/material/card/MaterialCardView;");
+                return;
+            }
+        }
+        CHECKABLE_STATE_SET = new int[]{16842911};
+        CHECKED_STATE_SET = new int[]{16842912};
+        DRAGGED_STATE_SET = new int[]{R.attr.state_dragged};
+        DEF_STYLE_RES = R.style.Widget_MaterialComponents_CardView;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialCardView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     private void forceRippleRedrawIfNeeded() {
-        if (Build.VERSION.SDK_INT > 26) {
-            this.cardViewHelper.forceRippleRedraw();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || Build.VERSION.SDK_INT <= 26) {
+            return;
         }
+        this.cardViewHelper.forceRippleRedraw();
     }
 
     @NonNull
     private RectF getBoundsAsRectF() {
-        RectF rectF = new RectF();
-        rectF.set(this.cardViewHelper.getBackground().getBounds());
-        return rectF;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            RectF rectF = new RectF();
+            rectF.set(this.cardViewHelper.getBackground().getBounds());
+            return rectF;
+        }
+        return (RectF) invokeV.objValue;
     }
 
     @Override // androidx.cardview.widget.CardView
     @NonNull
     public ColorStateList getCardBackgroundColor() {
-        return this.cardViewHelper.getCardBackgroundColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cardViewHelper.getCardBackgroundColor() : (ColorStateList) invokeV.objValue;
     }
 
     @NonNull
     public ColorStateList getCardForegroundColor() {
-        return this.cardViewHelper.getCardForegroundColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cardViewHelper.getCardForegroundColor() : (ColorStateList) invokeV.objValue;
     }
 
     public float getCardViewRadius() {
-        return super.getRadius();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.getRadius() : invokeV.floatValue;
     }
 
     @Nullable
     public Drawable getCheckedIcon() {
-        return this.cardViewHelper.getCheckedIcon();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cardViewHelper.getCheckedIcon() : (Drawable) invokeV.objValue;
     }
 
     @Nullable
     public ColorStateList getCheckedIconTint() {
-        return this.cardViewHelper.getCheckedIconTint();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cardViewHelper.getCheckedIconTint() : (ColorStateList) invokeV.objValue;
     }
 
     @Override // androidx.cardview.widget.CardView
     public int getContentPaddingBottom() {
-        return this.cardViewHelper.getUserContentPadding().bottom;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.cardViewHelper.getUserContentPadding().bottom : invokeV.intValue;
     }
 
     @Override // androidx.cardview.widget.CardView
     public int getContentPaddingLeft() {
-        return this.cardViewHelper.getUserContentPadding().left;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.cardViewHelper.getUserContentPadding().left : invokeV.intValue;
     }
 
     @Override // androidx.cardview.widget.CardView
     public int getContentPaddingRight() {
-        return this.cardViewHelper.getUserContentPadding().right;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.cardViewHelper.getUserContentPadding().right : invokeV.intValue;
     }
 
     @Override // androidx.cardview.widget.CardView
     public int getContentPaddingTop() {
-        return this.cardViewHelper.getUserContentPadding().top;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.cardViewHelper.getUserContentPadding().top : invokeV.intValue;
     }
 
     @FloatRange(from = 0.0d, to = 1.0d)
     public float getProgress() {
-        return this.cardViewHelper.getProgress();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.cardViewHelper.getProgress() : invokeV.floatValue;
     }
 
     @Override // androidx.cardview.widget.CardView
     public float getRadius() {
-        return this.cardViewHelper.getCornerRadius();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.cardViewHelper.getCornerRadius() : invokeV.floatValue;
     }
 
     public ColorStateList getRippleColor() {
-        return this.cardViewHelper.getRippleColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.cardViewHelper.getRippleColor() : (ColorStateList) invokeV.objValue;
     }
 
     @Override // com.google.android.material.shape.Shapeable
     @NonNull
     public ShapeAppearanceModel getShapeAppearanceModel() {
-        return this.cardViewHelper.getShapeAppearanceModel();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.cardViewHelper.getShapeAppearanceModel() : (ShapeAppearanceModel) invokeV.objValue;
     }
 
     @ColorInt
     @Deprecated
     public int getStrokeColor() {
-        return this.cardViewHelper.getStrokeColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.cardViewHelper.getStrokeColor() : invokeV.intValue;
     }
 
     @Nullable
     public ColorStateList getStrokeColorStateList() {
-        return this.cardViewHelper.getStrokeColorStateList();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.cardViewHelper.getStrokeColorStateList() : (ColorStateList) invokeV.objValue;
     }
 
     @Dimension
     public int getStrokeWidth() {
-        return this.cardViewHelper.getStrokeWidth();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.cardViewHelper.getStrokeWidth() : invokeV.intValue;
     }
 
     public boolean isCheckable() {
-        MaterialCardViewHelper materialCardViewHelper = this.cardViewHelper;
-        return materialCardViewHelper != null && materialCardViewHelper.isCheckable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            MaterialCardViewHelper materialCardViewHelper = this.cardViewHelper;
+            return materialCardViewHelper != null && materialCardViewHelper.isCheckable();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.widget.Checkable
     public boolean isChecked() {
-        return this.checked;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.checked : invokeV.booleanValue;
     }
 
     public boolean isDragged() {
-        return this.dragged;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.dragged : invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        MaterialShapeUtils.setParentAbsoluteElevation(this, this.cardViewHelper.getBackground());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            super.onAttachedToWindow();
+            MaterialShapeUtils.setParentAbsoluteElevation(this, this.cardViewHelper.getBackground());
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public int[] onCreateDrawableState(int i2) {
-        int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 3);
-        if (isCheckable()) {
-            FrameLayout.mergeDrawableStates(onCreateDrawableState, CHECKABLE_STATE_SET);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
+            int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 3);
+            if (isCheckable()) {
+                FrameLayout.mergeDrawableStates(onCreateDrawableState, CHECKABLE_STATE_SET);
+            }
+            if (isChecked()) {
+                FrameLayout.mergeDrawableStates(onCreateDrawableState, CHECKED_STATE_SET);
+            }
+            if (isDragged()) {
+                FrameLayout.mergeDrawableStates(onCreateDrawableState, DRAGGED_STATE_SET);
+            }
+            return onCreateDrawableState;
         }
-        if (isChecked()) {
-            FrameLayout.mergeDrawableStates(onCreateDrawableState, CHECKED_STATE_SET);
-        }
-        if (isDragged()) {
-            FrameLayout.mergeDrawableStates(onCreateDrawableState, DRAGGED_STATE_SET);
-        }
-        return onCreateDrawableState;
+        return (int[]) invokeI.objValue;
     }
 
     @Override // android.view.View
     public void onInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
-        super.onInitializeAccessibilityEvent(accessibilityEvent);
-        accessibilityEvent.setClassName(ACCESSIBILITY_CLASS_NAME);
-        accessibilityEvent.setChecked(isChecked());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, accessibilityEvent) == null) {
+            super.onInitializeAccessibilityEvent(accessibilityEvent);
+            accessibilityEvent.setClassName(ACCESSIBILITY_CLASS_NAME);
+            accessibilityEvent.setChecked(isChecked());
+        }
     }
 
     @Override // android.view.View
     public void onInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
-        super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-        accessibilityNodeInfo.setClassName(ACCESSIBILITY_CLASS_NAME);
-        accessibilityNodeInfo.setCheckable(isCheckable());
-        accessibilityNodeInfo.setClickable(isClickable());
-        accessibilityNodeInfo.setChecked(isChecked());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, accessibilityNodeInfo) == null) {
+            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+            accessibilityNodeInfo.setClassName(ACCESSIBILITY_CLASS_NAME);
+            accessibilityNodeInfo.setCheckable(isCheckable());
+            accessibilityNodeInfo.setClickable(isClickable());
+            accessibilityNodeInfo.setChecked(isChecked());
+        }
     }
 
     @Override // androidx.cardview.widget.CardView, android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        this.cardViewHelper.onMeasure(getMeasuredWidth(), getMeasuredHeight());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            this.cardViewHelper.onMeasure(getMeasuredWidth(), getMeasuredHeight());
+        }
     }
 
     public void setAncestorContentPadding(int i2, int i3, int i4, int i5) {
-        super.setContentPadding(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) {
+            super.setContentPadding(i2, i3, i4, i5);
+        }
     }
 
     @Override // android.view.View
     public void setBackground(Drawable drawable) {
-        setBackgroundDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, drawable) == null) {
+            setBackgroundDrawable(drawable);
+        }
     }
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
-        if (this.isParentCardViewDoneInitializing) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048602, this, drawable) == null) && this.isParentCardViewDoneInitializing) {
             if (!this.cardViewHelper.isBackgroundOverwritten()) {
                 Log.i(LOG_TAG, "Setting a custom background is not supported.");
                 this.cardViewHelper.setBackgroundOverwritten(true);
@@ -223,131 +343,199 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     public void setBackgroundInternal(Drawable drawable) {
-        super.setBackgroundDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, drawable) == null) {
+            super.setBackgroundDrawable(drawable);
+        }
     }
 
     @Override // androidx.cardview.widget.CardView
     public void setCardBackgroundColor(@ColorInt int i2) {
-        this.cardViewHelper.setCardBackgroundColor(ColorStateList.valueOf(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
+            this.cardViewHelper.setCardBackgroundColor(ColorStateList.valueOf(i2));
+        }
     }
 
     @Override // androidx.cardview.widget.CardView
     public void setCardElevation(float f2) {
-        super.setCardElevation(f2);
-        this.cardViewHelper.updateElevation();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048606, this, f2) == null) {
+            super.setCardElevation(f2);
+            this.cardViewHelper.updateElevation();
+        }
     }
 
     public void setCardForegroundColor(@Nullable ColorStateList colorStateList) {
-        this.cardViewHelper.setCardForegroundColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, colorStateList) == null) {
+            this.cardViewHelper.setCardForegroundColor(colorStateList);
+        }
     }
 
     public void setCheckable(boolean z) {
-        this.cardViewHelper.setCheckable(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.cardViewHelper.setCheckable(z);
+        }
     }
 
     @Override // android.widget.Checkable
     public void setChecked(boolean z) {
-        if (this.checked != z) {
-            toggle();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048609, this, z) == null) || this.checked == z) {
+            return;
         }
+        toggle();
     }
 
     public void setCheckedIcon(@Nullable Drawable drawable) {
-        this.cardViewHelper.setCheckedIcon(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, drawable) == null) {
+            this.cardViewHelper.setCheckedIcon(drawable);
+        }
     }
 
     public void setCheckedIconResource(@DrawableRes int i2) {
-        this.cardViewHelper.setCheckedIcon(AppCompatResources.getDrawable(getContext(), i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
+            this.cardViewHelper.setCheckedIcon(AppCompatResources.getDrawable(getContext(), i2));
+        }
     }
 
     public void setCheckedIconTint(@Nullable ColorStateList colorStateList) {
-        this.cardViewHelper.setCheckedIconTint(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, colorStateList) == null) {
+            this.cardViewHelper.setCheckedIconTint(colorStateList);
+        }
     }
 
     @Override // android.view.View
     public void setClickable(boolean z) {
-        super.setClickable(z);
-        MaterialCardViewHelper materialCardViewHelper = this.cardViewHelper;
-        if (materialCardViewHelper != null) {
-            materialCardViewHelper.updateClickable();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
+            super.setClickable(z);
+            MaterialCardViewHelper materialCardViewHelper = this.cardViewHelper;
+            if (materialCardViewHelper != null) {
+                materialCardViewHelper.updateClickable();
+            }
         }
     }
 
     @Override // androidx.cardview.widget.CardView
     public void setContentPadding(int i2, int i3, int i4, int i5) {
-        this.cardViewHelper.setUserContentPadding(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048614, this, i2, i3, i4, i5) == null) {
+            this.cardViewHelper.setUserContentPadding(i2, i3, i4, i5);
+        }
     }
 
     public void setDragged(boolean z) {
-        if (this.dragged != z) {
-            this.dragged = z;
-            refreshDrawableState();
-            forceRippleRedrawIfNeeded();
-            invalidate();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048615, this, z) == null) || this.dragged == z) {
+            return;
         }
+        this.dragged = z;
+        refreshDrawableState();
+        forceRippleRedrawIfNeeded();
+        invalidate();
     }
 
     @Override // androidx.cardview.widget.CardView
     public void setMaxCardElevation(float f2) {
-        super.setMaxCardElevation(f2);
-        this.cardViewHelper.updateInsets();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048616, this, f2) == null) {
+            super.setMaxCardElevation(f2);
+            this.cardViewHelper.updateInsets();
+        }
     }
 
     public void setOnCheckedChangeListener(@Nullable OnCheckedChangeListener onCheckedChangeListener) {
-        this.onCheckedChangeListener = onCheckedChangeListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, onCheckedChangeListener) == null) {
+            this.onCheckedChangeListener = onCheckedChangeListener;
+        }
     }
 
     @Override // androidx.cardview.widget.CardView
     public void setPreventCornerOverlap(boolean z) {
-        super.setPreventCornerOverlap(z);
-        this.cardViewHelper.updateInsets();
-        this.cardViewHelper.updateContentPadding();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+            super.setPreventCornerOverlap(z);
+            this.cardViewHelper.updateInsets();
+            this.cardViewHelper.updateContentPadding();
+        }
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.cardViewHelper.setProgress(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048619, this, f2) == null) {
+            this.cardViewHelper.setProgress(f2);
+        }
     }
 
     @Override // androidx.cardview.widget.CardView
     public void setRadius(float f2) {
-        super.setRadius(f2);
-        this.cardViewHelper.setCornerRadius(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048620, this, f2) == null) {
+            super.setRadius(f2);
+            this.cardViewHelper.setCornerRadius(f2);
+        }
     }
 
     public void setRippleColor(@Nullable ColorStateList colorStateList) {
-        this.cardViewHelper.setRippleColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, colorStateList) == null) {
+            this.cardViewHelper.setRippleColor(colorStateList);
+        }
     }
 
     public void setRippleColorResource(@ColorRes int i2) {
-        this.cardViewHelper.setRippleColor(AppCompatResources.getColorStateList(getContext(), i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+            this.cardViewHelper.setRippleColor(AppCompatResources.getColorStateList(getContext(), i2));
+        }
     }
 
     @Override // com.google.android.material.shape.Shapeable
     public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            setClipToOutline(shapeAppearanceModel.isRoundRect(getBoundsAsRectF()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, shapeAppearanceModel) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                setClipToOutline(shapeAppearanceModel.isRoundRect(getBoundsAsRectF()));
+            }
+            this.cardViewHelper.setShapeAppearanceModel(shapeAppearanceModel);
         }
-        this.cardViewHelper.setShapeAppearanceModel(shapeAppearanceModel);
     }
 
     public void setStrokeColor(@ColorInt int i2) {
-        this.cardViewHelper.setStrokeColor(ColorStateList.valueOf(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
+            this.cardViewHelper.setStrokeColor(ColorStateList.valueOf(i2));
+        }
     }
 
     public void setStrokeWidth(@Dimension int i2) {
-        this.cardViewHelper.setStrokeWidth(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
+            this.cardViewHelper.setStrokeWidth(i2);
+        }
     }
 
     @Override // androidx.cardview.widget.CardView
     public void setUseCompatPadding(boolean z) {
-        super.setUseCompatPadding(z);
-        this.cardViewHelper.updateInsets();
-        this.cardViewHelper.updateContentPadding();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048627, this, z) == null) {
+            super.setUseCompatPadding(z);
+            this.cardViewHelper.updateInsets();
+            this.cardViewHelper.updateContentPadding();
+        }
     }
 
     @Override // android.widget.Checkable
     public void toggle() {
-        if (isCheckable() && isEnabled()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048628, this) == null) && isCheckable() && isEnabled()) {
             this.checked = !this.checked;
             refreshDrawableState();
             forceRippleRedrawIfNeeded();
@@ -358,21 +546,61 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialCardView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.materialCardViewStyle);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // androidx.cardview.widget.CardView
     public void setCardBackgroundColor(@Nullable ColorStateList colorStateList) {
-        this.cardViewHelper.setCardBackgroundColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, colorStateList) == null) {
+            this.cardViewHelper.setCardBackgroundColor(colorStateList);
+        }
     }
 
     public void setStrokeColor(ColorStateList colorStateList) {
-        this.cardViewHelper.setStrokeColor(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, colorStateList) == null) {
+            this.cardViewHelper.setStrokeColor(colorStateList);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialCardView(Context context, AttributeSet attributeSet, int i2) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.checked = false;
         this.dragged = false;
         this.isParentCardViewDoneInitializing = true;

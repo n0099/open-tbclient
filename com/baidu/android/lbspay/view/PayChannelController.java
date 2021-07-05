@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.alipay.sdk.util.e;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.CashierDataNew;
 import com.baidu.android.lbspay.GetPayOrderListener;
 import com.baidu.android.lbspay.LBSPayResult;
@@ -24,7 +25,12 @@ import com.baidu.apollon.beans.IBeanResponseCallback;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.WalletPayResultActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.utils.LogUtil;
@@ -37,12 +43,14 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PayChannelController implements IBeanResponseCallback, NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ALIPAY_PAYCHANNEL = "BAIDU-ALIPAY-WISE";
     public static final String BAIFUBAO_PAYCHANNEL = "BAIDU-BAIFUBAO-WISE";
     public static final String BAIFUBAO_PAYCHANNEL_CODE = "BAIFUBAO-WISE";
     public static final String BANKCARD_PAYCHANNEL = "BAIDU-BANK-CARD-PAY";
     public static final String BEAN_TAG = "ChannelListViewController";
     public static final String WXPAY_PAYCHANNEL = "BAIDU-SUPER-WECHAT-WISE";
+    public transient /* synthetic */ FieldHolder $fh;
     public GetPayOrderListener getPayOrderListener;
     public Activity mAct;
     public Activity mAlipayActivity;
@@ -68,6 +76,20 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
     }
 
     public PayChannelController(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mAlipayActivity = null;
         this.mAct = activity;
         this.mHandler = new Handler(activity.getMainLooper());
@@ -75,30 +97,34 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleFailure(int i2, int i3, String str) {
-        if (i2 == 2) {
-            LBSPayAli.getInstance().clearChannelPay();
-            this.mChannelPay = null;
-            if (!TextUtils.isEmpty(str)) {
-                GlobalUtils.toast(this.mAct, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65540, this, i2, i3, str) == null) {
+            if (i2 == 2) {
+                LBSPayAli.getInstance().clearChannelPay();
+                this.mChannelPay = null;
+                if (!TextUtils.isEmpty(str)) {
+                    GlobalUtils.toast(this.mAct, str);
+                }
+                GetPayOrderListener getPayOrderListener = this.getPayOrderListener;
+                if (getPayOrderListener != null) {
+                    getPayOrderListener.complete();
+                }
+                LBSPayResult.payResult(this.mAct, 2, "");
             }
-            GetPayOrderListener getPayOrderListener = this.getPayOrderListener;
-            if (getPayOrderListener != null) {
-                getPayOrderListener.complete();
+            CashierDataNew cashierDataNew = this.mCashierData;
+            if (cashierDataNew != null) {
+                cashierDataNew.getUid();
+                this.mCashierData.getOrderNo();
+                NetworkUtils.getNetName(this.mAct);
+                this.mCashierData.getCustomId();
             }
-            LBSPayResult.payResult(this.mAct, 2, "");
-        }
-        CashierDataNew cashierDataNew = this.mCashierData;
-        if (cashierDataNew != null) {
-            cashierDataNew.getUid();
-            this.mCashierData.getOrderNo();
-            NetworkUtils.getNetName(this.mAct);
-            this.mCashierData.getCustomId();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handlerResponse(int i2, Object obj, String str) {
-        if (obj != null && i2 == 2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeILL(AdIconUtil.AD_TEXT_ID, this, i2, obj, str) == null) && obj != null && i2 == 2) {
             GetPayContent getPayContent = obj instanceof GetPayContent ? (GetPayContent) obj : null;
             GetPayOrderListener getPayOrderListener = this.getPayOrderListener;
             if (getPayOrderListener != null) {
@@ -118,7 +144,8 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
     }
 
     public void doDirectCallThirdPay(GetPayOrderListener getPayOrderListener, CashierDataNew cashierDataNew, String str) {
-        if (TextUtils.isEmpty(str) || cashierDataNew == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, getPayOrderListener, cashierDataNew, str) == null) || TextUtils.isEmpty(str) || cashierDataNew == null) {
             return;
         }
         this.mCashierData = cashierDataNew;
@@ -171,75 +198,176 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
 
     public void doPay(GetPayContent getPayContent) {
         Activity activity;
-        IChannelPay iChannelPay = this.mChannelPay;
-        if (iChannelPay != null) {
-            if ((iChannelPay instanceof ChannelAliPay) && (activity = this.mAlipayActivity) != null) {
-                iChannelPay.pay(this.mAct, activity, getPayContent);
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getPayContent) == null) {
+            IChannelPay iChannelPay = this.mChannelPay;
+            if (iChannelPay != null) {
+                if ((iChannelPay instanceof ChannelAliPay) && (activity = this.mAlipayActivity) != null) {
+                    iChannelPay.pay(this.mAct, activity, getPayContent);
+                    return;
+                }
+                IChannelPay iChannelPay2 = this.mChannelPay;
+                if ((iChannelPay2 instanceof ChannelFastPay) && TextUtils.isEmpty(((ChannelFastPay) iChannelPay2).getUrl(getPayContent))) {
+                    this.mChannelPay.payCancel();
+                    return;
+                } else {
+                    this.mChannelPay.pay(this.mAct, getPayContent);
+                    return;
+                }
             }
-            IChannelPay iChannelPay2 = this.mChannelPay;
-            if ((iChannelPay2 instanceof ChannelFastPay) && TextUtils.isEmpty(((ChannelFastPay) iChannelPay2).getUrl(getPayContent))) {
-                this.mChannelPay.payCancel();
-                return;
-            } else {
-                this.mChannelPay.pay(this.mAct, getPayContent);
-                return;
-            }
+            LBSPayResult.payResult(this.mAct, 2, "");
+            GlobalUtils.toast(this.mAct, "暂不支持这种支付方式");
         }
-        LBSPayResult.payResult(this.mAct, 2, "");
-        GlobalUtils.toast(this.mAct, "暂不支持这种支付方式");
     }
 
     public void getUnionPayResult(Bundle bundle) {
-        if (bundle != null) {
-            String string = bundle.getString(WalletPayResultActivityConfig.PAY_RESULT);
-            LogUtil.logd("result =" + string);
-            if (TextUtils.isEmpty(string)) {
-                return;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) || bundle == null) {
+            return;
+        }
+        String string = bundle.getString(WalletPayResultActivityConfig.PAY_RESULT);
+        LogUtil.logd("result =" + string);
+        if (TextUtils.isEmpty(string)) {
+            return;
+        }
+        if (string.equalsIgnoreCase("success")) {
+            IChannelPay iChannelPay = this.mChannelPay;
+            if (iChannelPay != null) {
+                iChannelPay.paySuccess("");
             }
-            if (string.equalsIgnoreCase("success")) {
-                IChannelPay iChannelPay = this.mChannelPay;
-                if (iChannelPay != null) {
-                    iChannelPay.paySuccess("");
-                }
-            } else if (string.equalsIgnoreCase(QueryResponse.Options.CANCEL)) {
-                IChannelPay iChannelPay2 = this.mChannelPay;
-                if (iChannelPay2 != null) {
-                    iChannelPay2.payCancel();
-                }
-            } else {
-                string.equalsIgnoreCase(e.f1963a);
+        } else if (string.equalsIgnoreCase(QueryResponse.Options.CANCEL)) {
+            IChannelPay iChannelPay2 = this.mChannelPay;
+            if (iChannelPay2 != null) {
+                iChannelPay2.payCancel();
             }
+        } else {
+            string.equalsIgnoreCase(e.f1966a);
         }
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecFailure(final int i2, final int i3, final String str) {
-        Handler handler = this.mHandler;
-        if (handler != null) {
-            handler.post(new Runnable() { // from class: com.baidu.android.lbspay.view.PayChannelController.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    PayChannelController.this.handleFailure(i2, i3, str);
-                }
-            });
+    public void onBeanExecFailure(int i2, int i3, String str) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, str) == null) || (handler = this.mHandler) == null) {
+            return;
         }
+        handler.post(new Runnable(this, i2, i3, str) { // from class: com.baidu.android.lbspay.view.PayChannelController.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ int f2680a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ int f2681b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ String f2682c;
+
+            /* renamed from: d  reason: collision with root package name */
+            public final /* synthetic */ PayChannelController f2683d;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), str};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i4 = newInitContext.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f2683d = this;
+                this.f2680a = i2;
+                this.f2681b = i3;
+                this.f2682c = str;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f2683d.handleFailure(this.f2680a, this.f2681b, this.f2682c);
+                }
+            }
+        });
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(final int i2, final Object obj, final String str) {
-        Handler handler = this.mHandler;
-        if (handler != null) {
-            handler.post(new Runnable() { // from class: com.baidu.android.lbspay.view.PayChannelController.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    PayChannelController.this.handlerResponse(i2, obj, str);
-                }
-            });
+    public void onBeanExecSuccess(int i2, Object obj, String str) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeILL(1048580, this, i2, obj, str) == null) || (handler = this.mHandler) == null) {
+            return;
         }
+        handler.post(new Runnable(this, i2, obj, str) { // from class: com.baidu.android.lbspay.view.PayChannelController.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ int f2676a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ Object f2677b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ String f2678c;
+
+            /* renamed from: d  reason: collision with root package name */
+            public final /* synthetic */ PayChannelController f2679d;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(i2), obj, str};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f2679d = this;
+                this.f2676a = i2;
+                this.f2677b = obj;
+                this.f2678c = str;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f2679d.handlerResponse(this.f2676a, this.f2677b, this.f2678c);
+                }
+            }
+        });
     }
 
     public PayChannelController(Activity activity, Activity activity2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, activity2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mAlipayActivity = null;
         this.mAct = activity;
         this.mAlipayActivity = activity2;

@@ -1,26 +1,49 @@
 package i.a.a.e.l;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayType f72263a;
+    public PayType f75855a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72264b;
+    public String f75856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f72265c;
+    public String f75857c;
 
     public c(PayType payType, String str, String str2) {
-        this.f72264b = "";
-        this.f72263a = payType;
-        this.f72264b = str;
-        this.f72265c = str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payType, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f75856b = "";
+        this.f75855a = payType;
+        this.f75856b = str;
+        this.f75857c = str2;
     }
 
     public String a() {
-        return this.f72264b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75856b : (String) invokeV.objValue;
     }
 }

@@ -1,119 +1,219 @@
 package com.baidu.tieba.hottopic.adapter;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-import d.a.o0.k2.e;
-import d.a.o0.z.b0;
-import d.a.o0.z.e0.l;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.a0.b0;
+import d.a.s0.a0.e0.l;
+import d.a.s0.n2.e;
+/* loaded from: classes5.dex */
 public class HomePageVideoThreadAdapter extends d.a.c.k.e.a<l, HomePageVideoThreadViewHolder> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
     public TbPageContext<HotTopicActivity> n;
-    public d.a.o0.z.l o;
+    public d.a.s0.a0.l o;
     public b0<l> p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class HomePageVideoThreadViewHolder extends TypeAdapter.ViewHolder implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.o0.z.l f16888e;
+        public d.a.s0.a0.l f17014e;
 
-        public HomePageVideoThreadViewHolder(d.a.o0.z.l lVar) {
-            super(lVar.m());
-            this.f16888e = lVar;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public HomePageVideoThreadViewHolder(d.a.s0.a0.l lVar) {
+            super(lVar.l());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17014e = lVar;
         }
 
-        @Override // d.a.o0.k2.e
+        @Override // d.a.s0.n2.e
         public boolean C() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
-        @Override // d.a.o0.k2.e
+        @Override // d.a.s0.n2.e
         public int getCurrentPosition() {
-            d.a.o0.z.l lVar = this.f16888e;
-            if (lVar == null) {
-                return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                d.a.s0.a0.l lVar = this.f17014e;
+                if (lVar == null) {
+                    return 0;
+                }
+                return lVar.getCurrentPosition();
             }
-            return lVar.getCurrentPosition();
+            return invokeV.intValue;
         }
 
-        @Override // d.a.o0.k2.e
+        @Override // d.a.s0.n2.e
         public String getPlayUrl() {
-            d.a.o0.z.l lVar = this.f16888e;
-            if (lVar == null) {
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                d.a.s0.a0.l lVar = this.f17014e;
+                if (lVar == null) {
+                    return null;
+                }
+                return lVar.O();
             }
-            return lVar.P();
+            return (String) invokeV.objValue;
         }
 
-        @Override // d.a.o0.k2.e
+        @Override // d.a.s0.n2.e
         public View getVideoContainer() {
-            d.a.o0.z.l lVar = this.f16888e;
-            if (lVar == null) {
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                d.a.s0.a0.l lVar = this.f17014e;
+                if (lVar == null) {
+                    return null;
+                }
+                return lVar.P();
             }
-            return lVar.Q();
+            return (View) invokeV.objValue;
         }
 
-        @Override // d.a.o0.k2.e
+        @Override // d.a.s0.n2.e
         public boolean isPlayStarted() {
-            d.a.o0.z.l lVar = this.f16888e;
-            if (lVar == null) {
-                return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                d.a.s0.a0.l lVar = this.f17014e;
+                if (lVar == null) {
+                    return false;
+                }
+                return lVar.b0();
             }
-            return lVar.c0();
+            return invokeV.booleanValue;
         }
 
-        @Override // d.a.o0.k2.e
+        @Override // d.a.s0.n2.e
         public boolean isPlaying() {
-            d.a.o0.z.l lVar = this.f16888e;
-            if (lVar == null) {
-                return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                d.a.s0.a0.l lVar = this.f17014e;
+                if (lVar == null) {
+                    return false;
+                }
+                return lVar.isPlaying();
             }
-            return lVar.isPlaying();
+            return invokeV.booleanValue;
         }
 
-        @Override // d.a.o0.k2.e
+        @Override // d.a.s0.n2.e
         public void startPlay() {
-            d.a.o0.z.l lVar = this.f16888e;
-            if (lVar != null) {
-                lVar.startPlay();
+            d.a.s0.a0.l lVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (lVar = this.f17014e) == null) {
+                return;
             }
+            lVar.startPlay();
         }
 
-        @Override // d.a.o0.k2.e
+        @Override // d.a.s0.n2.e
         public void stopPlay() {
-            d.a.o0.z.l lVar = this.f16888e;
-            if (lVar != null) {
-                lVar.stopPlay();
+            d.a.s0.a0.l lVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (lVar = this.f17014e) == null) {
+                return;
             }
+            lVar.stopPlay();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends b0<l> {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ HomePageVideoThreadAdapter f17015b;
+
+        public a(HomePageVideoThreadAdapter homePageVideoThreadAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {homePageVideoThreadAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17015b = homePageVideoThreadAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.o0.z.b0
+        @Override // d.a.s0.a0.b0
         /* renamed from: d */
         public void a(View view, l lVar) {
-            if (lVar == null || lVar.i() == null || StringUtils.isNull(lVar.i().z1()) || StringUtils.isNull(lVar.M()) || HomePageVideoThreadAdapter.this.n == null || !(HomePageVideoThreadAdapter.this.n.getOrignalPage() instanceof d.a.o0.d1.b.a)) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, lVar) == null) || lVar == null || lVar.getThreadData() == null || StringUtils.isNull(lVar.getThreadData().n1()) || StringUtils.isNull(lVar.A()) || this.f17015b.n == null || !(this.f17015b.n.getOrignalPage() instanceof d.a.s0.g1.b.a)) {
                 return;
             }
-            ((HotTopicActivity) HomePageVideoThreadAdapter.this.n.getOrignalPage()).businessStatisticForTopicClick(lVar);
+            ((HotTopicActivity) this.f17015b.n.getOrignalPage()).businessStatisticForTopicClick(lVar);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomePageVideoThreadAdapter(TbPageContext<HotTopicActivity> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.p = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.p = new a(this);
         this.n = tbPageContext;
         this.m = tbPageContext.getUniqueId();
     }
@@ -122,28 +222,38 @@ public class HomePageVideoThreadAdapter extends d.a.c.k.e.a<l, HomePageVideoThre
     @Override // d.a.c.k.e.a
     /* renamed from: g0 */
     public HomePageVideoThreadViewHolder Q(ViewGroup viewGroup) {
-        d.a.o0.z.l lVar = new d.a.o0.z.l(this.n);
-        this.o = lVar;
-        lVar.k0(false);
-        this.o.g0(this.m);
-        this.o.setFrom("hottopic");
-        return new HomePageVideoThreadViewHolder(this.o);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            d.a.s0.a0.l lVar = new d.a.s0.a0.l(this.n);
+            this.o = lVar;
+            lVar.j0(false);
+            this.o.f0(this.m);
+            this.o.setFrom("hottopic");
+            return new HomePageVideoThreadViewHolder(this.o);
+        }
+        return (HomePageVideoThreadViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
     /* renamed from: h0 */
     public View X(int i2, View view, ViewGroup viewGroup, l lVar, HomePageVideoThreadViewHolder homePageVideoThreadViewHolder) {
-        if (lVar != null) {
-            lVar.U(i2 + 1);
-            lVar.V = 1;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, lVar, homePageVideoThreadViewHolder})) == null) {
+            if (lVar != null) {
+                lVar.I(i2 + 1);
+                lVar.W = 1;
+            }
+            homePageVideoThreadViewHolder.f17014e.m(lVar);
+            homePageVideoThreadViewHolder.f17014e.o(this.p);
+            TbPageContext<HotTopicActivity> tbPageContext = this.n;
+            if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof d.a.s0.g1.b.a)) {
+                this.n.getOrignalPage().businessStatisticForTopic(lVar);
+            }
+            return homePageVideoThreadViewHolder.a();
         }
-        homePageVideoThreadViewHolder.f16888e.n(lVar);
-        homePageVideoThreadViewHolder.f16888e.p(this.p);
-        TbPageContext<HotTopicActivity> tbPageContext = this.n;
-        if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof d.a.o0.d1.b.a)) {
-            this.n.getOrignalPage().businessStatisticForTopic(lVar);
-        }
-        return homePageVideoThreadViewHolder.a();
+        return (View) invokeCommon.objValue;
     }
 }

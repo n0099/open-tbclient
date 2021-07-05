@@ -1,11 +1,20 @@
 package com.baidu.tieba.im.message;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RequestAddGroupMessage extends TbSocketMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String business;
     public int flag;
     public int forumId;
@@ -18,113 +27,187 @@ public class RequestAddGroupMessage extends TbSocketMessage {
     public String portrait;
     public String position;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestAddGroupMessage() {
         super(103101);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.page_from_dim = "";
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.name = getName();
-        builder.intro = getIntro();
-        builder.portrait = getPortrait();
-        builder.position = getPosition();
-        builder.lng = Double.valueOf(b.b(getLng(), 0.0d));
-        builder.groupType = Integer.valueOf(getGroupType());
-        builder.flag = Integer.valueOf(getFlag());
-        builder.lat = Double.valueOf(b.b(getLat(), 0.0d));
-        builder.forumId = Integer.valueOf(getForumId());
-        AddGroupReqIdl.Builder builder2 = new AddGroupReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.name = getName();
+            builder.intro = getIntro();
+            builder.portrait = getPortrait();
+            builder.position = getPosition();
+            builder.lng = Double.valueOf(b.b(getLng(), 0.0d));
+            builder.groupType = Integer.valueOf(getGroupType());
+            builder.flag = Integer.valueOf(getFlag());
+            builder.lat = Double.valueOf(b.b(getLat(), 0.0d));
+            builder.forumId = Integer.valueOf(getForumId());
+            AddGroupReqIdl.Builder builder2 = new AddGroupReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        }
+        return invokeV.objValue;
     }
 
     public String getBusiness() {
-        return this.business;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.business : (String) invokeV.objValue;
     }
 
     public int getFlag() {
-        return this.flag;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.flag : invokeV.intValue;
     }
 
     public int getForumId() {
-        return this.forumId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.forumId : invokeV.intValue;
     }
 
     public int getGroupType() {
-        return this.groupType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.groupType : invokeV.intValue;
     }
 
     public String getIntro() {
-        return this.intro;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.intro : (String) invokeV.objValue;
     }
 
     public String getLat() {
-        return this.lat;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.lat : (String) invokeV.objValue;
     }
 
     public String getLng() {
-        return this.lng;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.lng : (String) invokeV.objValue;
     }
 
     public String getName() {
-        return this.name;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.name : (String) invokeV.objValue;
     }
 
     public String getPage_from_dim() {
-        return this.page_from_dim;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.page_from_dim : (String) invokeV.objValue;
     }
 
     public String getPortrait() {
-        return this.portrait;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.portrait : (String) invokeV.objValue;
     }
 
     public String getPosition() {
-        return this.position;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.position : (String) invokeV.objValue;
     }
 
     public void setBusiness(String str) {
-        this.business = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.business = str;
+        }
     }
 
     public void setFlag(int i2) {
-        this.flag = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.flag = i2;
+        }
     }
 
     public void setForumId(int i2) {
-        this.forumId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.forumId = i2;
+        }
     }
 
     public void setGroupType(int i2) {
-        this.groupType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.groupType = i2;
+        }
     }
 
     public void setIntro(String str) {
-        this.intro = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.intro = str;
+        }
     }
 
     public void setLat(String str) {
-        this.lat = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.lat = str;
+        }
     }
 
     public void setLng(String str) {
-        this.lng = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.lng = str;
+        }
     }
 
     public void setName(String str) {
-        this.name = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.name = str;
+        }
     }
 
     public void setPage_from_dim(String str) {
-        this.page_from_dim = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.page_from_dim = str;
+        }
     }
 
     public void setPortrait(String str) {
-        this.portrait = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.portrait = str;
+        }
     }
 
     public void setPosition(String str) {
-        this.position = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            this.position = str;
+        }
     }
 }

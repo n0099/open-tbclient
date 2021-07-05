@@ -11,7 +11,7 @@ import java.util.Map;
 import org.json.JSONObject;
 @KsAdSdkDynamicApi("com.kwad.sdk.KsAdSDKImpl")
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IKsAdSDK {
     @KsAdSdkDynamicApi
     @Keep

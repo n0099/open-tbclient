@@ -17,10 +17,17 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.R;
 import androidx.appcompat.view.ActionMode;
 import androidx.fragment.app.FragmentTransaction;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes.dex */
 public abstract class ActionBar {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int DISPLAY_HOME_AS_UP = 4;
     public static final int DISPLAY_SHOW_CUSTOM = 16;
     public static final int DISPLAY_SHOW_HOME = 2;
@@ -32,6 +39,7 @@ public abstract class ActionBar {
     public static final int NAVIGATION_MODE_STANDARD = 0;
     @Deprecated
     public static final int NAVIGATION_MODE_TABS = 2;
+    public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -59,7 +67,23 @@ public abstract class ActionBar {
     @Deprecated
     /* loaded from: classes.dex */
     public static abstract class Tab {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_POSITION = -1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Tab() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public abstract CharSequence getContentDescription();
 
@@ -106,6 +130,20 @@ public abstract class ActionBar {
         void onTabUnselected(Tab tab, FragmentTransaction fragmentTransaction);
     }
 
+    public ActionBar() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public abstract void addOnMenuVisibilityListener(OnMenuVisibilityListener onMenuVisibilityListener);
 
     @Deprecated
@@ -122,16 +160,29 @@ public abstract class ActionBar {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean closeOptionsMenu() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean collapseActionView() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void dispatchMenuVisibilityChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        }
     }
 
     public abstract View getCustomView();
@@ -139,13 +190,23 @@ public abstract class ActionBar {
     public abstract int getDisplayOptions();
 
     public float getElevation() {
-        return 0.0f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return 0.0f;
+        }
+        return invokeV.floatValue;
     }
 
     public abstract int getHeight();
 
     public int getHideOffset() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Deprecated
@@ -171,7 +232,12 @@ public abstract class ActionBar {
     public abstract int getTabCount();
 
     public Context getThemedContext() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return null;
+        }
+        return (Context) invokeV.objValue;
     }
 
     @Nullable
@@ -181,18 +247,33 @@ public abstract class ActionBar {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean invalidateOptionsMenu() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isHideOnContentScrollEnabled() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public abstract boolean isShowing();
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isTitleTruncated() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Deprecated
@@ -200,24 +281,45 @@ public abstract class ActionBar {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, configuration) == null) {
+        }
     }
 
     public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean onKeyShortcut(int i2, KeyEvent keyEvent) {
-        return false;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i2, keyEvent)) == null) {
+            return false;
+        }
+        return invokeIL.booleanValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean onMenuKeyEvent(KeyEvent keyEvent) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, keyEvent)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean openOptionsMenu() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Deprecated
@@ -233,7 +335,12 @@ public abstract class ActionBar {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean requestFocus() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Deprecated
@@ -249,6 +356,9 @@ public abstract class ActionBar {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setDefaultDisplayHomeAsUpEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+        }
     }
 
     public abstract void setDisplayHomeAsUpEnabled(boolean z);
@@ -266,36 +376,54 @@ public abstract class ActionBar {
     public abstract void setDisplayUseLogoEnabled(boolean z);
 
     public void setElevation(float f2) {
-        if (f2 != 0.0f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048627, this, f2) == null) && f2 != 0.0f) {
             throw new UnsupportedOperationException("Setting a non-zero elevation is not supported in this action bar configuration.");
         }
     }
 
     public void setHideOffset(int i2) {
-        if (i2 != 0) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048628, this, i2) == null) && i2 != 0) {
             throw new UnsupportedOperationException("Setting an explicit action bar hide offset is not supported in this action bar configuration.");
         }
     }
 
     public void setHideOnContentScrollEnabled(boolean z) {
-        if (z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048629, this, z) == null) && z) {
             throw new UnsupportedOperationException("Hide on content scroll is not supported in this action bar configuration.");
         }
     }
 
     public void setHomeActionContentDescription(@StringRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
+        }
     }
 
     public void setHomeActionContentDescription(@Nullable CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, charSequence) == null) {
+        }
     }
 
     public void setHomeAsUpIndicator(@DrawableRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
+        }
     }
 
     public void setHomeAsUpIndicator(@Nullable Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, drawable) == null) {
+        }
     }
 
     public void setHomeButtonEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
+        }
     }
 
     public abstract void setIcon(@DrawableRes int i2);
@@ -317,12 +445,21 @@ public abstract class ActionBar {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setShowHideAnimationEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+        }
     }
 
     public void setSplitBackgroundDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, drawable) == null) {
+        }
     }
 
     public void setStackedBackgroundDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048644, this, drawable) == null) {
+        }
     }
 
     public abstract void setSubtitle(int i2);
@@ -335,51 +472,161 @@ public abstract class ActionBar {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setWindowTitle(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048649, this, charSequence) == null) {
+        }
     }
 
     public abstract void show();
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ActionMode startActionMode(ActionMode.Callback callback) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, callback)) == null) {
+            return null;
+        }
+        return (ActionMode) invokeL.objValue;
     }
 
     /* loaded from: classes.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int gravity;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(@NonNull Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
             this.gravity = 0;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ActionBarLayout);
             this.gravity = obtainStyledAttributes.getInt(R.styleable.ActionBarLayout_android_layout_gravity, 0);
             obtainStyledAttributes.recycle();
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(int i2, int i3) {
             super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.gravity = 0;
             this.gravity = 8388627;
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(int i2, int i3, int i4) {
             super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
             this.gravity = 0;
             this.gravity = i4;
         }
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public LayoutParams(int i2) {
             this(-2, -1, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(LayoutParams layoutParams) {
             super((ViewGroup.MarginLayoutParams) layoutParams);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutParams};
+                interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                    return;
+                }
+            }
             this.gravity = 0;
             this.gravity = layoutParams.gravity;
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutParams};
+                interceptable.invokeUnInit(65540, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65540, newInitContext);
+                    return;
+                }
+            }
             this.gravity = 0;
         }
     }

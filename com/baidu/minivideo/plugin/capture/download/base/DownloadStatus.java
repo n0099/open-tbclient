@@ -1,8 +1,16 @@
 package com.baidu.minivideo.plugin.capture.download.base;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class DownloadStatus {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_CANCELED = 107;
     public static final int STATUS_COMPLETED = 105;
     public static final int STATUS_CONNECTED = 103;
@@ -11,6 +19,7 @@ public class DownloadStatus {
     public static final int STATUS_PAUSED = 106;
     public static final int STATUS_PROGRESS = 104;
     public static final int STATUS_STARTED = 101;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean acceptRanges;
     public DownloadCallback callBack;
     public boolean calledCompleted;
@@ -22,83 +31,147 @@ public class DownloadStatus {
     public int status;
     public long time;
 
+    public DownloadStatus() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public DownloadCallback getCallBack() {
-        return this.callBack;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.callBack : (DownloadCallback) invokeV.objValue;
     }
 
     public boolean getCalledCompleted() {
-        return this.calledCompleted;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.calledCompleted : invokeV.booleanValue;
     }
 
     public Exception getException() {
-        return this.exception;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.exception : (Exception) invokeV.objValue;
     }
 
     public long getFinished() {
-        return this.finished;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.finished : invokeV.longValue;
     }
 
     public long getLength() {
-        return this.length;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.length : invokeV.longValue;
     }
 
     public int getPercent() {
-        return this.percent;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.percent : invokeV.intValue;
     }
 
     public String getSavedPath() {
-        return this.savedPath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.savedPath : (String) invokeV.objValue;
     }
 
     public int getStatus() {
-        return this.status;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.status : invokeV.intValue;
     }
 
     public long getTime() {
-        return this.time;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.time : invokeV.longValue;
     }
 
     public boolean isAcceptRanges() {
-        return this.acceptRanges;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.acceptRanges : invokeV.booleanValue;
     }
 
     public void setAcceptRanges(boolean z) {
-        this.acceptRanges = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.acceptRanges = z;
+        }
     }
 
     public void setCallBack(DownloadCallback downloadCallback) {
-        this.callBack = downloadCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, downloadCallback) == null) {
+            this.callBack = downloadCallback;
+        }
     }
 
     public void setCalledCompleted(boolean z) {
-        this.calledCompleted = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.calledCompleted = z;
+        }
     }
 
     public void setException(DownloadException downloadException) {
-        this.exception = downloadException;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, downloadException) == null) {
+            this.exception = downloadException;
+        }
     }
 
     public void setFinished(long j) {
-        this.finished = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.finished = j;
+        }
     }
 
     public void setLength(long j) {
-        this.length = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.length = j;
+        }
     }
 
     public void setPercent(int i2) {
-        this.percent = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.percent = i2;
+        }
     }
 
     public void setSavedPath(String str) {
-        this.savedPath = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.savedPath = str;
+        }
     }
 
     public void setStatus(int i2) {
-        this.status = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            this.status = i2;
+        }
     }
 
     public void setTime(long j) {
-        this.time = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.time = j;
+        }
     }
 }

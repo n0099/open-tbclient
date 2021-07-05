@@ -1,5 +1,11 @@
 package com.baidu.tieba.tbadkCore.location;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,30 +13,55 @@ import tbclient.GetPoisByLocation.DataRes;
 import tbclient.GetPoisByLocation.PoiInfo;
 /* loaded from: classes5.dex */
 public class LocationData implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String formatted_address;
     public List<NearByAddressData> poi_info;
     public String sn;
 
     /* loaded from: classes5.dex */
     public static class NearByAddressData implements Serializable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String addr;
         public String name;
         public String sn;
 
+        public NearByAddressData() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public String getAddr() {
-            return this.addr;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.addr : (String) invokeV.objValue;
         }
 
         public String getName() {
-            return this.name;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
         }
 
         public String getSn() {
-            return this.sn;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sn : (String) invokeV.objValue;
         }
 
         public void parserProtoBuf(PoiInfo poiInfo) {
-            if (poiInfo == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, poiInfo) == null) || poiInfo == null) {
                 return;
             }
             this.name = poiInfo.name;
@@ -39,28 +70,55 @@ public class LocationData implements Serializable {
         }
 
         public void setName(String str) {
-            this.name = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.name = str;
+            }
         }
 
         public void setSn(String str) {
-            this.sn = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                this.sn = str;
+            }
+        }
+    }
+
+    public LocationData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public String getFormatted_address() {
-        return this.formatted_address;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.formatted_address : (String) invokeV.objValue;
     }
 
     public List<NearByAddressData> getPoi_info() {
-        return this.poi_info;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.poi_info : (List) invokeV.objValue;
     }
 
     public String getSn() {
-        return this.sn;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sn : (String) invokeV.objValue;
     }
 
     public void parserProtoBuf(DataRes dataRes) {
-        if (dataRes == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
             return;
         }
         this.formatted_address = dataRes.formatted_address;
@@ -77,10 +135,16 @@ public class LocationData implements Serializable {
     }
 
     public void setFormatted_address(String str) {
-        this.formatted_address = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.formatted_address = str;
+        }
     }
 
     public void setSn(String str) {
-        this.sn = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.sn = str;
+        }
     }
 }

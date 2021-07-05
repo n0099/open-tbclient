@@ -3,32 +3,60 @@ package com.baidu.android.pushservice.a;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.m;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f2745a;
+    public e f2743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f2746b;
+    public c f2744b;
 
     public d(c cVar) {
-        this.f2746b = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f2744b = cVar;
     }
 
     public static d a(Context context, String str) {
-        b.a(context).b(context);
-        e b2 = b.a(context).b(str);
-        if (b2 != null && !TextUtils.isEmpty(b2.f2736b)) {
-            d dVar = new d(c.PUSH_CLIENT);
-            dVar.f2745a = b2;
-            return dVar;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            b.a(context).b(context);
+            e b2 = b.a(context).b(str);
+            if (b2 != null && !TextUtils.isEmpty(b2.f2734b)) {
+                d dVar = new d(c.f2740a);
+                dVar.f2743a = b2;
+                return dVar;
+            }
+            m.a("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
+            return new d(c.f2741b);
         }
-        m.a("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
-        return new d(c.UNKNOWN_CLIENT);
+        return (d) invokeLL.objValue;
     }
 
     public c a() {
-        return this.f2746b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2744b : (c) invokeV.objValue;
     }
 }

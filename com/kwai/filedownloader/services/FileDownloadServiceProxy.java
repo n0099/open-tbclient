@@ -10,6 +10,12 @@ import android.os.IBinder;
 import android.os.Process;
 import android.webkit.WebView;
 import androidx.annotation.Keep;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.proxy.app.FileDownloadService;
 import java.lang.ref.WeakReference;
@@ -18,7 +24,9 @@ import java.lang.ref.WeakReference;
 @SuppressLint({"Registered"})
 /* loaded from: classes7.dex */
 public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "filedownloader";
+    public transient /* synthetic */ FieldHolder $fh;
     public Service context;
     public i handler;
 
@@ -26,33 +34,58 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
     @Keep
     /* loaded from: classes7.dex */
     public static class SeparateProcessServiceProxy extends FileDownloadServiceProxy {
-        private String getProcessName(Context context) {
-            if (context == null) {
-                return "ksad";
-            }
-            try {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.pid == Process.myPid()) {
-                        return runningAppProcessInfo.processName;
-                    }
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public SeparateProcessServiceProxy() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return "ksad";
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return "ksad";
             }
+        }
+
+        private String getProcessName(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, context)) == null) {
+                if (context == null) {
+                    return "ksad";
+                }
+                try {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                        if (runningAppProcessInfo.pid == Process.myPid()) {
+                            return runningAppProcessInfo.processName;
+                        }
+                    }
+                    return "ksad";
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return "ksad";
+                }
+            }
+            return (String) invokeL.objValue;
         }
 
         @Override // com.kwai.filedownloader.services.FileDownloadServiceProxy, com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
         public void onCreate(Service service) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                try {
-                    WebView.setDataDirectorySuffix(getProcessName(service.getApplicationContext()));
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(FileDownloadServiceProxy.TAG, "WebView has already been initialized " + e2.getMessage());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, service) == null) {
+                if (Build.VERSION.SDK_INT >= 28) {
+                    try {
+                        WebView.setDataDirectorySuffix(getProcessName(service.getApplicationContext()));
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(FileDownloadServiceProxy.TAG, "WebView has already been initialized " + e2.getMessage());
+                    }
                 }
+                super.onCreate(service);
             }
-            super.onCreate(service);
         }
     }
 
@@ -60,42 +93,87 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
     @Keep
     /* loaded from: classes7.dex */
     public static class SharedMainProcessServiceProxy extends FileDownloadServiceProxy {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public SharedMainProcessServiceProxy() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // com.kwai.filedownloader.services.FileDownloadServiceProxy, com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
         public void onCreate(Service service) {
-            super.onCreate(service);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, service) == null) {
+                super.onCreate(service);
+            }
+        }
+    }
+
+    public FileDownloadServiceProxy() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     @Override // com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
     public IBinder onBind(Service service, Intent intent) {
-        return this.handler.a(intent);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, service, intent)) == null) ? this.handler.a(intent) : (IBinder) invokeLL.objValue;
     }
 
     @Override // com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
     public void onCreate(Service service) {
-        if (service == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, service) == null) || service == null) {
             return;
         }
         this.context = service;
         com.kwai.filedownloader.f.c.a(service);
         try {
-            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f37875a);
-            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f37876b);
+            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f39638a);
+            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f39639b);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
         }
         g gVar = new g();
-        this.handler = com.kwai.filedownloader.f.e.a().f37878d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
+        this.handler = com.kwai.filedownloader.f.e.a().f39641d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
     }
 
     @Override // com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
     public void onDestroy(Service service) {
-        this.handler.d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, service) == null) {
+            this.handler.d();
+        }
     }
 
     @Override // com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
     public int onStartCommand(Service service, Intent intent, int i2, int i3) {
-        this.handler.a(intent, i2, i3);
-        return 1;
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, service, intent, i2, i3)) == null) {
+            this.handler.a(intent, i2, i3);
+            return 1;
+        }
+        return invokeLLII.intValue;
     }
 }

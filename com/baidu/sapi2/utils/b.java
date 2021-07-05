@@ -12,50 +12,116 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.SweepLightLoadingView;
-import d.a.a0.a.d;
-import d.a.a0.a.e;
-import d.a.a0.a.f;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.e0.a.d;
+import d.a.e0.a.e;
+import d.a.e0.a.f;
+/* loaded from: classes3.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebView f9916a;
+        public final /* synthetic */ WebView f9988a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f9917b;
+        public final /* synthetic */ View f9989b;
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class RunnableC0128a implements Runnable {
-            public RunnableC0128a() {
+        /* loaded from: classes3.dex */
+        public class RunnableC0147a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ a f9990a;
+
+            public RunnableC0147a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f9990a = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f9917b.setVisibility(4);
-                a.this.f9916a.reload();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.f9990a.f9989b.setVisibility(4);
+                    this.f9990a.f9988a.reload();
+                }
             }
         }
 
         public a(WebView webView, View view) {
-            this.f9916a = webView;
-            this.f9917b = view;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {webView, view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9988a = webView;
+            this.f9989b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f9916a.post(new RunnableC0128a());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f9988a.post(new RunnableC0147a(this));
+            }
+        }
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public static void a(Context context, SapiWebView sapiWebView, boolean z) {
-        if (sapiWebView == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, context, sapiWebView, z) == null) || sapiWebView == null) {
             return;
         }
         a(context, sapiWebView);
@@ -68,42 +134,59 @@ public class b {
     }
 
     public static void b(Context context, SapiWebView sapiWebView) {
-        try {
-            ProgressBar progressBar = new ProgressBar(context, null, 16842872);
-            progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
-            progressBar.setBackgroundColor(context.getResources().getColor(d.a.a0.a.b.sapi_sdk_dark_mode_color));
-            sapiWebView.setProgressBar(progressBar);
-        } catch (Throwable th) {
-            Log.e(th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, context, sapiWebView) == null) {
+            try {
+                ProgressBar progressBar = new ProgressBar(context, null, 16842872);
+                progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
+                progressBar.setBackgroundColor(context.getResources().getColor(d.a.e0.a.b.sapi_sdk_dark_mode_color));
+                sapiWebView.setProgressBar(progressBar);
+            } catch (Throwable th) {
+                Log.e(th);
+            }
         }
     }
 
     public static void c(Context context, SapiWebView sapiWebView) {
-        sapiWebView.setWebviewLoadingView(new SweepLightLoadingView(context));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, sapiWebView) == null) {
+            sapiWebView.setWebviewLoadingView(new SweepLightLoadingView(context));
+        }
     }
 
     public static void d(Context context, SapiWebView sapiWebView) {
-        sapiWebView.setTimeoutView(a(context, (WebView) sapiWebView));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, sapiWebView) == null) {
+            sapiWebView.setTimeoutView(a(context, (WebView) sapiWebView));
+        }
     }
 
     public static void a(Context context, SapiWebView sapiWebView) {
-        sapiWebView.setNoNetworkView(a(context, (WebView) sapiWebView));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, sapiWebView) == null) {
+            sapiWebView.setNoNetworkView(a(context, (WebView) sapiWebView));
+        }
     }
 
     public static View a(Context context, WebView webView) {
-        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
-        Button button = (Button) inflate.findViewById(e.btn_retry);
-        if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-            ((LinearLayout) inflate.findViewById(e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(d.a.a0.a.b.sapi_sdk_dark_mode_color));
-            ((TextView) inflate.findViewById(e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(d.a.a0.a.b.sapi_sdk_dark_mode_no_network_tv_color));
-            ((ImageView) inflate.findViewById(e.sapi_sdk_loading_timeout_iv)).setImageResource(d.sapi_sdk_icon_connection_failed_dark);
-            button.setBackgroundResource(d.sapi_sdk_btn_gray);
-            Resources resources = context.getResources();
-            if (resources != null) {
-                button.setTextColor(resources.getColorStateList(d.a.a0.a.b.sapi_sdk_text_white));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, webView)) == null) {
+            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
+            Button button = (Button) inflate.findViewById(e.btn_retry);
+            if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
+                ((LinearLayout) inflate.findViewById(e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(d.a.e0.a.b.sapi_sdk_dark_mode_color));
+                ((TextView) inflate.findViewById(e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(d.a.e0.a.b.sapi_sdk_dark_mode_no_network_tv_color));
+                ((ImageView) inflate.findViewById(e.sapi_sdk_loading_timeout_iv)).setImageResource(d.sapi_sdk_icon_connection_failed_dark);
+                button.setBackgroundResource(d.sapi_sdk_btn_gray);
+                Resources resources = context.getResources();
+                if (resources != null) {
+                    button.setTextColor(resources.getColorStateList(d.a.e0.a.b.sapi_sdk_text_white));
+                }
             }
+            button.setOnClickListener(new a(webView, inflate));
+            return inflate;
         }
-        button.setOnClickListener(new a(webView, inflate));
-        return inflate;
+        return (View) invokeLL.objValue;
     }
 }

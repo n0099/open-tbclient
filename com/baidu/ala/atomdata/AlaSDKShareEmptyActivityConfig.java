@@ -3,8 +3,13 @@ package com.baidu.ala.atomdata;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String PACKAGE_NAME_QQ = "com.tencent.mobileqq";
     public static final String PACKAGE_NAME_SINA_WEIBO = "com.sina.weibo";
     public static final String PACKAGE_NAME_WEIXIN = "com.tencent.mm";
@@ -19,9 +24,26 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
     public static final String SHARE_ALA_SDK_LIVE_ID = "liveid";
     public static final String SHARE_ALA_SDK_TITLE_KEY = "title";
     public static final String SHARE_ALA_SDK_YY_ANCHOR_BDUID = "yy_anchor_bduid";
+    public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSDKShareEmptyActivityConfig(Context context, ShareItem shareItem, int i2, int i3) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, shareItem, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         getIntent().putExtra("title", shareItem.r);
         getIntent().putExtra("content", shareItem.s);
         getIntent().putExtra(SHARE_ALA_SDK_IMAGEURI_KEY, shareItem.w);

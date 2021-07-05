@@ -1,40 +1,78 @@
 package com.baidu.tbadk.getUserInfo;
 
 import com.baidu.adp.framework.message.NetMessage;
-import d.a.n0.z0.w;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.w;
 import tbclient.GetUserInfo.DataReq;
 import tbclient.GetUserInfo.GetUserInfoReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetUserInfoRequstData extends NetMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public long mUid;
     public int screenWidth;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoRequstData(int i2, int i3) {
         super(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        if (z) {
-            w.a(builder, true);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            if (z) {
+                w.a(builder, true);
+            }
+            GetUserInfoReqIdl.Builder builder2 = new GetUserInfoReqIdl.Builder();
+            builder.uid = Long.valueOf(this.mUid);
+            builder.scr_w = Integer.valueOf(this.screenWidth);
+            builder2.data = builder.build(false);
+            return builder2.build(false);
         }
-        GetUserInfoReqIdl.Builder builder2 = new GetUserInfoReqIdl.Builder();
-        builder.uid = Long.valueOf(this.mUid);
-        builder.scr_w = Integer.valueOf(this.screenWidth);
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+        return invokeZ.objValue;
     }
 
     public long getUid() {
-        return this.mUid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mUid : invokeV.longValue;
     }
 
     public void setScreenWidth(int i2) {
-        this.screenWidth = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.screenWidth = i2;
+        }
     }
 
     public void setUid(long j) {
-        this.mUid = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mUid = j;
+        }
     }
 }

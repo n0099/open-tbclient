@@ -1,14 +1,24 @@
 package com.heytap.mcssdk.mode;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CommandMessage extends Message {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_KEY = "appKey";
     public static final String APP_SECRET = "appSecret";
     public static final String CODE = "code";
@@ -46,143 +56,240 @@ public class CommandMessage extends Message {
     public static final String TYPE_ALIAS = "alias";
     public static final String TYPE_NULL = null;
     public static final String TYPE_TAGS = "tags";
+    public transient /* synthetic */ FieldHolder $fh;
     public String mAppKey;
     public String mAppSecret;
     public int mCommand;
     public String mContent;
     public String mParams;
     public String mRegisterID;
-    public int mResponseCode = -2;
+    public int mResponseCode;
     public String mSdkVersion;
 
-    public static List<String> parseToList(String str) {
-        ArrayList arrayList = null;
-        if (TextUtils.isEmpty(str)) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1645489705, "Lcom/heytap/mcssdk/mode/CommandMessage;")) == null) {
+            return;
         }
-        String[] split = str.split("&");
-        if (split.length > 0) {
-            arrayList = new ArrayList();
-            for (String str2 : split) {
-                if (!TextUtils.isEmpty(str2)) {
-                    arrayList.add(str2);
-                }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1645489705, "Lcom/heytap/mcssdk/mode/CommandMessage;");
+        }
+    }
+
+    public CommandMessage() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return arrayList;
+        this.mResponseCode = -2;
+    }
+
+    public static List<String> parseToList(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            ArrayList arrayList = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String[] split = str.split("&");
+            if (split.length > 0) {
+                arrayList = new ArrayList();
+                for (String str2 : split) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        arrayList.add(str2);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 
     public static <T> String parseToString(List<T> list) {
-        StringBuilder sb = new StringBuilder();
-        for (T t : list) {
-            sb.append(t);
-            sb.append("&");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (T t : list) {
+                sb.append(t);
+                sb.append("&");
+            }
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeL.objValue;
     }
 
     public static List<SubscribeResult> parseToSubscribeResultList(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
         ArrayList arrayList;
-        ArrayList arrayList2 = null;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            JSONArray jSONArray = new JSONObject(str).getJSONArray(str2);
-            arrayList = new ArrayList();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    SubscribeResult subscribeResult = new SubscribeResult();
-                    subscribeResult.setContent(jSONObject.getString(str4));
-                    subscribeResult.setSubscribeId(jSONObject.getString(str3));
-                    arrayList.add(subscribeResult);
-                } catch (JSONException e2) {
-                    e = e2;
-                    arrayList2 = arrayList;
-                    e.printStackTrace();
-                    arrayList = arrayList2;
-                    LogUtil.d("parseToSubscribeResultList--" + arrayList);
-                    return arrayList;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, str, str2, str3, str4)) == null) {
+            ArrayList arrayList2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-        } catch (JSONException e3) {
-            e = e3;
+            try {
+                JSONArray jSONArray = new JSONObject(str).getJSONArray(str2);
+                arrayList = new ArrayList();
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    try {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                        SubscribeResult subscribeResult = new SubscribeResult();
+                        subscribeResult.setContent(jSONObject.getString(str4));
+                        subscribeResult.setSubscribeId(jSONObject.getString(str3));
+                        arrayList.add(subscribeResult);
+                    } catch (JSONException e2) {
+                        e = e2;
+                        arrayList2 = arrayList;
+                        e.printStackTrace();
+                        arrayList = arrayList2;
+                        LogUtil.d("parseToSubscribeResultList--" + arrayList);
+                        return arrayList;
+                    }
+                }
+            } catch (JSONException e3) {
+                e = e3;
+            }
+            LogUtil.d("parseToSubscribeResultList--" + arrayList);
+            return arrayList;
         }
-        LogUtil.d("parseToSubscribeResultList--" + arrayList);
-        return arrayList;
+        return (List) invokeLLLL.objValue;
     }
 
     public String getAppKey() {
-        return this.mAppKey;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAppKey : (String) invokeV.objValue;
     }
 
     public String getAppSecret() {
-        return this.mAppSecret;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAppSecret : (String) invokeV.objValue;
     }
 
     public int getCommand() {
-        return this.mCommand;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCommand : invokeV.intValue;
     }
 
     public String getContent() {
-        return this.mContent;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mContent : (String) invokeV.objValue;
     }
 
     public String getParams() {
-        return this.mParams;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mParams : (String) invokeV.objValue;
     }
 
     public String getRegisterID() {
-        return this.mRegisterID;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRegisterID : (String) invokeV.objValue;
     }
 
     public int getResponseCode() {
-        return this.mResponseCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mResponseCode : invokeV.intValue;
     }
 
     public String getSdkVersion() {
-        return this.mSdkVersion;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mSdkVersion : (String) invokeV.objValue;
     }
 
     @Override // com.heytap.mcssdk.mode.Message
     public int getType() {
-        return 4105;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 4105;
+        }
+        return invokeV.intValue;
     }
 
     public void setAppKey(String str) {
-        this.mAppKey = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.mAppKey = str;
+        }
     }
 
     public void setAppSecret(String str) {
-        this.mAppSecret = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.mAppSecret = str;
+        }
     }
 
     public void setCommand(int i2) {
-        this.mCommand = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.mCommand = i2;
+        }
     }
 
     public void setContent(String str) {
-        this.mContent = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.mContent = str;
+        }
     }
 
     public void setParams(String str) {
-        this.mParams = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.mParams = str;
+        }
     }
 
     public void setRegisterID(String str) {
-        this.mRegisterID = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.mRegisterID = str;
+        }
     }
 
     public void setResponseCode(int i2) {
-        this.mResponseCode = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.mResponseCode = i2;
+        }
     }
 
     public void setSdkVersion(String str) {
-        this.mSdkVersion = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.mSdkVersion = str;
+        }
     }
 
     public String toString() {
-        return "CommandMessage{, mRegisterID='" + this.mRegisterID + "', mSdkVersion='" + this.mSdkVersion + "', mCommand=" + this.mCommand + ", mContent='" + this.mContent + "', mResponseCode=" + this.mResponseCode + '}';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return "CommandMessage{, mRegisterID='" + this.mRegisterID + "', mSdkVersion='" + this.mSdkVersion + "', mCommand=" + this.mCommand + ", mContent='" + this.mContent + "', mResponseCode=" + this.mResponseCode + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

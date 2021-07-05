@@ -2,6 +2,13 @@ package com.sina.weibo.sdk.network.impl;
 
 import android.content.Context;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import com.sina.weibo.sdk.network.IRequestParam;
 import java.io.File;
@@ -10,155 +17,284 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class RequestParam implements IRequestParam {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PARAM_BODY_BYTE_ARRAY = "body_byte_array";
+    public transient /* synthetic */ FieldHolder $fh;
     public Context appContext;
+    public Map<String, byte[]> byteArrays;
     public boolean defaultHost;
+    public Bundle extraBundle;
+    public Map<String, IRequestParam.ValuePart<File>> files;
     public boolean gZip;
+    public Bundle getBundle;
+    public Bundle headerBundle;
     public ArrayList<IRequestIntercept> interceptList;
     public HashMap<String, Object> interceptResult;
     public boolean needIntercept;
+    public Bundle postBundle;
     public int requestTimeout;
     public IRequestParam.RequestType requestType;
     public int responseTimeout;
     public String shortUrl;
-    public Bundle getBundle = new Bundle();
-    public Bundle postBundle = new Bundle();
-    public Bundle headerBundle = new Bundle();
-    public Bundle extraBundle = new Bundle();
-    public Map<String, IRequestParam.ValuePart<File>> files = new HashMap();
-    public Map<String, byte[]> byteArrays = new HashMap();
 
     /* loaded from: classes7.dex */
     public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public Context appContext;
+        public Map<String, byte[]> byteArrays;
+        public boolean defaultHost;
+        public Bundle extraBundle;
+        public Map<String, IRequestParam.ValuePart<File>> files;
+        public boolean gZip;
+        public Bundle getBundle;
+        public Bundle headerBundle;
+        public ArrayList<IRequestIntercept> interceptList;
+        public boolean needIntercept;
+        public Bundle postBundle;
+        public int requestTimeout;
+        public int responseTimeout;
         public String shortUrl;
-        public Bundle getBundle = new Bundle();
-        public Bundle postBundle = new Bundle();
-        public Bundle extraBundle = new Bundle();
-        public IRequestParam.RequestType type = IRequestParam.RequestType.POST;
-        public Bundle headerBundle = new Bundle();
-        public boolean defaultHost = true;
-        public ArrayList<IRequestIntercept> interceptList = new ArrayList<>();
-        public Map<String, IRequestParam.ValuePart<File>> files = new HashMap();
-        public Map<String, byte[]> byteArrays = new HashMap();
-        public boolean needIntercept = true;
-        public boolean gZip = false;
-        public int requestTimeout = 15000;
-        public int responseTimeout = 15000;
+        public IRequestParam.RequestType type;
 
         public Builder(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.getBundle = new Bundle();
+            this.postBundle = new Bundle();
+            this.extraBundle = new Bundle();
+            this.type = IRequestParam.RequestType.POST;
+            this.headerBundle = new Bundle();
+            this.defaultHost = true;
+            this.interceptList = new ArrayList<>();
+            this.files = new HashMap();
+            this.byteArrays = new HashMap();
+            this.needIntercept = true;
+            this.gZip = false;
+            this.requestTimeout = 15000;
+            this.responseTimeout = 15000;
             this.appContext = context;
         }
 
         public void addBodyParam(byte[] bArr) {
-            this.postBundle.putByteArray(RequestParam.KEY_PARAM_BODY_BYTE_ARRAY, bArr);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
+                this.postBundle.putByteArray(RequestParam.KEY_PARAM_BODY_BYTE_ARRAY, bArr);
+            }
         }
 
         public void addExtParam(String str, String str2) {
-            this.extraBundle.putString(str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+                this.extraBundle.putString(str, str2);
+            }
         }
 
         public void addGetParam(String str, String str2) {
-            this.getBundle.putString(str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
+                this.getBundle.putString(str, str2);
+            }
         }
 
         public void addHeader(String str, String str2) {
-            this.headerBundle.putString(str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+                this.headerBundle.putString(str, str2);
+            }
         }
 
         public void addIntercept(IRequestIntercept iRequestIntercept) {
-            this.interceptList.add(iRequestIntercept);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, iRequestIntercept) == null) {
+                this.interceptList.add(iRequestIntercept);
+            }
         }
 
         public void addPostParam(String str, String str2) {
-            this.postBundle.putString(str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
+                this.postBundle.putString(str, str2);
+            }
         }
 
         public RequestParam build() {
-            return new RequestParam(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? new RequestParam(this) : (RequestParam) invokeV.objValue;
         }
 
         public void defaultHostEnable(boolean z) {
-            this.defaultHost = z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+                this.defaultHost = z;
+            }
         }
 
         public void setNeedIntercept(boolean z) {
-            this.needIntercept = z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+                this.needIntercept = z;
+            }
         }
 
         public void setRequestTimeout(int i2) {
-            this.requestTimeout = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+                this.requestTimeout = i2;
+            }
         }
 
         public void setRequestType(IRequestParam.RequestType requestType) {
-            this.type = requestType;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048597, this, requestType) == null) {
+                this.type = requestType;
+            }
         }
 
         public void setResponseTimeout(int i2) {
-            this.responseTimeout = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+                this.responseTimeout = i2;
+            }
         }
 
         public void setShortUrl(String str) {
-            this.shortUrl = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+                this.shortUrl = str;
+            }
         }
 
         public void setgZip(boolean z) {
-            this.gZip = z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+                this.gZip = z;
+            }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.io.File */
+        /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.io.File */
         /* JADX WARN: Multi-variable type inference failed */
         public Builder addBodyParam(String str, File file, String str2) {
-            IRequestParam.ValuePart<File> valuePart = new IRequestParam.ValuePart<>();
-            valuePart.value = file;
-            valuePart.mimeType = str2;
-            this.files.put(str, valuePart);
-            return this;
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, file, str2)) == null) {
+                IRequestParam.ValuePart<File> valuePart = new IRequestParam.ValuePart<>();
+                valuePart.value = file;
+                valuePart.mimeType = str2;
+                this.files.put(str, valuePart);
+                return this;
+            }
+            return (Builder) invokeLLL.objValue;
         }
 
         public void addExtParam(String str, int i2) {
-            this.extraBundle.putInt(str, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048580, this, str, i2) == null) {
+                this.extraBundle.putInt(str, i2);
+            }
         }
 
         public void addGetParam(String str, int i2) {
-            this.getBundle.putInt(str, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2) == null) {
+                this.getBundle.putInt(str, i2);
+            }
         }
 
         public void addPostParam(String str, int i2) {
-            this.postBundle.putInt(str, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048590, this, str, i2) == null) {
+                this.postBundle.putInt(str, i2);
+            }
         }
 
         public void addExtParam(String str, long j) {
-            this.extraBundle.putLong(str, j);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+                this.extraBundle.putLong(str, j);
+            }
         }
 
         public void addGetParam(String str, long j) {
-            this.getBundle.putLong(str, j);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j) == null) {
+                this.getBundle.putLong(str, j);
+            }
         }
 
         public void addPostParam(String str, long j) {
-            this.postBundle.putLong(str, j);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048591, this, str, j) == null) {
+                this.postBundle.putLong(str, j);
+            }
         }
 
         public void addExtParam(Bundle bundle) {
-            this.extraBundle.putAll(bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+                this.extraBundle.putAll(bundle);
+            }
         }
 
         public void addGetParam(Bundle bundle) {
-            this.getBundle.putAll(bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+                this.getBundle.putAll(bundle);
+            }
         }
 
         public void addPostParam(Bundle bundle) {
-            this.postBundle.putAll(bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
+                this.postBundle.putAll(bundle);
+            }
         }
 
         public Builder addBodyParam(String str, byte[] bArr) {
-            this.byteArrays.put(str, bArr);
-            return this;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr)) == null) {
+                this.byteArrays.put(str, bArr);
+                return this;
+            }
+            return (Builder) invokeLL.objValue;
         }
     }
 
     public RequestParam(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.getBundle = new Bundle();
+        this.postBundle = new Bundle();
+        this.headerBundle = new Bundle();
+        this.extraBundle = new Bundle();
+        this.files = new HashMap();
+        this.byteArrays = new HashMap();
         this.interceptList = new ArrayList<>();
         this.gZip = false;
         this.requestTimeout = 15000;
@@ -184,91 +320,132 @@ public class RequestParam implements IRequestParam {
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public void addInterceptResult(String str, Object obj) {
-        this.interceptResult.put(str, obj);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+            this.interceptResult.put(str, obj);
+        }
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public Map<String, byte[]> byteArrays() {
-        return this.byteArrays;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.byteArrays : (Map) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public Map<String, IRequestParam.ValuePart<File>> files() {
-        return this.files;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.files : (Map) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public Context getContext() {
-        return this.appContext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.appContext : (Context) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public Bundle getExtraBundle() {
-        return this.extraBundle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.extraBundle : (Bundle) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public Bundle getGetBundle() {
-        return this.getBundle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.getBundle : (Bundle) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public Bundle getHeader() {
-        return this.headerBundle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.headerBundle : (Bundle) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public ArrayList<IRequestIntercept> getIntercept() {
-        return this.interceptList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.interceptList : (ArrayList) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public Object getInterceptResult(String str) {
-        return this.interceptResult.get(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.interceptResult.get(str) : invokeL.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public IRequestParam.RequestType getMethod() {
-        return this.requestType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.requestType : (IRequestParam.RequestType) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public Bundle getPostBundle() {
-        return this.postBundle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.postBundle : (Bundle) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public int getRequestTimeout() {
-        return this.requestTimeout;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.requestTimeout : invokeV.intValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public int getResponseTimeout() {
-        return this.responseTimeout;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.responseTimeout : invokeV.intValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public String getUrl() {
-        return this.shortUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.shortUrl : (String) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public boolean needGzip() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public boolean needIntercept() {
-        return this.needIntercept;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.needIntercept : invokeV.booleanValue;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public void setUrl(String str) {
-        this.shortUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.shortUrl = str;
+        }
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
     public boolean useDefaultHost() {
-        return this.defaultHost;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.defaultHost : invokeV.booleanValue;
     }
 }

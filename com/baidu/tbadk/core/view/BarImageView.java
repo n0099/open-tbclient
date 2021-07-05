@@ -9,75 +9,105 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.f.a.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BarImageView extends TbClipImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Path A0;
+    public Path B0;
     public int C0;
     public int D0;
-    public Path E0;
-    public Path F0;
-    public int G0;
-    public int H0;
-    public boolean I0;
-    public boolean J0;
-    public boolean K0;
-    public Bitmap L0;
-    public Bitmap M0;
-    public Bitmap N0;
-    public Canvas O0;
-    public PaintFlagsDrawFilter P0;
-    public PorterDuffXfermode Q0;
-    public PorterDuffXfermode R0;
+    public boolean E0;
+    public boolean F0;
+    public boolean G0;
+    public Bitmap H0;
+    public Bitmap I0;
+    public Bitmap J0;
+    public Canvas K0;
+    public PaintFlagsDrawFilter L0;
+    public PorterDuffXfermode M0;
+    public PorterDuffXfermode N0;
+    public int y0;
+    public int z0;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BarImageView(Context context) {
         this(context, null, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private int getStrokeColorResId() {
-        return this.H0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.D0 : invokeV.intValue;
     }
 
-    public final void G() {
-        setDrawerType(0);
-        setGifIconSupport(false);
-        setDrawBorder(true);
-        setDefaultResource(this.C0);
-        setDefaultBgResource(this.D0);
+    public final void T(Canvas canvas, int i2, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+            this.B0.reset();
+            float strokeWith = ((getStrokeWith() * 3.0f) / 2.0f) - 0.5f;
+            float f3 = i2 / 2;
+            this.B0.moveTo(f3, strokeWith);
+            float f4 = i2 - strokeWith;
+            float f5 = f4 - f2;
+            float f6 = f2 + strokeWith;
+            this.B0.cubicTo(f5, strokeWith, f4, f6, f4, f3);
+            this.B0.cubicTo(f4, f5, f5, f4, f3, f4);
+            this.B0.cubicTo(f6, f4, strokeWith, f5, strokeWith, f3);
+            this.B0.cubicTo(strokeWith, f6, f6, strokeWith, f3, strokeWith);
+            this.B0.close();
+            float strokeWidth = this.f2202i.f44573c.getStrokeWidth();
+            this.f2202i.f44573c.setStyle(Paint.Style.STROKE);
+            this.f2202i.f44573c.setStrokeWidth(getStrokeWith() + 0.5f);
+            this.f2202i.f44573c.setColor(SkinManager.getColor(getStrokeColorResId()));
+            canvas.drawPath(this.B0, this.f2202i.f44573c);
+            this.f2202i.f44573c.setStrokeWidth(strokeWidth);
+        }
     }
 
-    public final void c0(Canvas canvas, int i2, float f2) {
-        this.F0.reset();
-        float strokeWith = ((getStrokeWith() * 3.0f) / 2.0f) - 0.5f;
-        float f3 = i2 / 2;
-        this.F0.moveTo(f3, strokeWith);
-        float f4 = i2 - strokeWith;
-        float f5 = f4 - f2;
-        float f6 = f2 + strokeWith;
-        this.F0.cubicTo(f5, strokeWith, f4, f6, f4, f3);
-        this.F0.cubicTo(f4, f5, f5, f4, f3, f4);
-        this.F0.cubicTo(f6, f4, strokeWith, f5, strokeWith, f3);
-        this.F0.cubicTo(strokeWith, f6, f6, strokeWith, f3, strokeWith);
-        this.F0.close();
-        float strokeWidth = this.f2204i.f42764c.getStrokeWidth();
-        this.f2204i.f42764c.setStyle(Paint.Style.STROKE);
-        this.f2204i.f42764c.setStrokeWidth(getStrokeWith() + 0.5f);
-        this.f2204i.f42764c.setColor(SkinManager.getColor(getStrokeColorResId()));
-        canvas.drawPath(this.F0, this.f2204i.f42764c);
-        this.f2204i.f42764c.setStrokeWidth(strokeWidth);
-    }
-
-    public final Bitmap d0(int i2, int i3, boolean z) {
-        Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
-        new Canvas(createBitmap).drawPath(this.E0, z ? this.f2204i.f42764c : this.f2204i.f42763b);
-        return createBitmap;
+    public final Bitmap U(int i2, int i3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+            new Canvas(createBitmap).drawPath(this.A0, z ? this.f2202i.f44573c : this.f2202i.f44572b);
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 
     public int getStrokeWith() {
-        return this.G0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.C0 : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
@@ -86,130 +116,193 @@ public class BarImageView extends TbClipImageView {
         float f3;
         float f4;
         float f5;
-        a aVar = this.f2204i;
-        if (aVar != null && aVar.f42763b != null) {
-            if (!this.I0) {
-                super.onDraw(canvas);
-                return;
-            }
-            int measuredWidth = getMeasuredWidth();
-            int measuredHeight = getMeasuredHeight();
-            float f6 = (measuredWidth * 14) / IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER;
-            this.E0.reset();
-            float f7 = measuredWidth;
-            float f8 = (f7 + 0.0f) / 2.0f;
-            float f9 = measuredHeight;
-            float f10 = (f9 + 0.0f) / 2.0f;
-            this.E0.moveTo(f8, 0.0f);
-            float f11 = f7 - f6;
-            this.E0.cubicTo(f11, 0.0f, f7, f6, f7, f10);
-            this.E0.cubicTo(f7, f11, f11, f7, f8, f9);
-            this.E0.cubicTo(f6, f7, 0.0f, f11, 0.0f, f10);
-            this.E0.cubicTo(0.0f, f6, f6, 0.0f, f8, 0.0f);
-            this.E0.close();
-            this.f2204i.f42764c.setStyle(Paint.Style.FILL);
-            this.f2204i.f42764c.setColor(SkinManager.getColor(this.H0));
-            this.N0 = d0(measuredWidth, measuredHeight, true);
-            this.E0.reset();
-            float strokeWith = getStrokeWith();
-            float f12 = measuredWidth / 2;
-            this.E0.moveTo(f12, strokeWith);
-            float f13 = f7 - strokeWith;
-            float f14 = f13 - f6;
-            float f15 = strokeWith + f6;
-            this.E0.cubicTo(f14, strokeWith, f13, f15, f13, f12);
-            this.E0.cubicTo(f13, f14, f14, f13, f12, f13);
-            this.E0.cubicTo(f15, f13, strokeWith, f14, strokeWith, f12);
-            this.E0.cubicTo(strokeWith, f15, f15, strokeWith, f12, strokeWith);
-            this.E0.close();
-            if (this.P0 == null) {
-                this.P0 = new PaintFlagsDrawFilter(0, 3);
-            }
-            canvas.setDrawFilter(this.P0);
-            if (this.L0 == null) {
-                this.L0 = Bitmap.createBitmap(measuredWidth, measuredHeight, Bitmap.Config.ARGB_8888);
-            }
-            if (this.O0 == null) {
-                this.O0 = new Canvas(this.L0);
-            }
-            this.f2204i.f42764c.setStyle(Paint.Style.STROKE);
-            super.onDraw(this.O0);
-            this.M0 = d0(measuredWidth, measuredHeight, false);
-            if (this.K0) {
-                f2 = f9;
-                f5 = 0.0f;
-                f3 = f7;
-                f4 = f6;
-                int saveLayer = canvas.saveLayer(0.0f, 0.0f, f7, f2, null, 31);
-                this.f2204i.f42764c.setStyle(Paint.Style.FILL);
-                this.f2204i.f42764c.setColor(SkinManager.getColor(this.H0));
-                canvas.drawBitmap(this.M0, 0.0f, 0.0f, this.f2204i.f42764c);
-                this.f2204i.f42764c.setXfermode(this.R0);
-                canvas.drawBitmap(this.N0, 0.0f, 0.0f, this.f2204i.f42764c);
-                this.f2204i.f42764c.setXfermode(null);
-                if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
-                    canvas.restoreToCount(saveLayer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            a aVar = this.f2202i;
+            if (aVar != null && aVar.f44572b != null) {
+                if (!this.E0) {
+                    super.onDraw(canvas);
+                    return;
                 }
-            } else {
-                f2 = f9;
-                f3 = f7;
-                f4 = f6;
-                f5 = 0.0f;
-            }
-            int saveLayer2 = canvas.saveLayer(0.0f, 0.0f, f3, f2, null, 31);
-            canvas.drawBitmap(this.M0, f5, f5, this.f2204i.f42763b);
-            this.f2204i.f42763b.setXfermode(this.Q0);
-            canvas.drawBitmap(this.L0, f5, f5, this.f2204i.f42763b);
-            this.f2204i.f42763b.setXfermode(null);
-            if (saveLayer2 >= 1 && saveLayer2 <= canvas.getSaveCount()) {
-                canvas.restoreToCount(saveLayer2);
-            }
-            if (this.J0) {
-                c0(canvas, measuredWidth, f4);
+                int measuredWidth = getMeasuredWidth();
+                int measuredHeight = getMeasuredHeight();
+                float f6 = (measuredWidth * 14) / IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER;
+                this.A0.reset();
+                float f7 = measuredWidth;
+                float f8 = (f7 + 0.0f) / 2.0f;
+                float f9 = measuredHeight;
+                float f10 = (f9 + 0.0f) / 2.0f;
+                this.A0.moveTo(f8, 0.0f);
+                float f11 = f7 - f6;
+                this.A0.cubicTo(f11, 0.0f, f7, f6, f7, f10);
+                this.A0.cubicTo(f7, f11, f11, f7, f8, f9);
+                this.A0.cubicTo(f6, f7, 0.0f, f11, 0.0f, f10);
+                this.A0.cubicTo(0.0f, f6, f6, 0.0f, f8, 0.0f);
+                this.A0.close();
+                this.f2202i.f44573c.setStyle(Paint.Style.FILL);
+                this.f2202i.f44573c.setColor(SkinManager.getColor(this.D0));
+                this.J0 = U(measuredWidth, measuredHeight, true);
+                this.A0.reset();
+                float strokeWith = getStrokeWith();
+                float f12 = measuredWidth / 2;
+                this.A0.moveTo(f12, strokeWith);
+                float f13 = f7 - strokeWith;
+                float f14 = f13 - f6;
+                float f15 = strokeWith + f6;
+                this.A0.cubicTo(f14, strokeWith, f13, f15, f13, f12);
+                this.A0.cubicTo(f13, f14, f14, f13, f12, f13);
+                this.A0.cubicTo(f15, f13, strokeWith, f14, strokeWith, f12);
+                this.A0.cubicTo(strokeWith, f15, f15, strokeWith, f12, strokeWith);
+                this.A0.close();
+                if (this.L0 == null) {
+                    this.L0 = new PaintFlagsDrawFilter(0, 3);
+                }
+                canvas.setDrawFilter(this.L0);
+                if (this.H0 == null) {
+                    this.H0 = Bitmap.createBitmap(measuredWidth, measuredHeight, Bitmap.Config.ARGB_8888);
+                }
+                if (this.K0 == null) {
+                    this.K0 = new Canvas(this.H0);
+                }
+                this.f2202i.f44573c.setStyle(Paint.Style.STROKE);
+                super.onDraw(this.K0);
+                this.I0 = U(measuredWidth, measuredHeight, false);
+                if (this.G0) {
+                    f2 = f9;
+                    f5 = 0.0f;
+                    f3 = f7;
+                    f4 = f6;
+                    int saveLayer = canvas.saveLayer(0.0f, 0.0f, f7, f2, null, 31);
+                    this.f2202i.f44573c.setStyle(Paint.Style.FILL);
+                    this.f2202i.f44573c.setColor(SkinManager.getColor(this.D0));
+                    canvas.drawBitmap(this.I0, 0.0f, 0.0f, this.f2202i.f44573c);
+                    this.f2202i.f44573c.setXfermode(this.N0);
+                    canvas.drawBitmap(this.J0, 0.0f, 0.0f, this.f2202i.f44573c);
+                    this.f2202i.f44573c.setXfermode(null);
+                    if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
+                        canvas.restoreToCount(saveLayer);
+                    }
+                } else {
+                    f2 = f9;
+                    f3 = f7;
+                    f4 = f6;
+                    f5 = 0.0f;
+                }
+                int saveLayer2 = canvas.saveLayer(0.0f, 0.0f, f3, f2, null, 31);
+                canvas.drawBitmap(this.I0, f5, f5, this.f2202i.f44572b);
+                this.f2202i.f44572b.setXfermode(this.M0);
+                canvas.drawBitmap(this.H0, f5, f5, this.f2202i.f44572b);
+                this.f2202i.f44572b.setXfermode(null);
+                if (saveLayer2 >= 1 && saveLayer2 <= canvas.getSaveCount()) {
+                    canvas.restoreToCount(saveLayer2);
+                }
+                if (this.F0) {
+                    T(canvas, measuredWidth, f4);
+                    return;
+                }
                 return;
             }
-            return;
+            super.onDraw(canvas);
         }
-        super.onDraw(canvas);
     }
 
     public void setShowInnerBorder(boolean z) {
-        this.J0 = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.F0 = z;
+        }
     }
 
     public void setShowOuterBorder(boolean z) {
-        this.K0 = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.G0 = z;
+        }
     }
 
     public void setShowOval(boolean z) {
-        this.I0 = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.E0 = z;
+        }
     }
 
     public void setStrokeColorResId(int i2) {
-        this.H0 = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.D0 = i2;
+        }
     }
 
     public void setStrokeWith(int i2) {
-        this.G0 = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.C0 = i2;
+        }
     }
 
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            setDrawerType(0);
+            setGifIconSupport(false);
+            setDrawBorder(true);
+            setDefaultResource(this.y0);
+            setDefaultBgResource(this.z0);
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BarImageView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BarImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.C0 = SkinManager.getColor(R.color.CAM_X0209);
-        this.D0 = R.drawable.pic_use_header_28_n;
-        this.E0 = new Path();
-        this.F0 = new Path();
-        this.G0 = 0;
-        this.H0 = 0;
-        this.I0 = false;
-        this.J0 = false;
-        this.K0 = true;
-        this.Q0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
-        this.R0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
-        G();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.y0 = SkinManager.getColor(R.color.CAM_X0209);
+        this.z0 = R.drawable.pic_use_header_28_n;
+        this.A0 = new Path();
+        this.B0 = new Path();
+        this.C0 = 0;
+        this.D0 = 0;
+        this.E0 = false;
+        this.F0 = false;
+        this.G0 = true;
+        this.M0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
+        this.N0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+        v();
     }
 }

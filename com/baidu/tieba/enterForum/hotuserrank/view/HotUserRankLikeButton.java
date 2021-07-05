@@ -7,54 +7,114 @@ import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.n0.r.f0.m.b;
-/* loaded from: classes4.dex */
+import d.a.r0.r.f0.m.b;
+/* loaded from: classes5.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotUserRankLikeButton(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, d.a.n0.r.f0.q.b
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, d.a.r0.r.f0.s.b
     public void e(boolean z, int i2) {
-        if (z) {
-            b bVar = new b();
-            bVar.r(R.color.CAM_X0109);
-            setConfig(bVar);
-            setClickable(true);
-            if (i2 == 1) {
-                setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
-            } else if (i2 == 2) {
-                setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            if (z) {
+                b bVar = new b();
+                bVar.r(R.color.CAM_X0109);
+                setConfig(bVar);
+                setClickable(true);
+                if (i2 == 1) {
+                    setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
+                } else if (i2 == 2) {
+                    setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
+                }
+            } else {
+                b bVar2 = new b();
+                bVar2.q(R.color.CAM_X0302);
+                setConfig(bVar2);
+                setClickable(true);
+                setText(TbadkCoreApplication.getInst().getString(R.string.attention));
             }
-        } else {
-            b bVar2 = new b();
-            bVar2.q(R.color.CAM_X0302);
-            setConfig(bVar2);
-            setClickable(true);
-            setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+            if (i2 == 2) {
+                ViewGroup.LayoutParams layoutParams = getLayoutParams();
+                if (layoutParams != null) {
+                    layoutParams.width = l.g(getContext(), R.dimen.tbds196);
+                    setLayoutParams(layoutParams);
+                }
+            } else {
+                ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
+                if (layoutParams2 != null) {
+                    layoutParams2.width = l.g(getContext(), R.dimen.tbds156);
+                    setLayoutParams(layoutParams2);
+                }
+            }
+            r(TbadkCoreApplication.getInst().getSkinType());
         }
-        if (i2 == 2) {
-            ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = l.g(getContext(), R.dimen.tbds196);
-                setLayoutParams(layoutParams);
-            }
-        } else {
-            ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
-            if (layoutParams2 != null) {
-                layoutParams2.width = l.g(getContext(), R.dimen.tbds156);
-                setLayoutParams(layoutParams2);
-            }
-        }
-        r(TbadkCoreApplication.getInst().getSkinType());
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 }

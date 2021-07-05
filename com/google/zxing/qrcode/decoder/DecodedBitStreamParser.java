@@ -1,5 +1,13 @@
 package com.google.zxing.qrcode.decoder;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
@@ -10,19 +18,56 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class DecodedBitStreamParser {
-    public static final char[] ALPHANUMERIC_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:".toCharArray();
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final char[] ALPHANUMERIC_CHARS;
     public static final int GB2312_SUBSET = 1;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Removed duplicated region for block: B:61:0x00e7 A[LOOP:0: B:64:0x001e->B:61:0x00e7, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x00c6 A[SYNTHETIC] */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-278092160, "Lcom/google/zxing/qrcode/decoder/DecodedBitStreamParser;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-278092160, "Lcom/google/zxing/qrcode/decoder/DecodedBitStreamParser;");
+                return;
+            }
+        }
+        ALPHANUMERIC_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:".toCharArray();
+    }
+
+    public DecodedBitStreamParser() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:63:0x00eb A[LOOP:0: B:70:0x0022->B:63:0x00eb, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00ca A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static DecoderResult decode(byte[] bArr, Version version, ErrorCorrectionLevel errorCorrectionLevel, Map<DecodeHintType, ?> map) throws FormatException {
+        InterceptResult invokeLLLL;
         Mode forBits;
         Mode mode;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65538, null, bArr, version, errorCorrectionLevel, map)) != null) {
+            return (DecoderResult) invokeLLLL.objValue;
+        }
         BitSource bitSource = new BitSource(bArr);
         StringBuilder sb = new StringBuilder(50);
         int i2 = 1;
@@ -100,33 +145,36 @@ public final class DecodedBitStreamParser {
     }
 
     public static void decodeAlphanumericSegment(BitSource bitSource, StringBuilder sb, int i2, boolean z) throws FormatException {
-        while (i2 > 1) {
-            if (bitSource.available() >= 11) {
-                int readBits = bitSource.readBits(11);
-                sb.append(toAlphaNumericChar(readBits / 45));
-                sb.append(toAlphaNumericChar(readBits % 45));
-                i2 -= 2;
-            } else {
-                throw FormatException.getFormatInstance();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bitSource, sb, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            while (i2 > 1) {
+                if (bitSource.available() >= 11) {
+                    int readBits = bitSource.readBits(11);
+                    sb.append(toAlphaNumericChar(readBits / 45));
+                    sb.append(toAlphaNumericChar(readBits % 45));
+                    i2 -= 2;
+                } else {
+                    throw FormatException.getFormatInstance();
+                }
             }
-        }
-        if (i2 == 1) {
-            if (bitSource.available() >= 6) {
-                sb.append(toAlphaNumericChar(bitSource.readBits(6)));
-            } else {
-                throw FormatException.getFormatInstance();
+            if (i2 == 1) {
+                if (bitSource.available() >= 6) {
+                    sb.append(toAlphaNumericChar(bitSource.readBits(6)));
+                } else {
+                    throw FormatException.getFormatInstance();
+                }
             }
-        }
-        if (z) {
-            for (int length = sb.length(); length < sb.length(); length++) {
-                if (sb.charAt(length) == '%') {
-                    if (length < sb.length() - 1) {
-                        int i3 = length + 1;
-                        if (sb.charAt(i3) == '%') {
-                            sb.deleteCharAt(i3);
+            if (z) {
+                for (int length = sb.length(); length < sb.length(); length++) {
+                    if (sb.charAt(length) == '%') {
+                        if (length < sb.length() - 1) {
+                            int i3 = length + 1;
+                            if (sb.charAt(i3) == '%') {
+                                sb.deleteCharAt(i3);
+                            }
                         }
+                        sb.setCharAt(length, com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
                     }
-                    sb.setCharAt(length, com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
                 }
             }
         }
@@ -134,132 +182,154 @@ public final class DecodedBitStreamParser {
 
     public static void decodeByteSegment(BitSource bitSource, StringBuilder sb, int i2, CharacterSetECI characterSetECI, Collection<byte[]> collection, Map<DecodeHintType, ?> map) throws FormatException {
         String name;
-        if ((i2 << 3) <= bitSource.available()) {
-            byte[] bArr = new byte[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                bArr[i3] = (byte) bitSource.readBits(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{bitSource, sb, Integer.valueOf(i2), characterSetECI, collection, map}) == null) {
+            if ((i2 << 3) <= bitSource.available()) {
+                byte[] bArr = new byte[i2];
+                for (int i3 = 0; i3 < i2; i3++) {
+                    bArr[i3] = (byte) bitSource.readBits(8);
+                }
+                if (characterSetECI == null) {
+                    name = StringUtils.guessEncoding(bArr, map);
+                } else {
+                    name = characterSetECI.name();
+                }
+                try {
+                    sb.append(new String(bArr, name));
+                    collection.add(bArr);
+                    return;
+                } catch (UnsupportedEncodingException unused) {
+                    throw FormatException.getFormatInstance();
+                }
             }
-            if (characterSetECI == null) {
-                name = StringUtils.guessEncoding(bArr, map);
-            } else {
-                name = characterSetECI.name();
-            }
-            try {
-                sb.append(new String(bArr, name));
-                collection.add(bArr);
-                return;
-            } catch (UnsupportedEncodingException unused) {
-                throw FormatException.getFormatInstance();
-            }
+            throw FormatException.getFormatInstance();
         }
-        throw FormatException.getFormatInstance();
     }
 
     public static void decodeHanziSegment(BitSource bitSource, StringBuilder sb, int i2) throws FormatException {
-        if (i2 * 13 <= bitSource.available()) {
-            byte[] bArr = new byte[i2 * 2];
-            int i3 = 0;
-            while (i2 > 0) {
-                int readBits = bitSource.readBits(13);
-                int i4 = (readBits % 96) | ((readBits / 96) << 8);
-                int i5 = i4 + (i4 < 959 ? 41377 : 42657);
-                bArr[i3] = (byte) (i5 >> 8);
-                bArr[i3 + 1] = (byte) i5;
-                i3 += 2;
-                i2--;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, bitSource, sb, i2) == null) {
+            if (i2 * 13 <= bitSource.available()) {
+                byte[] bArr = new byte[i2 * 2];
+                int i3 = 0;
+                while (i2 > 0) {
+                    int readBits = bitSource.readBits(13);
+                    int i4 = (readBits % 96) | ((readBits / 96) << 8);
+                    int i5 = i4 + (i4 < 959 ? 41377 : 42657);
+                    bArr[i3] = (byte) (i5 >> 8);
+                    bArr[i3 + 1] = (byte) i5;
+                    i3 += 2;
+                    i2--;
+                }
+                try {
+                    sb.append(new String(bArr, StringUtils.GB2312));
+                    return;
+                } catch (UnsupportedEncodingException unused) {
+                    throw FormatException.getFormatInstance();
+                }
             }
-            try {
-                sb.append(new String(bArr, StringUtils.GB2312));
-                return;
-            } catch (UnsupportedEncodingException unused) {
-                throw FormatException.getFormatInstance();
-            }
+            throw FormatException.getFormatInstance();
         }
-        throw FormatException.getFormatInstance();
     }
 
     public static void decodeKanjiSegment(BitSource bitSource, StringBuilder sb, int i2) throws FormatException {
-        if (i2 * 13 <= bitSource.available()) {
-            byte[] bArr = new byte[i2 * 2];
-            int i3 = 0;
-            while (i2 > 0) {
-                int readBits = bitSource.readBits(13);
-                int i4 = (readBits % 192) | ((readBits / 192) << 8);
-                int i5 = i4 + (i4 < 7936 ? 33088 : 49472);
-                bArr[i3] = (byte) (i5 >> 8);
-                bArr[i3 + 1] = (byte) i5;
-                i3 += 2;
-                i2--;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, bitSource, sb, i2) == null) {
+            if (i2 * 13 <= bitSource.available()) {
+                byte[] bArr = new byte[i2 * 2];
+                int i3 = 0;
+                while (i2 > 0) {
+                    int readBits = bitSource.readBits(13);
+                    int i4 = (readBits % 192) | ((readBits / 192) << 8);
+                    int i5 = i4 + (i4 < 7936 ? 33088 : 49472);
+                    bArr[i3] = (byte) (i5 >> 8);
+                    bArr[i3 + 1] = (byte) i5;
+                    i3 += 2;
+                    i2--;
+                }
+                try {
+                    sb.append(new String(bArr, StringUtils.SHIFT_JIS));
+                    return;
+                } catch (UnsupportedEncodingException unused) {
+                    throw FormatException.getFormatInstance();
+                }
             }
-            try {
-                sb.append(new String(bArr, StringUtils.SHIFT_JIS));
-                return;
-            } catch (UnsupportedEncodingException unused) {
-                throw FormatException.getFormatInstance();
-            }
+            throw FormatException.getFormatInstance();
         }
-        throw FormatException.getFormatInstance();
     }
 
     public static void decodeNumericSegment(BitSource bitSource, StringBuilder sb, int i2) throws FormatException {
-        while (i2 >= 3) {
-            if (bitSource.available() >= 10) {
-                int readBits = bitSource.readBits(10);
-                if (readBits < 1000) {
-                    sb.append(toAlphaNumericChar(readBits / 100));
-                    sb.append(toAlphaNumericChar((readBits / 10) % 10));
-                    sb.append(toAlphaNumericChar(readBits % 10));
-                    i2 -= 3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, null, bitSource, sb, i2) == null) {
+            while (i2 >= 3) {
+                if (bitSource.available() >= 10) {
+                    int readBits = bitSource.readBits(10);
+                    if (readBits < 1000) {
+                        sb.append(toAlphaNumericChar(readBits / 100));
+                        sb.append(toAlphaNumericChar((readBits / 10) % 10));
+                        sb.append(toAlphaNumericChar(readBits % 10));
+                        i2 -= 3;
+                    } else {
+                        throw FormatException.getFormatInstance();
+                    }
                 } else {
                     throw FormatException.getFormatInstance();
                 }
-            } else {
-                throw FormatException.getFormatInstance();
             }
-        }
-        if (i2 == 2) {
-            if (bitSource.available() >= 7) {
-                int readBits2 = bitSource.readBits(7);
-                if (readBits2 < 100) {
-                    sb.append(toAlphaNumericChar(readBits2 / 10));
-                    sb.append(toAlphaNumericChar(readBits2 % 10));
-                    return;
+            if (i2 == 2) {
+                if (bitSource.available() >= 7) {
+                    int readBits2 = bitSource.readBits(7);
+                    if (readBits2 < 100) {
+                        sb.append(toAlphaNumericChar(readBits2 / 10));
+                        sb.append(toAlphaNumericChar(readBits2 % 10));
+                        return;
+                    }
+                    throw FormatException.getFormatInstance();
+                }
+                throw FormatException.getFormatInstance();
+            } else if (i2 == 1) {
+                if (bitSource.available() >= 4) {
+                    int readBits3 = bitSource.readBits(4);
+                    if (readBits3 < 10) {
+                        sb.append(toAlphaNumericChar(readBits3));
+                        return;
+                    }
+                    throw FormatException.getFormatInstance();
                 }
                 throw FormatException.getFormatInstance();
             }
-            throw FormatException.getFormatInstance();
-        } else if (i2 == 1) {
-            if (bitSource.available() >= 4) {
-                int readBits3 = bitSource.readBits(4);
-                if (readBits3 < 10) {
-                    sb.append(toAlphaNumericChar(readBits3));
-                    return;
-                }
-                throw FormatException.getFormatInstance();
-            }
-            throw FormatException.getFormatInstance();
         }
     }
 
     public static int parseECIValue(BitSource bitSource) throws FormatException {
-        int readBits = bitSource.readBits(8);
-        if ((readBits & 128) == 0) {
-            return readBits & 127;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bitSource)) == null) {
+            int readBits = bitSource.readBits(8);
+            if ((readBits & 128) == 0) {
+                return readBits & 127;
+            }
+            if ((readBits & 192) == 128) {
+                return bitSource.readBits(8) | ((readBits & 63) << 8);
+            }
+            if ((readBits & 224) == 192) {
+                return bitSource.readBits(16) | ((readBits & 31) << 16);
+            }
+            throw FormatException.getFormatInstance();
         }
-        if ((readBits & 192) == 128) {
-            return bitSource.readBits(8) | ((readBits & 63) << 8);
-        }
-        if ((readBits & 224) == 192) {
-            return bitSource.readBits(16) | ((readBits & 31) << 16);
-        }
-        throw FormatException.getFormatInstance();
+        return invokeL.intValue;
     }
 
     public static char toAlphaNumericChar(int i2) throws FormatException {
-        char[] cArr = ALPHANUMERIC_CHARS;
-        if (i2 < cArr.length) {
-            return cArr[i2];
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
+            char[] cArr = ALPHANUMERIC_CHARS;
+            if (i2 < cArr.length) {
+                return cArr[i2];
+            }
+            throw FormatException.getFormatInstance();
         }
-        throw FormatException.getFormatInstance();
+        return invokeI.charValue;
     }
 }

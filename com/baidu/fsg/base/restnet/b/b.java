@@ -3,11 +3,18 @@ package com.baidu.fsg.base.restnet.b;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestRequestCallbacker;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -22,111 +29,151 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements com.baidu.fsg.base.restnet.rest.b {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5144a = "appcache";
+    public static final String f5174a = "appcache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5145b = 2;
+    public static final int f5175b = 2;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f5146c;
+    public Context f5176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5147d;
+    public String f5177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f5148e;
+    public e f5178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public URLConnection f5149f;
+    public URLConnection f5179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5150g;
+    public boolean f5180g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f5151h;
+    public boolean f5181h;
 
     public b(Context context, String str, boolean z) {
-        this.f5151h = false;
-        this.f5146c = context.getApplicationContext();
-        this.f5147d = str;
-        this.f5151h = z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f5181h = false;
+        this.f5176c = context.getApplicationContext();
+        this.f5177d = str;
+        this.f5181h = z;
     }
 
     private com.baidu.fsg.base.restnet.rest.e b(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
-        URL url2 = new URL(a(url.toString()));
-        URLConnection openConnection = url2.openConnection();
-        this.f5149f = openConnection;
-        a(openConnection);
-        return a(url2, this.f5149f, "GET");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, url)) == null) {
+            URL url2 = new URL(a(url.toString()));
+            URLConnection openConnection = url2.openConnection();
+            this.f5179f = openConnection;
+            a(openConnection);
+            return a(url2, this.f5179f, "GET");
+        }
+        return (com.baidu.fsg.base.restnet.rest.e) invokeL.objValue;
     }
 
     private boolean c() {
-        if (this.f5148e != null) {
-            RestRequestCallbacker.IRestRequestCallback requestCallback = RestRequestCallbacker.getRequestCallback();
-            String k = this.f5148e.k();
-            return (TextUtils.isEmpty(k) || requestCallback == null || !requestCallback.isSpecialUrl(k)) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            if (this.f5178e != null) {
+                RestRequestCallbacker.IRestRequestCallback requestCallback = RestRequestCallbacker.getRequestCallback();
+                String k = this.f5178e.k();
+                return (TextUtils.isEmpty(k) || requestCallback == null || !requestCallback.isSpecialUrl(k)) ? false : true;
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     private void d() {
-        try {
-            Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f5146c.getDir("appcache", 0), "com/baidu/fsg/base/restnet/http"), Long.valueOf((long) Config.FULL_TRACE_LOG_LIMIT));
-        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            try {
+                Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f5176c.getDir("appcache", 0), "com/baidu/fsg/base/restnet/http"), Long.valueOf((long) Config.FULL_TRACE_LOG_LIMIT));
+            } catch (Exception unused) {
+            }
         }
     }
 
     private void e() {
-        try {
-            Class.forName("android.net.http.HttpResponseCache").getMethod(IntentConfig.CLOSE, new Class[0]).invoke(null, new Object[0]);
-        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            try {
+                Class.forName("android.net.http.HttpResponseCache").getMethod(IntentConfig.CLOSE, new Class[0]).invoke(null, new Object[0]);
+            } catch (Exception unused) {
+            }
         }
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.b
     public com.baidu.fsg.base.restnet.rest.e a(com.baidu.fsg.base.restnet.rest.d dVar) throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        this.f5148e = (e) dVar;
-        URL url = new URL(dVar.d());
-        LogUtil.v("apollon_rest", "con url: " + url + ", host: " + dVar.b().c("Host"));
-        if (this.f5148e.i()) {
-            return a(url);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
+            this.f5178e = (e) dVar;
+            URL url = new URL(dVar.d());
+            LogUtil.v("apollon_rest", "con url: " + url + ", host: " + dVar.b().c("Host"));
+            if (this.f5178e.i()) {
+                return a(url);
+            }
+            if (this.f5178e.j()) {
+                return b(url);
+            }
+            return null;
         }
-        if (this.f5148e.j()) {
-            return b(url);
-        }
-        return null;
+        return (com.baidu.fsg.base.restnet.rest.e) invokeL.objValue;
     }
 
     private void b() {
-        ((HttpsURLConnection) this.f5149f).setHostnameVerifier(new c(this));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            ((HttpsURLConnection) this.f5179f).setHostnameVerifier(new c(this));
+        }
     }
 
     private void b(URLConnection uRLConnection) {
+        e eVar;
         DataOutputStream dataOutputStream;
-        e eVar = this.f5148e;
-        if (eVar != null) {
-            String l = eVar.l();
-            RestMultipartEntity a2 = this.f5148e.a();
-            uRLConnection.setDoOutput(true);
-            uRLConnection.setDoInput(true);
-            if (a2 != null) {
-                ((HttpURLConnection) uRLConnection).setFixedLengthStreamingMode((int) a2.getContentLength());
-                uRLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + a2.getBoundary());
-            }
-            DataOutputStream dataOutputStream2 = null;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, this, uRLConnection) == null) || (eVar = this.f5178e) == null) {
+            return;
+        }
+        String l = eVar.l();
+        RestMultipartEntity a2 = this.f5178e.a();
+        uRLConnection.setDoOutput(true);
+        uRLConnection.setDoInput(true);
+        if (a2 != null) {
+            ((HttpURLConnection) uRLConnection).setFixedLengthStreamingMode((int) a2.getContentLength());
+            uRLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + a2.getBoundary());
+        }
+        DataOutputStream dataOutputStream2 = null;
+        try {
             try {
                 try {
-                    try {
-                        dataOutputStream = new DataOutputStream(uRLConnection.getOutputStream());
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                } catch (IOException e3) {
-                    e = e3;
+                    dataOutputStream = new DataOutputStream(uRLConnection.getOutputStream());
+                } catch (IOException e2) {
+                    e = e2;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -138,8 +185,8 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
                 }
                 dataOutputStream.flush();
                 dataOutputStream.close();
-            } catch (IOException e4) {
-                e = e4;
+            } catch (IOException e3) {
+                e = e3;
                 dataOutputStream2 = dataOutputStream;
                 e.printStackTrace();
                 if (dataOutputStream2 != null) {
@@ -151,91 +198,112 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
                 if (dataOutputStream2 != null) {
                     try {
                         dataOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
             }
+        } catch (IOException e5) {
+            e5.printStackTrace();
         }
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.b
     public void a() {
-        URLConnection uRLConnection = this.f5149f;
-        if (uRLConnection != null) {
-            if (uRLConnection instanceof HttpsURLConnection) {
-                ((HttpsURLConnection) uRLConnection).disconnect();
-            } else if (uRLConnection instanceof HttpURLConnection) {
-                ((HttpURLConnection) uRLConnection).disconnect();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            URLConnection uRLConnection = this.f5179f;
+            if (uRLConnection != null) {
+                if (uRLConnection instanceof HttpsURLConnection) {
+                    ((HttpsURLConnection) uRLConnection).disconnect();
+                } else if (uRLConnection instanceof HttpURLConnection) {
+                    ((HttpURLConnection) uRLConnection).disconnect();
+                }
+                this.f5179f = null;
             }
-            this.f5149f = null;
-        }
-        if (this.f5151h) {
-            e();
+            if (this.f5181h) {
+                e();
+            }
         }
     }
 
     private com.baidu.fsg.base.restnet.rest.e a(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
-        URLConnection openConnection = url.openConnection();
-        this.f5149f = openConnection;
-        a(openConnection);
-        b(this.f5149f);
-        return a(url, this.f5149f, "POST");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, url)) == null) {
+            URLConnection openConnection = url.openConnection();
+            this.f5179f = openConnection;
+            a(openConnection);
+            b(this.f5179f);
+            return a(url, this.f5179f, "POST");
+        }
+        return (com.baidu.fsg.base.restnet.rest.e) invokeL.objValue;
     }
 
     private com.baidu.fsg.base.restnet.rest.e a(URL url, URLConnection uRLConnection, String str) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
-        HttpURLConnection httpURLConnection = (HttpURLConnection) uRLConnection;
-        int responseCode = httpURLConnection.getResponseCode();
-        Map<String, List<String>> headerFields = uRLConnection.getHeaderFields();
-        return new f(new BufferedInputStream(uRLConnection.getInputStream()), responseCode, httpURLConnection.getResponseMessage(), headerFields);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, url, uRLConnection, str)) == null) {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) uRLConnection;
+            return new f(new BufferedInputStream(uRLConnection.getInputStream()), httpURLConnection.getResponseCode(), httpURLConnection.getResponseMessage(), uRLConnection.getHeaderFields());
+        }
+        return (com.baidu.fsg.base.restnet.rest.e) invokeLLL.objValue;
     }
 
     private void a(URLConnection uRLConnection) {
-        if (this.f5150g) {
-            uRLConnection.setConnectTimeout(this.f5148e.h() > 0 ? this.f5148e.h() : 30000);
-            uRLConnection.setReadTimeout(this.f5148e.h() > 0 ? this.f5148e.h() : 30000);
-        } else {
-            uRLConnection.setConnectTimeout(this.f5148e.h() > 0 ? this.f5148e.h() : 30000);
-            uRLConnection.setReadTimeout(this.f5148e.h() > 0 ? this.f5148e.h() : 30000);
-        }
-        if (Integer.parseInt(Build.VERSION.SDK) < 8) {
-            System.setProperty("http.keepAlive", "false");
-        } else {
-            System.setProperty("http.keepAlive", "true");
-            System.setProperty("http.maxConnections ", String.valueOf(10));
-            System.setProperty("sun.net.http.errorstream.enableBuffering", "true");
-        }
-        if (c()) {
-            uRLConnection.setRequestProperty("User-Agent", "");
-            uRLConnection.setRequestProperty("Accept-Encoding", "");
-        } else {
-            uRLConnection.setRequestProperty("User-Agent", this.f5147d);
-            for (Map.Entry<String, List<String>> entry : this.f5148e.b().entrySet()) {
-                uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, uRLConnection) == null) {
+            if (this.f5180g) {
+                uRLConnection.setConnectTimeout(this.f5178e.h() > 0 ? this.f5178e.h() : 30000);
+                uRLConnection.setReadTimeout(this.f5178e.h() > 0 ? this.f5178e.h() : 30000);
+            } else {
+                uRLConnection.setConnectTimeout(this.f5178e.h() > 0 ? this.f5178e.h() : 30000);
+                uRLConnection.setReadTimeout(this.f5178e.h() > 0 ? this.f5178e.h() : 30000);
             }
-            if (this.f5151h) {
-                d();
+            if (Integer.parseInt(Build.VERSION.SDK) < 8) {
+                System.setProperty("http.keepAlive", "false");
+            } else {
+                System.setProperty("http.keepAlive", "true");
+                System.setProperty("http.maxConnections ", String.valueOf(10));
+                System.setProperty("sun.net.http.errorstream.enableBuffering", "true");
             }
+            if (c()) {
+                uRLConnection.setRequestProperty("User-Agent", "");
+                uRLConnection.setRequestProperty("Accept-Encoding", "");
+            } else {
+                uRLConnection.setRequestProperty("User-Agent", this.f5177d);
+                for (Map.Entry<String, List<String>> entry : this.f5178e.b().entrySet()) {
+                    uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
+                }
+                if (this.f5181h) {
+                    d();
+                }
+            }
+            if (!(this.f5179f instanceof HttpsURLConnection) || com.baidu.fsg.base.c.a().a()) {
+                return;
+            }
+            b();
         }
-        if (!(this.f5149f instanceof HttpsURLConnection) || com.baidu.fsg.base.c.a().a()) {
-            return;
-        }
-        b();
     }
 
     private String a(String str) {
-        e eVar = this.f5148e;
-        if (eVar != null) {
-            String l = eVar.l();
-            if (TextUtils.isEmpty(l)) {
-                return str;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+            e eVar = this.f5178e;
+            if (eVar != null) {
+                String l = eVar.l();
+                if (TextUtils.isEmpty(l)) {
+                    return str;
+                }
+                if (str.contains("?")) {
+                    return str + "&" + l;
+                }
+                return str + "?" + l;
             }
-            if (str.contains("?")) {
-                return str + "&" + l;
-            }
-            return str + "?" + l;
+            return str;
         }
-        return str;
+        return (String) invokeL.objValue;
     }
 }

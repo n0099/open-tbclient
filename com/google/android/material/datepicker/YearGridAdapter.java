@@ -6,76 +6,156 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.datepicker.MaterialCalendar;
 import java.util.Calendar;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final MaterialCalendar<?> materialCalendar;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final TextView textView;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(TextView textView) {
             super(textView);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {textView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.textView = textView;
         }
     }
 
     public YearGridAdapter(MaterialCalendar<?> materialCalendar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {materialCalendar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.materialCalendar = materialCalendar;
     }
 
     @NonNull
-    private View.OnClickListener createYearClickListener(final int i2) {
-        return new View.OnClickListener() { // from class: com.google.android.material.datepicker.YearGridAdapter.1
+    private View.OnClickListener createYearClickListener(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? new View.OnClickListener(this, i2) { // from class: com.google.android.material.datepicker.YearGridAdapter.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ YearGridAdapter this$0;
+            public final /* synthetic */ int val$year;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(i2)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$year = i2;
+            }
+
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                YearGridAdapter.this.materialCalendar.setCurrentMonth(YearGridAdapter.this.materialCalendar.getCalendarConstraints().clamp(Month.create(i2, YearGridAdapter.this.materialCalendar.getCurrentMonth().month)));
-                YearGridAdapter.this.materialCalendar.setSelector(MaterialCalendar.CalendarSelector.DAY);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    this.this$0.materialCalendar.setCurrentMonth(this.this$0.materialCalendar.getCalendarConstraints().clamp(Month.create(this.val$year, this.this$0.materialCalendar.getCurrentMonth().month)));
+                    this.this$0.materialCalendar.setSelector(MaterialCalendar.CalendarSelector.DAY);
+                }
             }
-        };
+        } : (View.OnClickListener) invokeI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.materialCalendar.getCalendarConstraints().getYearSpan();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.materialCalendar.getCalendarConstraints().getYearSpan() : invokeV.intValue;
     }
 
     public int getPositionForYear(int i2) {
-        return i2 - this.materialCalendar.getCalendarConstraints().getStart().year;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 - this.materialCalendar.getCalendarConstraints().getStart().year : invokeI.intValue;
     }
 
     public int getYearForPosition(int i2) {
-        return this.materialCalendar.getCalendarConstraints().getStart().year + i2;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.materialCalendar.getCalendarConstraints().getStart().year + i2 : invokeI.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
-        int yearForPosition = getYearForPosition(i2);
-        String string = viewHolder.textView.getContext().getString(R.string.mtrl_picker_navigate_to_year_description);
-        viewHolder.textView.setText(String.format(Locale.getDefault(), "%d", Integer.valueOf(yearForPosition)));
-        viewHolder.textView.setContentDescription(String.format(string, Integer.valueOf(yearForPosition)));
-        CalendarStyle calendarStyle = this.materialCalendar.getCalendarStyle();
-        Calendar todayCalendar = UtcDates.getTodayCalendar();
-        CalendarItemStyle calendarItemStyle = todayCalendar.get(1) == yearForPosition ? calendarStyle.todayYear : calendarStyle.year;
-        for (Long l : this.materialCalendar.getDateSelector().getSelectedDays()) {
-            todayCalendar.setTimeInMillis(l.longValue());
-            if (todayCalendar.get(1) == yearForPosition) {
-                calendarItemStyle = calendarStyle.selectedYear;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i2) == null) {
+            int yearForPosition = getYearForPosition(i2);
+            String string = viewHolder.textView.getContext().getString(R.string.mtrl_picker_navigate_to_year_description);
+            viewHolder.textView.setText(String.format(Locale.getDefault(), "%d", Integer.valueOf(yearForPosition)));
+            viewHolder.textView.setContentDescription(String.format(string, Integer.valueOf(yearForPosition)));
+            CalendarStyle calendarStyle = this.materialCalendar.getCalendarStyle();
+            Calendar todayCalendar = UtcDates.getTodayCalendar();
+            CalendarItemStyle calendarItemStyle = todayCalendar.get(1) == yearForPosition ? calendarStyle.todayYear : calendarStyle.year;
+            for (Long l : this.materialCalendar.getDateSelector().getSelectedDays()) {
+                todayCalendar.setTimeInMillis(l.longValue());
+                if (todayCalendar.get(1) == yearForPosition) {
+                    calendarItemStyle = calendarStyle.selectedYear;
+                }
             }
+            calendarItemStyle.styleItem(viewHolder.textView);
+            viewHolder.textView.setOnClickListener(createYearClickListener(yearForPosition));
         }
-        calendarItemStyle.styleItem(viewHolder.textView);
-        viewHolder.textView.setOnClickListener(createYearClickListener(yearForPosition));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
-        return new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.mtrl_calendar_year, viewGroup, false));
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) ? new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.mtrl_calendar_year, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
     }
 }

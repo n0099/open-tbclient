@@ -6,55 +6,100 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.afd.AfdSyncRequestMessage;
 import com.baidu.afd.AfdSyncResponseMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class g implements j {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f43325a;
+    public d f45184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43326b;
+    public boolean f45185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f43327c;
+    public final HttpMessageListener f45186c;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ g f45187a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(g gVar, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f45187a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
                 e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
-                g.this.f43325a.q(eVar);
-                if (!eVar.f43321a || eVar.f43324d == null) {
+                this.f45187a.f45184a.p(eVar);
+                if (!eVar.f45180a || eVar.f45183d == null) {
                     return;
                 }
-                d.a.o0.t2.i0.e.b().d(d.a.o0.t2.i0.g.o(g.this.f43325a, eVar.f43324d));
+                d.a.s0.w2.i0.e.b().d(d.a.s0.w2.i0.g.o(this.f45187a.f45184a, eVar.f45183d));
             }
         }
     }
 
     public g(d dVar) {
-        a aVar = new a(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
-        this.f43327c = aVar;
-        this.f43325a = dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this, CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
+        this.f45186c = aVar;
+        this.f45184a = dVar;
         aVar.setSelfListener(true);
-        this.f43327c.setTag(dVar.o());
-        MessageManager.getInstance().registerListener(this.f43327c);
+        this.f45186c.setTag(dVar.j());
+        MessageManager.getInstance().registerListener(this.f45186c);
     }
 
     @Override // d.a.d.j
     public void a() {
-        if (this.f43326b) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45185b) {
             return;
         }
-        this.f43326b = true;
-        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.f43325a.f43318g);
-        afdSyncRequestMessage.setTag(this.f43325a.o());
+        this.f45185b = true;
+        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.f45184a.f45177g);
+        afdSyncRequestMessage.setTag(this.f45184a.j());
         MessageManager.getInstance().sendMessage(afdSyncRequestMessage);
     }
 }

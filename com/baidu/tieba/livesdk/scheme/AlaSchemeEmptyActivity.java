@@ -3,35 +3,63 @@ package com.baidu.tieba.livesdk.scheme;
 import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import d.a.n0.a.g;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.a.g;
+/* loaded from: classes5.dex */
 public class AlaSchemeEmptyActivity extends BaseActivity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public AlaSchemeEmptyActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         String uri;
-        super.onCreate(bundle);
-        if (getIntent() == null || getIntent().getData() == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            if (getIntent() == null || getIntent().getData() == null) {
+                return;
+            }
+            Uri data = getIntent().getData();
+            String host = data.getHost();
+            String path = data.getPath();
+            if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
+                return;
+            }
+            String replace = uri.replace(g.f54632a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
+            if (StringUtils.isNull(replace)) {
+                return;
+            }
+            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{replace});
         }
-        Uri data = getIntent().getData();
-        String host = data.getHost();
-        String path = data.getPath();
-        if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
-            return;
-        }
-        String replace = uri.replace(g.f52492a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
-        if (StringUtils.isNull(replace)) {
-            return;
-        }
-        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{replace});
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        super.onStop();
-        finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onStop();
+            finish();
+        }
     }
 }

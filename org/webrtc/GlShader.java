@@ -1,15 +1,37 @@
 package org.webrtc;
 
 import android.opengl.GLES20;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class GlShader {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GlShader";
+    public transient /* synthetic */ FieldHolder $fh;
     public int program;
 
     public GlShader(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         int compileShader = compileShader(35633, str);
         int compileShader2 = compileShader(35632, str2);
         int glCreateProgram = GLES20.glCreateProgram();
@@ -33,75 +55,102 @@ public class GlShader {
     }
 
     public static int compileShader(int i2, String str) {
-        int glCreateShader = GLES20.glCreateShader(i2);
-        if (glCreateShader == 0) {
-            throw new RuntimeException("glCreateShader() failed. GLES20 error: " + GLES20.glGetError());
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
+            int glCreateShader = GLES20.glCreateShader(i2);
+            if (glCreateShader == 0) {
+                throw new RuntimeException("glCreateShader() failed. GLES20 error: " + GLES20.glGetError());
+            }
+            GLES20.glShaderSource(glCreateShader, str);
+            GLES20.glCompileShader(glCreateShader);
+            int[] iArr = {0};
+            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
+            if (iArr[0] == 1) {
+                GlUtil.checkNoGLES2Error("compileShader");
+                return glCreateShader;
+            }
+            Logging.e(TAG, "Compile error " + GLES20.glGetShaderInfoLog(glCreateShader) + " in shader:\n" + str);
+            throw new RuntimeException(GLES20.glGetShaderInfoLog(glCreateShader));
         }
-        GLES20.glShaderSource(glCreateShader, str);
-        GLES20.glCompileShader(glCreateShader);
-        int[] iArr = {0};
-        GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-        if (iArr[0] == 1) {
-            GlUtil.checkNoGLES2Error("compileShader");
-            return glCreateShader;
-        }
-        Logging.e(TAG, "Compile error " + GLES20.glGetShaderInfoLog(glCreateShader) + " in shader:\n" + str);
-        throw new RuntimeException(GLES20.glGetShaderInfoLog(glCreateShader));
+        return invokeIL.intValue;
     }
 
     public int getAttribLocation(String str) {
-        int i2 = this.program;
-        if (i2 != -1) {
-            int glGetAttribLocation = GLES20.glGetAttribLocation(i2, str);
-            if (glGetAttribLocation >= 0) {
-                return glGetAttribLocation;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            int i2 = this.program;
+            if (i2 != -1) {
+                int glGetAttribLocation = GLES20.glGetAttribLocation(i2, str);
+                if (glGetAttribLocation >= 0) {
+                    return glGetAttribLocation;
+                }
+                throw new RuntimeException("Could not locate '" + str + "' in program");
             }
-            throw new RuntimeException("Could not locate '" + str + "' in program");
+            throw new RuntimeException("The program has been released");
         }
-        throw new RuntimeException("The program has been released");
+        return invokeL.intValue;
     }
 
     public int getUniformLocation(String str) {
-        int i2 = this.program;
-        if (i2 != -1) {
-            int glGetUniformLocation = GLES20.glGetUniformLocation(i2, str);
-            if (glGetUniformLocation >= 0) {
-                return glGetUniformLocation;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            int i2 = this.program;
+            if (i2 != -1) {
+                int glGetUniformLocation = GLES20.glGetUniformLocation(i2, str);
+                if (glGetUniformLocation >= 0) {
+                    return glGetUniformLocation;
+                }
+                throw new RuntimeException("Could not locate uniform '" + str + "' in program");
             }
-            throw new RuntimeException("Could not locate uniform '" + str + "' in program");
+            throw new RuntimeException("The program has been released");
         }
-        throw new RuntimeException("The program has been released");
+        return invokeL.intValue;
     }
 
     public void release() {
-        Logging.d(TAG, "Deleting shader.");
-        int i2 = this.program;
-        if (i2 != -1) {
-            GLES20.glDeleteProgram(i2);
-            this.program = -1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Logging.d(TAG, "Deleting shader.");
+            int i2 = this.program;
+            if (i2 != -1) {
+                GLES20.glDeleteProgram(i2);
+                this.program = -1;
+            }
         }
     }
 
     public void setVertexAttribArray(String str, int i2, int i3, FloatBuffer floatBuffer) {
-        if (this.program == -1) {
-            throw new RuntimeException("The program has been released");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), floatBuffer}) == null) {
+            if (this.program == -1) {
+                throw new RuntimeException("The program has been released");
+            }
+            int attribLocation = getAttribLocation(str);
+            GLES20.glEnableVertexAttribArray(attribLocation);
+            GLES20.glVertexAttribPointer(attribLocation, i2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i3, (Buffer) floatBuffer);
+            GlUtil.checkNoGLES2Error("setVertexAttribArray");
         }
-        int attribLocation = getAttribLocation(str);
-        GLES20.glEnableVertexAttribArray(attribLocation);
-        GLES20.glVertexAttribPointer(attribLocation, i2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i3, (Buffer) floatBuffer);
-        GlUtil.checkNoGLES2Error("setVertexAttribArray");
     }
 
     public void setVertexAttribArray(String str, int i2, FloatBuffer floatBuffer) {
-        setVertexAttribArray(str, i2, 0, floatBuffer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, floatBuffer) == null) {
+            setVertexAttribArray(str, i2, 0, floatBuffer);
+        }
     }
 
     public void useProgram() {
-        int i2 = this.program;
-        if (i2 == -1) {
-            throw new RuntimeException("The program has been released");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            int i2 = this.program;
+            if (i2 == -1) {
+                throw new RuntimeException("The program has been released");
+            }
+            GLES20.glUseProgram(i2);
+            GlUtil.checkNoGLES2Error("glUseProgram");
         }
-        GLES20.glUseProgram(i2);
-        GlUtil.checkNoGLES2Error("glUseProgram");
     }
 }

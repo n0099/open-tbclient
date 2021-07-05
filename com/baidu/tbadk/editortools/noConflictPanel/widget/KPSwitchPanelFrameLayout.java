@@ -3,78 +3,163 @@ package com.baidu.tbadk.editortools.noConflictPanel.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import d.a.n0.w.v.a;
-import d.a.n0.w.v.b;
-/* loaded from: classes3.dex */
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.w.v.a;
+import d.a.r0.w.v.b;
+/* loaded from: classes4.dex */
 public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.w.v.c.b f12930e;
+    public d.a.r0.w.v.c.b f13014e;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchPanelFrameLayout(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         c(null);
     }
 
-    @Override // d.a.n0.w.v.b
+    @Override // d.a.r0.w.v.b
     public void a(boolean z) {
-        this.f12930e.f(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.f13014e.f(z);
+        }
     }
 
-    @Override // d.a.n0.w.v.a
+    @Override // d.a.r0.w.v.a
     public boolean b() {
-        return this.f12930e.b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13014e.b() : invokeV.booleanValue;
     }
 
     public final void c(AttributeSet attributeSet) {
-        this.f12930e = new d.a.n0.w.v.c.b(this, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
+            this.f13014e = new d.a.r0.w.v.c.b(this, attributeSet);
+        }
     }
 
-    @Override // d.a.n0.w.v.a
+    @Override // d.a.r0.w.v.a
     public void handleHide() {
-        this.f12930e.handleHide();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f13014e.handleHide();
+        }
     }
 
-    @Override // d.a.n0.w.v.a
+    @Override // d.a.r0.w.v.a
     public void handleShow() {
-        super.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.setVisibility(0);
+        }
     }
 
-    @Override // d.a.n0.w.v.a
+    @Override // d.a.r0.w.v.a
     public boolean isVisible() {
-        return this.f12930e.isVisible();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13014e.isVisible() : invokeV.booleanValue;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        int[] c2 = this.f12930e.c(i2, i3);
-        super.onMeasure(c2[0], c2[1]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+            int[] c2 = this.f13014e.c(i2, i3);
+            super.onMeasure(c2[0], c2[1]);
+        }
     }
 
-    @Override // d.a.n0.w.v.b
+    @Override // d.a.r0.w.v.b
     public void refreshHeight(int i2) {
-        this.f12930e.d(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.f13014e.d(i2);
+        }
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.f12930e.e(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f13014e.e(z);
+        }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
-        if (this.f12930e.a(i2)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f13014e.a(i2)) {
             return;
         }
         super.setVisibility(i2);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchPanelFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         c(attributeSet);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchPanelFrameLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         c(attributeSet);
     }
 }

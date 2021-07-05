@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface NativePeerConnectionFactory {
     long createNativePeerConnection();
 }

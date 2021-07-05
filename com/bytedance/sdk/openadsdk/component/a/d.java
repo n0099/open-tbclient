@@ -9,239 +9,397 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.ad;
-import com.bytedance.sdk.openadsdk.utils.al;
-import com.bytedance.sdk.openadsdk.utils.u;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.openadsdk.core.e.m;
+import com.bytedance.sdk.openadsdk.core.o;
+import com.bytedance.sdk.openadsdk.r.p;
+import com.bytedance.sdk.openadsdk.r.q;
 import com.google.android.material.badge.BadgeDrawable;
 /* loaded from: classes6.dex */
 public class d extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f27533a;
+    public final Context f29179a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f27534b;
+    public c f29180b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f27535c;
+    public c f29181c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f27536d;
+    public ImageView f29182d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f27537e;
+    public ImageView f29183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b f27538f;
+    public com.bytedance.sdk.openadsdk.dislike.ui.a f29184f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27539g;
+    public int f29185g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27540h;
+    public boolean f29186h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f27541i;
+    public boolean f29187i;
     public boolean j;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(@NonNull Context context) {
         super(context);
-        this.f27541i = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f29187i = false;
         this.j = false;
-        this.f27533a = context;
+        this.f29179a = context;
         g();
     }
 
     private void g() {
-        c cVar = new c(this.f27533a);
-        this.f27534b = cVar;
-        addView(cVar, new FrameLayout.LayoutParams(-1, -1));
-        i();
-        h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            c cVar = new c(this.f29179a);
+            this.f29180b = cVar;
+            addView(cVar, new FrameLayout.LayoutParams(-1, -1));
+            i();
+            h();
+        }
     }
 
     private void h() {
-        if (this.j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.j) {
             return;
         }
         this.j = true;
-        ImageView imageView = new ImageView(this.f27533a);
-        this.f27536d = imageView;
-        imageView.setImageResource(ad.d(p.a(), "tt_dislike_icon"));
-        this.f27536d.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f27536d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.a.d.1
+        ImageView imageView = new ImageView(this.f29179a);
+        this.f29182d = imageView;
+        imageView.setImageResource(r.d(o.a(), "tt_dislike_icon"));
+        this.f29182d.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f29182d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.a.d.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ d f29188a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f29188a = this;
+            }
+
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.f27538f != null) {
-                    d.this.f27538f.showDislikeDialog();
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f29188a.f29184f == null) {
+                    return;
                 }
+                this.f29188a.f29184f.showDislikeDialog();
             }
         });
-        int a2 = (int) al.a(this.f27533a, 15.0f);
-        int a3 = (int) al.a(this.f27533a, 10.0f);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(a2, a2);
+        int b2 = (int) q.b(this.f29179a, 15.0f);
+        int b3 = (int) q.b(this.f29179a, 10.0f);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b2, b2);
         layoutParams.gravity = BadgeDrawable.TOP_END;
-        layoutParams.topMargin = a3;
-        layoutParams.rightMargin = a3;
-        addView(this.f27536d, layoutParams);
-        al.a(this.f27536d, a2, a2, a2, a2);
+        layoutParams.topMargin = b3;
+        layoutParams.rightMargin = b3;
+        addView(this.f29182d, layoutParams);
+        q.a(this.f29182d, b2, b2, b2, b2);
     }
 
     private void i() {
-        if (this.f27541i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || this.f29187i) {
             return;
         }
-        this.f27541i = true;
-        ImageView imageView = new ImageView(this.f27533a);
-        this.f27537e = imageView;
-        imageView.setImageResource(ad.d(p.a(), "tt_ad_logo_small"));
-        this.f27537e.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f29187i = true;
+        ImageView imageView = new ImageView(this.f29179a);
+        this.f29183e = imageView;
+        imageView.setImageResource(r.d(o.a(), "tt_ad_logo_small"));
+        this.f29183e.setScaleType(ImageView.ScaleType.FIT_XY);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(20, 20);
         layoutParams.gravity = BadgeDrawable.BOTTOM_END;
-        addView(this.f27537e, layoutParams);
+        addView(this.f29183e, layoutParams);
     }
 
     private void j() {
-        ImageView imageView = this.f27537e;
-        if (imageView != null) {
-            bringChildToFront(imageView);
-        }
-        ImageView imageView2 = this.f27536d;
-        if (imageView2 != null) {
-            bringChildToFront(imageView2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            ImageView imageView = this.f29183e;
+            if (imageView != null) {
+                bringChildToFront(imageView);
+            }
+            ImageView imageView2 = this.f29182d;
+            if (imageView2 != null) {
+                bringChildToFront(imageView2);
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        c cVar = this.f27534b;
-        this.f27534b = this.f27535c;
-        this.f27535c = cVar;
-        cVar.b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            c cVar = this.f29180b;
+            this.f29180b = this.f29181c;
+            this.f29181c = cVar;
+            cVar.b();
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void addView(View view, ViewGroup.LayoutParams layoutParams) {
-        super.addView(view, layoutParams);
-        j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, layoutParams) == null) {
+            super.addView(view, layoutParams);
+            j();
+        }
     }
 
     public c c() {
-        return this.f27535c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29181c : (c) invokeV.objValue;
     }
 
     public View d() {
-        return this.f27536d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29182d : (View) invokeV.objValue;
     }
 
     public void e() {
-        if (this.f27540h) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f29186h) {
             return;
         }
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(a(this.f27534b)).with(b(this.f27535c));
-        animatorSet.setDuration(this.f27539g).start();
-        this.f27535c.setVisibility(0);
-        this.f27540h = true;
+        animatorSet.play(a(this.f29180b)).with(b(this.f29181c));
+        animatorSet.setDuration(this.f29185g).start();
+        this.f29181c.setVisibility(0);
+        this.f29186h = true;
     }
 
     public boolean f() {
-        c cVar = this.f27535c;
-        return (cVar == null || cVar.a() == null) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            c cVar = this.f29181c;
+            return (cVar == null || cVar.a() == null) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        this.f27541i = false;
-        this.j = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.onDetachedFromWindow();
+            this.f29187i = false;
+            this.j = false;
+        }
     }
 
     public c b() {
-        return this.f27534b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29180b : (c) invokeV.objValue;
     }
 
-    private ObjectAnimator b(final c cVar) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(cVar, "translationX", getWidth(), 0.0f);
-        ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.bytedance.sdk.openadsdk.component.a.d.2
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-            }
+    private ObjectAnimator b(c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, cVar)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(cVar, "translationX", getWidth(), 0.0f);
+            ofFloat.addListener(new Animator.AnimatorListener(this, cVar) { // from class: com.bytedance.sdk.openadsdk.component.a.d.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                d.this.f27540h = false;
-                d.this.k();
-                c cVar2 = cVar;
-                if (cVar2 != null) {
-                    d.this.a(cVar2.a());
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ c f29189a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ d f29190b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, cVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f29190b = this;
+                    this.f29189a = cVar;
                 }
-                u.b("TTBannerAd", "SLIDE END");
-            }
 
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationCancel(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                    }
+                }
 
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-                u.b("TTBannerAd", "SLIDE START");
-            }
-        });
-        return ofFloat;
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                        this.f29190b.f29186h = false;
+                        this.f29190b.k();
+                        c cVar2 = this.f29189a;
+                        if (cVar2 != null) {
+                            this.f29190b.a(cVar2.a());
+                        }
+                        j.b("TTBannerAd", "SLIDE END");
+                    }
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationRepeat(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                    }
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, animator) == null) {
+                        j.b("TTBannerAd", "SLIDE START");
+                    }
+                }
+            });
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
-        super.addView(view);
-        j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            super.addView(view);
+            j();
+        }
     }
 
     public void a() {
-        c cVar = new c(this.f27533a);
-        this.f27535c = cVar;
-        cVar.setVisibility(8);
-        addView(this.f27535c, new FrameLayout.LayoutParams(-1, -1));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c cVar = new c(this.f29179a);
+            this.f29181c = cVar;
+            cVar.setVisibility(8);
+            addView(this.f29181c, new FrameLayout.LayoutParams(-1, -1));
+        }
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i2) {
-        super.addView(view, i2);
-        j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, view, i2) == null) {
+            super.addView(view, i2);
+            j();
+        }
     }
 
-    public void a(com.bytedance.sdk.openadsdk.dislike.b bVar) {
-        this.f27538f = bVar;
+    public void a(com.bytedance.sdk.openadsdk.dislike.ui.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.f29184f = aVar;
+        }
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i2, int i3) {
-        super.addView(view, i2, i3);
-        j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048582, this, view, i2, i3) == null) {
+            super.addView(view, i2, i3);
+            j();
+        }
     }
 
     public void a(int i2) {
-        this.f27539g = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f29185g = i2;
+        }
     }
 
     private ObjectAnimator a(c cVar) {
-        return ObjectAnimator.ofFloat(cVar, "translationX", 0.0f, -getWidth());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cVar)) == null) ? ObjectAnimator.ofFloat(cVar, "translationX", 0.0f, -getWidth()) : (ObjectAnimator) invokeL.objValue;
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
-        super.addView(view, i2, layoutParams);
-        j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048583, this, view, i2, layoutParams) == null) {
+            super.addView(view, i2, layoutParams);
+            j();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(l lVar) {
-        com.bytedance.sdk.openadsdk.dislike.b bVar = this.f27538f;
-        if (bVar == null || lVar == null) {
+    public void a(m mVar) {
+        com.bytedance.sdk.openadsdk.dislike.ui.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, this, mVar) == null) || (aVar = this.f29184f) == null || mVar == null) {
             return;
         }
-        bVar.a(lVar);
+        aVar.a(mVar.aG());
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            p.a(this.f29183e, str);
+        }
     }
 }

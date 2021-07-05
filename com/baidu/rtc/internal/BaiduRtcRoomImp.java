@@ -14,8 +14,9 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.util.Log;
 import android.view.Surface;
 import androidx.core.view.DisplayCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudbase.audiofilter.AudioFilter;
-import com.baidu.cloudbase.plugin.DownSoHelper;
 import com.baidu.rtc.BaiduRtcRoom;
 import com.baidu.rtc.CommonDefine;
 import com.baidu.rtc.JanusConnection;
@@ -23,6 +24,7 @@ import com.baidu.rtc.JanusHandle;
 import com.baidu.rtc.JanusRTCInterface;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.rtc.RTCAudioSamples;
+import com.baidu.rtc.RTCLoadManager;
 import com.baidu.rtc.RTCVideoCapture;
 import com.baidu.rtc.RTCVideoExternalRender;
 import com.baidu.rtc.RTCVideoExternalRenderImp;
@@ -35,16 +37,20 @@ import com.baidu.rtc.logreport.HUDStatistics;
 import com.baidu.rtc.logreport.RtcLogReport;
 import com.baidu.rtc.logreport.SLIReportInterface;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.sapi2.activity.IdCardOcrCameraActivity;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.google.android.material.internal.ManufacturerUtils;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwai.video.player.KsMediaMeta;
-import d.a.k.c.b;
-import d.a.k.d.a;
-import d.a.k.d.b;
-import java.io.File;
+import d.a.l.c.b;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
@@ -79,8 +85,9 @@ import org.webrtc.VideoFrame;
 import org.webrtc.VideoSink;
 import org.webrtc.VideoTrack;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, PeerConnectionClient.PeerConnectionEvents {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BRTC_SDK_VERSION_PREFIX = "BRTC.Android.SDK V";
     public static final int COMMUNICATION_REPORT_INTERVAL = 2000;
     public static int DEFAULT_CAMERA_ID = -1;
@@ -88,9 +95,11 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     public static int MAX_VIDEOVIEW_CNT = 30;
     public static final int SLI_REPORT_INTERVAL = 5000;
     public static final String TAG = "BaiduRtcRoomImp";
-    public static ConcurrentHashMap<String, String> mCameraUsingMap = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, String> mCameraUsingMap = null;
     public static int mConfigAudioContenttype = 1;
-    public static boolean mbEnableDebugLog = false;
+    public static boolean mbEnableDebugLog;
+    public transient /* synthetic */ FieldHolder $fh;
+    public AudioManager audioManager;
     public int bluetoothOpSeq;
     public Boolean disableBuiltInAGC;
     public Boolean disableBuiltInNS;
@@ -99,82 +108,93 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     public boolean isEnableHighProfileConfirm;
     public String mAppId;
     public AudioFilter mAudioFilter;
+    public BaiduRtcRoom.BaiduRtcRoomDelegate mBaiduRtcRoomDelegate;
+    public int mCameraID;
     public WeakReference<Context> mContext;
     public CpuMonitor mCpuMonitor;
     public String mCpuType;
     public String mDisplayName;
+    public boolean mEnableAudioMix;
+    public String mErrorInfoMonitorEnv;
+    public ConcurrentHashMap<BigInteger, BigInteger> mFeedToViewMap;
+    public ConcurrentHashMap<BigInteger, HUDStatistics> mHUDStatisticsMap;
+    public Handler mHandler;
+    public boolean[] mHasVideoView;
     public HeadsetReceiver mHeadSetReceiver;
+    public boolean mIsAsListener;
+    public boolean mIsAsPublisher;
+    public boolean mIsCompulsive;
+    public boolean mIsEnableErrorInfoMonitor;
+    public boolean mIsEnableExternalAudioRecord;
+    public boolean mIsEnableExternalVideoCapturer;
+    public boolean mIsEnablePullQualityMonitor;
+    public boolean mIsEnablePushQualityMonitor;
     public boolean mIsEnableSoLaterLoad;
     public boolean mIsLoginSuccess;
-    public boolean mIsSoDownloaded;
+    public boolean mIsStreamPublish;
+    public boolean mIsUseDefaultErrorInfoMonitor;
+    public String mJanusServerURL;
+    public volatile long mLastGoneId;
+    public volatile long mLastLeavingId;
     public BaiduRtcRoom.RtcLiveTransferMode mLastLssMode;
     public String mLastLssURL;
+    public RTCLoadManager.LoadListener mLoadListener;
+    public RTCVideoView mLocalRender;
     public long mLoginSuccessTime;
+    public RTCAudioSamples.RTCMixedSamplesReadyCallback mMixedSamplesCallback;
     public b mOnMixedFrameUpdateListener;
+    public RtcParameterSettings mParamSettings;
+    public IdentityHashMap<Long, RTCVideoExternalRender> mPendingRemoveRendererMap;
+    public BigInteger mPublisherHandle;
+    public String mQualityMonitorEnv;
+    public int mRemoteFilterTrack;
+    public RTCVideoView[] mRemoteRenderList;
+    public RTCAudioSamples.RTCRemoteSamplesReadyCallback mRemoteSamplesCallback;
     public JavaAudioDeviceModule.RemoteSamplesReadyCallback mRemoteSamplesInternalCallback;
     public ConcurrentHashMap<BigInteger, StreamStats> mRemoteStreamStats;
+    public int mRemoteVideoCnt;
     public String mRoomName;
+    public RTCAudioSamples.RTCSamplesReadyCallback mSamplesReadyCallback;
     public JavaAudioDeviceModule.SamplesReadyCallback mSamplesReadyInternalCallback;
-    public d.a.k.d.b mSoCallback;
     public Context mSoContext;
-    public Thread mSoDownloadThread;
     public String mSoLaterLoadUrl;
     public long mStartLoginTime;
     public long mUserId;
+    public ConcurrentHashMap<Long, RTCVideoExternalRender> mUserIdVideoRendererMap;
+    public boolean mUsingFrontCamera;
+    public boolean mVideoCaptureIsFrontCamera;
     public VideoSink mVideoSink;
     public WebSocketChannel mWebSocketChannel;
+    public boolean mbOnStatistics;
+    public boolean mbStartReportDI;
+    public double mgoogAvailableSendBandwidth;
+    public volatile PeerConnectionClient peerConnectionClient;
+    public PeerConnectionClient.PeerConnectionParameters peerConnectionParameters;
     public Runnable reportDeviceInfoRun;
     public EglBase rootEglBase;
     public RtcLogReport rtcLogReport;
-    public boolean mIsEnableExternalVideoCapturer = false;
-    public boolean mIsEnableExternalAudioRecord = false;
-    public boolean mEnableAudioMix = false;
-    public volatile PeerConnectionClient peerConnectionClient = null;
-    public PeerConnectionClient.PeerConnectionParameters peerConnectionParameters = null;
-    public RTCVideoView mLocalRender = null;
-    public RTCVideoView[] mRemoteRenderList = null;
-    public VideoCapturer videoCapturer = null;
-    public String mJanusServerURL = "wss://rtc.exp.bcelive.com/janus";
-    public int mRemoteVideoCnt = 0;
-    public boolean mUsingFrontCamera = true;
-    public boolean[] mHasVideoView = new boolean[MAX_VIDEOVIEW_CNT];
-    public AudioManager audioManager = null;
-    public int mRemoteFilterTrack = -1;
-    public BaiduRtcRoom.BaiduRtcRoomDelegate mBaiduRtcRoomDelegate = null;
-    public RTCAudioSamples.RTCSamplesReadyCallback mSamplesReadyCallback = null;
-    public RTCAudioSamples.RTCRemoteSamplesReadyCallback mRemoteSamplesCallback = null;
-    public RTCAudioSamples.RTCMixedSamplesReadyCallback mMixedSamplesCallback = null;
-    public ConcurrentHashMap<Long, RTCVideoExternalRender> mUserIdVideoRendererMap = new ConcurrentHashMap<>();
-    public IdentityHashMap<Long, RTCVideoExternalRender> mPendingRemoveRendererMap = new IdentityHashMap<>();
-    public boolean mVideoCaptureIsFrontCamera = false;
-    public int mCameraID = DEFAULT_CAMERA_ID;
-    public RtcParameterSettings mParamSettings = new RtcParameterSettings();
-    public Handler mHandler = new Handler(Looper.getMainLooper());
-    public BigInteger mPublisherHandle = null;
-    public volatile long mLastLeavingId = 0;
-    public volatile long mLastGoneId = 0;
-    public ConcurrentHashMap<BigInteger, BigInteger> mFeedToViewMap = new ConcurrentHashMap<>();
-    public boolean mbOnStatistics = true;
-    public double mgoogAvailableSendBandwidth = 200.0d;
-    public boolean mIsEnablePushQualityMonitor = false;
-    public boolean mIsEnablePullQualityMonitor = false;
-    public boolean mIsEnableErrorInfoMonitor = true;
-    public boolean mIsUseDefaultErrorInfoMonitor = true;
-    public String mErrorInfoMonitorEnv = "online";
-    public String mQualityMonitorEnv = "online";
-    public ConcurrentHashMap<BigInteger, HUDStatistics> mHUDStatisticsMap = new ConcurrentHashMap<>();
-    public boolean mbStartReportDI = false;
-    public boolean mIsAsListener = true;
-    public boolean mIsAsPublisher = true;
-    public boolean mIsCompulsive = false;
-    public boolean mIsStreamPublish = false;
+    public VideoCapturer videoCapturer;
 
-    /* renamed from: com.baidu.rtc.internal.BaiduRtcRoomImp$25  reason: invalid class name */
-    /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass25 {
+    /* renamed from: com.baidu.rtc.internal.BaiduRtcRoomImp$24  reason: invalid class name */
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class AnonymousClass24 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$rtc$RtcParameterSettings$RtcParamSettingType;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-451680406, "Lcom/baidu/rtc/internal/BaiduRtcRoomImp$24;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-451680406, "Lcom/baidu/rtc/internal/BaiduRtcRoomImp$24;");
+                    return;
+                }
+            }
             int[] iArr = new int[RtcParameterSettings.RtcParamSettingType.values().length];
             $SwitchMap$com$baidu$rtc$RtcParameterSettings$RtcParamSettingType = iArr;
             try {
@@ -192,26 +212,48 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AudioStuckEvent implements SLIReportInterface {
-        public AudioStuckEvent() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+        public AudioStuckEvent(BaiduRtcRoomImp baiduRtcRoomImp) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {baiduRtcRoomImp};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = baiduRtcRoomImp;
         }
 
         @Override // com.baidu.rtc.logreport.SLIReportInterface
         public void onStuckData(long j, long j2) {
-            BaiduRtcRoomImp baiduRtcRoomImp = BaiduRtcRoomImp.this;
-            if (baiduRtcRoomImp.mIsEnablePullQualityMonitor) {
-                for (Map.Entry entry : baiduRtcRoomImp.mHUDStatisticsMap.entrySet()) {
-                    if (entry.getKey() != BaiduRtcRoomImp.this.mPublisherHandle && entry.getValue() != null) {
-                        ((HUDStatistics) entry.getValue()).addAudioStuckData(j, j2);
-                        if (BaiduRtcRoomImp.this.mIsEnableErrorInfoMonitor) {
-                            long j3 = j2 - j;
-                            if (j3 > 200) {
-                                BigInteger valueOf = BigInteger.valueOf(0L);
-                                if (BaiduRtcRoomImp.this.mWebSocketChannel != null) {
-                                    valueOf = BaiduRtcRoomImp.this.mWebSocketChannel.getFeedByHandle((BigInteger) entry.getKey());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                BaiduRtcRoomImp baiduRtcRoomImp = this.this$0;
+                if (baiduRtcRoomImp.mIsEnablePullQualityMonitor) {
+                    for (Map.Entry entry : baiduRtcRoomImp.mHUDStatisticsMap.entrySet()) {
+                        if (entry.getKey() != this.this$0.mPublisherHandle && entry.getValue() != null) {
+                            ((HUDStatistics) entry.getValue()).addAudioStuckData(j, j2);
+                            if (this.this$0.mIsEnableErrorInfoMonitor) {
+                                long j3 = j2 - j;
+                                if (j3 > 200) {
+                                    BigInteger valueOf = BigInteger.valueOf(0L);
+                                    if (this.this$0.mWebSocketChannel != null) {
+                                        valueOf = this.this$0.mWebSocketChannel.getFeedByHandle((BigInteger) entry.getKey());
+                                    }
+                                    ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.AUDIO_STUCK, j3, (BigInteger) entry.getKey(), valueOf);
                                 }
-                                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.AUDIO_STUCK, j3, (BigInteger) entry.getKey(), valueOf);
                             }
                         }
                     }
@@ -220,81 +262,144 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class HeadsetReceiver extends BroadcastReceiver {
-        public HeadsetReceiver() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+        public HeadsetReceiver(BaiduRtcRoomImp baiduRtcRoomImp) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {baiduRtcRoomImp};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = baiduRtcRoomImp;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             BaiduRtcRoomImp baiduRtcRoomImp;
             BaiduRtcRoom.RtcSoundMode rtcSoundMode;
-            if (BaiduRtcRoomImp.this.audioManager == null) {
-                BaiduRtcRoomImp baiduRtcRoomImp2 = BaiduRtcRoomImp.this;
-                baiduRtcRoomImp2.audioManager = (AudioManager) ((Context) baiduRtcRoomImp2.mContext.get()).getSystemService("audio");
-            }
-            String action = intent.getAction();
-            if ("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED".equals(action)) {
-                int intExtra = intent.getIntExtra("android.bluetooth.profile.extra.STATE", -1);
-                if (intExtra != 0) {
-                    if (intExtra == 2) {
-                        final int access$3404 = BaiduRtcRoomImp.access$3404(BaiduRtcRoomImp.this);
-                        BaiduRtcRoomImp.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.HeadsetReceiver.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                if (access$3404 == BaiduRtcRoomImp.this.bluetoothOpSeq) {
-                                    BaiduRtcRoomImp.this.setBluetoothScoOn(Boolean.TRUE);
-                                    BaiduRtcRoomImp.this.setSoundMod(BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_EAR);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                if (this.this$0.audioManager == null) {
+                    BaiduRtcRoomImp baiduRtcRoomImp2 = this.this$0;
+                    baiduRtcRoomImp2.audioManager = (AudioManager) ((Context) baiduRtcRoomImp2.mContext.get()).getSystemService("audio");
+                }
+                String action = intent.getAction();
+                if ("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED".equals(action)) {
+                    int intExtra = intent.getIntExtra("android.bluetooth.profile.extra.STATE", -1);
+                    if (intExtra != 0) {
+                        if (intExtra == 2) {
+                            this.this$0.mHandler.postDelayed(new Runnable(this, BaiduRtcRoomImp.access$3204(this.this$0)) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.HeadsetReceiver.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ HeadsetReceiver this$1;
+                                public final /* synthetic */ int val$tmpBluetoothOpSeq;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, Integer.valueOf(r7)};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$1 = this;
+                                    this.val$tmpBluetoothOpSeq = r7;
                                 }
-                            }
-                        }, 1500L);
-                        Log.i(BaiduRtcRoomImp.TAG, "Bluetooth headset connected");
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.val$tmpBluetoothOpSeq == this.this$1.this$0.bluetoothOpSeq) {
+                                        this.this$1.this$0.setBluetoothScoOn(Boolean.TRUE);
+                                        this.this$1.this$0.setSoundMod(BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_EAR);
+                                    }
+                                }
+                            }, 1500L);
+                            Log.i(BaiduRtcRoomImp.TAG, "Bluetooth headset connected");
+                            return;
+                        }
                         return;
                     }
-                    return;
-                }
-                Log.i(BaiduRtcRoomImp.TAG, "Bluetooth headset not disconnected");
-                BaiduRtcRoomImp.this.setBluetoothScoOn(Boolean.FALSE);
-                BaiduRtcRoomImp.access$3408(BaiduRtcRoomImp.this);
-                if (BaiduRtcRoomImp.this.audioManager.isWiredHeadsetOn()) {
-                    return;
-                }
-            } else if (intent.getAction().equals("android.intent.action.HEADSET_PLUG") && intent.hasExtra("state")) {
-                if (intent.getIntExtra("state", -1) != 0 || BaiduRtcRoomImp.this.isHeadsetOn(context)) {
-                    if (intent.getIntExtra("state", -1) == 1) {
-                        Log.i(BaiduRtcRoomImp.TAG, "headset connected");
-                        baiduRtcRoomImp = BaiduRtcRoomImp.this;
-                        rtcSoundMode = BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_EAR;
-                        baiduRtcRoomImp.setSoundMod(rtcSoundMode);
+                    Log.i(BaiduRtcRoomImp.TAG, "Bluetooth headset not disconnected");
+                    this.this$0.setBluetoothScoOn(Boolean.FALSE);
+                    BaiduRtcRoomImp.access$3208(this.this$0);
+                    if (this.this$0.audioManager.isWiredHeadsetOn()) {
+                        return;
                     }
+                } else if (intent.getAction().equals("android.intent.action.HEADSET_PLUG") && intent.hasExtra("state")) {
+                    if (intent.getIntExtra("state", -1) != 0 || this.this$0.isHeadsetOn(context)) {
+                        if (intent.getIntExtra("state", -1) == 1) {
+                            Log.i(BaiduRtcRoomImp.TAG, "headset connected");
+                            baiduRtcRoomImp = this.this$0;
+                            rtcSoundMode = BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_EAR;
+                            baiduRtcRoomImp.setSoundMod(rtcSoundMode);
+                        }
+                        return;
+                    }
+                    Log.i(BaiduRtcRoomImp.TAG, "headset not connected");
+                } else if (!"android.bluetooth.adapter.action.STATE_CHANGED".equals(action) || intent.getIntExtra("android.bluetooth.adapter.extra.STATE", Integer.MIN_VALUE) != 10) {
                     return;
+                } else {
+                    BaiduRtcRoomImp.access$3208(this.this$0);
+                    this.this$0.setBluetoothScoOn(Boolean.FALSE);
+                    if (this.this$0.audioManager.isWiredHeadsetOn()) {
+                        return;
+                    }
                 }
-                Log.i(BaiduRtcRoomImp.TAG, "headset not connected");
-            } else if (!"android.bluetooth.adapter.action.STATE_CHANGED".equals(action) || intent.getIntExtra("android.bluetooth.adapter.extra.STATE", Integer.MIN_VALUE) != 10) {
-                return;
-            } else {
-                BaiduRtcRoomImp.access$3408(BaiduRtcRoomImp.this);
-                BaiduRtcRoomImp.this.setBluetoothScoOn(Boolean.FALSE);
-                if (BaiduRtcRoomImp.this.audioManager.isWiredHeadsetOn()) {
-                    return;
-                }
+                baiduRtcRoomImp = this.this$0;
+                rtcSoundMode = BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_SPEAKER;
+                baiduRtcRoomImp.setSoundMod(rtcSoundMode);
             }
-            baiduRtcRoomImp = BaiduRtcRoomImp.this;
-            rtcSoundMode = BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_SPEAKER;
-            baiduRtcRoomImp.setSoundMod(rtcSoundMode);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StreamStats {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public BigInteger handleId;
         public Boolean hasAudio;
         public Boolean hasVideo;
         public String nickName;
         public long userId;
-        public int volume = -1;
+        public int volume;
 
         public StreamStats(BigInteger bigInteger, long j, Boolean bool, Boolean bool2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bigInteger, Long.valueOf(j), bool, bool2, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.volume = -1;
             this.nickName = "";
             this.handleId = bigInteger;
             this.userId = j;
@@ -304,39 +409,132 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class VideoStuckEvent implements SLIReportInterface {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public BigInteger handleId;
+        public final /* synthetic */ BaiduRtcRoomImp this$0;
 
-        public VideoStuckEvent(BigInteger bigInteger) {
+        public VideoStuckEvent(BaiduRtcRoomImp baiduRtcRoomImp, BigInteger bigInteger) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {baiduRtcRoomImp, bigInteger};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = baiduRtcRoomImp;
             this.handleId = bigInteger;
         }
 
         @Override // com.baidu.rtc.logreport.SLIReportInterface
         public void onStuckData(long j, long j2) {
             HUDStatistics hUDStatistics;
-            BaiduRtcRoomImp baiduRtcRoomImp = BaiduRtcRoomImp.this;
-            if (!baiduRtcRoomImp.mIsEnablePullQualityMonitor || (hUDStatistics = (HUDStatistics) baiduRtcRoomImp.mHUDStatisticsMap.get(this.handleId)) == null) {
-                return;
-            }
-            hUDStatistics.addVideoStuckData(j, j2);
-            if (BaiduRtcRoomImp.this.mIsEnableErrorInfoMonitor) {
-                long j3 = j2 - j;
-                if (j3 > 600) {
-                    BigInteger valueOf = BigInteger.valueOf(0L);
-                    if (BaiduRtcRoomImp.this.mWebSocketChannel != null) {
-                        valueOf = BaiduRtcRoomImp.this.mWebSocketChannel.getFeedByHandle(this.handleId);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                BaiduRtcRoomImp baiduRtcRoomImp = this.this$0;
+                if (!baiduRtcRoomImp.mIsEnablePullQualityMonitor || (hUDStatistics = (HUDStatistics) baiduRtcRoomImp.mHUDStatisticsMap.get(this.handleId)) == null) {
+                    return;
+                }
+                hUDStatistics.addVideoStuckData(j, j2);
+                if (this.this$0.mIsEnableErrorInfoMonitor) {
+                    long j3 = j2 - j;
+                    if (j3 > 600) {
+                        BigInteger valueOf = BigInteger.valueOf(0L);
+                        if (this.this$0.mWebSocketChannel != null) {
+                            valueOf = this.this$0.mWebSocketChannel.getFeedByHandle(this.handleId);
+                        }
+                        ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.VIDEO_STUCK, j3, this.handleId, valueOf);
                     }
-                    ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.VIDEO_STUCK, j3, this.handleId, valueOf);
                 }
             }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-966963066, "Lcom/baidu/rtc/internal/BaiduRtcRoomImp;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-966963066, "Lcom/baidu/rtc/internal/BaiduRtcRoomImp;");
+                return;
+            }
+        }
+        mCameraUsingMap = new ConcurrentHashMap<>();
+    }
+
     public BaiduRtcRoomImp(Context context, String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2, str3, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mContext = null;
         this.mWebSocketChannel = null;
+        this.mIsEnableExternalVideoCapturer = false;
+        this.mIsEnableExternalAudioRecord = false;
+        this.mEnableAudioMix = false;
+        this.peerConnectionClient = null;
+        this.peerConnectionParameters = null;
+        this.mLocalRender = null;
+        this.mRemoteRenderList = null;
+        this.videoCapturer = null;
         this.rootEglBase = null;
+        this.mJanusServerURL = "wss://rtc.exp.bcelive.com/janus";
+        this.mRemoteVideoCnt = 0;
+        this.mUsingFrontCamera = true;
+        this.mHasVideoView = new boolean[MAX_VIDEOVIEW_CNT];
+        this.audioManager = null;
+        this.mRemoteFilterTrack = -1;
+        this.mBaiduRtcRoomDelegate = null;
+        this.mSamplesReadyCallback = null;
+        this.mRemoteSamplesCallback = null;
+        this.mMixedSamplesCallback = null;
+        this.mUserIdVideoRendererMap = new ConcurrentHashMap<>();
+        this.mPendingRemoveRendererMap = new IdentityHashMap<>();
+        this.mVideoCaptureIsFrontCamera = false;
+        this.mCameraID = DEFAULT_CAMERA_ID;
+        this.mParamSettings = new RtcParameterSettings();
+        this.mHandler = new Handler(Looper.getMainLooper());
+        this.mPublisherHandle = null;
+        this.mLastLeavingId = 0L;
+        this.mLastGoneId = 0L;
+        this.mFeedToViewMap = new ConcurrentHashMap<>();
+        this.mbOnStatistics = true;
+        this.mgoogAvailableSendBandwidth = 200.0d;
+        this.mIsEnablePushQualityMonitor = false;
+        this.mIsEnablePullQualityMonitor = false;
+        this.mIsEnableErrorInfoMonitor = true;
+        this.mIsUseDefaultErrorInfoMonitor = true;
+        this.mErrorInfoMonitorEnv = "online";
+        this.mQualityMonitorEnv = "online";
+        this.mHUDStatisticsMap = new ConcurrentHashMap<>();
+        this.mbStartReportDI = false;
+        this.mIsAsListener = true;
+        this.mIsAsPublisher = true;
+        this.mIsCompulsive = false;
+        this.mIsStreamPublish = false;
         Boolean bool = Boolean.FALSE;
         this.disableBuiltInAGC = bool;
         this.disableBuiltInNS = bool;
@@ -345,78 +543,100 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         this.isEnableHighProfileConfirm = false;
         this.mIsLoginSuccess = false;
         this.mRemoteStreamStats = new ConcurrentHashMap<>();
-        this.mSoDownloadThread = null;
         this.mIsEnableSoLaterLoad = false;
-        this.mIsSoDownloaded = false;
         this.mSoLaterLoadUrl = "";
         this.mCpuType = "armeabi-v7a";
         this.mSoContext = null;
-        this.mSoCallback = new b.a() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.1
-            @Override // d.a.k.d.b
-            public void onDownloadFail(String str4, int i2, String str5) {
-                Log.d(BaiduRtcRoomImp.TAG, "Failed to download so.");
-                if (BaiduRtcRoomImp.this.mIsEnableErrorInfoMonitor) {
-                    ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.SO_LATER_DOWNLOADING_FAIL);
+        this.mLoadListener = new RTCLoadManager.LoadListener(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
                 }
-                BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = BaiduRtcRoomImp.this.mBaiduRtcRoomDelegate;
-                if (baiduRtcRoomDelegate != null) {
-                    baiduRtcRoomDelegate.onErrorInfoUpdate(400);
+                this.this$0 = this;
+            }
+
+            @Override // com.baidu.rtc.RTCLoadManager.LoadListener
+            public void onLoadError(int i4, String str4) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str4) == null) {
+                    Log.d(BaiduRtcRoomImp.TAG, "Failed to download so.");
+                    if (this.this$0.mIsEnableErrorInfoMonitor) {
+                        ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.SO_LATER_DOWNLOADING_FAIL);
+                    }
+                    BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.this$0.mBaiduRtcRoomDelegate;
+                    if (baiduRtcRoomDelegate != null) {
+                        baiduRtcRoomDelegate.onErrorInfoUpdate(400);
+                    }
                 }
             }
 
-            @Override // d.a.k.d.b
-            public void onDownloadSuccess(String str4, String str5) {
-                BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
-                Log.d(BaiduRtcRoomImp.TAG, "Be successful to download so!");
-                String str6 = a.g(BaiduRtcRoomImp.this.mSoContext) + File.separator + "libjingle_peerconnection_so.so";
-                Log.d(BaiduRtcRoomImp.TAG, "RTC so path is: " + str6);
-                BaiduRtcRoomImp.this.mIsSoDownloaded = true;
-                if (DownSoHelper.k(BaiduRtcRoomImp.this.mSoContext).n(a.g(BaiduRtcRoomImp.this.mSoContext))) {
-                    try {
-                        System.load(str6);
-                        Log.d(BaiduRtcRoomImp.TAG, "loaded so, and start to login room.");
-                        BaiduRtcRoomImp.this.loginRtcRoomWithRoomName(BaiduRtcRoomImp.this.mRoomName, BaiduRtcRoomImp.this.mUserId, BaiduRtcRoomImp.this.mDisplayName, BaiduRtcRoomImp.this.mIsAsPublisher, BaiduRtcRoomImp.this.mIsAsListener);
-                        return;
-                    } catch (Throwable th) {
-                        Log.d(BaiduRtcRoomImp.TAG, "Failed call System.load to load so! Error: " + th);
-                        if (BaiduRtcRoomImp.this.mIsEnableErrorInfoMonitor) {
-                            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.SO_LATER_LOADING_FAIL);
-                        }
-                        baiduRtcRoomDelegate = BaiduRtcRoomImp.this.mBaiduRtcRoomDelegate;
-                        if (baiduRtcRoomDelegate == null) {
-                            return;
-                        }
-                    }
-                } else {
-                    Log.d(BaiduRtcRoomImp.TAG, "call DownSoHelper.getInstance(mSoContext).loadSo() Failed.");
-                    Log.d(BaiduRtcRoomImp.TAG, "try call load Full Path.");
-                    try {
-                        System.load(str6);
-                        Log.d(BaiduRtcRoomImp.TAG, "loaded so with full path, and start to login room.");
-                        BaiduRtcRoomImp.this.loginRtcRoomWithRoomName(BaiduRtcRoomImp.this.mRoomName, BaiduRtcRoomImp.this.mUserId, BaiduRtcRoomImp.this.mDisplayName, BaiduRtcRoomImp.this.mIsAsPublisher, BaiduRtcRoomImp.this.mIsAsListener);
-                        return;
-                    } catch (Throwable th2) {
-                        Log.d(BaiduRtcRoomImp.TAG, "Failed to load so with full path! Error: " + th2);
-                        baiduRtcRoomDelegate = BaiduRtcRoomImp.this.mBaiduRtcRoomDelegate;
-                        if (baiduRtcRoomDelegate == null) {
-                            return;
-                        }
-                    }
+            @Override // com.baidu.rtc.RTCLoadManager.LoadListener
+            public void onLoadProgress(float f2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
+                    Log.d(BaiduRtcRoomImp.TAG, "loaded so progress " + f2);
                 }
-                baiduRtcRoomDelegate.onErrorInfoUpdate(401);
+            }
+
+            @Override // com.baidu.rtc.RTCLoadManager.LoadListener
+            public void onLoadSuccess() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    Log.d(BaiduRtcRoomImp.TAG, "after loaded so, start to login room.");
+                    BaiduRtcRoomImp baiduRtcRoomImp = this.this$0;
+                    baiduRtcRoomImp.loginRtcRoomWithRoomName(baiduRtcRoomImp.mRoomName, baiduRtcRoomImp.mUserId, baiduRtcRoomImp.mDisplayName, baiduRtcRoomImp.mIsAsPublisher, baiduRtcRoomImp.mIsAsListener);
+                }
             }
         };
-        this.mSamplesReadyInternalCallback = new JavaAudioDeviceModule.SamplesReadyCallback() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.4
+        this.mSamplesReadyInternalCallback = new JavaAudioDeviceModule.SamplesReadyCallback(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // org.webrtc.audio.JavaAudioDeviceModule.SamplesReadyCallback
             public void onWebRtcAudioRecordSamplesReady(JavaAudioDeviceModule.AudioSamples audioSamples) {
-                if (audioSamples == null || audioSamples.getData() == null || audioSamples.getData().length <= 0) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, audioSamples) == null) || audioSamples == null || audioSamples.getData() == null || audioSamples.getData().length <= 0) {
                     return;
                 }
-                RTCAudioSamples.RTCSamplesReadyCallback rTCSamplesReadyCallback = BaiduRtcRoomImp.this.mSamplesReadyCallback;
+                RTCAudioSamples.RTCSamplesReadyCallback rTCSamplesReadyCallback = this.this$0.mSamplesReadyCallback;
                 if (rTCSamplesReadyCallback != null) {
                     rTCSamplesReadyCallback.onRtcAudioRecordSamplesReady(new RTCAudioSamples(audioSamples.getAudioFormat(), audioSamples.getChannelCount(), audioSamples.getSampleRate(), audioSamples.getData()));
                 }
-                if (!BaiduRtcRoomImp.this.mEnableAudioMix || BaiduRtcRoomImp.this.mIsEnableExternalAudioRecord) {
+                if (!this.this$0.mEnableAudioMix || this.this$0.mIsEnableExternalAudioRecord) {
                     return;
                 }
                 MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
@@ -424,63 +644,159 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                 bufferInfo.offset = 0;
                 ByteBuffer wrap = ByteBuffer.wrap(audioSamples.getData());
                 bufferInfo.presentationTimeUs = System.nanoTime();
-                BaiduRtcRoomImp.this.mAudioFilter.e(wrap, bufferInfo);
+                this.this$0.mAudioFilter.e(wrap, bufferInfo);
             }
         };
-        this.mRemoteSamplesInternalCallback = new JavaAudioDeviceModule.RemoteSamplesReadyCallback() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.5
+        this.mRemoteSamplesInternalCallback = new JavaAudioDeviceModule.RemoteSamplesReadyCallback(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // org.webrtc.audio.JavaAudioDeviceModule.RemoteSamplesReadyCallback
             public void onWebRtcAudioRemoteSamplesReady(JavaAudioDeviceModule.AudioSamples audioSamples) {
-                if (audioSamples == null) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, audioSamples) == null) || audioSamples == null) {
                     return;
                 }
-                RTCAudioSamples.RTCRemoteSamplesReadyCallback rTCRemoteSamplesReadyCallback = BaiduRtcRoomImp.this.mRemoteSamplesCallback;
+                RTCAudioSamples.RTCRemoteSamplesReadyCallback rTCRemoteSamplesReadyCallback = this.this$0.mRemoteSamplesCallback;
                 if (rTCRemoteSamplesReadyCallback != null) {
                     rTCRemoteSamplesReadyCallback.onRtcAudioRemoteSamplesReady(new RTCAudioSamples(audioSamples.getAudioFormat(), audioSamples.getChannelCount(), audioSamples.getSampleRate(), audioSamples.getData()));
                 }
-                if (!BaiduRtcRoomImp.this.mEnableAudioMix || BaiduRtcRoomImp.this.mRemoteFilterTrack < 0) {
+                if (!this.this$0.mEnableAudioMix || this.this$0.mRemoteFilterTrack < 0) {
                     return;
                 }
                 MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
                 bufferInfo.size = audioSamples.getData().length;
                 bufferInfo.offset = 0;
-                BaiduRtcRoomImp.this.mAudioFilter.f(ByteBuffer.wrap(audioSamples.getData()), bufferInfo, BaiduRtcRoomImp.this.mRemoteFilterTrack);
+                this.this$0.mAudioFilter.f(ByteBuffer.wrap(audioSamples.getData()), bufferInfo, this.this$0.mRemoteFilterTrack);
             }
         };
-        this.externalSamplesReadyCallback = new RTCAudioSamples.RTCExternalSamplesReadyCallback() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.6
+        this.externalSamplesReadyCallback = new RTCAudioSamples.RTCExternalSamplesReadyCallback(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // com.baidu.rtc.RTCAudioSamples.RTCExternalSamplesReadyCallback
             public void onRtcAudioExternalSamplesReady(RTCAudioSamples rTCAudioSamples) {
-                if (BaiduRtcRoomImp.this.peerConnectionClient != null) {
-                    JavaAudioDeviceModule.ExternalSamplesReadyCallback externalSamplesCallback = BaiduRtcRoomImp.this.peerConnectionClient.getExternalSamplesCallback();
-                    if (externalSamplesCallback != null) {
-                        externalSamplesCallback.onWebRtcAudioExternalSamplesReady(rTCAudioSamples);
-                    }
-                    if (BaiduRtcRoomImp.this.mEnableAudioMix && BaiduRtcRoomImp.this.mIsEnableExternalAudioRecord) {
-                        MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                        bufferInfo.size = rTCAudioSamples.getData().length;
-                        bufferInfo.offset = 0;
-                        BaiduRtcRoomImp.this.mAudioFilter.e(ByteBuffer.wrap(rTCAudioSamples.getData()), bufferInfo);
-                    }
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, rTCAudioSamples) == null) || this.this$0.peerConnectionClient == null) {
+                    return;
+                }
+                JavaAudioDeviceModule.ExternalSamplesReadyCallback externalSamplesCallback = this.this$0.peerConnectionClient.getExternalSamplesCallback();
+                if (externalSamplesCallback != null) {
+                    externalSamplesCallback.onWebRtcAudioExternalSamplesReady(rTCAudioSamples);
+                }
+                if (this.this$0.mEnableAudioMix && this.this$0.mIsEnableExternalAudioRecord) {
+                    MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                    bufferInfo.size = rTCAudioSamples.getData().length;
+                    bufferInfo.offset = 0;
+                    this.this$0.mAudioFilter.e(ByteBuffer.wrap(rTCAudioSamples.getData()), bufferInfo);
                 }
             }
         };
-        this.mOnMixedFrameUpdateListener = new d.a.k.c.b() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.7
-            @Override // d.a.k.c.b
+        this.mOnMixedFrameUpdateListener = new b(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // d.a.l.c.b
             public void onFilteredFrameUpdate(byte[] bArr, MediaCodec.BufferInfo bufferInfo) {
-                BaiduRtcRoomImp baiduRtcRoomImp = BaiduRtcRoomImp.this;
-                RTCAudioSamples.RTCMixedSamplesReadyCallback rTCMixedSamplesReadyCallback = baiduRtcRoomImp.mMixedSamplesCallback;
-                if (rTCMixedSamplesReadyCallback != null) {
-                    rTCMixedSamplesReadyCallback.onRtcAudioMixedSamplesReady(new RTCAudioSamples(2, baiduRtcRoomImp.mParamSettings.AudioChannel, BaiduRtcRoomImp.this.mParamSettings.AudioFrequency, bArr, bufferInfo.presentationTimeUs));
+                BaiduRtcRoomImp baiduRtcRoomImp;
+                RTCAudioSamples.RTCMixedSamplesReadyCallback rTCMixedSamplesReadyCallback;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, bArr, bufferInfo) == null) || (rTCMixedSamplesReadyCallback = (baiduRtcRoomImp = this.this$0).mMixedSamplesCallback) == null) {
+                    return;
                 }
+                rTCMixedSamplesReadyCallback.onRtcAudioMixedSamplesReady(new RTCAudioSamples(2, baiduRtcRoomImp.mParamSettings.AudioChannel, this.this$0.mParamSettings.AudioFrequency, bArr, bufferInfo.presentationTimeUs));
             }
         };
-        this.reportDeviceInfoRun = new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.24
+        this.reportDeviceInfoRun = new Runnable(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.23
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                BaiduRtcRoomImp baiduRtcRoomImp = BaiduRtcRoomImp.this;
-                if (baiduRtcRoomImp.rtcLogReport != null && (baiduRtcRoomImp.mIsEnablePushQualityMonitor || baiduRtcRoomImp.mIsEnablePullQualityMonitor)) {
-                    BaiduRtcRoomImp.this.reportDeviceInfo();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    BaiduRtcRoomImp baiduRtcRoomImp = this.this$0;
+                    if (baiduRtcRoomImp.rtcLogReport != null && (baiduRtcRoomImp.mIsEnablePushQualityMonitor || baiduRtcRoomImp.mIsEnablePullQualityMonitor)) {
+                        this.this$0.reportDeviceInfo();
+                    }
+                    this.this$0.mHandler.postDelayed(this.this$0.reportDeviceInfoRun, 300000L);
                 }
-                BaiduRtcRoomImp.this.mHandler.postDelayed(BaiduRtcRoomImp.this.reportDeviceInfoRun, 300000L);
             }
         };
         this.mIsEnableSoLaterLoad = z;
@@ -496,14 +812,14 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         this.mAppId = str;
         this.mWebSocketChannel.setDelegate(this);
         this.rootEglBase = EglBase_CC.create();
-        int i2 = 0;
+        int i4 = 0;
         while (true) {
             boolean[] zArr = this.mHasVideoView;
-            if (i2 >= zArr.length) {
+            if (i4 >= zArr.length) {
                 break;
             }
-            zArr[i2] = false;
-            i2++;
+            zArr[i4] = false;
+            i4++;
         }
         AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
         audioManager.setSpeakerphoneOn(false);
@@ -518,7 +834,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         this.bluetoothOpSeq = 0;
         this.isBluetoothOn = Boolean.FALSE;
         audioManager = audioManager == null ? (AudioManager) this.mContext.get().getSystemService("audio") : audioManager;
-        this.mHeadSetReceiver = new HeadsetReceiver();
+        this.mHeadSetReceiver = new HeadsetReceiver(this);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
         intentFilter.addAction("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED");
@@ -542,84 +858,97 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         Log.i(TAG, "Headset No");
     }
 
-    public static /* synthetic */ int access$3404(BaiduRtcRoomImp baiduRtcRoomImp) {
+    public static /* synthetic */ int access$3204(BaiduRtcRoomImp baiduRtcRoomImp) {
         int i2 = baiduRtcRoomImp.bluetoothOpSeq + 1;
         baiduRtcRoomImp.bluetoothOpSeq = i2;
         return i2;
     }
 
-    public static /* synthetic */ int access$3408(BaiduRtcRoomImp baiduRtcRoomImp) {
+    public static /* synthetic */ int access$3208(BaiduRtcRoomImp baiduRtcRoomImp) {
         int i2 = baiduRtcRoomImp.bluetoothOpSeq;
         baiduRtcRoomImp.bluetoothOpSeq = i2 + 1;
         return i2;
     }
 
     private boolean captureToTexture() {
-        return !Build.MODEL.contains("SABRESD-MX6DQ");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65576, this)) == null) ? !Build.MODEL.contains("SABRESD-MX6DQ") : invokeV.booleanValue;
     }
 
     private VideoCapturer createCameraCapturer(CameraEnumerator cameraEnumerator) {
+        InterceptResult invokeL;
         CameraVideoCapturer createCapturer;
         CameraVideoCapturer createCapturer2;
         CameraVideoCapturer createCapturer3;
-        String[] deviceNames = cameraEnumerator.getDeviceNames();
-        int i2 = this.mCameraID;
-        if (i2 == DEFAULT_CAMERA_ID || i2 >= deviceNames.length || (createCapturer3 = cameraEnumerator.createCapturer(deviceNames[i2], null)) == null) {
-            Log.d(TAG, "Looking for front facing cameras.");
-            for (String str : deviceNames) {
-                if (cameraEnumerator.isFrontFacing(str)) {
-                    Log.d(TAG, "Creating front facing camera capturer.");
-                    if (!mCameraUsingMap.containsValue(str) && (createCapturer2 = cameraEnumerator.createCapturer(str, null)) != null) {
-                        mCameraUsingMap.put(toString(), str);
-                        this.mVideoCaptureIsFrontCamera = true;
-                        RTCVideoView rTCVideoView = this.mLocalRender;
-                        if (rTCVideoView != null) {
-                            rTCVideoView.setMirror(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, this, cameraEnumerator)) == null) {
+            String[] deviceNames = cameraEnumerator.getDeviceNames();
+            int i2 = this.mCameraID;
+            if (i2 == DEFAULT_CAMERA_ID || i2 >= deviceNames.length || (createCapturer3 = cameraEnumerator.createCapturer(deviceNames[i2], null)) == null) {
+                Log.d(TAG, "Looking for front facing cameras.");
+                for (String str : deviceNames) {
+                    if (cameraEnumerator.isFrontFacing(str)) {
+                        Log.d(TAG, "Creating front facing camera capturer.");
+                        if (!mCameraUsingMap.containsValue(str) && (createCapturer2 = cameraEnumerator.createCapturer(str, null)) != null) {
+                            mCameraUsingMap.put(toString(), str);
+                            this.mVideoCaptureIsFrontCamera = true;
+                            RTCVideoView rTCVideoView = this.mLocalRender;
+                            if (rTCVideoView != null) {
+                                rTCVideoView.setMirror(true);
+                            }
+                            return createCapturer2;
                         }
-                        return createCapturer2;
                     }
                 }
-            }
-            Log.d(TAG, "Looking for other cameras.");
-            for (String str2 : deviceNames) {
-                if (!cameraEnumerator.isFrontFacing(str2)) {
-                    Log.d(TAG, "Creating other camera capturer.");
-                    if (!mCameraUsingMap.containsValue(str2) && (createCapturer = cameraEnumerator.createCapturer(str2, null)) != null) {
-                        mCameraUsingMap.put(toString(), str2);
-                        this.mVideoCaptureIsFrontCamera = false;
-                        return createCapturer;
+                Log.d(TAG, "Looking for other cameras.");
+                for (String str2 : deviceNames) {
+                    if (!cameraEnumerator.isFrontFacing(str2)) {
+                        Log.d(TAG, "Creating other camera capturer.");
+                        if (!mCameraUsingMap.containsValue(str2) && (createCapturer = cameraEnumerator.createCapturer(str2, null)) != null) {
+                            mCameraUsingMap.put(toString(), str2);
+                            this.mVideoCaptureIsFrontCamera = false;
+                            return createCapturer;
+                        }
                     }
                 }
+                return null;
             }
-            return null;
+            return createCapturer3;
         }
-        return createCapturer3;
+        return (VideoCapturer) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public VideoCapturer createVideoCapturer() {
+        InterceptResult invokeV;
         CameraEnumerator camera1Enumerator;
-        VideoCapturer videoCapturer = this.videoCapturer;
-        if (videoCapturer != null) {
-            return videoCapturer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65578, this)) == null) {
+            VideoCapturer videoCapturer = this.videoCapturer;
+            if (videoCapturer != null) {
+                return videoCapturer;
+            }
+            if (useCamera2()) {
+                Log.d(TAG, "Creating capturer using camera2 API.");
+                camera1Enumerator = new Camera2Enumerator(this.mContext.get());
+            } else {
+                Log.d(TAG, "Creating capturer using camera1 API.");
+                camera1Enumerator = new Camera1Enumerator(captureToTexture());
+            }
+            VideoCapturer createCameraCapturer = createCameraCapturer(camera1Enumerator);
+            if (createCameraCapturer == null) {
+                Log.e(TAG, "Failed to open camera");
+                return null;
+            }
+            return createCameraCapturer;
         }
-        if (useCamera2()) {
-            Log.d(TAG, "Creating capturer using camera2 API.");
-            camera1Enumerator = new Camera2Enumerator(this.mContext.get());
-        } else {
-            Log.d(TAG, "Creating capturer using camera1 API.");
-            camera1Enumerator = new Camera1Enumerator(captureToTexture());
-        }
-        VideoCapturer createCameraCapturer = createCameraCapturer(camera1Enumerator);
-        if (createCameraCapturer == null) {
-            Log.e(TAG, "Failed to open camera");
-            return null;
-        }
-        return createCameraCapturer;
+        return (VideoCapturer) invokeV.objValue;
     }
 
     private void disposeExternalRenderers() {
-        if (this.mUserIdVideoRendererMap.isEmpty()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65579, this) == null) || this.mUserIdVideoRendererMap.isEmpty()) {
             return;
         }
         for (Long l : this.mUserIdVideoRendererMap.keySet()) {
@@ -635,103 +964,163 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     }
 
     private void disposePendingRenderers() {
-        synchronized (this) {
-            if (this.mPendingRemoveRendererMap.isEmpty()) {
-                return;
-            }
-            for (RTCVideoExternalRender rTCVideoExternalRender : this.mPendingRemoveRendererMap.values()) {
-                if (rTCVideoExternalRender != null) {
-                    if (rTCVideoExternalRender.getSurface() != null) {
-                        rTCVideoExternalRender.releaseSurface();
-                    }
-                    rTCVideoExternalRender.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65580, this) == null) {
+            synchronized (this) {
+                if (this.mPendingRemoveRendererMap.isEmpty()) {
+                    return;
                 }
+                for (RTCVideoExternalRender rTCVideoExternalRender : this.mPendingRemoveRendererMap.values()) {
+                    if (rTCVideoExternalRender != null) {
+                        if (rTCVideoExternalRender.getSurface() != null) {
+                            rTCVideoExternalRender.releaseSurface();
+                        }
+                        rTCVideoExternalRender.release();
+                    }
+                }
+                this.mPendingRemoveRendererMap.clear();
             }
-            this.mPendingRemoveRendererMap.clear();
         }
     }
 
     public static BaiduRtcRoom.RoomInfo getRoomInfofromPlatformServer(String str, String str2, String str3, String str4) {
-        BaiduRtcRoom.RoomInfo roomInfo = new BaiduRtcRoom.RoomInfo();
-        try {
-            MediaType parse = MediaType.parse("application/json;charset=utf-8");
-            OkHttpClient build = new OkHttpClient.Builder().addInterceptor(new Interceptor() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.21
-                @Override // okhttp3.Interceptor
-                public Response intercept(Interceptor.Chain chain) throws IOException {
-                    return chain.proceed(chain.request().newBuilder().build());
-                }
-            }).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).build();
-            String string = build.newCall(new Request.Builder().url(str4).post(RequestBody.create(parse, "{\"appId\":\"" + str + "\",\"roomName\":\"" + str2 + "\",\"uId\":\"" + str3 + "\"}")).build()).execute().body().string();
-            Log.e("", string);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65581, null, str, str2, str3, str4)) == null) {
+            BaiduRtcRoom.RoomInfo roomInfo = new BaiduRtcRoom.RoomInfo();
             try {
-                JSONObject jSONObject = new JSONObject(string);
-                String optString = jSONObject.optString("mediaServerIP");
-                jSONObject.optString("mediaServerPort");
-                String optString2 = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID);
-                if (!optString.isEmpty()) {
-                    roomInfo.MediaServerURL = "ws://" + optString + ":8188/janus";
-                    roomInfo.RoomID = optString2;
+                MediaType parse = MediaType.parse("application/json;charset=utf-8");
+                OkHttpClient build = new OkHttpClient.Builder().addInterceptor(new Interceptor() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.20
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
+                    }
+
+                    @Override // okhttp3.Interceptor
+                    public Response intercept(Interceptor.Chain chain) throws IOException {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, chain)) == null) ? chain.proceed(chain.request().newBuilder().build()) : (Response) invokeL.objValue;
+                    }
+                }).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).build();
+                String string = build.newCall(new Request.Builder().url(str4).post(RequestBody.create(parse, "{\"appId\":\"" + str + "\",\"roomName\":\"" + str2 + "\",\"uId\":\"" + str3 + "\"}")).build()).execute().body().string();
+                Log.e("", string);
+                try {
+                    JSONObject jSONObject = new JSONObject(string);
+                    String optString = jSONObject.optString("mediaServerIP");
+                    jSONObject.optString("mediaServerPort");
+                    String optString2 = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID);
+                    if (!optString.isEmpty()) {
+                        roomInfo.MediaServerURL = "ws://" + optString + ":8188/janus";
+                        roomInfo.RoomID = optString2;
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (IOException | Exception unused) {
             }
-        } catch (IOException | Exception unused) {
+            return roomInfo;
         }
-        return roomInfo;
+        return (BaiduRtcRoom.RoomInfo) invokeLLLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isHeadsetOn(Context context) {
+        InterceptResult invokeL;
         AudioDeviceInfo[] devices;
-        if (this.audioManager == null) {
-            this.audioManager = (AudioManager) context.getSystemService("audio");
-        }
-        AudioManager audioManager = this.audioManager;
-        if (audioManager == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65582, this, context)) == null) {
+            if (this.audioManager == null) {
+                this.audioManager = (AudioManager) context.getSystemService("audio");
+            }
+            AudioManager audioManager = this.audioManager;
+            if (audioManager == null) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT < 23) {
+                return audioManager.isWiredHeadsetOn() || this.audioManager.isBluetoothScoOn() || this.audioManager.isBluetoothA2dpOn();
+            }
+            for (AudioDeviceInfo audioDeviceInfo : audioManager.getDevices(2)) {
+                if (audioDeviceInfo.getType() == 3 || audioDeviceInfo.getType() == 4 || audioDeviceInfo.getType() == 8 || audioDeviceInfo.getType() == 7 || audioDeviceInfo.getType() == 11) {
+                    return true;
+                }
+            }
             return false;
         }
-        if (Build.VERSION.SDK_INT < 23) {
-            return audioManager.isWiredHeadsetOn() || this.audioManager.isBluetoothScoOn() || this.audioManager.isBluetoothA2dpOn();
-        }
-        for (AudioDeviceInfo audioDeviceInfo : audioManager.getDevices(2)) {
-            if (audioDeviceInfo.getType() == 3 || audioDeviceInfo.getType() == 4 || audioDeviceInfo.getType() == 8 || audioDeviceInfo.getType() == 7 || audioDeviceInfo.getType() == 11) {
-                return true;
-            }
-        }
-        return false;
+        return invokeL.booleanValue;
     }
 
-    private void offerPeerConnection(final BigInteger bigInteger) {
-        if (this.mIsStreamPublish) {
+    private void offerPeerConnection(BigInteger bigInteger) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65583, this, bigInteger) == null) || this.mIsStreamPublish) {
             return;
         }
         this.mIsStreamPublish = true;
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.22
+        this.mHandler.post(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.21
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BaiduRtcRoomImp this$0;
+            public final /* synthetic */ BigInteger val$handleId;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, bigInteger};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$handleId = bigInteger;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
                 PeerConnectionClient peerConnectionClient;
                 EglBase.Context eglBaseContext;
                 VideoSink videoSink;
-                if (BaiduRtcRoomImp.this.mParamSettings.HasVideo) {
-                    BaiduRtcRoomImp baiduRtcRoomImp = BaiduRtcRoomImp.this;
-                    baiduRtcRoomImp.videoCapturer = baiduRtcRoomImp.createVideoCapturer();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    if (this.this$0.mParamSettings.HasVideo) {
+                        BaiduRtcRoomImp baiduRtcRoomImp = this.this$0;
+                        baiduRtcRoomImp.videoCapturer = baiduRtcRoomImp.createVideoCapturer();
+                    }
+                    if (this.this$0.peerConnectionClient == null) {
+                        Log.e(BaiduRtcRoomImp.TAG, "peerConnectionClient is null!");
+                        return;
+                    }
+                    if (this.this$0.mIsEnableExternalVideoCapturer) {
+                        peerConnectionClient = this.this$0.peerConnectionClient;
+                        eglBaseContext = this.this$0.rootEglBase.getEglBaseContext();
+                        videoSink = this.this$0.mVideoSink;
+                    } else {
+                        peerConnectionClient = this.this$0.peerConnectionClient;
+                        eglBaseContext = this.this$0.rootEglBase.getEglBaseContext();
+                        videoSink = this.this$0.mLocalRender;
+                    }
+                    peerConnectionClient.createPeerConnection(eglBaseContext, videoSink, this.this$0.videoCapturer, this.val$handleId);
+                    this.this$0.mStartLoginTime = System.currentTimeMillis();
+                    this.this$0.peerConnectionClient.createOffer(this.val$handleId);
                 }
-                if (BaiduRtcRoomImp.this.peerConnectionClient == null) {
-                    Log.e(BaiduRtcRoomImp.TAG, "peerConnectionClient is null!");
-                    return;
-                }
-                if (BaiduRtcRoomImp.this.mIsEnableExternalVideoCapturer) {
-                    peerConnectionClient = BaiduRtcRoomImp.this.peerConnectionClient;
-                    eglBaseContext = BaiduRtcRoomImp.this.rootEglBase.getEglBaseContext();
-                    videoSink = BaiduRtcRoomImp.this.mVideoSink;
-                } else {
-                    peerConnectionClient = BaiduRtcRoomImp.this.peerConnectionClient;
-                    eglBaseContext = BaiduRtcRoomImp.this.rootEglBase.getEglBaseContext();
-                    videoSink = BaiduRtcRoomImp.this.mLocalRender;
-                }
-                peerConnectionClient.createPeerConnection(eglBaseContext, videoSink, BaiduRtcRoomImp.this.videoCapturer, bigInteger);
-                BaiduRtcRoomImp.this.mStartLoginTime = System.currentTimeMillis();
-                BaiduRtcRoomImp.this.peerConnectionClient.createOffer(bigInteger);
             }
         });
     }
@@ -739,36 +1128,40 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     /* JADX INFO: Access modifiers changed from: private */
     public void onFfDelayChange(JanusConnection janusConnection, BigInteger bigInteger) {
         HUDStatistics hUDStatistics;
-        if (!this.mIsEnablePullQualityMonitor || (hUDStatistics = this.mHUDStatisticsMap.get(janusConnection.handleId)) == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65584, this, janusConnection, bigInteger) == null) && this.mIsEnablePullQualityMonitor && (hUDStatistics = this.mHUDStatisticsMap.get(janusConnection.handleId)) != null) {
+            hUDStatistics.setFirstFrameTime(System.currentTimeMillis());
+            reportSLIFfDelay(bigInteger.longValue(), hUDStatistics.getFirstFrameTime() - hUDStatistics.getRequestSubscribeTime());
         }
-        hUDStatistics.setFirstFrameTime(System.currentTimeMillis());
-        reportSLIFfDelay(bigInteger.longValue(), hUDStatistics.getFirstFrameTime() - hUDStatistics.getRequestSubscribeTime());
     }
 
     private void onPacketLossEvent(Map<String, Integer> map) {
-        long intValue = map.get("packetloss_s") != null ? map.get("packetloss_s").intValue() : 0L;
-        long intValue2 = map.get("packetlost") != null ? map.get("packetlost").intValue() : 0L;
-        long intValue3 = map.get("packesend") != null ? map.get("packesend").intValue() : 0L;
-        if (this.mBaiduRtcRoomDelegate != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("packetsLost", intValue2);
-                jSONObject.put("packetsSent", intValue3);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65585, this, map) == null) {
+            long intValue = map.get("packetloss_s") != null ? map.get("packetloss_s").intValue() : 0L;
+            long intValue2 = map.get("packetlost") != null ? map.get("packetlost").intValue() : 0L;
+            long intValue3 = map.get("packesend") != null ? map.get("packesend").intValue() : 0L;
+            if (this.mBaiduRtcRoomDelegate != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("packetsLost", intValue2);
+                    jSONObject.put("packetsSent", intValue3);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                this.mBaiduRtcRoomDelegate.onRoomEventUpdate(201, intValue, jSONObject.toString());
             }
-            this.mBaiduRtcRoomDelegate.onRoomEventUpdate(201, intValue, jSONObject.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void parseAudioLeves(StatsReport[] statsReportArr, BigInteger bigInteger) {
+        WebSocketChannel webSocketChannel;
         BigInteger feedByHandle;
         StatsReport.Value[] valueArr;
         StatsReport.Value[] valueArr2;
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65586, this, statsReportArr, bigInteger) == null) || (webSocketChannel = this.mWebSocketChannel) == null) {
             return;
         }
         if (bigInteger == this.mPublisherHandle) {
@@ -817,7 +1210,8 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     /* JADX INFO: Access modifiers changed from: private */
     public void reportCommunicationQualityInfo() {
         HUDStatistics hUDStatistics;
-        if (this.mWebSocketChannel == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65587, this) == null) || this.mWebSocketChannel == null) {
             return;
         }
         HashMap hashMap = new HashMap();
@@ -900,7 +1294,8 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reportDeviceInfo() {
-        if (this.mWebSocketChannel == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65588, this) == null) || this.mWebSocketChannel == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -927,31 +1322,35 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reportRoomEventInfo(String str) {
-        if ((this.mIsEnablePushQualityMonitor || this.mIsEnablePullQualityMonitor) && this.mWebSocketChannel != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(TbEnum.SystemMessage.KEY_USER_NAME, this.mDisplayName);
-                jSONObject2.put("eventDescription", str);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("roomEvent", jSONObject2);
-                jSONObject.put("env", this.mQualityMonitorEnv);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
-                if (this.mWebSocketChannel != null) {
-                    jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.mWebSocketChannel.getRoomId());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65589, this, str) == null) {
+            if ((this.mIsEnablePushQualityMonitor || this.mIsEnablePullQualityMonitor) && this.mWebSocketChannel != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put(TbEnum.SystemMessage.KEY_USER_NAME, this.mDisplayName);
+                    jSONObject2.put("eventDescription", str);
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("roomEvent", jSONObject2);
+                    jSONObject.put("env", this.mQualityMonitorEnv);
+                    jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
+                    if (this.mWebSocketChannel != null) {
+                        jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.mWebSocketChannel.getRoomId());
+                    }
+                    jSONObject.put("timestamp", System.currentTimeMillis());
+                    jSONObject.put("userId", this.mUserId);
+                    jSONObject.put("message", jSONObject3);
+                } catch (JSONException e2) {
+                    Log.e(TAG, "Caught error on reportRoomEventInfo: " + e2);
                 }
-                jSONObject.put("timestamp", System.currentTimeMillis());
-                jSONObject.put("userId", this.mUserId);
-                jSONObject.put("message", jSONObject3);
-            } catch (JSONException e2) {
-                Log.e(TAG, "Caught error on reportRoomEventInfo: " + e2);
+                this.rtcLogReport.report(jSONObject.toString(), 1);
             }
-            this.rtcLogReport.report(jSONObject.toString(), 1);
         }
     }
 
     private void reportSLIFfDelay(long j, long j2) {
-        if (this.mWebSocketChannel == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65590, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.mWebSocketChannel == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -987,12 +1386,16 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     }
 
     private void reportSLILoginEvent(String str) {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        reportSLILoginEvent(str, webSocketChannel != null ? webSocketChannel.getRoomId() : -1L);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65591, this, str) == null) {
+            WebSocketChannel webSocketChannel = this.mWebSocketChannel;
+            reportSLILoginEvent(str, webSocketChannel != null ? webSocketChannel.getRoomId() : -1L);
+        }
     }
 
     private void reportSLILoginEvent(String str, long j) {
-        if (this.mWebSocketChannel == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLJ(65592, this, str, j) == null) || this.mWebSocketChannel == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -1022,7 +1425,8 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     /* JADX INFO: Access modifiers changed from: private */
     public void reportSLIStuckInfo() {
         HUDStatistics hUDStatistics;
-        if (this.mWebSocketChannel != null && this.mIsEnablePullQualityMonitor) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65593, this) == null) && this.mWebSocketChannel != null && this.mIsEnablePullQualityMonitor) {
             new JSONArray();
             for (BigInteger bigInteger : this.mHUDStatisticsMap.keySet()) {
                 if (bigInteger != this.mPublisherHandle && (hUDStatistics = this.mHUDStatisticsMap.get(bigInteger)) != null) {
@@ -1091,252 +1495,368 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     /* JADX INFO: Access modifiers changed from: private */
     public int setBluetoothScoOn(Boolean bool) {
-        if (this.isBluetoothOn == bool) {
-            return 0;
-        }
-        if (this.audioManager == null) {
-            this.audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
-        }
-        if (this.audioManager == null) {
-            return -1;
-        }
-        try {
-            if (bool.booleanValue()) {
-                this.audioManager.startBluetoothSco();
-                this.audioManager.setBluetoothScoOn(bool.booleanValue());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65594, this, bool)) == null) {
+            if (this.isBluetoothOn == bool) {
+                return 0;
             }
-            this.audioManager.setBluetoothScoOn(bool.booleanValue());
-            this.audioManager.stopBluetoothSco();
-            this.isBluetoothOn = bool;
-            return 0;
-        } catch (Exception e2) {
-            Log.e(TAG, "set bluetooth sco fail: " + e2.getMessage());
-            return -1;
+            if (this.audioManager == null) {
+                this.audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
+            }
+            if (this.audioManager == null) {
+                return -1;
+            }
+            try {
+                if (bool.booleanValue()) {
+                    this.audioManager.startBluetoothSco();
+                    this.audioManager.setBluetoothScoOn(bool.booleanValue());
+                }
+                this.audioManager.setBluetoothScoOn(bool.booleanValue());
+                this.audioManager.stopBluetoothSco();
+                this.isBluetoothOn = bool;
+                return 0;
+            } catch (Exception e2) {
+                Log.e(TAG, "set bluetooth sco fail: " + e2.getMessage());
+                return -1;
+            }
         }
+        return invokeL.intValue;
     }
 
     public static void setUseTestEnv(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65595, null, z) == null) {
+        }
     }
 
     public static void setVerbose(boolean z) {
-        mbEnableDebugLog = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65596, null, z) == null) {
+            mbEnableDebugLog = z;
+        }
     }
 
     private boolean useCamera2() {
-        Camera2Enumerator.disableExtraCamera(this.mParamSettings.DisableExtraCamera);
-        return Camera2Enumerator.isSupported(this.mContext.get());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65597, this)) == null) {
+            Camera2Enumerator.disableExtraCamera(this.mParamSettings.DisableExtraCamera);
+            if (Build.MODEL.contains("LIO-AL00")) {
+                return false;
+            }
+            return Camera2Enumerator.isSupported(this.mContext.get());
+        }
+        return invokeV.booleanValue;
     }
 
     private void userRenderMove2PendingMap(long j) {
-        synchronized (this) {
-            if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j))) {
-                this.mPendingRemoveRendererMap.put(Long.valueOf(j), this.mUserIdVideoRendererMap.get(Long.valueOf(j)));
-                this.mUserIdVideoRendererMap.remove(Long.valueOf(j));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65598, this, j) == null) {
+            synchronized (this) {
+                if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j))) {
+                    this.mPendingRemoveRendererMap.put(Long.valueOf(j), this.mUserIdVideoRendererMap.get(Long.valueOf(j)));
+                    this.mUserIdVideoRendererMap.remove(Long.valueOf(j));
+                }
             }
         }
     }
 
     public static String version() {
-        return "1.2.17";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65599, null)) == null) ? "1.3.0" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void addExternalRenderer(long j, RTCVideoExternalRender rTCVideoExternalRender) {
-        removeExternalRenderer(j);
-        this.mUserIdVideoRendererMap.put(Long.valueOf(j), rTCVideoExternalRender);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, rTCVideoExternalRender) == null) {
+            removeExternalRenderer(j);
+            this.mUserIdVideoRendererMap.put(Long.valueOf(j), rTCVideoExternalRender);
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void cameraFocusWithPoint(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void changeSurfaceSize(long j, int i2, int i3) {
-        if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j))) {
-            RTCVideoExternalRender rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(Long.valueOf(j));
-            if (rTCVideoExternalRender != null) {
-                rTCVideoExternalRender.changeSurfaceSize(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j))) {
+                RTCVideoExternalRender rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(Long.valueOf(j));
+                if (rTCVideoExternalRender != null) {
+                    rTCVideoExternalRender.changeSurfaceSize(i2, i3);
+                    return;
+                }
                 return;
             }
-            return;
+            Log.d(TAG, "External render not found to  change surface size for " + j);
         }
-        Log.d(TAG, "External render not found to  change surface size for " + j);
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        if (!this.mLastLssURL.isEmpty() && this.mLastLssMode != rtcLiveTransferMode) {
-            this.mWebSocketChannel.setLssConfigSecond(str, z, z2, str2, rtcLiveTransferMode);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2, rtcLiveTransferMode})) == null) {
+            if (!this.mLastLssURL.isEmpty() && this.mLastLssMode != rtcLiveTransferMode) {
+                this.mWebSocketChannel.setLssConfigSecond(str, z, z2, str2, rtcLiveTransferMode);
+                return true;
+            }
+            this.mLastLssURL = str;
+            this.mLastLssMode = rtcLiveTransferMode;
+            this.mWebSocketChannel.setRecording(z2);
+            this.mWebSocketChannel.setLssURL(str);
+            this.mWebSocketChannel.setMixing(z);
+            this.mWebSocketChannel.setLssMixTemplate(str2);
+            this.mWebSocketChannel.setLssTransferMode(rtcLiveTransferMode);
             return true;
         }
-        this.mLastLssURL = str;
-        this.mLastLssMode = rtcLiveTransferMode;
-        this.mWebSocketChannel.setRecording(z2);
-        this.mWebSocketChannel.setLssURL(str);
-        this.mWebSocketChannel.setMixing(z);
-        this.mWebSocketChannel.setLssMixTemplate(str2);
-        this.mWebSocketChannel.setLssTransferMode(rtcLiveTransferMode);
-        return true;
+        return invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void destroyExternalSurface(long j, Surface surface) {
         RTCVideoExternalRender rTCVideoExternalRender;
-        if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j)) && (rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(Long.valueOf(j))) != null && surface == rTCVideoExternalRender.getSurface()) {
-            rTCVideoExternalRender.releaseSurface();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048580, this, j, surface) == null) {
+            if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j)) && (rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(Long.valueOf(j))) != null && surface == rTCVideoExternalRender.getSurface()) {
+                rTCVideoExternalRender.releaseSurface();
+            }
+            disposePendingRenderers();
         }
-        disposePendingRenderers();
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void disbandRoom() {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel != null) {
-            webSocketChannel.disbandRoom();
+        WebSocketChannel webSocketChannel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (webSocketChannel = this.mWebSocketChannel) == null) {
+            return;
         }
+        webSocketChannel.disbandRoom();
     }
 
     public void doDestroy() {
-        logoutRtcRoom();
-        mCameraUsingMap.remove(toString());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            logoutRtcRoom();
+            mCameraUsingMap.remove(toString());
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableAgc(boolean z) {
-        this.disableBuiltInAGC = Boolean.valueOf(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.disableBuiltInAGC = Boolean.valueOf(z);
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableAns(boolean z) {
-        this.disableBuiltInNS = Boolean.valueOf(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.disableBuiltInNS = Boolean.valueOf(z);
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableAudioMix(boolean z) {
-        this.mEnableAudioMix = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.mEnableAudioMix = z;
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableErrorInfoToServer(boolean z, String str) {
-        this.mIsEnableErrorInfoMonitor = z;
-        this.mIsUseDefaultErrorInfoMonitor = false;
-        this.mErrorInfoMonitorEnv = str;
-        ErrorInfoReport.getInstance().setEnv(str);
-        if (z && this.rtcLogReport == null) {
-            this.rtcLogReport = RtcLogReport.getInstance();
-        }
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel != null) {
-            webSocketChannel.setEnableErrorInfoMonitor(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048586, this, z, str) == null) {
+            this.mIsEnableErrorInfoMonitor = z;
+            this.mIsUseDefaultErrorInfoMonitor = false;
+            this.mErrorInfoMonitorEnv = str;
+            ErrorInfoReport.getInstance().setEnv(str);
+            if (z && this.rtcLogReport == null) {
+                this.rtcLogReport = RtcLogReport.getInstance();
+            }
+            WebSocketChannel webSocketChannel = this.mWebSocketChannel;
+            if (webSocketChannel != null) {
+                webSocketChannel.setEnableErrorInfoMonitor(z);
+            }
         }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableExternalAudioRecord(boolean z) {
-        this.mIsEnableExternalAudioRecord = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.mIsEnableExternalAudioRecord = z;
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableExternalVideoCapturer(boolean z) {
-        this.mIsEnableExternalVideoCapturer = z;
-        this.mVideoSink = new VideoSink() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.23
-            @Override // org.webrtc.VideoSink
-            public void onFrame(VideoFrame videoFrame) {
-            }
-        };
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.mIsEnableExternalVideoCapturer = z;
+            this.mVideoSink = new VideoSink(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.22
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // org.webrtc.VideoSink
+                public void onFrame(VideoFrame videoFrame) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, videoFrame) == null) {
+                    }
+                }
+            };
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableLaterLoadSo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableStatsToServer(boolean z, String str) {
-        enableStatsToServer(z, z, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048590, this, z, str) == null) {
+            enableStatsToServer(z, z, str);
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableStatsToServer(boolean z, boolean z2, String str) {
-        this.mIsEnablePushQualityMonitor = z;
-        this.mIsEnablePullQualityMonitor = z2;
-        this.mQualityMonitorEnv = str;
-        if (!z && !z2) {
-            CpuMonitor cpuMonitor = this.mCpuMonitor;
-            if (cpuMonitor != null) {
-                cpuMonitor.pause();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
+            this.mIsEnablePushQualityMonitor = z;
+            this.mIsEnablePullQualityMonitor = z2;
+            this.mQualityMonitorEnv = str;
+            if (!z && !z2) {
+                CpuMonitor cpuMonitor = this.mCpuMonitor;
+                if (cpuMonitor != null) {
+                    cpuMonitor.pause();
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        if (this.mCpuMonitor == null) {
-            this.mCpuMonitor = new CpuMonitor(this.mSoContext);
-        }
-        if (this.rtcLogReport == null) {
-            this.rtcLogReport = RtcLogReport.getInstance();
+            if (this.mCpuMonitor == null) {
+                this.mCpuMonitor = new CpuMonitor(this.mSoContext);
+            }
+            if (this.rtcLogReport == null) {
+                this.rtcLogReport = RtcLogReport.getInstance();
+            }
         }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public RTCAudioSamples.RTCExternalSamplesReadyCallback getExternalAudioSamplesCallback() {
-        return this.externalSamplesReadyCallback;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.externalSamplesReadyCallback : (RTCAudioSamples.RTCExternalSamplesReadyCallback) invokeV.objValue;
     }
 
     public RTCVideoExternalRender getExternalRender(long j) {
-        synchronized (this) {
-            Log.d(TAG, j + " : Get external renderer.");
-            if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j))) {
-                return this.mUserIdVideoRendererMap.get(Long.valueOf(j));
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
+            synchronized (this) {
+                Log.d(TAG, j + " : Get external renderer.");
+                if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j))) {
+                    return this.mUserIdVideoRendererMap.get(Long.valueOf(j));
+                }
+                RTCVideoExternalRenderImp rTCVideoExternalRenderImp = new RTCVideoExternalRenderImp(this.mBaiduRtcRoomDelegate, j);
+                Log.d(TAG, j + " : Create external renderer" + rTCVideoExternalRenderImp);
+                this.mUserIdVideoRendererMap.put(Long.valueOf(j), rTCVideoExternalRenderImp);
+                return rTCVideoExternalRenderImp;
             }
-            RTCVideoExternalRenderImp rTCVideoExternalRenderImp = new RTCVideoExternalRenderImp(this.mBaiduRtcRoomDelegate, j);
-            Log.d(TAG, j + " : Create external renderer" + rTCVideoExternalRenderImp);
-            this.mUserIdVideoRendererMap.put(Long.valueOf(j), rTCVideoExternalRenderImp);
-            return rTCVideoExternalRenderImp;
         }
+        return (RTCVideoExternalRender) invokeJ.objValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public BaiduRtcRoom.RtcRoomAudioLevel[] getRemoteAudioLevels() {
-        int i2 = 0;
-        int i3 = 0;
-        for (BigInteger bigInteger : this.mRemoteStreamStats.keySet()) {
-            StreamStats streamStats = this.mRemoteStreamStats.get(bigInteger);
-            if (streamStats != null && streamStats.hasAudio.booleanValue() && streamStats.volume != -1) {
-                i3++;
-            }
-        }
-        BaiduRtcRoom.RtcRoomAudioLevel[] rtcRoomAudioLevelArr = new BaiduRtcRoom.RtcRoomAudioLevel[i3];
-        for (BigInteger bigInteger2 : this.mRemoteStreamStats.keySet()) {
-            StreamStats streamStats2 = this.mRemoteStreamStats.get(bigInteger2);
-            if (streamStats2 != null && streamStats2.volume != -1 && streamStats2.hasAudio.booleanValue()) {
-                if (i2 >= i3) {
-                    break;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            int i2 = 0;
+            int i3 = 0;
+            for (BigInteger bigInteger : this.mRemoteStreamStats.keySet()) {
+                StreamStats streamStats = this.mRemoteStreamStats.get(bigInteger);
+                if (streamStats != null && streamStats.hasAudio.booleanValue() && streamStats.volume != -1) {
+                    i3++;
                 }
-                rtcRoomAudioLevelArr[i2] = new BaiduRtcRoom.RtcRoomAudioLevel();
-                rtcRoomAudioLevelArr[i2].userId = streamStats2.userId;
-                rtcRoomAudioLevelArr[i2].volumeLevel = streamStats2.volume;
-                rtcRoomAudioLevelArr[i2].nicName = streamStats2.nickName;
-                i2++;
             }
+            BaiduRtcRoom.RtcRoomAudioLevel[] rtcRoomAudioLevelArr = new BaiduRtcRoom.RtcRoomAudioLevel[i3];
+            for (BigInteger bigInteger2 : this.mRemoteStreamStats.keySet()) {
+                StreamStats streamStats2 = this.mRemoteStreamStats.get(bigInteger2);
+                if (streamStats2 != null && streamStats2.volume != -1 && streamStats2.hasAudio.booleanValue()) {
+                    if (i2 >= i3) {
+                        break;
+                    }
+                    rtcRoomAudioLevelArr[i2] = new BaiduRtcRoom.RtcRoomAudioLevel();
+                    rtcRoomAudioLevelArr[i2].userId = streamStats2.userId;
+                    rtcRoomAudioLevelArr[i2].volumeLevel = streamStats2.volume;
+                    rtcRoomAudioLevelArr[i2].nicName = streamStats2.nickName;
+                    i2++;
+                }
+            }
+            return rtcRoomAudioLevelArr;
         }
-        return rtcRoomAudioLevelArr;
+        return (BaiduRtcRoom.RtcRoomAudioLevel[]) invokeV.objValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public BaiduRtcRoom.RtcRoomVideoDimension getRemoteVideoDimension(long j) {
-        RTCVideoExternalRenderImp rTCVideoExternalRenderImp = (RTCVideoExternalRenderImp) this.mUserIdVideoRendererMap.get(Long.valueOf(j));
-        BaiduRtcRoom.RtcRoomVideoDimension rtcRoomVideoDimension = new BaiduRtcRoom.RtcRoomVideoDimension();
-        if (rTCVideoExternalRenderImp != null) {
-            rtcRoomVideoDimension.videoWidth = rTCVideoExternalRenderImp.getVideoWidth();
-            rtcRoomVideoDimension.videoHeight = rTCVideoExternalRenderImp.getVideoHeight();
-            rtcRoomVideoDimension.videoRotation = rTCVideoExternalRenderImp.getVideoRotation();
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
+            RTCVideoExternalRenderImp rTCVideoExternalRenderImp = (RTCVideoExternalRenderImp) this.mUserIdVideoRendererMap.get(Long.valueOf(j));
+            BaiduRtcRoom.RtcRoomVideoDimension rtcRoomVideoDimension = new BaiduRtcRoom.RtcRoomVideoDimension();
+            if (rTCVideoExternalRenderImp != null) {
+                rtcRoomVideoDimension.videoWidth = rTCVideoExternalRenderImp.getVideoWidth();
+                rtcRoomVideoDimension.videoHeight = rTCVideoExternalRenderImp.getVideoHeight();
+                rtcRoomVideoDimension.videoRotation = rTCVideoExternalRenderImp.getVideoRotation();
+            }
+            return rtcRoomVideoDimension;
         }
-        return rtcRoomVideoDimension;
+        return (BaiduRtcRoom.RtcRoomVideoDimension) invokeJ.objValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void getUserAttribute(long j) {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel == null) {
+        WebSocketChannel webSocketChannel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(1048596, this, j) == null) || (webSocketChannel = this.mWebSocketChannel) == null) {
             return;
         }
         webSocketChannel.getUserAttribute(j);
@@ -1344,307 +1864,333 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public BaiduRtcRoom.RtcRoomUserInfo[] getUserListOfRoom() {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            WebSocketChannel webSocketChannel = this.mWebSocketChannel;
+            if (webSocketChannel == null) {
+                return null;
+            }
+            return webSocketChannel.UserInfoList();
         }
-        return webSocketChannel.UserInfoList();
+        return (BaiduRtcRoom.RtcRoomUserInfo[]) invokeV.objValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean isExternalAudioRecord() {
-        return this.mIsEnableExternalAudioRecord;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mIsEnableExternalAudioRecord : invokeV.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean isSpeakerOn() {
-        return ((AudioManager) this.mContext.get().getSystemService("audio")).isSpeakerphoneOn();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? ((AudioManager) this.mContext.get().getSystemService("audio")).isSpeakerphoneOn() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void kickOffUserWithId(long j) {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel != null) {
-            webSocketChannel.kickOffUserWithId(j);
+        WebSocketChannel webSocketChannel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(1048600, this, j) == null) || (webSocketChannel = this.mWebSocketChannel) == null) {
+            return;
         }
+        webSocketChannel.kickOffUserWithId(j);
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2) {
-        return loginRtcRoomWithRoomName(str, j, str2, true, true);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{str, Long.valueOf(j), str2})) == null) ? loginRtcRoomWithRoomName(str, j, str2, true, true) : invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z) {
-        Log.i(TAG, "enable force login");
-        this.mIsCompulsive = z;
-        return loginRtcRoomWithRoomName(str, j, str2, true, true);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{str, Long.valueOf(j), str2, Boolean.valueOf(z)})) == null) {
+            Log.i(TAG, "enable force login");
+            this.mIsCompulsive = z;
+            return loginRtcRoomWithRoomName(str, j, str2, true, true);
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2) {
-        boolean z3;
+        InterceptResult invokeCommon;
         int i2;
         int i3;
-        this.mDisplayName = str2;
-        this.mRoomName = str;
-        this.mUserId = j;
-        this.mIsAsPublisher = z;
-        this.mIsAsListener = z2;
-        if (this.mIsEnableSoLaterLoad) {
-            try {
-                System.loadLibrary("jingle_peerconnection_so");
-            } catch (UnsatisfiedLinkError unused) {
-                z3 = false;
-            }
-        }
-        z3 = true;
-        if (!z3 && this.mIsEnableSoLaterLoad && !this.mIsSoDownloaded) {
-            Thread thread = new Thread(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.3
-                @Override // java.lang.Runnable
-                public void run() {
-                    Log.d(BaiduRtcRoomImp.TAG, "setup downloading thread ......");
-                    BaiduRtcRoomImp baiduRtcRoomImp = BaiduRtcRoomImp.this;
-                    baiduRtcRoomImp.setupSoLaterLoad(baiduRtcRoomImp.mSoContext);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{str, Long.valueOf(j), str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            this.mDisplayName = str2;
+            this.mRoomName = str;
+            this.mUserId = j;
+            this.mIsAsPublisher = z;
+            this.mIsAsListener = z2;
+            if (this.mIsEnableSoLaterLoad && !RTCLoadManager.getInstance(this.mSoContext).isLoadCompleted()) {
+                RTCLoadManager.getInstance(this.mSoContext).loadLibraries(this.mSoLaterLoadUrl, this.mCpuType, this.mLoadListener);
+                return true;
+            } else if (j != 0) {
+                this.mWebSocketChannel.setRoomName(str);
+                this.mWebSocketChannel.setUserId(j);
+                if (str2 != null && !str2.isEmpty()) {
+                    this.mWebSocketChannel.setDisplayName(str2);
                 }
-            });
-            this.mSoDownloadThread = thread;
-            thread.start();
-            return true;
-        } else if (j != 0) {
-            this.mWebSocketChannel.setRoomName(str);
-            this.mWebSocketChannel.setUserId(j);
-            if (str2 != null && !str2.isEmpty()) {
-                this.mWebSocketChannel.setDisplayName(str2);
-            }
-            this.mWebSocketChannel.setVideoCodec(this.mParamSettings.VideoCodec);
-            this.mWebSocketChannel.setAsPublisher(z);
-            this.mWebSocketChannel.setAsListener(z2);
-            RtcParameterSettings rtcParameterSettings = this.mParamSettings;
-            int i4 = rtcParameterSettings.VideoWidth;
-            int i5 = rtcParameterSettings.VideoHeight;
-            String lowerCase = rtcParameterSettings.VideoResolution.toLowerCase();
-            if (lowerCase.contains("192x144")) {
-                i4 = 192;
-                i5 = 144;
-            } else if (lowerCase.contains("320x180")) {
-                i5 = 180;
-                i4 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
-            } else if (lowerCase.contains("352x288")) {
-                i4 = 352;
-                i5 = 288;
-            } else if (lowerCase.contains("480x320")) {
-                i4 = 480;
-                i5 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
-            } else {
-                if (lowerCase.contains("320x480")) {
+                this.mWebSocketChannel.setVideoCodec(this.mParamSettings.VideoCodec);
+                this.mWebSocketChannel.setAsPublisher(z);
+                this.mWebSocketChannel.setAsListener(z2);
+                RtcParameterSettings rtcParameterSettings = this.mParamSettings;
+                int i4 = rtcParameterSettings.VideoWidth;
+                int i5 = rtcParameterSettings.VideoHeight;
+                String lowerCase = rtcParameterSettings.VideoResolution.toLowerCase();
+                if (lowerCase.contains("192x144")) {
+                    i4 = 192;
+                    i5 = 144;
+                } else if (lowerCase.contains("320x180")) {
+                    i5 = 180;
                     i4 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+                } else if (lowerCase.contains("352x288")) {
+                    i4 = 352;
+                    i5 = 288;
+                } else if (lowerCase.contains("480x320")) {
+                    i4 = 480;
+                    i5 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
                 } else {
-                    if (lowerCase.contains("480x360")) {
-                        i4 = 480;
-                    } else if (lowerCase.contains("640x360")) {
-                        i4 = 640;
-                    } else if (lowerCase.contains("640x480")) {
-                        i4 = 640;
-                    } else if (lowerCase.contains("960x540")) {
-                        i4 = TbConfig.HEAD_IMG_SIZE;
-                        i5 = 540;
-                    } else if (lowerCase.contains("1280x720")) {
-                        i4 = 1280;
-                        i5 = PeerConnectionClient.HD_VIDEO_HEIGHT;
-                    } else if (lowerCase.contains("1920x1080")) {
-                        i4 = 1920;
-                        i5 = IdCardOcrCameraActivity.G;
+                    if (lowerCase.contains("320x480")) {
+                        i4 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
                     } else {
-                        if (lowerCase.contains("3840x2160")) {
-                            i4 = DisplayCompat.DISPLAY_SIZE_4K_WIDTH;
-                        } else if (lowerCase.contains("4096x2160")) {
-                            i4 = 4096;
+                        if (lowerCase.contains("480x360")) {
+                            i4 = 480;
+                        } else if (lowerCase.contains("640x360")) {
+                            i4 = 640;
+                        } else if (lowerCase.contains("640x480")) {
+                            i4 = 640;
+                        } else if (lowerCase.contains("960x540")) {
+                            i4 = 960;
+                            i5 = RecordConstants.DEFAULT_PREVIEW_WIDTH;
+                        } else if (lowerCase.contains("1280x720")) {
+                            i4 = 1280;
+                            i5 = 720;
+                        } else if (lowerCase.contains("1920x1080")) {
+                            i4 = 1920;
+                            i5 = 1080;
                         } else {
-                            if (lowerCase.contains("7680x4320")) {
-                                i4 = 7680;
+                            if (lowerCase.contains("3840x2160")) {
+                                i4 = 3840;
+                            } else if (lowerCase.contains("4096x2160")) {
+                                i4 = 4096;
                             } else {
-                                i4 = lowerCase.contains("8192x4320") ? 8192 : 8192;
+                                if (lowerCase.contains("7680x4320")) {
+                                    i4 = 7680;
+                                } else {
+                                    i4 = lowerCase.contains("8192x4320") ? 8192 : 8192;
+                                }
+                                i5 = 4320;
                             }
-                            i5 = 4320;
+                            i5 = DisplayCompat.DISPLAY_SIZE_4K_HEIGHT;
                         }
-                        i5 = DisplayCompat.DISPLAY_SIZE_4K_HEIGHT;
+                        i5 = 360;
                     }
-                    i5 = 360;
+                    i5 = 480;
                 }
-                i5 = 480;
-            }
-            if (i4 > 8192 || i5 > 4320) {
-                i2 = 8192;
-                i3 = 4320;
-            } else {
-                i2 = i4;
-                i3 = i5;
-            }
-            if (Build.MODEL.contains("Redmi 6 Pro")) {
-                this.mParamSettings.DisableBuiltInAEC = true;
-                this.disableBuiltInNS = Boolean.TRUE;
-            }
-            if (Build.HARDWARE.contains("mt6768")) {
-                RtcParameterSettings rtcParameterSettings2 = this.mParamSettings;
-                rtcParameterSettings2.EnableRequiredResolutionAligment32 = true;
-                rtcParameterSettings2.EnableMTKH264Decode = false;
-            }
-            if (Build.MODEL.contains("Mi Note 2") || Build.MODEL.contains("V1809")) {
-                this.mParamSettings.EncodeBitrateMode = 1;
-            }
-            RtcParameterSettings rtcParameterSettings3 = this.mParamSettings;
-            int i6 = rtcParameterSettings3.VideoFps;
-            String upperCase = rtcParameterSettings3.VideoCodec.toUpperCase();
-            boolean z4 = this.mParamSettings.DisableBuiltInAEC;
-            boolean booleanValue = this.disableBuiltInAGC.booleanValue();
-            boolean booleanValue2 = this.disableBuiltInNS.booleanValue();
-            RtcParameterSettings rtcParameterSettings4 = this.mParamSettings;
-            this.peerConnectionParameters = new PeerConnectionClient.PeerConnectionParameters(false, i2, i3, i6, upperCase, true, 0, "opus", false, false, z4, booleanValue, booleanValue2, rtcParameterSettings4.VideoMaxkbps, rtcParameterSettings4.VideoMinkbps, rtcParameterSettings4.MicPhoneMuted, rtcParameterSettings4.CameraMuted, true, rtcParameterSettings4.EnableFixedResolution, rtcParameterSettings4.EnableRequiredResolutionAligment32, rtcParameterSettings4.EnableHighProfile, rtcParameterSettings4.AudioMaxkbps, rtcParameterSettings4.audioBitrateMode, rtcParameterSettings4.TransportAudioChannel, rtcParameterSettings4.EncodeBitrateMode, rtcParameterSettings4.EnableHisiH264HW, rtcParameterSettings4.EnableMTKH264Decode, rtcParameterSettings4.AudioSource, rtcParameterSettings4.AudioBufferPackets, rtcParameterSettings4.AudioPlayoutDelay, rtcParameterSettings4.AudioCodecComplex);
-            this.peerConnectionClient = PeerConnectionClient.getInstance();
-            if (this.mEnableAudioMix) {
-                if (this.mAudioFilter == null) {
-                    this.mAudioFilter = new AudioFilter();
-                }
-                this.mAudioFilter.l(false);
-                if (this.mRemoteFilterTrack < 0) {
-                    this.mRemoteFilterTrack = this.mAudioFilter.b();
-                }
-                this.mAudioFilter.c();
-                this.mAudioFilter.j(false);
-                this.mAudioFilter.i(false);
-                this.mAudioFilter.k(this.mOnMixedFrameUpdateListener);
-            }
-            if (this.mSamplesReadyCallback != null || this.mEnableAudioMix) {
-                this.peerConnectionClient.setAudioSamplesReadyCallback(this.mSamplesReadyInternalCallback);
-            }
-            if (this.mRemoteSamplesCallback != null || this.mEnableAudioMix) {
-                this.peerConnectionClient.setRemoteAudioSamplesReadyCallback(this.mRemoteSamplesInternalCallback);
-            }
-            RtcParameterSettings rtcParameterSettings5 = this.mParamSettings;
-            if (rtcParameterSettings5 != null) {
-                this.mWebSocketChannel.setHasAudio(rtcParameterSettings5.HasAudio);
-                this.peerConnectionClient.setHasAudio(this.mParamSettings.HasAudio);
-                this.mWebSocketChannel.setHasVideo(this.mParamSettings.HasVideo);
-                this.peerConnectionClient.setHasVideo(this.mParamSettings.HasVideo);
-                this.mWebSocketChannel.setHasData(this.mParamSettings.HasData);
-                this.peerConnectionClient.setHasData(this.mParamSettings.HasData);
-                this.peerConnectionClient.setAudioFreguency(this.mParamSettings.AudioFrequency);
-                this.peerConnectionClient.setAudioChannel(this.mParamSettings.AudioChannel);
-                this.mWebSocketChannel.setConnectionTimeoutMs(this.mParamSettings.ConnectionTimeoutMs);
-                this.mWebSocketChannel.setReadTimeoutMs(this.mParamSettings.ReadTimeoutMs);
-                this.mWebSocketChannel.setAutoPublish(this.mParamSettings.AutoPublish);
-                this.mWebSocketChannel.setAutoSubScribe(this.mParamSettings.AutoSubScribe);
-                this.mWebSocketChannel.setMediaServerIP(this.mParamSettings.MediaServerIP);
-            }
-            this.peerConnectionClient.setExternalAudioRecord(this.mIsEnableExternalAudioRecord);
-            this.peerConnectionClient.setEnableDebugLog(mbEnableDebugLog);
-            this.peerConnectionClient.createPeerConnectionFactory(this.mContext.get(), this.peerConnectionParameters, this);
-            this.peerConnectionClient.setStuckEventListener(new AudioStuckEvent());
-            this.peerConnectionClient.setEnableSLIReport(this.mIsEnablePullQualityMonitor);
-            this.mWebSocketChannel.initConnection(this.mJanusServerURL, this.mIsCompulsive);
-            if (this.mIsUseDefaultErrorInfoMonitor) {
-                if (this.mJanusServerURL.contains("bcelive.com")) {
-                    this.mIsEnableErrorInfoMonitor = true;
+                if (i4 > 8192 || i5 > 4320) {
+                    i2 = 8192;
+                    i3 = 4320;
                 } else {
-                    this.mIsEnableErrorInfoMonitor = false;
+                    i2 = i4;
+                    i3 = i5;
                 }
+                if (Build.MODEL.contains("Redmi 6 Pro")) {
+                    this.mParamSettings.DisableBuiltInAEC = true;
+                    this.disableBuiltInNS = Boolean.TRUE;
+                }
+                if (Build.MANUFACTURER.trim().toLowerCase().contains(ManufacturerUtils.SAMSUNG)) {
+                    this.mParamSettings.DisableBuiltInAEC = true;
+                    this.disableBuiltInNS = Boolean.TRUE;
+                }
+                if (Build.HARDWARE.contains("mt6768")) {
+                    RtcParameterSettings rtcParameterSettings2 = this.mParamSettings;
+                    rtcParameterSettings2.EnableRequiredResolutionAligment32 = true;
+                    rtcParameterSettings2.EnableMTKH264Decode = false;
+                }
+                if (Build.MODEL.contains("Mi Note 2") || Build.MODEL.contains("V1809")) {
+                    this.mParamSettings.EncodeBitrateMode = 1;
+                }
+                RtcParameterSettings rtcParameterSettings3 = this.mParamSettings;
+                int i6 = rtcParameterSettings3.VideoFps;
+                String upperCase = rtcParameterSettings3.VideoCodec.toUpperCase();
+                boolean z3 = this.mParamSettings.DisableBuiltInAEC;
+                boolean booleanValue = this.disableBuiltInAGC.booleanValue();
+                boolean booleanValue2 = this.disableBuiltInNS.booleanValue();
+                RtcParameterSettings rtcParameterSettings4 = this.mParamSettings;
+                this.peerConnectionParameters = new PeerConnectionClient.PeerConnectionParameters(false, i2, i3, i6, upperCase, true, 0, "opus", false, false, z3, booleanValue, booleanValue2, rtcParameterSettings4.VideoMaxkbps, rtcParameterSettings4.VideoMinkbps, rtcParameterSettings4.MicPhoneMuted, rtcParameterSettings4.CameraMuted, true, rtcParameterSettings4.EnableFixedResolution, rtcParameterSettings4.EnableRequiredResolutionAligment32, rtcParameterSettings4.EnableHighProfile, rtcParameterSettings4.AudioMaxkbps, rtcParameterSettings4.audioBitrateMode, rtcParameterSettings4.TransportAudioChannel, rtcParameterSettings4.EncodeBitrateMode, rtcParameterSettings4.EnableHisiH264HW, rtcParameterSettings4.EnableMTKH264Decode, rtcParameterSettings4.AudioSource, rtcParameterSettings4.AudioBufferPackets, rtcParameterSettings4.AudioPlayoutDelay, rtcParameterSettings4.AudioCodecComplex, false, mConfigAudioContenttype);
+                this.peerConnectionClient = PeerConnectionClient.getInstance();
+                if (this.mEnableAudioMix) {
+                    if (this.mAudioFilter == null) {
+                        this.mAudioFilter = new AudioFilter();
+                    }
+                    this.mAudioFilter.l(false);
+                    if (this.mRemoteFilterTrack < 0) {
+                        this.mRemoteFilterTrack = this.mAudioFilter.b();
+                    }
+                    this.mAudioFilter.c();
+                    this.mAudioFilter.j(false);
+                    this.mAudioFilter.i(false);
+                    this.mAudioFilter.k(this.mOnMixedFrameUpdateListener);
+                }
+                if (this.mSamplesReadyCallback != null || this.mEnableAudioMix) {
+                    this.peerConnectionClient.setAudioSamplesReadyCallback(this.mSamplesReadyInternalCallback);
+                }
+                if (this.mRemoteSamplesCallback != null || this.mEnableAudioMix) {
+                    this.peerConnectionClient.setRemoteAudioSamplesReadyCallback(this.mRemoteSamplesInternalCallback);
+                }
+                RtcParameterSettings rtcParameterSettings5 = this.mParamSettings;
+                if (rtcParameterSettings5 != null) {
+                    this.mWebSocketChannel.setHasAudio(rtcParameterSettings5.HasAudio);
+                    this.peerConnectionClient.setHasAudioSend(this.mParamSettings.HasAudio);
+                    this.peerConnectionClient.setHasAudioRecv(this.mParamSettings.HasAudio);
+                    this.mWebSocketChannel.setHasVideo(this.mParamSettings.HasVideo);
+                    this.peerConnectionClient.setHasVideoSend(this.mParamSettings.HasVideo);
+                    this.peerConnectionClient.setHasVideoRecv(this.mParamSettings.HasVideo);
+                    this.mWebSocketChannel.setHasData(this.mParamSettings.HasData);
+                    this.peerConnectionClient.setHasDataSend(this.mParamSettings.HasData);
+                    this.peerConnectionClient.setHasDataRecv(this.mParamSettings.HasData);
+                    this.peerConnectionClient.setAudioFreguency(this.mParamSettings.AudioFrequency);
+                    this.peerConnectionClient.setAudioChannel(this.mParamSettings.AudioChannel);
+                    this.mWebSocketChannel.setConnectionTimeoutMs(this.mParamSettings.ConnectionTimeoutMs);
+                    this.mWebSocketChannel.setReadTimeoutMs(this.mParamSettings.ReadTimeoutMs);
+                    this.mWebSocketChannel.setAutoPublish(this.mParamSettings.AutoPublish);
+                    this.mWebSocketChannel.setAutoSubScribe(this.mParamSettings.AutoSubScribe);
+                    this.mWebSocketChannel.setMediaServerIP(this.mParamSettings.MediaServerIP);
+                }
+                this.peerConnectionClient.setExternalAudioRecord(this.mIsEnableExternalAudioRecord);
+                this.peerConnectionClient.setEnableDebugLog(mbEnableDebugLog);
+                this.peerConnectionClient.createPeerConnectionFactory(this.mContext.get(), this.peerConnectionParameters, this);
+                this.peerConnectionClient.setStuckEventListener(new AudioStuckEvent());
+                this.peerConnectionClient.setEnableSLIReport(this.mIsEnablePullQualityMonitor);
+                this.mWebSocketChannel.initConnection(this.mJanusServerURL, this.mIsCompulsive);
+                if (this.mIsUseDefaultErrorInfoMonitor) {
+                    if (this.mJanusServerURL.contains("bcelive.com")) {
+                        this.mIsEnableErrorInfoMonitor = true;
+                    } else {
+                        this.mIsEnableErrorInfoMonitor = false;
+                    }
+                }
+                Log.i("BRTC", "loginRtcRoomWithRoomName: this " + this + " version: " + version());
+                return true;
+            } else {
+                throw new InvalidParameterException("loginRtcRoomWithRoomName: Param Error,userId cann't be zero. zero is reserved.");
             }
-            Log.i("BRTC", "loginRtcRoomWithRoomName: this " + this + " version: " + version());
-            return true;
-        } else {
-            throw new InvalidParameterException("loginRtcRoomWithRoomName: Param Error,userId cann't be zero. zero is reserved.");
         }
+        return invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean logoutRtcRoom() {
-        if (this.peerConnectionClient == null) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            if (this.peerConnectionClient == null) {
+                return true;
+            }
+            int i2 = 0;
+            this.peerConnectionClient.setAudioEnabled(false);
+            this.peerConnectionClient.setVideoEnabled(false);
+            this.peerConnectionClient.stopVideoSource();
+            this.mWebSocketChannel.leaveRoom();
+            this.mWebSocketChannel.finalize();
+            this.peerConnectionClient.close();
+            CpuMonitor cpuMonitor = this.mCpuMonitor;
+            if (cpuMonitor != null) {
+                cpuMonitor.pause();
+            }
+            ErrorInfoReport.getInstance().resetParam();
+            this.mHUDStatisticsMap.clear();
+            this.peerConnectionClient = null;
+            this.mWebSocketChannel = null;
+            AudioFilter audioFilter = this.mAudioFilter;
+            if (audioFilter != null) {
+                audioFilter.k(null);
+                this.mAudioFilter.g();
+            }
+            RTCVideoView rTCVideoView = this.mLocalRender;
+            if (rTCVideoView != null) {
+                rTCVideoView.release();
+                this.mLocalRender = null;
+            }
+            if (this.mRemoteRenderList != null) {
+                while (true) {
+                    RTCVideoView[] rTCVideoViewArr = this.mRemoteRenderList;
+                    if (i2 >= rTCVideoViewArr.length) {
+                        break;
+                    }
+                    if (rTCVideoViewArr[i2] != null) {
+                        rTCVideoViewArr[i2].release();
+                        this.mRemoteRenderList[i2] = null;
+                    }
+                    i2++;
+                }
+            }
+            disposeExternalRenderers();
+            disposePendingRenderers();
+            EglBase eglBase = this.rootEglBase;
+            if (eglBase != null) {
+                eglBase.release();
+            }
+            AudioManager audioManager = this.audioManager;
+            if (audioManager != null && audioManager.isBluetoothScoOn()) {
+                setBluetoothScoOn(Boolean.FALSE);
+            }
+            if (this.mHeadSetReceiver != null) {
+                this.mContext.get().unregisterReceiver(this.mHeadSetReceiver);
+                this.mHeadSetReceiver = null;
+            }
+            System.gc();
             return true;
         }
-        int i2 = 0;
-        this.peerConnectionClient.setAudioEnabled(false);
-        this.peerConnectionClient.setVideoEnabled(false);
-        this.peerConnectionClient.stopVideoSource();
-        this.mWebSocketChannel.leaveRoom();
-        this.mWebSocketChannel.finalize();
-        this.peerConnectionClient.close();
-        CpuMonitor cpuMonitor = this.mCpuMonitor;
-        if (cpuMonitor != null) {
-            cpuMonitor.pause();
-        }
-        ErrorInfoReport.getInstance().resetParam();
-        this.mHUDStatisticsMap.clear();
-        this.peerConnectionClient = null;
-        this.mWebSocketChannel = null;
-        AudioFilter audioFilter = this.mAudioFilter;
-        if (audioFilter != null) {
-            audioFilter.k(null);
-            this.mAudioFilter.g();
-        }
-        RTCVideoView rTCVideoView = this.mLocalRender;
-        if (rTCVideoView != null) {
-            rTCVideoView.release();
-            this.mLocalRender = null;
-        }
-        if (this.mRemoteRenderList != null) {
-            while (true) {
-                RTCVideoView[] rTCVideoViewArr = this.mRemoteRenderList;
-                if (i2 >= rTCVideoViewArr.length) {
-                    break;
-                }
-                if (rTCVideoViewArr[i2] != null) {
-                    rTCVideoViewArr[i2].release();
-                    this.mRemoteRenderList[i2] = null;
-                }
-                i2++;
-            }
-        }
-        disposeExternalRenderers();
-        disposePendingRenderers();
-        EglBase eglBase = this.rootEglBase;
-        if (eglBase != null) {
-            eglBase.release();
-        }
-        AudioManager audioManager = this.audioManager;
-        if (audioManager != null && audioManager.isBluetoothScoOn()) {
-            setBluetoothScoOn(Boolean.FALSE);
-        }
-        if (this.mHeadSetReceiver != null) {
-            this.mContext.get().unregisterReceiver(this.mHeadSetReceiver);
-            this.mHeadSetReceiver = null;
-        }
-        System.gc();
-        return true;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void muteCamera(boolean z) {
-        if (this.peerConnectionClient != null) {
-            this.peerConnectionClient.setVideoEnabled(!z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            if (this.peerConnectionClient != null) {
+                this.peerConnectionClient.setVideoEnabled(!z);
+            }
+            reportRoomEventInfo("MUTE_CAMERA");
         }
-        reportRoomEventInfo("MUTE_CAMERA");
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void muteMicphone(boolean z) {
-        if (this.peerConnectionClient != null) {
-            this.peerConnectionClient.setAudioEnabled(!z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
+            if (this.peerConnectionClient != null) {
+                this.peerConnectionClient.setAudioEnabled(!z);
+            }
+            reportRoomEventInfo("MUTE_MICPHONE");
         }
-        reportRoomEventInfo("MUTE_MICPHONE");
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void muteSpeaker(boolean z) {
-        if (this.peerConnectionClient != null) {
-            this.peerConnectionClient.setSpeakerMute(z);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048607, this, z) == null) || this.peerConnectionClient == null) {
+            return;
         }
+        this.peerConnectionClient.setSpeakerMute(z);
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onAttribute(BigInteger bigInteger, String str) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048608, this, bigInteger, str) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomEventUpdate(303, bigInteger.longValue(), str);
@@ -1652,154 +2198,189 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onComing(BigInteger bigInteger, String str) {
-        if (this.mLastLeavingId == bigInteger.longValue()) {
-            this.mLastLeavingId = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048609, this, bigInteger, str) == null) {
+            if (this.mLastLeavingId == bigInteger.longValue()) {
+                this.mLastLeavingId = 0L;
+            }
+            if (this.mLastGoneId == bigInteger.longValue()) {
+                this.mLastGoneId = 0L;
+            }
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate == null) {
+                return;
+            }
+            baiduRtcRoomDelegate.onRoomEventUpdate(104, bigInteger.longValue(), str);
         }
-        if (this.mLastGoneId == bigInteger.longValue()) {
-            this.mLastGoneId = 0L;
-        }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
-            return;
-        }
-        baiduRtcRoomDelegate.onRoomEventUpdate(104, bigInteger.longValue(), str);
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onConnectError() {
-        if (this.mIsEnableErrorInfoMonitor) {
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            if (this.mIsEnableErrorInfoMonitor) {
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
+            }
+            if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
+                reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
+            }
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate == null) {
+                return;
+            }
+            baiduRtcRoomDelegate.onRoomEventUpdate(103, 0L, "coennection Error");
+            reportRoomEventInfo("CONNECTION_LOST");
         }
-        if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
-            reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
-        }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
-            return;
-        }
-        baiduRtcRoomDelegate.onRoomEventUpdate(103, 0L, "coennection Error");
-        reportRoomEventInfo("CONNECTION_LOST");
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onCreatedHandle(BigInteger bigInteger, long j) {
-        this.mIsLoginSuccess = false;
-        if (this.mIsEnablePushQualityMonitor) {
-            reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_BEGIN, j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048611, this, bigInteger, j) == null) {
+            this.mIsLoginSuccess = false;
+            if (this.mIsEnablePushQualityMonitor) {
+                reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_BEGIN, j);
+            }
         }
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onHangUp(BigInteger bigInteger) {
-        if (this.mIsEnableErrorInfoMonitor) {
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.HANG_UP);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, bigInteger) == null) {
+            if (this.mIsEnableErrorInfoMonitor) {
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.HANG_UP);
+            }
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate == null) {
+                return;
+            }
+            baiduRtcRoomDelegate.onPeerConnectStateUpdate(2003);
         }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
-            return;
-        }
-        baiduRtcRoomDelegate.onPeerConnectStateUpdate(2003);
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onIceCandidate(IceCandidate iceCandidate, BigInteger bigInteger) {
-        Log.e(TAG, "=========onIceCandidate========");
-        if (iceCandidate != null) {
-            this.mWebSocketChannel.trickleCandidate(bigInteger, iceCandidate);
-        } else {
-            this.mWebSocketChannel.trickleCandidateComplete(bigInteger);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048613, this, iceCandidate, bigInteger) == null) {
+            Log.e(TAG, "=========onIceCandidate========");
+            if (iceCandidate != null) {
+                this.mWebSocketChannel.trickleCandidate(bigInteger, iceCandidate);
+            } else {
+                this.mWebSocketChannel.trickleCandidateComplete(bigInteger);
+            }
         }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onIceCandidatesRemoved(IceCandidate[] iceCandidateArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, iceCandidateArr) == null) {
+        }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onIceConnected() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+        }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onIceDisconnected() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
+        }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onIceFailed() {
-        if (this.mIsEnableErrorInfoMonitor) {
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.MEDIA_CHANNEL_CONNECTION_LOST);
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
-        }
-        if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
-            reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
-        }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate != null) {
-            baiduRtcRoomDelegate.onPeerConnectStateUpdate(2003);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+            if (this.mIsEnableErrorInfoMonitor) {
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.MEDIA_CHANNEL_CONNECTION_LOST);
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
+            }
+            if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
+                reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
+            }
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate != null) {
+                baiduRtcRoomDelegate.onPeerConnectStateUpdate(2003);
+            }
         }
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
-    public void onLeaving(BigInteger bigInteger, final BigInteger bigInteger2) {
+    public void onLeaving(BigInteger bigInteger, BigInteger bigInteger2) {
         int i2;
-        Log.i(TAG, "==================onLeaving=======================");
-        final JanusHandle handleByFeed = this.mWebSocketChannel.getHandleByFeed(bigInteger2);
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.14
-            @Override // java.lang.Runnable
-            public void run() {
-                BaiduRtcRoomImp.this.mRemoteStreamStats.remove(bigInteger2);
-                JanusHandle janusHandle = handleByFeed;
-                if (janusHandle != null) {
-                    BigInteger bigInteger3 = janusHandle.handleId;
-                    if (BaiduRtcRoomImp.this.mHUDStatisticsMap.get(bigInteger3) != null) {
-                        BaiduRtcRoomImp.this.mHUDStatisticsMap.remove(bigInteger3);
-                        if (BaiduRtcRoomImp.this.peerConnectionClient != null) {
-                            BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(false, 0, bigInteger3, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-                            BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(false, 0, bigInteger3, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048618, this, bigInteger, bigInteger2) == null) {
+            Log.i(TAG, "==================onLeaving=======================");
+            this.mHandler.post(new Runnable(this, bigInteger2, this.mWebSocketChannel.getHandleByFeed(bigInteger2)) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.13
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+                public final /* synthetic */ BigInteger val$feedId;
+                public final /* synthetic */ JanusHandle val$janusHandle;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bigInteger2, r8};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$feedId = bigInteger2;
+                    this.val$janusHandle = r8;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.mRemoteStreamStats.remove(this.val$feedId);
+                        JanusHandle janusHandle = this.val$janusHandle;
+                        if (janusHandle != null) {
+                            BigInteger bigInteger3 = janusHandle.handleId;
+                            if (this.this$0.mHUDStatisticsMap.get(bigInteger3) != null) {
+                                this.this$0.mHUDStatisticsMap.remove(bigInteger3);
+                                if (this.this$0.peerConnectionClient != null) {
+                                    this.this$0.peerConnectionClient.enableStatsEvents(false, 0, bigInteger3, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                                    this.this$0.peerConnectionClient.enableStatsEvents(false, 0, bigInteger3, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+                                }
+                            }
                         }
                     }
                 }
+            });
+            JanusConnection janusConnectionByHandleID = this.peerConnectionClient.getJanusConnectionByHandleID(bigInteger);
+            if (janusConnectionByHandleID != null && janusConnectionByHandleID.audioTrack != null) {
+                this.mBaiduRtcRoomDelegate.onRoomEventUpdate(109, bigInteger2.longValue(), "remote audio gone");
+                janusConnectionByHandleID.audioTrack = null;
             }
-        });
-        JanusConnection janusConnectionByHandleID = this.peerConnectionClient.getJanusConnectionByHandleID(bigInteger);
-        if (janusConnectionByHandleID != null && janusConnectionByHandleID.audioTrack != null) {
-            this.mBaiduRtcRoomDelegate.onRoomEventUpdate(109, bigInteger2.longValue(), "remote audio gone");
-            janusConnectionByHandleID.audioTrack = null;
-        }
-        if (this.mParamSettings.VideoRenderMode == RtcParameterSettings.RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_EXTERNAL) {
-            RTCVideoExternalRender rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(Long.valueOf(bigInteger2.longValue()));
-            if (rTCVideoExternalRender == null || janusConnectionByHandleID == null) {
-                Log.d(TAG, "No external render has found!");
-            } else {
-                Log.d(TAG, "remove external video sink of user " + bigInteger2);
-                rTCVideoExternalRender.leaving();
-                rTCVideoExternalRender.clearImage();
-                VideoTrack videoTrack = janusConnectionByHandleID.videoTrack;
-                if (videoTrack != null) {
-                    videoTrack.removeSink(rTCVideoExternalRender);
-                }
-                userRenderMove2PendingMap(bigInteger2.longValue());
-                if (this.mBaiduRtcRoomDelegate != null) {
-                    if (this.mLastGoneId == bigInteger2.longValue()) {
-                        return;
+            if (this.mParamSettings.VideoRenderMode == RtcParameterSettings.RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_EXTERNAL) {
+                RTCVideoExternalRender rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(Long.valueOf(bigInteger2.longValue()));
+                if (rTCVideoExternalRender == null || janusConnectionByHandleID == null) {
+                    Log.d(TAG, "No external render has found!");
+                } else {
+                    Log.d(TAG, "remove external video sink of user " + bigInteger2);
+                    rTCVideoExternalRender.leaving();
+                    rTCVideoExternalRender.clearImage();
+                    VideoTrack videoTrack = janusConnectionByHandleID.videoTrack;
+                    if (videoTrack != null) {
+                        videoTrack.removeSink(rTCVideoExternalRender);
                     }
-                    this.mBaiduRtcRoomDelegate.onRoomEventUpdate(107, bigInteger2.longValue(), "gone");
-                    this.mLastGoneId = bigInteger2.longValue();
-                    return;
-                }
-            }
-        }
-        if (janusConnectionByHandleID != null && (i2 = janusConnectionByHandleID.videoview_tag) >= 0) {
-            boolean[] zArr = this.mHasVideoView;
-            if (i2 < zArr.length) {
-                zArr[i2] = false;
-                this.mRemoteVideoCnt--;
-                RTCVideoView[] rTCVideoViewArr = this.mRemoteRenderList;
-                if (rTCVideoViewArr[i2] != null) {
-                    rTCVideoViewArr[i2].clearImage();
-                    VideoTrack videoTrack2 = janusConnectionByHandleID.videoTrack;
-                    if (videoTrack2 != null) {
-                        videoTrack2.removeSink(this.mRemoteRenderList[i2]);
-                    }
+                    userRenderMove2PendingMap(bigInteger2.longValue());
                     if (this.mBaiduRtcRoomDelegate != null) {
                         if (this.mLastGoneId == bigInteger2.longValue()) {
                             return;
@@ -1810,64 +2391,94 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                     }
                 }
             }
-        }
-        if (this.mBaiduRtcRoomDelegate != null) {
-            if (this.mLastLeavingId == bigInteger2.longValue()) {
-                return;
+            if (janusConnectionByHandleID != null && (i2 = janusConnectionByHandleID.videoview_tag) >= 0) {
+                boolean[] zArr = this.mHasVideoView;
+                if (i2 < zArr.length) {
+                    zArr[i2] = false;
+                    this.mRemoteVideoCnt--;
+                    RTCVideoView[] rTCVideoViewArr = this.mRemoteRenderList;
+                    if (rTCVideoViewArr[i2] != null) {
+                        rTCVideoViewArr[i2].clearImage();
+                        VideoTrack videoTrack2 = janusConnectionByHandleID.videoTrack;
+                        if (videoTrack2 != null) {
+                            videoTrack2.removeSink(this.mRemoteRenderList[i2]);
+                        }
+                        if (this.mBaiduRtcRoomDelegate != null) {
+                            if (this.mLastGoneId == bigInteger2.longValue()) {
+                                return;
+                            }
+                            this.mBaiduRtcRoomDelegate.onRoomEventUpdate(107, bigInteger2.longValue(), "gone");
+                            this.mLastGoneId = bigInteger2.longValue();
+                            return;
+                        }
+                    }
+                }
             }
-            this.mFeedToViewMap.remove(bigInteger2);
-            this.mBaiduRtcRoomDelegate.onRoomEventUpdate(105, bigInteger2.longValue(), "leaving");
+            if (this.mBaiduRtcRoomDelegate != null) {
+                if (this.mLastLeavingId == bigInteger2.longValue()) {
+                    return;
+                }
+                this.mFeedToViewMap.remove(bigInteger2);
+                this.mBaiduRtcRoomDelegate.onRoomEventUpdate(105, bigInteger2.longValue(), "leaving");
+            }
+            this.mLastLeavingId = bigInteger2.longValue();
+            reportRoomEventInfo("REMOTE_LEAVING_" + bigInteger2 + "_" + bigInteger);
         }
-        this.mLastLeavingId = bigInteger2.longValue();
-        reportRoomEventInfo("REMOTE_LEAVING_" + bigInteger2 + "_" + bigInteger);
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onLivePublishFailed(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str) {
         ErrorInfoReport errorInfoReport;
         ErrorInfoReport.ErrorCode errorCode;
-        if (this.mIsEnableErrorInfoMonitor) {
-            if (rtcLiveTransferMode.ordinal() == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION.ordinal()) {
-                errorInfoReport = ErrorInfoReport.getInstance();
-                errorCode = ErrorInfoReport.ErrorCode.ROOM_LIVE_PUBLISH_FAIL;
-            } else {
-                errorInfoReport = ErrorInfoReport.getInstance();
-                errorCode = ErrorInfoReport.ErrorCode.ANCHOR_LIVE_PUBLISH_FAIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048619, this, rtcLiveTransferMode, str) == null) {
+            if (this.mIsEnableErrorInfoMonitor) {
+                if (rtcLiveTransferMode.ordinal() == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION.ordinal()) {
+                    errorInfoReport = ErrorInfoReport.getInstance();
+                    errorCode = ErrorInfoReport.ErrorCode.ROOM_LIVE_PUBLISH_FAIL;
+                } else {
+                    errorInfoReport = ErrorInfoReport.getInstance();
+                    errorCode = ErrorInfoReport.ErrorCode.ANCHOR_LIVE_PUBLISH_FAIL;
+                }
+                errorInfoReport.reportErrorInfo(errorCode);
             }
-            errorInfoReport.reportErrorInfo(errorCode);
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate == null) {
+                return;
+            }
+            baiduRtcRoomDelegate.onRoomEventUpdate(117, rtcLiveTransferMode.ordinal(), str);
         }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
-            return;
-        }
-        baiduRtcRoomDelegate.onRoomEventUpdate(117, rtcLiveTransferMode.ordinal(), str);
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onLivePublishInterrupted(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str) {
         ErrorInfoReport errorInfoReport;
         ErrorInfoReport.ErrorCode errorCode;
-        if (this.mIsEnableErrorInfoMonitor) {
-            if (rtcLiveTransferMode.ordinal() == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION.ordinal()) {
-                errorInfoReport = ErrorInfoReport.getInstance();
-                errorCode = ErrorInfoReport.ErrorCode.ROOM_LIVE_INTRERRUPT;
-            } else {
-                errorInfoReport = ErrorInfoReport.getInstance();
-                errorCode = ErrorInfoReport.ErrorCode.ANCHOR_LIVE_INTRERRUPT;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048620, this, rtcLiveTransferMode, str) == null) {
+            if (this.mIsEnableErrorInfoMonitor) {
+                if (rtcLiveTransferMode.ordinal() == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION.ordinal()) {
+                    errorInfoReport = ErrorInfoReport.getInstance();
+                    errorCode = ErrorInfoReport.ErrorCode.ROOM_LIVE_INTRERRUPT;
+                } else {
+                    errorInfoReport = ErrorInfoReport.getInstance();
+                    errorCode = ErrorInfoReport.ErrorCode.ANCHOR_LIVE_INTRERRUPT;
+                }
+                errorInfoReport.reportErrorInfo(errorCode);
             }
-            errorInfoReport.reportErrorInfo(errorCode);
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate == null) {
+                return;
+            }
+            baiduRtcRoomDelegate.onRoomEventUpdate(118, rtcLiveTransferMode.ordinal(), str);
         }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
-            return;
-        }
-        baiduRtcRoomDelegate.onRoomEventUpdate(118, rtcLiveTransferMode.ordinal(), str);
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onLivePublishSucceed(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048621, this, rtcLiveTransferMode, str) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomEventUpdate(116, rtcLiveTransferMode.ordinal(), str);
@@ -1875,218 +2486,335 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onLocalDescription(SessionDescription sessionDescription, BigInteger bigInteger, boolean z) {
-        Log.e(TAG, sessionDescription.type.toString());
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel == null) {
-            return;
-        }
-        this.isEnableHighProfileConfirm = z;
-        webSocketChannel.publisherCreateOffer(bigInteger, sessionDescription);
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.15
-            @Override // java.lang.Runnable
-            public void run() {
-                if (BaiduRtcRoomImp.this.peerConnectionClient == null || BaiduRtcRoomImp.this.peerConnectionParameters.videoMaxkbps <= 0) {
-                    return;
-                }
-                Log.d(BaiduRtcRoomImp.TAG, "Set video maximum bitrate: " + BaiduRtcRoomImp.this.peerConnectionParameters.videoMaxkbps);
-                BaiduRtcRoomImp.this.peerConnectionClient.setVideoMaxBitrate(Integer.valueOf(BaiduRtcRoomImp.this.peerConnectionParameters.videoMaxkbps));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048622, this, sessionDescription, bigInteger, z) == null) {
+            Log.e(TAG, sessionDescription.type.toString());
+            WebSocketChannel webSocketChannel = this.mWebSocketChannel;
+            if (webSocketChannel == null) {
+                return;
             }
-        });
+            this.isEnableHighProfileConfirm = z;
+            webSocketChannel.publisherCreateOffer(bigInteger, sessionDescription);
+            this.mHandler.post(new Runnable(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.14
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.peerConnectionClient == null || this.this$0.peerConnectionParameters.videoMaxkbps <= 0) {
+                        return;
+                    }
+                    Log.d(BaiduRtcRoomImp.TAG, "Set video maximum bitrate: " + this.this$0.peerConnectionParameters.videoMaxkbps);
+                    this.this$0.peerConnectionClient.setVideoMaxBitrate(Integer.valueOf(this.this$0.peerConnectionParameters.videoMaxkbps));
+                }
+            });
+        }
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onLoginError() {
-        if (this.mIsEnableErrorInfoMonitor) {
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.LOGIN_ERROR);
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+            if (this.mIsEnableErrorInfoMonitor) {
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.LOGIN_ERROR);
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
+            }
+            if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
+                reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
+            }
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate == null) {
+                return;
+            }
+            baiduRtcRoomDelegate.onRoomEventUpdate(102, 0L, "error");
+            reportRoomEventInfo("LOGIN_ERROR");
         }
-        if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
-            reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
-        }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
-            return;
-        }
-        baiduRtcRoomDelegate.onRoomEventUpdate(102, 0L, "error");
-        reportRoomEventInfo("LOGIN_ERROR");
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onLoginTimeout() {
-        if (this.mIsEnableErrorInfoMonitor) {
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.LOGIN_TIMEOUT);
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+            if (this.mIsEnableErrorInfoMonitor) {
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.LOGIN_TIMEOUT);
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
+            }
+            if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
+                reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
+            }
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate == null) {
+                return;
+            }
+            baiduRtcRoomDelegate.onRoomEventUpdate(101, 0L, "time out");
         }
-        if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
-            reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
-        }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
-            return;
-        }
-        baiduRtcRoomDelegate.onRoomEventUpdate(101, 0L, "time out");
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onMediaStreamingEvent(BigInteger bigInteger, int i2, boolean z) {
         ErrorInfoReport errorInfoReport;
         ErrorInfoReport.ErrorCode errorCode;
-        if (this.mIsEnableErrorInfoMonitor) {
-            if (i2 == 1 && !z) {
-                errorInfoReport = ErrorInfoReport.getInstance();
-                errorCode = ErrorInfoReport.ErrorCode.VIDEO_SENDING_MEDIA_FAILED;
-            } else if (i2 == 0 && !z) {
-                errorInfoReport = ErrorInfoReport.getInstance();
-                errorCode = ErrorInfoReport.ErrorCode.AUDIO_SENDING_MEDIA_FAILED;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{bigInteger, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            if (this.mIsEnableErrorInfoMonitor) {
+                if (i2 == 1 && !z) {
+                    errorInfoReport = ErrorInfoReport.getInstance();
+                    errorCode = ErrorInfoReport.ErrorCode.VIDEO_SENDING_MEDIA_FAILED;
+                } else if (i2 == 0 && !z) {
+                    errorInfoReport = ErrorInfoReport.getInstance();
+                    errorCode = ErrorInfoReport.ErrorCode.AUDIO_SENDING_MEDIA_FAILED;
+                }
+                errorInfoReport.reportErrorInfo(errorCode);
             }
-            errorInfoReport.reportErrorInfo(errorCode);
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate == null) {
+                return;
+            }
+            baiduRtcRoomDelegate.onPeerConnectStateUpdate(z ? 2001 : 2002);
         }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
-            return;
-        }
-        baiduRtcRoomDelegate.onPeerConnectStateUpdate(z ? 2001 : 2002);
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onMessage(BigInteger bigInteger, String str) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048626, this, bigInteger, str) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomEventUpdate(302, bigInteger.longValue(), str);
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
+    public void onPeerClosed(BigInteger bigInteger) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, bigInteger) == null) {
+        }
+    }
+
+    @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onPeerConnectionClosed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
+        }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onPeerConnectionError(String str) {
-        if (this.mIsEnableErrorInfoMonitor) {
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.PEERCONNECTION_CREATE_ERROR);
-            ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
-        }
-        if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
-            reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
-        }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate != null) {
-            baiduRtcRoomDelegate.onErrorInfoUpdate(10000);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
+            if (this.mIsEnableErrorInfoMonitor) {
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.PEERCONNECTION_CREATE_ERROR);
+                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_FAILED);
+            }
+            if (this.mIsEnablePushQualityMonitor && !this.mIsLoginSuccess) {
+                reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_FAILED);
+            }
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate != null) {
+                baiduRtcRoomDelegate.onErrorInfoUpdate(10000);
+            }
         }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
-    public void onPeerConnectionStatsReady(final StatsReport[] statsReportArr, final BigInteger bigInteger, final PeerConnectionClient.StatsEventsType statsEventsType) {
-        if (bigInteger == this.mPublisherHandle && statsEventsType == PeerConnectionClient.StatsEventsType.GET_BWE_EVENT && this.mbOnStatistics) {
-            updateBweStatistics(statsReportArr);
-        }
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.16
-            @Override // java.lang.Runnable
-            public void run() {
-                if (statsEventsType == PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT) {
-                    BaiduRtcRoomImp.this.parseAudioLeves(statsReportArr, bigInteger);
-                }
-                HUDStatistics hUDStatistics = (HUDStatistics) BaiduRtcRoomImp.this.mHUDStatisticsMap.get(bigInteger);
-                if (hUDStatistics != null) {
-                    hUDStatistics.updateEncoderStatistics(statsReportArr);
-                }
-                BaiduRtcRoomImp baiduRtcRoomImp = BaiduRtcRoomImp.this;
-                if ((baiduRtcRoomImp.mIsEnablePushQualityMonitor || baiduRtcRoomImp.mIsEnablePullQualityMonitor) && statsEventsType == PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
-                    BigInteger bigInteger2 = bigInteger;
-                    BaiduRtcRoomImp baiduRtcRoomImp2 = BaiduRtcRoomImp.this;
-                    if (bigInteger2 == baiduRtcRoomImp2.mPublisherHandle && baiduRtcRoomImp2.rtcLogReport != null) {
-                        baiduRtcRoomImp2.reportCommunicationQualityInfo();
-                    }
-                }
-                BaiduRtcRoomImp baiduRtcRoomImp3 = BaiduRtcRoomImp.this;
-                if ((baiduRtcRoomImp3.mIsEnablePushQualityMonitor || baiduRtcRoomImp3.mIsEnablePullQualityMonitor) && statsEventsType == PeerConnectionClient.StatsEventsType.GET_SLI_EVENT) {
-                    BigInteger bigInteger3 = bigInteger;
-                    BaiduRtcRoomImp baiduRtcRoomImp4 = BaiduRtcRoomImp.this;
-                    if (bigInteger3 != baiduRtcRoomImp4.mPublisherHandle || baiduRtcRoomImp4.rtcLogReport == null) {
-                        return;
-                    }
-                    baiduRtcRoomImp4.reportSLIStuckInfo();
-                }
+    public void onPeerConnectionStatsReady(StatsReport[] statsReportArr, BigInteger bigInteger, PeerConnectionClient.StatsEventsType statsEventsType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048630, this, statsReportArr, bigInteger, statsEventsType) == null) {
+            if (bigInteger == this.mPublisherHandle && statsEventsType == PeerConnectionClient.StatsEventsType.GET_BWE_EVENT && this.mbOnStatistics) {
+                updateBweStatistics(statsReportArr);
             }
-        });
+            this.mHandler.post(new Runnable(this, statsEventsType, statsReportArr, bigInteger) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+                public final /* synthetic */ PeerConnectionClient.StatsEventsType val$eventsType;
+                public final /* synthetic */ BigInteger val$handleId;
+                public final /* synthetic */ StatsReport[] val$reports;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, statsEventsType, statsReportArr, bigInteger};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$eventsType = statsEventsType;
+                    this.val$reports = statsReportArr;
+                    this.val$handleId = bigInteger;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        if (this.val$eventsType == PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT) {
+                            this.this$0.parseAudioLeves(this.val$reports, this.val$handleId);
+                        }
+                        HUDStatistics hUDStatistics = (HUDStatistics) this.this$0.mHUDStatisticsMap.get(this.val$handleId);
+                        if (hUDStatistics != null) {
+                            hUDStatistics.updateEncoderStatistics(this.val$reports);
+                        }
+                        BaiduRtcRoomImp baiduRtcRoomImp = this.this$0;
+                        if ((baiduRtcRoomImp.mIsEnablePushQualityMonitor || baiduRtcRoomImp.mIsEnablePullQualityMonitor) && this.val$eventsType == PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
+                            BigInteger bigInteger2 = this.val$handleId;
+                            BaiduRtcRoomImp baiduRtcRoomImp2 = this.this$0;
+                            if (bigInteger2 == baiduRtcRoomImp2.mPublisherHandle && baiduRtcRoomImp2.rtcLogReport != null) {
+                                baiduRtcRoomImp2.reportCommunicationQualityInfo();
+                            }
+                        }
+                        BaiduRtcRoomImp baiduRtcRoomImp3 = this.this$0;
+                        if ((baiduRtcRoomImp3.mIsEnablePushQualityMonitor || baiduRtcRoomImp3.mIsEnablePullQualityMonitor) && this.val$eventsType == PeerConnectionClient.StatsEventsType.GET_SLI_EVENT) {
+                            BigInteger bigInteger3 = this.val$handleId;
+                            BaiduRtcRoomImp baiduRtcRoomImp4 = this.this$0;
+                            if (bigInteger3 != baiduRtcRoomImp4.mPublisherHandle || baiduRtcRoomImp4.rtcLogReport == null) {
+                                return;
+                            }
+                            baiduRtcRoomImp4.reportSLIStuckInfo();
+                        }
+                    }
+                }
+            });
+        }
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
-    public void onPublisherJoined(final BigInteger bigInteger) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate != null) {
-            baiduRtcRoomDelegate.onRoomEventUpdate(100, 0L, "ok");
-        }
-        this.mPublisherHandle = bigInteger;
-        ErrorInfoReport.getInstance().setPublishHandleId(this.mPublisherHandle.longValue());
-        if (this.mParamSettings.AutoPublish) {
-            offerPeerConnection(bigInteger);
-        }
-        if (this.mbOnStatistics && this.peerConnectionClient != null) {
-            this.peerConnectionClient.enableStatsEvents(this.mbOnStatistics, 5000, this.mPublisherHandle, PeerConnectionClient.StatsEventsType.GET_BWE_EVENT);
-        }
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.12
-            @Override // java.lang.Runnable
-            public void run() {
-                BaiduRtcRoomImp baiduRtcRoomImp = BaiduRtcRoomImp.this;
-                if ((baiduRtcRoomImp.mIsEnablePushQualityMonitor || baiduRtcRoomImp.mIsEnablePullQualityMonitor) && BaiduRtcRoomImp.this.peerConnectionClient != null) {
-                    if (BaiduRtcRoomImp.this.mHUDStatisticsMap.get(bigInteger) != null) {
-                        BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-                        BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
-                        BaiduRtcRoomImp.this.mHUDStatisticsMap.remove(bigInteger);
-                    }
-                    PeerConnectionClient peerConnectionClient = BaiduRtcRoomImp.this.peerConnectionClient;
-                    BaiduRtcRoomImp baiduRtcRoomImp2 = BaiduRtcRoomImp.this;
-                    peerConnectionClient.enableStatsEvents(baiduRtcRoomImp2.mIsEnablePushQualityMonitor || baiduRtcRoomImp2.mIsEnablePullQualityMonitor, 2000, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-                    PeerConnectionClient peerConnectionClient2 = BaiduRtcRoomImp.this.peerConnectionClient;
-                    BaiduRtcRoomImp baiduRtcRoomImp3 = BaiduRtcRoomImp.this;
-                    peerConnectionClient2.enableStatsEvents(baiduRtcRoomImp3.mIsEnablePushQualityMonitor || baiduRtcRoomImp3.mIsEnablePullQualityMonitor, 5000, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
-                    BaiduRtcRoomImp.this.mHUDStatisticsMap.put(bigInteger, new HUDStatistics());
-                    BaiduRtcRoomImp baiduRtcRoomImp4 = BaiduRtcRoomImp.this;
-                    if (baiduRtcRoomImp4.rtcLogReport != null && !baiduRtcRoomImp4.mbStartReportDI) {
-                        baiduRtcRoomImp4.mbStartReportDI = true;
-                        baiduRtcRoomImp4.mHandler.post(BaiduRtcRoomImp.this.reportDeviceInfoRun);
-                    }
-                    BaiduRtcRoomImp baiduRtcRoomImp5 = BaiduRtcRoomImp.this;
-                    baiduRtcRoomImp5.reportRoomEventInfo("RTCROOM_LOGIN_OK_" + BaiduRtcRoomImp.this.mUserId);
-                }
-                StreamStats streamStats = (StreamStats) BaiduRtcRoomImp.this.mRemoteStreamStats.get(BigInteger.valueOf(BaiduRtcRoomImp.this.mUserId));
-                if (streamStats != null) {
-                    if (BaiduRtcRoomImp.this.peerConnectionClient != null) {
-                        BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(false, 0, streamStats.handleId, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
-                    }
-                    streamStats.hasVideo = Boolean.valueOf(BaiduRtcRoomImp.this.mParamSettings.HasVideo);
-                    streamStats.hasAudio = Boolean.valueOf(BaiduRtcRoomImp.this.mParamSettings.HasAudio);
-                    streamStats.handleId = bigInteger;
-                    streamStats.nickName = BaiduRtcRoomImp.this.mDisplayName;
-                } else {
-                    BigInteger bigInteger2 = bigInteger;
-                    BaiduRtcRoomImp baiduRtcRoomImp6 = BaiduRtcRoomImp.this;
-                    BaiduRtcRoomImp.this.mRemoteStreamStats.put(BigInteger.valueOf(BaiduRtcRoomImp.this.mUserId), new StreamStats(bigInteger2, baiduRtcRoomImp6.mUserId, Boolean.valueOf(baiduRtcRoomImp6.mParamSettings.HasVideo), Boolean.valueOf(BaiduRtcRoomImp.this.mParamSettings.HasAudio), BaiduRtcRoomImp.this.mDisplayName));
-                }
-                if (BaiduRtcRoomImp.this.peerConnectionClient != null) {
-                    BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(true, 200, bigInteger, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
-                }
+    public void onPublisherJoined(BigInteger bigInteger) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, bigInteger) == null) {
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate != null) {
+                baiduRtcRoomDelegate.onRoomEventUpdate(100, 0L, "ok");
             }
-        });
+            this.mPublisherHandle = bigInteger;
+            ErrorInfoReport.getInstance().setPublishHandleId(this.mPublisherHandle.longValue());
+            if (this.mParamSettings.AutoPublish) {
+                offerPeerConnection(bigInteger);
+            }
+            if (this.mbOnStatistics && this.peerConnectionClient != null) {
+                this.peerConnectionClient.enableStatsEvents(this.mbOnStatistics, 5000, this.mPublisherHandle, PeerConnectionClient.StatsEventsType.GET_BWE_EVENT);
+            }
+            this.mHandler.post(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.11
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+                public final /* synthetic */ BigInteger val$handleId;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bigInteger};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$handleId = bigInteger;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        BaiduRtcRoomImp baiduRtcRoomImp = this.this$0;
+                        if ((baiduRtcRoomImp.mIsEnablePushQualityMonitor || baiduRtcRoomImp.mIsEnablePullQualityMonitor) && this.this$0.peerConnectionClient != null) {
+                            if (this.this$0.mHUDStatisticsMap.get(this.val$handleId) != null) {
+                                this.this$0.peerConnectionClient.enableStatsEvents(false, 0, this.val$handleId, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                                this.this$0.peerConnectionClient.enableStatsEvents(false, 0, this.val$handleId, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+                                this.this$0.mHUDStatisticsMap.remove(this.val$handleId);
+                            }
+                            PeerConnectionClient peerConnectionClient = this.this$0.peerConnectionClient;
+                            BaiduRtcRoomImp baiduRtcRoomImp2 = this.this$0;
+                            peerConnectionClient.enableStatsEvents(baiduRtcRoomImp2.mIsEnablePushQualityMonitor || baiduRtcRoomImp2.mIsEnablePullQualityMonitor, 2000, this.val$handleId, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                            PeerConnectionClient peerConnectionClient2 = this.this$0.peerConnectionClient;
+                            BaiduRtcRoomImp baiduRtcRoomImp3 = this.this$0;
+                            peerConnectionClient2.enableStatsEvents(baiduRtcRoomImp3.mIsEnablePushQualityMonitor || baiduRtcRoomImp3.mIsEnablePullQualityMonitor, 5000, this.val$handleId, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+                            this.this$0.mHUDStatisticsMap.put(this.val$handleId, new HUDStatistics());
+                            BaiduRtcRoomImp baiduRtcRoomImp4 = this.this$0;
+                            if (baiduRtcRoomImp4.rtcLogReport != null && !baiduRtcRoomImp4.mbStartReportDI) {
+                                baiduRtcRoomImp4.mbStartReportDI = true;
+                                baiduRtcRoomImp4.mHandler.post(this.this$0.reportDeviceInfoRun);
+                            }
+                            BaiduRtcRoomImp baiduRtcRoomImp5 = this.this$0;
+                            baiduRtcRoomImp5.reportRoomEventInfo("RTCROOM_LOGIN_OK_" + this.this$0.mUserId);
+                        }
+                        StreamStats streamStats = (StreamStats) this.this$0.mRemoteStreamStats.get(BigInteger.valueOf(this.this$0.mUserId));
+                        if (streamStats != null) {
+                            if (this.this$0.peerConnectionClient != null) {
+                                this.this$0.peerConnectionClient.enableStatsEvents(false, 0, streamStats.handleId, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+                            }
+                            streamStats.hasVideo = Boolean.valueOf(this.this$0.mParamSettings.HasVideo);
+                            streamStats.hasAudio = Boolean.valueOf(this.this$0.mParamSettings.HasAudio);
+                            streamStats.handleId = this.val$handleId;
+                            streamStats.nickName = this.this$0.mDisplayName;
+                        } else {
+                            BigInteger bigInteger2 = this.val$handleId;
+                            BaiduRtcRoomImp baiduRtcRoomImp6 = this.this$0;
+                            this.this$0.mRemoteStreamStats.put(BigInteger.valueOf(this.this$0.mUserId), new StreamStats(bigInteger2, baiduRtcRoomImp6.mUserId, Boolean.valueOf(baiduRtcRoomImp6.mParamSettings.HasVideo), Boolean.valueOf(this.this$0.mParamSettings.HasAudio), this.this$0.mDisplayName));
+                        }
+                        if (this.this$0.peerConnectionClient != null) {
+                            this.this$0.peerConnectionClient.enableStatsEvents(true, 200, this.val$handleId, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+                        }
+                    }
+                }
+            });
+        }
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onPublisherRemoteJsep(BigInteger bigInteger, JSONObject jSONObject) {
-        SessionDescription.Type fromCanonicalForm = SessionDescription.Type.fromCanonicalForm(jSONObject.optString("type"));
-        String optString = jSONObject.optString("sdp");
-        if (this.mParamSettings.EnableHighProfile && this.isEnableHighProfileConfirm && optString.contains("profile-level-id=42e01f")) {
-            optString = optString.replace("profile-level-id=42e01f", "profile-level-id=640c1f");
-            Log.e(TAG, "enable high profile, remote jsep changed: " + optString);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048632, this, bigInteger, jSONObject) == null) {
+            SessionDescription.Type fromCanonicalForm = SessionDescription.Type.fromCanonicalForm(jSONObject.optString("type"));
+            String optString = jSONObject.optString("sdp");
+            if (this.mParamSettings.EnableHighProfile && this.isEnableHighProfileConfirm && optString.contains("profile-level-id=42e01f")) {
+                optString = optString.replace("profile-level-id=42e01f", "profile-level-id=640c1f");
+                Log.e(TAG, "enable high profile, remote jsep changed: " + optString);
+            }
+            this.peerConnectionClient.setRemoteDescription(bigInteger, new SessionDescription(fromCanonicalForm, optString));
         }
-        this.peerConnectionClient.setRemoteDescription(bigInteger, new SessionDescription(fromCanonicalForm, optString));
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onRemoteData(ByteBuffer byteBuffer) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048633, this, byteBuffer) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomDataMessage(byteBuffer);
@@ -2094,146 +2822,253 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onRemoteDescription(SessionDescription sessionDescription, BigInteger bigInteger) {
-        Log.e(TAG, sessionDescription.type.toString());
-        this.mWebSocketChannel.subscriberCreateAnswer(bigInteger, sessionDescription);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048634, this, sessionDescription, bigInteger) == null) {
+            Log.e(TAG, sessionDescription.type.toString());
+            this.mWebSocketChannel.subscriberCreateAnswer(bigInteger, sessionDescription);
+        }
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onRemoteGone(BigInteger bigInteger) {
-        if (this.peerConnectionClient != null) {
-            this.peerConnectionClient.closePeer(bigInteger);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048635, this, bigInteger) == null) || this.peerConnectionClient == null) {
+            return;
         }
+        this.peerConnectionClient.closePeer(bigInteger);
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
-    public void onRemoteRender(final JanusConnection janusConnection) {
+    public void onRemoteRender(JanusConnection janusConnection) {
         int i2;
         RTCVideoView[] rTCVideoViewArr;
-        Log.e(TAG, "=========onRemoteRender========" + janusConnection.videoTrack);
-        final BigInteger feedByHandle = this.mWebSocketChannel.getFeedByHandle(janusConnection.handleId);
-        if (feedByHandle.longValue() == 0) {
-            Log.e(TAG, "onRemoteRender Userid is 0.");
-        } else if (this.mParamSettings.VideoRenderMode == RtcParameterSettings.RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_EXTERNAL) {
-            RTCVideoExternalRender externalRender = getExternalRender(feedByHandle.longValue());
-            Log.d(TAG, "enable external video render mode with videoRenderer -> " + externalRender);
-            if (externalRender != null) {
-                janusConnection.videoTrack.addSink(externalRender);
-                externalRender.setStuckEventListener(new VideoStuckEvent(janusConnection.handleId));
-                externalRender.setEnableSLIDataReport(this.mIsEnablePullQualityMonitor);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, janusConnection) == null) {
+            Log.e(TAG, "=========onRemoteRender========" + janusConnection.videoTrack);
+            BigInteger feedByHandle = this.mWebSocketChannel.getFeedByHandle(janusConnection.handleId);
+            if (feedByHandle.longValue() == 0) {
+                Log.e(TAG, "onRemoteRender Userid is 0.");
+            } else if (this.mParamSettings.VideoRenderMode == RtcParameterSettings.RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_EXTERNAL) {
+                RTCVideoExternalRender externalRender = getExternalRender(feedByHandle.longValue());
+                Log.d(TAG, "enable external video render mode with videoRenderer -> " + externalRender);
+                if (externalRender != null) {
+                    janusConnection.videoTrack.addSink(externalRender);
+                    externalRender.setStuckEventListener(new VideoStuckEvent(this, janusConnection.handleId));
+                    externalRender.setEnableSLIDataReport(this.mIsEnablePullQualityMonitor);
+                } else {
+                    Log.d(TAG, "Not found external render for user " + feedByHandle);
+                }
+                onFfDelayChange(janusConnection, feedByHandle);
+                this.mBaiduRtcRoomDelegate.onRoomEventUpdate(106, feedByHandle.longValue(), "");
             } else {
-                Log.d(TAG, "Not found external render for user " + feedByHandle);
-            }
-            onFfDelayChange(janusConnection, feedByHandle);
-            this.mBaiduRtcRoomDelegate.onRoomEventUpdate(106, feedByHandle.longValue(), "");
-        } else {
-            Log.d(TAG, "it is internal video render mode");
-            int i3 = -1;
-            try {
-                i2 = this.mFeedToViewMap.get(this.mWebSocketChannel.getFeedByHandle(janusConnection.handleId)).intValue();
-            } catch (Exception unused) {
-                i2 = -1;
-            }
-            if (i2 >= 0 && i2 < MAX_VIDEOVIEW_CNT && (rTCVideoViewArr = this.mRemoteRenderList) != null) {
-                if (rTCVideoViewArr[i2] != null) {
-                    rTCVideoViewArr[i2].setFirstFrameEventListener(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.18
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = BaiduRtcRoomImp.this.mBaiduRtcRoomDelegate;
-                            if (baiduRtcRoomDelegate != null) {
-                                baiduRtcRoomDelegate.onRoomEventUpdate(106, feedByHandle.longValue(), "");
+                Log.d(TAG, "it is internal video render mode");
+                int i3 = -1;
+                try {
+                    i2 = this.mFeedToViewMap.get(this.mWebSocketChannel.getFeedByHandle(janusConnection.handleId)).intValue();
+                } catch (Exception unused) {
+                    i2 = -1;
+                }
+                if (i2 >= 0 && i2 < MAX_VIDEOVIEW_CNT && (rTCVideoViewArr = this.mRemoteRenderList) != null) {
+                    if (rTCVideoViewArr[i2] != null) {
+                        rTCVideoViewArr[i2].setFirstFrameEventListener(new Runnable(this, feedByHandle, janusConnection) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.17
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ BaiduRtcRoomImp this$0;
+                            public final /* synthetic */ JanusConnection val$connection;
+                            public final /* synthetic */ BigInteger val$userId;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, feedByHandle, janusConnection};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i4 = newInitContext.flag;
+                                    if ((i4 & 1) != 0) {
+                                        int i5 = i4 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                                this.val$userId = feedByHandle;
+                                this.val$connection = janusConnection;
                             }
-                            BaiduRtcRoomImp.this.onFfDelayChange(janusConnection, feedByHandle);
-                        }
-                    });
-                    this.mRemoteRenderList[i2].setStuckEventListener(new VideoStuckEvent(janusConnection.handleId));
-                    this.mRemoteRenderList[i2].setEnableSLIDataReport(this.mIsEnablePullQualityMonitor);
-                    janusConnection.videoTrack.addSink(this.mRemoteRenderList[i2]);
-                }
-                janusConnection.videoview_tag = i2;
-            } else if (this.mRemoteRenderList != null) {
-                int i4 = 0;
-                while (true) {
-                    boolean[] zArr = this.mHasVideoView;
-                    if (i4 >= zArr.length) {
-                        break;
-                    } else if (!zArr[i4]) {
-                        zArr[i4] = true;
-                        i3 = i4;
-                        break;
-                    } else {
-                        i4++;
-                    }
-                }
-                if (i3 >= 0) {
-                    RTCVideoView[] rTCVideoViewArr2 = this.mRemoteRenderList;
-                    if (rTCVideoViewArr2[i3] != null) {
-                        rTCVideoViewArr2[i3].setFirstFrameEventListener(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.19
+
                             @Override // java.lang.Runnable
                             public void run() {
-                                BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = BaiduRtcRoomImp.this.mBaiduRtcRoomDelegate;
-                                if (baiduRtcRoomDelegate != null) {
-                                    baiduRtcRoomDelegate.onRoomEventUpdate(106, feedByHandle.longValue(), "");
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.this$0.mBaiduRtcRoomDelegate;
+                                    if (baiduRtcRoomDelegate != null) {
+                                        baiduRtcRoomDelegate.onRoomEventUpdate(106, this.val$userId.longValue(), "");
+                                    }
+                                    this.this$0.onFfDelayChange(this.val$connection, this.val$userId);
                                 }
-                                BaiduRtcRoomImp.this.onFfDelayChange(janusConnection, feedByHandle);
                             }
                         });
-                        this.mRemoteRenderList[i3].setStuckEventListener(new VideoStuckEvent(janusConnection.handleId));
-                        this.mRemoteRenderList[i3].setEnableSLIDataReport(this.mIsEnablePullQualityMonitor);
-                        janusConnection.videoTrack.addSink(this.mRemoteRenderList[i3]);
+                        this.mRemoteRenderList[i2].setStuckEventListener(new VideoStuckEvent(this, janusConnection.handleId));
+                        this.mRemoteRenderList[i2].setEnableSLIDataReport(this.mIsEnablePullQualityMonitor);
+                        janusConnection.videoTrack.addSink(this.mRemoteRenderList[i2]);
                     }
-                    janusConnection.videoview_tag = i3;
+                    janusConnection.videoview_tag = i2;
+                } else if (this.mRemoteRenderList != null) {
+                    int i4 = 0;
+                    while (true) {
+                        boolean[] zArr = this.mHasVideoView;
+                        if (i4 >= zArr.length) {
+                            break;
+                        } else if (!zArr[i4]) {
+                            zArr[i4] = true;
+                            i3 = i4;
+                            break;
+                        } else {
+                            i4++;
+                        }
+                    }
+                    if (i3 >= 0) {
+                        RTCVideoView[] rTCVideoViewArr2 = this.mRemoteRenderList;
+                        if (rTCVideoViewArr2[i3] != null) {
+                            rTCVideoViewArr2[i3].setFirstFrameEventListener(new Runnable(this, feedByHandle, janusConnection) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.18
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ BaiduRtcRoomImp this$0;
+                                public final /* synthetic */ JanusConnection val$connection;
+                                public final /* synthetic */ BigInteger val$userId;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, feedByHandle, janusConnection};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i5 = newInitContext.flag;
+                                        if ((i5 & 1) != 0) {
+                                            int i6 = i5 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$0 = this;
+                                    this.val$userId = feedByHandle;
+                                    this.val$connection = janusConnection;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.this$0.mBaiduRtcRoomDelegate;
+                                        if (baiduRtcRoomDelegate != null) {
+                                            baiduRtcRoomDelegate.onRoomEventUpdate(106, this.val$userId.longValue(), "");
+                                        }
+                                        this.this$0.onFfDelayChange(this.val$connection, this.val$userId);
+                                    }
+                                }
+                            });
+                            this.mRemoteRenderList[i3].setStuckEventListener(new VideoStuckEvent(this, janusConnection.handleId));
+                            this.mRemoteRenderList[i3].setEnableSLIDataReport(this.mIsEnablePullQualityMonitor);
+                            janusConnection.videoTrack.addSink(this.mRemoteRenderList[i3]);
+                        }
+                        janusConnection.videoview_tag = i3;
+                    }
+                    this.mRemoteVideoCnt++;
                 }
-                this.mRemoteVideoCnt++;
             }
         }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
-    public void onRemoteStreamStats(final Boolean bool, final Boolean bool2, final BigInteger bigInteger) {
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.17
-            @Override // java.lang.Runnable
-            public void run() {
-                if (BaiduRtcRoomImp.this.mWebSocketChannel == null) {
-                    return;
-                }
-                BigInteger feedByHandle = BaiduRtcRoomImp.this.mWebSocketChannel.getFeedByHandle(bigInteger);
-                String nickNameByFeed = BaiduRtcRoomImp.this.mWebSocketChannel.getNickNameByFeed(feedByHandle);
-                StreamStats streamStats = (StreamStats) BaiduRtcRoomImp.this.mRemoteStreamStats.get(feedByHandle);
-                if (streamStats == null) {
-                    streamStats = new StreamStats(bigInteger, feedByHandle.longValue(), bool, bool2, nickNameByFeed);
-                    BaiduRtcRoomImp.this.mRemoteStreamStats.put(feedByHandle, streamStats);
-                } else {
-                    streamStats.hasVideo = bool;
-                    streamStats.hasAudio = bool2;
-                    streamStats.handleId = bigInteger;
-                    streamStats.nickName = nickNameByFeed;
-                }
-                if (bool2.booleanValue()) {
-                    BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = BaiduRtcRoomImp.this.mBaiduRtcRoomDelegate;
-                    if (baiduRtcRoomDelegate != null) {
-                        baiduRtcRoomDelegate.onRoomEventUpdate(108, feedByHandle.longValue(), "");
+    public void onRemoteStreamStats(Boolean bool, Boolean bool2, BigInteger bigInteger) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048637, this, bool, bool2, bigInteger) == null) {
+            this.mHandler.post(new Runnable(this, bigInteger, bool, bool2) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.16
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+                public final /* synthetic */ BigInteger val$handleID;
+                public final /* synthetic */ Boolean val$hasAudio;
+                public final /* synthetic */ Boolean val$hasVideo;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bigInteger, bool, bool2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                    if (BaiduRtcRoomImp.this.peerConnectionClient != null) {
-                        BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(true, 200, streamStats.handleId, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+                    this.this$0 = this;
+                    this.val$handleID = bigInteger;
+                    this.val$hasVideo = bool;
+                    this.val$hasAudio = bool2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mWebSocketChannel == null) {
+                        return;
+                    }
+                    BigInteger feedByHandle = this.this$0.mWebSocketChannel.getFeedByHandle(this.val$handleID);
+                    String nickNameByFeed = this.this$0.mWebSocketChannel.getNickNameByFeed(feedByHandle);
+                    StreamStats streamStats = (StreamStats) this.this$0.mRemoteStreamStats.get(feedByHandle);
+                    if (streamStats == null) {
+                        streamStats = new StreamStats(this.val$handleID, feedByHandle.longValue(), this.val$hasVideo, this.val$hasAudio, nickNameByFeed);
+                        this.this$0.mRemoteStreamStats.put(feedByHandle, streamStats);
+                    } else {
+                        streamStats.hasVideo = this.val$hasVideo;
+                        streamStats.hasAudio = this.val$hasAudio;
+                        streamStats.handleId = this.val$handleID;
+                        streamStats.nickName = nickNameByFeed;
+                    }
+                    if (this.val$hasAudio.booleanValue()) {
+                        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.this$0.mBaiduRtcRoomDelegate;
+                        if (baiduRtcRoomDelegate != null) {
+                            baiduRtcRoomDelegate.onRoomEventUpdate(108, feedByHandle.longValue(), "");
+                        }
+                        if (this.this$0.peerConnectionClient != null) {
+                            this.this$0.peerConnectionClient.enableStatsEvents(true, 200, streamStats.handleId, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onRoomDisbanded() {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048638, this) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomEventUpdate(112, 0L, "");
     }
 
+    @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
+    public void onSEIRecv(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048639, this, byteBuffer) == null) {
+        }
+    }
+
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onServerAckTimeout() {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048640, this) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onErrorInfoUpdate(402);
@@ -2241,7 +3076,8 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onSignalErrorInfo(int i2) {
-        if (this.mBaiduRtcRoomDelegate != null && i2 == 436) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048641, this, i2) == null) && this.mBaiduRtcRoomDelegate != null && i2 == 436) {
             if (this.mIsEnableErrorInfoMonitor) {
                 ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.USR_ALREADY_EXIST);
             }
@@ -2251,7 +3087,8 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onSlowLink(boolean z, int i2) {
-        if (this.mBaiduRtcRoomDelegate == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.mBaiduRtcRoomDelegate == null) {
             return;
         }
         this.mBaiduRtcRoomDelegate.onPeerConnectStateUpdate(i2 < 10 ? 2100 : i2 < 15 ? 2101 : i2 < 25 ? 2102 : i2 < 40 ? 2103 : i2 < 60 ? 2104 : i2 < 90 ? 2105 : i2 < 120 ? 2106 : i2 < 180 ? 2107 : i2 < 250 ? 2108 : 2109);
@@ -2259,8 +3096,9 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onUserDisShutUp(long j) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(1048643, this, j) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomEventUpdate(114, j, "");
@@ -2268,8 +3106,9 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onUserJoinedRoom(BigInteger bigInteger, String str, String str2) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048644, this, bigInteger, str, str2) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomEventUpdate(300, bigInteger.longValue(), str);
@@ -2277,8 +3116,9 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onUserKickOff(long j) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(1048645, this, j) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomEventUpdate(115, j, "");
@@ -2286,8 +3126,9 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onUserLeavingRoom(BigInteger bigInteger) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048646, this, bigInteger) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomEventUpdate(301, bigInteger.longValue(), "");
@@ -2295,8 +3136,9 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onUserShutUp(long j) {
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
+        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(1048647, this, j) == null) || (baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate) == null) {
             return;
         }
         baiduRtcRoomDelegate.onRoomEventUpdate(113, j, "");
@@ -2304,66 +3146,87 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.JanusRTCInterface
     public void onWebrtcUp(BigInteger bigInteger) {
-        if (this.mIsEnablePushQualityMonitor && bigInteger == this.mPublisherHandle) {
-            this.mIsLoginSuccess = true;
-            long currentTimeMillis = System.currentTimeMillis();
-            this.mLoginSuccessTime = currentTimeMillis;
-            if (currentTimeMillis - this.mStartLoginTime > 5000) {
-                if (this.mIsEnableErrorInfoMonitor) {
-                    ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_TIMEOUT);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048648, this, bigInteger) == null) {
+            if (this.mIsEnablePushQualityMonitor && bigInteger == this.mPublisherHandle) {
+                this.mIsLoginSuccess = true;
+                long currentTimeMillis = System.currentTimeMillis();
+                this.mLoginSuccessTime = currentTimeMillis;
+                if (currentTimeMillis - this.mStartLoginTime > 5000) {
+                    if (this.mIsEnableErrorInfoMonitor) {
+                        ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.ENTER_TIMEOUT);
+                    }
+                    reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_TIMEOUT);
                 }
-                reportSLILoginEvent(CommonDefine.SLILoginEvent.ENTER_TIMEOUT);
             }
+            BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
+            if (baiduRtcRoomDelegate == null) {
+                return;
+            }
+            baiduRtcRoomDelegate.onPeerConnectStateUpdate(2000);
+            reportRoomEventInfo("WEBRTC_UP_" + bigInteger.longValue());
         }
-        BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
-        if (baiduRtcRoomDelegate == null) {
-            return;
-        }
-        baiduRtcRoomDelegate.onPeerConnectStateUpdate(2000);
-        reportRoomEventInfo("WEBRTC_UP_" + bigInteger.longValue());
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void presetLoudSpeaker(boolean z) {
-        ((AudioManager) this.mContext.get().getSystemService("audio")).setSpeakerphoneOn(z);
-        reportRoomEventInfo("PRESETLOUDSPEAKER");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048649, this, z) == null) {
+            ((AudioManager) this.mContext.get().getSystemService("audio")).setSpeakerphoneOn(z);
+            reportRoomEventInfo("PRESETLOUDSPEAKER");
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void publishStreaming() {
-        offerPeerConnection(this.mPublisherHandle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
+            offerPeerConnection(this.mPublisherHandle);
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void queryEngineStatisticsInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public BaiduRtcRoom.UserList queryUserListOfRoom() {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
+            WebSocketChannel webSocketChannel = this.mWebSocketChannel;
+            if (webSocketChannel == null) {
+                return null;
+            }
+            return webSocketChannel.UserListOfRoom();
         }
-        return webSocketChannel.UserListOfRoom();
+        return (BaiduRtcRoom.UserList) invokeV.objValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void removeExternalRenderer(long j) {
-        Log.d(TAG, j + " : Remove external renderer ...");
-        if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j))) {
-            RTCVideoExternalRender rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(Long.valueOf(j));
-            if (rTCVideoExternalRender != null) {
-                rTCVideoExternalRender.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048653, this, j) == null) {
+            Log.d(TAG, j + " : Remove external renderer ...");
+            if (this.mUserIdVideoRendererMap.containsKey(Long.valueOf(j))) {
+                RTCVideoExternalRender rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(Long.valueOf(j));
+                if (rTCVideoExternalRender != null) {
+                    rTCVideoExternalRender.release();
+                }
+                this.mUserIdVideoRendererMap.remove(Long.valueOf(j));
+                return;
             }
-            this.mUserIdVideoRendererMap.remove(Long.valueOf(j));
-            return;
+            Log.d(TAG, "External render not found to  remove surface for " + j);
         }
-        Log.d(TAG, "External render not found to  remove surface for " + j);
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void sendData(ByteBuffer byteBuffer) {
-        if (this.peerConnectionClient == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048654, this, byteBuffer) == null) || this.peerConnectionClient == null) {
             return;
         }
         this.peerConnectionClient.sendData(byteBuffer);
@@ -2371,8 +3234,9 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void sendMessageToUser(String str, long j) {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel == null) {
+        WebSocketChannel webSocketChannel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLJ(1048655, this, str, j) == null) || (webSocketChannel = this.mWebSocketChannel) == null) {
             return;
         }
         webSocketChannel.sendMessageToUser(str, j);
@@ -2384,164 +3248,277 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setAudioRecordDelegate(RTCAudioSamples.RTCSamplesReadyCallback rTCSamplesReadyCallback) {
-        this.mSamplesReadyCallback = rTCSamplesReadyCallback;
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setAuidoSamplesReadyCallback(RTCAudioSamples.RTCSamplesReadyCallback rTCSamplesReadyCallback) {
-        this.mSamplesReadyCallback = rTCSamplesReadyCallback;
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setBaiduRtcAppID(String str, String str2) {
-        this.mWebSocketChannel.setAppId(str);
-        this.mAppId = str;
-        this.mWebSocketChannel.setTokenStr(str2);
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public boolean setBaiduRtcRoomDelegate(BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate) {
-        this.mBaiduRtcRoomDelegate = baiduRtcRoomDelegate;
-        return true;
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setBuffingFactor(float f2) {
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setCameraID(int i2) {
-        this.mCameraID = i2;
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setEngineStateStatistics(boolean z) {
-        this.mbOnStatistics = z;
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setExternalSurface(long j, Surface surface) {
-        RTCVideoExternalRender externalRender = getExternalRender(j);
-        if (externalRender != null) {
-            if (!externalRender.isRenderInited()) {
-                externalRender.init();
-                externalRender.setRenderInited(true);
-            }
-            for (Long l : this.mUserIdVideoRendererMap.keySet()) {
-                RTCVideoExternalRender rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(l);
-                if (rTCVideoExternalRender != null && rTCVideoExternalRender.hasSurface() && surface == rTCVideoExternalRender.getSurface() && this.mBaiduRtcRoomDelegate != null) {
-                    Log.d(TAG, "Set surface repeat with userId " + j);
-                    if (this.mIsEnableErrorInfoMonitor) {
-                        ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.SET_EXTERNAL_SURFACE_ERROR);
-                    }
-                    this.mBaiduRtcRoomDelegate.onErrorInfoUpdate(600);
-                    return;
-                }
-            }
-            externalRender.setSurface(surface);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048656, this, rTCSamplesReadyCallback) == null) {
+            this.mSamplesReadyCallback = rTCSamplesReadyCallback;
         }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
+    public void setAuidoSamplesReadyCallback(RTCAudioSamples.RTCSamplesReadyCallback rTCSamplesReadyCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048657, this, rTCSamplesReadyCallback) == null) {
+            this.mSamplesReadyCallback = rTCSamplesReadyCallback;
+        }
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void setBaiduRtcAppID(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048658, this, str, str2) == null) {
+            this.mWebSocketChannel.setAppId(str);
+            this.mAppId = str;
+            this.mWebSocketChannel.setTokenStr(str2);
+        }
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public boolean setBaiduRtcRoomDelegate(BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, baiduRtcRoomDelegate)) == null) {
+            this.mBaiduRtcRoomDelegate = baiduRtcRoomDelegate;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void setBuffingFactor(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048660, this, f2) == null) {
+        }
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void setCameraID(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
+            this.mCameraID = i2;
+        }
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void setEngineStateStatistics(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048662, this, z) == null) {
+            this.mbOnStatistics = z;
+        }
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void setExternalSurface(long j, Surface surface) {
+        RTCVideoExternalRender externalRender;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJL(1048663, this, j, surface) == null) || (externalRender = getExternalRender(j)) == null) {
+            return;
+        }
+        if (!externalRender.isRenderInited()) {
+            externalRender.init();
+            externalRender.setRenderInited(true);
+        }
+        for (Long l : this.mUserIdVideoRendererMap.keySet()) {
+            RTCVideoExternalRender rTCVideoExternalRender = this.mUserIdVideoRendererMap.get(l);
+            if (rTCVideoExternalRender != null && rTCVideoExternalRender.hasSurface() && surface == rTCVideoExternalRender.getSurface() && this.mBaiduRtcRoomDelegate != null) {
+                Log.d(TAG, "Set surface repeat with userId " + j);
+                if (this.mIsEnableErrorInfoMonitor) {
+                    ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.SET_EXTERNAL_SURFACE_ERROR);
+                }
+                this.mBaiduRtcRoomDelegate.onErrorInfoUpdate(600);
+                return;
+            }
+        }
+        externalRender.setSurface(surface);
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean setLiveStreamingMix(boolean z) {
-        this.mWebSocketChannel.setMixing(z);
-        return true;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048664, this, z)) == null) {
+            this.mWebSocketChannel.setMixing(z);
+            return true;
+        }
+        return invokeZ.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean setLiveStreamingRole(String str) {
-        this.mWebSocketChannel.setLssRole(str);
-        return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, str)) == null) {
+            this.mWebSocketChannel.setLssRole(str);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean setLiveStreamingURL(String str) {
-        this.mWebSocketChannel.setLssURL(str);
-        return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048666, this, str)) == null) {
+            this.mWebSocketChannel.setLssURL(str);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setLocalDisplay(RTCVideoView rTCVideoView) {
-        this.mLocalRender = rTCVideoView;
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.9
-            @Override // java.lang.Runnable
-            public void run() {
-                if (BaiduRtcRoomImp.this.mLocalRender != null) {
-                    try {
-                        BaiduRtcRoomImp.this.mLocalRender.init(BaiduRtcRoomImp.this.rootEglBase.getEglBaseContext(), null);
-                    } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048667, this, rTCVideoView) == null) {
+            this.mLocalRender = rTCVideoView;
+            this.mHandler.post(new Runnable(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                    BaiduRtcRoomImp.this.mLocalRender.setEnableHardwareScaler(true);
-                    if (BaiduRtcRoomImp.this.mVideoCaptureIsFrontCamera) {
-                        BaiduRtcRoomImp.this.mLocalRender.setMirror(true);
-                    }
+                    this.this$0 = this;
                 }
-            }
-        });
-    }
 
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setMediaServerURL(String str) {
-        this.mJanusServerURL = str;
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public boolean setMixLayoutPositionIndex(String str) {
-        this.mWebSocketChannel.setMixLayoutPosition(str);
-        return true;
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setMixedAudioSamplesCallback(RTCAudioSamples.RTCMixedSamplesReadyCallback rTCMixedSamplesReadyCallback) {
-        this.mMixedSamplesCallback = rTCMixedSamplesReadyCallback;
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setParamSettings(RtcParameterSettings rtcParameterSettings, RtcParameterSettings.RtcParamSettingType rtcParamSettingType) {
-        Handler handler;
-        int i2 = AnonymousClass25.$SwitchMap$com$baidu$rtc$RtcParameterSettings$RtcParamSettingType[rtcParamSettingType.ordinal()];
-        if (i2 == 1) {
-            if (rtcParameterSettings != null) {
-                this.mParamSettings = rtcParameterSettings;
-                mConfigAudioContenttype = rtcParameterSettings.AudioContentType;
-            }
-        } else if (i2 != 2) {
-            if (i2 != 3) {
-                return;
-            }
-            this.mParamSettings.VideoRenderMode = rtcParameterSettings.VideoRenderMode;
-        } else {
-            this.mParamSettings.VideoMaxkbps = rtcParameterSettings.VideoMaxkbps;
-            if (this.peerConnectionClient == null || (handler = this.mHandler) == null) {
-                return;
-            }
-            handler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (BaiduRtcRoomImp.this.peerConnectionClient == null || BaiduRtcRoomImp.this.mParamSettings.VideoMaxkbps <= 0) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mLocalRender == null) {
                         return;
                     }
-                    Log.d(BaiduRtcRoomImp.TAG, "Set video maximum bitrate: " + BaiduRtcRoomImp.this.mParamSettings.VideoMaxkbps);
-                    BaiduRtcRoomImp.this.peerConnectionClient.setVideoMaxBitrate(Integer.valueOf(BaiduRtcRoomImp.this.mParamSettings.VideoMaxkbps));
+                    try {
+                        this.this$0.mLocalRender.init(this.this$0.rootEglBase.getEglBaseContext(), null);
+                    } catch (Exception unused) {
+                    }
+                    this.this$0.mLocalRender.setEnableHardwareScaler(true);
+                    if (this.this$0.mVideoCaptureIsFrontCamera) {
+                        this.this$0.mLocalRender.setMirror(true);
+                    }
                 }
             });
         }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
+    public void setMediaServerURL(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048668, this, str) == null) {
+            this.mJanusServerURL = str;
+        }
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public boolean setMixLayoutPositionIndex(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048669, this, str)) == null) {
+            this.mWebSocketChannel.setMixLayoutPosition(str);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void setMixedAudioSamplesCallback(RTCAudioSamples.RTCMixedSamplesReadyCallback rTCMixedSamplesReadyCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048670, this, rTCMixedSamplesReadyCallback) == null) {
+            this.mMixedSamplesCallback = rTCMixedSamplesReadyCallback;
+        }
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void setParamSettings(RtcParameterSettings rtcParameterSettings, RtcParameterSettings.RtcParamSettingType rtcParamSettingType) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048671, this, rtcParameterSettings, rtcParamSettingType) == null) {
+            int i2 = AnonymousClass24.$SwitchMap$com$baidu$rtc$RtcParameterSettings$RtcParamSettingType[rtcParamSettingType.ordinal()];
+            if (i2 == 1) {
+                if (rtcParameterSettings != null) {
+                    this.mParamSettings = rtcParameterSettings;
+                    mConfigAudioContenttype = rtcParameterSettings.AudioContentType;
+                }
+            } else if (i2 != 2) {
+                if (i2 != 3) {
+                    return;
+                }
+                this.mParamSettings.VideoRenderMode = rtcParameterSettings.VideoRenderMode;
+            } else {
+                this.mParamSettings.VideoMaxkbps = rtcParameterSettings.VideoMaxkbps;
+                if (this.peerConnectionClient == null || (handler = this.mHandler) == null) {
+                    return;
+                }
+                handler.post(new Runnable(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.peerConnectionClient == null || this.this$0.mParamSettings.VideoMaxkbps <= 0) {
+                            return;
+                        }
+                        Log.d(BaiduRtcRoomImp.TAG, "Set video maximum bitrate: " + this.this$0.mParamSettings.VideoMaxkbps);
+                        this.this$0.peerConnectionClient.setVideoMaxBitrate(Integer.valueOf(this.this$0.mParamSettings.VideoMaxkbps));
+                    }
+                });
+            }
+        }
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean setRecording(boolean z) {
-        this.mWebSocketChannel.setRecording(z);
-        return true;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048672, this, z)) == null) {
+            this.mWebSocketChannel.setRecording(z);
+            return true;
+        }
+        return invokeZ.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setRedenFactor(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048673, this, f2) == null) {
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setRemoteAudioPlayState(boolean z, long j) {
-        StreamStats streamStats = this.mRemoteStreamStats.get(BigInteger.valueOf(j));
-        if (streamStats == null || streamStats.hasAudio.booleanValue() == z) {
+        StreamStats streamStats;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048674, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || (streamStats = this.mRemoteStreamStats.get(BigInteger.valueOf(j))) == null || streamStats.hasAudio.booleanValue() == z) {
             return;
         }
         streamStats.hasAudio = Boolean.valueOf(z);
@@ -2550,87 +3527,154 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setRemoteAudioSamplesCallback(RTCAudioSamples.RTCRemoteSamplesReadyCallback rTCRemoteSamplesReadyCallback) {
-        this.mRemoteSamplesCallback = rTCRemoteSamplesReadyCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048675, this, rTCRemoteSamplesReadyCallback) == null) {
+            this.mRemoteSamplesCallback = rTCRemoteSamplesReadyCallback;
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setRemoteDisplay(RTCVideoView rTCVideoView) {
-        setRemoteDisplayGroup(new RTCVideoView[]{rTCVideoView});
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048676, this, rTCVideoView) == null) {
+            setRemoteDisplayGroup(new RTCVideoView[]{rTCVideoView});
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
-    public void setRemoteDisplay(final RTCVideoView rTCVideoView, final long j) {
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.11
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean z;
-                try {
-                    int i2 = 0;
-                    if (BaiduRtcRoomImp.this.mRemoteRenderList == null) {
-                        BaiduRtcRoomImp.this.mRemoteRenderList = new RTCVideoView[]{rTCVideoView};
-                        rTCVideoView.init(BaiduRtcRoomImp.this.rootEglBase.getEglBaseContext(), null);
-                        rTCVideoView.setEnableHardwareScaler(true);
-                    } else {
-                        int i3 = 0;
-                        while (true) {
-                            if (i3 >= BaiduRtcRoomImp.this.mRemoteRenderList.length) {
-                                i3 = 0;
-                                z = false;
-                                break;
-                            } else if (BaiduRtcRoomImp.this.mRemoteRenderList[i3] == rTCVideoView) {
-                                z = true;
-                                break;
-                            } else {
-                                i3++;
-                            }
-                        }
-                        if (z) {
-                            i2 = i3;
-                        } else {
-                            rTCVideoView.init(BaiduRtcRoomImp.this.rootEglBase.getEglBaseContext(), null);
-                            rTCVideoView.setEnableHardwareScaler(true);
-                            RTCVideoView[] rTCVideoViewArr = new RTCVideoView[BaiduRtcRoomImp.this.mRemoteRenderList.length + 1];
-                            while (i2 < BaiduRtcRoomImp.this.mRemoteRenderList.length) {
-                                rTCVideoViewArr[i2] = BaiduRtcRoomImp.this.mRemoteRenderList[i2];
-                                i2++;
-                            }
-                            rTCVideoViewArr[BaiduRtcRoomImp.this.mRemoteRenderList.length] = rTCVideoView;
-                            BaiduRtcRoomImp.this.mRemoteRenderList = rTCVideoViewArr;
-                            i2 = BaiduRtcRoomImp.this.mRemoteRenderList.length - 1;
+    public void setRemoteDisplay(RTCVideoView rTCVideoView, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048677, this, rTCVideoView, j) == null) {
+            this.mHandler.post(new Runnable(this, rTCVideoView, j) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.10
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+                public final /* synthetic */ RTCVideoView val$remoteVideoView;
+                public final /* synthetic */ long val$userId;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, rTCVideoView, Long.valueOf(j)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
-                    BaiduRtcRoomImp.this.mFeedToViewMap.put(BigInteger.valueOf(j), BigInteger.valueOf(i2));
-                    BaiduRtcRoomImp.this.mHasVideoView[i2] = true;
-                } catch (Exception unused) {
-                    Log.e(BaiduRtcRoomImp.TAG, "setRemoteDisplay error,userId:" + j);
+                    this.this$0 = this;
+                    this.val$remoteVideoView = rTCVideoView;
+                    this.val$userId = j;
                 }
-            }
-        });
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    boolean z;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            int i2 = 0;
+                            if (this.this$0.mRemoteRenderList == null) {
+                                this.this$0.mRemoteRenderList = new RTCVideoView[]{this.val$remoteVideoView};
+                                this.val$remoteVideoView.init(this.this$0.rootEglBase.getEglBaseContext(), null);
+                                this.val$remoteVideoView.setEnableHardwareScaler(true);
+                            } else {
+                                int i3 = 0;
+                                while (true) {
+                                    if (i3 >= this.this$0.mRemoteRenderList.length) {
+                                        i3 = 0;
+                                        z = false;
+                                        break;
+                                    } else if (this.this$0.mRemoteRenderList[i3] == this.val$remoteVideoView) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        i3++;
+                                    }
+                                }
+                                if (z) {
+                                    i2 = i3;
+                                } else {
+                                    this.val$remoteVideoView.init(this.this$0.rootEglBase.getEglBaseContext(), null);
+                                    this.val$remoteVideoView.setEnableHardwareScaler(true);
+                                    RTCVideoView[] rTCVideoViewArr = new RTCVideoView[this.this$0.mRemoteRenderList.length + 1];
+                                    while (i2 < this.this$0.mRemoteRenderList.length) {
+                                        rTCVideoViewArr[i2] = this.this$0.mRemoteRenderList[i2];
+                                        i2++;
+                                    }
+                                    rTCVideoViewArr[this.this$0.mRemoteRenderList.length] = this.val$remoteVideoView;
+                                    this.this$0.mRemoteRenderList = rTCVideoViewArr;
+                                    i2 = this.this$0.mRemoteRenderList.length - 1;
+                                }
+                            }
+                            this.this$0.mFeedToViewMap.put(BigInteger.valueOf(this.val$userId), BigInteger.valueOf(i2));
+                            this.this$0.mHasVideoView[i2] = true;
+                        } catch (Exception unused) {
+                            Log.e(BaiduRtcRoomImp.TAG, "setRemoteDisplay error,userId:" + this.val$userId);
+                        }
+                    }
+                }
+            });
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setRemoteDisplayGroup(RTCVideoView[] rTCVideoViewArr) {
-        this.mRemoteRenderList = rTCVideoViewArr;
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.10
-            @Override // java.lang.Runnable
-            public void run() {
-                for (int i2 = 0; i2 < BaiduRtcRoomImp.this.mRemoteRenderList.length; i2++) {
-                    if (BaiduRtcRoomImp.this.mRemoteRenderList[i2] != null) {
-                        try {
-                            BaiduRtcRoomImp.this.mRemoteRenderList[i2].init(BaiduRtcRoomImp.this.rootEglBase.getEglBaseContext(), null);
-                        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048678, this, rTCVideoViewArr) == null) {
+            this.mRemoteRenderList = rTCVideoViewArr;
+            this.mHandler.post(new Runnable(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
-                        BaiduRtcRoomImp.this.mRemoteRenderList[i2].setEnableHardwareScaler(true);
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        for (int i2 = 0; i2 < this.this$0.mRemoteRenderList.length; i2++) {
+                            if (this.this$0.mRemoteRenderList[i2] != null) {
+                                try {
+                                    this.this$0.mRemoteRenderList[i2].init(this.this$0.rootEglBase.getEglBaseContext(), null);
+                                } catch (Exception unused) {
+                                }
+                                this.this$0.mRemoteRenderList[i2].setEnableHardwareScaler(true);
+                            }
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setRemoteVideoPlayState(boolean z, long j) {
-        StreamStats streamStats = this.mRemoteStreamStats.get(BigInteger.valueOf(j));
-        if (streamStats == null || streamStats.hasVideo.booleanValue() == z) {
+        StreamStats streamStats;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048679, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || (streamStats = this.mRemoteStreamStats.get(BigInteger.valueOf(j))) == null || streamStats.hasVideo.booleanValue() == z) {
             return;
         }
         streamStats.hasVideo = Boolean.valueOf(z);
@@ -2639,27 +3683,34 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setSoLaterLoadUrl(String str) {
-        this.mSoLaterLoadUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048680, this, str) == null) {
+            this.mSoLaterLoadUrl = str;
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setSoundMod(BaiduRtcRoom.RtcSoundMode rtcSoundMode) {
         boolean z;
-        AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
-        if (rtcSoundMode == BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_SPEAKER) {
-            z = true;
-        } else if (rtcSoundMode != BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_EAR) {
-            return;
-        } else {
-            z = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048681, this, rtcSoundMode) == null) {
+            AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
+            if (rtcSoundMode == BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_SPEAKER) {
+                z = true;
+            } else if (rtcSoundMode != BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_EAR) {
+                return;
+            } else {
+                z = false;
+            }
+            audioManager.setSpeakerphoneOn(z);
         }
-        audioManager.setSpeakerphoneOn(z);
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setUserAttribute(String str) {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel == null) {
+        WebSocketChannel webSocketChannel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048682, this, str) == null) || (webSocketChannel = this.mWebSocketChannel) == null) {
             return;
         }
         webSocketChannel.setUserAttribute(str);
@@ -2671,76 +3722,91 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setVideoCapture(RTCVideoCapture rTCVideoCapture) {
-        this.videoCapturer = rTCVideoCapture;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048683, this, rTCVideoCapture) == null) {
+            this.videoCapturer = rTCVideoCapture;
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setWhitenFactor(float f2) {
-    }
-
-    public void setupSoLaterLoad(Context context) {
-        DownSoHelper k;
-        String str;
-        Log.d(TAG, "setup so later loading feature, and cpu type: " + this.mCpuType);
-        DownSoHelper.k(context).o(this.mCpuType);
-        if (this.mSoLaterLoadUrl.isEmpty()) {
-            k = DownSoHelper.k(context);
-            str = a.f();
-        } else {
-            Log.d(TAG, "setup so later load url: " + this.mSoLaterLoadUrl);
-            k = DownSoHelper.k(context);
-            str = this.mSoLaterLoadUrl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048684, this, f2) == null) {
         }
-        k.j(str, true, this.mSoCallback);
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void shutUpUserWithId(long j) {
-        shutUpUserWithId(j, true);
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void shutUpUserWithId(long j, boolean z) {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel != null) {
-            webSocketChannel.shutUpUserWithId(j, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048685, this, j) == null) {
+            shutUpUserWithId(j, true);
         }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
+    public void shutUpUserWithId(long j, boolean z) {
+        WebSocketChannel webSocketChannel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048686, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) || (webSocketChannel = this.mWebSocketChannel) == null) {
+            return;
+        }
+        webSocketChannel.shutUpUserWithId(j, z);
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean startLiveServerStreaming(String str, boolean z, boolean z2, String str2, BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        this.mWebSocketChannel.startPublishLiveStream(str, z, z2, str2, rtcLiveTransferMode);
-        return true;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048687, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2, rtcLiveTransferMode})) == null) {
+            this.mWebSocketChannel.startPublishLiveStream(str, z, z2, str2, rtcLiveTransferMode);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void startPreview() {
-        Log.d(TAG, "start to preview.");
-        if (this.peerConnectionClient != null) {
-            this.peerConnectionClient.startVideoSource();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048688, this) == null) {
+            Log.d(TAG, "start to preview.");
+            if (this.peerConnectionClient != null) {
+                this.peerConnectionClient.startVideoSource();
+            }
         }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void startPublish() {
-        offerPeerConnection(this.mPublisherHandle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048689, this) == null) {
+            offerPeerConnection(this.mPublisherHandle);
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean stopLiveServerStreaming(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        this.mWebSocketChannel.stopPublishLiveStream(rtcLiveTransferMode);
-        return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048690, this, rtcLiveTransferMode)) == null) {
+            this.mWebSocketChannel.stopPublishLiveStream(rtcLiveTransferMode);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void stopPreview() {
-        this.peerConnectionClient.stopVideoSource();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048691, this) == null) {
+            this.peerConnectionClient.stopVideoSource();
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void stopPublish() {
-        WebSocketChannel webSocketChannel = this.mWebSocketChannel;
-        if (webSocketChannel == null) {
+        WebSocketChannel webSocketChannel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048692, this) == null) || (webSocketChannel = this.mWebSocketChannel) == null) {
             return;
         }
         webSocketChannel.unpublishHandle(this.mPublisherHandle);
@@ -2749,10 +3815,35 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             this.peerConnectionClient.stopVideoSource();
             this.peerConnectionClient.closePeer(this.mPublisherHandle);
             if (this.mLocalRender != null) {
-                new Handler().postDelayed(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.8
+                new Handler().postDelayed(new Runnable(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ BaiduRtcRoomImp this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
                     @Override // java.lang.Runnable
                     public void run() {
-                        BaiduRtcRoomImp.this.mLocalRender.clearImage();
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$0.mLocalRender.clearImage();
+                        }
                     }
                 }, 100L);
             }
@@ -2768,15 +3859,19 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void stopSubscribeStreaming(long j) {
-        try {
-            this.mWebSocketChannel.subscriberOnLeaving(this.mWebSocketChannel.getHandleByFeed(BigInteger.valueOf(j)));
-        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048693, this, j) == null) {
+            try {
+                this.mWebSocketChannel.subscriberOnLeaving(this.mWebSocketChannel.getHandleByFeed(BigInteger.valueOf(j)));
+            } catch (Exception unused) {
+            }
         }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void subscribeStreaming(int i2, long j) {
-        if (this.mWebSocketChannel == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048694, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.mWebSocketChannel == null) {
             return;
         }
         if (i2 >= 0 && i2 < MAX_VIDEOVIEW_CNT && this.mRemoteRenderList != null) {
@@ -2787,57 +3882,97 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     }
 
     @Override // com.baidu.rtc.JanusRTCInterface
-    public void subscriberHandleRemoteJsep(final BigInteger bigInteger, JSONObject jSONObject) {
-        this.peerConnectionClient.subscriberHandleRemoteJsep(bigInteger, new SessionDescription(SessionDescription.Type.fromCanonicalForm(jSONObject.optString("type")), jSONObject.optString("sdp")));
-        this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.13
-            @Override // java.lang.Runnable
-            public void run() {
-                BaiduRtcRoomImp baiduRtcRoomImp = BaiduRtcRoomImp.this;
-                if (!baiduRtcRoomImp.mIsEnablePullQualityMonitor || bigInteger == baiduRtcRoomImp.mPublisherHandle || baiduRtcRoomImp.peerConnectionClient == null) {
-                    return;
+    public void subscriberHandleRemoteJsep(BigInteger bigInteger, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048695, this, bigInteger, jSONObject) == null) {
+            this.peerConnectionClient.subscriberHandleRemoteJsep(bigInteger, new SessionDescription(SessionDescription.Type.fromCanonicalForm(jSONObject.optString("type")), jSONObject.optString("sdp")));
+            this.mHandler.post(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.12
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaiduRtcRoomImp this$0;
+                public final /* synthetic */ BigInteger val$handleId;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bigInteger};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$handleId = bigInteger;
                 }
-                if (BaiduRtcRoomImp.this.mHUDStatisticsMap.get(bigInteger) != null) {
-                    BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-                    BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
-                    BaiduRtcRoomImp.this.mHUDStatisticsMap.remove(bigInteger);
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        BaiduRtcRoomImp baiduRtcRoomImp = this.this$0;
+                        if (!baiduRtcRoomImp.mIsEnablePullQualityMonitor || this.val$handleId == baiduRtcRoomImp.mPublisherHandle || baiduRtcRoomImp.peerConnectionClient == null) {
+                            return;
+                        }
+                        if (this.this$0.mHUDStatisticsMap.get(this.val$handleId) != null) {
+                            this.this$0.peerConnectionClient.enableStatsEvents(false, 0, this.val$handleId, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                            this.this$0.peerConnectionClient.enableStatsEvents(false, 0, this.val$handleId, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+                            this.this$0.mHUDStatisticsMap.remove(this.val$handleId);
+                        }
+                        this.this$0.peerConnectionClient.enableStatsEvents(this.this$0.mIsEnablePullQualityMonitor, 2000, this.val$handleId, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                        this.this$0.peerConnectionClient.enableStatsEvents(this.this$0.mIsEnablePullQualityMonitor, 5000, this.val$handleId, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+                        HUDStatistics hUDStatistics = new HUDStatistics();
+                        this.this$0.mHUDStatisticsMap.put(this.val$handleId, hUDStatistics);
+                        hUDStatistics.setRequestSubscribeTime(System.currentTimeMillis());
+                    }
                 }
-                BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(BaiduRtcRoomImp.this.mIsEnablePullQualityMonitor, 2000, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-                BaiduRtcRoomImp.this.peerConnectionClient.enableStatsEvents(BaiduRtcRoomImp.this.mIsEnablePullQualityMonitor, 5000, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
-                HUDStatistics hUDStatistics = new HUDStatistics();
-                BaiduRtcRoomImp.this.mHUDStatisticsMap.put(bigInteger, hUDStatistics);
-                hUDStatistics.setRequestSubscribeTime(System.currentTimeMillis());
-            }
-        });
+            });
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void switchCamera() {
-        if (this.peerConnectionClient != null) {
-            this.peerConnectionClient.switchCamera();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048696, this) == null) {
+            if (this.peerConnectionClient != null) {
+                this.peerConnectionClient.switchCamera();
+            }
+            boolean z = !this.mUsingFrontCamera;
+            this.mUsingFrontCamera = z;
+            RTCVideoView rTCVideoView = this.mLocalRender;
+            if (rTCVideoView != null) {
+                rTCVideoView.setMirror(z);
+            }
+            reportRoomEventInfo("SWITCH_CAMERA");
         }
-        boolean z = !this.mUsingFrontCamera;
-        this.mUsingFrontCamera = z;
-        RTCVideoView rTCVideoView = this.mLocalRender;
-        if (rTCVideoView != null) {
-            rTCVideoView.setMirror(z);
-        }
-        reportRoomEventInfo("SWITCH_CAMERA");
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void switchLoundSpeaker() {
-        AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
-        audioManager.setSpeakerphoneOn(!audioManager.isSpeakerphoneOn());
-        reportRoomEventInfo("SWITCH_LOUDSPEAKER");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048697, this) == null) {
+            AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
+            audioManager.setSpeakerphoneOn(!audioManager.isSpeakerphoneOn());
+            reportRoomEventInfo("SWITCH_LOUDSPEAKER");
+        }
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void upLoadLog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048698, this) == null) {
+        }
     }
 
     public void updateBweStatistics(StatsReport[] statsReportArr) {
         StatsReport.Value[] valueArr;
-        if (this.mBaiduRtcRoomDelegate == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048699, this, statsReportArr) == null) || this.mBaiduRtcRoomDelegate == null) {
             return;
         }
         for (StatsReport statsReport : statsReportArr) {

@@ -8,26 +8,37 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.text.TextUtils;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import d.a.m0.f.j.e;
-import d.a.m0.f.j.f;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.f.j.e;
+import d.a.q0.f.j.f;
+/* loaded from: classes4.dex */
 public class GamenowDownloadButtomView extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f11737e;
+    public Paint f11804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11738f;
+    public int f11805f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11739g;
+    public int f11806g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11740h;
+    public boolean f11807h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11741i;
+    public int f11808i;
     public boolean j;
     public Paint k;
     public int l;
@@ -37,216 +48,311 @@ public class GamenowDownloadButtomView extends View {
     public DownloadState p;
     public float q;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11742a;
+        public static final /* synthetic */ int[] f11809a;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1704114621, "Lcom/baidu/swan/game/guide/download/GamenowDownloadButtomView$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1704114621, "Lcom/baidu/swan/game/guide/download/GamenowDownloadButtomView$a;");
+                    return;
+                }
+            }
             int[] iArr = new int[DownloadState.values().length];
-            f11742a = iArr;
+            f11809a = iArr;
             try {
                 iArr[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11742a[DownloadState.DOWNLOADING.ordinal()] = 2;
+                f11809a[DownloadState.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f11742a[DownloadState.DOWNLOADED.ordinal()] = 3;
+                f11809a[DownloadState.DOWNLOADED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GamenowDownloadButtomView(Context context) {
         super(context);
-        this.f11737e = new Paint();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f11804e = new Paint();
         this.k = new Paint();
         this.l = -1;
         this.o = 100;
         this.p = DownloadState.NOT_START;
         this.q = -1.0f;
-        this.f11737e.setAntiAlias(true);
+        this.f11804e.setAntiAlias(true);
         this.k.setAntiAlias(true);
         this.m = getResources().getDimensionPixelOffset(f.aiapps_game_dimens_14dp);
-        this.f11738f = context.getResources().getColor(e.aiapps_download_button_default_bg_color);
-        this.f11739g = context.getResources().getColor(e.aiapps_download_button_default_fg_color);
+        this.f11805f = context.getResources().getColor(e.aiapps_download_button_default_bg_color);
+        this.f11806g = context.getResources().getColor(e.aiapps_download_button_default_fg_color);
     }
 
     public final void a(Canvas canvas, RectF rectF) {
-        int i2 = a.f11742a[this.p.ordinal()];
-        float f2 = 0.0f;
-        if (i2 != 1 && i2 != 2) {
-            this.f11737e.setColor(this.f11738f);
-            this.f11737e.setStyle(Paint.Style.FILL);
-            float f3 = this.q;
-            if (f3 > 0.0f) {
-                f2 = f3;
-            } else if (this.f11740h) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, rectF) == null) {
+            int i2 = a.f11809a[this.p.ordinal()];
+            float f2 = 0.0f;
+            if (i2 != 1 && i2 != 2) {
+                this.f11804e.setColor(this.f11805f);
+                this.f11804e.setStyle(Paint.Style.FILL);
+                float f3 = this.q;
+                if (f3 > 0.0f) {
+                    f2 = f3;
+                } else if (this.f11807h) {
+                    f2 = rectF.height() / 2.0f;
+                }
+                canvas.drawRoundRect(rectF, f2, f2, this.f11804e);
+                return;
+            }
+            this.f11804e.setColor(this.f11805f);
+            this.f11804e.setStyle(Paint.Style.STROKE);
+            this.f11804e.setStrokeWidth(1.0f);
+            float f4 = this.q;
+            if (f4 > 0.0f) {
+                f2 = f4;
+            } else if (this.f11807h) {
                 f2 = rectF.height() / 2.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, this.f11737e);
-            return;
+            canvas.drawRoundRect(rectF, f2, f2, this.f11804e);
         }
-        this.f11737e.setColor(this.f11738f);
-        this.f11737e.setStyle(Paint.Style.STROKE);
-        this.f11737e.setStrokeWidth(1.0f);
-        float f4 = this.q;
-        if (f4 > 0.0f) {
-            f2 = f4;
-        } else if (this.f11740h) {
-            f2 = rectF.height() / 2.0f;
-        }
-        canvas.drawRoundRect(rectF, f2, f2, this.f11737e);
     }
 
     public final void b(Canvas canvas, RectF rectF) {
-        int i2 = a.f11742a[this.p.ordinal()];
-        float f2 = 0.0f;
-        if (i2 == 1 || i2 == 2) {
-            Paint paint = new Paint();
-            paint.setStyle(Paint.Style.FILL);
-            float f3 = 1;
-            RectF rectF2 = new RectF(f3, f3, getWidth() - 2, getHeight() - 2);
-            float f4 = this.f11741i / this.o;
-            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF2.width(), 0.0f, new int[]{this.f11739g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
-            float f5 = this.q;
-            if (f5 > 0.0f) {
-                f2 = f5;
-            } else if (this.f11740h) {
-                f2 = rectF2.height() / 2.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, rectF) == null) {
+            int i2 = a.f11809a[this.p.ordinal()];
+            float f2 = 0.0f;
+            if (i2 == 1 || i2 == 2) {
+                Paint paint = new Paint();
+                paint.setStyle(Paint.Style.FILL);
+                float f3 = 1;
+                RectF rectF2 = new RectF(f3, f3, getWidth() - 2, getHeight() - 2);
+                float f4 = this.f11808i / this.o;
+                paint.setShader(new LinearGradient(0.0f, 0.0f, rectF2.width(), 0.0f, new int[]{this.f11806g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
+                float f5 = this.q;
+                if (f5 > 0.0f) {
+                    f2 = f5;
+                } else if (this.f11807h) {
+                    f2 = rectF2.height() / 2.0f;
+                }
+                canvas.drawRoundRect(rectF2, f2, f2, paint);
+            } else if (i2 != 3) {
+                this.f11804e.setColor(this.f11805f);
+                this.f11804e.setStyle(Paint.Style.FILL);
+                float f6 = this.q;
+                if (f6 > 0.0f) {
+                    f2 = f6;
+                } else if (this.f11807h) {
+                    f2 = rectF.height() / 2.0f;
+                }
+                canvas.drawRoundRect(rectF, f2, f2, this.f11804e);
+            } else {
+                this.f11804e.setColor(this.f11806g);
+                this.f11804e.setStyle(Paint.Style.FILL);
+                float f7 = this.q;
+                if (f7 > 0.0f) {
+                    f2 = f7;
+                } else if (this.f11807h) {
+                    f2 = rectF.height() / 2.0f;
+                }
+                canvas.drawRoundRect(rectF, f2, f2, this.f11804e);
             }
-            canvas.drawRoundRect(rectF2, f2, f2, paint);
-        } else if (i2 != 3) {
-            this.f11737e.setColor(this.f11738f);
-            this.f11737e.setStyle(Paint.Style.FILL);
-            float f6 = this.q;
-            if (f6 > 0.0f) {
-                f2 = f6;
-            } else if (this.f11740h) {
-                f2 = rectF.height() / 2.0f;
-            }
-            canvas.drawRoundRect(rectF, f2, f2, this.f11737e);
-        } else {
-            this.f11737e.setColor(this.f11739g);
-            this.f11737e.setStyle(Paint.Style.FILL);
-            float f7 = this.q;
-            if (f7 > 0.0f) {
-                f2 = f7;
-            } else if (this.f11740h) {
-                f2 = rectF.height() / 2.0f;
-            }
-            canvas.drawRoundRect(rectF, f2, f2, this.f11737e);
         }
     }
 
     public final void c(Canvas canvas) {
-        this.k.setTextSize(this.m);
-        float height = (canvas.getHeight() / 2) - ((this.k.descent() / 2.0f) + (this.k.ascent() / 2.0f));
-        float measureText = this.k.measureText(this.n);
-        this.k.setColor(this.l);
-        canvas.drawText(this.n, (getMeasuredWidth() - measureText) / 2.0f, height, this.k);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            this.k.setTextSize(this.m);
+            float height = (canvas.getHeight() / 2) - ((this.k.descent() / 2.0f) + (this.k.ascent() / 2.0f));
+            float measureText = this.k.measureText(this.n);
+            this.k.setColor(this.l);
+            canvas.drawText(this.n, (getMeasuredWidth() - measureText) / 2.0f, height, this.k);
+        }
     }
 
     public final void d(Canvas canvas) {
-        float f2 = 0;
-        RectF rectF = new RectF(f2, f2, getWidth(), getHeight());
-        a(canvas, rectF);
-        b(canvas, rectF);
-        c(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            float f2 = 0;
+            RectF rectF = new RectF(f2, f2, getWidth(), getHeight());
+            a(canvas, rectF);
+            b(canvas, rectF);
+            c(canvas);
+        }
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        super.draw(canvas);
-        if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.n)) {
-            return;
-        }
-        if (!this.j) {
-            e(canvas);
-        } else {
-            d(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            super.draw(canvas);
+            if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.n)) {
+                return;
+            }
+            if (!this.j) {
+                e(canvas);
+            } else {
+                d(canvas);
+            }
         }
     }
 
     public final void e(Canvas canvas) {
-        float f2 = 0;
-        RectF rectF = new RectF(f2, f2, getWidth() + 0, getHeight() + 0);
-        this.f11737e.setColor(this.f11738f);
-        this.f11737e.setStyle(Paint.Style.FILL);
-        float f3 = this.q;
-        if (f3 <= 0.0f) {
-            f3 = this.f11740h ? rectF.height() / 2.0f : 0.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            float f2 = 0;
+            RectF rectF = new RectF(f2, f2, getWidth() + 0, getHeight() + 0);
+            this.f11804e.setColor(this.f11805f);
+            this.f11804e.setStyle(Paint.Style.FILL);
+            float f3 = this.q;
+            if (f3 <= 0.0f) {
+                f3 = this.f11807h ? rectF.height() / 2.0f : 0.0f;
+            }
+            canvas.drawRoundRect(rectF, f3, f3, this.f11804e);
+            this.k.setColor(this.l);
+            this.k.setTextSize(this.m);
+            Paint.FontMetrics fontMetrics = this.k.getFontMetrics();
+            float f4 = fontMetrics.descent;
+            canvas.drawText(this.n, (getMeasuredWidth() - this.k.measureText(this.n)) / 2.0f, ((getHeight() / 2) - f4) + ((f4 - fontMetrics.ascent) / 2.0f), this.k);
         }
-        canvas.drawRoundRect(rectF, f3, f3, this.f11737e);
-        this.k.setColor(this.l);
-        this.k.setTextSize(this.m);
-        Paint.FontMetrics fontMetrics = this.k.getFontMetrics();
-        float f4 = fontMetrics.descent;
-        canvas.drawText(this.n, (getMeasuredWidth() - this.k.measureText(this.n)) / 2.0f, ((getHeight() / 2) - f4) + ((f4 - fontMetrics.ascent) / 2.0f), this.k);
     }
 
     public GamenowDownloadButtomView f(boolean z) {
-        this.f11740h = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            this.f11807h = z;
+            return this;
+        }
+        return (GamenowDownloadButtomView) invokeZ.objValue;
     }
 
     public GamenowDownloadButtomView g(boolean z) {
-        this.j = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            this.j = z;
+            return this;
+        }
+        return (GamenowDownloadButtomView) invokeZ.objValue;
     }
 
     public int getMax() {
-        return this.o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.o : invokeV.intValue;
     }
 
     public GamenowDownloadButtomView h(int i2) {
-        this.f11738f = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            this.f11805f = i2;
+            return this;
+        }
+        return (GamenowDownloadButtomView) invokeI.objValue;
     }
 
     public GamenowDownloadButtomView i(int i2) {
-        this.f11739g = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+            this.f11806g = i2;
+            return this;
+        }
+        return (GamenowDownloadButtomView) invokeI.objValue;
     }
 
     public GamenowDownloadButtomView j(int i2) {
-        this.l = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
+            this.l = i2;
+            return this;
+        }
+        return (GamenowDownloadButtomView) invokeI.objValue;
     }
 
     public GamenowDownloadButtomView k(float f2) {
-        this.m = f2;
-        return this;
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048588, this, f2)) == null) {
+            this.m = f2;
+            return this;
+        }
+        return (GamenowDownloadButtomView) invokeF.objValue;
     }
 
     public void setMax(int i2) {
-        this.o = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.o = i2;
+        }
     }
 
     public void setProgress(int i2) {
-        if (i2 < 0) {
-            i2 = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            if (i2 < 0) {
+                i2 = 0;
+            }
+            int i3 = this.o;
+            if (i2 > i3) {
+                i2 = i3;
+            }
+            this.f11808i = i2;
         }
-        int i3 = this.o;
-        if (i2 > i3) {
-            i2 = i3;
-        }
-        this.f11741i = i2;
     }
 
     public void setRadius(float f2) {
-        this.q = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
+            this.q = f2;
+        }
     }
 
     public void setState(DownloadState downloadState) {
-        this.p = downloadState;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, downloadState) == null) {
+            this.p = downloadState;
+        }
     }
 
     public void setText(String str) {
-        this.n = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.n = str;
+        }
     }
 }

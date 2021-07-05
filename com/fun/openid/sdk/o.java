@@ -7,15 +7,38 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public final class o extends Handler {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(Looper looper) {
         super(looper);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {looper};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0061  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0076  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0065  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x007a  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0088  */
     @Override // android.os.Handler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -26,6 +49,10 @@ public final class o extends Handler {
         Cursor query;
         StringBuilder sb;
         String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(1048576, this, message) != null) {
+            return;
+        }
         if (message.what != 11) {
             Log.e("VMS_IDLG_SDK_Client", "message type valid");
             return;
@@ -43,17 +70,17 @@ public final class o extends Handler {
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
             } else if (i2 != 4) {
                 parse = null;
-                query = nVar.f30902a.getContentResolver().query(parse, null, null, null, null);
+                query = nVar.f32673a.getContentResolver().query(parse, null, null, null, null);
                 if (query == null) {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 } else {
                     Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
                 }
-                p.f30909g = r2;
-                Context context = p.f30903a;
-                synchronized (p.f30906d) {
-                    p.f30906d.notify();
+                p.f32680g = r2;
+                Context context = p.f32674a;
+                synchronized (p.f32677d) {
+                    p.f32677d.notify();
                 }
                 return;
             } else {
@@ -66,12 +93,12 @@ public final class o extends Handler {
             str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str);
-        query = nVar.f30902a.getContentResolver().query(parse, null, null, null, null);
+        query = nVar.f32673a.getContentResolver().query(parse, null, null, null, null);
         if (query == null) {
         }
-        p.f30909g = r2;
-        Context context2 = p.f30903a;
-        synchronized (p.f30906d) {
+        p.f32680g = r2;
+        Context context2 = p.f32674a;
+        synchronized (p.f32677d) {
         }
     }
 }

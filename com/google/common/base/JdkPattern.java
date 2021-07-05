@@ -1,55 +1,103 @@
 package com.google.common.base;
 
-import d.g.c.a.d;
-import d.g.c.a.e;
-import d.g.c.a.n;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.f.d.a.d;
+import d.f.d.a.e;
+import d.f.d.a.n;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class JdkPattern extends e implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Pattern pattern;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Matcher f30984a;
+        public final Matcher f32896a;
 
         public a(Matcher matcher) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {matcher};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             n.p(matcher);
-            this.f30984a = matcher;
+            this.f32896a = matcher;
         }
 
-        @Override // d.g.c.a.d
+        @Override // d.f.d.a.d
         public boolean a() {
-            return this.f30984a.find();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32896a.find() : invokeV.booleanValue;
         }
     }
 
     public JdkPattern(Pattern pattern) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pattern};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         n.p(pattern);
         this.pattern = pattern;
     }
 
-    @Override // d.g.c.a.e
+    @Override // d.f.d.a.e
     public int flags() {
-        return this.pattern.flags();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.pattern.flags() : invokeV.intValue;
     }
 
-    @Override // d.g.c.a.e
+    @Override // d.f.d.a.e
     public d matcher(CharSequence charSequence) {
-        return new a(this.pattern.matcher(charSequence));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence)) == null) ? new a(this.pattern.matcher(charSequence)) : (d) invokeL.objValue;
     }
 
-    @Override // d.g.c.a.e
+    @Override // d.f.d.a.e
     public String pattern() {
-        return this.pattern.pattern();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pattern.pattern() : (String) invokeV.objValue;
     }
 
-    @Override // d.g.c.a.e
+    @Override // d.f.d.a.e
     public String toString() {
-        return this.pattern.toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pattern.toString() : (String) invokeV.objValue;
     }
 }

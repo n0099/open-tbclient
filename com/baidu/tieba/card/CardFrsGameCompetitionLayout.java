@@ -6,77 +6,133 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetitionSubNode;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.k.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CardFrsGameCompetitionLayout extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b<CardFrsGameCompetitionItemView> f14365e;
+    public b<CardFrsGameCompetitionItemView> f14452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14366f;
+    public int f14453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14367g;
+    public int f14454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14368h;
+    public int f14455h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ViewGroup.OnHierarchyChangeListener f14369i;
+    public final ViewGroup.OnHierarchyChangeListener f14456i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CardFrsGameCompetitionLayout f14457e;
+
+        public a(CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardFrsGameCompetitionLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14457e = cardFrsGameCompetitionLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewAdded(View view, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) {
+            }
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
-            if (!(view2 instanceof CardFrsGameCompetitionItemView) || CardFrsGameCompetitionLayout.this.f14365e == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof CardFrsGameCompetitionItemView) && this.f14457e.f14452e != null) {
+                this.f14457e.f14452e.e((CardFrsGameCompetitionItemView) view2);
             }
-            CardFrsGameCompetitionLayout.this.f14365e.e((CardFrsGameCompetitionItemView) view2);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardFrsGameCompetitionLayout(Context context) {
         super(context);
-        this.f14365e = null;
-        this.f14369i = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f14452e = null;
+        this.f14456i = new a(this);
         b();
     }
 
     public final void b() {
-        setOrientation(0);
-        setGravity(17);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOrientation(0);
+            setGravity(17);
+        }
     }
 
     public final void c(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView, int i2, int i3) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cardFrsGameCompetitionItemView.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new LinearLayout.LayoutParams(i3, -1);
-        } else {
-            layoutParams.width = i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardFrsGameCompetitionItemView, i2, i3) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cardFrsGameCompetitionItemView.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new LinearLayout.LayoutParams(i3, -1);
+            } else {
+                layoutParams.width = i3;
+            }
+            if (i2 == 0) {
+                layoutParams.leftMargin = 0;
+            } else {
+                layoutParams.leftMargin = this.f14453f;
+            }
+            cardFrsGameCompetitionItemView.setLayoutParams(layoutParams);
         }
-        if (i2 == 0) {
-            layoutParams.leftMargin = 0;
-        } else {
-            layoutParams.leftMargin = this.f14366f;
-        }
-        cardFrsGameCompetitionItemView.setLayoutParams(layoutParams);
     }
 
     public final void d(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView, FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
-        if (featureCardCompetitionSubNode == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardFrsGameCompetitionItemView, featureCardCompetitionSubNode) == null) || featureCardCompetitionSubNode == null) {
             return;
         }
         cardFrsGameCompetitionItemView.b(featureCardCompetitionSubNode);
@@ -85,32 +141,41 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     }
 
     public int getChildItemWidth() {
-        return this.f14368h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14455h : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        setOnHierarchyChangeListener(this.f14369i);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onAttachedToWindow();
+            setOnHierarchyChangeListener(this.f14456i);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        setOnHierarchyChangeListener(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDetachedFromWindow();
+            setOnHierarchyChangeListener(null);
+        }
     }
 
     public void setData(List<FeatureCardCompetitionSubNode> list) {
-        if (ListUtils.isEmpty(list)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f14368h = this.f14367g + this.f14366f;
+        this.f14455h = this.f14454g + this.f14453f;
         int i2 = 0;
         int childCount = getChildCount();
         while (i2 < childCount && i2 < list.size()) {
             if (getChildAt(i2) instanceof CardFrsGameCompetitionItemView) {
                 CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = (CardFrsGameCompetitionItemView) getChildAt(i2);
-                c(cardFrsGameCompetitionItemView, i2, this.f14367g);
+                c(cardFrsGameCompetitionItemView, i2, this.f14454g);
                 d(cardFrsGameCompetitionItemView, list.get(i2));
             }
             i2++;
@@ -120,11 +185,11 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
             i2++;
         }
         while (i2 < list.size()) {
-            CardFrsGameCompetitionItemView b2 = this.f14365e.b();
+            CardFrsGameCompetitionItemView b2 = this.f14452e.b();
             if (b2.getParent() != null) {
                 ((ViewGroup) b2.getParent()).removeView(b2);
             }
-            c(b2, i2, this.f14367g);
+            c(b2, i2, this.f14454g);
             d(b2, list.get(i2));
             addView(b2);
             i2++;
@@ -132,31 +197,77 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     }
 
     public void setItemSpace(int i2) {
-        this.f14366f = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.f14453f = i2;
+        }
     }
 
     public void setItemWidth(int i2) {
-        this.f14367g = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.f14454g = i2;
+        }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, tbPageContext) == null) {
+        }
     }
 
     public void setViewPool(b<CardFrsGameCompetitionItemView> bVar) {
-        this.f14365e = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
+            this.f14452e = bVar;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14365e = null;
-        this.f14369i = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f14452e = null;
+        this.f14456i = new a(this);
         b();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f14365e = null;
-        this.f14369i = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f14452e = null;
+        this.f14456i = new a(this);
         b();
     }
 }

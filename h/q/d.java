@@ -1,102 +1,146 @@
 package h.q;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d<T> implements h.e<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.e<? super T> f72082e;
+    public final h.e<? super T> f75674e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f72083f;
+    public boolean f75675f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f72084g;
+    public volatile boolean f75676g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f72085h;
+    public a f75677h;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f72086a;
+        public Object[] f75678a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f72087b;
+        public int f75679b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public void a(Object obj) {
-            int i2 = this.f72087b;
-            Object[] objArr = this.f72086a;
-            if (objArr == null) {
-                objArr = new Object[16];
-                this.f72086a = objArr;
-            } else if (i2 == objArr.length) {
-                Object[] objArr2 = new Object[(i2 >> 2) + i2];
-                System.arraycopy(objArr, 0, objArr2, 0, i2);
-                this.f72086a = objArr2;
-                objArr = objArr2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                int i2 = this.f75679b;
+                Object[] objArr = this.f75678a;
+                if (objArr == null) {
+                    objArr = new Object[16];
+                    this.f75678a = objArr;
+                } else if (i2 == objArr.length) {
+                    Object[] objArr2 = new Object[(i2 >> 2) + i2];
+                    System.arraycopy(objArr, 0, objArr2, 0, i2);
+                    this.f75678a = objArr2;
+                    objArr = objArr2;
+                }
+                objArr[i2] = obj;
+                this.f75679b = i2 + 1;
             }
-            objArr[i2] = obj;
-            this.f72087b = i2 + 1;
         }
     }
 
     public d(h.e<? super T> eVar) {
-        this.f72082e = eVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f75674e = eVar;
     }
 
     @Override // h.e
     public void onCompleted() {
-        if (this.f72084g) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f75676g) {
             return;
         }
         synchronized (this) {
-            if (this.f72084g) {
+            if (this.f75676g) {
                 return;
             }
-            this.f72084g = true;
-            if (this.f72083f) {
-                a aVar = this.f72085h;
+            this.f75676g = true;
+            if (this.f75675f) {
+                a aVar = this.f75677h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f72085h = aVar;
+                    this.f75677h = aVar;
                 }
                 aVar.a(NotificationLite.b());
                 return;
             }
-            this.f72083f = true;
-            this.f72082e.onCompleted();
+            this.f75675f = true;
+            this.f75674e.onCompleted();
         }
     }
 
     @Override // h.e
     public void onError(Throwable th) {
-        h.m.a.e(th);
-        if (this.f72084g) {
-            return;
-        }
-        synchronized (this) {
-            if (this.f72084g) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            h.m.a.e(th);
+            if (this.f75676g) {
                 return;
             }
-            this.f72084g = true;
-            if (this.f72083f) {
-                a aVar = this.f72085h;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.f72085h = aVar;
+            synchronized (this) {
+                if (this.f75676g) {
+                    return;
                 }
-                aVar.a(NotificationLite.c(th));
-                return;
+                this.f75676g = true;
+                if (this.f75675f) {
+                    a aVar = this.f75677h;
+                    if (aVar == null) {
+                        aVar = new a();
+                        this.f75677h = aVar;
+                    }
+                    aVar.a(NotificationLite.c(th));
+                    return;
+                }
+                this.f75675f = true;
+                this.f75674e.onError(th);
             }
-            this.f72083f = true;
-            this.f72082e.onError(th);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x002d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
         continue;
      */
     @Override // h.e
@@ -105,54 +149,55 @@ public class d<T> implements h.e<T> {
     */
     public void onNext(T t) {
         Object[] objArr;
-        if (this.f72084g) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f75676g) {
             return;
         }
         synchronized (this) {
-            if (this.f72084g) {
+            if (this.f75676g) {
                 return;
             }
-            if (this.f72083f) {
-                a aVar = this.f72085h;
+            if (this.f75675f) {
+                a aVar = this.f75677h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f72085h = aVar;
+                    this.f75677h = aVar;
                 }
                 aVar.a(NotificationLite.h(t));
                 return;
             }
-            this.f72083f = true;
+            this.f75675f = true;
             try {
-                this.f72082e.onNext(t);
+                this.f75674e.onNext(t);
                 while (true) {
                     synchronized (this) {
-                        a aVar2 = this.f72085h;
+                        a aVar2 = this.f75677h;
                         if (aVar2 == null) {
-                            this.f72083f = false;
+                            this.f75675f = false;
                             return;
                         }
-                        this.f72085h = null;
-                        for (Object obj : aVar2.f72086a) {
+                        this.f75677h = null;
+                        for (Object obj : aVar2.f75678a) {
                             if (obj == null) {
                                 break;
                             }
                             try {
-                                if (NotificationLite.a(this.f72082e, obj)) {
-                                    this.f72084g = true;
+                                if (NotificationLite.a(this.f75674e, obj)) {
+                                    this.f75676g = true;
                                     return;
                                 }
                             } catch (Throwable th) {
-                                this.f72084g = true;
+                                this.f75676g = true;
                                 h.m.a.e(th);
-                                this.f72082e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                this.f75674e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
                                 return;
                             }
                         }
                     }
                 }
             } catch (Throwable th2) {
-                this.f72084g = true;
-                h.m.a.g(th2, this.f72082e, t);
+                this.f75676g = true;
+                h.m.a.g(th2, this.f75674e, t);
             }
         }
     }

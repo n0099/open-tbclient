@@ -1,16 +1,37 @@
 package com.kwad.sdk.crash.model;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35204a;
+    public String f36967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35205b;
+    public String f36968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35206c;
+    public String f36969c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35207d;
+    public String f36970d;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

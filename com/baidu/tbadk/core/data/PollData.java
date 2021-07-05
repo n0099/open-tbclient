@@ -1,8 +1,15 @@
 package com.baidu.tbadk.core.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.ResultTB;
-import d.a.n0.r.q.o;
+import d.a.r0.r.q.p;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,62 +17,101 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.PollInfo;
 import tbclient.PollOption;
-/* loaded from: classes3.dex */
-public class PollData extends o implements Serializable {
+/* loaded from: classes4.dex */
+public class PollData extends p implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public int endTime;
     public int isMulti;
     public int isPolled;
     public int lastTime;
-    public List<PollOptionData> options = new ArrayList();
+    public List<PollOptionData> options;
     public int optionsCount;
     public String polledValue;
     public String title;
     public long totalNum;
     public long totalPoll;
 
+    public PollData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.options = new ArrayList();
+    }
+
     public int getEndTime() {
-        return this.endTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.endTime : invokeV.intValue;
     }
 
     public int getIsMulti() {
-        return this.isMulti;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isMulti : invokeV.intValue;
     }
 
     public int getIsPolled() {
-        return this.isPolled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isPolled : invokeV.intValue;
     }
 
     public int getLastTime() {
-        return this.lastTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.lastTime : invokeV.intValue;
     }
 
     public List<PollOptionData> getOptions() {
-        return this.options;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.options : (List) invokeV.objValue;
     }
 
     public int getOptionsCount() {
-        return this.optionsCount;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.optionsCount : invokeV.intValue;
     }
 
     public String getPolledValue() {
-        return this.polledValue;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.polledValue : (String) invokeV.objValue;
     }
 
     public String getTitle() {
-        return this.title;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 
     public long getTotalNum() {
-        return this.totalNum;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.totalNum : invokeV.longValue;
     }
 
     public long getTotalPoll() {
-        return this.totalPoll;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.totalPoll : invokeV.longValue;
     }
 
-    @Override // d.a.n0.r.q.o
+    @Override // d.a.r0.r.q.p
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -93,7 +139,8 @@ public class PollData extends o implements Serializable {
     }
 
     public void parserProtobuf(PollInfo pollInfo) {
-        if (pollInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, pollInfo) == null) || pollInfo == null) {
             return;
         }
         this.isMulti = pollInfo.is_multi.intValue();
@@ -117,42 +164,72 @@ public class PollData extends o implements Serializable {
     }
 
     public void setEndTime(int i2) {
-        this.endTime = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.endTime = i2;
+        }
     }
 
     public void setIsMulti(int i2) {
-        this.isMulti = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.isMulti = i2;
+        }
     }
 
     public void setIsPolled(int i2) {
-        this.isPolled = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.isPolled = i2;
+        }
     }
 
     public void setLastTime(int i2) {
-        this.lastTime = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.lastTime = i2;
+        }
     }
 
     public void setOptions(List<PollOptionData> list) {
-        this.options = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
+            this.options = list;
+        }
     }
 
     public void setOptionsCount(int i2) {
-        this.optionsCount = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            this.optionsCount = i2;
+        }
     }
 
     public void setPolledValue(String str) {
-        this.polledValue = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.polledValue = str;
+        }
     }
 
     public void setTitle(String str) {
-        this.title = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.title = str;
+        }
     }
 
     public void setTotalNum(long j) {
-        this.totalNum = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.totalNum = j;
+        }
     }
 
     public void setTotalPoll(long j) {
-        this.totalPoll = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.totalPoll = j;
+        }
     }
 }

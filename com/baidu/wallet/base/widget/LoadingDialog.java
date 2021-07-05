@@ -7,78 +7,141 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LoadingDialog extends Dialog {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f23631c = "LoadingDialog";
+    public static final String f24174c = "LoadingDialog";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23632a;
+    public TextView f24175a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23633b;
+    public String f24176b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f23634d;
+    public Context f24177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f23635e;
+    public ImageView f24178e;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialog(Context context) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
-        this.f23634d = null;
-        this.f23634d = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24177d = null;
+        this.f24177d = context;
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        requestWindowFeature(1);
-        setContentView(ResUtils.layout(this.f23634d, "wallet_base_layout_loading"));
-        this.f23632a = (TextView) findViewById(ResUtils.id(this.f23634d, "dialog_msg"));
-        if (!TextUtils.isEmpty(this.f23633b)) {
-            this.f23632a.setText(this.f23633b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            setContentView(ResUtils.layout(this.f24177d, "wallet_base_layout_loading"));
+            this.f24175a = (TextView) findViewById(ResUtils.id(this.f24177d, "dialog_msg"));
+            if (!TextUtils.isEmpty(this.f24176b)) {
+                this.f24175a.setText(this.f24176b);
+            }
+            if (!TextUtils.isEmpty(WalletGlobalUtils.showStr)) {
+                this.f24175a.setText(WalletGlobalUtils.showStr);
+            }
+            ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f24177d, "img_anim"));
+            this.f24178e = imageView;
+            AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
+            animationDrawable.stop();
+            animationDrawable.start();
+            setCanceledOnTouchOutside(false);
+            setCancelable(false);
         }
-        if (!TextUtils.isEmpty(WalletGlobalUtils.showStr)) {
-            this.f23632a.setText(WalletGlobalUtils.showStr);
-        }
-        ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f23634d, "img_anim"));
-        this.f23635e = imageView;
-        AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
-        animationDrawable.stop();
-        animationDrawable.start();
-        setCanceledOnTouchOutside(false);
-        setCancelable(false);
     }
 
     public void setMessage(int i2) {
-        TextView textView = this.f23632a;
-        if (textView == null) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.f24175a) == null) {
             return;
         }
         textView.setText(i2);
     }
 
     public void setMessage(String str) {
-        TextView textView = this.f23632a;
-        if (textView == null) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f24175a) == null) {
             return;
         }
         textView.setText(str);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialog(Context context, String str) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
-        this.f23634d = null;
-        this.f23633b = str;
-        this.f23634d = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f24177d = null;
+        this.f24176b = str;
+        this.f24177d = context;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialog(Context context, int i2) {
         super(context, i2);
-        this.f23634d = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24177d = null;
     }
 }

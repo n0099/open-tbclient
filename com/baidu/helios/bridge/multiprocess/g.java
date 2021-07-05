@@ -10,189 +10,307 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.helios.bridge.multiprocess.e;
 import com.baidu.helios.bridge.multiprocess.f;
-import d.a.q.d.a;
-import d.a.q.g.c.a.c;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.t.d.a;
+import d.a.t.g.c.a.c;
+/* loaded from: classes3.dex */
 public class g extends a implements IBinder.DeathRecipient {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public ContentProviderClient f6220g;
+    public ContentProviderClient f6250g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f6221h;
+    public e f6251h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.q.d.d.b f6222i;
+    public d.a.t.d.d.b f6252i;
     public String j;
 
-    public g(d.a.q.d.d.b bVar, String str) {
-        this.f6222i = bVar;
+    public g(d.a.t.d.d.b bVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f6252i = bVar;
         this.j = str;
     }
 
     public static Bundle j(a.d dVar) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("errcode", dVar.f67725b);
-        bundle.putString("id", dVar.f67724a);
-        return bundle;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dVar)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("errcode", dVar.f70187b);
+            bundle.putString("id", dVar.f70186a);
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
     }
 
     public static a.d k(Bundle bundle) {
-        return new a.d(bundle.getInt("errcode"), bundle.getString("id"), null);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) ? new a.d(bundle.getInt("errcode"), bundle.getString("id"), null) : (a.d) invokeL.objValue;
     }
 
     public static void m(Bundle bundle, IBinder iBinder) {
-        if (Build.VERSION.SDK_INT >= 18) {
-            bundle.putBinder("bridge_binder", iBinder);
-        } else {
-            bundle.putParcelable("bridge_binder", new b(iBinder));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, bundle, iBinder) == null) {
+            if (Build.VERSION.SDK_INT >= 18) {
+                bundle.putBinder("bridge_binder", iBinder);
+            } else {
+                bundle.putParcelable("bridge_binder", new b(iBinder));
+            }
         }
     }
 
     public static IBinder o(Bundle bundle) {
-        if (Build.VERSION.SDK_INT >= 18) {
-            return bundle.getBinder("bridge_binder");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bundle)) == null) {
+            if (Build.VERSION.SDK_INT >= 18) {
+                return bundle.getBinder("bridge_binder");
+            }
+            try {
+                bundle.setClassLoader(b.class.getClassLoader());
+                return ((b) bundle.getParcelable("bridge_binder")).a();
+            } catch (Exception e2) {
+                Log.e("Helios-mul", "parcel", e2);
+                return null;
+            }
         }
-        try {
-            bundle.setClassLoader(b.class.getClassLoader());
-            return ((b) bundle.getParcelable("bridge_binder")).a();
-        } catch (Exception e2) {
-            Log.e("Helios-mul", "parcel", e2);
-            return null;
-        }
+        return (IBinder) invokeL.objValue;
     }
 
-    @Override // d.a.q.d.a
-    public void a(String str, Bundle bundle, final a.c<String> cVar) {
-        try {
-            this.f6221h.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
-                @Override // com.baidu.helios.bridge.multiprocess.f
-                public void a(int i2, Bundle bundle2) {
-                    cVar.b(i2, null, bundle2);
-                }
+    @Override // d.a.t.d.a
+    public void a(String str, Bundle bundle, a.c<String> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
+            try {
+                this.f6251h.a(str, bundle, new f.a(this, cVar) { // from class: com.baidu.helios.bridge.multiprocess.g.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.helios.bridge.multiprocess.f
-                public void a(String str2, Bundle bundle2) {
-                    cVar.a(str2, bundle2);
-                }
-            });
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+                    /* renamed from: c  reason: collision with root package name */
+                    public final /* synthetic */ a.c f6253c;
+
+                    /* renamed from: d  reason: collision with root package name */
+                    public final /* synthetic */ g f6254d;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, cVar};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f6254d = this;
+                        this.f6253c = cVar;
+                    }
+
+                    @Override // com.baidu.helios.bridge.multiprocess.f
+                    public void a(int i2, Bundle bundle2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, bundle2) == null) {
+                            this.f6253c.b(i2, null, bundle2);
+                        }
+                    }
+
+                    @Override // com.baidu.helios.bridge.multiprocess.f
+                    public void a(String str2, Bundle bundle2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2, bundle2) == null) {
+                            this.f6253c.a(str2, bundle2);
+                        }
+                    }
+                });
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
     @Override // android.os.IBinder.DeathRecipient
     public void binderDied() {
-        this.f6222i.j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f6252i.j();
+        }
     }
 
-    @Override // d.a.q.d.a
+    @Override // d.a.t.d.a
     public boolean d(String str) {
-        try {
-            return this.f6221h.a(str);
-        } catch (RemoteException unused) {
-            return false;
-        }
-    }
-
-    @Override // d.a.q.d.a
-    public void e(a.b bVar) {
-        this.f6221h = p(this.f67717e.f67721c);
-    }
-
-    @Override // d.a.q.d.a
-    public a.d f(String str, Bundle bundle) {
-        try {
-            Bundle a2 = this.f6221h.a(str, bundle);
-            if (a2 != null) {
-                return k(a2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                return this.f6251h.a(str);
+            } catch (RemoteException unused) {
+                return false;
             }
-        } catch (RemoteException unused) {
         }
-        return a.d.a(-1, null);
+        return invokeL.booleanValue;
+    }
+
+    @Override // d.a.t.d.a
+    public void e(a.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.f6251h = p(this.f70179e.f70183c);
+        }
+    }
+
+    @Override // d.a.t.d.a
+    public a.d f(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) {
+            try {
+                Bundle a2 = this.f6251h.a(str, bundle);
+                if (a2 != null) {
+                    return k(a2);
+                }
+            } catch (RemoteException unused) {
+            }
+            return a.d.a(-1, null);
+        }
+        return (a.d) invokeLL.objValue;
     }
 
     public final Bundle g(ContentProviderClient contentProviderClient, Uri uri) {
+        InterceptResult invokeLL;
         Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048581, this, contentProviderClient, uri)) != null) {
+            return (Bundle) invokeLL.objValue;
+        }
         Cursor cursor2 = null;
         try {
-            cursor = contentProviderClient.query(Uri.withAppendedPath(uri, BaseIPCProvider.f6201a), null, null, null, null);
-        } catch (Exception unused) {
-            cursor = null;
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            Bundle extras = cursor.getExtras();
-            c.a(cursor);
-            return extras;
+            cursor = contentProviderClient.query(Uri.withAppendedPath(uri, BaseIPCProvider.f6231a), null, null, null, null);
+            try {
+                Bundle extras = cursor.getExtras();
+                c.a(cursor);
+                return extras;
+            } catch (Exception unused) {
+                c.a(cursor);
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                cursor2 = cursor;
+                c.a(cursor2);
+                throw th;
+            }
         } catch (Exception unused2) {
-            c.a(cursor);
-            return null;
+            cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            cursor2 = cursor;
-            c.a(cursor2);
-            throw th;
         }
     }
 
     public final Bundle h(ContentProviderClient contentProviderClient, String str) {
-        try {
-            if (Build.VERSION.SDK_INT >= 17) {
-                return contentProviderClient.call(str, null, null);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, contentProviderClient, str)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 17) {
+                    return contentProviderClient.call(str, null, null);
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
+            return null;
         }
-        return null;
+        return (Bundle) invokeLL.objValue;
     }
 
     public final Bundle i(Context context, boolean z, Uri uri, String str) {
-        ContentResolver contentResolver = context.getContentResolver();
-        Bundle bundle = null;
-        int i2 = 0;
-        while (true) {
-            if (i2 >= 2) {
-                break;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{context, Boolean.valueOf(z), uri, str})) == null) {
+            ContentResolver contentResolver = context.getContentResolver();
+            Bundle bundle = null;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= 2) {
+                    break;
+                }
+                ContentProviderClient acquireContentProviderClient = z ? contentResolver.acquireContentProviderClient(uri) : contentResolver.acquireUnstableContentProviderClient(uri);
+                if (acquireContentProviderClient != null && (bundle = h(acquireContentProviderClient, str)) == null) {
+                    bundle = g(acquireContentProviderClient, uri);
+                }
+                if (bundle != null) {
+                    this.f6250g = acquireContentProviderClient;
+                    break;
+                }
+                try {
+                    Thread.sleep(20L);
+                } catch (InterruptedException unused) {
+                }
+                i2++;
             }
-            ContentProviderClient acquireContentProviderClient = z ? contentResolver.acquireContentProviderClient(uri) : contentResolver.acquireUnstableContentProviderClient(uri);
-            if (acquireContentProviderClient != null && (bundle = h(acquireContentProviderClient, str)) == null) {
-                bundle = g(acquireContentProviderClient, uri);
-            }
-            if (bundle != null) {
-                this.f6220g = acquireContentProviderClient;
-                break;
-            }
-            try {
-                Thread.sleep(20L);
-            } catch (InterruptedException unused) {
-            }
-            i2++;
+            return bundle;
         }
-        return bundle;
+        return (Bundle) invokeCommon.objValue;
     }
 
     public final String l(Context context) {
-        return context.getPackageName() + this.j;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            return context.getPackageName() + this.j;
+        }
+        return (String) invokeL.objValue;
     }
 
     public boolean n() {
-        return this.f6221h != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f6251h != null : invokeV.booleanValue;
     }
 
     public final e p(Context context) {
+        InterceptResult invokeL;
         IBinder o;
-        Bundle i2 = i(context, false, Uri.parse("content://" + l(context)), BaseIPCProvider.f6202b);
-        StringBuilder sb = new StringBuilder();
-        sb.append("remote bridge bundle result is ");
-        sb.append(i2);
-        Log.i("Helios-mul", sb.toString() == null ? StringUtil.NULL_STRING : "non-null");
-        if (i2 == null || (o = o(i2)) == null) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            Bundle i2 = i(context, false, Uri.parse("content://" + l(context)), BaseIPCProvider.f6232b);
+            StringBuilder sb = new StringBuilder();
+            sb.append("remote bridge bundle result is ");
+            sb.append(i2);
+            Log.i("Helios-mul", sb.toString() == null ? StringUtil.NULL_STRING : "non-null");
+            if (i2 == null || (o = o(i2)) == null) {
+                return null;
+            }
+            return e.a.a(o);
         }
-        return e.a.a(o);
+        return (e) invokeL.objValue;
     }
 }

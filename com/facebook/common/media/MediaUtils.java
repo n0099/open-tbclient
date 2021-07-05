@@ -1,5 +1,13 @@
 package com.facebook.common.media;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.util.Locale;
@@ -7,41 +15,91 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class MediaUtils {
-    public static final Map<String, String> ADDITIONAL_ALLOWED_MIME_TYPES = ImmutableMap.of("mkv", "video/x-matroska", "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
+    public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, String> ADDITIONAL_ALLOWED_MIME_TYPES;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2068267790, "Lcom/facebook/common/media/MediaUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2068267790, "Lcom/facebook/common/media/MediaUtils;");
+                return;
+            }
+        }
+        ADDITIONAL_ALLOWED_MIME_TYPES = ImmutableMap.of("mkv", "video/x-matroska", "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
+    }
+
+    public MediaUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     @Nullable
     public static String extractExtension(String str) {
-        int lastIndexOf = str.lastIndexOf(46);
-        if (lastIndexOf < 0 || lastIndexOf == str.length() - 1) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            int lastIndexOf = str.lastIndexOf(46);
+            if (lastIndexOf < 0 || lastIndexOf == str.length() - 1) {
+                return null;
+            }
+            return str.substring(lastIndexOf + 1);
         }
-        return str.substring(lastIndexOf + 1);
+        return (String) invokeL.objValue;
     }
 
     @Nullable
     public static String extractMime(String str) {
-        String extractExtension = extractExtension(str);
-        if (extractExtension == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String extractExtension = extractExtension(str);
+            if (extractExtension == null) {
+                return null;
+            }
+            String lowerCase = extractExtension.toLowerCase(Locale.US);
+            String mimeTypeFromExtension = MimeTypeMapWrapper.getMimeTypeFromExtension(lowerCase);
+            return mimeTypeFromExtension == null ? ADDITIONAL_ALLOWED_MIME_TYPES.get(lowerCase) : mimeTypeFromExtension;
         }
-        String lowerCase = extractExtension.toLowerCase(Locale.US);
-        String mimeTypeFromExtension = MimeTypeMapWrapper.getMimeTypeFromExtension(lowerCase);
-        return mimeTypeFromExtension == null ? ADDITIONAL_ALLOWED_MIME_TYPES.get(lowerCase) : mimeTypeFromExtension;
+        return (String) invokeL.objValue;
     }
 
     public static boolean isNonNativeSupportedMimeType(String str) {
-        return ADDITIONAL_ALLOWED_MIME_TYPES.containsValue(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? ADDITIONAL_ALLOWED_MIME_TYPES.containsValue(str) : invokeL.booleanValue;
     }
 
     public static boolean isPhoto(@Nullable String str) {
-        return str != null && str.startsWith(FileUtils.IMAGE_FILE_START);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? str != null && str.startsWith(FileUtils.IMAGE_FILE_START) : invokeL.booleanValue;
     }
 
     public static boolean isThreeD(@Nullable String str) {
-        return str != null && str.equals("model/gltf-binary");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? str != null && str.equals("model/gltf-binary") : invokeL.booleanValue;
     }
 
     public static boolean isVideo(@Nullable String str) {
-        return str != null && str.startsWith(FileUtils.VIDEO_FILE_START);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? str != null && str.startsWith(FileUtils.VIDEO_FILE_START) : invokeL.booleanValue;
     }
 }

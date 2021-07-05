@@ -7,93 +7,150 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 import com.baidu.media.duplayer.Keep;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CtrlPoint extends CtrlPointProvider {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8004a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public CtrlPointProvider.CtrlPointListener f8006c;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f8008e;
+    public long f8034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8005b = -1;
+    public int f8035b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public CtrlPointProvider.CtrlPointListener f8036c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8007d = null;
+    public String f8037d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f8038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f8009f = new a(Looper.getMainLooper());
+    public Handler f8039f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
-        public a(Looper looper) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CtrlPoint f8040a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(CtrlPoint ctrlPoint, Looper looper) {
             super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ctrlPoint, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f8040a = ctrlPoint;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             CtrlPointProvider.CtrlPointListener ctrlPointListener;
-            int i2 = message.what;
-            if (i2 == 1) {
-                CtrlPointProvider.CtrlPointListener ctrlPointListener2 = CtrlPoint.this.f8006c;
-                if (ctrlPointListener2 != null) {
-                    ctrlPointListener2.onPrepared();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i2 = message.what;
+                if (i2 == 1) {
+                    CtrlPointProvider.CtrlPointListener ctrlPointListener2 = this.f8040a.f8036c;
+                    if (ctrlPointListener2 != null) {
+                        ctrlPointListener2.onPrepared();
+                    }
+                } else if (i2 == 2) {
+                    CtrlPointProvider.CtrlPointListener ctrlPointListener3 = this.f8040a.f8036c;
+                    if (ctrlPointListener3 != null) {
+                        ctrlPointListener3.onComplete();
+                    }
+                } else if (i2 == 3) {
+                    CtrlPointProvider.CtrlPointListener ctrlPointListener4 = this.f8040a.f8036c;
+                    if (ctrlPointListener4 != null) {
+                        ctrlPointListener4.onError(message.arg1, message.arg2);
+                    }
+                } else if (i2 == 4) {
+                    this.f8040a.f8035b = message.arg2;
+                    if (this.f8040a.f8036c != null) {
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("url", this.f8040a.f8037d);
+                        hashMap.put("uuid", this.f8040a.f8038e);
+                        this.f8040a.f8036c.onInfo(message.arg1, message.arg2, hashMap);
+                    }
+                } else if (i2 == 5 && (ctrlPointListener = this.f8040a.f8036c) != null) {
+                    ctrlPointListener.onSeekCompleted(message.arg1, message.arg2);
                 }
-            } else if (i2 == 2) {
-                CtrlPointProvider.CtrlPointListener ctrlPointListener3 = CtrlPoint.this.f8006c;
-                if (ctrlPointListener3 != null) {
-                    ctrlPointListener3.onComplete();
-                }
-            } else if (i2 == 3) {
-                CtrlPointProvider.CtrlPointListener ctrlPointListener4 = CtrlPoint.this.f8006c;
-                if (ctrlPointListener4 != null) {
-                    ctrlPointListener4.onError(message.arg1, message.arg2);
-                }
-            } else if (i2 == 4) {
-                CtrlPoint.this.f8005b = message.arg2;
-                if (CtrlPoint.this.f8006c != null) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("url", CtrlPoint.this.f8007d);
-                    hashMap.put("uuid", CtrlPoint.this.f8008e);
-                    CtrlPoint.this.f8006c.onInfo(message.arg1, message.arg2, hashMap);
-                }
-            } else if (i2 == 5 && (ctrlPointListener = CtrlPoint.this.f8006c) != null) {
-                ctrlPointListener.onSeekCompleted(message.arg1, message.arg2);
+                super.handleMessage(message);
             }
-            super.handleMessage(message);
         }
     }
 
     public CtrlPoint(long j, String str) {
-        this.f8004a = 0L;
-        this.f8008e = null;
-        this.f8004a = j;
-        this.f8008e = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f8034a = 0L;
+        this.f8035b = -1;
+        this.f8037d = null;
+        this.f8038e = null;
+        this.f8039f = new a(this, Looper.getMainLooper());
+        this.f8034a = j;
+        this.f8038e = str;
         if (j != 0) {
             nativeCtrlPointSetListener(j, new WeakReference(this));
         }
     }
 
     public static boolean b(Context context) {
+        InterceptResult invokeL;
         PackageManager packageManager;
-        if (context != null && (packageManager = context.getPackageManager()) != null) {
-            try {
-                return packageManager.checkPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, context.getPackageName()) == 0;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context != null && (packageManager = context.getPackageManager()) != null) {
+                try {
+                    return packageManager.checkPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, context.getPackageName()) == 0;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static native long nativeCtrlPointDuration(long j);
@@ -124,7 +181,8 @@ public class CtrlPoint extends CtrlPointProvider {
     public static void onComplete(Object obj) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8009f) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65551, null, obj) == null) || obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8039f) == null) {
             return;
         }
         Message.obtain(handler, 2).sendToTarget();
@@ -134,7 +192,8 @@ public class CtrlPoint extends CtrlPointProvider {
     public static void onError(Object obj, int i2, int i3) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8009f) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(65552, null, obj, i2, i3) == null) || obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8039f) == null) {
             return;
         }
         Message obtain = Message.obtain(handler, 3);
@@ -147,7 +206,8 @@ public class CtrlPoint extends CtrlPointProvider {
     public static void onInfo(Object obj, int i2, int i3) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8009f) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(65553, null, obj, i2, i3) == null) || obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8039f) == null) {
             return;
         }
         Message obtain = Message.obtain(handler, 4);
@@ -158,22 +218,28 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Keep
     public static int onNetworkStatus(Object obj) {
+        InterceptResult invokeL;
         Context applicationContext;
         NetworkInfo activeNetworkInfo;
-        if (obj == null || (applicationContext = CyberPlayerManager.getApplicationContext()) == null || !b(applicationContext) || (activeNetworkInfo = ((ConnectivityManager) applicationContext.getSystemService("connectivity")).getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) {
-            return 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, obj)) == null) {
+            if (obj == null || (applicationContext = CyberPlayerManager.getApplicationContext()) == null || !b(applicationContext) || (activeNetworkInfo = ((ConnectivityManager) applicationContext.getSystemService("connectivity")).getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) {
+                return 0;
+            }
+            if (activeNetworkInfo.getType() == 0) {
+                return 1;
+            }
+            return activeNetworkInfo.getType() == 1 ? 2 : 0;
         }
-        if (activeNetworkInfo.getType() == 0) {
-            return 1;
-        }
-        return activeNetworkInfo.getType() == 1 ? 2 : 0;
+        return invokeL.intValue;
     }
 
     @Keep
     public static void onPrepared(Object obj) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8009f) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65555, null, obj) == null) || obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8039f) == null) {
             return;
         }
         Message.obtain(handler, 1).sendToTarget();
@@ -183,7 +249,8 @@ public class CtrlPoint extends CtrlPointProvider {
     public static void onSeekCompleted(Object obj, int i2, int i3) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8009f) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(65556, null, obj, i2, i3) == null) || obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8039f) == null) {
             return;
         }
         Message obtain = Message.obtain(handler, 5);
@@ -194,118 +261,165 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public long getCurrentTime() {
-        long j = this.f8004a;
-        if (j != 0) {
-            return nativeCtrlPointGetCurrentPos(j);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                return nativeCtrlPointGetCurrentPos(j);
+            }
+            return 0L;
         }
-        return 0L;
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public long getDuration() {
-        long j = this.f8004a;
-        if (j != 0) {
-            return nativeCtrlPointDuration(j);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                return nativeCtrlPointDuration(j);
+            }
+            return 0L;
         }
-        return 0L;
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public int getPlaybackVolume() {
-        long j = this.f8004a;
-        if (j != 0) {
-            return nativeCtrlPointGetPlaybackVolume(j);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                return nativeCtrlPointGetPlaybackVolume(j);
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public int getUrlPlayStatus(String str) {
-        if (this.f8004a != 0 && str.equals(this.f8007d)) {
-            return this.f8005b;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.f8034a != 0 && str.equals(this.f8037d)) {
+                return this.f8035b;
+            }
+            return -1;
         }
-        return -1;
+        return invokeL.intValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void pause() {
-        long j = this.f8004a;
-        if (j != 0) {
-            nativeCtrlPointPause(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                nativeCtrlPointPause(j);
+            }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void play() {
-        long j = this.f8004a;
-        if (j != 0) {
-            nativeCtrlPointPlay(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                nativeCtrlPointPlay(j);
+            }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void seek(long j) {
-        long j2 = this.f8004a;
-        if (j2 != 0) {
-            nativeCtrlPointSeek(j2, j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            long j2 = this.f8034a;
+            if (j2 != 0) {
+                nativeCtrlPointSeek(j2, j);
+            }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setAVTransportUrl(String str) {
-        if (this.f8004a == 0 || str == null || str.length() <= 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.f8034a == 0 || str == null || str.length() <= 0) {
             return;
         }
-        nativeCtrlPointSetAVTransportURI(this.f8004a, str);
-        this.f8007d = str;
+        nativeCtrlPointSetAVTransportURI(this.f8034a, str);
+        this.f8037d = str;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
-        if (this.f8004a != 0) {
-            this.f8006c = ctrlPointListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ctrlPointListener) == null) || this.f8034a == 0) {
+            return;
         }
+        this.f8036c = ctrlPointListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setMute(int i2) {
-        long j = this.f8004a;
-        if (j != 0) {
-            nativeCtrlPointSetMute(j, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                nativeCtrlPointSetMute(j, i2);
+            }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setPlaybackVolume(int i2) {
-        long j = this.f8004a;
-        if (j != 0) {
-            nativeCtrlPointSetPlaybackVolume(j, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                nativeCtrlPointSetPlaybackVolume(j, i2);
+            }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void shutdown() {
-        long j = this.f8004a;
-        if (j != 0) {
-            nativeCtrlPointShutdown(j, false);
-            this.f8004a = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                nativeCtrlPointShutdown(j, false);
+                this.f8034a = 0L;
+            }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void shutdown(boolean z) {
-        long j = this.f8004a;
-        if (j != 0) {
-            nativeCtrlPointShutdown(j, z);
-            this.f8004a = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                nativeCtrlPointShutdown(j, z);
+                this.f8034a = 0L;
+            }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void stop() {
-        long j = this.f8004a;
-        if (j != 0) {
-            nativeCtrlPointStop(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            long j = this.f8034a;
+            if (j != 0) {
+                nativeCtrlPointStop(j);
+            }
         }
     }
 }

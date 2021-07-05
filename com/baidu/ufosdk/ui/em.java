@@ -1,24 +1,48 @@
 package com.baidu.ufosdk.ui;
-/* loaded from: classes5.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class em implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22983a;
+    public final /* synthetic */ FeedbackInputActivity f23499a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f22984b;
+    public final /* synthetic */ String f23500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ej f22985c;
+    public final /* synthetic */ ej f23501c;
 
     public em(ej ejVar, FeedbackInputActivity feedbackInputActivity, String str) {
-        this.f22985c = ejVar;
-        this.f22983a = feedbackInputActivity;
-        this.f22984b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ejVar, feedbackInputActivity, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23501c = ejVar;
+        this.f23499a = feedbackInputActivity;
+        this.f23500b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        com.baidu.ufosdk.e.a.c(this.f22983a.getApplicationContext(), this.f22983a.f22779f, this.f22984b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            com.baidu.ufosdk.e.a.c(this.f23499a.getApplicationContext(), this.f23499a.f23295f, this.f23500b);
+        }
     }
 }

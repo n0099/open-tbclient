@@ -22,6 +22,8 @@ public interface InnerPOFactory {
 
     ACTD getActivityDelegate(String str, Activity activity);
 
+    UIADI2 getExpressInterstitialADDelegate(Context context, String str, String str2, ADListener aDListener);
+
     RVADI2 getExpressRewardVideoADDelegate(Context context, String str, String str2, ADListener aDListener);
 
     DFA getGDTApkDelegate(IGDTApkListener iGDTApkListener);

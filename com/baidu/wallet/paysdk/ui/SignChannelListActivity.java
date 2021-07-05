@@ -19,10 +19,17 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.base.widget.NetImageView;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.beans.BeanManager;
@@ -37,20 +44,37 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SignChannelListActivity extends PayBaseBeanActivity implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BankPageAdapter f26091a;
+    public BankPageAdapter f26634a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewPager f26092b;
+    public ViewPager f26635b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<View> f26636c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ListView f26094d;
+    public ListView f26637d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ListView f26095e;
+    public ListView f26638e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final List<SignBank> f26639f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final List<SignBank> f26640g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f26641h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f26642i;
     public Activity j;
     public BankListAdapter k;
     public BankListAdapter l;
@@ -66,424 +90,658 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
     public View v;
     public TableLayout w;
 
-    /* renamed from: c  reason: collision with root package name */
-    public List<View> f26093c = new ArrayList();
+    /* renamed from: com.baidu.wallet.paysdk.ui.SignChannelListActivity$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    /* renamed from: f  reason: collision with root package name */
-    public final List<SignBank> f26096f = new ArrayList();
-
-    /* renamed from: g  reason: collision with root package name */
-    public final List<SignBank> f26097g = new ArrayList();
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f26098h = "0";
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f26099i = false;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class BankListAdapter extends BaseAdapter implements SectionIndexer, NoProguard {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ SignChannelListActivity f26643a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LayoutInflater f26101b;
+        public final LayoutInflater f26644b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<SignBank> f26102c;
+        public List<SignBank> f26645c;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ BankListAdapter f26648a;
 
             /* renamed from: b  reason: collision with root package name */
-            public LinearLayout f26106b;
+            public LinearLayout f26649b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TextView f26107c;
+            public TextView f26650c;
 
             /* renamed from: d  reason: collision with root package name */
-            public RelativeLayout f26108d;
+            public RelativeLayout f26651d;
 
             /* renamed from: e  reason: collision with root package name */
-            public NetImageView f26109e;
+            public NetImageView f26652e;
 
             /* renamed from: f  reason: collision with root package name */
-            public TextView f26110f;
+            public TextView f26653f;
 
-            public a() {
+            public a(BankListAdapter bankListAdapter) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bankListAdapter};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f26648a = bankListAdapter;
+            }
+
+            public /* synthetic */ a(BankListAdapter bankListAdapter, AnonymousClass1 anonymousClass1) {
+                this(bankListAdapter);
             }
         }
 
-        public BankListAdapter(List<SignBank> list) {
-            this.f26102c = list;
-            this.f26101b = LayoutInflater.from(SignChannelListActivity.this.j);
+        public BankListAdapter(SignChannelListActivity signChannelListActivity, List<SignBank> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {signChannelListActivity, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f26643a = signChannelListActivity;
+            this.f26645c = list;
+            this.f26644b = LayoutInflater.from(signChannelListActivity.j);
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            List<SignBank> list = this.f26102c;
-            if (list != null) {
-                return list.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                List<SignBank> list = this.f26645c;
+                if (list != null) {
+                    return list.size();
+                }
+                return 0;
             }
-            return 0;
+            return invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
-            if (i2 < this.f26102c.size()) {
-                return this.f26102c.get(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+                if (i2 < this.f26645c.size()) {
+                    return this.f26645c.get(i2);
+                }
+                return null;
             }
-            return null;
+            return invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
         public long getItemId(int i2) {
-            return i2;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 : invokeI.longValue;
         }
 
         @Override // android.widget.SectionIndexer
         public int getPositionForSection(int i2) {
-            return -1;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+                return -1;
+            }
+            return invokeI.intValue;
         }
 
         @Override // android.widget.SectionIndexer
         public int getSectionForPosition(int i2) {
-            return 0;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+                return 0;
+            }
+            return invokeI.intValue;
         }
 
         @Override // android.widget.SectionIndexer
         public Object[] getSections() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return null;
+            }
+            return (Object[]) invokeV.objValue;
         }
 
         @Override // android.widget.Adapter
-        public View getView(final int i2, View view, ViewGroup viewGroup) {
+        public View getView(int i2, View view, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
             a aVar;
-            if (view == null || view.getTag() == null) {
-                view = this.f26101b.inflate(ResUtils.layout(SignChannelListActivity.this.j, "wallet_cashdesk_sign_bank_info"), (ViewGroup) null);
-                aVar = new a();
-                aVar.f26106b = (LinearLayout) view.findViewById(ResUtils.id(SignChannelListActivity.this.j, "bank_item_title_layout"));
-                aVar.f26107c = (TextView) view.findViewById(ResUtils.id(SignChannelListActivity.this.j, "item_title"));
-                aVar.f26109e = (NetImageView) view.findViewById(ResUtils.id(SignChannelListActivity.this.j, "bank_logo"));
-                aVar.f26110f = (TextView) view.findViewById(ResUtils.id(SignChannelListActivity.this.j, "bank_name"));
-                aVar.f26108d = (RelativeLayout) view.findViewById(ResUtils.id(SignChannelListActivity.this.j, "bank_item_layout"));
-                view.setTag(aVar);
-            } else {
-                aVar = (a) view.getTag();
-            }
-            aVar.f26108d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.SignChannelListActivity.BankListAdapter.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    if (i2 >= BankListAdapter.this.f26102c.size() || !SignChannelListActivity.this.f26099i) {
-                        return;
-                    }
-                    PayStatisticsUtil.onEventWithValue(StatServiceEvent.SDK_FRONTPAGE_IDAUTH_TYPE_CHOICK_BANK, SignChannelListActivity.this.f26092b.getCurrentItem() == 0 ? "1" : "2");
-                    SignChannelListActivity.this.m.setSubBankCode(((SignBank) BankListAdapter.this.f26102c.get(i2)).bank_code);
-                    Intent intent = SignChannelListActivity.this.getIntent();
-                    if (intent == null) {
-                        intent = new Intent();
-                    }
-                    intent.putExtra("subbankcode", ((SignBank) BankListAdapter.this.f26102c.get(i2)).bank_code);
-                    SignChannelListActivity.this.setResult(-1, intent);
-                    SignChannelListActivity.this.finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
+                if (view == null || view.getTag() == null) {
+                    view = this.f26644b.inflate(ResUtils.layout(this.f26643a.j, "wallet_cashdesk_sign_bank_info"), (ViewGroup) null);
+                    aVar = new a(this, null);
+                    aVar.f26649b = (LinearLayout) view.findViewById(ResUtils.id(this.f26643a.j, "bank_item_title_layout"));
+                    aVar.f26650c = (TextView) view.findViewById(ResUtils.id(this.f26643a.j, "item_title"));
+                    aVar.f26652e = (NetImageView) view.findViewById(ResUtils.id(this.f26643a.j, "bank_logo"));
+                    aVar.f26653f = (TextView) view.findViewById(ResUtils.id(this.f26643a.j, "bank_name"));
+                    aVar.f26651d = (RelativeLayout) view.findViewById(ResUtils.id(this.f26643a.j, "bank_item_layout"));
+                    view.setTag(aVar);
+                } else {
+                    aVar = (a) view.getTag();
                 }
-            });
-            if (i2 == getPositionForSection(getSectionForPosition(i2))) {
-                aVar.f26106b.setVisibility(0);
-            } else {
-                aVar.f26106b.setVisibility(8);
+                aVar.f26651d.setOnClickListener(new View.OnClickListener(this, i2) { // from class: com.baidu.wallet.paysdk.ui.SignChannelListActivity.BankListAdapter.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ int f26646a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ BankListAdapter f26647b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, Integer.valueOf(i2)};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f26647b = this;
+                        this.f26646a = i2;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view2) {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && this.f26646a < this.f26647b.f26645c.size() && this.f26647b.f26643a.f26642i) {
+                            PayStatisticsUtil.onEventWithValue(StatServiceEvent.SDK_FRONTPAGE_IDAUTH_TYPE_CHOICK_BANK, this.f26647b.f26643a.f26635b.getCurrentItem() == 0 ? "1" : "2");
+                            this.f26647b.f26643a.m.setSubBankCode(((SignBank) this.f26647b.f26645c.get(this.f26646a)).bank_code);
+                            Intent intent = this.f26647b.f26643a.getIntent();
+                            if (intent == null) {
+                                intent = new Intent();
+                            }
+                            intent.putExtra("subbankcode", ((SignBank) this.f26647b.f26645c.get(this.f26646a)).bank_code);
+                            this.f26647b.f26643a.setResult(-1, intent);
+                            this.f26647b.f26643a.finish();
+                        }
+                    }
+                });
+                if (i2 == getPositionForSection(getSectionForPosition(i2))) {
+                    aVar.f26649b.setVisibility(0);
+                } else {
+                    aVar.f26649b.setVisibility(8);
+                }
+                aVar.f26652e.setVisibility(0);
+                aVar.f26652e.setImageResource(ResUtils.drawable(this.f26643a.j, "wallet_base_banklogo_defult"));
+                aVar.f26652e.setImageUrl(this.f26645c.get(i2).bank_url);
+                aVar.f26653f.setText(this.f26645c.get(i2).bank_name);
+                return view;
             }
-            aVar.f26109e.setVisibility(0);
-            aVar.f26109e.setImageResource(ResUtils.drawable(SignChannelListActivity.this.j, "wallet_base_banklogo_defult"));
-            aVar.f26109e.setImageUrl(this.f26102c.get(i2).bank_url);
-            aVar.f26110f.setText(this.f26102c.get(i2).bank_name);
-            return view;
+            return (View) invokeILL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class BankPageAdapter extends PagerAdapter implements NoProguard {
-        public BankPageAdapter() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ SignChannelListActivity f26654a;
+
+        public BankPageAdapter(SignChannelListActivity signChannelListActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {signChannelListActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f26654a = signChannelListActivity;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(View view, int i2, Object obj) {
-            ((ViewPager) view).removeView((View) SignChannelListActivity.this.f26093c.get(i2));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, obj) == null) {
+                ((ViewPager) view).removeView((View) this.f26654a.f26636c.get(i2));
+            }
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void finishUpdate(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            }
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return SignChannelListActivity.this.f26093c.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26654a.f26636c.size() : invokeV.intValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public Object instantiateItem(View view, int i2) {
-            View view2 = (View) SignChannelListActivity.this.f26093c.get(i2);
-            if (view2.getParent() != null) {
-                ((ViewGroup) view2.getParent()).removeView(view2);
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, view, i2)) == null) {
+                View view2 = (View) this.f26654a.f26636c.get(i2);
+                if (view2.getParent() != null) {
+                    ((ViewGroup) view2.getParent()).removeView(view2);
+                }
+                ((ViewPager) view).addView(view2);
+                return view2;
             }
-            ((ViewPager) view).addView(view2);
-            return view2;
+            return invokeLI.objValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public boolean isViewFromObject(View view, Object obj) {
-            return view == obj;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, parcelable, classLoader) == null) {
+            }
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public Parcelable saveState() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return null;
+            }
+            return (Parcelable) invokeV.objValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void startUpdate(View view) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class GuidePageChangeListener implements ViewPager.OnPageChangeListener, NoProguard {
-        public GuidePageChangeListener() {
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i2) {
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i2, float f2, int i3) {
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i2) {
-            if (i2 == 0) {
-                SignChannelListActivity.this.a(true);
-            } else if (i2 != 1) {
-            } else {
-                SignChannelListActivity.this.a(false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
             }
         }
     }
 
+    /* loaded from: classes6.dex */
+    public class GuidePageChangeListener implements ViewPager.OnPageChangeListener, NoProguard {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ SignChannelListActivity f26655a;
+
+        public GuidePageChangeListener(SignChannelListActivity signChannelListActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {signChannelListActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f26655a = signChannelListActivity;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i2, float f2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+                if (i2 == 0) {
+                    this.f26655a.a(true);
+                } else if (i2 != 1) {
+                } else {
+                    this.f26655a.a(false);
+                }
+            }
+        }
+    }
+
+    public SignChannelListActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f26636c = new ArrayList();
+        this.f26639f = new ArrayList();
+        this.f26640g = new ArrayList();
+        this.f26641h = "0";
+        this.f26642i = false;
+    }
+
     @Override // com.baidu.wallet.core.BaseActivity
     public void cancleRequest() {
-        if (this.n != null) {
-            BeanManager.getInstance().removeBean(this.n);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.n == null) {
+            return;
         }
+        BeanManager.getInstance().removeBean(this.n);
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
     public void handleFailure(int i2, int i3, String str) {
-        WalletGlobalUtils.safeDismissDialog(this, -1);
-        if (i2 == this.n.getBeanId()) {
-            GlobalUtils.toast(this.j, str);
-            finish();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
+            WalletGlobalUtils.safeDismissDialog(this, -1);
+            if (i2 == this.n.getBeanId()) {
+                GlobalUtils.toast(this.j, str);
+                finish();
+                return;
+            }
+            super.handleFailure(i2, i3, str);
         }
-        super.handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
         SignBank[] signBankArr;
         SignBank[] signBankArr2;
-        WalletGlobalUtils.safeDismissDialog(this, -1);
-        if (i2 == this.n.getBeanId()) {
-            this.f26093c.clear();
-            this.f26091a.notifyDataSetChanged();
-            SignChannelResponse signChannelResponse = (SignChannelResponse) obj;
-            if (signChannelResponse != null && (signBankArr2 = signChannelResponse.arr_credit) != null && signBankArr2.length > 0) {
-                this.f26093c.add(this.f26094d);
-                this.f26096f.clear();
-                this.f26096f.addAll(Arrays.asList(signChannelResponse.arr_credit));
-                BankListAdapter bankListAdapter = this.k;
-                if (bankListAdapter != null) {
-                    bankListAdapter.notifyDataSetChanged();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) {
+            WalletGlobalUtils.safeDismissDialog(this, -1);
+            if (i2 == this.n.getBeanId()) {
+                this.f26636c.clear();
+                this.f26634a.notifyDataSetChanged();
+                SignChannelResponse signChannelResponse = (SignChannelResponse) obj;
+                if (signChannelResponse != null && (signBankArr2 = signChannelResponse.arr_credit) != null && signBankArr2.length > 0) {
+                    this.f26636c.add(this.f26637d);
+                    this.f26639f.clear();
+                    this.f26639f.addAll(Arrays.asList(signChannelResponse.arr_credit));
+                    BankListAdapter bankListAdapter = this.k;
+                    if (bankListAdapter != null) {
+                        bankListAdapter.notifyDataSetChanged();
+                    }
                 }
-            }
-            if (signChannelResponse != null && (signBankArr = signChannelResponse.arr_debit) != null && signBankArr.length > 0) {
-                this.f26093c.add(this.f26095e);
-                this.f26097g.clear();
-                this.f26097g.addAll(Arrays.asList(signChannelResponse.arr_debit));
-                BankListAdapter bankListAdapter2 = this.l;
-                if (bankListAdapter2 != null) {
-                    bankListAdapter2.notifyDataSetChanged();
+                if (signChannelResponse != null && (signBankArr = signChannelResponse.arr_debit) != null && signBankArr.length > 0) {
+                    this.f26636c.add(this.f26638e);
+                    this.f26640g.clear();
+                    this.f26640g.addAll(Arrays.asList(signChannelResponse.arr_debit));
+                    BankListAdapter bankListAdapter2 = this.l;
+                    if (bankListAdapter2 != null) {
+                        bankListAdapter2.notifyDataSetChanged();
+                    }
                 }
+                TableLayout tableLayout = this.w;
+                if (tableLayout == null) {
+                    return;
+                }
+                tableLayout.setVisibility(0);
+                this.f26635b.setVisibility(0);
+                this.f26634a.notifyDataSetChanged();
+                a(signChannelResponse);
             }
-            TableLayout tableLayout = this.w;
-            if (tableLayout == null) {
-                return;
-            }
-            tableLayout.setVisibility(0);
-            this.f26092b.setVisibility(0);
-            this.f26091a.notifyDataSetChanged();
-            a(signChannelResponse);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.q) {
-            this.f26092b.setCurrentItem(0);
-        } else if (view == this.r) {
-            this.f26092b.setCurrentItem(1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+            if (view == this.q) {
+                this.f26635b.setCurrentItem(0);
+            } else if (view == this.r) {
+                this.f26635b.setCurrentItem(1);
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        if (getIntent() != null && getIntent().getExtras() != null) {
-            this.f26099i = getIntent().getExtras().getBoolean("isSelectBank");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onCreate(bundle);
+            if (getIntent() != null && getIntent().getExtras() != null) {
+                this.f26642i = getIntent().getExtras().getBoolean("isSelectBank");
+            }
+            setFlagPaySdk();
+            this.j = getActivity();
+            c();
+            a();
+            b();
         }
-        setFlagPaySdk();
-        this.j = getActivity();
-        c();
-        a();
-        b();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        BeanManager.getInstance().removeAllBeans("SignChannelListActivity");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDestroy();
+            BeanManager.getInstance().removeAllBeans("SignChannelListActivity");
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        super.onPause();
-        if (Build.VERSION.SDK_INT >= 10) {
-            NFCUtil.getInstance().disableForegroundDispatch(getActivity(), false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onPause();
+            if (Build.VERSION.SDK_INT >= 10) {
+                NFCUtil.getInstance().disableForegroundDispatch(getActivity(), false);
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
-        if (Build.VERSION.SDK_INT >= 10) {
-            NFCUtil.getInstance().enableForegroundDispatch(getActivity(), false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onResume();
+            if (Build.VERSION.SDK_INT >= 10) {
+                NFCUtil.getInstance().enableForegroundDispatch(getActivity(), false);
+            }
         }
     }
 
     private void b() {
-        BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
-        this.m = bindFastRequest;
-        if (bindFastRequest == null) {
-            this.m = new BindFastRequest();
-            PayRequestCache.getInstance().addBeanRequestToCache(PayRequestCache.BindCategory.Other.name(), this.m);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
+            this.m = bindFastRequest;
+            if (bindFastRequest == null) {
+                this.m = new BindFastRequest();
+                PayRequestCache.getInstance().addBeanRequestToCache(PayRequestCache.BindCategory.Other.name(), this.m);
+            }
+            WalletGlobalUtils.safeShowDialog(this, -1, "");
+            if (this.n == null) {
+                this.n = (af) PayBeanFactory.getInstance().getBean((Context) this.j, 517, "SignChannelListActivity");
+            }
+            this.n.setResponseCallback(this);
+            this.n.execBean();
         }
-        WalletGlobalUtils.safeShowDialog(this, -1, "");
-        if (this.n == null) {
-            this.n = (af) PayBeanFactory.getInstance().getBean((Context) this.j, 517, "SignChannelListActivity");
-        }
-        this.n.setResponseCallback(this);
-        this.n.execBean();
     }
 
     private void c() {
-        LayoutInflater layoutInflater = getLayoutInflater();
-        View inflate = layoutInflater.inflate(ResUtils.layout(this.j, "wallet_cashdesk_sign_channel_page"), (ViewGroup) null);
-        this.o = inflate;
-        this.f26094d = (ListView) inflate.findViewById(ResUtils.id(this.j, "bd_wallet_bank_listview"));
-        View inflate2 = layoutInflater.inflate(ResUtils.layout(this.j, "wallet_cashdesk_sign_channel_page"), (ViewGroup) null);
-        this.p = inflate2;
-        this.f26095e = (ListView) inflate2.findViewById(ResUtils.id(this.j, "bd_wallet_bank_listview"));
-        BankListAdapter bankListAdapter = new BankListAdapter(this.f26096f);
-        this.k = bankListAdapter;
-        this.f26094d.setAdapter((ListAdapter) bankListAdapter);
-        BankListAdapter bankListAdapter2 = new BankListAdapter(this.f26097g);
-        this.l = bankListAdapter2;
-        this.f26095e.setAdapter((ListAdapter) bankListAdapter2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            LayoutInflater layoutInflater = getLayoutInflater();
+            View inflate = layoutInflater.inflate(ResUtils.layout(this.j, "wallet_cashdesk_sign_channel_page"), (ViewGroup) null);
+            this.o = inflate;
+            this.f26637d = (ListView) inflate.findViewById(ResUtils.id(this.j, "bd_wallet_bank_listview"));
+            View inflate2 = layoutInflater.inflate(ResUtils.layout(this.j, "wallet_cashdesk_sign_channel_page"), (ViewGroup) null);
+            this.p = inflate2;
+            this.f26638e = (ListView) inflate2.findViewById(ResUtils.id(this.j, "bd_wallet_bank_listview"));
+            BankListAdapter bankListAdapter = new BankListAdapter(this, this.f26639f);
+            this.k = bankListAdapter;
+            this.f26637d.setAdapter((ListAdapter) bankListAdapter);
+            BankListAdapter bankListAdapter2 = new BankListAdapter(this, this.f26640g);
+            this.l = bankListAdapter2;
+            this.f26638e.setAdapter((ListAdapter) bankListAdapter2);
+        }
     }
 
     private void a() {
-        setContentView(ResUtils.layout(this.j, "wallet_cashdesk_sign_channel_list_activity"));
-        initActionBar(this.f26099i ? "bd_wallet_own_parent_banks" : "bd_wallet_own_support_banks");
-        this.q = (TextView) findViewById(ResUtils.id(this.j, "bd_wallet_credit"));
-        this.r = (TextView) findViewById(ResUtils.id(this.j, "bd_wallet_debit"));
-        this.s = (ViewGroup) findViewById(ResUtils.id(this.j, "bd_wallet_first_tab"));
-        this.t = (ViewGroup) findViewById(ResUtils.id(this.j, "bd_wallet_second_tab"));
-        this.f26092b = (ViewPager) findViewById(ResUtils.id(this.j, "bd_wallet_viewPager"));
-        this.u = findViewById(ResUtils.id(this.j, "bd_wallet_credit_tab"));
-        this.v = findViewById(ResUtils.id(this.j, "bd_wallet_debit_tab"));
-        this.w = (TableLayout) findViewById(ResUtils.id(this.j, "table_layout"));
-        this.q.setOnClickListener(this);
-        this.r.setOnClickListener(this);
-        BankPageAdapter bankPageAdapter = new BankPageAdapter();
-        this.f26091a = bankPageAdapter;
-        this.f26092b.setAdapter(bankPageAdapter);
-        this.f26092b.setOnPageChangeListener(new GuidePageChangeListener());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            setContentView(ResUtils.layout(this.j, "wallet_cashdesk_sign_channel_list_activity"));
+            initActionBar(this.f26642i ? "bd_wallet_own_parent_banks" : "bd_wallet_own_support_banks");
+            this.q = (TextView) findViewById(ResUtils.id(this.j, "bd_wallet_credit"));
+            this.r = (TextView) findViewById(ResUtils.id(this.j, "bd_wallet_debit"));
+            this.s = (ViewGroup) findViewById(ResUtils.id(this.j, "bd_wallet_first_tab"));
+            this.t = (ViewGroup) findViewById(ResUtils.id(this.j, "bd_wallet_second_tab"));
+            this.f26635b = (ViewPager) findViewById(ResUtils.id(this.j, "bd_wallet_viewPager"));
+            this.u = findViewById(ResUtils.id(this.j, "bd_wallet_credit_tab"));
+            this.v = findViewById(ResUtils.id(this.j, "bd_wallet_debit_tab"));
+            this.w = (TableLayout) findViewById(ResUtils.id(this.j, "table_layout"));
+            this.q.setOnClickListener(this);
+            this.r.setOnClickListener(this);
+            BankPageAdapter bankPageAdapter = new BankPageAdapter(this);
+            this.f26634a = bankPageAdapter;
+            this.f26635b.setAdapter(bankPageAdapter);
+            this.f26635b.setOnPageChangeListener(new GuidePageChangeListener(this));
+        }
     }
 
     private void b(boolean z) {
-        if (z) {
-            this.s.getChildAt(0).setVisibility(0);
-            this.s.getChildAt(1).setVisibility(4);
-            this.t.getChildAt(0).setVisibility(4);
-            this.t.getChildAt(1).setVisibility(0);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, this, z) == null) {
+            if (z) {
+                this.s.getChildAt(0).setVisibility(0);
+                this.s.getChildAt(1).setVisibility(4);
+                this.t.getChildAt(0).setVisibility(4);
+                this.t.getChildAt(1).setVisibility(0);
+                return;
+            }
+            this.s.getChildAt(0).setVisibility(4);
+            this.s.getChildAt(1).setVisibility(0);
+            this.t.getChildAt(0).setVisibility(0);
+            this.t.getChildAt(1).setVisibility(4);
         }
-        this.s.getChildAt(0).setVisibility(4);
-        this.s.getChildAt(1).setVisibility(0);
-        this.t.getChildAt(0).setVisibility(0);
-        this.t.getChildAt(1).setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        if (z) {
-            this.q.setTextColor(getResources().getColor(ResUtils.color(this.j, "wallet_base_mainColor")));
-            this.r.setTextColor(getResources().getColor(ResUtils.color(this.j, "wallet_base_font_text3Color")));
-            b(true);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, this, z) == null) {
+            if (z) {
+                this.q.setTextColor(getResources().getColor(ResUtils.color(this.j, "wallet_base_mainColor")));
+                this.r.setTextColor(getResources().getColor(ResUtils.color(this.j, "wallet_base_font_text3Color")));
+                b(true);
+                return;
+            }
+            this.q.setTextColor(getResources().getColor(ResUtils.color(this.j, "wallet_base_font_text3Color")));
+            this.r.setTextColor(getResources().getColor(ResUtils.color(this.j, "wallet_base_mainColor")));
+            b(false);
         }
-        this.q.setTextColor(getResources().getColor(ResUtils.color(this.j, "wallet_base_font_text3Color")));
-        this.r.setTextColor(getResources().getColor(ResUtils.color(this.j, "wallet_base_mainColor")));
-        b(false);
     }
 
     private void a(SignChannelResponse signChannelResponse) {
-        if (signChannelResponse == null) {
-            this.v.setVisibility(0);
-            this.t.setVisibility(0);
-            this.u.setVisibility(0);
-            b(true);
-            this.f26092b.setCurrentItem(0);
-            a(true);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, signChannelResponse) == null) {
+            if (signChannelResponse == null) {
+                this.v.setVisibility(0);
+                this.t.setVisibility(0);
+                this.u.setVisibility(0);
+                b(true);
+                this.f26635b.setCurrentItem(0);
+                a(true);
+                return;
+            }
+            SignBank[] signBankArr = signChannelResponse.arr_debit;
+            if (signBankArr != null && signBankArr.length > 0) {
+                this.v.setVisibility(0);
+                this.t.setVisibility(0);
+                b(true);
+            } else {
+                this.v.setVisibility(8);
+                this.t.setVisibility(8);
+                b(false);
+            }
+            SignBank[] signBankArr2 = signChannelResponse.arr_credit;
+            if (signBankArr2 != null && signBankArr2.length > 0) {
+                this.u.setVisibility(0);
+                this.s.setVisibility(0);
+                b(true);
+            } else {
+                b(false);
+                this.u.setVisibility(8);
+                this.s.setVisibility(8);
+            }
+            if (this.u.getVisibility() == 0) {
+                this.f26635b.setCurrentItem(0);
+                a(true);
+                return;
+            }
+            this.f26635b.setCurrentItem(1);
+            a(false);
         }
-        SignBank[] signBankArr = signChannelResponse.arr_debit;
-        if (signBankArr != null && signBankArr.length > 0) {
-            this.v.setVisibility(0);
-            this.t.setVisibility(0);
-            b(true);
-        } else {
-            this.v.setVisibility(8);
-            this.t.setVisibility(8);
-            b(false);
-        }
-        SignBank[] signBankArr2 = signChannelResponse.arr_credit;
-        if (signBankArr2 != null && signBankArr2.length > 0) {
-            this.u.setVisibility(0);
-            this.s.setVisibility(0);
-            b(true);
-        } else {
-            b(false);
-            this.u.setVisibility(8);
-            this.s.setVisibility(8);
-        }
-        if (this.u.getVisibility() == 0) {
-            this.f26092b.setCurrentItem(0);
-            a(true);
-            return;
-        }
-        this.f26092b.setCurrentItem(1);
-        a(false);
     }
 }

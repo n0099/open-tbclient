@@ -10,127 +10,225 @@ import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ShutDownValidateTipView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17702e;
+    public TextView f17828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17703f;
+    public ImageView f17829f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17704g;
+    public TextView f17830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17705h;
+    public TextView f17831h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f17706i;
+    public boolean f17832i;
     public ArrayList<c> j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Animation.AnimationListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ShutDownValidateTipView f17833a;
+
+        public a(ShutDownValidateTipView shutDownValidateTipView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shutDownValidateTipView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17833a = shutDownValidateTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+            }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements Animation.AnimationListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ShutDownValidateTipView f17834a;
+
+        public b(ShutDownValidateTipView shutDownValidateTipView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shutDownValidateTipView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17834a = shutDownValidateTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            ShutDownValidateTipView.this.setVisibility(8);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.f17834a.setVisibility(8);
+            }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void b(boolean z);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.j = new ArrayList<>();
         a(context);
     }
 
     public void a(Context context) {
-        addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.f17703f = (ImageView) findViewById(R.id.no_network_icon);
-        this.f17704g = (TextView) findViewById(R.id.no_network_guide1);
-        this.f17705h = (TextView) findViewById(R.id.no_network_guide2);
-        this.f17702e = (TextView) findViewById(R.id.no_network_showmore);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
+            this.f17829f = (ImageView) findViewById(R.id.no_network_icon);
+            this.f17830g = (TextView) findViewById(R.id.no_network_guide1);
+            this.f17831h = (TextView) findViewById(R.id.no_network_guide2);
+            this.f17828e = (TextView) findViewById(R.id.no_network_showmore);
+        }
     }
 
     public void b(int i2) {
-        SkinManager.setImageResource(this.f17703f, R.drawable.icon_error);
-        SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
-        if (i2 != 1 && i2 != 4) {
-            this.f17704g.setTextColor(-14277082);
-            this.f17705h.setTextColor(-5065030);
-            this.f17702e.setTextColor(-14277082);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            SkinManager.setImageResource(this.f17829f, R.drawable.icon_error);
+            SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
+            if (i2 != 1 && i2 != 4) {
+                this.f17830g.setTextColor(-14277082);
+                this.f17831h.setTextColor(-5065030);
+                this.f17828e.setTextColor(-14277082);
+                return;
+            }
+            this.f17830g.setTextColor(-10523526);
+            this.f17831h.setTextColor(-8682095);
+            this.f17828e.setTextColor(-10523526);
         }
-        this.f17704g.setTextColor(-10523526);
-        this.f17705h.setTextColor(-8682095);
-        this.f17702e.setTextColor(-10523526);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onAttachedToWindow();
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        this.j.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDetachedFromWindow();
+            this.j.clear();
+        }
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        TextView textView = this.f17702e;
-        if (textView == null) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (textView = this.f17828e) == null) {
             return;
         }
         textView.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
-        if (z == this.f17706i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || z == this.f17832i) {
             return;
         }
-        this.f17706i = z;
+        this.f17832i = z;
         if (z) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setFillAfter(true);
             alphaAnimation.setDuration(500L);
-            alphaAnimation.setAnimationListener(new a());
+            alphaAnimation.setAnimationListener(new a(this));
             setVisibility(0);
             startAnimation(alphaAnimation);
             for (int i2 = 0; i2 < this.j.size(); i2++) {
@@ -140,7 +238,7 @@ public class ShutDownValidateTipView extends FrameLayout {
             AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
             alphaAnimation2.setFillAfter(true);
             alphaAnimation2.setDuration(500L);
-            alphaAnimation2.setAnimationListener(new b());
+            alphaAnimation2.setAnimationListener(new b(this));
             startAnimation(alphaAnimation2);
             for (int i3 = 0; i3 < this.j.size(); i3++) {
                 this.j.get(i3).b(true);
@@ -148,14 +246,47 @@ public class ShutDownValidateTipView extends FrameLayout {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.j = new ArrayList<>();
         a(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShutDownValidateTipView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.j = new ArrayList<>();
         a(context);
     }

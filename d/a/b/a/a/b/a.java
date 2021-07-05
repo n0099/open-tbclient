@@ -2,51 +2,85 @@ package d.a.b.a.a.b;
 
 import android.content.Context;
 import android.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.b.a.a.a.a.c;
 import d.a.b.a.a.a.a.i;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f42033b;
+    public static volatile a f43790b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42034a;
+    public Context f43791a;
 
     public a(Context context) {
-        this.f42034a = context.getApplicationContext();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43791a = context.getApplicationContext();
     }
 
     public static synchronized a b(Context context) {
+        InterceptResult invokeL;
         a aVar;
-        synchronized (a.class) {
-            if (f42033b == null) {
-                synchronized (a.class) {
-                    if (f42033b == null) {
-                        f42033b = new a(context.getApplicationContext());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (a.class) {
+                if (f43790b == null) {
+                    synchronized (a.class) {
+                        if (f43790b == null) {
+                            f43790b = new a(context.getApplicationContext());
+                        }
                     }
                 }
+                aVar = f43790b;
             }
-            aVar = f42033b;
+            return aVar;
         }
-        return aVar;
+        return (a) invokeL.objValue;
     }
 
     public final i a(String str) {
-        return new c(this.f42034a).c(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new c(this.f43791a).c(str) : (i) invokeL.objValue;
     }
 
     public Pair c(String str) {
-        i a2 = a(str);
-        long j = -1;
-        if (a2.d()) {
-            try {
-                j = d.a.b.a.a.e.a.a(a2.f42031a);
-                return new Pair(0, Long.valueOf(j));
-            } catch (IllegalArgumentException unused) {
-                return new Pair(-108, Long.valueOf(j));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            i a2 = a(str);
+            long j = -1;
+            if (a2.d()) {
+                try {
+                    j = d.a.b.a.a.e.a.a(a2.f43788a);
+                    return new Pair(0, Long.valueOf(j));
+                } catch (IllegalArgumentException unused) {
+                    return new Pair(-108, Long.valueOf(j));
+                }
             }
+            return new Pair(Integer.valueOf(a2.f43789b), -1L);
         }
-        return new Pair(Integer.valueOf(a2.f42032b), -1L);
+        return (Pair) invokeL.objValue;
     }
 }

@@ -1,27 +1,51 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.c;
 
 import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7785a = 4000;
+    public int f7815a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7786b = 4000;
+    public int f7816b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f7787c = Executors.newCachedThreadPool();
+    public ExecutorService f7817c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static abstract class AbstractRunnableC0101a implements Runnable {
-        public AbstractRunnableC0101a() {
+    /* loaded from: classes3.dex */
+    public static abstract class AbstractRunnableC0119a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public AbstractRunnableC0119a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
-        public /* synthetic */ AbstractRunnableC0101a(b bVar) {
+        public /* synthetic */ AbstractRunnableC0119a(b bVar) {
             this();
         }
 
@@ -29,20 +53,56 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            a();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                a();
+            }
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-879665381, "Lcom/baidu/mapsdkplatform/comapi/synchronization/c/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-879665381, "Lcom/baidu/mapsdkplatform/comapi/synchronization/c/a;");
+                return;
+            }
+        }
         if (Build.VERSION.SDK_INT <= 8) {
             System.setProperty("http.keepAlive", "false");
         }
     }
 
-    public void a(String str, e eVar) {
-        if (str == null || str.isEmpty()) {
-            throw new IllegalArgumentException("Request URL cannot be null");
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        this.f7787c.submit(new b(this, eVar, str));
+        this.f7815a = 4000;
+        this.f7816b = 4000;
+        this.f7817c = Executors.newCachedThreadPool();
+    }
+
+    public void a(String str, e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, eVar) == null) {
+            if (str == null || str.isEmpty()) {
+                throw new IllegalArgumentException("Request URL cannot be null");
+            }
+            this.f7817c.submit(new b(this, eVar, str));
+        }
     }
 }

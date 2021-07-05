@@ -1,23 +1,5 @@
 package com.bytedance.sdk.openadsdk.j;
 /* loaded from: classes6.dex */
-public enum b {
-    TYPE_2G("2g"),
-    TYPE_3G("3g"),
-    TYPE_4G("4g"),
-    TYPE_5G("5g"),
-    TYPE_WIFI("wifi"),
-    TYPE_UNKNOWN("mobile");
-    
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f29468g;
-
-    b(String str) {
-        this.f29468g = str;
-    }
-
-    @Override // java.lang.Enum
-    public String toString() {
-        return this.f29468g;
-    }
+public interface b {
+    void a(boolean z, int i2, String str);
 }

@@ -12,6 +12,6 @@ import kotlinx.android.parcel.Parceler;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.TYPE})
 @Retention(RetentionPolicy.SOURCE)
 @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public @interface WriteWith<P extends Parceler<?>> {
 }

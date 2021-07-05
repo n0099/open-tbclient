@@ -5,6 +5,14 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.android.internal.http.multipart.Part;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.exception.WeiboHttpException;
 import com.sina.weibo.sdk.network.IRequestParam;
@@ -21,202 +29,268 @@ import java.net.HttpURLConnection;
 import java.util.Set;
 /* loaded from: classes7.dex */
 public class HttpManager {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BOUNDARY;
     public static final String END_MP_BOUNDARY;
     public static final String MP_BOUNDARY;
     public static final String TAG = "HttpManager";
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(367038736, "Lcom/sina/weibo/sdk/net/HttpManager;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(367038736, "Lcom/sina/weibo/sdk/net/HttpManager;");
+                return;
+            }
+        }
         System.loadLibrary("weibosdkcore");
         BOUNDARY = getBoundry();
         MP_BOUNDARY = "--" + BOUNDARY;
         END_MP_BOUNDARY = "--" + BOUNDARY + "--";
     }
 
+    public HttpManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static void buildParams(OutputStream outputStream, WeiboParameters weiboParameters) throws WeiboException {
-        try {
-            Set<String> keySet = weiboParameters.keySet();
-            for (String str : keySet) {
-                if (weiboParameters.get(str) instanceof String) {
-                    StringBuilder sb = new StringBuilder(100);
-                    sb.setLength(0);
-                    sb.append(MP_BOUNDARY);
-                    sb.append(Part.CRLF);
-                    sb.append("content-disposition: form-data; name=\"");
-                    sb.append(str);
-                    sb.append("\"\r\n\r\n");
-                    sb.append(weiboParameters.get(str));
-                    sb.append(Part.CRLF);
-                    outputStream.write(sb.toString().getBytes());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, outputStream, weiboParameters) == null) {
+            try {
+                Set<String> keySet = weiboParameters.keySet();
+                for (String str : keySet) {
+                    if (weiboParameters.get(str) instanceof String) {
+                        StringBuilder sb = new StringBuilder(100);
+                        sb.setLength(0);
+                        sb.append(MP_BOUNDARY);
+                        sb.append(Part.CRLF);
+                        sb.append("content-disposition: form-data; name=\"");
+                        sb.append(str);
+                        sb.append("\"\r\n\r\n");
+                        sb.append(weiboParameters.get(str));
+                        sb.append(Part.CRLF);
+                        outputStream.write(sb.toString().getBytes());
+                    }
                 }
-            }
-            for (String str2 : keySet) {
-                Object obj = weiboParameters.get(str2);
-                if (obj instanceof Bitmap) {
-                    outputStream.write((MP_BOUNDARY + Part.CRLF + "content-disposition: form-data; name=\"" + str2 + "\"; filename=\"file\"\r\nContent-Type: application/octet-stream; charset=utf-8\r\n\r\n").getBytes());
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    ((Bitmap) obj).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                    outputStream.write(byteArrayOutputStream.toByteArray());
-                    outputStream.write(Part.CRLF.getBytes());
-                } else if (obj instanceof ByteArrayOutputStream) {
-                    outputStream.write((MP_BOUNDARY + Part.CRLF + "content-disposition: form-data; name=\"" + str2 + "\"; filename=\"file\"\r\nContent-Type: application/octet-stream; charset=utf-8\r\n\r\n").getBytes());
-                    ByteArrayOutputStream byteArrayOutputStream2 = (ByteArrayOutputStream) obj;
-                    outputStream.write(byteArrayOutputStream2.toByteArray());
-                    outputStream.write(Part.CRLF.getBytes());
-                    byteArrayOutputStream2.close();
+                for (String str2 : keySet) {
+                    Object obj = weiboParameters.get(str2);
+                    if (obj instanceof Bitmap) {
+                        outputStream.write((MP_BOUNDARY + Part.CRLF + "content-disposition: form-data; name=\"" + str2 + "\"; filename=\"file\"\r\nContent-Type: application/octet-stream; charset=utf-8\r\n\r\n").getBytes());
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        ((Bitmap) obj).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                        outputStream.write(byteArrayOutputStream.toByteArray());
+                        outputStream.write(Part.CRLF.getBytes());
+                    } else if (obj instanceof ByteArrayOutputStream) {
+                        outputStream.write((MP_BOUNDARY + Part.CRLF + "content-disposition: form-data; name=\"" + str2 + "\"; filename=\"file\"\r\nContent-Type: application/octet-stream; charset=utf-8\r\n\r\n").getBytes());
+                        ByteArrayOutputStream byteArrayOutputStream2 = (ByteArrayOutputStream) obj;
+                        outputStream.write(byteArrayOutputStream2.toByteArray());
+                        outputStream.write(Part.CRLF.getBytes());
+                        byteArrayOutputStream2.close();
+                    }
                 }
+                outputStream.write((Part.CRLF + END_MP_BOUNDARY).getBytes());
+            } catch (IOException e2) {
+                throw new WeiboException(e2);
             }
-            outputStream.write((Part.CRLF + END_MP_BOUNDARY).getBytes());
-        } catch (IOException e2) {
-            throw new WeiboException(e2);
         }
     }
 
     public static native String calcOauthSignNative(Context context, String str, String str2);
 
     public static synchronized String downloadFile(Context context, String str, String str2, String str3) throws WeiboException {
+        InterceptResult invokeLLLL;
         long j;
         long contentLength;
-        synchronized (HttpManager.class) {
-            File file = new File(str2);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(file, str3);
-            if (file2.exists()) {
-                return file2.getPath();
-            } else if (URLUtil.isValidUrl(str)) {
-                File file3 = new File(str2, str3 + "_temp");
-                HttpURLConnection createConnect = ConnectionFactory.createConnect(str, context);
-                createConnect.setConnectTimeout(300000);
-                createConnect.setReadTimeout(300000);
-                try {
-                    createConnect.setRequestMethod("GET");
-                } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, context, str, str2, str3)) == null) {
+            synchronized (HttpManager.class) {
+                File file = new File(str2);
+                if (!file.exists()) {
+                    file.mkdirs();
                 }
-                try {
-                    if (file3.exists()) {
-                        j = file3.length();
-                    } else {
-                        file3.createNewFile();
-                        j = 0;
+                File file2 = new File(file, str3);
+                if (file2.exists()) {
+                    return file2.getPath();
+                }
+                if (URLUtil.isValidUrl(str)) {
+                    File file3 = new File(str2, str3 + "_temp");
+                    HttpURLConnection createConnect = ConnectionFactory.createConnect(str, context);
+                    createConnect.setConnectTimeout(300000);
+                    createConnect.setReadTimeout(300000);
+                    try {
+                        createConnect.setRequestMethod("GET");
+                    } catch (Exception unused) {
                     }
-                    createConnect.setRequestProperty("RANGE", "bytes=" + j);
-                    int responseCode = createConnect.getResponseCode();
-                    if (responseCode == 206) {
-                        contentLength = 0;
-                    } else if (responseCode == 200) {
-                        contentLength = createConnect.getContentLength();
-                    } else {
-                        throw new WeiboHttpException(readConnectResponse(createConnect, true), responseCode);
-                    }
-                    InputStream inputStream = createConnect.getInputStream();
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file3, "rw");
-                    randomAccessFile.seek(0L);
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
+                    try {
+                        if (file3.exists()) {
+                            j = file3.length();
+                        } else {
+                            file3.createNewFile();
+                            j = 0;
                         }
-                        randomAccessFile.write(bArr, 0, read);
+                        createConnect.setRequestProperty("RANGE", "bytes=" + j);
+                        int responseCode = createConnect.getResponseCode();
+                        if (responseCode == 206) {
+                            contentLength = 0;
+                        } else if (responseCode == 200) {
+                            contentLength = createConnect.getContentLength();
+                        } else {
+                            throw new WeiboHttpException(readConnectResponse(createConnect, true), responseCode);
+                        }
+                        InputStream inputStream = createConnect.getInputStream();
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(file3, "rw");
+                        randomAccessFile.seek(0L);
+                        byte[] bArr = new byte[1024];
+                        while (true) {
+                            int read = inputStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            randomAccessFile.write(bArr, 0, read);
+                        }
+                        randomAccessFile.close();
+                        inputStream.close();
+                        if (contentLength != 0 && file3.length() >= contentLength) {
+                            file3.renameTo(file2);
+                            return file2.getPath();
+                        }
+                        file3.delete();
+                    } catch (Exception unused2) {
                     }
-                    randomAccessFile.close();
-                    inputStream.close();
-                    if (contentLength != 0 && file3.length() >= contentLength) {
-                        file3.renameTo(file2);
-                        return file2.getPath();
-                    }
-                    file3.delete();
-                } catch (Exception unused2) {
+                    return "";
                 }
-                return "";
-            } else {
                 return "";
             }
         }
+        return (String) invokeLLLL.objValue;
     }
 
     public static void fillCommonRequestParam(IRequestParam iRequestParam) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, iRequestParam) == null) {
+        }
     }
 
     public static String getBoundry() {
-        StringBuffer stringBuffer = new StringBuffer();
-        for (int i2 = 1; i2 < 12; i2++) {
-            long currentTimeMillis = System.currentTimeMillis() + i2;
-            long j = currentTimeMillis % 3;
-            if (j == 0) {
-                stringBuffer.append(((char) currentTimeMillis) % '\t');
-            } else if (j == 1) {
-                stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
-            } else {
-                stringBuffer.append((char) ((currentTimeMillis % 26) + 97));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i2 = 1; i2 < 12; i2++) {
+                long currentTimeMillis = System.currentTimeMillis() + i2;
+                long j = currentTimeMillis % 3;
+                if (j == 0) {
+                    stringBuffer.append(((char) currentTimeMillis) % '\t');
+                } else if (j == 1) {
+                    stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
+                } else {
+                    stringBuffer.append((char) ((currentTimeMillis % 26) + 97));
+                }
             }
+            return stringBuffer.toString();
         }
-        return stringBuffer.toString();
+        return (String) invokeV.objValue;
     }
 
     public static String getOauthSign(Context context, String str, String str2, String str3, String str4) {
-        StringBuilder sb = new StringBuilder("");
-        if (!TextUtils.isEmpty(str)) {
-            sb.append(str);
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65543, null, context, str, str2, str3, str4)) == null) {
+            StringBuilder sb = new StringBuilder("");
+            if (!TextUtils.isEmpty(str)) {
+                sb.append(str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                sb.append(str2);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                sb.append(str3);
+            }
+            return calcOauthSignNative(context, sb.toString(), str4);
         }
-        if (!TextUtils.isEmpty(str2)) {
-            sb.append(str2);
-        }
-        if (!TextUtils.isEmpty(str3)) {
-            sb.append(str3);
-        }
-        return calcOauthSignNative(context, sb.toString(), str4);
+        return (String) invokeLLLLL.objValue;
     }
 
     public static String getTimestamp() {
-        return String.valueOf(System.currentTimeMillis() / 1000);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? String.valueOf(System.currentTimeMillis() / 1000) : (String) invokeV.objValue;
     }
 
     public static String openRedirectUrl4LocationUri(Context context, String str, String str2, WeiboParameters weiboParameters) {
+        InterceptResult invokeLLLL;
         HttpURLConnection createConnect;
-        if (str2.equals("GET")) {
-            if (str.endsWith("?")) {
-                str = str + weiboParameters.encodeUrl();
-            } else {
-                str = str + "?" + weiboParameters.encodeUrl();
-            }
-            createConnect = ConnectionFactory.createConnect(str, context);
-        } else {
-            createConnect = ConnectionFactory.createConnect(str, context);
-        }
-        try {
-            createConnect.setInstanceFollowRedirects(false);
-            createConnect.connect();
-            int responseCode = createConnect.getResponseCode();
-            if (responseCode != 302 && responseCode != 301) {
-                if (responseCode != 200) {
-                    str = "";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, context, str, str2, weiboParameters)) == null) {
+            if (str2.equals("GET")) {
+                if (str.endsWith("?")) {
+                    str = str + weiboParameters.encodeUrl();
+                } else {
+                    str = str + "?" + weiboParameters.encodeUrl();
                 }
-                return str;
+                createConnect = ConnectionFactory.createConnect(str, context);
+            } else {
+                createConnect = ConnectionFactory.createConnect(str, context);
             }
-            str = createConnect.getHeaderField("Location");
-            return str;
-        } catch (Exception unused) {
-            return "";
+            try {
+                createConnect.setInstanceFollowRedirects(false);
+                createConnect.connect();
+                int responseCode = createConnect.getResponseCode();
+                if (responseCode != 302 && responseCode != 301) {
+                    if (responseCode != 200) {
+                        str = "";
+                    }
+                    return str;
+                }
+                str = createConnect.getHeaderField("Location");
+                return str;
+            } catch (Exception unused) {
+                return "";
+            }
         }
+        return (String) invokeLLLL.objValue;
     }
 
     public static String openUrl(Context context, String str, String str2, WeiboParameters weiboParameters) throws WeiboException {
-        String requestHttpExecute = requestHttpExecute(context, str, str2, weiboParameters);
-        LogUtil.d("HttpManager", "Response : " + requestHttpExecute);
-        return requestHttpExecute;
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, context, str, str2, weiboParameters)) == null) {
+            String requestHttpExecute = requestHttpExecute(context, str, str2, weiboParameters);
+            LogUtil.d("HttpManager", "Response : " + requestHttpExecute);
+            return requestHttpExecute;
+        }
+        return (String) invokeLLLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0061 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0065 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x005e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String readConnectResponse(HttpURLConnection httpURLConnection, boolean z) {
+        InterceptResult invokeLZ;
         ByteArrayOutputStream byteArrayOutputStream;
         InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65547, null, httpURLConnection, z)) != null) {
+            return (String) invokeLZ.objValue;
+        }
         InputStream inputStream2 = null;
         String str = null;
         inputStream2 = null;
@@ -300,76 +374,84 @@ public class HttpManager {
     }
 
     public static String requestHttpExecute(Context context, String str, String str2, WeiboParameters weiboParameters) {
+        InterceptResult invokeLLLL;
         HttpURLConnection createConnect;
-        HttpURLConnection httpURLConnection = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, context, str, str2, weiboParameters)) == null) {
+            HttpURLConnection httpURLConnection = null;
             try {
-                setHttpCommonParam(context, weiboParameters);
-                if ("GET".equals(str2)) {
-                    createConnect = ConnectionFactory.createConnect(str + "?" + weiboParameters.encodeUrl(), context);
-                    createConnect.setRequestMethod("GET");
-                    createConnect.setInstanceFollowRedirects(true);
-                    createConnect.connect();
-                } else {
-                    createConnect = ConnectionFactory.createConnect(str, context);
-                    createConnect.setInstanceFollowRedirects(true);
-                    createConnect.connect();
-                    if (weiboParameters.hasBinaryData()) {
-                        DataOutputStream dataOutputStream = new DataOutputStream(createConnect.getOutputStream());
-                        buildParams(dataOutputStream, weiboParameters);
-                        dataOutputStream.flush();
-                        dataOutputStream.close();
+                try {
+                    setHttpCommonParam(context, weiboParameters);
+                    if ("GET".equals(str2)) {
+                        createConnect = ConnectionFactory.createConnect(str + "?" + weiboParameters.encodeUrl(), context);
+                        createConnect.setRequestMethod("GET");
+                        createConnect.setInstanceFollowRedirects(true);
+                        createConnect.connect();
                     } else {
-                        DataOutputStream dataOutputStream2 = new DataOutputStream(createConnect.getOutputStream());
-                        dataOutputStream2.write(weiboParameters.encodeUrl().getBytes("UTF-8"));
-                        dataOutputStream2.flush();
-                        dataOutputStream2.close();
+                        createConnect = ConnectionFactory.createConnect(str, context);
+                        createConnect.setInstanceFollowRedirects(true);
+                        createConnect.connect();
+                        if (weiboParameters.hasBinaryData()) {
+                            DataOutputStream dataOutputStream = new DataOutputStream(createConnect.getOutputStream());
+                            buildParams(dataOutputStream, weiboParameters);
+                            dataOutputStream.flush();
+                            dataOutputStream.close();
+                        } else {
+                            DataOutputStream dataOutputStream2 = new DataOutputStream(createConnect.getOutputStream());
+                            dataOutputStream2.write(weiboParameters.encodeUrl().getBytes("UTF-8"));
+                            dataOutputStream2.flush();
+                            dataOutputStream2.close();
+                        }
                     }
-                }
-                int responseCode = createConnect.getResponseCode();
-                if (responseCode == 200) {
-                    String readConnectResponse = readConnectResponse(createConnect, false);
-                    if (createConnect != null) {
-                        createConnect.disconnect();
+                    int responseCode = createConnect.getResponseCode();
+                    if (responseCode == 200) {
+                        String readConnectResponse = readConnectResponse(createConnect, false);
+                        if (createConnect != null) {
+                            createConnect.disconnect();
+                        }
+                        return readConnectResponse;
                     }
-                    return readConnectResponse;
+                    throw new WeiboHttpException(readConnectResponse(createConnect, true), responseCode);
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    throw new WeiboException(e2);
                 }
-                throw new WeiboHttpException(readConnectResponse(createConnect, true), responseCode);
-            } catch (IOException e2) {
-                e2.printStackTrace();
-                throw new WeiboException(e2);
+            } catch (Throwable th) {
+                if (0 != 0) {
+                    httpURLConnection.disconnect();
+                }
+                throw th;
             }
-        } catch (Throwable th) {
-            if (0 != 0) {
-                httpURLConnection.disconnect();
-            }
-            throw th;
         }
+        return (String) invokeLLLL.objValue;
     }
 
     public static void setHttpCommonParam(Context context, WeiboParameters weiboParameters) {
         String str;
-        String str2 = "";
-        if (TextUtils.isEmpty(weiboParameters.getAppKey())) {
-            str = "";
-        } else {
-            str = Utility.getAid(context, weiboParameters.getAppKey());
-            if (!TextUtils.isEmpty(str)) {
-                weiboParameters.put("aid", str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, weiboParameters) == null) {
+            String str2 = "";
+            if (TextUtils.isEmpty(weiboParameters.getAppKey())) {
+                str = "";
+            } else {
+                str = Utility.getAid(context, weiboParameters.getAppKey());
+                if (!TextUtils.isEmpty(str)) {
+                    weiboParameters.put("aid", str);
+                }
             }
+            String timestamp = getTimestamp();
+            weiboParameters.put("oauth_timestamp", timestamp);
+            Object obj = weiboParameters.get("access_token");
+            Object obj2 = weiboParameters.get("refresh_token");
+            Object obj3 = weiboParameters.get("phone");
+            if (obj != null && (obj instanceof String)) {
+                str2 = (String) obj;
+            } else if (obj2 != null && (obj2 instanceof String)) {
+                str2 = (String) obj2;
+            } else if (obj3 != null && (obj3 instanceof String)) {
+                str2 = (String) obj3;
+            }
+            weiboParameters.put("oauth_sign", getOauthSign(context, str, str2, weiboParameters.getAppKey(), timestamp));
         }
-        String timestamp = getTimestamp();
-        weiboParameters.put("oauth_timestamp", timestamp);
-        Object obj = weiboParameters.get("access_token");
-        Object obj2 = weiboParameters.get("refresh_token");
-        Object obj3 = weiboParameters.get("phone");
-        if (obj != null && (obj instanceof String)) {
-            str2 = (String) obj;
-        } else if (obj2 != null && (obj2 instanceof String)) {
-            str2 = (String) obj2;
-        } else if (obj3 != null && (obj3 instanceof String)) {
-            str2 = (String) obj3;
-        }
-        weiboParameters.put("oauth_sign", getOauthSign(context, str, str2, weiboParameters.getAppKey(), timestamp));
     }
 }

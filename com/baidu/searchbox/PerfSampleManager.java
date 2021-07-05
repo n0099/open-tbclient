@@ -1,64 +1,114 @@
 package com.baidu.searchbox;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
-import d.a.f0.a.a;
-import d.a.f0.a.b.d;
-import d.a.o.b.b;
-import d.a.o0.z2.p;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.j0.a.a;
+import d.a.j0.a.b.d;
+import d.a.p.b.b;
+import d.a.s0.c3.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PerfSampleManager {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
     public d<IPerfSampleCallback> mCallbackList;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IPerfSampleCallback {
         String getSampleFlag();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class IPerfSampleCallback_PerfSampleManager_ListProvider implements a {
-        @Override // d.a.f0.a.a
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public IPerfSampleCallback_PerfSampleManager_ListProvider() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // d.a.j0.a.a
         public Object get() {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new b());
-            arrayList.add(new ANRPerfSampleCallback());
-            arrayList.add(new LooperPerfSampleCallback());
-            arrayList.add(new p());
-            return arrayList;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new b());
+                arrayList.add(new ANRPerfSampleCallback());
+                arrayList.add(new LooperPerfSampleCallback());
+                arrayList.add(new p());
+                return arrayList;
+            }
+            return invokeV.objValue;
         }
     }
 
     public PerfSampleManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         initmCallbackList();
     }
 
     public String getSampleFlag() {
+        InterceptResult invokeV;
         List<IPerfSampleCallback> list;
-        d<IPerfSampleCallback> dVar = this.mCallbackList;
-        String str = 0;
-        if (dVar != null && (list = dVar.getList()) != null && list.size() != 0) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                String sampleFlag = list.get(i2).getSampleFlag();
-                if (!TextUtils.isEmpty(sampleFlag)) {
-                    if (TextUtils.isEmpty(str)) {
-                        str = sampleFlag;
-                    } else if (!str.contains(sampleFlag)) {
-                        str = str + "," + sampleFlag;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            d<IPerfSampleCallback> dVar = this.mCallbackList;
+            String str = 0;
+            if (dVar != null && (list = dVar.getList()) != null && list.size() != 0) {
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    String sampleFlag = list.get(i2).getSampleFlag();
+                    if (!TextUtils.isEmpty(sampleFlag)) {
+                        if (TextUtils.isEmpty(str)) {
+                            str = sampleFlag;
+                        } else if (!str.contains(sampleFlag)) {
+                            str = str + "," + sampleFlag;
+                        }
                     }
                 }
             }
+            return str;
         }
-        return str;
+        return (String) invokeV.objValue;
     }
 
     public void initmCallbackList() {
-        d.a.f0.a.b.b b2 = d.a.f0.a.b.b.b();
-        this.mCallbackList = b2;
-        b2.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d.a.j0.a.b.b b2 = d.a.j0.a.b.b.b();
+            this.mCallbackList = b2;
+            b2.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
+        }
     }
 }

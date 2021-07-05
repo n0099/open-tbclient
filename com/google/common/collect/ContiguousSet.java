@@ -1,50 +1,92 @@
 package com.google.common.collect;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableSortedSet;
-import d.g.c.a.n;
+import d.f.d.a.n;
 import java.lang.Comparable;
+import java.util.Comparator;
 import java.util.NavigableSet;
 import java.util.NoSuchElementException;
 import java.util.SortedSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class ContiguousSet<C extends Comparable> extends ImmutableSortedSet<C> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final DiscreteDomain<C> domain;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ContiguousSet(DiscreteDomain<C> discreteDomain) {
         super(Ordering.natural());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {discreteDomain};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Comparator) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.domain = discreteDomain;
     }
 
     @Deprecated
     public static <E> ImmutableSortedSet.a<E> builder() {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (ImmutableSortedSet.a) invokeV.objValue;
     }
 
     public static ContiguousSet<Integer> closed(int i2, int i3) {
-        return create(Range.closed(Integer.valueOf(i2), Integer.valueOf(i3)), DiscreteDomain.integers());
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) ? create(Range.closed(Integer.valueOf(i2), Integer.valueOf(i3)), DiscreteDomain.integers()) : (ContiguousSet) invokeII.objValue;
     }
 
     public static ContiguousSet<Integer> closedOpen(int i2, int i3) {
-        return create(Range.closedOpen(Integer.valueOf(i2), Integer.valueOf(i3)), DiscreteDomain.integers());
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? create(Range.closedOpen(Integer.valueOf(i2), Integer.valueOf(i3)), DiscreteDomain.integers()) : (ContiguousSet) invokeII.objValue;
     }
 
     public static <C extends Comparable> ContiguousSet<C> create(Range<C> range, DiscreteDomain<C> discreteDomain) {
-        n.p(range);
-        n.p(discreteDomain);
-        try {
-            Range<C> intersection = !range.hasLowerBound() ? range.intersection(Range.atLeast(discreteDomain.minValue())) : range;
-            if (!range.hasUpperBound()) {
-                intersection = intersection.intersection(Range.atMost(discreteDomain.maxValue()));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, range, discreteDomain)) == null) {
+            n.p(range);
+            n.p(discreteDomain);
+            try {
+                Range<C> intersection = !range.hasLowerBound() ? range.intersection(Range.atLeast(discreteDomain.minValue())) : range;
+                if (!range.hasUpperBound()) {
+                    intersection = intersection.intersection(Range.atMost(discreteDomain.maxValue()));
+                }
+                return intersection.isEmpty() || Range.compareOrThrow(range.lowerBound.leastValueAbove(discreteDomain), range.upperBound.greatestValueBelow(discreteDomain)) > 0 ? new EmptyContiguousSet(discreteDomain) : new RegularContiguousSet(intersection, discreteDomain);
+            } catch (NoSuchElementException e2) {
+                throw new IllegalArgumentException(e2);
             }
-            return intersection.isEmpty() || Range.compareOrThrow(range.lowerBound.leastValueAbove(discreteDomain), range.upperBound.greatestValueBelow(discreteDomain)) > 0 ? new EmptyContiguousSet(discreteDomain) : new RegularContiguousSet(intersection, discreteDomain);
-        } catch (NoSuchElementException e2) {
-            throw new IllegalArgumentException(e2);
         }
+        return (ContiguousSet) invokeLL.objValue;
     }
 
     @Override // com.google.common.collect.ImmutableSortedSet
     public ImmutableSortedSet<C> createDescendingSet() {
-        return new DescendingImmutableSortedSet(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DescendingImmutableSortedSet(this) : (ImmutableSortedSet) invokeV.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.ContiguousSet<C extends java.lang.Comparable> */
@@ -96,15 +138,21 @@ public abstract class ContiguousSet<C extends Comparable> extends ImmutableSorte
 
     @Override // java.util.AbstractCollection
     public String toString() {
-        return range().toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? range().toString() : (String) invokeV.objValue;
     }
 
     public static ContiguousSet<Long> closed(long j, long j2) {
-        return create(Range.closed(Long.valueOf(j), Long.valueOf(j2)), DiscreteDomain.longs());
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? create(Range.closed(Long.valueOf(j), Long.valueOf(j2)), DiscreteDomain.longs()) : (ContiguousSet) invokeCommon.objValue;
     }
 
     public static ContiguousSet<Long> closedOpen(long j, long j2) {
-        return create(Range.closedOpen(Long.valueOf(j), Long.valueOf(j2)), DiscreteDomain.longs());
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? create(Range.closedOpen(Long.valueOf(j), Long.valueOf(j2)), DiscreteDomain.longs()) : (ContiguousSet) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.ContiguousSet<C extends java.lang.Comparable> */
@@ -164,38 +212,68 @@ public abstract class ContiguousSet<C extends Comparable> extends ImmutableSorte
     }
 
     public ContiguousSet<C> headSet(C c2) {
-        n.p(c2);
-        return headSetImpl((ContiguousSet<C>) c2, false);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2)) == null) {
+            n.p(c2);
+            return headSetImpl((ContiguousSet<C>) c2, false);
+        }
+        return (ContiguousSet) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.common.collect.ImmutableSortedSet, java.util.NavigableSet, java.util.SortedSet
     public ContiguousSet<C> subSet(C c2, C c3) {
-        n.p(c2);
-        n.p(c3);
-        n.d(comparator().compare(c2, c3) <= 0);
-        return subSetImpl((boolean) c2, true, (boolean) c3, false);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, c2, c3)) == null) {
+            n.p(c2);
+            n.p(c3);
+            n.d(comparator().compare(c2, c3) <= 0);
+            return subSetImpl((boolean) c2, true, (boolean) c3, false);
+        }
+        return (ContiguousSet) invokeLL.objValue;
     }
 
     public ContiguousSet<C> tailSet(C c2) {
-        n.p(c2);
-        return tailSetImpl((ContiguousSet<C>) c2, true);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, c2)) == null) {
+            n.p(c2);
+            return tailSetImpl((ContiguousSet<C>) c2, true);
+        }
+        return (ContiguousSet) invokeL.objValue;
     }
 
     public ContiguousSet<C> headSet(C c2, boolean z) {
-        n.p(c2);
-        return headSetImpl((ContiguousSet<C>) c2, z);
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, c2, z)) == null) {
+            n.p(c2);
+            return headSetImpl((ContiguousSet<C>) c2, z);
+        }
+        return (ContiguousSet) invokeLZ.objValue;
     }
 
     public ContiguousSet<C> tailSet(C c2, boolean z) {
-        n.p(c2);
-        return tailSetImpl((ContiguousSet<C>) c2, z);
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, c2, z)) == null) {
+            n.p(c2);
+            return tailSetImpl((ContiguousSet<C>) c2, z);
+        }
+        return (ContiguousSet) invokeLZ.objValue;
     }
 
     public ContiguousSet<C> subSet(C c2, boolean z, C c3, boolean z2) {
-        n.p(c2);
-        n.p(c3);
-        n.d(comparator().compare(c2, c3) <= 0);
-        return subSetImpl((boolean) c2, z, (boolean) c3, z2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{c2, Boolean.valueOf(z), c3, Boolean.valueOf(z2)})) == null) {
+            n.p(c2);
+            n.p(c3);
+            n.d(comparator().compare(c2, c3) <= 0);
+            return subSetImpl((boolean) c2, z, (boolean) c3, z2);
+        }
+        return (ContiguousSet) invokeCommon.objValue;
     }
 }

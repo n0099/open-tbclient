@@ -1,43 +1,79 @@
 package com.vivo.push.b;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class u extends com.vivo.push.y {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40340a;
+    public String f42083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40341b;
+    public int f42084b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(int i2) {
         super(i2);
-        this.f40340a = null;
-        this.f40341b = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42083a = null;
+        this.f42084b = 0;
     }
 
     @Override // com.vivo.push.y
     public void c(com.vivo.push.a aVar) {
-        aVar.a(IAdRequestParam.REQ_ID, this.f40340a);
-        aVar.a("status_msg_code", this.f40341b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            aVar.a(IAdRequestParam.REQ_ID, this.f42083a);
+            aVar.a("status_msg_code", this.f42084b);
+        }
     }
 
     @Override // com.vivo.push.y
     public void d(com.vivo.push.a aVar) {
-        this.f40340a = aVar.a(IAdRequestParam.REQ_ID);
-        this.f40341b = aVar.b("status_msg_code", this.f40341b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f42083a = aVar.a(IAdRequestParam.REQ_ID);
+            this.f42084b = aVar.b("status_msg_code", this.f42084b);
+        }
     }
 
     public final String g() {
-        return this.f40340a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42083a : (String) invokeV.objValue;
     }
 
     public final int h() {
-        return this.f40341b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42084b : invokeV.intValue;
     }
 
     @Override // com.vivo.push.y
     public String toString() {
-        return "OnReceiveCommand";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnReceiveCommand" : (String) invokeV.objValue;
     }
 }

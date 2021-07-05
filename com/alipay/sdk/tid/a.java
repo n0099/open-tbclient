@@ -6,191 +6,240 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import com.alipay.sdk.util.c;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public final class a extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1936a = "msp.db";
+    public static final String f1939a = "msp.db";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1937b = 1;
+    public static final int f1940b = 1;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Context> f1938c;
+    public WeakReference<Context> f1941c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
-        super(context, f1936a, (SQLiteDatabase.CursorFactory) null, 1);
-        this.f1938c = new WeakReference<>(context);
+        super(context, f1939a, (SQLiteDatabase.CursorFactory) null, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f1941c = new WeakReference<>(context);
     }
 
     private String c(String str, String str2) {
-        return str + str2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, str2)) == null) {
+            return str + str2;
+        }
+        return (String) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
     public void a() {
-        SQLiteDatabase sQLiteDatabase = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SQLiteDatabase sQLiteDatabase = null;
             try {
-                sQLiteDatabase = getWritableDatabase();
-                sQLiteDatabase.execSQL("drop table if exists tb_tid");
-                if (sQLiteDatabase == null || !sQLiteDatabase.isOpen()) {
-                    return;
+                try {
+                    sQLiteDatabase = getWritableDatabase();
+                    sQLiteDatabase.execSQL("drop table if exists tb_tid");
+                    if (sQLiteDatabase == null || !sQLiteDatabase.isOpen()) {
+                        return;
+                    }
+                } catch (Exception e2) {
+                    c.a(e2);
+                    if (sQLiteDatabase == null || !sQLiteDatabase.isOpen()) {
+                        return;
+                    }
                 }
-            } catch (Exception e2) {
-                c.a(e2);
-                if (sQLiteDatabase == null || !sQLiteDatabase.isOpen()) {
-                    return;
-                }
-            }
-            sQLiteDatabase.close();
-        } catch (Throwable th) {
-            if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
                 sQLiteDatabase.close();
+            } catch (Throwable th) {
+                if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
+                    sQLiteDatabase.close();
+                }
+                throw th;
             }
-            throw th;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
-        if (r2.isOpen() != false) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x002e, code lost:
+        if (r2.isOpen() != false) goto L19;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x002c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0030, code lost:
         r2.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0059, code lost:
-        if (r2.isOpen() != false) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x005d, code lost:
+        if (r2.isOpen() != false) goto L19;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String b(String str, String str2) {
+        InterceptResult invokeLL;
         SQLiteDatabase sQLiteDatabase;
         Cursor cursor;
-        Cursor cursor2 = null;
-        r1 = null;
-        r1 = null;
-        String str3 = null;
-        cursor2 = null;
-        try {
-            sQLiteDatabase = getReadableDatabase();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            Cursor cursor2 = null;
+            r1 = null;
+            r1 = null;
+            String str3 = null;
+            cursor2 = null;
             try {
-                cursor = sQLiteDatabase.rawQuery("select key_tid from tb_tid where name=?", new String[]{c(str, str2)});
+                sQLiteDatabase = getReadableDatabase();
                 try {
-                    str3 = cursor.moveToFirst() ? cursor.getString(0) : null;
-                    if (cursor != null) {
-                        cursor.close();
+                    cursor = sQLiteDatabase.rawQuery("select key_tid from tb_tid where name=?", new String[]{c(str, str2)});
+                    try {
+                        str3 = cursor.moveToFirst() ? cursor.getString(0) : null;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        if (sQLiteDatabase != null) {
+                        }
+                    } catch (Exception unused) {
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        if (sQLiteDatabase != null) {
+                        }
+                        return str3;
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
+                            sQLiteDatabase.close();
+                        }
+                        throw th;
                     }
-                    if (sQLiteDatabase != null) {
-                    }
-                } catch (Exception unused) {
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    if (sQLiteDatabase != null) {
-                    }
-                    return str3;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = cursor;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
-                        sQLiteDatabase.close();
-                    }
-                    throw th;
+                } catch (Exception unused2) {
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Exception unused2) {
+            } catch (Exception unused3) {
                 cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
+                sQLiteDatabase = null;
+            } catch (Throwable th3) {
+                th = th3;
+                sQLiteDatabase = null;
             }
-        } catch (Exception unused3) {
-            cursor = null;
-            sQLiteDatabase = null;
-        } catch (Throwable th3) {
-            th = th3;
-            sQLiteDatabase = null;
+            return str3;
         }
-        return str3;
+        return (String) invokeLL.objValue;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL("create table if not exists tb_tid (name text primary key, tid text, key_tid text, dt datetime);");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL("create table if not exists tb_tid (name text primary key, tid text, key_tid text, dt datetime);");
+        }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
-        sQLiteDatabase.execSQL("drop table if exists tb_tid");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048580, this, sQLiteDatabase, i2, i3) == null) {
+            sQLiteDatabase.execSQL("drop table if exists tb_tid");
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
-        if (r2.isOpen() != false) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x002e, code lost:
+        if (r2.isOpen() != false) goto L19;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x002c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0030, code lost:
         r2.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0059, code lost:
-        if (r2.isOpen() != false) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x005d, code lost:
+        if (r2.isOpen() != false) goto L19;
      */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0062  */
-    /* JADX WARN: Removed duplicated region for block: B:47:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0066  */
+    /* JADX WARN: Removed duplicated region for block: B:53:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String a(String str, String str2) {
+        InterceptResult invokeLL;
         SQLiteDatabase sQLiteDatabase;
         Cursor cursor;
-        Cursor cursor2 = null;
-        r1 = null;
-        r1 = null;
-        String str3 = null;
-        cursor2 = null;
-        try {
-            sQLiteDatabase = getReadableDatabase();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            Cursor cursor2 = null;
+            r1 = null;
+            r1 = null;
+            String str3 = null;
+            cursor2 = null;
             try {
-                cursor = sQLiteDatabase.rawQuery("select tid from tb_tid where name=?", new String[]{c(str, str2)});
+                sQLiteDatabase = getReadableDatabase();
                 try {
-                    str3 = cursor.moveToFirst() ? cursor.getString(0) : null;
-                    if (cursor != null) {
-                        cursor.close();
+                    cursor = sQLiteDatabase.rawQuery("select tid from tb_tid where name=?", new String[]{c(str, str2)});
+                    try {
+                        str3 = cursor.moveToFirst() ? cursor.getString(0) : null;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        if (sQLiteDatabase != null) {
+                        }
+                    } catch (Exception unused) {
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        if (sQLiteDatabase != null) {
+                        }
+                        if (TextUtils.isEmpty(str3)) {
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
+                            sQLiteDatabase.close();
+                        }
+                        throw th;
                     }
-                    if (sQLiteDatabase != null) {
-                    }
-                } catch (Exception unused) {
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    if (sQLiteDatabase != null) {
-                    }
-                    if (TextUtils.isEmpty(str3)) {
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = cursor;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
-                        sQLiteDatabase.close();
-                    }
-                    throw th;
+                } catch (Exception unused2) {
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Exception unused2) {
+            } catch (Exception unused3) {
                 cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
+                sQLiteDatabase = null;
+            } catch (Throwable th3) {
+                th = th3;
+                sQLiteDatabase = null;
             }
-        } catch (Exception unused3) {
-            cursor = null;
-            sQLiteDatabase = null;
-        } catch (Throwable th3) {
-            th = th3;
-            sQLiteDatabase = null;
+            return TextUtils.isEmpty(str3) ? com.alipay.sdk.encrypt.b.b(str3, com.alipay.sdk.util.a.c(this.f1941c.get())) : str3;
         }
-        return TextUtils.isEmpty(str3) ? com.alipay.sdk.encrypt.b.b(str3, com.alipay.sdk.util.a.c(this.f1938c.get())) : str3;
+        return (String) invokeLL.objValue;
     }
 }

@@ -4,63 +4,112 @@ import android.net.TrafficStats;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import androidx.annotation.NonNull;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.DatagramSocket;
 import java.net.Socket;
 import java.net.SocketException;
 /* loaded from: classes.dex */
 public final class TrafficStatsCompat {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public TrafficStatsCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Deprecated
     public static void clearThreadStatsTag() {
-        TrafficStats.clearThreadStatsTag();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            TrafficStats.clearThreadStatsTag();
+        }
     }
 
     @Deprecated
     public static int getThreadStatsTag() {
-        return TrafficStats.getThreadStatsTag();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? TrafficStats.getThreadStatsTag() : invokeV.intValue;
     }
 
     @Deprecated
     public static void incrementOperationCount(int i2) {
-        TrafficStats.incrementOperationCount(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
+            TrafficStats.incrementOperationCount(i2);
+        }
     }
 
     @Deprecated
     public static void setThreadStatsTag(int i2) {
-        TrafficStats.setThreadStatsTag(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2) == null) {
+            TrafficStats.setThreadStatsTag(i2);
+        }
     }
 
     public static void tagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
-        if (Build.VERSION.SDK_INT >= 24) {
-            TrafficStats.tagDatagramSocket(datagramSocket);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, datagramSocket) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                TrafficStats.tagDatagramSocket(datagramSocket);
+                return;
+            }
+            ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
+            TrafficStats.tagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
+            fromDatagramSocket.detachFd();
         }
-        ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
-        TrafficStats.tagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
-        fromDatagramSocket.detachFd();
     }
 
     @Deprecated
     public static void tagSocket(Socket socket) throws SocketException {
-        TrafficStats.tagSocket(socket);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, socket) == null) {
+            TrafficStats.tagSocket(socket);
+        }
     }
 
     public static void untagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
-        if (Build.VERSION.SDK_INT >= 24) {
-            TrafficStats.untagDatagramSocket(datagramSocket);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, datagramSocket) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                TrafficStats.untagDatagramSocket(datagramSocket);
+                return;
+            }
+            ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
+            TrafficStats.untagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
+            fromDatagramSocket.detachFd();
         }
-        ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
-        TrafficStats.untagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
-        fromDatagramSocket.detachFd();
     }
 
     @Deprecated
     public static void untagSocket(Socket socket) throws SocketException {
-        TrafficStats.untagSocket(socket);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, socket) == null) {
+            TrafficStats.untagSocket(socket);
+        }
     }
 
     @Deprecated
     public static void incrementOperationCount(int i2, int i3) {
-        TrafficStats.incrementOperationCount(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65540, null, i2, i3) == null) {
+            TrafficStats.incrementOperationCount(i2, i3);
+        }
     }
 }

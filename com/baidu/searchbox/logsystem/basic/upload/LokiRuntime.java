@@ -1,62 +1,163 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
-import d.a.o0.z2.l;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.c3.l;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LokiRuntime {
-    public static final ILokiIdentityContext EMPTY = new ILokiIdentityContext() { // from class: com.baidu.searchbox.logsystem.basic.upload.LokiRuntime.1
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getBDVCInfo() {
-            return null;
-        }
+    public static /* synthetic */ Interceptable $ic;
+    public static final ILokiIdentityContext EMPTY;
+    public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getC3Aid() {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-76905253, "Lcom/baidu/searchbox/logsystem/basic/upload/LokiRuntime;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-76905253, "Lcom/baidu/searchbox/logsystem/basic/upload/LokiRuntime;");
+                return;
+            }
         }
+        EMPTY = new ILokiIdentityContext() { // from class: com.baidu.searchbox.logsystem.basic.upload.LokiRuntime.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getCfrom() {
-            return null;
-        }
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
 
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getDeviceScore() {
-            return null;
-        }
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public String getBDVCInfo() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
 
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getFrom() {
-            return null;
-        }
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public String getC3Aid() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
 
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getSchemeHeader() {
-            return null;
-        }
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public String getCfrom() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
 
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getSid() {
-            return null;
-        }
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public String getDeviceScore() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
 
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getZid() {
-            return null;
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public String getFrom() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public String getSchemeHeader() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public String getSid() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public String getZid() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
+        };
+    }
+
+    public LokiRuntime() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-    };
+    }
 
     @Inject(force = false)
     public static ILokiIdentityContext getIdentityContext() {
-        return EMPTY;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? EMPTY : (ILokiIdentityContext) invokeV.objValue;
     }
 
     @Inject
     public static ILokiIdentityNeedContext getIdentityNeedContext() {
-        return l.a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? l.a() : (ILokiIdentityNeedContext) invokeV.objValue;
     }
 }

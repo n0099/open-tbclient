@@ -8,109 +8,194 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.DisplayUtils;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class GridLayout extends ViewGroup {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f23606a = 3;
+    public static final int f24149a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f23607b = 1;
+    public static final int f24150b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f23608c = 1;
+    public static final int f24151c = 1;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23609d;
+    public int f24152d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23610e;
+    public int f24153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23611f;
+    public int f24154f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f23612g;
+    public RectF f24155g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f23613h;
+    public Paint f24156h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Integer f23614i;
+    public Integer f24157i;
     public int j;
     public Paint k;
     public Integer l;
     public int m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f23615a;
+        public int f24158a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f23616b;
+        public int f24159b;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(int i2, int i3) {
             super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutParams};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GridLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23614i = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24157i = null;
         this.l = null;
         this.m = 0;
         a();
     }
 
     private void a() {
-        this.f23609d = 3;
-        this.f23610e = DisplayUtils.dip2px(getContext(), 1.0f);
-        this.f23611f = DisplayUtils.dip2px(getContext(), 1.0f);
-        this.f23612g = new RectF();
-        this.f23613h = new Paint();
-        this.k = new Paint();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.f24152d = 3;
+            this.f24153e = DisplayUtils.dip2px(getContext(), 1.0f);
+            this.f24154f = DisplayUtils.dip2px(getContext(), 1.0f);
+            this.f24155g = new RectF();
+            this.f24156h = new Paint();
+            this.k = new Paint();
+        }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (this.l != null && getChildCount() > this.f23609d && this.f23611f > 0) {
-            float height = getChildAt(getChildCount() - 1).getHeight();
-            for (int i2 = 1; i2 < Math.ceil((getChildCount() * 1.0f) / this.f23609d); i2++) {
-                float f2 = i2 * height;
-                canvas.drawRect(new RectF(getLeft() + this.j, getPaddingTop() + f2, getRight() - this.j, getPaddingTop() + f2 + this.f23611f), this.k);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.l != null && getChildCount() > this.f24152d && this.f24154f > 0) {
+                float height = getChildAt(getChildCount() - 1).getHeight();
+                for (int i2 = 1; i2 < Math.ceil((getChildCount() * 1.0f) / this.f24152d); i2++) {
+                    float f2 = i2 * height;
+                    canvas.drawRect(new RectF(getLeft() + this.j, getPaddingTop() + f2, getRight() - this.j, getPaddingTop() + f2 + this.f24154f), this.k);
+                }
             }
+            if (getChildCount() % this.f24152d == 0 || this.f24157i == null) {
+                return;
+            }
+            View childAt = getChildAt(getChildCount() - 1);
+            this.f24155g.set(childAt.getLeft() + childAt.getWidth() + this.f24153e, childAt.getTop(), getLeft() + getWidth(), getTop() + getHeight());
+            this.f24156h.setColor(this.f24157i.intValue());
+            canvas.drawRect(this.f24155g, this.f24156h);
         }
-        if (getChildCount() % this.f23609d == 0 || this.f23614i == null) {
-            return;
-        }
-        View childAt = getChildAt(getChildCount() - 1);
-        this.f23612g.set(childAt.getLeft() + childAt.getWidth() + this.f23610e, childAt.getTop(), getLeft() + getWidth(), getTop() + getHeight());
-        this.f23613h.setColor(this.f23614i.intValue());
-        canvas.drawRect(this.f23612g, this.f23613h);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        int childCount = getChildCount();
-        for (int i6 = 0; i6 < childCount; i6++) {
-            View childAt = getChildAt(i6);
-            if (childAt.getVisibility() != 8) {
-                LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                int i7 = layoutParams.f23615a;
-                int i8 = layoutParams.f23616b;
-                childAt.layout(i7, i8, ((ViewGroup.LayoutParams) layoutParams).width + i7, ((ViewGroup.LayoutParams) layoutParams).height + i8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            int childCount = getChildCount();
+            for (int i6 = 0; i6 < childCount; i6++) {
+                View childAt = getChildAt(i6);
+                if (childAt.getVisibility() != 8) {
+                    LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
+                    int i7 = layoutParams.f24158a;
+                    int i8 = layoutParams.f24159b;
+                    childAt.layout(i7, i8, ((ViewGroup.LayoutParams) layoutParams).width + i7, ((ViewGroup.LayoutParams) layoutParams).height + i8);
+                }
             }
         }
     }
@@ -119,80 +204,114 @@ public class GridLayout extends ViewGroup {
     @SuppressLint({"DrawAllocation"})
     public void onMeasure(int i2, int i3) {
         LayoutParams layoutParams;
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3), 0);
-        int size = (View.MeasureSpec.getSize(i2) - getPaddingLeft()) - getPaddingRight();
-        int childCount = getChildCount();
-        int i4 = this.f23610e;
-        int i5 = this.f23609d;
-        int i6 = (size - (i4 * (i5 - 1))) / i5;
-        int paddingLeft = getPaddingLeft();
-        int paddingTop = getPaddingTop();
-        int i7 = 0;
-        int i8 = 0;
-        for (int i9 = 0; i9 < childCount; i9++) {
-            View childAt = getChildAt(i9);
-            if (childAt.getVisibility() != 8) {
-                measureChild(childAt, i2, makeMeasureSpec);
-                i8 = childAt.getMeasuredHeight();
-                if (this.m <= i8) {
-                    this.m = i8;
-                }
-                childAt.measure(View.MeasureSpec.makeMeasureSpec(i6, 1073741824), View.MeasureSpec.makeMeasureSpec(this.m, 1073741824));
-                if ((i9 - i7) % this.f23609d == 0) {
-                    paddingLeft = getPaddingLeft();
-                    if (i9 != 0) {
-                        paddingTop += this.m + this.f23611f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3), 0);
+            int size = (View.MeasureSpec.getSize(i2) - getPaddingLeft()) - getPaddingRight();
+            int childCount = getChildCount();
+            int i4 = this.f24153e;
+            int i5 = this.f24152d;
+            int i6 = (size - (i4 * (i5 - 1))) / i5;
+            int paddingLeft = getPaddingLeft();
+            int paddingTop = getPaddingTop();
+            int i7 = 0;
+            int i8 = 0;
+            for (int i9 = 0; i9 < childCount; i9++) {
+                View childAt = getChildAt(i9);
+                if (childAt.getVisibility() != 8) {
+                    measureChild(childAt, i2, makeMeasureSpec);
+                    i8 = childAt.getMeasuredHeight();
+                    if (this.m <= i8) {
+                        this.m = i8;
                     }
+                    childAt.measure(View.MeasureSpec.makeMeasureSpec(i6, 1073741824), View.MeasureSpec.makeMeasureSpec(this.m, 1073741824));
+                    if ((i9 - i7) % this.f24152d == 0) {
+                        paddingLeft = getPaddingLeft();
+                        if (i9 != 0) {
+                            paddingTop += this.m + this.f24154f;
+                        }
+                    } else {
+                        paddingLeft += this.f24153e + i6;
+                    }
+                    if (childAt.getLayoutParams() != null && (childAt.getLayoutParams() instanceof LayoutParams)) {
+                        layoutParams = (LayoutParams) childAt.getLayoutParams();
+                    } else {
+                        LayoutParams layoutParams2 = new LayoutParams(0, 0);
+                        childAt.setLayoutParams(layoutParams2);
+                        layoutParams = layoutParams2;
+                    }
+                    layoutParams.f24158a = paddingLeft;
+                    layoutParams.f24159b = paddingTop;
+                    ((ViewGroup.LayoutParams) layoutParams).width = i6;
+                    ((ViewGroup.LayoutParams) layoutParams).height = this.m;
                 } else {
-                    paddingLeft += this.f23610e + i6;
+                    i7++;
                 }
-                if (childAt.getLayoutParams() != null && (childAt.getLayoutParams() instanceof LayoutParams)) {
-                    layoutParams = (LayoutParams) childAt.getLayoutParams();
-                } else {
-                    LayoutParams layoutParams2 = new LayoutParams(0, 0);
-                    childAt.setLayoutParams(layoutParams2);
-                    layoutParams = layoutParams2;
-                }
-                layoutParams.f23615a = paddingLeft;
-                layoutParams.f23616b = paddingTop;
-                ((ViewGroup.LayoutParams) layoutParams).width = i6;
-                ((ViewGroup.LayoutParams) layoutParams).height = this.m;
-            } else {
-                i7++;
             }
+            int i10 = childCount - i7;
+            int i11 = this.f24152d;
+            int i12 = (i10 / i11) + (i10 % i11 != 0 ? 1 : 0);
+            setMeasuredDimension(View.MeasureSpec.getSize(i2), (i8 * i12) + (this.f24154f * (i12 - 1)) + getPaddingTop() + getPaddingBottom());
         }
-        int i10 = childCount - i7;
-        int i11 = this.f23609d;
-        int i12 = (i10 / i11) + (i10 % i11 != 0 ? 1 : 0);
-        setMeasuredDimension(View.MeasureSpec.getSize(i2), (i8 * i12) + (this.f23611f * (i12 - 1)) + getPaddingTop() + getPaddingBottom());
     }
 
     public void setColumnCount(int i2) {
-        this.f23609d = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.f24152d = i2;
+        }
     }
 
     public void setEmptyAreaColor(int i2) {
-        this.f23614i = Integer.valueOf(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.f24157i = Integer.valueOf(i2);
+        }
     }
 
     public void setHorizontalSpacing(int i2) {
-        this.f23610e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.f24153e = i2;
+        }
     }
 
     public void setSeparateLine(int i2, int i3) {
-        Integer valueOf = Integer.valueOf(i2);
-        this.l = valueOf;
-        this.j = i3;
-        this.k.setColor(valueOf.intValue());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+            Integer valueOf = Integer.valueOf(i2);
+            this.l = valueOf;
+            this.j = i3;
+            this.k.setColor(valueOf.intValue());
+        }
     }
 
     public void setVerticalSpacing(int i2) {
-        this.f23611f = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.f24154f = i2;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GridLayout(Context context) {
         super(context);
-        this.f23614i = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24157i = null;
         this.l = null;
         this.m = 0;
         a();

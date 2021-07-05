@@ -1,6 +1,14 @@
 package com.cmic.sso.sdk.d;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.auth.AuthnHelper;
 import java.lang.Thread;
 import java.util.concurrent.ExecutorService;
@@ -9,29 +17,91 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class o {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f30758a = new ThreadPoolExecutor(0, 30, 60, TimeUnit.SECONDS, new SynchronousQueue());
+    public static final ExecutorService f32551a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1436819651, "Lcom/cmic/sso/sdk/d/o;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1436819651, "Lcom/cmic/sso/sdk/d/o;");
+                return;
+            }
+        }
+        f32551a = new ThreadPoolExecutor(0, 30, 60L, TimeUnit.SECONDS, new SynchronousQueue());
+    }
 
     public static void a(a aVar) {
-        try {
-            f30758a.execute(aVar);
-        } catch (Exception e2) {
-            aVar.f30759a.uncaughtException(Thread.currentThread(), e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
+            try {
+                f32551a.execute(aVar);
+            } catch (Exception e2) {
+                aVar.f32552a.uncaughtException(Thread.currentThread(), e2);
+            }
         }
     }
 
     /* loaded from: classes6.dex */
     public static abstract class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Thread.UncaughtExceptionHandler f30759a;
+        public final Thread.UncaughtExceptionHandler f32552a;
 
         public a() {
-            this.f30759a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.d.o.a.1
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32552a = new Thread.UncaughtExceptionHandler(this) { // from class: com.cmic.sso.sdk.d.o.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ a f32553a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext2 = TitanRuntime.newInitContext();
+                        newInitContext2.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext2);
+                        int i4 = newInitContext2.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext2.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext2);
+                            return;
+                        }
+                    }
+                    this.f32553a = this;
+                }
+
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
-                    th.printStackTrace();
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, thread, th) == null) {
+                        th.printStackTrace();
+                    }
                 }
             };
         }
@@ -40,17 +110,69 @@ public class o {
 
         @Override // java.lang.Runnable
         public void run() {
-            Thread.currentThread().setUncaughtExceptionHandler(this.f30759a);
-            a();
-            Thread.currentThread().setUncaughtExceptionHandler(null);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                Thread.currentThread().setUncaughtExceptionHandler(this.f32552a);
+                a();
+                Thread.currentThread().setUncaughtExceptionHandler(null);
+            }
         }
 
-        public a(final Context context, final com.cmic.sso.sdk.a aVar) {
-            this.f30759a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.d.o.a.2
+        public a(Context context, com.cmic.sso.sdk.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, aVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f32552a = new Thread.UncaughtExceptionHandler(this, aVar, context) { // from class: com.cmic.sso.sdk.d.o.a.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ com.cmic.sso.sdk.a f32554a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ Context f32555b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ a f32556c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext2 = TitanRuntime.newInitContext();
+                        newInitContext2.initArgs = r2;
+                        Object[] objArr2 = {this, aVar, context};
+                        interceptable2.invokeUnInit(65536, newInitContext2);
+                        int i4 = newInitContext2.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext2.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext2);
+                            return;
+                        }
+                    }
+                    this.f32556c = this;
+                    this.f32554a = aVar;
+                    this.f32555b = context;
+                }
+
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
-                    aVar.a().f30729a.add(th);
-                    AuthnHelper.getInstance(context).callBackResult("200025", "发生未知错误", aVar, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, thread, th) == null) {
+                        this.f32554a.a().f32522a.add(th);
+                        AuthnHelper.getInstance(this.f32555b).callBackResult("200025", "发生未知错误", this.f32554a, null);
+                    }
                 }
             };
         }

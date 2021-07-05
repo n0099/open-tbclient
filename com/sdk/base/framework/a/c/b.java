@@ -1,25 +1,48 @@
 package com.sdk.base.framework.a.c;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public final class b extends Enum<b> {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f39336a = 4;
+    public static final int f41092a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f39337b = 1;
+    public static int f41093b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f39338c = 2;
+    public static int f41094c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f39339d = 3;
+    public static int f41095d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f39340e = 5;
+    public static int f41096e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f39341f = 6;
+    public static int f41097f = 6;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f39342g = 7;
+    public static int f41098g = 7;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(922627827, "Lcom/sdk/base/framework/a/c/b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(922627827, "Lcom/sdk/base/framework/a/c/b;");
+        }
+    }
 }

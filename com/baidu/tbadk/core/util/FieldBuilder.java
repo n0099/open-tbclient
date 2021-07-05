@@ -1,20 +1,41 @@
 package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FieldBuilder {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String EQ = "=";
     public static final String SE = "|";
+    public transient /* synthetic */ FieldHolder $fh;
     public StringBuilder builder;
 
     public FieldBuilder() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.builder = null;
         this.builder = null;
     }
 
     public void append(String str, Object obj) {
-        if (k.isEmpty(str) || obj == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) || k.isEmpty(str) || obj == null) {
             return;
         }
         try {
@@ -36,7 +57,8 @@ public class FieldBuilder {
     }
 
     public void merge(FieldBuilder fieldBuilder) {
-        if (fieldBuilder == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldBuilder) == null) || fieldBuilder == null) {
             return;
         }
         StringBuilder sb = this.builder;
@@ -51,7 +73,12 @@ public class FieldBuilder {
     }
 
     public String toString() {
-        StringBuilder sb = this.builder;
-        return sb != null ? sb.toString() : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = this.builder;
+            return sb != null ? sb.toString() : "";
+        }
+        return (String) invokeV.objValue;
     }
 }

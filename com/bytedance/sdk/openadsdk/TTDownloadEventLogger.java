@@ -1,6 +1,6 @@
 package com.bytedance.sdk.openadsdk;
 
-import d.o.a.a.a.d.d;
+import d.l.a.a.a.f.d;
 /* loaded from: classes6.dex */
 public interface TTDownloadEventLogger {
     void onEvent(d dVar);

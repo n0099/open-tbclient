@@ -5,147 +5,226 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.animation.DecelerateInterpolator;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13218e;
+    public int f13303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13219f;
+    public int f13304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13220g;
+    public float f13305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13221h;
+    public float f13306h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f13222i;
+    public ValueAnimator f13307i;
     public float j;
     public int k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FlexibleHorizontalScrollView f13308e;
+
+        public a(FlexibleHorizontalScrollView flexibleHorizontalScrollView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {flexibleHorizontalScrollView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13308e = flexibleHorizontalScrollView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            FlexibleHorizontalScrollView.this.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.f13308e.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlexibleHorizontalScrollView(Context context) {
         super(context);
-        this.f13218e = 150;
-        this.f13221h = 0.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13303e = 150;
+        this.f13306h = 0.0f;
     }
 
     public final void c() {
-        if (this.f13222i == null) {
-            ValueAnimator valueAnimator = new ValueAnimator();
-            this.f13222i = valueAnimator;
-            valueAnimator.setDuration(200L);
-            this.f13222i.setInterpolator(new DecelerateInterpolator());
-            this.f13222i.addUpdateListener(new a());
-        }
-        if (this.k == 0) {
-            setOverScrollMode(2);
-            int a2 = e.a(getContext());
-            this.k = a2;
-            this.j = (this.f13218e * 1.0f) / a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.f13307i == null) {
+                ValueAnimator valueAnimator = new ValueAnimator();
+                this.f13307i = valueAnimator;
+                valueAnimator.setDuration(200L);
+                this.f13307i.setInterpolator(new DecelerateInterpolator());
+                this.f13307i.addUpdateListener(new a(this));
+            }
+            if (this.k == 0) {
+                setOverScrollMode(2);
+                int a2 = e.a(getContext());
+                this.k = a2;
+                this.j = (this.f13303e * 1.0f) / a2;
+            }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x002d, code lost:
-        if (r3 != 3) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0031, code lost:
+        if (r3 != 3) goto L19;
      */
     @Override // android.widget.HorizontalScrollView, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        int scrollX = getScrollX();
-        float x = getX();
-        if (scrollX > 0 && scrollX < this.f13219f && x == 0.0f) {
-            return super.onTouchEvent(motionEvent);
-        }
-        int action = motionEvent.getAction() & 255;
-        int i2 = this.f13218e;
-        c();
-        if (action != 0) {
-            int i3 = 0;
-            if (action != 1) {
-                if (action == 2) {
-                    float rawX = motionEvent.getRawX() - this.f13220g;
-                    if (Math.abs(rawX) > 50.0f && x == 0.0f) {
-                        this.f13220g = motionEvent.getRawX();
-                        return true;
-                    }
-                    float f2 = this.f13221h;
-                    if (f2 * rawX < 0.0f) {
-                        this.f13221h = f2 + rawX;
-                    } else {
-                        this.f13221h = f2 + (rawX * this.j);
-                    }
-                    this.f13220g = motionEvent.getRawX();
-                    if (scrollX == 0) {
-                        i3 = 1;
-                    } else if (scrollX == this.f13219f) {
-                        i3 = -1;
-                    }
-                    if (i3 != 0) {
-                        float f3 = i3;
-                        float f4 = this.f13221h;
-                        if (f3 * f4 > i2) {
-                            this.f13221h = i3 * i2;
-                            this.f13220g = motionEvent.getRawX();
-                        } else if (f3 * f4 < 0.0f) {
-                            this.f13221h = 0.0f;
-                            this.f13220g = motionEvent.getRawX();
-                            setX(0.0f);
-                            return super.onTouchEvent(motionEvent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int scrollX = getScrollX();
+            float x = getX();
+            if (scrollX > 0 && scrollX < this.f13304f && x == 0.0f) {
+                return super.onTouchEvent(motionEvent);
+            }
+            int action = motionEvent.getAction() & 255;
+            int i2 = this.f13303e;
+            c();
+            if (action != 0) {
+                int i3 = 0;
+                if (action != 1) {
+                    if (action == 2) {
+                        float rawX = motionEvent.getRawX() - this.f13305g;
+                        if (Math.abs(rawX) > 50.0f && x == 0.0f) {
+                            this.f13305g = motionEvent.getRawX();
+                            return true;
                         }
-                        setX(this.f13221h);
-                        return true;
+                        float f2 = this.f13306h;
+                        if (f2 * rawX < 0.0f) {
+                            this.f13306h = f2 + rawX;
+                        } else {
+                            this.f13306h = f2 + (rawX * this.j);
+                        }
+                        this.f13305g = motionEvent.getRawX();
+                        if (scrollX == 0) {
+                            i3 = 1;
+                        } else if (scrollX == this.f13304f) {
+                            i3 = -1;
+                        }
+                        if (i3 != 0) {
+                            float f3 = i3;
+                            float f4 = this.f13306h;
+                            if (f3 * f4 > i2) {
+                                this.f13306h = i3 * i2;
+                                this.f13305g = motionEvent.getRawX();
+                            } else if (f3 * f4 < 0.0f) {
+                                this.f13306h = 0.0f;
+                                this.f13305g = motionEvent.getRawX();
+                                setX(0.0f);
+                                return super.onTouchEvent(motionEvent);
+                            }
+                            setX(this.f13306h);
+                            return true;
+                        }
                     }
                 }
+                if (x != 0.0f) {
+                    this.f13306h = 0.0f;
+                    this.f13305g = 0.0f;
+                    this.f13307i.setFloatValues(x, 0.0f);
+                    this.f13307i.start();
+                    return true;
+                }
+            } else {
+                if (this.f13307i.isRunning()) {
+                    this.f13307i.cancel();
+                }
+                this.f13305g = motionEvent.getRawX();
             }
-            if (x != 0.0f) {
-                this.f13221h = 0.0f;
-                this.f13220g = 0.0f;
-                this.f13222i.setFloatValues(x, 0.0f);
-                this.f13222i.start();
-                return true;
-            }
-        } else {
-            if (this.f13222i.isRunning()) {
-                this.f13222i.cancel();
-            }
-            this.f13220g = motionEvent.getRawX();
+            return super.onTouchEvent(motionEvent);
         }
-        return super.onTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public boolean overScrollBy(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, boolean z) {
-        this.f13219f = i6;
-        return super.overScrollBy(i2, i3, i4, i5, i6, i7, i8, i9, z);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Boolean.valueOf(z)})) == null) {
+            this.f13304f = i6;
+            return super.overScrollBy(i2, i3, i4, i5, i6, i7, i8, i9, z);
+        }
+        return invokeCommon.booleanValue;
     }
 
     public void setMaxOverScrollDistance(int i2) {
-        if (i2 <= 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f13218e = i2;
+        this.f13303e = i2;
         this.j = (i2 * 1.0f) / this.k;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlexibleHorizontalScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13218e = 150;
-        this.f13221h = 0.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f13303e = 150;
+        this.f13306h = 0.0f;
     }
 }

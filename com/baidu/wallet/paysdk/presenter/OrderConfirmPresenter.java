@@ -5,8 +5,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.eventbus.EventBus;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.base.datamodel.PayData;
@@ -27,15 +34,32 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.OrderConfirmActivity;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import com.baidu.wallet.util.StatHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OrderConfirmPresenter";
-    public boolean isHasShowRedDot = false;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean isHasShowRedDot;
     public OrderConfirmActivity mActivity;
     public PayRequest mPayRequest;
     public OrderConfirmContract.Presenter.OrderConfirmViewData mViewData;
 
     public OrderConfirmPresenter(OrderConfirmActivity orderConfirmActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {orderConfirmActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.isHasShowRedDot = false;
         this.mActivity = orderConfirmActivity;
         orderConfirmActivity.setPresenter((OrderConfirmContract.Presenter) this);
         this.mPayRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
@@ -44,39 +68,53 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void changePwdMode() {
-        OrderConfirmContract.Presenter.OrderConfirmViewData orderConfirmViewData = this.mViewData;
-        if (orderConfirmViewData != null) {
-            orderConfirmViewData.isFingerprintPay = false;
-            orderConfirmViewData.confirmBtnMsg = "确认支付";
-            this.mActivity.reFreshUI(orderConfirmViewData);
+        OrderConfirmContract.Presenter.OrderConfirmViewData orderConfirmViewData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (orderConfirmViewData = this.mViewData) == null) {
+            return;
         }
+        orderConfirmViewData.isFingerprintPay = false;
+        orderConfirmViewData.confirmBtnMsg = "确认支付";
+        this.mActivity.reFreshUI(orderConfirmViewData);
     }
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void clickCoupon() {
-        this.mActivity.gotoCoupon();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mActivity.gotoCoupon();
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void clickPayway() {
-        this.mActivity.gotoPayType();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.mActivity.gotoPayType();
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void closeOrderComfirmPage() {
-        if (this.mPayRequest.isWithHoldingValidity()) {
-            this.mActivity.finish();
-        } else {
-            WalletGlobalUtils.safeShowDialog(this.mActivity, 18, "");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.mPayRequest.isWithHoldingValidity()) {
+                this.mActivity.finish();
+            } else {
+                WalletGlobalUtils.safeShowDialog(this.mActivity, 18, "");
+            }
         }
     }
 
     public int getPayWay() {
-        return this.mPayRequest.getPayWay();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPayRequest.getPayWay() : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void getViewData() {
+        OrderConfirmActivity orderConfirmActivity;
         boolean z;
         PayData.DirectPayPay directPayPay;
         PayData.CreditPay creditPay;
@@ -87,8 +125,8 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
         CardData.BondCard bondCard;
         PayData.DirectPayPay directPayPay3;
         String displayName;
-        OrderConfirmActivity orderConfirmActivity = this.mActivity;
-        if (orderConfirmActivity == null || orderConfirmActivity.isFinishing()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (orderConfirmActivity = this.mActivity) == null || orderConfirmActivity.isFinishing()) {
             return;
         }
         this.mViewData = new OrderConfirmContract.Presenter.OrderConfirmViewData();
@@ -236,101 +274,187 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void gotoPayUsePwd(boolean z, String str) {
-        if (z) {
-            this.mPayRequest.supportFingerprintPay = false;
-        }
-        this.mPayRequest.setPayWay(3);
-        this.mActivity.gotoNext(null, str);
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.wallet.paysdk.presenter.OrderConfirmPresenter.2
-            @Override // java.lang.Runnable
-            public void run() {
-                OrderConfirmPresenter.this.getViewData();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) {
+            if (z) {
+                this.mPayRequest.supportFingerprintPay = false;
             }
-        }, 800L);
+            this.mPayRequest.setPayWay(3);
+            this.mActivity.gotoNext(null, str);
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.presenter.OrderConfirmPresenter.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ OrderConfirmPresenter f26107a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f26107a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f26107a.getViewData();
+                    }
+                }
+            }, 800L);
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.BasePresenter
     public void onCreate(Bundle bundle) {
-        if (bundle != null) {
-            this.mViewData = (OrderConfirmContract.Presenter.OrderConfirmViewData) bundle.get("viewdata");
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) || bundle == null) {
+            return;
         }
+        this.mViewData = (OrderConfirmContract.Presenter.OrderConfirmViewData) bundle.get("viewdata");
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.BasePresenter
     public void onDestroy() {
-        EventBus.getInstance().removeAllStickyEvents();
-        EventBus.getInstance().unregister(this, "order_confirm_event_bus_key");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            EventBus.getInstance().removeAllStickyEvents();
+            EventBus.getInstance().unregister(this, "order_confirm_event_bus_key");
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void onFpCheckError() {
-        this.mActivity.showFpCheckError();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.mActivity.showFpCheckError();
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void onFpCheckSucces(String str) {
-        this.mActivity.showFpCheckSuccess(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.mActivity.showFpCheckSuccess(str);
+        }
     }
 
     public void onModuleEvent(EventBus.Event event) {
-        LogUtil.d(TAG, "OrderConfirmActivity  onModuleEvent");
-        if (event == null || !"order_confirm_event_bus_key".equals(event.mEventKey)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, event) == null) {
+            LogUtil.d(TAG, "OrderConfirmActivity  onModuleEvent");
+            if (event == null || !"order_confirm_event_bus_key".equals(event.mEventKey)) {
+                return;
+            }
+            Object obj = event.mEventObj;
+            if (obj != null && (obj instanceof PayRequest)) {
+                this.mPayRequest = (PayRequest) obj;
+            }
+            getViewData();
+            EventBus.getInstance().removeStickyEvent("order_confirm_event_bus_key");
         }
-        Object obj = event.mEventObj;
-        if (obj != null && (obj instanceof PayRequest)) {
-            this.mPayRequest = (PayRequest) obj;
-        }
-        getViewData();
-        EventBus.getInstance().removeStickyEvent("order_confirm_event_bus_key");
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.BasePresenter
     public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.BasePresenter
     public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.BasePresenter
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("viewdata", this.mViewData);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
+            bundle.putSerializable("viewdata", this.mViewData);
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void quitCashDesk() {
-        PayCallBackManager.callBackClientCancel(this.mActivity, "OrderConfirmPresenter.quitCashDesk().1");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            PayCallBackManager.callBackClientCancel(this.mActivity, "OrderConfirmPresenter.quitCashDesk().1");
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.contract.OrderConfirmContract.Presenter
     public void startFingerprintListening() {
         IFingerprintPay iFingerprintPay;
         OrderConfirmContract.Presenter.OrderConfirmViewData orderConfirmViewData;
-        if (this.mPayRequest.getPayWay() == 2 && (orderConfirmViewData = this.mViewData) != null) {
-            orderConfirmViewData.isFingerprintPay = true;
-        }
-        this.mActivity.reFreshUI(this.mViewData);
-        if (this.mPayRequest.getPayWay() != 2 || (iFingerprintPay = this.mPayRequest.mFingerprintPay) == null || !(iFingerprintPay instanceof SysFingerprintPay) || Build.VERSION.SDK_INT < 23) {
-            return;
-        }
-        WalletFingerprint.getInstance(this.mActivity).startListening(new com.baidu.wallet.paysdk.fingerprint.b() { // from class: com.baidu.wallet.paysdk.presenter.OrderConfirmPresenter.1
-            @Override // com.baidu.wallet.paysdk.fingerprint.b
-            public void a(int i2, String str) {
-                if (i2 == 0) {
-                    OrderConfirmPresenter.this.onFpCheckSucces(str);
-                } else if (i2 == -5) {
-                    OrderConfirmPresenter.this.onFpCheckError();
-                } else if (i2 == -3) {
-                    OrderConfirmPresenter.this.gotoPayUsePwd(true, str);
-                } else if (i2 == -1) {
-                    OrderConfirmPresenter.this.changePwdMode();
-                } else if (i2 == -4 || i2 == -6) {
-                    OrderConfirmPresenter.this.gotoPayUsePwd(true, str);
-                } else if (i2 == -2) {
-                    OrderConfirmPresenter.this.gotoPayUsePwd(true, "");
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            if (this.mPayRequest.getPayWay() == 2 && (orderConfirmViewData = this.mViewData) != null) {
+                orderConfirmViewData.isFingerprintPay = true;
             }
-        });
+            this.mActivity.reFreshUI(this.mViewData);
+            if (this.mPayRequest.getPayWay() != 2 || (iFingerprintPay = this.mPayRequest.mFingerprintPay) == null || !(iFingerprintPay instanceof SysFingerprintPay) || Build.VERSION.SDK_INT < 23) {
+                return;
+            }
+            WalletFingerprint.getInstance(this.mActivity).startListening(new com.baidu.wallet.paysdk.fingerprint.b(this) { // from class: com.baidu.wallet.paysdk.presenter.OrderConfirmPresenter.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ OrderConfirmPresenter f26106a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f26106a = this;
+                }
+
+                @Override // com.baidu.wallet.paysdk.fingerprint.b
+                public void a(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        if (i2 == 0) {
+                            this.f26106a.onFpCheckSucces(str);
+                        } else if (i2 == -5) {
+                            this.f26106a.onFpCheckError();
+                        } else if (i2 == -3) {
+                            this.f26106a.gotoPayUsePwd(true, str);
+                        } else if (i2 == -1) {
+                            this.f26106a.changePwdMode();
+                        } else if (i2 == -4 || i2 == -6) {
+                            this.f26106a.gotoPayUsePwd(true, str);
+                        } else if (i2 == -2) {
+                            this.f26106a.gotoPayUsePwd(true, "");
+                        }
+                    }
+                }
+            });
+        }
     }
 }

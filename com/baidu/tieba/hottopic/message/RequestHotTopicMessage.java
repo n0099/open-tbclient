@@ -1,17 +1,26 @@
 package com.baidu.tieba.hottopic.message;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.n0.z0.w;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.w;
 import tbclient.CommonReq;
 import tbclient.Hottopic.DataReq;
 import tbclient.Hottopic.HottopicReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RequestHotTopicMessage extends NetMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16986common;
+    public CommonReq f17112common;
     public Long fid;
     public String first_dir;
     public Integer q_type;
@@ -24,139 +33,224 @@ public class RequestHotTopicMessage extends NetMessage {
     public String topic_name;
     public long topic_tid;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestHotTopicMessage() {
         super(CmdConfigHttp.CMD_HOT_TOPIC, 303050);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
-        try {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.f72873common = getCommon();
-            builder.topic_id = getTopicId();
-            builder.topic_name = getTopicName();
-            builder.scr_w = getScrW();
-            builder.scr_h = getSrcH();
-            builder.scr_dip = getSrcDip();
-            builder.q_type = getQType();
-            builder.sort_type = getSort_type();
-            builder.fid = getFid();
-            builder.first_dir = getFirst_dir();
-            builder.second_dir = getSecond_dir();
-            builder.call_from = Integer.valueOf(getCall_from());
-            builder.topic_tid = Long.valueOf(getTopic_tid());
-            if (z) {
-                w.a(builder, true);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.f76545common = getCommon();
+                builder.topic_id = getTopicId();
+                builder.topic_name = getTopicName();
+                builder.scr_w = getScrW();
+                builder.scr_h = getSrcH();
+                builder.scr_dip = getSrcDip();
+                builder.q_type = getQType();
+                builder.sort_type = getSort_type();
+                builder.fid = getFid();
+                builder.first_dir = getFirst_dir();
+                builder.second_dir = getSecond_dir();
+                builder.call_from = Integer.valueOf(getCall_from());
+                builder.topic_tid = Long.valueOf(getTopic_tid());
+                if (z) {
+                    w.a(builder, true);
+                }
+                HottopicReqIdl.Builder builder2 = new HottopicReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
             }
-            HottopicReqIdl.Builder builder2 = new HottopicReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        } catch (Exception unused) {
-            return null;
         }
+        return invokeZ.objValue;
     }
 
     public int getCall_from() {
-        return this.call_from;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.call_from : invokeV.intValue;
     }
 
     public CommonReq getCommon() {
-        return this.f16986common;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17112common : (CommonReq) invokeV.objValue;
     }
 
     public Long getFid() {
-        return this.fid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.fid : (Long) invokeV.objValue;
     }
 
     public String getFirst_dir() {
-        return this.first_dir;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.first_dir : (String) invokeV.objValue;
     }
 
     public Integer getQType() {
-        return this.q_type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.q_type : (Integer) invokeV.objValue;
     }
 
     public Integer getScrW() {
-        return this.scr_w;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.scr_w : (Integer) invokeV.objValue;
     }
 
     public String getSecond_dir() {
-        return this.second_dir;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.second_dir : (String) invokeV.objValue;
     }
 
     public Integer getSort_type() {
-        return this.sort_type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.sort_type : (Integer) invokeV.objValue;
     }
 
     public Double getSrcDip() {
-        return this.scr_dip;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.scr_dip : (Double) invokeV.objValue;
     }
 
     public Integer getSrcH() {
-        return this.scr_h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.scr_h : (Integer) invokeV.objValue;
     }
 
     public Long getTopicId() {
-        return this.topic_id;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.topic_id : (Long) invokeV.objValue;
     }
 
     public String getTopicName() {
-        return this.topic_name;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.topic_name : (String) invokeV.objValue;
     }
 
     public long getTopic_tid() {
-        return this.topic_tid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.topic_tid : invokeV.longValue;
     }
 
     public void setCall_from(int i2) {
-        this.call_from = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.call_from = i2;
+        }
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f16986common = commonReq;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, commonReq) == null) {
+            this.f17112common = commonReq;
+        }
     }
 
     public void setFid(Long l) {
-        this.fid = l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, l) == null) {
+            this.fid = l;
+        }
     }
 
     public void setFirst_dir(String str) {
-        this.first_dir = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.first_dir = str;
+        }
     }
 
     public void setQType(Integer num) {
-        this.q_type = num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, num) == null) {
+            this.q_type = num;
+        }
     }
 
     public void setScrH(Integer num) {
-        this.scr_h = num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, num) == null) {
+            this.scr_h = num;
+        }
     }
 
     public void setScrW(Integer num) {
-        this.scr_w = num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, num) == null) {
+            this.scr_w = num;
+        }
     }
 
     public void setSecond_dir(String str) {
-        this.second_dir = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.second_dir = str;
+        }
     }
 
     public void setSort_type(Integer num) {
-        this.sort_type = num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, num) == null) {
+            this.sort_type = num;
+        }
     }
 
     public void setSrcDip(Double d2) {
-        this.scr_dip = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, d2) == null) {
+            this.scr_dip = d2;
+        }
     }
 
     public void setTopicId(Long l) {
-        this.topic_id = l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, l) == null) {
+            this.topic_id = l;
+        }
     }
 
     public void setTopicName(String str) {
-        this.topic_name = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.topic_name = str;
+        }
     }
 
     public void setTopic_tid(long j) {
-        this.topic_tid = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            this.topic_tid = j;
+        }
     }
 }

@@ -3,165 +3,341 @@ package com.bytedance.sdk.openadsdk.core.widget;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.bytedance.sdk.openadsdk.utils.ad;
-import com.bytedance.sdk.openadsdk.utils.al;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.openadsdk.core.o;
 /* loaded from: classes6.dex */
 public class e extends AlertDialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f28842a;
+    public TextView f30732a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f28843b;
+    public TextView f30733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f28844c;
+    public Button f30734c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f28845d;
+    public TextView f30735d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f28846e;
+    public TextView f30736e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28847f;
+    public TTRoundRectImageView f30737f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28848g;
+    public Context f30738g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f28849h;
+    public TextView f30739h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f28850i;
-    public Drawable j;
-    public a k;
+    public TextView f30740i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public a n;
 
     /* loaded from: classes6.dex */
     public interface a {
         void a(Dialog dialog);
 
         void b(Dialog dialog);
+
+        void c(Dialog dialog);
+
+        void d(Dialog dialog);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
-        super(context, ad.g(context, "tt_custom_dialog"));
-        this.f28846e = context;
+        super(context, r.g(context, "tt_dialog_full"));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f30738g = context;
     }
 
     private void b() {
-        TextView textView = this.f28842a;
-        if (textView != null) {
-            textView.setText(this.f28847f);
-            Drawable drawable = this.j;
-            if (drawable != null) {
-                int intrinsicWidth = drawable.getIntrinsicWidth();
-                int intrinsicHeight = this.j.getIntrinsicHeight();
-                int c2 = al.c(this.f28846e, 45.0f);
-                if (intrinsicWidth > c2 || intrinsicWidth < c2) {
-                    intrinsicWidth = c2;
-                }
-                if (intrinsicHeight > c2 || intrinsicHeight < c2) {
-                    intrinsicHeight = c2;
-                }
-                this.j.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-                this.f28842a.setCompoundDrawables(this.j, null, null, null);
-                this.f28842a.setCompoundDrawablePadding(al.c(this.f28846e, 10.0f));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            if (this.f30738g == null) {
+                this.f30738g = o.a();
+            }
+            TextView textView = this.f30732a;
+            if (textView != null) {
+                textView.setText(this.j);
+            }
+            if (this.f30737f != null && !TextUtils.isEmpty(this.l)) {
+                com.bytedance.sdk.openadsdk.g.a.a(this.l).a(this.f30737f);
+            }
+            if (this.f30740i != null) {
+                String a2 = r.a(this.f30738g, "tt_open_app_detail_developer");
+                this.f30740i.setText(TextUtils.isEmpty(this.m) ? String.format(a2, "补充中，可于应用官网查看") : String.format(a2, this.m));
+            }
+            if (this.f30733b != null) {
+                String a3 = r.a(this.f30738g, "tt_open_app_version");
+                this.f30733b.setText(TextUtils.isEmpty(this.k) ? String.format(a3, "暂无") : String.format(a3, this.k));
             }
         }
-        TextView textView2 = this.f28843b;
-        if (textView2 != null) {
-            textView2.setText(this.f28848g);
-        }
-        Button button = this.f28844c;
-        if (button != null) {
-            button.setText(this.f28849h);
-        }
-        Button button2 = this.f28845d;
-        if (button2 != null) {
-            button2.setText(this.f28850i);
-        }
     }
 
-    public e c(@NonNull String str) {
-        this.f28849h = str;
-        return this;
+    public e c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.l = str;
+            return this;
+        }
+        return (e) invokeL.objValue;
     }
 
-    public e d(@NonNull String str) {
-        this.f28850i = str;
-        return this;
+    public e d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.m = str;
+            return this;
+        }
+        return (e) invokeL.objValue;
+    }
+
+    @Override // android.app.Dialog
+    public void onBackPressed() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.n) == null) {
+            return;
+        }
+        aVar.c(this);
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(ad.f(this.f28846e, "tt_install_dialog_layout"));
-        setCanceledOnTouchOutside(true);
-        a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(r.f(this.f30738g, "tt_common_download_dialog"));
+            setCanceledOnTouchOutside(false);
+            a();
+        }
     }
 
     @Override // android.app.Dialog
     public void show() {
-        super.show();
-        b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.show();
+            b();
+        }
     }
 
     private void a() {
-        this.f28842a = (TextView) findViewById(ad.e(this.f28846e, "tt_install_title"));
-        this.f28843b = (TextView) findViewById(ad.e(this.f28846e, "tt_install_content"));
-        this.f28844c = (Button) findViewById(ad.e(this.f28846e, "tt_install_btn_yes"));
-        this.f28845d = (Button) findViewById(ad.e(this.f28846e, "tt_install_btn_no"));
-        this.f28844c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.e.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                e.this.dismiss();
-                if (e.this.k != null) {
-                    e.this.k.a(e.this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.f30732a = (TextView) findViewById(r.e(this.f30738g, "tt_download_title"));
+            this.f30735d = (TextView) findViewById(r.e(this.f30738g, "tt_download_app_detail"));
+            this.f30734c = (Button) findViewById(r.e(this.f30738g, "tt_download_btn"));
+            this.f30733b = (TextView) findViewById(r.e(this.f30738g, "tt_download_app_version"));
+            this.f30736e = (TextView) findViewById(r.e(this.f30738g, "tt_download_cancel"));
+            this.f30739h = (TextView) findViewById(r.e(this.f30738g, "tt_download_app_privacy"));
+            this.f30740i = (TextView) findViewById(r.e(this.f30738g, "tt_download_app_developer"));
+            this.f30737f = (TTRoundRectImageView) findViewById(r.e(this.f30738g, "tt_download_icon"));
+            this.f30734c.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.e.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ e f30741a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f30741a = this;
                 }
-            }
-        });
-        this.f28845d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.e.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                e.this.dismiss();
-                if (e.this.k != null) {
-                    e.this.k.b(e.this);
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f30741a.n == null) {
+                        return;
+                    }
+                    this.f30741a.n.a(this.f30741a);
                 }
-            }
-        });
+            });
+            this.f30735d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.e.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ e f30742a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f30742a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f30742a.n == null) {
+                        return;
+                    }
+                    this.f30742a.n.b(this.f30742a);
+                }
+            });
+            this.f30736e.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.e.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ e f30743a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f30743a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f30743a.n == null) {
+                        return;
+                    }
+                    this.f30743a.n.c(this.f30743a);
+                }
+            });
+            this.f30739h.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.e.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ e f30744a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f30744a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f30744a.n == null) {
+                        return;
+                    }
+                    this.f30744a.n.d(this.f30744a);
+                }
+            });
+        }
     }
 
     public e a(@NonNull String str) {
-        this.f28847f = str;
-        return this;
-    }
-
-    public e a(Drawable drawable) {
-        this.j = drawable;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.j = str;
+            return this;
+        }
+        return (e) invokeL.objValue;
     }
 
     public e a(a aVar) {
-        this.k = aVar;
-        return this;
-    }
-
-    public e a(@Nullable DialogInterface.OnCancelListener onCancelListener) {
-        setOnCancelListener(onCancelListener);
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            this.n = aVar;
+            return this;
+        }
+        return (e) invokeL.objValue;
     }
 
     public e b(@NonNull String str) {
-        this.f28848g = str;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.k = str;
+            return this;
+        }
+        return (e) invokeL.objValue;
     }
 }

@@ -17,25 +17,36 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-import d.a.m0.a.j;
-/* loaded from: classes3.dex */
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.j;
+/* loaded from: classes4.dex */
 public class ShimmerFrameLayout extends FrameLayout {
-    public static final PorterDuffXfermode v = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
+    public static /* synthetic */ Interceptable $ic;
+    public static final PorterDuffXfermode v;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f11257e;
+    public Paint f11324e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f11258f;
+    public Paint f11325f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f11259g;
+    public d f11326g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f11260h;
+    public e f11327h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f11261i;
+    public Bitmap f11328i;
     public Bitmap j;
     public boolean k;
     public int l;
@@ -49,147 +60,350 @@ public class ShimmerFrameLayout extends FrameLayout {
     public ValueAnimator t;
     public Bitmap u;
 
-    /* loaded from: classes3.dex */
-    public enum MaskAngle {
-        CW_0,
-        CW_90,
-        CW_180,
-        CW_270
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class MaskAngle {
+        public static final /* synthetic */ MaskAngle[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final MaskAngle CW_0;
+        public static final MaskAngle CW_180;
+        public static final MaskAngle CW_270;
+        public static final MaskAngle CW_90;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-968570781, "Lcom/baidu/swan/apps/res/ui/ShimmerFrameLayout$MaskAngle;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-968570781, "Lcom/baidu/swan/apps/res/ui/ShimmerFrameLayout$MaskAngle;");
+                    return;
+                }
+            }
+            CW_0 = new MaskAngle("CW_0", 0);
+            CW_90 = new MaskAngle("CW_90", 1);
+            CW_180 = new MaskAngle("CW_180", 2);
+            MaskAngle maskAngle = new MaskAngle("CW_270", 3);
+            CW_270 = maskAngle;
+            $VALUES = new MaskAngle[]{CW_0, CW_90, CW_180, maskAngle};
+        }
+
+        public MaskAngle(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static MaskAngle valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MaskAngle) Enum.valueOf(MaskAngle.class, str) : (MaskAngle) invokeL.objValue;
+        }
+
+        public static MaskAngle[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MaskAngle[]) $VALUES.clone() : (MaskAngle[]) invokeV.objValue;
+        }
     }
 
-    /* loaded from: classes3.dex */
-    public enum MaskShape {
-        LINEAR,
-        RADIAL,
-        WHITE_LINEAR
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class MaskShape {
+        public static final /* synthetic */ MaskShape[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final MaskShape LINEAR;
+        public static final MaskShape RADIAL;
+        public static final MaskShape WHITE_LINEAR;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-458962091, "Lcom/baidu/swan/apps/res/ui/ShimmerFrameLayout$MaskShape;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-458962091, "Lcom/baidu/swan/apps/res/ui/ShimmerFrameLayout$MaskShape;");
+                    return;
+                }
+            }
+            LINEAR = new MaskShape("LINEAR", 0);
+            RADIAL = new MaskShape("RADIAL", 1);
+            MaskShape maskShape = new MaskShape("WHITE_LINEAR", 2);
+            WHITE_LINEAR = maskShape;
+            $VALUES = new MaskShape[]{LINEAR, RADIAL, maskShape};
+        }
+
+        public MaskShape(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static MaskShape valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MaskShape) Enum.valueOf(MaskShape.class, str) : (MaskShape) invokeL.objValue;
+        }
+
+        public static MaskShape[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MaskShape[]) $VALUES.clone() : (MaskShape[]) invokeV.objValue;
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ShimmerFrameLayout f11329e;
+
+        public a(ShimmerFrameLayout shimmerFrameLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shimmerFrameLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11329e = shimmerFrameLayout;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            boolean z = ShimmerFrameLayout.this.r;
-            ShimmerFrameLayout.this.l();
-            if (ShimmerFrameLayout.this.k || z) {
-                ShimmerFrameLayout.this.o();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean z = this.f11329e.r;
+                this.f11329e.l();
+                if (this.f11329e.k || z) {
+                    this.f11329e.o();
+                }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ShimmerFrameLayout f11330e;
+
+        public b(ShimmerFrameLayout shimmerFrameLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shimmerFrameLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11330e = shimmerFrameLayout;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            float max = Math.max(0.0f, Math.min(1.0f, ((Float) valueAnimator.getAnimatedValue()).floatValue()));
-            ShimmerFrameLayout shimmerFrameLayout = ShimmerFrameLayout.this;
-            float f2 = 1.0f - max;
-            shimmerFrameLayout.setMaskOffsetX((int) ((shimmerFrameLayout.f11260h.f11275a * f2) + (ShimmerFrameLayout.this.f11260h.f11277c * max)));
-            ShimmerFrameLayout shimmerFrameLayout2 = ShimmerFrameLayout.this;
-            shimmerFrameLayout2.setMaskOffsetY((int) ((shimmerFrameLayout2.f11260h.f11276b * f2) + (ShimmerFrameLayout.this.f11260h.f11278d * max)));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                float max = Math.max(0.0f, Math.min(1.0f, ((Float) valueAnimator.getAnimatedValue()).floatValue()));
+                ShimmerFrameLayout shimmerFrameLayout = this.f11330e;
+                float f2 = 1.0f - max;
+                shimmerFrameLayout.setMaskOffsetX((int) ((shimmerFrameLayout.f11327h.f11342a * f2) + (this.f11330e.f11327h.f11344c * max)));
+                ShimmerFrameLayout shimmerFrameLayout2 = this.f11330e;
+                shimmerFrameLayout2.setMaskOffsetY((int) ((shimmerFrameLayout2.f11327h.f11343b * f2) + (this.f11330e.f11327h.f11345d * max)));
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class c {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11264a;
+        public static final /* synthetic */ int[] f11331a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11265b;
+        public static final /* synthetic */ int[] f11332b;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-233888857, "Lcom/baidu/swan/apps/res/ui/ShimmerFrameLayout$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-233888857, "Lcom/baidu/swan/apps/res/ui/ShimmerFrameLayout$c;");
+                    return;
+                }
+            }
             int[] iArr = new int[MaskAngle.values().length];
-            f11265b = iArr;
+            f11332b = iArr;
             try {
                 iArr[MaskAngle.CW_0.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11265b[MaskAngle.CW_90.ordinal()] = 2;
+                f11332b[MaskAngle.CW_90.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f11265b[MaskAngle.CW_180.ordinal()] = 3;
+                f11332b[MaskAngle.CW_180.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f11265b[MaskAngle.CW_270.ordinal()] = 4;
+                f11332b[MaskAngle.CW_270.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             int[] iArr2 = new int[MaskShape.values().length];
-            f11264a = iArr2;
+            f11331a = iArr2;
             try {
                 iArr2[MaskShape.LINEAR.ordinal()] = 1;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f11264a[MaskShape.RADIAL.ordinal()] = 2;
+                f11331a[MaskShape.RADIAL.ordinal()] = 2;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f11264a[MaskShape.WHITE_LINEAR.ordinal()] = 3;
+                f11331a[MaskShape.WHITE_LINEAR.ordinal()] = 3;
             } catch (NoSuchFieldError unused7) {
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public MaskAngle f11266a;
+        public MaskAngle f11333a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f11267b;
+        public float f11334b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f11268c;
+        public float f11335c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f11269d;
+        public int f11336d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f11270e;
+        public int f11337e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f11271f;
+        public float f11338f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f11272g;
+        public float f11339g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f11273h;
+        public float f11340h;
 
         /* renamed from: i  reason: collision with root package name */
-        public MaskShape f11274i;
+        public MaskShape f11341i;
 
         public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         public int[] a() {
-            int i2 = c.f11264a[this.f11274i.ordinal()];
-            return i2 != 2 ? i2 != 3 ? new int[]{0, -16777216, -16777216, 0} : new int[]{-16777216, 0, 0, -16777216} : new int[]{-16777216, -16777216, 0};
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i2 = c.f11331a[this.f11341i.ordinal()];
+                return i2 != 2 ? i2 != 3 ? new int[]{0, -16777216, -16777216, 0} : new int[]{-16777216, 0, 0, -16777216} : new int[]{-16777216, -16777216, 0};
+            }
+            return (int[]) invokeV.objValue;
         }
 
         public float[] b() {
-            return c.f11264a[this.f11274i.ordinal()] != 2 ? new float[]{Math.max(((1.0f - this.f11271f) - this.f11268c) / 2.0f, 0.0f), Math.max((1.0f - this.f11271f) / 2.0f, 0.0f), Math.min((this.f11271f + 1.0f) / 2.0f, 1.0f), Math.min(((this.f11271f + 1.0f) + this.f11268c) / 2.0f, 1.0f)} : new float[]{0.0f, Math.min(this.f11271f, 1.0f), Math.min(this.f11271f + this.f11268c, 1.0f)};
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.f11331a[this.f11341i.ordinal()] != 2 ? new float[]{Math.max(((1.0f - this.f11338f) - this.f11335c) / 2.0f, 0.0f), Math.max((1.0f - this.f11338f) / 2.0f, 0.0f), Math.min((this.f11338f + 1.0f) / 2.0f, 1.0f), Math.min(((this.f11338f + 1.0f) + this.f11335c) / 2.0f, 1.0f)} : new float[]{0.0f, Math.min(this.f11338f, 1.0f), Math.min(this.f11338f + this.f11335c, 1.0f)} : (float[]) invokeV.objValue;
         }
 
         public int c(int i2) {
-            int i3 = this.f11270e;
-            return i3 > 0 ? i3 : (int) (i2 * this.f11273h);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+                int i3 = this.f11337e;
+                return i3 > 0 ? i3 : (int) (i2 * this.f11340h);
+            }
+            return invokeI.intValue;
         }
 
         public int d(int i2) {
-            int i3 = this.f11269d;
-            return i3 > 0 ? i3 : (int) (i2 * this.f11272g);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+                int i3 = this.f11336d;
+                return i3 > 0 ? i3 : (int) (i2 * this.f11339g);
+            }
+            return invokeI.intValue;
         }
 
         public /* synthetic */ d(a aVar) {
@@ -197,29 +411,45 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f11275a;
+        public int f11342a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f11276b;
+        public int f11343b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f11277c;
+        public int f11344c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f11278d;
+        public int f11345d;
 
         public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         public void a(int i2, int i3, int i4, int i5) {
-            this.f11275a = i2;
-            this.f11276b = i3;
-            this.f11277c = i4;
-            this.f11278d = i5;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
+                this.f11342a = i2;
+                this.f11343b = i3;
+                this.f11344c = i4;
+                this.f11345d = i5;
+            }
         }
 
         public /* synthetic */ e(a aVar) {
@@ -227,104 +457,157 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(545007430, "Lcom/baidu/swan/apps/res/ui/ShimmerFrameLayout;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(545007430, "Lcom/baidu/swan/apps/res/ui/ShimmerFrameLayout;");
+                return;
+            }
+        }
+        v = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ShimmerFrameLayout(Context context) {
         this(context, null, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     public static float g(float f2, float f3, float f4) {
-        return Math.min(f3, Math.max(f2, f4));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? Math.min(f3, Math.max(f2, f4)) : invokeCommon.floatValue;
     }
 
     private ViewTreeObserver.OnGlobalLayoutListener getLayoutListener() {
-        return new a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? new a(this) : (ViewTreeObserver.OnGlobalLayoutListener) invokeV.objValue;
     }
 
     private Bitmap getMaskBitmap() {
+        InterceptResult invokeV;
         Shader radialGradient;
         int sqrt;
         int i2;
         int i3;
         int i4;
-        Bitmap bitmap = this.u;
-        if (bitmap != null) {
-            return bitmap;
-        }
-        int d2 = this.f11259g.d(getWidth());
-        int c2 = this.f11259g.c(getHeight());
-        this.u = h(d2, c2);
-        Canvas canvas = new Canvas(this.u);
-        if (c.f11264a[this.f11259g.f11274i.ordinal()] != 2) {
-            int i5 = c.f11265b[this.f11259g.f11266a.ordinal()];
-            int i6 = 0;
-            if (i5 != 2) {
-                if (i5 == 3) {
-                    i6 = d2;
-                    i3 = 0;
-                } else if (i5 != 4) {
-                    i4 = d2;
-                    i3 = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            Bitmap bitmap = this.u;
+            if (bitmap != null) {
+                return bitmap;
+            }
+            int d2 = this.f11326g.d(getWidth());
+            int c2 = this.f11326g.c(getHeight());
+            this.u = h(d2, c2);
+            Canvas canvas = new Canvas(this.u);
+            if (c.f11331a[this.f11326g.f11341i.ordinal()] != 2) {
+                int i5 = c.f11332b[this.f11326g.f11333a.ordinal()];
+                int i6 = 0;
+                if (i5 != 2) {
+                    if (i5 == 3) {
+                        i6 = d2;
+                        i3 = 0;
+                    } else if (i5 != 4) {
+                        i4 = d2;
+                        i3 = 0;
+                        i2 = 0;
+                    } else {
+                        i3 = c2;
+                    }
+                    i4 = 0;
                     i2 = 0;
                 } else {
-                    i3 = c2;
+                    i2 = c2;
+                    i3 = 0;
+                    i4 = 0;
                 }
-                i4 = 0;
-                i2 = 0;
+                radialGradient = new LinearGradient(i6, i3, i4, i2, this.f11326g.a(), this.f11326g.b(), Shader.TileMode.REPEAT);
             } else {
-                i2 = c2;
-                i3 = 0;
-                i4 = 0;
+                radialGradient = new RadialGradient(d2 / 2, c2 / 2, (float) (Math.max(d2, c2) / Math.sqrt(2.0d)), this.f11326g.a(), this.f11326g.b(), Shader.TileMode.REPEAT);
             }
-            radialGradient = new LinearGradient(i6, i3, i4, i2, this.f11259g.a(), this.f11259g.b(), Shader.TileMode.REPEAT);
-        } else {
-            radialGradient = new RadialGradient(d2 / 2, c2 / 2, (float) (Math.max(d2, c2) / Math.sqrt(2.0d)), this.f11259g.a(), this.f11259g.b(), Shader.TileMode.REPEAT);
+            canvas.rotate(this.f11326g.f11334b, d2 / 2, c2 / 2);
+            Paint paint = new Paint();
+            paint.setShader(radialGradient);
+            float f2 = -(((int) (Math.sqrt(2.0d) * Math.max(d2, c2))) / 2);
+            canvas.drawRect(f2, f2, d2 + sqrt, c2 + sqrt, paint);
+            return this.u;
         }
-        canvas.rotate(this.f11259g.f11267b, d2 / 2, c2 / 2);
-        Paint paint = new Paint();
-        paint.setShader(radialGradient);
-        float f2 = -(((int) (Math.sqrt(2.0d) * Math.max(d2, c2))) / 2);
-        canvas.drawRect(f2, f2, d2 + sqrt, c2 + sqrt, paint);
-        return this.u;
+        return (Bitmap) invokeV.objValue;
     }
 
     private Animator getShimmerAnimation() {
-        ValueAnimator valueAnimator = this.t;
-        if (valueAnimator != null) {
-            return valueAnimator;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            ValueAnimator valueAnimator = this.t;
+            if (valueAnimator != null) {
+                return valueAnimator;
+            }
+            int width = getWidth();
+            int height = getHeight();
+            int i2 = c.f11331a[this.f11326g.f11341i.ordinal()];
+            int i3 = c.f11332b[this.f11326g.f11333a.ordinal()];
+            if (i3 == 2) {
+                this.f11327h.a(0, -height, 0, height);
+            } else if (i3 == 3) {
+                this.f11327h.a(width, 0, -width, 0);
+            } else if (i3 != 4) {
+                this.f11327h.a(-width, 0, width, 0);
+            } else {
+                this.f11327h.a(0, height, 0, -height);
+            }
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, (this.n / this.l) + 1.0f);
+            this.t = ofFloat;
+            ofFloat.setDuration(this.l + this.n);
+            this.t.setRepeatCount(this.m);
+            this.t.setRepeatMode(this.o);
+            this.t.addUpdateListener(new b(this));
+            return this.t;
         }
-        int width = getWidth();
-        int height = getHeight();
-        int i2 = c.f11264a[this.f11259g.f11274i.ordinal()];
-        int i3 = c.f11265b[this.f11259g.f11266a.ordinal()];
-        if (i3 == 2) {
-            this.f11260h.a(0, -height, 0, height);
-        } else if (i3 == 3) {
-            this.f11260h.a(width, 0, -width, 0);
-        } else if (i3 != 4) {
-            this.f11260h.a(-width, 0, width, 0);
-        } else {
-            this.f11260h.a(0, height, 0, -height);
-        }
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, (this.n / this.l) + 1.0f);
-        this.t = ofFloat;
-        ofFloat.setDuration(this.l + this.n);
-        this.t.setRepeatCount(this.m);
-        this.t.setRepeatMode(this.o);
-        this.t.addUpdateListener(new b());
-        return this.t;
+        return (Animator) invokeV.objValue;
     }
 
     public static Bitmap h(int i2, int i3) {
-        try {
-            return Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
-        } catch (OutOfMemoryError unused) {
-            System.gc();
-            return Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65550, null, i2, i3)) == null) {
+            try {
+                return Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+            } catch (OutOfMemoryError unused) {
+                System.gc();
+                return Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+            }
         }
+        return (Bitmap) invokeII.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setMaskOffsetX(int i2) {
-        if (this.p == i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65551, this, i2) == null) || this.p == i2) {
             return;
         }
         this.p = i2;
@@ -333,7 +616,8 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setMaskOffsetY(int i2) {
-        if (this.q == i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65552, this, i2) == null) || this.q == i2) {
             return;
         }
         this.q = i2;
@@ -342,130 +626,179 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        if (this.r && getWidth() > 0 && getHeight() > 0) {
-            i(canvas);
-        } else {
-            super.dispatchDraw(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            if (this.r && getWidth() > 0 && getHeight() > 0) {
+                i(canvas);
+            } else {
+                super.dispatchDraw(canvas);
+            }
         }
     }
 
     public MaskAngle getAngle() {
-        return this.f11259g.f11266a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11326g.f11333a : (MaskAngle) invokeV.objValue;
     }
 
     public float getBaseAlpha() {
-        return this.f11257e.getAlpha() / 255.0f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11324e.getAlpha() / 255.0f : invokeV.floatValue;
     }
 
     public float getDropoff() {
-        return this.f11259g.f11268c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11326g.f11335c : invokeV.floatValue;
     }
 
     public int getDuration() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l : invokeV.intValue;
     }
 
     public int getFixedHeight() {
-        return this.f11259g.f11270e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11326g.f11337e : invokeV.intValue;
     }
 
     public int getFixedWidth() {
-        return this.f11259g.f11269d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11326g.f11336d : invokeV.intValue;
     }
 
     public float getIntensity() {
-        return this.f11259g.f11271f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11326g.f11338f : invokeV.floatValue;
     }
 
     public MaskShape getMaskShape() {
-        return this.f11259g.f11274i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11326g.f11341i : (MaskShape) invokeV.objValue;
     }
 
     @SuppressLint({"KotlinPropertyAccess"})
     public float getRelativeHeight() {
-        return this.f11259g.f11273h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11326g.f11340h : invokeV.floatValue;
     }
 
     @SuppressLint({"KotlinPropertyAccess"})
     public float getRelativeWidth() {
-        return this.f11259g.f11272g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f11326g.f11339g : invokeV.floatValue;
     }
 
     public int getRepeatCount() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.m : invokeV.intValue;
     }
 
     public int getRepeatDelay() {
-        return this.n;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.n : invokeV.intValue;
     }
 
     public int getRepeatMode() {
-        return this.o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.o : invokeV.intValue;
     }
 
     public float getTilt() {
-        return this.f11259g.f11267b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f11326g.f11334b : invokeV.floatValue;
     }
 
     public final boolean i(Canvas canvas) {
-        Bitmap s = s();
-        Bitmap r = r();
-        if (s == null || r == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, canvas)) == null) {
+            Bitmap s = s();
+            Bitmap r = r();
+            if (s == null || r == null) {
+                return false;
+            }
+            k(new Canvas(s));
+            canvas.drawBitmap(s, 0.0f, 0.0f, this.f11324e);
+            j(new Canvas(r));
+            canvas.drawBitmap(r, 0.0f, 0.0f, (Paint) null);
+            return true;
         }
-        k(new Canvas(s));
-        canvas.drawBitmap(s, 0.0f, 0.0f, this.f11257e);
-        j(new Canvas(r));
-        canvas.drawBitmap(r, 0.0f, 0.0f, (Paint) null);
-        return true;
+        return invokeL.booleanValue;
     }
 
     public final void j(Canvas canvas) {
-        Bitmap maskBitmap = getMaskBitmap();
-        if (maskBitmap == null) {
+        Bitmap maskBitmap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, canvas) == null) || (maskBitmap = getMaskBitmap()) == null) {
             return;
         }
         int i2 = this.p;
         canvas.clipRect(i2, this.q, maskBitmap.getWidth() + i2, this.q + maskBitmap.getHeight());
         canvas.drawColor(0, PorterDuff.Mode.CLEAR);
         super.dispatchDraw(canvas);
-        canvas.drawBitmap(maskBitmap, this.p, this.q, this.f11258f);
+        canvas.drawBitmap(maskBitmap, this.p, this.q, this.f11325f);
     }
 
     public final void k(Canvas canvas) {
-        canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-        super.dispatchDraw(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, canvas) == null) {
+            canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+            super.dispatchDraw(canvas);
+        }
     }
 
     public final void l() {
-        p();
-        m();
-        n();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            p();
+            m();
+            n();
+        }
     }
 
     public final void m() {
-        Bitmap bitmap = this.u;
-        if (bitmap != null) {
-            bitmap.recycle();
-            this.u = null;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (bitmap = this.u) == null) {
+            return;
         }
+        bitmap.recycle();
+        this.u = null;
     }
 
     public final void n() {
-        Bitmap bitmap = this.j;
-        if (bitmap != null) {
-            bitmap.recycle();
-            this.j = null;
-        }
-        Bitmap bitmap2 = this.f11261i;
-        if (bitmap2 != null) {
-            bitmap2.recycle();
-            this.f11261i = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            Bitmap bitmap = this.j;
+            if (bitmap != null) {
+                bitmap.recycle();
+                this.j = null;
+            }
+            Bitmap bitmap2 = this.f11328i;
+            if (bitmap2 != null) {
+                bitmap2.recycle();
+                this.f11328i = null;
+            }
         }
     }
 
     public void o() {
-        if (this.r) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || this.r) {
             return;
         }
         Animator shimmerAnimation = getShimmerAnimation();
@@ -476,182 +809,288 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        if (this.s == null) {
-            this.s = getLayoutListener();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            super.onAttachedToWindow();
+            if (this.s == null) {
+                this.s = getLayoutListener();
+            }
+            getViewTreeObserver().addOnGlobalLayoutListener(this.s);
         }
-        getViewTreeObserver().addOnGlobalLayoutListener(this.s);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        p();
-        if (this.s != null) {
-            getViewTreeObserver().removeGlobalOnLayoutListener(this.s);
-            this.s = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            p();
+            if (this.s != null) {
+                getViewTreeObserver().removeGlobalOnLayoutListener(this.s);
+                this.s = null;
+            }
+            super.onDetachedFromWindow();
         }
-        super.onDetachedFromWindow();
     }
 
     public void p() {
-        ValueAnimator valueAnimator = this.t;
-        if (valueAnimator != null) {
-            valueAnimator.end();
-            this.t.removeAllUpdateListeners();
-            this.t.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            ValueAnimator valueAnimator = this.t;
+            if (valueAnimator != null) {
+                valueAnimator.end();
+                this.t.removeAllUpdateListeners();
+                this.t.cancel();
+            }
+            this.t = null;
+            this.r = false;
         }
-        this.t = null;
-        this.r = false;
     }
 
     @SuppressLint({"SwanDebugLog"})
     public final Bitmap q() {
-        int width = getWidth();
-        int height = getHeight();
-        try {
-            return h(width, height);
-        } catch (OutOfMemoryError unused) {
-            StringBuilder sb = new StringBuilder("ShimmerFrameLayout failed to create working bitmap");
-            sb.append(" (width = ");
-            sb.append(width);
-            sb.append(", height = ");
-            sb.append(height);
-            sb.append(")\n\n");
-            for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
-                sb.append(stackTraceElement.toString());
-                sb.append("\n");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            int width = getWidth();
+            int height = getHeight();
+            try {
+                return h(width, height);
+            } catch (OutOfMemoryError unused) {
+                StringBuilder sb = new StringBuilder("ShimmerFrameLayout failed to create working bitmap");
+                sb.append(" (width = ");
+                sb.append(width);
+                sb.append(", height = ");
+                sb.append(height);
+                sb.append(")\n\n");
+                for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
+                    sb.append(stackTraceElement.toString());
+                    sb.append("\n");
+                }
+                Log.d("ShimmerFrameLayout", sb.toString());
+                return null;
             }
-            Log.d("ShimmerFrameLayout", sb.toString());
-            return null;
         }
+        return (Bitmap) invokeV.objValue;
     }
 
     public final Bitmap r() {
-        if (this.f11261i == null) {
-            this.f11261i = q();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (this.f11328i == null) {
+                this.f11328i = q();
+            }
+            return this.f11328i;
         }
-        return this.f11261i;
+        return (Bitmap) invokeV.objValue;
     }
 
     public final Bitmap s() {
-        if (this.j == null) {
-            this.j = q();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (this.j == null) {
+                this.j = q();
+            }
+            return this.j;
         }
-        return this.j;
+        return (Bitmap) invokeV.objValue;
     }
 
     public void setAngle(MaskAngle maskAngle) {
-        this.f11259g.f11266a = maskAngle;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, maskAngle) == null) {
+            this.f11326g.f11333a = maskAngle;
+            l();
+        }
     }
 
     public void setAutoStart(boolean z) {
-        this.k = z;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.k = z;
+            l();
+        }
     }
 
     public void setBaseAlpha(float f2) {
-        this.f11257e.setAlpha((int) (g(0.0f, 1.0f, f2) * 255.0f));
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048606, this, f2) == null) {
+            this.f11324e.setAlpha((int) (g(0.0f, 1.0f, f2) * 255.0f));
+            l();
+        }
     }
 
     public void setDropoff(float f2) {
-        this.f11259g.f11268c = f2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048607, this, f2) == null) {
+            this.f11326g.f11335c = f2;
+            l();
+        }
     }
 
     public void setDuration(int i2) {
-        this.l = i2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
+            this.l = i2;
+            l();
+        }
     }
 
     public void setFixedHeight(int i2) {
-        this.f11259g.f11270e = i2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+            this.f11326g.f11337e = i2;
+            l();
+        }
     }
 
     public void setFixedWidth(int i2) {
-        this.f11259g.f11269d = i2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
+            this.f11326g.f11336d = i2;
+            l();
+        }
     }
 
     public void setIntensity(float f2) {
-        this.f11259g.f11271f = f2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048611, this, f2) == null) {
+            this.f11326g.f11338f = f2;
+            l();
+        }
     }
 
     public void setMaskShape(MaskShape maskShape) {
-        this.f11259g.f11274i = maskShape;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, maskShape) == null) {
+            this.f11326g.f11341i = maskShape;
+            l();
+        }
     }
 
     @SuppressLint({"KotlinPropertyAccess"})
     public void setRelativeHeight(int i2) {
-        this.f11259g.f11273h = i2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
+            this.f11326g.f11340h = i2;
+            l();
+        }
     }
 
     @SuppressLint({"KotlinPropertyAccess"})
     public void setRelativeWidth(int i2) {
-        this.f11259g.f11272g = i2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+            this.f11326g.f11339g = i2;
+            l();
+        }
     }
 
     public void setRepeatCount(int i2) {
-        this.m = i2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+            this.m = i2;
+            l();
+        }
     }
 
     public void setRepeatDelay(int i2) {
-        this.n = i2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
+            this.n = i2;
+            l();
+        }
     }
 
     public void setRepeatMode(int i2) {
-        this.o = i2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
+            this.o = i2;
+            l();
+        }
     }
 
     public void setTilt(float f2) {
-        this.f11259g.f11267b = f2;
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048618, this, f2) == null) {
+            this.f11326g.f11334b = f2;
+            l();
+        }
     }
 
     public void t() {
-        setDuration(1200);
-        setRepeatCount(-1);
-        setRepeatDelay(0);
-        setRepeatMode(1);
-        d dVar = this.f11259g;
-        dVar.f11266a = MaskAngle.CW_0;
-        dVar.f11274i = MaskShape.LINEAR;
-        dVar.f11268c = 0.5f;
-        dVar.f11269d = 0;
-        dVar.f11270e = 0;
-        dVar.f11271f = 0.0f;
-        dVar.f11272g = 1.0f;
-        dVar.f11273h = 1.0f;
-        dVar.f11267b = 340.0f;
-        this.f11260h = new e(null);
-        setBaseAlpha(1.0f);
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+            setDuration(1200);
+            setRepeatCount(-1);
+            setRepeatDelay(0);
+            setRepeatMode(1);
+            d dVar = this.f11326g;
+            dVar.f11333a = MaskAngle.CW_0;
+            dVar.f11341i = MaskShape.LINEAR;
+            dVar.f11335c = 0.5f;
+            dVar.f11336d = 0;
+            dVar.f11337e = 0;
+            dVar.f11338f = 0.0f;
+            dVar.f11339g = 1.0f;
+            dVar.f11340h = 1.0f;
+            dVar.f11334b = 340.0f;
+            this.f11327h = new e(null);
+            setBaseAlpha(1.0f);
+            l();
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ShimmerFrameLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShimmerFrameLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         setWillNotDraw(false);
-        this.f11259g = new d(null);
-        this.f11257e = new Paint();
+        this.f11326g = new d(null);
+        this.f11324e = new Paint();
         Paint paint = new Paint();
-        this.f11258f = paint;
+        this.f11325f = paint;
         paint.setAntiAlias(true);
-        this.f11258f.setDither(true);
-        this.f11258f.setFilterBitmap(true);
-        this.f11258f.setXfermode(v);
+        this.f11325f.setDither(true);
+        this.f11325f.setFilterBitmap(true);
+        this.f11325f.setXfermode(v);
         t();
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.ShimmerFrameLayout, 0, 0);
@@ -675,44 +1114,44 @@ public class ShimmerFrameLayout extends FrameLayout {
                     setRepeatMode(obtainStyledAttributes.getInt(j.ShimmerFrameLayout_repeat_mode, 0));
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_angle)) {
-                    int i3 = obtainStyledAttributes.getInt(j.ShimmerFrameLayout_angle, 0);
-                    if (i3 == 90) {
-                        this.f11259g.f11266a = MaskAngle.CW_90;
-                    } else if (i3 == 180) {
-                        this.f11259g.f11266a = MaskAngle.CW_180;
-                    } else if (i3 != 270) {
-                        this.f11259g.f11266a = MaskAngle.CW_0;
+                    int i5 = obtainStyledAttributes.getInt(j.ShimmerFrameLayout_angle, 0);
+                    if (i5 == 90) {
+                        this.f11326g.f11333a = MaskAngle.CW_90;
+                    } else if (i5 == 180) {
+                        this.f11326g.f11333a = MaskAngle.CW_180;
+                    } else if (i5 != 270) {
+                        this.f11326g.f11333a = MaskAngle.CW_0;
                     } else {
-                        this.f11259g.f11266a = MaskAngle.CW_270;
+                        this.f11326g.f11333a = MaskAngle.CW_270;
                     }
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_shimmer_shape)) {
                     if (obtainStyledAttributes.getInt(j.ShimmerFrameLayout_shimmer_shape, 0) != 1) {
-                        this.f11259g.f11274i = MaskShape.LINEAR;
+                        this.f11326g.f11341i = MaskShape.LINEAR;
                     } else {
-                        this.f11259g.f11274i = MaskShape.RADIAL;
+                        this.f11326g.f11341i = MaskShape.RADIAL;
                     }
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_dropoff)) {
-                    this.f11259g.f11268c = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_dropoff, 0.0f);
+                    this.f11326g.f11335c = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_dropoff, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_fixed_width)) {
-                    this.f11259g.f11269d = obtainStyledAttributes.getDimensionPixelSize(j.ShimmerFrameLayout_fixed_width, 0);
+                    this.f11326g.f11336d = obtainStyledAttributes.getDimensionPixelSize(j.ShimmerFrameLayout_fixed_width, 0);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_fixed_height)) {
-                    this.f11259g.f11270e = obtainStyledAttributes.getDimensionPixelSize(j.ShimmerFrameLayout_fixed_height, 0);
+                    this.f11326g.f11337e = obtainStyledAttributes.getDimensionPixelSize(j.ShimmerFrameLayout_fixed_height, 0);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_intensity)) {
-                    this.f11259g.f11271f = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_intensity, 0.0f);
+                    this.f11326g.f11338f = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_intensity, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_relative_width)) {
-                    this.f11259g.f11272g = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_relative_width, 0.0f);
+                    this.f11326g.f11339g = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_relative_width, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_relative_height)) {
-                    this.f11259g.f11273h = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_relative_height, 0.0f);
+                    this.f11326g.f11340h = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_relative_height, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_tilt)) {
-                    this.f11259g.f11267b = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_tilt, 0.0f);
+                    this.f11326g.f11334b = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_tilt, 0.0f);
                 }
             } finally {
                 obtainStyledAttributes.recycle();

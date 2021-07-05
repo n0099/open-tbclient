@@ -1,8 +1,15 @@
 package com.baidu.webkit.internal;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.IABTestInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ABTestConstants implements INoProGuard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ADBLOCK2_ON = 1;
     public static final int ADBLOCK3_ON = 4;
     public static final int ADBLOCK4_ON = 8;
@@ -244,27 +251,55 @@ public final class ABTestConstants implements INoProGuard {
     public static final boolean ZEUS_WEBCACHE_FROM_PROXY_DISABLE_VALUE = false;
     public static final boolean ZEUS_WEBCACHE_FROM_PROXY_ENABLE_VALUE = true;
     public static final String ZEUS_WEBCACHE_FROM_PROXY_KEY = "webcache_from_proxy";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ABTestConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static final int getAdBlockAndMfOpt(IABTestInterface iABTestInterface) {
-        if (iABTestInterface == null) {
-            return 1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iABTestInterface)) == null) {
+            if (iABTestInterface == null) {
+                return 1;
+            }
+            return iABTestInterface.getSwitch(ADBLOCK_MF30_OPT_CODE, 1);
         }
-        return iABTestInterface.getSwitch(ADBLOCK_MF30_OPT_CODE, 1);
+        return invokeL.intValue;
     }
 
     public static boolean isAdBlock2On(IABTestInterface iABTestInterface) {
-        return (getAdBlockAndMfOpt(iABTestInterface) & 1) > 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iABTestInterface)) == null) ? (getAdBlockAndMfOpt(iABTestInterface) & 1) > 0 : invokeL.booleanValue;
     }
 
     public static boolean isAdBlock3On(IABTestInterface iABTestInterface) {
-        return (getAdBlockAndMfOpt(iABTestInterface) & 4) > 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iABTestInterface)) == null) ? (getAdBlockAndMfOpt(iABTestInterface) & 4) > 0 : invokeL.booleanValue;
     }
 
     public static boolean isAdBlock4On(IABTestInterface iABTestInterface) {
-        return iABTestInterface != null && iABTestInterface.getSwitch(IBLOCK_OPT_KEY, 1) == 1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iABTestInterface)) == null) ? iABTestInterface != null && iABTestInterface.getSwitch(IBLOCK_OPT_KEY, 1) == 1 : invokeL.booleanValue;
     }
 
     public static boolean isMagicFilterOn(IABTestInterface iABTestInterface) {
-        return (getAdBlockAndMfOpt(iABTestInterface) & 2) > 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, iABTestInterface)) == null) ? (getAdBlockAndMfOpt(iABTestInterface) & 2) > 0 : invokeL.booleanValue;
     }
 }

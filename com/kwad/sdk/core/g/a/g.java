@@ -1,32 +1,58 @@
 package com.kwad.sdk.core.g.a;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 /* loaded from: classes7.dex */
 public class g extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34378a;
+    public String f36141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34379b;
+    public String f36142b;
+
+    public g() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static g a() {
-        SdkConfigData.TemplateConfig a2 = com.kwad.sdk.core.config.c.a();
-        if (a2 != null) {
-            g gVar = new g();
-            String str = a2.h5Url;
-            if (str != null) {
-                gVar.f34379b = str;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            SdkConfigData.TemplateConfig a2 = com.kwad.sdk.core.config.c.a();
+            if (a2 != null) {
+                g gVar = new g();
+                String str = a2.h5Url;
+                if (str != null) {
+                    gVar.f36142b = str;
+                }
+                String str2 = a2.h5Version;
+                if (str2 != null) {
+                    gVar.f36141a = str2;
+                }
+                if (gVar.f36142b == null && gVar.f36141a == null) {
+                    return null;
+                }
+                return gVar;
             }
-            String str2 = a2.h5Version;
-            if (str2 != null) {
-                gVar.f34378a = str2;
-            }
-            if (gVar.f34379b == null && gVar.f34378a == null) {
-                return null;
-            }
-            return gVar;
+            return null;
         }
-        return null;
+        return (g) invokeV.objValue;
     }
 }

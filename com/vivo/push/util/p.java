@@ -1,72 +1,129 @@
 package com.vivo.push.util;
 
 import android.content.Context;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public final class p {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f40507a = new n();
+    public static final o f42250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f40508b = z.b("persist.sys.log.ctrl", "no").equals("yes");
+    public static boolean f42251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f40509c;
+    public static boolean f42252c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(744178604, "Lcom/vivo/push/util/p;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(744178604, "Lcom/vivo/push/util/p;");
+                return;
+            }
+        }
+        f42250a = new n();
+        f42251b = z.b("persist.sys.log.ctrl", "no").equals("yes");
+    }
 
     public static boolean a() {
-        return f40508b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f42251b : invokeV.booleanValue;
     }
 
     public static int b(String str, String str2) {
-        return f40507a.b(str, str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? f42250a.b(str, str2) : invokeLL.intValue;
     }
 
     public static int c(String str, String str2) {
-        return f40507a.c(str, str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) ? f42250a.c(str, str2) : invokeLL.intValue;
     }
 
     public static int d(String str, String str2) {
-        return f40507a.d(str, str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) ? f42250a.d(str, str2) : invokeLL.intValue;
     }
 
     public static int e(String str, String str2) {
-        return f40507a.e(str, str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) ? f42250a.e(str, str2) : invokeLL.intValue;
     }
 
     public static void a(boolean z) {
-        f40508b = z;
-        f40509c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
+            f42251b = z;
+            f42252c = z;
+        }
     }
 
     public static int b(String str, String str2, Throwable th) {
-        return f40507a.b(str, str2, th);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, th)) == null) ? f42250a.b(str, str2, th) : invokeLLL.intValue;
     }
 
     public static void c(Context context, String str) {
-        f40507a.c(context, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
+            f42250a.c(context, str);
+        }
     }
 
     public static void b(Context context, String str) {
-        f40507a.b(context, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
+            f42250a.b(context, str);
+        }
     }
 
     public static int a(String str, String str2) {
-        return f40507a.a(str, str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? f42250a.a(str, str2) : invokeLL.intValue;
     }
 
     public static int a(String str, Throwable th) {
-        return f40507a.a(str, th);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, th)) == null) ? f42250a.a(str, th) : invokeLL.intValue;
     }
 
     public static int a(String str, String str2, Throwable th) {
-        return f40507a.a(str, str2, th);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, th)) == null) ? f42250a.a(str, str2, th) : invokeLLL.intValue;
     }
 
     public static String a(Throwable th) {
-        return f40507a.a(th);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, th)) == null) ? f42250a.a(th) : (String) invokeL.objValue;
     }
 
     public static void a(Context context, String str) {
-        f40507a.a(context, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+            f42250a.a(context, str);
+        }
     }
 }

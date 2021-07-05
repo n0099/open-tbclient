@@ -6,340 +6,502 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaInstanceManagerProvider.OnClientInstanceHandler {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PlayerProvider f4720a;
+    public PlayerProvider f4750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4721b;
+    public boolean f4751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4722c;
+    public boolean f4752c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4723d;
+    public int f4753d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaInstanceState f4724e;
+    public MediaInstanceState f4754e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CyberPlayerManager.OnErrorListener f4725f;
+    public CyberPlayerManager.OnErrorListener f4755f;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CyberPlayer() {
         this(0, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), (CyberPlayerManager.HttpDNS) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CyberPlayer(int i2) {
         this(i2, null, true);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (CyberPlayerManager.HttpDNS) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CyberPlayer(int i2, CyberPlayerManager.HttpDNS httpDNS) {
         this(i2, httpDNS, true);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), httpDNS};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (CyberPlayerManager.HttpDNS) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     public CyberPlayer(int i2, CyberPlayerManager.HttpDNS httpDNS, boolean z) {
-        this.f4721b = true;
-        this.f4722c = true;
-        this.f4723d = 0;
-        this.f4720a = m.a().a(i2, httpDNS, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), httpDNS, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f4751b = true;
+        this.f4752c = true;
+        this.f4753d = 0;
+        this.f4750a = m.a().a(i2, httpDNS, z);
         if (z && a() && MultiInstanceManager.getInstance() != null) {
-            this.f4723d = MultiInstanceManager.getInstance().registerInstance(this);
-            CyberLog.i("CyberPlayer", "[MultiInstanceManager] register instance: " + this.f4723d);
-            if (this.f4723d > 0) {
+            this.f4753d = MultiInstanceManager.getInstance().registerInstance(this);
+            CyberLog.i("CyberPlayer", "[MultiInstanceManager] register instance: " + this.f4753d);
+            if (this.f4753d > 0) {
                 MediaInstanceState mediaInstanceState = new MediaInstanceState();
-                this.f4724e = mediaInstanceState;
+                this.f4754e = mediaInstanceState;
                 mediaInstanceState.updateInstanceState(0);
-                this.f4724e.updateDns(httpDNS);
-                this.f4724e.updateDecoderMode(i2);
-                this.f4724e.updateRemote(z);
+                this.f4754e.updateDns(httpDNS);
+                this.f4754e.updateDecoderMode(i2);
+                this.f4754e.updateRemote(z);
             }
         }
     }
 
     private void a(boolean z) {
         MediaInstanceState mediaInstanceState;
-        if (this.f4724e != null) {
-            this.f4720a = m.a().a(this.f4724e.getDecoderMode(), this.f4724e.dns(), z);
-        }
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider == null || (mediaInstanceState = this.f4724e) == null) {
-            return;
-        }
-        if (!z) {
-            playerProvider.setOnPreparedListener(mediaInstanceState.getOnPreparedListener());
-        }
-        this.f4720a.setOnCompletionListener(this.f4724e.getOnCompletionListener());
-        this.f4720a.setOnBufferingUpdateListener(this.f4724e.getOnBufferingUpdateListener());
-        this.f4720a.setOnSeekCompleteListener(this.f4724e.getOnSeekCompleteListener());
-        this.f4720a.setOnVideoSizeChangedListener(this.f4724e.getOnVideoSizeChangedListener());
-        this.f4720a.setOnErrorListener(this);
-        this.f4720a.setOnInfoListener(this.f4724e.getOnInfoListener());
-        this.f4720a.setOnMediaSourceChangedListener(this.f4724e.getOnMediaSourceChangedListener());
-        Bundle instanceStatusByType = MultiInstanceManager.getInstance().getInstanceStatusByType(this.f4723d, 0);
-        if (instanceStatusByType != null) {
-            for (String str : instanceStatusByType.keySet()) {
-                setOption(str, instanceStatusByType.getString(str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65540, this, z) == null) {
+            if (this.f4754e != null) {
+                this.f4750a = m.a().a(this.f4754e.getDecoderMode(), this.f4754e.dns(), z);
             }
-        }
-        float lRVolume = this.f4724e.getLRVolume();
-        if (lRVolume >= 0.0f) {
-            setVolume(lRVolume, lRVolume);
-        }
-        this.f4720a.muteOrUnmuteAudio(this.f4724e.getPlayStateByType(0));
-        this.f4720a.setLooping(this.f4724e.getPlayStateByType(1));
-        this.f4720a.setEnableDumediaUA(this.f4721b);
-        if (this.f4724e.getInstanceContext() != null) {
-            setDataSource(this.f4724e.getInstanceContext(), this.f4724e.getInstanceUri(), this.f4724e.getInstanceHeader());
-        } else if (this.f4724e.getInstanceUri() != null) {
-            setDataSource(this.f4724e.getInstanceUri().getPath(), this.f4724e.getInstanceHeader());
-        } else {
-            CyberLog.i("CyberPlayer", "[MultiInstanceManager] esumeInstance failed, source is null");
-        }
-        if (this.f4724e.getClarityInfo() != null) {
-            setClarityInfo(this.f4724e.getClarityInfo());
-        }
-        if (this.f4724e.getPlayJson() != null) {
-            setPlayJson(this.f4724e.getPlayJson());
-        }
-        if (this.f4724e.getMediaSourceRank() != Integer.MIN_VALUE) {
-            switchMediaSource(this.f4724e.getMediaSourceRank());
-        }
-        this.f4720a.setSurface(this.f4724e.getInstanceSurface());
-        this.f4720a.prepareAsync();
-        if (this.f4724e.getCurrentPosition() >= 0) {
-            seekTo(this.f4724e.getCurrentPosition());
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider == null || (mediaInstanceState = this.f4754e) == null) {
+                return;
+            }
+            if (!z) {
+                playerProvider.setOnPreparedListener(mediaInstanceState.getOnPreparedListener());
+            }
+            this.f4750a.setOnCompletionListener(this.f4754e.getOnCompletionListener());
+            this.f4750a.setOnBufferingUpdateListener(this.f4754e.getOnBufferingUpdateListener());
+            this.f4750a.setOnSeekCompleteListener(this.f4754e.getOnSeekCompleteListener());
+            this.f4750a.setOnVideoSizeChangedListener(this.f4754e.getOnVideoSizeChangedListener());
+            this.f4750a.setOnErrorListener(this);
+            this.f4750a.setOnInfoListener(this.f4754e.getOnInfoListener());
+            this.f4750a.setOnMediaSourceChangedListener(this.f4754e.getOnMediaSourceChangedListener());
+            Bundle instanceStatusByType = MultiInstanceManager.getInstance().getInstanceStatusByType(this.f4753d, 0);
+            if (instanceStatusByType != null) {
+                for (String str : instanceStatusByType.keySet()) {
+                    setOption(str, instanceStatusByType.getString(str));
+                }
+            }
+            float lRVolume = this.f4754e.getLRVolume();
+            if (lRVolume >= 0.0f) {
+                setVolume(lRVolume, lRVolume);
+            }
+            this.f4750a.muteOrUnmuteAudio(this.f4754e.getPlayStateByType(0));
+            this.f4750a.setLooping(this.f4754e.getPlayStateByType(1));
+            this.f4750a.setEnableDumediaUA(this.f4751b);
+            if (this.f4754e.getInstanceContext() != null) {
+                setDataSource(this.f4754e.getInstanceContext(), this.f4754e.getInstanceUri(), this.f4754e.getInstanceHeader());
+            } else if (this.f4754e.getInstanceUri() != null) {
+                setDataSource(this.f4754e.getInstanceUri().getPath(), this.f4754e.getInstanceHeader());
+            } else {
+                CyberLog.i("CyberPlayer", "[MultiInstanceManager] esumeInstance failed, source is null");
+            }
+            if (this.f4754e.getClarityInfo() != null) {
+                setClarityInfo(this.f4754e.getClarityInfo());
+            }
+            if (this.f4754e.getPlayJson() != null) {
+                setPlayJson(this.f4754e.getPlayJson());
+            }
+            if (this.f4754e.getMediaSourceRank() != Integer.MIN_VALUE) {
+                switchMediaSource(this.f4754e.getMediaSourceRank());
+            }
+            this.f4750a.setSurface(this.f4754e.getInstanceSurface());
+            this.f4750a.prepareAsync();
+            if (this.f4754e.getCurrentPosition() >= 0) {
+                seekTo(this.f4754e.getCurrentPosition());
+            }
         }
     }
 
     private boolean a() {
-        return CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_MULTI_INSTANCE, false);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_MULTI_INSTANCE, false) : invokeV.booleanValue;
     }
 
     public void changeProxyDynamic(String str, boolean z) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.changeProxyDynamic(str, z);
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.changeProxyDynamic(str, z);
     }
 
     public void cleanFilecacheAsyn() {
-        o.j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            o.j();
+        }
     }
 
     public int getCurrentPosition() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            return playerProvider.getCurrentPosition();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                return playerProvider.getCurrentPosition();
+            }
+            if (this.f4753d > 0) {
+                return this.f4754e.getCurrentPosition();
+            }
+            return 0;
         }
-        if (this.f4723d > 0) {
-            return this.f4724e.getCurrentPosition();
-        }
-        return 0;
+        return invokeV.intValue;
     }
 
     public int getCurrentPositionSync() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            return playerProvider.getCurrentPositionSync();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                return playerProvider.getCurrentPositionSync();
+            }
+            if (this.f4753d > 0) {
+                return this.f4754e.getCurrentPosition();
+            }
+            return 0;
         }
-        if (this.f4723d > 0) {
-            return this.f4724e.getCurrentPosition();
-        }
-        return 0;
+        return invokeV.intValue;
     }
 
     public int getDecodeMode() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            return playerProvider.getDecodeMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                return playerProvider.getDecodeMode();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     public long getDownloadSpeed() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            return playerProvider.getDownloadSpeed();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                return playerProvider.getDownloadSpeed();
+            }
+            return 0L;
         }
-        return 0L;
+        return invokeV.longValue;
     }
 
     public int getDuration() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            return playerProvider.getDuration();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                return playerProvider.getDuration();
+            }
+            return -1;
         }
-        return -1;
+        return invokeV.intValue;
     }
 
     public long getPlayedTime() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            return playerProvider.getPlayedTime();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                return playerProvider.getPlayedTime();
+            }
+            if (this.f4753d > 0) {
+                return this.f4754e.getPlayedTime();
+            }
+            return 0L;
         }
-        if (this.f4723d > 0) {
-            return this.f4724e.getPlayedTime();
-        }
-        return 0L;
+        return invokeV.longValue;
     }
 
     public int getVideoHeight() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            return playerProvider.getVideoHeight();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                return playerProvider.getVideoHeight();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     public int getVideoWidth() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            return playerProvider.getVideoWidth();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                return playerProvider.getVideoWidth();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     public boolean isLooping() {
-        PlayerProvider playerProvider = this.f4720a;
-        return playerProvider != null && playerProvider.isLooping();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            return playerProvider != null && playerProvider.isLooping();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isPlaying() {
-        PlayerProvider playerProvider = this.f4720a;
-        return playerProvider != null && playerProvider.isPlaying();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            return playerProvider != null && playerProvider.isPlaying();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isRemotePlayer() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            return playerProvider.isRemotePlayer();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                return playerProvider.isRemotePlayer();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public void muteOrUnmuteAudio(boolean z) {
         MediaInstanceState mediaInstanceState;
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.muteOrUnmuteAudio(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.muteOrUnmuteAudio(z);
+            }
+            if (this.f4753d <= 0 || (mediaInstanceState = this.f4754e) == null) {
+                return;
+            }
+            mediaInstanceState.updatePlayStateByType(0, z);
         }
-        if (this.f4723d <= 0 || (mediaInstanceState = this.f4724e) == null) {
-            return;
-        }
-        mediaInstanceState.updatePlayStateByType(0, z);
     }
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider.OnClientInstanceHandler
     public boolean onDestroyInstance() {
-        CyberLog.i("CyberPlayer", "[MultiInstanceManager] onDestroyInstance:" + this.f4723d);
-        if (this.f4720a == null || this.f4723d <= 0) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            CyberLog.i("CyberPlayer", "[MultiInstanceManager] onDestroyInstance:" + this.f4753d);
+            if (this.f4750a == null || this.f4753d <= 0) {
+                return false;
+            }
+            this.f4754e.updateSeekPos(getCurrentPosition(), getDuration());
+            this.f4754e.updatePlayedTime(getPlayedTime());
+            this.f4754e.updateDownLoadSpeed(getDownloadSpeed());
+            this.f4754e.updateDecoderMode(getDecodeMode());
+            this.f4754e.updateInstanceDecodeMode(getDecodeMode());
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("multi_instance_destroy", this.f4754e.getInstanceStaticsCount(true));
+                sendCommand(1003, 0, 0L, jSONObject.toString());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            this.f4750a.stop();
+            this.f4750a.release();
+            this.f4750a = null;
+            this.f4754e.updateInstanceState(0);
+            return true;
         }
-        this.f4724e.updateSeekPos(getCurrentPosition(), getDuration());
-        this.f4724e.updatePlayedTime(getPlayedTime());
-        this.f4724e.updateDownLoadSpeed(getDownloadSpeed());
-        this.f4724e.updateDecoderMode(getDecodeMode());
-        this.f4724e.updateInstanceDecodeMode(getDecodeMode());
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("multi_instance_destroy", this.f4724e.getInstanceStaticsCount(true));
-            sendCommand(1003, 0, 0L, jSONObject.toString());
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        this.f4720a.stop();
-        this.f4720a.release();
-        this.f4720a = null;
-        this.f4724e.updateInstanceState(0);
-        return true;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
     public boolean onError(int i2, int i3, Object obj) {
+        InterceptResult invokeIIL;
         PlayerProvider playerProvider;
-        if (this.f4723d <= 0 || CyberCfgManager.getInstance().a(CyberCfgManager.KEY_INT_REMOTE_RESUME_FORBIDDEN, true) || (!(i2 == -30000 || i2 == -30001) || (playerProvider = this.f4720a) == null)) {
-            if (this.f4723d > 0) {
-                MultiInstanceManager.getInstance().unRegisterInstance(this.f4723d);
-                CyberLog.i("CyberPlayer", "[MultiInstanceManager] unRegister instance:" + this.f4723d);
-                this.f4723d = 0;
-                this.f4724e.release();
-                this.f4724e = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048591, this, i2, i3, obj)) == null) {
+            if (this.f4753d <= 0 || CyberCfgManager.getInstance().a(CyberCfgManager.KEY_INT_REMOTE_RESUME_FORBIDDEN, true) || (!(i2 == -30000 || i2 == -30001) || (playerProvider = this.f4750a) == null)) {
+                if (this.f4753d > 0) {
+                    MultiInstanceManager.getInstance().unRegisterInstance(this.f4753d);
+                    CyberLog.i("CyberPlayer", "[MultiInstanceManager] unRegister instance:" + this.f4753d);
+                    this.f4753d = 0;
+                    this.f4754e.release();
+                    this.f4754e = null;
+                }
+                CyberPlayerManager.OnErrorListener onErrorListener = this.f4755f;
+                return onErrorListener != null && onErrorListener.onError(i2, i3, obj);
             }
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f4725f;
-            return onErrorListener != null && onErrorListener.onError(i2, i3, obj);
-        }
-        playerProvider.stop();
-        this.f4720a.release();
-        a(true);
-        MediaInstanceState mediaInstanceState = this.f4724e;
-        if (mediaInstanceState != null) {
-            if (mediaInstanceState.getPlayingStatus()) {
-                start();
-            } else {
-                pause();
+            playerProvider.stop();
+            this.f4750a.release();
+            a(true);
+            MediaInstanceState mediaInstanceState = this.f4754e;
+            if (mediaInstanceState != null) {
+                if (mediaInstanceState.getPlayingStatus()) {
+                    start();
+                } else {
+                    pause();
+                }
             }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("multi_instance_resume_process", "1");
+                sendCommand(1003, 0, 0L, jSONObject.toString());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return true;
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("multi_instance_resume_process", "1");
-            sendCommand(1003, 0, 0L, jSONObject.toString());
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        return true;
+        return invokeIIL.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider.OnClientInstanceHandler
     public boolean onResumeInstance() {
-        CyberLog.i("CyberPlayer", "[MultiInstanceManager] onResumeInstance:" + this.f4723d);
-        if (this.f4723d <= 0 || this.f4720a != null) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            CyberLog.i("CyberPlayer", "[MultiInstanceManager] onResumeInstance:" + this.f4753d);
+            if (this.f4753d <= 0 || this.f4750a != null) {
+                return false;
+            }
+            a(this.f4754e.isRemote());
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("multi_instance_resume", this.f4754e.getInstanceStaticsCount(false));
+                sendCommand(1003, 0, 0L, jSONObject.toString());
+                return true;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return true;
+            }
         }
-        a(this.f4724e.isRemote());
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("multi_instance_resume", this.f4724e.getInstanceStaticsCount(false));
-            sendCommand(1003, 0, 0L, jSONObject.toString());
-            return true;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return true;
-        }
+        return invokeV.booleanValue;
     }
 
     public void pause() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.pause();
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.updatePlayingStatus(false);
-            this.f4724e.updateSeekPos(getCurrentPosition(), getDuration());
-            MultiInstanceManager.getInstance().updateInstanceTimestamp(this.f4723d, System.currentTimeMillis());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.pause();
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.updatePlayingStatus(false);
+                this.f4754e.updateSeekPos(getCurrentPosition(), getDuration());
+                MultiInstanceManager.getInstance().updateInstanceTimestamp(this.f4753d, System.currentTimeMillis());
+            }
         }
     }
 
     public void prepareAsync() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.prepareAsync();
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.prepareAsync();
     }
 
     public void preparseHostWithURI(Uri uri) {
         String host;
-        if (!this.f4722c || uri == null || (host = uri.getHost()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, uri) == null) || !this.f4752c || uri == null || (host = uri.getHost()) == null) {
             return;
         }
         String uri2 = uri.toString();
@@ -359,148 +521,184 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void release() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.release();
+            }
+            if (this.f4752c) {
+                setOnPreparedListener(null);
+                setOnCompletionListener(null);
+                setOnBufferingUpdateListener(null);
+                setOnSeekCompleteListener(null);
+                setOnVideoSizeChangedListener(null);
+                setOnErrorListener(null);
+                setOnInfoListener(null);
+            }
+            if (this.f4753d > 0) {
+                MultiInstanceManager.getInstance().unRegisterInstance(this.f4753d);
+                CyberLog.i("CyberPlayer", "[MultiInstanceManager] unRegister instance:" + this.f4753d);
+                this.f4753d = 0;
+                this.f4754e.release();
+                this.f4754e = null;
+            }
+            this.f4755f = null;
+            o.j();
+            CyberCfgManager.getInstance().a();
         }
-        if (this.f4722c) {
-            setOnPreparedListener(null);
-            setOnCompletionListener(null);
-            setOnBufferingUpdateListener(null);
-            setOnSeekCompleteListener(null);
-            setOnVideoSizeChangedListener(null);
-            setOnErrorListener(null);
-            setOnInfoListener(null);
-        }
-        if (this.f4723d > 0) {
-            MultiInstanceManager.getInstance().unRegisterInstance(this.f4723d);
-            CyberLog.i("CyberPlayer", "[MultiInstanceManager] unRegister instance:" + this.f4723d);
-            this.f4723d = 0;
-            this.f4724e.release();
-            this.f4724e = null;
-        }
-        this.f4725f = null;
-        o.j();
-        CyberCfgManager.getInstance().a();
     }
 
     public void reset() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.reset();
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.reset();
     }
 
     public void seekTo(long j) throws IllegalStateException {
-        seekTo(j, 3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            seekTo(j, 3);
+        }
     }
 
     public void seekTo(long j, int i2) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.seekTo(j, i2);
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.seekTo(j, i2);
     }
 
     public void sendCommand(int i2, int i3, long j, String str) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.sendCommand(i2, i3, j, str);
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str}) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.sendCommand(i2, i3, j, str);
     }
 
     public void setClarityInfo(String str) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setClarityInfo(str);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.setClarityInfo(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setClarityInfo(str);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.setClarityInfo(str);
+            }
         }
     }
 
     public void setDataSource(Context context, Uri uri) {
-        if (this.f4720a != null) {
-            String a2 = CyberCfgManager.getInstance().a("force_url", (String) null);
-            if (TextUtils.isEmpty(a2)) {
-                this.f4720a.setDataSource(context, uri);
-            } else {
-                this.f4720a.setDataSource(context, Uri.parse(a2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048602, this, context, uri) == null) {
+            if (this.f4750a != null) {
+                String a2 = CyberCfgManager.getInstance().a("force_url", (String) null);
+                if (TextUtils.isEmpty(a2)) {
+                    this.f4750a.setDataSource(context, uri);
+                } else {
+                    this.f4750a.setDataSource(context, Uri.parse(a2));
+                }
+                preparseHostWithURI(uri);
             }
-            preparseHostWithURI(uri);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.updateDataSource(context, uri, null);
+            if (this.f4753d > 0) {
+                this.f4754e.updateDataSource(context, uri, null);
+            }
         }
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        if (this.f4720a != null) {
-            if (this.f4721b) {
-                map = o.a(map);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048603, this, context, uri, map) == null) {
+            if (this.f4750a != null) {
+                if (this.f4751b) {
+                    map = o.a(map);
+                }
+                String a2 = CyberCfgManager.getInstance().a("force_url", (String) null);
+                if (TextUtils.isEmpty(a2)) {
+                    this.f4750a.setDataSource(context, uri, map);
+                } else {
+                    this.f4750a.setDataSource(context, Uri.parse(a2), map);
+                }
+                preparseHostWithURI(uri);
             }
-            String a2 = CyberCfgManager.getInstance().a("force_url", (String) null);
-            if (TextUtils.isEmpty(a2)) {
-                this.f4720a.setDataSource(context, uri, map);
-            } else {
-                this.f4720a.setDataSource(context, Uri.parse(a2), map);
+            if (this.f4753d > 0) {
+                this.f4754e.updateDataSource(context, uri, map);
             }
-            preparseHostWithURI(uri);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.updateDataSource(context, uri, map);
         }
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setDataSource(fileDescriptor);
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, fileDescriptor) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.setDataSource(fileDescriptor);
     }
 
     public void setDataSource(String str) {
-        setDataSource(str, (Map<String, String>) null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            setDataSource(str, (Map<String, String>) null);
+        }
     }
 
     public void setDataSource(String str, Map<String, String> map) {
-        if (this.f4720a != null) {
-            if (this.f4721b) {
-                map = o.a(map);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048606, this, str, map) == null) {
+            if (this.f4750a != null) {
+                if (this.f4751b) {
+                    map = o.a(map);
+                }
+                String a2 = CyberCfgManager.getInstance().a("force_url", (String) null);
+                if (TextUtils.isEmpty(a2)) {
+                    this.f4750a.setDataSource(str, map);
+                } else {
+                    this.f4750a.setDataSource(a2, map);
+                }
             }
-            String a2 = CyberCfgManager.getInstance().a("force_url", (String) null);
-            if (TextUtils.isEmpty(a2)) {
-                this.f4720a.setDataSource(str, map);
-            } else {
-                this.f4720a.setDataSource(a2, map);
+            if (this.f4753d > 0) {
+                this.f4754e.updateDataSource(null, Uri.parse(str), map);
             }
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.updateDataSource(null, Uri.parse(str), map);
         }
     }
 
     public void setDisplay(SurfaceHolder surfaceHolder) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setDisplay(surfaceHolder);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, surfaceHolder) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setDisplay(surfaceHolder);
+            }
+            if (this.f4753d <= 0 || surfaceHolder == null) {
+                return;
+            }
+            this.f4754e.updateSurface(surfaceHolder.getSurface());
         }
-        if (this.f4723d <= 0 || surfaceHolder == null) {
-            return;
-        }
-        this.f4724e.updateSurface(surfaceHolder.getSurface());
     }
 
     public void setEnableDumediaUA(boolean z) {
-        this.f4721b = z;
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setEnableDumediaUA(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.f4751b = z;
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setEnableDumediaUA(z);
+            }
         }
     }
 
     public void setExternalInfo(String str, Object obj) {
-        if (TextUtils.isEmpty(str) || this.f4720a == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048609, this, str, obj) == null) || TextUtils.isEmpty(str) || this.f4750a == null) {
             return;
         }
         if (str.equals("is_feed_video")) {
@@ -530,199 +728,257 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setIsInMainProcess(boolean z) {
-        this.f4722c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+            this.f4752c = z;
+        }
     }
 
     public void setLooping(boolean z) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setLooping(z);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.updatePlayStateByType(1, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setLooping(z);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.updatePlayStateByType(1, z);
+            }
         }
     }
 
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setOnBufferingUpdateListener(onBufferingUpdateListener);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.setOnBufferingUpdateListener(onBufferingUpdateListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, onBufferingUpdateListener) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setOnBufferingUpdateListener(onBufferingUpdateListener);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.setOnBufferingUpdateListener(onBufferingUpdateListener);
+            }
         }
     }
 
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setOnCompletionListener(onCompletionListener);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.setOnCompletionListener(onCompletionListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, onCompletionListener) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setOnCompletionListener(onCompletionListener);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.setOnCompletionListener(onCompletionListener);
+            }
         }
     }
 
     public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
-        this.f4725f = onErrorListener;
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setOnErrorListener(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, onErrorListener) == null) {
+            this.f4755f = onErrorListener;
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setOnErrorListener(this);
+            }
         }
     }
 
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
         MediaInstanceState mediaInstanceState;
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setOnInfoListener(onInfoListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, onInfoListener) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setOnInfoListener(onInfoListener);
+            }
+            if (this.f4753d <= 0 || (mediaInstanceState = this.f4754e) == null) {
+                return;
+            }
+            mediaInstanceState.setOnInfoListener(onInfoListener);
         }
-        if (this.f4723d <= 0 || (mediaInstanceState = this.f4724e) == null) {
-            return;
-        }
-        mediaInstanceState.setOnInfoListener(onInfoListener);
     }
 
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setOnMediaSourceChangedListener(onMediaSourceChangedListener);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.setOnMediaSourceChangedListener(onMediaSourceChangedListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, onMediaSourceChangedListener) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setOnMediaSourceChangedListener(onMediaSourceChangedListener);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.setOnMediaSourceChangedListener(onMediaSourceChangedListener);
+            }
         }
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setOnPreparedListener(onPreparedListener);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.setOnPreparedListener(onPreparedListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, onPreparedListener) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setOnPreparedListener(onPreparedListener);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.setOnPreparedListener(onPreparedListener);
+            }
         }
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setOnSeekCompleteListener(onSeekCompleteListener);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.setOnSeekCompleteListener(onSeekCompleteListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, onSeekCompleteListener) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setOnSeekCompleteListener(onSeekCompleteListener);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.setOnSeekCompleteListener(onSeekCompleteListener);
+            }
         }
     }
 
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setOnVideoSizeChangedListener(onVideoSizeChangedListener);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.setOnVideoSizeChangedListener(onVideoSizeChangedListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, onVideoSizeChangedListener) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setOnVideoSizeChangedListener(onVideoSizeChangedListener);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.setOnVideoSizeChangedListener(onVideoSizeChangedListener);
+            }
         }
     }
 
     public void setOption(String str, long j) {
-        if (this.f4720a == null || TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLJ(1048620, this, str, j) == null) || this.f4750a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f4720a.setOption(str, j);
+        this.f4750a.setOption(str, j);
     }
 
     public void setOption(String str, String str2) {
-        if (this.f4720a != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.f4720a.setOption(str, str2);
-        }
-        if (this.f4723d > 0) {
-            MultiInstanceManager.getInstance().updateStringOption(this.f4723d, str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048621, this, str, str2) == null) {
+            if (this.f4750a != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                this.f4750a.setOption(str, str2);
+            }
+            if (this.f4753d > 0) {
+                MultiInstanceManager.getInstance().updateStringOption(this.f4753d, str, str2);
+            }
         }
     }
 
     public void setPlayJson(String str) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setPlayJson(str);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.setPlayJson(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setPlayJson(str);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.setPlayJson(str);
+            }
         }
     }
 
     public void setScreenOnWhilePlaying(boolean z) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setScreenOnWhilePlaying(z);
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048623, this, z) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.setScreenOnWhilePlaying(z);
     }
 
     public void setSpeed(float f2) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setSpeed(f2);
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048624, this, f2) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.setSpeed(f2);
     }
 
     public void setSurface(Surface surface) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setSurface(surface);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.updateSurface(surface);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, surface) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.setSurface(surface);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.updateSurface(surface);
+            }
         }
     }
 
     public void setVolume(float f2, float f3) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setVolume(f2, f3);
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.setVolume(f2, f3);
     }
 
     public void setWakeMode(Context context, int i2) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.setWakeMode(context, i2);
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048627, this, context, i2) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.setWakeMode(context, i2);
     }
 
     public void start() {
-        if (this.f4723d > 0) {
-            if (this.f4724e.needActiveInstance()) {
-                CyberLog.i("CyberPlayer", "[MultiInstanceManager] active instance: " + this.f4723d);
-                MultiInstanceManager.getInstance().activeInstance(this.f4723d);
-                this.f4724e.updateInstanceState(1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
+            if (this.f4753d > 0) {
+                if (this.f4754e.needActiveInstance()) {
+                    CyberLog.i("CyberPlayer", "[MultiInstanceManager] active instance: " + this.f4753d);
+                    MultiInstanceManager.getInstance().activeInstance(this.f4753d);
+                    this.f4754e.updateInstanceState(1);
+                }
+                this.f4754e.updatePlayingStatus(true);
             }
-            this.f4724e.updatePlayingStatus(true);
-        }
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.start();
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.start();
+            }
         }
     }
 
     public void stop() {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.stop();
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048629, this) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.stop();
     }
 
     public void switchMediaSource(int i2) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.switchMediaSource(i2);
-        }
-        if (this.f4723d > 0) {
-            this.f4724e.setMediaSourceRank(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
+            PlayerProvider playerProvider = this.f4750a;
+            if (playerProvider != null) {
+                playerProvider.switchMediaSource(i2);
+            }
+            if (this.f4753d > 0) {
+                this.f4754e.setMediaSourceRank(i2);
+            }
         }
     }
 
     public void updateDisplaySize(int i2, int i3) {
-        PlayerProvider playerProvider = this.f4720a;
-        if (playerProvider != null) {
-            playerProvider.updateDisplaySize(i2, i3);
+        PlayerProvider playerProvider;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048631, this, i2, i3) == null) || (playerProvider = this.f4750a) == null) {
+            return;
         }
+        playerProvider.updateDisplaySize(i2, i3);
     }
 }

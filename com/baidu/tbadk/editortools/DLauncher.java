@@ -2,41 +2,67 @@ package com.baidu.tbadk.editortools;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.text.TextUtils;
 import android.widget.AbsListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import d.a.n0.r.u.c;
-import d.a.n0.w.a;
-import d.a.n0.w.h;
-import d.a.n0.w.m;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.u.c;
+import d.a.r0.w.a;
+import d.a.r0.w.h;
+import d.a.r0.w.m;
+/* loaded from: classes4.dex */
 public class DLauncher extends RelativeLayout implements h {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12879e;
+    public int f12961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12880f;
+    public TextView f12962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12881g;
+    public TextView f12963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12882h;
+    public int f12964h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12883i;
+    public String f12965i;
     public m j;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DLauncher(Context context, m mVar) {
         super(context);
-        this.f12882h = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, mVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12964h = 0;
         if (mVar == null) {
             return;
         }
@@ -46,179 +72,221 @@ public class DLauncher extends RelativeLayout implements h {
         layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
         layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        this.f12880f = new EMTextView(context);
-        setName(mVar.f54632b);
+        this.f12962f = new EMTextView(context);
+        setName(mVar.f56773b);
         setIcon();
-        setToolId(mVar.f54633c);
-        this.f12880f.setGravity(17);
-        c d2 = c.d(this.f12880f);
-        d2.w(R.dimen.T_X09);
-        d2.s(R.color.CAM_X0106);
+        setToolId(mVar.f56774c);
+        this.f12962f.setGravity(17);
+        c d2 = c.d(this.f12962f);
+        d2.x(R.dimen.T_X09);
+        d2.t(R.color.CAM_X0106);
         context.getResources().getDimensionPixelSize(R.dimen.ds12);
-        addView(this.f12880f, layoutParams);
+        addView(this.f12962f, layoutParams);
     }
 
     public final void a(String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f12883i = str;
-        if (this.f12881g == null) {
+        this.f12965i = str;
+        if (this.f12963g == null) {
             TextView textView = new TextView(getContext());
-            this.f12881g = textView;
+            this.f12963g = textView;
             addView(textView, new RelativeLayout.LayoutParams(-2, -2));
         }
-        SkinManager.setViewTextColor(this.f12881g, R.color.common_color_10225, 1, this.f12882h);
-        this.f12881g.setGravity(17);
+        SkinManager.setViewTextColor(this.f12963g, R.color.common_color_10225, 1, this.f12964h);
+        this.f12963g.setGravity(17);
         if (!str.equals(" ")) {
-            this.f12881g.setTextSize(1, 10.0f);
-            this.f12881g.setText(str);
-            SkinManager.setBackgroundResource(this.f12881g, R.drawable.icon_news_head_prompt_one, this.f12882h);
+            this.f12963g.setTextSize(1, 10.0f);
+            this.f12963g.setText(str);
+            SkinManager.setBackgroundResource(this.f12963g, R.drawable.icon_news_head_prompt_one, this.f12964h);
             return;
         }
-        this.f12881g.setWidth(0);
-        this.f12881g.setHeight(0);
-        this.f12881g.setText("");
-        SkinManager.setBackgroundResource(this.f12881g, R.drawable.icon_news_down_bar_one, this.f12882h);
+        this.f12963g.setWidth(0);
+        this.f12963g.setHeight(0);
+        this.f12963g.setText("");
+        SkinManager.setBackgroundResource(this.f12963g, R.drawable.icon_news_down_bar_one, this.f12964h);
     }
 
-    @Override // d.a.n0.w.h
+    @Override // d.a.r0.w.h
     public void b() {
-        setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setVisibility(0);
+        }
     }
 
     public void c(String str) {
-        a(str);
-        this.f12881g.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            a(str);
+            this.f12963g.setVisibility(0);
+        }
     }
 
-    @Override // d.a.n0.w.h
+    @Override // d.a.r0.w.h
     public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
     }
 
     public void f() {
-        this.f12883i = null;
-        TextView textView = this.f12881g;
-        if (textView != null) {
-            textView.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f12965i = null;
+            TextView textView = this.f12963g;
+            if (textView != null) {
+                textView.setVisibility(8);
+            }
         }
     }
 
     public String getText() {
-        return this.f12883i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12965i : (String) invokeV.objValue;
     }
 
-    @Override // d.a.n0.w.h
+    @Override // d.a.r0.w.h
     public int getToolId() {
-        return this.f12879e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12961e : invokeV.intValue;
     }
 
-    @Override // d.a.n0.w.h
+    @Override // d.a.r0.w.h
     public void hide() {
-        setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            setVisibility(8);
+        }
     }
 
-    @Override // d.a.n0.w.b
+    @Override // d.a.r0.w.b
     public void onAction(a aVar) {
-        if (aVar == null || aVar.f54625a != 2) {
-            return;
-        }
-        Object obj = aVar.f54627c;
-        if (obj == null) {
-            f();
-        } else if (obj instanceof String) {
-            c((String) obj);
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) && aVar != null && aVar.f56766a == 2) {
+            Object obj = aVar.f56768c;
+            if (obj == null) {
+                f();
+            } else if (obj instanceof String) {
+                c((String) obj);
+            }
         }
     }
 
-    @Override // d.a.n0.w.h
+    @Override // d.a.r0.w.h
     public void onChangeSkinType(int i2) {
-        this.f12882h = i2;
-        if (isEnabled()) {
-            SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i2);
-        }
-        c.d(this.f12880f).s(R.color.CAM_X0106);
-        if (this.j == null) {
-            return;
-        }
-        setIcon();
-        TextView textView = this.f12881g;
-        if (textView != null) {
-            SkinManager.setViewTextColor(textView, R.color.common_color_10225, 1, i2);
-            if (!TextUtils.isEmpty(this.f12881g.getText())) {
-                SkinManager.setBackgroundResource(this.f12881g, R.drawable.icon_news_head_prompt_one, i2);
-            } else {
-                SkinManager.setBackgroundResource(this.f12881g, R.drawable.icon_news_down_bar_one, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.f12964h = i2;
+            if (isEnabled()) {
+                SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i2);
             }
-            this.f12881g.setPadding(0, 0, 0, 0);
+            c.d(this.f12962f).t(R.color.CAM_X0106);
+            if (this.j == null) {
+                return;
+            }
+            setIcon();
+            TextView textView = this.f12963g;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, R.color.common_color_10225, 1, i2);
+                if (!TextUtils.isEmpty(this.f12963g.getText())) {
+                    SkinManager.setBackgroundResource(this.f12963g, R.drawable.icon_news_head_prompt_one, i2);
+                } else {
+                    SkinManager.setBackgroundResource(this.f12963g, R.drawable.icon_news_down_bar_one, i2);
+                }
+                this.f12963g.setPadding(0, 0, 0, 0);
+            }
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
-        if (this.f12881g != null) {
-            if (getVisibility() == 0) {
-                int right = this.f12880f.getRight() - (this.f12881g.getMeasuredWidth() / 2);
-                int top = this.f12880f.getTop() - (this.f12881g.getMeasuredHeight() / 2);
-                this.f12881g.layout(right, top, this.f12881g.getMeasuredWidth() + right, this.f12881g.getMeasuredHeight() + top);
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            if (this.f12963g != null) {
+                if (getVisibility() == 0) {
+                    int right = this.f12962f.getRight() - (this.f12963g.getMeasuredWidth() / 2);
+                    int top = this.f12962f.getTop() - (this.f12963g.getMeasuredHeight() / 2);
+                    this.f12963g.layout(right, top, this.f12963g.getMeasuredWidth() + right, this.f12963g.getMeasuredHeight() + top);
+                    return;
+                }
+                this.f12963g.layout(0, 0, 0, 0);
             }
-            this.f12881g.layout(0, 0, 0, 0);
         }
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
-        super.setEnabled(z);
-        if (z) {
-            this.f12880f.setAlpha(1.0f);
-            this.f12880f.setEnabled(z);
-            setPressed(true);
-            SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, TbadkCoreApplication.getInst().getSkinType());
-        } else {
-            this.f12880f.setAlpha(0.33f);
-            this.f12880f.setEnabled(false);
-            setPressed(false);
-            setBackground(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            super.setEnabled(z);
+            if (z) {
+                this.f12962f.setAlpha(1.0f);
+                this.f12962f.setEnabled(z);
+                setPressed(true);
+                SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, TbadkCoreApplication.getInst().getSkinType());
+            } else {
+                this.f12962f.setAlpha(0.33f);
+                this.f12962f.setEnabled(false);
+                setPressed(false);
+                setBackground(null);
+            }
+            requestLayout();
         }
-        requestLayout();
     }
 
     public void setIcon() {
         Drawable drawable;
-        m mVar = this.j;
-        int i2 = mVar.f54636f;
-        if (i2 <= 0) {
-            i2 = mVar.f54634d;
-        }
-        if (TextUtils.isEmpty(this.f12880f.getText())) {
-            if (this.j.f54637g) {
-                this.f12880f.setBackgroundDrawable(SvgManager.getInstance().getSeletableDrawableForEditorTools(i2, this.j.f54635e, this.f12882h));
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            m mVar = this.j;
+            int i2 = mVar.f56777f;
+            int i3 = mVar.p;
+            if (i2 <= 0) {
+                i2 = mVar.f56775d;
+            }
+            if (this.j.f56778g) {
+                drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i2, this.j.f56776e, this.f12964h);
             } else {
-                SkinManager.setBackgroundResource(this.f12880f, i2, this.f12882h);
+                drawable = SkinManager.getDrawable(this.f12964h, i2);
+            }
+            if (drawable == null) {
                 return;
             }
-        }
-        if (this.j.f54637g) {
-            drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i2, this.j.f54635e, this.f12882h);
-        } else {
-            drawable = SkinManager.getDrawable(this.f12882h, i2);
-        }
-        if (drawable != null) {
+            Drawable drawable2 = i3 > 0 ? SkinManager.getDrawable(this.f12964h, i3) : null;
+            if (drawable2 != null) {
+                drawable = new LayerDrawable(new Drawable[]{drawable, drawable2});
+            }
+            if (drawable == null) {
+                return;
+            }
+            if (TextUtils.isEmpty(this.f12962f.getText())) {
+                this.f12962f.setBackground(drawable);
+                return;
+            }
             drawable.setBounds(0, 0, getResources().getDimensionPixelSize(R.dimen.tbds165), getResources().getDimensionPixelSize(R.dimen.tbds165));
-            this.f12880f.setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.M_H_X002));
-            this.f12880f.setCompoundDrawables(null, drawable, null, null);
+            this.f12962f.setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.M_H_X002));
+            this.f12962f.setCompoundDrawables(null, drawable, null, null);
         }
     }
 
-    @Override // d.a.n0.w.h
+    @Override // d.a.r0.w.h
     public void setName(String str) {
-        this.f12880f.setText(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.f12962f.setText(str);
+        }
     }
 
     public void setToolId(int i2) {
-        this.f12879e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.f12961e = i2;
+        }
     }
 }

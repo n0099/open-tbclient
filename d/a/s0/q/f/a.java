@@ -1,0 +1,148 @@
+package d.a.s0.q.f;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ad.statis.CustomALSHttpMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public class a implements d.a.s0.f3.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: d.a.s0.q.f.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class C1643a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static a f64722a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2089489776, "Ld/a/s0/q/f/a$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(2089489776, "Ld/a/s0/q/f/a$b;");
+                    return;
+                }
+            }
+            f64722a = new a(null);
+        }
+    }
+
+    public /* synthetic */ a(C1643a c1643a) {
+        this();
+    }
+
+    public static a g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f64722a : (a) invokeV.objValue;
+    }
+
+    @Override // d.a.s0.f3.a
+    public void a(long j, String str, String str2, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2)}) == null) {
+            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
+            init.addParam("f1", "pagetime");
+            init.addParam("f2", str2);
+            init.addParam("f3", j + "");
+            init.addParam("f4", str);
+            init.addParam("f5", j2);
+            init.send();
+        }
+    }
+
+    @Override // d.a.s0.f3.a
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
+            init.addParam("f1", "fullvideoshow");
+            init.addParam("f2", str2);
+            init.addParam("extf", str);
+            init.send();
+        }
+    }
+
+    @Override // d.a.s0.f3.a
+    public void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
+            init.addParam("f1", "cardclick");
+            init.addParam("f2", str2);
+            init.addParam("extf", str);
+            init.send();
+        }
+    }
+
+    @Override // d.a.s0.f3.a
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
+            init.addParam("f1", "cardshow");
+            init.addParam("f2", str2);
+            init.addParam("extf", str);
+            init.send();
+        }
+    }
+
+    @Override // d.a.s0.f3.a
+    public void e(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
+            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
+            init.addParam("f1", "alert_click");
+            init.addParam("f2", str);
+            init.addParam("f5", str2);
+            init.addParam("extf", str3);
+            init.send();
+        }
+    }
+
+    @Override // d.a.s0.f3.a
+    public void f(long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
+            init.addParam("f1", "pageshow");
+            init.addParam("f2", str2);
+            init.addParam("f3", j + "");
+            init.addParam("f4", str);
+            init.send();
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+}

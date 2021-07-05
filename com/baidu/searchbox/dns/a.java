@@ -7,97 +7,195 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.dns.util.DnsUtil;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f10102a = 5000;
+    public static long f10174a = 5000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f10103b = null;
+    public static volatile a f10175b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f10104c = "android.net.conn.CONNECTIVITY_CHANGE";
+    public static String f10176c = "android.net.conn.CONNECTIVITY_CHANGE";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f10105d;
+    public boolean f10177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConnectivityManager f10106e;
+    public ConnectivityManager f10178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public C0134a f10107f;
+    public C0153a f10179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10108g = false;
+    public boolean f10180g;
     public Context mContext;
 
+    /* renamed from: com.baidu.searchbox.dns.a$1  reason: invalid class name */
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
     /* renamed from: com.baidu.searchbox.dns.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0134a extends BroadcastReceiver {
-        public C0134a() {
+    /* loaded from: classes3.dex */
+    public class C0153a extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ a f10181h;
+
+        public C0153a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10181h = aVar;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            a aVar = a.this;
-            aVar.f10105d = aVar.c();
-            if (DnsUtil.DEBUG) {
-                Log.d(DnsUtil.TAG, " action: " + intent.getAction() + " isConnected: " + a.this.f10105d + " isSticky: " + isInitialStickyBroadcast());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                a aVar = this.f10181h;
+                aVar.f10177d = aVar.c();
+                if (DnsUtil.DEBUG) {
+                    Log.d(DnsUtil.TAG, " action: " + intent.getAction() + " isConnected: " + this.f10181h.f10177d + " isSticky: " + isInitialStickyBroadcast());
+                }
+                if (!this.f10181h.f10177d || isInitialStickyBroadcast()) {
+                    return;
+                }
+                if (DnsUtil.DEBUG) {
+                    Log.d(DnsUtil.TAG, "clear dns cache and force update domain");
+                }
+                com.baidu.searchbox.dns.a.a.e().clear();
+                b.d();
             }
-            if (!a.this.f10105d || isInitialStickyBroadcast()) {
-                return;
-            }
-            if (DnsUtil.DEBUG) {
-                Log.d(DnsUtil.TAG, "clear dns cache and force update domain");
-            }
-            com.baidu.searchbox.dns.a.a.e().clear();
-            b.d();
+        }
+
+        public /* synthetic */ C0153a(a aVar, AnonymousClass1 anonymousClass1) {
+            this(aVar);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(727494170, "Lcom/baidu/searchbox/dns/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(727494170, "Lcom/baidu/searchbox/dns/a;");
         }
     }
 
     public a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mContext = context.getApplicationContext();
+        this.f10180g = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        NetworkInfo activeNetworkInfo = this.f10106e.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            NetworkInfo activeNetworkInfo = this.f10178e.getActiveNetworkInfo();
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        }
+        return invokeV.booleanValue;
     }
 
     public synchronized void exit() {
-        if (this.f10108g) {
-            this.mContext.unregisterReceiver(this.f10107f);
-            this.f10108g = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (this.f10180g) {
+                    this.mContext.unregisterReceiver(this.f10179f);
+                    this.f10180g = false;
+                }
+            }
         }
     }
 
     public static a b() {
-        return f10103b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f10175b : (a) invokeV.objValue;
     }
 
     public static a a(Context context) {
-        if (f10103b == null) {
-            synchronized (a.class) {
-                if (f10103b == null) {
-                    f10103b = new a(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (f10175b == null) {
+                synchronized (a.class) {
+                    if (f10175b == null) {
+                        f10175b = new a(context);
+                    }
                 }
             }
+            return f10175b;
         }
-        return f10103b;
+        return (a) invokeL.objValue;
     }
 
     public synchronized void a() {
-        if (!this.f10108g) {
-            this.f10106e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(f10104c);
-            C0134a c0134a = new C0134a();
-            this.f10107f = c0134a;
-            this.mContext.registerReceiver(c0134a, intentFilter);
-            this.f10108g = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (!this.f10180g) {
+                    this.f10178e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
+                    IntentFilter intentFilter = new IntentFilter();
+                    intentFilter.addAction(f10176c);
+                    C0153a c0153a = new C0153a(this, null);
+                    this.f10179f = c0153a;
+                    this.mContext.registerReceiver(c0153a, intentFilter);
+                    this.f10180g = true;
+                }
+            }
         }
     }
 }

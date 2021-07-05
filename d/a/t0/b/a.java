@@ -1,285 +1,135 @@
 package d.a.t0.b;
 
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
-import com.baidu.webkit.internal.Base64;
-import com.baidu.webkit.internal.utils.UtilsBlink;
-import d.a.t0.b.b;
-import io.flutter.plugin.common.StandardMessageCodec;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes5.dex */
-public class a extends b {
-    public static final byte[] j = {13, 10};
-    public static final byte[] k = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-    public static final byte[] l = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
-    public static final byte[] m = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51};
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.TurbonetEngine;
+import java.net.BindException;
+import java.net.ConnectException;
+import java.net.NoRouteToHostException;
+import java.net.PortUnreachableException;
+import java.net.ProtocolException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+import javax.net.ssl.SSLHandshakeException;
+import javax.net.ssl.SSLKeyException;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLProtocolException;
+/* loaded from: classes9.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f70486a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f70487b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f70488c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f70489d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final byte[] f68449e;
+    public long f70490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final byte[] f68450f;
+    public long f70491f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final byte[] f68451g;
+    public long f70492g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f68452h;
+    public long f70493h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f68453i;
+    public long f70494i;
 
-    public a() {
-        this(0);
-    }
-
-    public static byte[] n(String str) {
-        return new a().d(str);
-    }
-
-    public static byte[] o(byte[] bArr, boolean z) {
-        return p(bArr, z, false);
-    }
-
-    public static byte[] p(byte[] bArr, boolean z, boolean z2) {
-        return q(bArr, z, z2, Integer.MAX_VALUE);
-    }
-
-    public static byte[] q(byte[] bArr, boolean z, boolean z2, int i2) {
-        if (bArr == null || bArr.length == 0) {
-            return bArr;
-        }
-        a aVar = z ? new a(z2) : new a(0, j, z2);
-        long j2 = aVar.j(bArr);
-        if (j2 <= i2) {
-            return aVar.g(bArr);
-        }
-        throw new IllegalArgumentException("Input array too big, the output array would be bigger (" + j2 + ") than the specified maximum size of " + i2);
-    }
-
-    public static String r(byte[] bArr) {
-        return d.d(o(bArr, false));
-    }
-
-    @Override // d.a.t0.b.b
-    public void c(byte[] bArr, int i2, int i3, b.a aVar) {
-        byte b2;
-        if (aVar.f68463f) {
-            return;
-        }
-        if (i3 < 0) {
-            aVar.f68463f = true;
-        }
-        int i4 = 0;
-        while (true) {
-            if (i4 >= i3) {
-                break;
+    public a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            byte[] h2 = h(this.f68452h, aVar);
-            int i5 = i2 + 1;
-            byte b3 = bArr[i2];
-            if (b3 == 61) {
-                aVar.f68463f = true;
-                break;
-            }
-            if (b3 >= 0) {
-                byte[] bArr2 = m;
-                if (b3 < bArr2.length && (b2 = bArr2[b3]) >= 0) {
-                    int i6 = (aVar.f68465h + 1) % 4;
-                    aVar.f68465h = i6;
-                    int i7 = (aVar.f68458a << 6) + b2;
-                    aVar.f68458a = i7;
-                    if (i6 == 0) {
-                        int i8 = aVar.f68461d;
-                        int i9 = i8 + 1;
-                        aVar.f68461d = i9;
-                        h2[i8] = (byte) ((i7 >> 16) & 255);
-                        int i10 = i9 + 1;
-                        aVar.f68461d = i10;
-                        h2[i9] = (byte) ((i7 >> 8) & 255);
-                        aVar.f68461d = i10 + 1;
-                        h2[i10] = (byte) (i7 & 255);
-                    }
-                }
-            }
-            i4++;
-            i2 = i5;
         }
-        if (!aVar.f68463f || aVar.f68465h == 0) {
-            return;
-        }
-        byte[] h3 = h(this.f68452h, aVar);
-        int i11 = aVar.f68465h;
-        if (i11 != 1) {
-            if (i11 == 2) {
-                int i12 = aVar.f68458a >> 4;
-                aVar.f68458a = i12;
-                int i13 = aVar.f68461d;
-                aVar.f68461d = i13 + 1;
-                h3[i13] = (byte) (i12 & 255);
-            } else if (i11 == 3) {
-                int i14 = aVar.f68458a >> 2;
-                aVar.f68458a = i14;
-                int i15 = aVar.f68461d;
-                int i16 = i15 + 1;
-                aVar.f68461d = i16;
-                h3[i15] = (byte) ((i14 >> 8) & 255);
-                aVar.f68461d = i16 + 1;
-                h3[i16] = (byte) (i14 & 255);
+        this.f70488c = -14;
+        this.f70489d = -1;
+        this.f70490e = -1L;
+        this.f70491f = -1L;
+        this.f70492g = -1L;
+        this.f70493h = -1L;
+        this.f70494i = -1L;
+        this.f70486a = str;
+        this.f70492g = System.nanoTime() / 1000;
+        this.f70491f = System.currentTimeMillis();
+    }
+
+    public void a(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            if (exc instanceof SocketTimeoutException) {
+                this.f70488c = -1;
+            } else if (exc instanceof UnknownHostException) {
+                this.f70488c = -2;
+            } else if (exc instanceof ConnectException) {
+                this.f70488c = -5;
+            } else if (exc instanceof ProtocolException) {
+                this.f70488c = -3;
+            } else if (exc instanceof BindException) {
+                this.f70488c = -4;
+            } else if (exc instanceof SSLHandshakeException) {
+                this.f70488c = -8;
+            } else if (exc instanceof SSLProtocolException) {
+                this.f70488c = -9;
+            } else if (exc instanceof RemoteException) {
+                this.f70488c = -13;
+            } else if (exc instanceof NoRouteToHostException) {
+                this.f70488c = -6;
+            } else if (exc instanceof PortUnreachableException) {
+                this.f70488c = -7;
+            } else if (exc instanceof SSLKeyException) {
+                this.f70488c = -10;
+            } else if (exc instanceof SSLPeerUnverifiedException) {
+                this.f70488c = -11;
             } else {
-                throw new IllegalStateException("Impossible modulus " + aVar.f68465h);
+                this.f70488c = -14;
             }
         }
     }
 
-    @Override // d.a.t0.b.b
-    public void f(byte[] bArr, int i2, int i3, b.a aVar) {
-        if (aVar.f68463f) {
-            return;
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f70493h = (System.nanoTime() / 1000) - this.f70492g;
         }
-        if (i3 >= 0) {
-            int i4 = 0;
-            while (i4 < i3) {
-                byte[] h2 = h(this.f68453i, aVar);
-                aVar.f68465h = (aVar.f68465h + 1) % 3;
-                int i5 = i2 + 1;
-                int i6 = bArr[i2];
-                if (i6 < 0) {
-                    i6 += 256;
-                }
-                int i7 = (aVar.f68458a << 8) + i6;
-                aVar.f68458a = i7;
-                if (aVar.f68465h == 0) {
-                    int i8 = aVar.f68461d;
-                    int i9 = i8 + 1;
-                    aVar.f68461d = i9;
-                    byte[] bArr2 = this.f68449e;
-                    h2[i8] = bArr2[(i7 >> 18) & 63];
-                    int i10 = i9 + 1;
-                    aVar.f68461d = i10;
-                    h2[i9] = bArr2[(i7 >> 12) & 63];
-                    int i11 = i10 + 1;
-                    aVar.f68461d = i11;
-                    h2[i10] = bArr2[(i7 >> 6) & 63];
-                    int i12 = i11 + 1;
-                    aVar.f68461d = i12;
-                    h2[i11] = bArr2[i7 & 63];
-                    int i13 = aVar.f68464g + 4;
-                    aVar.f68464g = i13;
-                    int i14 = this.f68456c;
-                    if (i14 > 0 && i14 <= i13) {
-                        byte[] bArr3 = this.f68451g;
-                        System.arraycopy(bArr3, 0, h2, i12, bArr3.length);
-                        aVar.f68461d += this.f68451g.length;
-                        aVar.f68464g = 0;
-                    }
-                }
-                i4++;
-                i2 = i5;
-            }
-            return;
-        }
-        aVar.f68463f = true;
-        if (aVar.f68465h == 0 && this.f68456c == 0) {
-            return;
-        }
-        byte[] h3 = h(this.f68453i, aVar);
-        int i15 = aVar.f68461d;
-        int i16 = aVar.f68465h;
-        if (i16 != 0) {
-            if (i16 == 1) {
-                int i17 = i15 + 1;
-                aVar.f68461d = i17;
-                byte[] bArr4 = this.f68449e;
-                int i18 = aVar.f68458a;
-                h3[i15] = bArr4[(i18 >> 2) & 63];
-                int i19 = i17 + 1;
-                aVar.f68461d = i19;
-                h3[i17] = bArr4[(i18 << 4) & 63];
-                if (bArr4 == k) {
-                    int i20 = i19 + 1;
-                    aVar.f68461d = i20;
-                    h3[i19] = 61;
-                    aVar.f68461d = i20 + 1;
-                    h3[i20] = 61;
-                }
-            } else if (i16 == 2) {
-                int i21 = i15 + 1;
-                aVar.f68461d = i21;
-                byte[] bArr5 = this.f68449e;
-                int i22 = aVar.f68458a;
-                h3[i15] = bArr5[(i22 >> 10) & 63];
-                int i23 = i21 + 1;
-                aVar.f68461d = i23;
-                h3[i21] = bArr5[(i22 >> 4) & 63];
-                int i24 = i23 + 1;
-                aVar.f68461d = i24;
-                h3[i23] = bArr5[(i22 << 2) & 63];
-                if (bArr5 == k) {
-                    aVar.f68461d = i24 + 1;
-                    h3[i24] = 61;
-                }
-            } else {
-                throw new IllegalStateException("Impossible modulus " + aVar.f68465h);
-            }
-        }
-        int i25 = aVar.f68464g;
-        int i26 = aVar.f68461d;
-        int i27 = i25 + (i26 - i15);
-        aVar.f68464g = i27;
-        if (this.f68456c <= 0 || i27 <= 0) {
-            return;
-        }
-        byte[] bArr6 = this.f68451g;
-        System.arraycopy(bArr6, 0, h3, i26, bArr6.length);
-        aVar.f68461d += this.f68451g.length;
     }
 
-    @Override // d.a.t0.b.b
-    public boolean k(byte b2) {
-        if (b2 >= 0) {
-            byte[] bArr = this.f68450f;
-            if (b2 < bArr.length && bArr[b2] != -1) {
-                return true;
-            }
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f70494i = (System.nanoTime() / 1000) - this.f70492g;
         }
-        return false;
     }
 
-    public a(boolean z) {
-        this(76, j, z);
-    }
-
-    public a(int i2) {
-        this(i2, j);
-    }
-
-    public a(int i2, byte[] bArr) {
-        this(i2, bArr, false);
-    }
-
-    public a(int i2, byte[] bArr, boolean z) {
-        super(3, 4, i2, bArr == null ? 0 : bArr.length);
-        this.f68450f = m;
-        if (bArr != null) {
-            if (b(bArr)) {
-                String d2 = d.d(bArr);
-                throw new IllegalArgumentException("lineSeparator must not contain base64 characters: [" + d2 + PreferencesUtil.RIGHT_MOUNT);
-            } else if (i2 > 0) {
-                this.f68453i = bArr.length + 4;
-                byte[] bArr2 = new byte[bArr.length];
-                this.f68451g = bArr2;
-                System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-            } else {
-                this.f68453i = 4;
-                this.f68451g = null;
-            }
-        } else {
-            this.f68453i = 4;
-            this.f68451g = null;
+    public void d(TurbonetEngine turbonetEngine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, turbonetEngine) == null) {
+            Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.f70486a, this.f70487b, Integer.valueOf(this.f70488c), Integer.valueOf(this.f70489d), Long.valueOf(this.f70490e), Long.valueOf(this.f70491f), Long.valueOf(this.f70493h), Long.valueOf(this.f70494i)));
+            turbonetEngine.g(this.f70486a, this.f70487b, this.f70488c, this.f70489d, this.f70490e, this.f70491f, this.f70493h, this.f70494i);
         }
-        this.f68452h = this.f68453i - 1;
-        this.f68449e = z ? l : k;
     }
 }

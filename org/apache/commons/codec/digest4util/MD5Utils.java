@@ -1,5 +1,10 @@
 package org.apache.commons.codec.digest4util;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,58 +13,89 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MD5Utils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public MD5Utils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
-            if (z) {
-                hexString = hexString.toUpperCase(Locale.getDefault());
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase(Locale.getDefault());
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            if (hexString.length() == 1) {
-                sb.append("0");
-            }
-            sb.append(hexString);
-            sb.append(str);
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeLLZ.objValue;
     }
 
     public static String toMd5(byte[] bArr, boolean z) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return toHexString(messageDigest.digest(), "", z);
-        } catch (NoSuchAlgorithmException e2) {
-            throw new RuntimeException(e2);
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return toHexString(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e2) {
+                throw new RuntimeException(e2);
+            }
         }
+        return (String) invokeLZ.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x003d, code lost:
-        if (r2 == null) goto L21;
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0041, code lost:
+        if (r2 == null) goto L23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x003f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0043, code lost:
         r2.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0044, code lost:
-        if (r2 == null) goto L21;
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0048, code lost:
+        if (r2 == null) goto L23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0048, code lost:
-        if (r2 == null) goto L21;
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x004c, code lost:
+        if (r2 == null) goto L23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x004b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x004f, code lost:
         return null;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String toMd5(File file, boolean z) {
+        InterceptResult invokeLZ;
         FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65538, null, file, z)) != null) {
+            return (String) invokeLZ.objValue;
+        }
         FileInputStream fileInputStream2 = null;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");

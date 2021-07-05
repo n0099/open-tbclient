@@ -1,48 +1,88 @@
 package com.baidu.tieba.lego.card.model;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.a.o0.k1.o.k.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.n1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FocusListCard extends BaseCardInfo {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_FOCUS_ITEMS = 3;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
     public final List<a> focusItemList;
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18022a;
+        public String f18148a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18023b;
+        public String f18149b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18024c;
+        public String f18150c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f18025d;
+        public int f18151d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18026e;
+        public int f18152e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18027f;
+        public String f18153f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f18028g;
+        public long f18154g;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FocusListCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
         JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.titleColor = b.b(jSONObject.optString("titleColor", ""));
         this.titleColorNight = b.b(jSONObject.optString("titleColorNight", ""));
         this.bgColor = b.b(jSONObject.optString("bgColor", ""));
@@ -50,24 +90,24 @@ public class FocusListCard extends BaseCardInfo {
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
         int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
         this.focusItemList = new ArrayList(length);
-        for (int i2 = 0; i2 < length; i2++) {
-            JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
+        for (int i4 = 0; i4 < length; i4++) {
+            JSONObject optJSONObject = optJSONArray2.optJSONObject(i4);
             if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("strList")) != null && optJSONArray.length() != 0) {
                 a aVar = new a();
                 try {
                     if (optJSONArray.length() > 0) {
-                        aVar.f18022a = optJSONArray.getString(0);
+                        aVar.f18148a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f18023b = optJSONArray.getString(1);
+                        aVar.f18149b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f18024c = optJSONArray.getString(2);
+                        aVar.f18150c = optJSONArray.getString(2);
                     }
-                    aVar.f18025d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f18026e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f18027f = optJSONObject.optString("scheme");
-                    aVar.f18028g = optJSONObject.optLong("resourceId");
+                    aVar.f18151d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f18152e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f18153f = optJSONObject.optString("scheme");
+                    aVar.f18154g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }
@@ -76,27 +116,39 @@ public class FocusListCard extends BaseCardInfo {
     }
 
     public int getBgColor() {
-        return this.bgColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bgColor : invokeV.intValue;
     }
 
     public int getBgColorNight() {
-        return this.bgColorNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bgColorNight : invokeV.intValue;
     }
 
     public List<a> getFocusItemList() {
-        return this.focusItemList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.focusItemList : (List) invokeV.objValue;
     }
 
     public int getTitleColor() {
-        return this.titleColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.titleColor : invokeV.intValue;
     }
 
     public int getTitleColorNight() {
-        return this.titleColorNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.titleColorNight : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public boolean isValid() {
-        return this.focusItemList.size() >= 3 && super.isValid();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.focusItemList.size() >= 3 && super.isValid() : invokeV.booleanValue;
     }
 }

@@ -2,26 +2,81 @@ package com.baidu.mapapi.search.district;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DistrictResult extends SearchResult implements Parcelable {
-    public static final Parcelable.Creator<DistrictResult> CREATOR = new a();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<DistrictResult> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
     public LatLng centerPt;
     public int cityCode;
     public String cityName;
     public List<List<LatLng>> polylines;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1420497933, "Lcom/baidu/mapapi/search/district/DistrictResult;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1420497933, "Lcom/baidu/mapapi/search/district/DistrictResult;");
+                return;
+            }
+        }
+        CREATOR = new a();
+    }
+
     public DistrictResult() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.centerPt = null;
         this.polylines = null;
         this.cityName = null;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DistrictResult(Parcel parcel) {
         super(parcel);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.centerPt = null;
         this.polylines = null;
         this.cityName = null;
@@ -29,7 +84,7 @@ public class DistrictResult extends SearchResult implements Parcelable {
         int readInt = parcel.readInt();
         if (readInt > 0) {
             this.polylines = new ArrayList();
-            for (int i2 = 0; i2 < readInt; i2++) {
+            for (int i4 = 0; i4 < readInt; i4++) {
                 this.polylines.add(parcel.createTypedArrayList(LatLng.CREATOR));
             }
         }
@@ -39,51 +94,79 @@ public class DistrictResult extends SearchResult implements Parcelable {
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public LatLng getCenterPt() {
-        return this.centerPt;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.centerPt : (LatLng) invokeV.objValue;
     }
 
     public int getCityCode() {
-        return this.cityCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cityCode : invokeV.intValue;
     }
 
     public String getCityName() {
-        return this.cityName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cityName : (String) invokeV.objValue;
     }
 
     public List<List<LatLng>> getPolylines() {
-        return this.polylines;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.polylines : (List) invokeV.objValue;
     }
 
     public void setCenterPt(LatLng latLng) {
-        this.centerPt = latLng;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, latLng) == null) {
+            this.centerPt = latLng;
+        }
     }
 
     public void setCityCode(int i2) {
-        this.cityCode = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.cityCode = i2;
+        }
     }
 
     public void setCityName(String str) {
-        this.cityName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.cityName = str;
+        }
     }
 
     public void setPolylines(List<List<LatLng>> list) {
-        this.polylines = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            this.polylines = list;
+        }
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        super.writeToParcel(parcel, i2);
-        parcel.writeParcelable(this.centerPt, i2);
-        List<List<LatLng>> list = this.polylines;
-        parcel.writeInt(list == null ? 0 : list.size());
-        for (List<LatLng> list2 : this.polylines) {
-            parcel.writeTypedList(list2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
+            super.writeToParcel(parcel, i2);
+            parcel.writeParcelable(this.centerPt, i2);
+            List<List<LatLng>> list = this.polylines;
+            parcel.writeInt(list == null ? 0 : list.size());
+            for (List<LatLng> list2 : this.polylines) {
+                parcel.writeTypedList(list2);
+            }
+            parcel.writeInt(this.cityCode);
+            parcel.writeString(this.cityName);
         }
-        parcel.writeInt(this.cityCode);
-        parcel.writeString(this.cityName);
     }
 }

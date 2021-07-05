@@ -7,112 +7,177 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<PinnedSectionListView> implements AbsListView.OnScrollListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ListView f23932a;
+    public ListView f24475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoadingLayout f23933b;
+    public LoadingLayout f24476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AbsListView.OnScrollListener f23934c;
+    public AbsListView.OnScrollListener f24477c;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PullToRefreshPinnedSectionListView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private boolean a() {
-        LoadingLayout loadingLayout = this.f23933b;
-        return loadingLayout == null || loadingLayout.getState() != LoadingLayout.State.NO_MORE_DATA;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            LoadingLayout loadingLayout = this.f24476b;
+            return loadingLayout == null || loadingLayout.getState() != LoadingLayout.State.NO_MORE_DATA;
+        }
+        return invokeV.booleanValue;
     }
 
     private boolean b() {
-        ListAdapter adapter = this.f23932a.getAdapter();
-        if (adapter == null || adapter.isEmpty()) {
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            ListAdapter adapter = this.f24475a.getAdapter();
+            if (adapter == null || adapter.isEmpty()) {
+                return true;
+            }
+            return (this.f24475a.getChildCount() > 0 ? this.f24475a.getChildAt(0).getTop() : 0) >= 0;
         }
-        return (this.f23932a.getChildCount() > 0 ? this.f23932a.getChildAt(0).getTop() : 0) >= 0;
+        return invokeV.booleanValue;
     }
 
     private boolean c() {
-        ListAdapter adapter = this.f23932a.getAdapter();
-        if (adapter == null || adapter.isEmpty()) {
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            ListAdapter adapter = this.f24475a.getAdapter();
+            if (adapter == null || adapter.isEmpty()) {
+                return true;
+            }
+            int lastVisiblePosition = this.f24475a.getLastVisiblePosition();
+            if (lastVisiblePosition >= (adapter.getCount() - 1) - 1) {
+                View childAt = this.f24475a.getChildAt(Math.min(lastVisiblePosition - this.f24475a.getFirstVisiblePosition(), this.f24475a.getChildCount() - 1));
+                return childAt != null && childAt.getBottom() <= this.f24475a.getBottom();
+            }
+            return false;
         }
-        int lastVisiblePosition = this.f23932a.getLastVisiblePosition();
-        if (lastVisiblePosition >= (adapter.getCount() - 1) - 1) {
-            View childAt = this.f23932a.getChildAt(Math.min(lastVisiblePosition - this.f23932a.getFirstVisiblePosition(), this.f23932a.getChildCount() - 1));
-            return childAt != null && childAt.getBottom() <= this.f23932a.getBottom();
-        }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public LoadingLayout getFooterLoadingLayout() {
-        if (isScrollLoadEnabled()) {
-            return this.f23933b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (isScrollLoadEnabled()) {
+                return this.f24476b;
+            }
+            return super.getFooterLoadingLayout();
         }
-        return super.getFooterLoadingLayout();
+        return (LoadingLayout) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public boolean isReadyForPullDown() {
-        return b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public boolean isReadyForPullUp() {
-        return c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public void onPullUpRefreshComplete() {
-        super.onPullUpRefreshComplete();
-        LoadingLayout loadingLayout = this.f23933b;
-        if (loadingLayout != null) {
-            loadingLayout.setState(LoadingLayout.State.RESET);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onPullUpRefreshComplete();
+            LoadingLayout loadingLayout = this.f24476b;
+            if (loadingLayout != null) {
+                loadingLayout.setState(LoadingLayout.State.RESET);
+            }
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-        AbsListView.OnScrollListener onScrollListener = this.f23934c;
-        if (onScrollListener != null) {
-            onScrollListener.onScroll(absListView, i2, i3, i4);
+        AbsListView.OnScrollListener onScrollListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIII(1048582, this, absListView, i2, i3, i4) == null) || (onScrollListener = this.f24477c) == null) {
+            return;
         }
+        onScrollListener.onScroll(absListView, i2, i3, i4);
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i2) {
-        if (isScrollLoadEnabled() && a() && ((i2 == 0 || i2 == 2) && isReadyForPullUp())) {
-            startLoading();
-        }
-        AbsListView.OnScrollListener onScrollListener = this.f23934c;
-        if (onScrollListener != null) {
-            onScrollListener.onScrollStateChanged(absListView, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, absListView, i2) == null) {
+            if (isScrollLoadEnabled() && a() && ((i2 == 0 || i2 == 2) && isReadyForPullUp())) {
+                startLoading();
+            }
+            AbsListView.OnScrollListener onScrollListener = this.f24477c;
+            if (onScrollListener != null) {
+                onScrollListener.onScrollStateChanged(absListView, i2);
+            }
         }
     }
 
     public void setHasMoreData(boolean z) {
-        LoadingLayout loadingLayout = this.f23933b;
-        if (loadingLayout != null) {
-            loadingLayout.setState(z ? LoadingLayout.State.RESET : LoadingLayout.State.NO_MORE_DATA);
-        }
-        LoadingLayout footerLoadingLayout = getFooterLoadingLayout();
-        if (footerLoadingLayout != null) {
-            footerLoadingLayout.setState(z ? LoadingLayout.State.RESET : LoadingLayout.State.NO_MORE_DATA);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            LoadingLayout loadingLayout = this.f24476b;
+            if (loadingLayout != null) {
+                loadingLayout.setState(z ? LoadingLayout.State.RESET : LoadingLayout.State.NO_MORE_DATA);
+            }
+            LoadingLayout footerLoadingLayout = getFooterLoadingLayout();
+            if (footerLoadingLayout != null) {
+                footerLoadingLayout.setState(z ? LoadingLayout.State.RESET : LoadingLayout.State.NO_MORE_DATA);
+            }
         }
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.f23934c = onScrollListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, onScrollListener) == null) {
+            this.f24477c = onScrollListener;
+        }
     }
 
     public void setRefreshingText(String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         if (getHeaderLoadingLayout() != null) {
@@ -125,20 +190,21 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public void setScrollLoadEnabled(boolean z) {
-        if (isScrollLoadEnabled() == z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || isScrollLoadEnabled() == z) {
             return;
         }
         super.setScrollLoadEnabled(z);
         if (z) {
-            if (this.f23933b == null) {
+            if (this.f24476b == null) {
                 FooterLoadingLayout footerLoadingLayout = new FooterLoadingLayout(getContext());
-                this.f23933b = footerLoadingLayout;
-                this.f23932a.addFooterView(footerLoadingLayout, null, false);
+                this.f24476b = footerLoadingLayout;
+                this.f24475a.addFooterView(footerLoadingLayout, null, false);
             }
-            this.f23933b.show(true);
+            this.f24476b.show(true);
             return;
         }
-        LoadingLayout loadingLayout = this.f23933b;
+        LoadingLayout loadingLayout = this.f24476b;
         if (loadingLayout != null) {
             loadingLayout.show(false);
         }
@@ -146,25 +212,50 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public void startLoading() {
-        super.startLoading();
-        LoadingLayout loadingLayout = this.f23933b;
-        if (loadingLayout != null) {
-            loadingLayout.setState(LoadingLayout.State.REFRESHING);
-            this.f23933b.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.startLoading();
+            LoadingLayout loadingLayout = this.f24476b;
+            if (loadingLayout != null) {
+                loadingLayout.setState(LoadingLayout.State.REFRESHING);
+                this.f24476b.setVisibility(0);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PullToRefreshPinnedSectionListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         setPullLoadEnabled(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public PinnedSectionListView createRefreshableView(Context context, AttributeSet attributeSet) {
-        PinnedSectionListView pinnedSectionListView = new PinnedSectionListView(context);
-        this.f23932a = pinnedSectionListView;
-        pinnedSectionListView.setOnScrollListener(this);
-        return pinnedSectionListView;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
+            PinnedSectionListView pinnedSectionListView = new PinnedSectionListView(context);
+            this.f24475a = pinnedSectionListView;
+            pinnedSectionListView.setOnScrollListener(this);
+            return pinnedSectionListView;
+        }
+        return (PinnedSectionListView) invokeLL.objValue;
     }
 }

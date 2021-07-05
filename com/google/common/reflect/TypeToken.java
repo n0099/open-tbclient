@@ -1,22 +1,31 @@
 package com.google.common.reflect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Ordering;
 import com.google.common.reflect.Types;
-import d.g.c.a.i;
-import d.g.c.a.n;
-import d.g.c.a.o;
-import d.g.c.c.a0;
-import d.g.c.c.c1;
-import d.g.c.c.q;
-import d.g.c.h.b;
-import d.g.c.h.f;
-import d.g.c.h.g;
+import d.f.d.a.i;
+import d.f.d.a.n;
+import d.f.d.a.o;
+import d.f.d.c.j0;
+import d.f.d.c.o1;
+import d.f.d.c.x;
+import d.f.d.h.b;
+import d.f.d.h.f;
+import d.f.d.h.g;
 import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.GenericArrayType;
@@ -34,279 +43,637 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
-public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable {
+/* loaded from: classes7.dex */
+public abstract class TypeToken<T> extends d.f.d.h.d<T> implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3637540370352322684L;
-    public transient d.g.c.h.f covariantTypeResolver;
-    public transient d.g.c.h.f invariantTypeResolver;
+    public transient /* synthetic */ FieldHolder $fh;
+    public transient d.f.d.h.f covariantTypeResolver;
+    public transient d.f.d.h.f invariantTypeResolver;
     public final Type runtimeType;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class ClassSet extends TypeToken<T>.TypeSet {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
+        public transient ImmutableSet<TypeToken<? super T>> classes;
+        public final /* synthetic */ TypeToken this$0;
 
-        /* renamed from: e  reason: collision with root package name */
-        public transient ImmutableSet<TypeToken<? super T>> f31570e;
-
-        public ClassSet() {
-            super();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ClassSet(TypeToken typeToken) {
+            super(typeToken);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {typeToken};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((TypeToken) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = typeToken;
         }
 
         private Object readResolve() {
-            return TypeToken.this.getTypes().classes();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.this$0.getTypes().classes() : invokeV.objValue;
         }
 
         @Override // com.google.common.reflect.TypeToken.TypeSet
         public TypeToken<T>.TypeSet classes() {
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (TypeSet) invokeV.objValue;
         }
 
         @Override // com.google.common.reflect.TypeToken.TypeSet
         public TypeToken<T>.TypeSet interfaces() {
-            throw new UnsupportedOperationException("classes().interfaces() not supported.");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                throw new UnsupportedOperationException("classes().interfaces() not supported.");
+            }
+            return (TypeSet) invokeV.objValue;
         }
 
         @Override // com.google.common.reflect.TypeToken.TypeSet
         public Set<Class<? super T>> rawTypes() {
-            return ImmutableSet.copyOf((Collection) f.f31580b.a().c(TypeToken.this.getRawTypes()));
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ImmutableSet.copyOf((Collection) f.f33435b.a().c(this.this$0.getRawTypes())) : (Set) invokeV.objValue;
         }
 
         public /* synthetic */ ClassSet(TypeToken typeToken, a aVar) {
-            this();
+            this(typeToken);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.reflect.TypeToken.TypeSet, d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // com.google.common.reflect.TypeToken.TypeSet, d.f.d.c.j0, d.f.d.c.y, d.f.d.c.h0
         public Set<TypeToken<? super T>> delegate() {
-            ImmutableSet<TypeToken<? super T>> immutableSet = this.f31570e;
-            if (immutableSet == null) {
-                ImmutableSet<TypeToken<? super T>> f2 = q.d(f.f31579a.a().d(TypeToken.this)).c(TypeFilter.IGNORE_TYPE_VARIABLE_OR_WILDCARD).f();
-                this.f31570e = f2;
-                return f2;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                ImmutableSet<TypeToken<? super T>> immutableSet = this.classes;
+                if (immutableSet == null) {
+                    ImmutableSet<TypeToken<? super T>> f2 = x.d(f.f33434a.a().d(this.this$0)).c(TypeFilter.IGNORE_TYPE_VARIABLE_OR_WILDCARD).f();
+                    this.classes = f2;
+                    return f2;
+                }
+                return immutableSet;
             }
-            return immutableSet;
+            return (Set) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class SimpleTypeToken<T> extends TypeToken<T> {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SimpleTypeToken(Type type) {
             super(type, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {type};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Type) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public enum TypeFilter implements o<TypeToken<?>> {
-        IGNORE_TYPE_VARIABLE_OR_WILDCARD { // from class: com.google.common.reflect.TypeToken.TypeFilter.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.common.reflect.TypeToken.TypeFilter, d.g.c.a.o
-            public boolean apply(TypeToken<?> typeToken) {
-                return ((typeToken.runtimeType instanceof TypeVariable) || (typeToken.runtimeType instanceof WildcardType)) ? false : true;
-            }
-        },
-        INTERFACE_ONLY { // from class: com.google.common.reflect.TypeToken.TypeFilter.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.common.reflect.TypeToken.TypeFilter, d.g.c.a.o
-            public boolean apply(TypeToken<?> typeToken) {
-                return typeToken.getRawType().isInterface();
-            }
-        };
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static abstract class TypeFilter implements o<TypeToken<?>> {
+        public static final /* synthetic */ TypeFilter[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final TypeFilter IGNORE_TYPE_VARIABLE_OR_WILDCARD;
+        public static final TypeFilter INTERFACE_ONLY;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // d.g.c.a.o
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(785942122, "Lcom/google/common/reflect/TypeToken$TypeFilter;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(785942122, "Lcom/google/common/reflect/TypeToken$TypeFilter;");
+                    return;
+                }
+            }
+            IGNORE_TYPE_VARIABLE_OR_WILDCARD = new TypeFilter("IGNORE_TYPE_VARIABLE_OR_WILDCARD", 0) { // from class: com.google.common.reflect.TypeToken.TypeFilter.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.google.common.reflect.TypeToken.TypeFilter, d.f.d.a.o
+                public boolean apply(TypeToken<?> typeToken) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, typeToken)) == null) ? ((typeToken.runtimeType instanceof TypeVariable) || (typeToken.runtimeType instanceof WildcardType)) ? false : true : invokeL.booleanValue;
+                }
+            };
+            TypeFilter typeFilter = new TypeFilter("INTERFACE_ONLY", 1) { // from class: com.google.common.reflect.TypeToken.TypeFilter.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.google.common.reflect.TypeToken.TypeFilter, d.f.d.a.o
+                public boolean apply(TypeToken<?> typeToken) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, typeToken)) == null) ? typeToken.getRawType().isInterface() : invokeL.booleanValue;
+                }
+            };
+            INTERFACE_ONLY = typeFilter;
+            $VALUES = new TypeFilter[]{IGNORE_TYPE_VARIABLE_OR_WILDCARD, typeFilter};
+        }
+
+        public TypeFilter(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static TypeFilter valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TypeFilter) Enum.valueOf(TypeFilter.class, str) : (TypeFilter) invokeL.objValue;
+        }
+
+        public static TypeFilter[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (TypeFilter[]) $VALUES.clone() : (TypeFilter[]) invokeV.objValue;
+        }
+
+        @Override // d.f.d.a.o
         public abstract /* synthetic */ boolean apply(T t);
 
-        /* synthetic */ TypeFilter(a aVar) {
-            this();
+        public /* synthetic */ TypeFilter(String str, int i2, a aVar) {
+            this(str, i2);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends b.C1914b<T> {
-        public a(Method method) {
+    /* loaded from: classes7.dex */
+    public class a extends b.C2036b<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ TypeToken f33428h;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(TypeToken typeToken, Method method) {
             super(method);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {typeToken, method};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Method) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33428h = typeToken;
         }
 
-        @Override // d.g.c.h.a
+        @Override // d.f.d.h.a
         public TypeToken<T> a() {
-            return TypeToken.this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33428h : (TypeToken) invokeV.objValue;
         }
 
-        @Override // d.g.c.h.a
+        @Override // d.f.d.h.a
         public String toString() {
-            return a() + "." + super.toString();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return a() + "." + super.toString();
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends b.a<T> {
-        public b(Constructor constructor) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ TypeToken f33429h;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(TypeToken typeToken, Constructor constructor) {
             super(constructor);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {typeToken, constructor};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Constructor) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33429h = typeToken;
         }
 
-        @Override // d.g.c.h.a
+        @Override // d.f.d.h.a
         public TypeToken<T> a() {
-            return TypeToken.this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33429h : (TypeToken) invokeV.objValue;
         }
 
-        @Override // d.g.c.h.b.a
+        @Override // d.f.d.h.b.a
         public Type[] b() {
-            d.g.c.h.f invariantTypeResolver = TypeToken.this.getInvariantTypeResolver();
-            Type[] b2 = super.b();
-            invariantTypeResolver.l(b2);
-            return b2;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                d.f.d.h.f invariantTypeResolver = this.f33429h.getInvariantTypeResolver();
+                Type[] b2 = super.b();
+                invariantTypeResolver.l(b2);
+                return b2;
+            }
+            return (Type[]) invokeV.objValue;
         }
 
-        @Override // d.g.c.h.a
+        @Override // d.f.d.h.a
         public String toString() {
-            return a() + "(" + i.g(StringUtil.ARRAY_ELEMENT_SEPARATOR).e(b()) + SmallTailInfo.EMOTION_SUFFIX;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return a() + "(" + i.g(StringUtil.ARRAY_ELEMENT_SEPARATOR).e(b()) + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c extends g {
-        public c() {
-        }
-
-        @Override // d.g.c.h.g
-        public void c(GenericArrayType genericArrayType) {
-            a(genericArrayType.getGenericComponentType());
-        }
-
-        @Override // d.g.c.h.g
-        public void d(ParameterizedType parameterizedType) {
-            a(parameterizedType.getActualTypeArguments());
-            a(parameterizedType.getOwnerType());
-        }
-
-        @Override // d.g.c.h.g
-        public void e(TypeVariable<?> typeVariable) {
-            throw new IllegalArgumentException(TypeToken.this.runtimeType + "contains a type variable and is not safe for the operation");
-        }
-
-        @Override // d.g.c.h.g
-        public void f(WildcardType wildcardType) {
-            a(wildcardType.getLowerBounds());
-            a(wildcardType.getUpperBounds());
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ImmutableSet.a f31576b;
+        public final /* synthetic */ TypeToken f33430b;
+
+        public c(TypeToken typeToken) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {typeToken};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33430b = typeToken;
+        }
+
+        @Override // d.f.d.h.g
+        public void c(GenericArrayType genericArrayType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, genericArrayType) == null) {
+                a(genericArrayType.getGenericComponentType());
+            }
+        }
+
+        @Override // d.f.d.h.g
+        public void d(ParameterizedType parameterizedType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parameterizedType) == null) {
+                a(parameterizedType.getActualTypeArguments());
+                a(parameterizedType.getOwnerType());
+            }
+        }
+
+        @Override // d.f.d.h.g
+        public void e(TypeVariable<?> typeVariable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, typeVariable) == null) {
+                throw new IllegalArgumentException(this.f33430b.runtimeType + "contains a type variable and is not safe for the operation");
+            }
+        }
+
+        @Override // d.f.d.h.g
+        public void f(WildcardType wildcardType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, wildcardType) == null) {
+                a(wildcardType.getLowerBounds());
+                a(wildcardType.getUpperBounds());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d extends g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ ImmutableSet.a f33431b;
 
         public d(TypeToken typeToken, ImmutableSet.a aVar) {
-            this.f31576b = aVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {typeToken, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33431b = aVar;
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.f.d.h.g
         public void b(Class<?> cls) {
-            this.f31576b.a(cls);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cls) == null) {
+                this.f33431b.a(cls);
+            }
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.f.d.h.g
         public void c(GenericArrayType genericArrayType) {
-            this.f31576b.a(Types.i(TypeToken.of(genericArrayType.getGenericComponentType()).getRawType()));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, genericArrayType) == null) {
+                this.f33431b.a(Types.i(TypeToken.of(genericArrayType.getGenericComponentType()).getRawType()));
+            }
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.f.d.h.g
         public void d(ParameterizedType parameterizedType) {
-            this.f31576b.a((Class) parameterizedType.getRawType());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parameterizedType) == null) {
+                this.f33431b.a((Class) parameterizedType.getRawType());
+            }
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.f.d.h.g
         public void e(TypeVariable<?> typeVariable) {
-            a(typeVariable.getBounds());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, typeVariable) == null) {
+                a(typeVariable.getBounds());
+            }
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.f.d.h.g
         public void f(WildcardType wildcardType) {
-            a(wildcardType.getUpperBounds());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, wildcardType) == null) {
+                a(wildcardType.getUpperBounds());
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Type[] f31577a;
+        public final Type[] f33432a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f31578b;
+        public final boolean f33433b;
 
         public e(Type[] typeArr, boolean z) {
-            this.f31577a = typeArr;
-            this.f31578b = z;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {typeArr, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33432a = typeArr;
+            this.f33433b = z;
         }
 
         public boolean a(Type type) {
-            for (Type type2 : this.f31577a) {
-                boolean isSubtypeOf = TypeToken.of(type2).isSubtypeOf(type);
-                boolean z = this.f31578b;
-                if (isSubtypeOf == z) {
-                    return z;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, type)) == null) {
+                for (Type type2 : this.f33432a) {
+                    boolean isSubtypeOf = TypeToken.of(type2).isSubtypeOf(type);
+                    boolean z = this.f33433b;
+                    if (isSubtypeOf == z) {
+                        return z;
+                    }
                 }
+                return !this.f33433b;
             }
-            return !this.f31578b;
+            return invokeL.booleanValue;
         }
 
         public boolean b(Type type) {
-            TypeToken<?> of = TypeToken.of(type);
-            for (Type type2 : this.f31577a) {
-                boolean isSubtypeOf = of.isSubtypeOf(type2);
-                boolean z = this.f31578b;
-                if (isSubtypeOf == z) {
-                    return z;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, type)) == null) {
+                TypeToken<?> of = TypeToken.of(type);
+                for (Type type2 : this.f33432a) {
+                    boolean isSubtypeOf = of.isSubtypeOf(type2);
+                    boolean z = this.f33433b;
+                    if (isSubtypeOf == z) {
+                        return z;
+                    }
                 }
+                return !this.f33433b;
             }
-            return !this.f31578b;
+            return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class f<K> {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f<TypeToken<?>> f31579a = new a();
+        public static final f<TypeToken<?>> f33434a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final f<Class<?>> f31580b = new b();
+        public static final f<Class<?>> f33435b;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class a extends f<TypeToken<?>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a() {
                 super(null);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super((a) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.reflect.TypeToken.f
             /* renamed from: i */
             public Iterable<? extends TypeToken<?>> e(TypeToken<?> typeToken) {
-                return typeToken.getGenericInterfaces();
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, typeToken)) == null) ? typeToken.getGenericInterfaces() : (Iterable) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.reflect.TypeToken.f
             /* renamed from: j */
             public Class<?> f(TypeToken<?> typeToken) {
-                return typeToken.getRawType();
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, typeToken)) == null) ? typeToken.getRawType() : (Class) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.reflect.TypeToken.f
             /* renamed from: k */
             public TypeToken<?> g(TypeToken<?> typeToken) {
-                return typeToken.getGenericSuperclass();
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, typeToken)) == null) ? typeToken.getGenericSuperclass() : (TypeToken) invokeL.objValue;
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class b extends f<Class<?>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b() {
                 super(null);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super((a) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
             }
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -321,132 +688,248 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
             @Override // com.google.common.reflect.TypeToken.f
             /* renamed from: i */
             public Iterable<? extends Class<?>> e(Class<?> cls) {
-                return Arrays.asList(cls.getInterfaces());
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) ? Arrays.asList(cls.getInterfaces()) : (Iterable) invokeL.objValue;
             }
 
             public Class<?> j(Class<?> cls) {
-                return cls;
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) ? cls : (Class) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.reflect.TypeToken.f
             /* renamed from: k */
             public Class<?> g(Class<?> cls) {
-                return cls.getSuperclass();
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) ? cls.getSuperclass() : (Class) invokeL.objValue;
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class c extends e<K> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public c(f fVar, f fVar2) {
                 super(fVar2);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {fVar, fVar2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super((f) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
             }
 
             @Override // com.google.common.reflect.TypeToken.f
             public ImmutableList<K> c(Iterable<? extends K> iterable) {
-                ImmutableList.a builder = ImmutableList.builder();
-                for (K k : iterable) {
-                    if (!f(k).isInterface()) {
-                        builder.h(k);
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iterable)) == null) {
+                    ImmutableList.a builder = ImmutableList.builder();
+                    for (K k : iterable) {
+                        if (!f(k).isInterface()) {
+                            builder.h(k);
+                        }
                     }
+                    return super.c(builder.j());
                 }
-                return super.c(builder.j());
+                return (ImmutableList) invokeL.objValue;
             }
 
             @Override // com.google.common.reflect.TypeToken.f
             public Iterable<? extends K> e(K k) {
-                return ImmutableSet.of();
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? ImmutableSet.of() : (Iterable) invokeL.objValue;
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class d extends Ordering<K> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Comparator f31581e;
+            public final /* synthetic */ Comparator f33436e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Map f31582f;
+            public final /* synthetic */ Map f33437f;
 
             public d(Comparator comparator, Map map) {
-                this.f31581e = comparator;
-                this.f31582f = map;
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {comparator, map};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f33436e = comparator;
+                this.f33437f = map;
             }
 
-            /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.Comparator */
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.Comparator */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.google.common.collect.Ordering, java.util.Comparator
             public int compare(K k, K k2) {
-                return this.f31581e.compare(this.f31582f.get(k), this.f31582f.get(k2));
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, k2)) == null) ? this.f33436e.compare(this.f33437f.get(k), this.f33437f.get(k2)) : invokeLL.intValue;
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class e<K> extends f<K> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: c  reason: collision with root package name */
-            public final f<K> f31583c;
+            public final f<K> f33438c;
 
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public e(f<K> fVar) {
                 super(null);
-                this.f31583c = fVar;
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {fVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super((a) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f33438c = fVar;
             }
 
             @Override // com.google.common.reflect.TypeToken.f
             public Class<?> f(K k) {
-                return this.f31583c.f(k);
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.f33438c.f(k) : (Class) invokeL.objValue;
             }
 
             @Override // com.google.common.reflect.TypeToken.f
             public K g(K k) {
-                return this.f31583c.g(k);
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.f33438c.g(k) : (K) invokeL.objValue;
             }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(47326228, "Lcom/google/common/reflect/TypeToken$f;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(47326228, "Lcom/google/common/reflect/TypeToken$f;");
+                    return;
+                }
+            }
+            f33434a = new a();
+            f33435b = new b();
         }
 
         public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
         }
 
         public static <K, V> ImmutableList<K> h(Map<K, V> map, Comparator<? super V> comparator) {
-            return (ImmutableList<K>) new d(comparator, map).immutableSortedCopy(map.keySet());
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, comparator)) == null) ? (ImmutableList<K>) new d(comparator, map).immutableSortedCopy(map.keySet()) : (ImmutableList) invokeLL.objValue;
         }
 
         public final f<K> a() {
-            return new c(this, this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c(this, this) : (f) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: int */
-        /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: int */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: int */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: int */
         /* JADX WARN: Multi-variable type inference failed */
         public final int b(K k, Map<? super K, Integer> map) {
-            Integer num = map.get(k);
-            if (num != null) {
-                return num.intValue();
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, map)) == null) {
+                Integer num = map.get(k);
+                if (num != null) {
+                    return num.intValue();
+                }
+                boolean isInterface = f(k).isInterface();
+                int i2 = isInterface;
+                for (K k2 : e(k)) {
+                    i2 = Math.max(i2, b(k2, map));
+                }
+                K g2 = g(k);
+                int i3 = i2;
+                if (g2 != null) {
+                    i3 = Math.max(i2, b(g2, map));
+                }
+                int i4 = i3 + 1;
+                map.put(k, Integer.valueOf(i4));
+                return i4;
             }
-            boolean isInterface = f(k).isInterface();
-            int i2 = isInterface;
-            for (K k2 : e(k)) {
-                i2 = Math.max(i2, b(k2, map));
-            }
-            K g2 = g(k);
-            int i3 = i2;
-            if (g2 != null) {
-                i3 = Math.max(i2, b(g2, map));
-            }
-            int i4 = i3 + 1;
-            map.put(k, Integer.valueOf(i4));
-            return i4;
+            return invokeLL.intValue;
         }
 
         public ImmutableList<K> c(Iterable<? extends K> iterable) {
-            HashMap p = Maps.p();
-            for (K k : iterable) {
-                b(k, p);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iterable)) == null) {
+                HashMap s = Maps.s();
+                for (K k : iterable) {
+                    b(k, s);
+                }
+                return h(s, Ordering.natural().reverse());
             }
-            return h(p, Ordering.natural().reverse());
+            return (ImmutableList) invokeL.objValue;
         }
 
         public final ImmutableList<K> d(K k) {
-            return c(ImmutableList.of(k));
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) ? c(ImmutableList.of(k)) : (ImmutableList) invokeL.objValue;
         }
 
         public abstract Iterable<? extends K> e(K k);
@@ -465,548 +948,879 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     }
 
     public static e any(Type[] typeArr) {
-        return new e(typeArr, true);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, typeArr)) == null) ? new e(typeArr, true) : (e) invokeL.objValue;
     }
 
     private TypeToken<? super T> boundAsSuperclass(Type type) {
-        TypeToken<? super T> typeToken = (TypeToken<? super T>) of(type);
-        if (typeToken.getRawType().isInterface()) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, type)) == null) {
+            TypeToken<? super T> typeToken = (TypeToken<? super T>) of(type);
+            if (typeToken.getRawType().isInterface()) {
+                return null;
+            }
+            return typeToken;
         }
-        return typeToken;
+        return (TypeToken) invokeL.objValue;
     }
 
     private ImmutableList<TypeToken<? super T>> boundsAsInterfaces(Type[] typeArr) {
-        ImmutableList.a builder = ImmutableList.builder();
-        for (Type type : typeArr) {
-            TypeToken<?> of = of(type);
-            if (of.getRawType().isInterface()) {
-                builder.h(of);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, typeArr)) == null) {
+            ImmutableList.a builder = ImmutableList.builder();
+            for (Type type : typeArr) {
+                TypeToken<?> of = of(type);
+                if (of.getRawType().isInterface()) {
+                    builder.h(of);
+                }
             }
+            return builder.j();
         }
-        return builder.j();
+        return (ImmutableList) invokeL.objValue;
     }
 
     public static Type canonicalizeTypeArg(TypeVariable<?> typeVariable, Type type) {
-        if (type instanceof WildcardType) {
-            return canonicalizeWildcardType(typeVariable, (WildcardType) type);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, typeVariable, type)) == null) {
+            if (type instanceof WildcardType) {
+                return canonicalizeWildcardType(typeVariable, (WildcardType) type);
+            }
+            return canonicalizeWildcardsInType(type);
         }
-        return canonicalizeWildcardsInType(type);
+        return (Type) invokeLL.objValue;
     }
 
     public static WildcardType canonicalizeWildcardType(TypeVariable<?> typeVariable, WildcardType wildcardType) {
+        InterceptResult invokeLL;
         Type[] upperBounds;
-        Type[] bounds = typeVariable.getBounds();
-        ArrayList arrayList = new ArrayList();
-        for (Type type : wildcardType.getUpperBounds()) {
-            if (!any(bounds).a(type)) {
-                arrayList.add(canonicalizeWildcardsInType(type));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, typeVariable, wildcardType)) == null) {
+            Type[] bounds = typeVariable.getBounds();
+            ArrayList arrayList = new ArrayList();
+            for (Type type : wildcardType.getUpperBounds()) {
+                if (!any(bounds).a(type)) {
+                    arrayList.add(canonicalizeWildcardsInType(type));
+                }
             }
+            return new Types.WildcardTypeImpl(wildcardType.getLowerBounds(), (Type[]) arrayList.toArray(new Type[0]));
         }
-        return new Types.WildcardTypeImpl(wildcardType.getLowerBounds(), (Type[]) arrayList.toArray(new Type[0]));
+        return (WildcardType) invokeLL.objValue;
     }
 
     public static ParameterizedType canonicalizeWildcardsInParameterizedType(ParameterizedType parameterizedType) {
-        Class cls = (Class) parameterizedType.getRawType();
-        TypeVariable<Class<T>>[] typeParameters = cls.getTypeParameters();
-        Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-        for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
-            actualTypeArguments[i2] = canonicalizeTypeArg(typeParameters[i2], actualTypeArguments[i2]);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, parameterizedType)) == null) {
+            Class cls = (Class) parameterizedType.getRawType();
+            TypeVariable<Class<T>>[] typeParameters = cls.getTypeParameters();
+            Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+            for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
+                actualTypeArguments[i2] = canonicalizeTypeArg(typeParameters[i2], actualTypeArguments[i2]);
+            }
+            return Types.n(parameterizedType.getOwnerType(), cls, actualTypeArguments);
         }
-        return Types.n(parameterizedType.getOwnerType(), cls, actualTypeArguments);
+        return (ParameterizedType) invokeL.objValue;
     }
 
     public static Type canonicalizeWildcardsInType(Type type) {
-        if (type instanceof ParameterizedType) {
-            return canonicalizeWildcardsInParameterizedType((ParameterizedType) type);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, type)) == null) {
+            if (type instanceof ParameterizedType) {
+                return canonicalizeWildcardsInParameterizedType((ParameterizedType) type);
+            }
+            return type instanceof GenericArrayType ? Types.k(canonicalizeWildcardsInType(((GenericArrayType) type).getGenericComponentType())) : type;
         }
-        return type instanceof GenericArrayType ? Types.k(canonicalizeWildcardsInType(((GenericArrayType) type).getGenericComponentType())) : type;
+        return (Type) invokeL.objValue;
     }
 
     public static e every(Type[] typeArr) {
-        return new e(typeArr, false);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, typeArr)) == null) ? new e(typeArr, false) : (e) invokeL.objValue;
     }
 
     private TypeToken<? extends T> getArraySubtype(Class<?> cls) {
-        return (TypeToken<? extends T>) of(newArrayClassOrGenericArrayType(getComponentType().getSubtype(cls.getComponentType()).runtimeType));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, this, cls)) == null) ? (TypeToken<? extends T>) of(newArrayClassOrGenericArrayType(getComponentType().getSubtype(cls.getComponentType()).runtimeType)) : (TypeToken) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: java.lang.Class<?>, java.lang.Class<? super ?> */
+    /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: java.lang.Class<?>, java.lang.Class<? super ?> */
     private TypeToken<? super T> getArraySupertype(Class<? super T> cls) {
-        TypeToken<?> componentType = getComponentType();
-        n.s(componentType, "%s isn't a super type of %s", cls, this);
-        return (TypeToken<? super T>) of(newArrayClassOrGenericArrayType(componentType.getSupertype(cls.getComponentType()).runtimeType));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, cls)) == null) {
+            TypeToken<?> componentType = getComponentType();
+            n.s(componentType, "%s isn't a super type of %s", cls, this);
+            return (TypeToken<? super T>) of(newArrayClassOrGenericArrayType(componentType.getSupertype(cls.getComponentType()).runtimeType));
+        }
+        return (TypeToken) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public d.g.c.h.f getCovariantTypeResolver() {
-        d.g.c.h.f fVar = this.covariantTypeResolver;
-        if (fVar == null) {
-            d.g.c.h.f d2 = d.g.c.h.f.d(this.runtimeType);
-            this.covariantTypeResolver = d2;
-            return d2;
+    public d.f.d.h.f getCovariantTypeResolver() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
+            d.f.d.h.f fVar = this.covariantTypeResolver;
+            if (fVar == null) {
+                d.f.d.h.f d2 = d.f.d.h.f.d(this.runtimeType);
+                this.covariantTypeResolver = d2;
+                return d2;
+            }
+            return fVar;
         }
-        return fVar;
+        return (d.f.d.h.f) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public d.g.c.h.f getInvariantTypeResolver() {
-        d.g.c.h.f fVar = this.invariantTypeResolver;
-        if (fVar == null) {
-            d.g.c.h.f f2 = d.g.c.h.f.f(this.runtimeType);
-            this.invariantTypeResolver = f2;
-            return f2;
+    public d.f.d.h.f getInvariantTypeResolver() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
+            d.f.d.h.f fVar = this.invariantTypeResolver;
+            if (fVar == null) {
+                d.f.d.h.f f2 = d.f.d.h.f.f(this.runtimeType);
+                this.invariantTypeResolver = f2;
+                return f2;
+            }
+            return fVar;
         }
-        return fVar;
+        return (d.f.d.h.f) invokeV.objValue;
     }
 
     private Type getOwnerTypeIfPresent() {
-        Type type = this.runtimeType;
-        if (type instanceof ParameterizedType) {
-            return ((ParameterizedType) type).getOwnerType();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
+            Type type = this.runtimeType;
+            if (type instanceof ParameterizedType) {
+                return ((ParameterizedType) type).getOwnerType();
+            }
+            if (type instanceof Class) {
+                return ((Class) type).getEnclosingClass();
+            }
+            return null;
         }
-        if (type instanceof Class) {
-            return ((Class) type).getEnclosingClass();
-        }
-        return null;
+        return (Type) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public ImmutableSet<Class<? super T>> getRawTypes() {
-        ImmutableSet.a builder = ImmutableSet.builder();
-        new d(this, builder).a(this.runtimeType);
-        return builder.l();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
+            ImmutableSet.a builder = ImmutableSet.builder();
+            new d(this, builder).a(this.runtimeType);
+            return builder.l();
+        }
+        return (ImmutableSet) invokeV.objValue;
     }
 
     private TypeToken<? extends T> getSubtypeFromLowerBounds(Class<?> cls, Type[] typeArr) {
-        if (typeArr.length > 0) {
-            return (TypeToken<? extends T>) of(typeArr[0]).getSubtype(cls);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, this, cls, typeArr)) == null) {
+            if (typeArr.length > 0) {
+                return (TypeToken<? extends T>) of(typeArr[0]).getSubtype(cls);
+            }
+            throw new IllegalArgumentException(cls + " isn't a subclass of " + this);
         }
-        throw new IllegalArgumentException(cls + " isn't a subclass of " + this);
+        return (TypeToken) invokeLL.objValue;
     }
 
     private TypeToken<? super T> getSupertypeFromUpperBounds(Class<? super T> cls, Type[] typeArr) {
-        for (Type type : typeArr) {
-            TypeToken<?> of = of(type);
-            if (of.isSubtypeOf(cls)) {
-                return (TypeToken<? super T>) of.getSupertype(cls);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, this, cls, typeArr)) == null) {
+            for (Type type : typeArr) {
+                TypeToken<?> of = of(type);
+                if (of.isSubtypeOf(cls)) {
+                    return (TypeToken<? super T>) of.getSupertype(cls);
+                }
             }
+            throw new IllegalArgumentException(cls + " isn't a super type of " + this);
         }
-        throw new IllegalArgumentException(cls + " isn't a super type of " + this);
+        return (TypeToken) invokeLL.objValue;
     }
 
     private boolean is(Type type, TypeVariable<?> typeVariable) {
-        if (this.runtimeType.equals(type)) {
-            return true;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, this, type, typeVariable)) == null) {
+            if (this.runtimeType.equals(type)) {
+                return true;
+            }
+            if (type instanceof WildcardType) {
+                WildcardType canonicalizeWildcardType = canonicalizeWildcardType(typeVariable, (WildcardType) type);
+                return every(canonicalizeWildcardType.getUpperBounds()).b(this.runtimeType) && every(canonicalizeWildcardType.getLowerBounds()).a(this.runtimeType);
+            }
+            return canonicalizeWildcardsInType(this.runtimeType).equals(canonicalizeWildcardsInType(type));
         }
-        if (type instanceof WildcardType) {
-            WildcardType canonicalizeWildcardType = canonicalizeWildcardType(typeVariable, (WildcardType) type);
-            return every(canonicalizeWildcardType.getUpperBounds()).b(this.runtimeType) && every(canonicalizeWildcardType.getLowerBounds()).a(this.runtimeType);
-        }
-        return canonicalizeWildcardsInType(this.runtimeType).equals(canonicalizeWildcardsInType(type));
+        return invokeLL.booleanValue;
     }
 
     private boolean isOwnedBySubtypeOf(Type type) {
-        Iterator<TypeToken<? super T>> it = getTypes().iterator();
-        while (it.hasNext()) {
-            Type ownerTypeIfPresent = it.next().getOwnerTypeIfPresent();
-            if (ownerTypeIfPresent != null && of(ownerTypeIfPresent).isSubtypeOf(type)) {
-                return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, this, type)) == null) {
+            Iterator<TypeToken<? super T>> it = getTypes().iterator();
+            while (it.hasNext()) {
+                Type ownerTypeIfPresent = it.next().getOwnerTypeIfPresent();
+                if (ownerTypeIfPresent != null && of(ownerTypeIfPresent).isSubtypeOf(type)) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     private boolean isSubtypeOfArrayType(GenericArrayType genericArrayType) {
-        Type type = this.runtimeType;
-        if (type instanceof Class) {
-            Class cls = (Class) type;
-            if (cls.isArray()) {
-                return of((Class) cls.getComponentType()).isSubtypeOf(genericArrayType.getGenericComponentType());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, genericArrayType)) == null) {
+            Type type = this.runtimeType;
+            if (type instanceof Class) {
+                Class cls = (Class) type;
+                if (cls.isArray()) {
+                    return of((Class) cls.getComponentType()).isSubtypeOf(genericArrayType.getGenericComponentType());
+                }
+                return false;
+            } else if (type instanceof GenericArrayType) {
+                return of(((GenericArrayType) type).getGenericComponentType()).isSubtypeOf(genericArrayType.getGenericComponentType());
+            } else {
+                return false;
             }
-            return false;
-        } else if (type instanceof GenericArrayType) {
-            return of(((GenericArrayType) type).getGenericComponentType()).isSubtypeOf(genericArrayType.getGenericComponentType());
-        } else {
-            return false;
         }
+        return invokeL.booleanValue;
     }
 
     private boolean isSubtypeOfParameterizedType(ParameterizedType parameterizedType) {
-        Class<? super Object> rawType = of(parameterizedType).getRawType();
-        if (someRawTypeIsSubclassOf(rawType)) {
-            TypeVariable<Class<? super Object>>[] typeParameters = rawType.getTypeParameters();
-            Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-            for (int i2 = 0; i2 < typeParameters.length; i2++) {
-                if (!of(getCovariantTypeResolver().j(typeParameters[i2])).is(actualTypeArguments[i2], typeParameters[i2])) {
-                    return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, this, parameterizedType)) == null) {
+            Class<? super Object> rawType = of(parameterizedType).getRawType();
+            if (someRawTypeIsSubclassOf(rawType)) {
+                TypeVariable<Class<? super Object>>[] typeParameters = rawType.getTypeParameters();
+                Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+                for (int i2 = 0; i2 < typeParameters.length; i2++) {
+                    if (!of(getCovariantTypeResolver().j(typeParameters[i2])).is(actualTypeArguments[i2], typeParameters[i2])) {
+                        return false;
+                    }
                 }
+                return Modifier.isStatic(((Class) parameterizedType.getRawType()).getModifiers()) || parameterizedType.getOwnerType() == null || isOwnedBySubtypeOf(parameterizedType.getOwnerType());
             }
-            return Modifier.isStatic(((Class) parameterizedType.getRawType()).getModifiers()) || parameterizedType.getOwnerType() == null || isOwnedBySubtypeOf(parameterizedType.getOwnerType());
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     private boolean isSupertypeOfArray(GenericArrayType genericArrayType) {
-        Type type = this.runtimeType;
-        if (type instanceof Class) {
-            Class cls = (Class) type;
-            if (!cls.isArray()) {
-                return cls.isAssignableFrom(Object[].class);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, this, genericArrayType)) == null) {
+            Type type = this.runtimeType;
+            if (type instanceof Class) {
+                Class cls = (Class) type;
+                if (!cls.isArray()) {
+                    return cls.isAssignableFrom(Object[].class);
+                }
+                return of(genericArrayType.getGenericComponentType()).isSubtypeOf(cls.getComponentType());
+            } else if (type instanceof GenericArrayType) {
+                return of(genericArrayType.getGenericComponentType()).isSubtypeOf(((GenericArrayType) this.runtimeType).getGenericComponentType());
+            } else {
+                return false;
             }
-            return of(genericArrayType.getGenericComponentType()).isSubtypeOf(cls.getComponentType());
-        } else if (type instanceof GenericArrayType) {
-            return of(genericArrayType.getGenericComponentType()).isSubtypeOf(((GenericArrayType) this.runtimeType).getGenericComponentType());
-        } else {
-            return false;
         }
+        return invokeL.booleanValue;
     }
 
     private boolean isWrapper() {
-        return d.g.c.g.a.b().contains(this.runtimeType);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) ? d.f.d.g.a.b().contains(this.runtimeType) : invokeV.booleanValue;
     }
 
     public static Type newArrayClassOrGenericArrayType(Type type) {
-        return Types.JavaVersion.JAVA7.newArrayType(type);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, type)) == null) ? Types.JavaVersion.JAVA7.newArrayType(type) : (Type) invokeL.objValue;
     }
 
     public static <T> TypeToken<T> of(Class<T> cls) {
-        return new SimpleTypeToken(cls);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65567, null, cls)) == null) ? new SimpleTypeToken(cls) : (TypeToken) invokeL.objValue;
     }
 
     private TypeToken<?> resolveSupertype(Type type) {
-        TypeToken<?> of = of(getCovariantTypeResolver().j(type));
-        of.covariantTypeResolver = this.covariantTypeResolver;
-        of.invariantTypeResolver = this.invariantTypeResolver;
-        return of;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, this, type)) == null) {
+            TypeToken<?> of = of(getCovariantTypeResolver().j(type));
+            of.covariantTypeResolver = this.covariantTypeResolver;
+            of.invariantTypeResolver = this.invariantTypeResolver;
+            return of;
+        }
+        return (TypeToken) invokeL.objValue;
     }
 
     private Type resolveTypeArgsForSubclass(Class<?> cls) {
-        if (!(this.runtimeType instanceof Class) || (cls.getTypeParameters().length != 0 && getRawType().getTypeParameters().length == 0)) {
-            TypeToken genericType = toGenericType(cls);
-            return new d.g.c.h.f().n(genericType.getSupertype(getRawType()).runtimeType, this.runtimeType).j(genericType.runtimeType);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, this, cls)) == null) {
+            if (!(this.runtimeType instanceof Class) || (cls.getTypeParameters().length != 0 && getRawType().getTypeParameters().length == 0)) {
+                TypeToken genericType = toGenericType(cls);
+                return new d.f.d.h.f().n(genericType.getSupertype(getRawType()).runtimeType, this.runtimeType).j(genericType.runtimeType);
+            }
+            return cls;
         }
-        return cls;
+        return (Type) invokeL.objValue;
     }
 
     private boolean someRawTypeIsSubclassOf(Class<?> cls) {
-        c1<Class<? super T>> it = getRawTypes().iterator();
-        while (it.hasNext()) {
-            if (cls.isAssignableFrom(it.next())) {
-                return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, this, cls)) == null) {
+            o1<Class<? super T>> it = getRawTypes().iterator();
+            while (it.hasNext()) {
+                if (cls.isAssignableFrom(it.next())) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static <T> TypeToken<? extends T> toGenericType(Class<T> cls) {
-        if (cls.isArray()) {
-            return (TypeToken<? extends T>) of(Types.k(toGenericType(cls.getComponentType()).runtimeType));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, cls)) == null) {
+            if (cls.isArray()) {
+                return (TypeToken<? extends T>) of(Types.k(toGenericType(cls.getComponentType()).runtimeType));
+            }
+            TypeVariable<Class<T>>[] typeParameters = cls.getTypeParameters();
+            Type type = (!cls.isMemberClass() || Modifier.isStatic(cls.getModifiers())) ? null : toGenericType(cls.getEnclosingClass()).runtimeType;
+            if (typeParameters.length <= 0 && (type == null || type == cls.getEnclosingClass())) {
+                return of((Class) cls);
+            }
+            return (TypeToken<? extends T>) of(Types.n(type, cls, typeParameters));
         }
-        TypeVariable<Class<T>>[] typeParameters = cls.getTypeParameters();
-        Type type = (!cls.isMemberClass() || Modifier.isStatic(cls.getModifiers())) ? null : toGenericType(cls.getEnclosingClass()).runtimeType;
-        if (typeParameters.length <= 0 && (type == null || type == cls.getEnclosingClass())) {
-            return of((Class) cls);
-        }
-        return (TypeToken<? extends T>) of(Types.n(type, cls, typeParameters));
+        return (TypeToken) invokeL.objValue;
     }
 
-    public final d.g.c.h.b<T, T> constructor(Constructor<?> constructor) {
-        n.l(constructor.getDeclaringClass() == getRawType(), "%s not declared by %s", constructor, getRawType());
-        return new b(constructor);
+    public final d.f.d.h.b<T, T> constructor(Constructor<?> constructor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, constructor)) == null) {
+            n.l(constructor.getDeclaringClass() == getRawType(), "%s not declared by %s", constructor, getRawType());
+            return new b(this, constructor);
+        }
+        return (d.f.d.h.b) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
-        if (obj instanceof TypeToken) {
-            return this.runtimeType.equals(((TypeToken) obj).runtimeType);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj instanceof TypeToken) {
+                return this.runtimeType.equals(((TypeToken) obj).runtimeType);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public final TypeToken<?> getComponentType() {
-        Type j = Types.j(this.runtimeType);
-        if (j == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Type j = Types.j(this.runtimeType);
+            if (j == null) {
+                return null;
+            }
+            return of(j);
         }
-        return of(j);
+        return (TypeToken) invokeV.objValue;
     }
 
     public final ImmutableList<TypeToken<? super T>> getGenericInterfaces() {
-        Type type = this.runtimeType;
-        if (type instanceof TypeVariable) {
-            return boundsAsInterfaces(((TypeVariable) type).getBounds());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Type type = this.runtimeType;
+            if (type instanceof TypeVariable) {
+                return boundsAsInterfaces(((TypeVariable) type).getBounds());
+            }
+            if (type instanceof WildcardType) {
+                return boundsAsInterfaces(((WildcardType) type).getUpperBounds());
+            }
+            ImmutableList.a builder = ImmutableList.builder();
+            for (Type type2 : getRawType().getGenericInterfaces()) {
+                builder.h(resolveSupertype(type2));
+            }
+            return builder.j();
         }
-        if (type instanceof WildcardType) {
-            return boundsAsInterfaces(((WildcardType) type).getUpperBounds());
-        }
-        ImmutableList.a builder = ImmutableList.builder();
-        for (Type type2 : getRawType().getGenericInterfaces()) {
-            builder.h(resolveSupertype(type2));
-        }
-        return builder.j();
+        return (ImmutableList) invokeV.objValue;
     }
 
     public final TypeToken<? super T> getGenericSuperclass() {
-        Type type = this.runtimeType;
-        if (type instanceof TypeVariable) {
-            return boundAsSuperclass(((TypeVariable) type).getBounds()[0]);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Type type = this.runtimeType;
+            if (type instanceof TypeVariable) {
+                return boundAsSuperclass(((TypeVariable) type).getBounds()[0]);
+            }
+            if (type instanceof WildcardType) {
+                return boundAsSuperclass(((WildcardType) type).getUpperBounds()[0]);
+            }
+            Type genericSuperclass = getRawType().getGenericSuperclass();
+            if (genericSuperclass == null) {
+                return null;
+            }
+            return (TypeToken<? super T>) resolveSupertype(genericSuperclass);
         }
-        if (type instanceof WildcardType) {
-            return boundAsSuperclass(((WildcardType) type).getUpperBounds()[0]);
-        }
-        Type genericSuperclass = getRawType().getGenericSuperclass();
-        if (genericSuperclass == null) {
-            return null;
-        }
-        return (TypeToken<? super T>) resolveSupertype(genericSuperclass);
+        return (TypeToken) invokeV.objValue;
     }
 
     public final Class<? super T> getRawType() {
-        return getRawTypes().iterator().next();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getRawTypes().iterator().next() : (Class) invokeV.objValue;
     }
 
     public final TypeToken<? extends T> getSubtype(Class<?> cls) {
-        n.k(!(this.runtimeType instanceof TypeVariable), "Cannot get subtype of type variable <%s>", this);
-        Type type = this.runtimeType;
-        if (type instanceof WildcardType) {
-            return getSubtypeFromLowerBounds(cls, ((WildcardType) type).getLowerBounds());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cls)) == null) {
+            n.k(!(this.runtimeType instanceof TypeVariable), "Cannot get subtype of type variable <%s>", this);
+            Type type = this.runtimeType;
+            if (type instanceof WildcardType) {
+                return getSubtypeFromLowerBounds(cls, ((WildcardType) type).getLowerBounds());
+            }
+            if (isArray()) {
+                return getArraySubtype(cls);
+            }
+            n.l(getRawType().isAssignableFrom(cls), "%s isn't a subclass of %s", cls, this);
+            TypeToken<? extends T> typeToken = (TypeToken<? extends T>) of(resolveTypeArgsForSubclass(cls));
+            n.l(typeToken.isSubtypeOf((TypeToken<?>) this), "%s does not appear to be a subtype of %s", typeToken, this);
+            return typeToken;
         }
-        if (isArray()) {
-            return getArraySubtype(cls);
-        }
-        n.l(getRawType().isAssignableFrom(cls), "%s isn't a subclass of %s", cls, this);
-        TypeToken<? extends T> typeToken = (TypeToken<? extends T>) of(resolveTypeArgsForSubclass(cls));
-        n.l(typeToken.isSubtypeOf((TypeToken<?>) this), "%s does not appear to be a subtype of %s", typeToken, this);
-        return typeToken;
+        return (TypeToken) invokeL.objValue;
     }
 
     public final TypeToken<? super T> getSupertype(Class<? super T> cls) {
-        n.l(someRawTypeIsSubclassOf(cls), "%s is not a super class of %s", cls, this);
-        Type type = this.runtimeType;
-        if (type instanceof TypeVariable) {
-            return getSupertypeFromUpperBounds(cls, ((TypeVariable) type).getBounds());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
+            n.l(someRawTypeIsSubclassOf(cls), "%s is not a super class of %s", cls, this);
+            Type type = this.runtimeType;
+            if (type instanceof TypeVariable) {
+                return getSupertypeFromUpperBounds(cls, ((TypeVariable) type).getBounds());
+            }
+            if (type instanceof WildcardType) {
+                return getSupertypeFromUpperBounds(cls, ((WildcardType) type).getUpperBounds());
+            }
+            if (cls.isArray()) {
+                return getArraySupertype(cls);
+            }
+            return (TypeToken<? super T>) resolveSupertype(toGenericType(cls).runtimeType);
         }
-        if (type instanceof WildcardType) {
-            return getSupertypeFromUpperBounds(cls, ((WildcardType) type).getUpperBounds());
-        }
-        if (cls.isArray()) {
-            return getArraySupertype(cls);
-        }
-        return (TypeToken<? super T>) resolveSupertype(toGenericType(cls).runtimeType);
+        return (TypeToken) invokeL.objValue;
     }
 
     public final Type getType() {
-        return this.runtimeType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.runtimeType : (Type) invokeV.objValue;
     }
 
     public final TypeToken<T>.TypeSet getTypes() {
-        return new TypeSet();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new TypeSet(this) : (TypeSet) invokeV.objValue;
     }
 
     public int hashCode() {
-        return this.runtimeType.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.runtimeType.hashCode() : invokeV.intValue;
     }
 
     public final boolean isArray() {
-        return getComponentType() != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? getComponentType() != null : invokeV.booleanValue;
     }
 
     public final boolean isPrimitive() {
-        Type type = this.runtimeType;
-        return (type instanceof Class) && ((Class) type).isPrimitive();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            Type type = this.runtimeType;
+            return (type instanceof Class) && ((Class) type).isPrimitive();
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isSubtypeOf(TypeToken<?> typeToken) {
-        return isSubtypeOf(typeToken.getType());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, typeToken)) == null) ? isSubtypeOf(typeToken.getType()) : invokeL.booleanValue;
     }
 
     public final boolean isSupertypeOf(TypeToken<?> typeToken) {
-        return typeToken.isSubtypeOf(getType());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, typeToken)) == null) ? typeToken.isSubtypeOf(getType()) : invokeL.booleanValue;
     }
 
-    public final d.g.c.h.b<T, Object> method(Method method) {
-        n.l(someRawTypeIsSubclassOf(method.getDeclaringClass()), "%s not declared by %s", method, this);
-        return new a(method);
+    public final d.f.d.h.b<T, Object> method(Method method) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, method)) == null) {
+            n.l(someRawTypeIsSubclassOf(method.getDeclaringClass()), "%s not declared by %s", method, this);
+            return new a(this, method);
+        }
+        return (d.f.d.h.b) invokeL.objValue;
     }
 
     public final TypeToken<T> rejectTypeVariables() {
-        new c().a(this.runtimeType);
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            new c(this).a(this.runtimeType);
+            return this;
+        }
+        return (TypeToken) invokeV.objValue;
     }
 
     public final TypeToken<?> resolveType(Type type) {
-        n.p(type);
-        return of(getInvariantTypeResolver().j(type));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, type)) == null) {
+            n.p(type);
+            return of(getInvariantTypeResolver().j(type));
+        }
+        return (TypeToken) invokeL.objValue;
     }
 
     public String toString() {
-        return Types.t(this.runtimeType);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? Types.t(this.runtimeType) : (String) invokeV.objValue;
     }
 
     public final TypeToken<T> unwrap() {
-        return isWrapper() ? of(d.g.c.g.a.c((Class) this.runtimeType)) : this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? isWrapper() ? of(d.f.d.g.a.c((Class) this.runtimeType)) : this : (TypeToken) invokeV.objValue;
     }
 
-    public final <X> TypeToken<T> where(d.g.c.h.e<X> eVar, TypeToken<X> typeToken) {
-        return new SimpleTypeToken(new d.g.c.h.f().o(ImmutableMap.of(new f.d(eVar.f70170a), typeToken.runtimeType)).j(this.runtimeType));
+    public final <X> TypeToken<T> where(d.f.d.h.e<X> eVar, TypeToken<X> typeToken) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, eVar, typeToken)) == null) ? new SimpleTypeToken(new d.f.d.h.f().o(ImmutableMap.of(new f.d(eVar.f73844a), typeToken.runtimeType)).j(this.runtimeType)) : (TypeToken) invokeLL.objValue;
     }
 
     public final TypeToken<T> wrap() {
-        return isPrimitive() ? of(d.g.c.g.a.d((Class) this.runtimeType)) : this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? isPrimitive() ? of(d.f.d.g.a.d((Class) this.runtimeType)) : this : (TypeToken) invokeV.objValue;
     }
 
     public Object writeReplace() {
-        return of(new d.g.c.h.f().j(this.runtimeType));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? of(new d.f.d.h.f().j(this.runtimeType)) : invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class InterfaceSet extends TypeToken<T>.TypeSet {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final transient TypeToken<T>.TypeSet allTypes;
+        public transient ImmutableSet<TypeToken<? super T>> interfaces;
+        public final /* synthetic */ TypeToken this$0;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final transient TypeToken<T>.TypeSet f31571e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public transient ImmutableSet<TypeToken<? super T>> f31572f;
-
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements o<Class<?>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
             public a(InterfaceSet interfaceSet) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {interfaceSet};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.g.c.a.o
+            @Override // d.f.d.a.o
             /* renamed from: a */
             public boolean apply(Class<?> cls) {
-                return cls.isInterface();
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? cls.isInterface() : invokeL.booleanValue;
             }
         }
 
-        public InterfaceSet(TypeToken<T>.TypeSet typeSet) {
-            super();
-            this.f31571e = typeSet;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public InterfaceSet(TypeToken typeToken, TypeToken<T>.TypeSet typeSet) {
+            super(typeToken);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {typeToken, typeSet};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((TypeToken) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = typeToken;
+            this.allTypes = typeSet;
         }
 
         private Object readResolve() {
-            return TypeToken.this.getTypes().interfaces();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.this$0.getTypes().interfaces() : invokeV.objValue;
         }
 
         @Override // com.google.common.reflect.TypeToken.TypeSet
         public TypeToken<T>.TypeSet classes() {
-            throw new UnsupportedOperationException("interfaces().classes() not supported.");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                throw new UnsupportedOperationException("interfaces().classes() not supported.");
+            }
+            return (TypeSet) invokeV.objValue;
         }
 
         @Override // com.google.common.reflect.TypeToken.TypeSet
         public TypeToken<T>.TypeSet interfaces() {
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (TypeSet) invokeV.objValue;
         }
 
         @Override // com.google.common.reflect.TypeToken.TypeSet
         public Set<Class<? super T>> rawTypes() {
-            return q.d(f.f31580b.c(TypeToken.this.getRawTypes())).c(new a(this)).f();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? x.d(f.f33435b.c(this.this$0.getRawTypes())).c(new a(this)).f() : (Set) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.reflect.TypeToken.TypeSet, d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // com.google.common.reflect.TypeToken.TypeSet, d.f.d.c.j0, d.f.d.c.y, d.f.d.c.h0
         public Set<TypeToken<? super T>> delegate() {
-            ImmutableSet<TypeToken<? super T>> immutableSet = this.f31572f;
-            if (immutableSet == null) {
-                ImmutableSet<TypeToken<? super T>> f2 = q.d(this.f31571e).c(TypeFilter.INTERFACE_ONLY).f();
-                this.f31572f = f2;
-                return f2;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                ImmutableSet<TypeToken<? super T>> immutableSet = this.interfaces;
+                if (immutableSet == null) {
+                    ImmutableSet<TypeToken<? super T>> f2 = x.d(this.allTypes).c(TypeFilter.INTERFACE_ONLY).f();
+                    this.interfaces = f2;
+                    return f2;
+                }
+                return immutableSet;
             }
-            return immutableSet;
+            return (Set) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class TypeSet extends a0<TypeToken<? super T>> implements Serializable {
+    /* loaded from: classes7.dex */
+    public class TypeSet extends j0<TypeToken<? super T>> implements Serializable {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TypeToken this$0;
         public transient ImmutableSet<TypeToken<? super T>> types;
 
-        public TypeSet() {
+        public TypeSet(TypeToken typeToken) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {typeToken};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = typeToken;
         }
 
         public TypeToken<T>.TypeSet classes() {
-            return new ClassSet(TypeToken.this, null);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ClassSet(this.this$0, null) : (TypeSet) invokeV.objValue;
         }
 
         public TypeToken<T>.TypeSet interfaces() {
-            return new InterfaceSet(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new InterfaceSet(this.this$0, this) : (TypeSet) invokeV.objValue;
         }
 
         public Set<Class<? super T>> rawTypes() {
-            return ImmutableSet.copyOf((Collection) f.f31580b.c(TypeToken.this.getRawTypes()));
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ImmutableSet.copyOf((Collection) f.f33435b.c(this.this$0.getRawTypes())) : (Set) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // d.f.d.c.j0, d.f.d.c.y, d.f.d.c.h0
         public Set<TypeToken<? super T>> delegate() {
-            ImmutableSet<TypeToken<? super T>> immutableSet = this.types;
-            if (immutableSet == null) {
-                ImmutableSet<TypeToken<? super T>> f2 = q.d(f.f31579a.d(TypeToken.this)).c(TypeFilter.IGNORE_TYPE_VARIABLE_OR_WILDCARD).f();
-                this.types = f2;
-                return f2;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                ImmutableSet<TypeToken<? super T>> immutableSet = this.types;
+                if (immutableSet == null) {
+                    ImmutableSet<TypeToken<? super T>> f2 = x.d(f.f33434a.d(this.this$0)).c(TypeFilter.IGNORE_TYPE_VARIABLE_OR_WILDCARD).f();
+                    this.types = f2;
+                    return f2;
+                }
+                return immutableSet;
             }
-            return immutableSet;
+            return (Set) invokeV.objValue;
         }
     }
 
     public TypeToken() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         Type capture = capture();
         this.runtimeType = capture;
         n.A(!(capture instanceof TypeVariable), "Cannot construct a TypeToken for a type variable.\nYou probably meant to call new TypeToken<%s>(getClass()) that can resolve the type variable for you.\nIf you do need to create a TypeToken of a type variable, please use TypeToken.of() instead.", capture);
     }
 
     public static TypeToken<?> of(Type type) {
-        return new SimpleTypeToken(type);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65568, null, type)) == null) ? new SimpleTypeToken(type) : (TypeToken) invokeL.objValue;
     }
 
     public final boolean isSubtypeOf(Type type) {
-        n.p(type);
-        if (type instanceof WildcardType) {
-            return any(((WildcardType) type).getLowerBounds()).b(this.runtimeType);
-        }
-        Type type2 = this.runtimeType;
-        if (type2 instanceof WildcardType) {
-            return any(((WildcardType) type2).getUpperBounds()).a(type);
-        }
-        if (type2 instanceof TypeVariable) {
-            return type2.equals(type) || any(((TypeVariable) this.runtimeType).getBounds()).a(type);
-        } else if (type2 instanceof GenericArrayType) {
-            return of(type).isSupertypeOfArray((GenericArrayType) this.runtimeType);
-        } else {
-            if (type instanceof Class) {
-                return someRawTypeIsSubclassOf((Class) type);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, type)) == null) {
+            n.p(type);
+            if (type instanceof WildcardType) {
+                return any(((WildcardType) type).getLowerBounds()).b(this.runtimeType);
             }
-            if (type instanceof ParameterizedType) {
-                return isSubtypeOfParameterizedType((ParameterizedType) type);
+            Type type2 = this.runtimeType;
+            if (type2 instanceof WildcardType) {
+                return any(((WildcardType) type2).getUpperBounds()).a(type);
             }
-            if (type instanceof GenericArrayType) {
-                return isSubtypeOfArrayType((GenericArrayType) type);
+            if (type2 instanceof TypeVariable) {
+                return type2.equals(type) || any(((TypeVariable) this.runtimeType).getBounds()).a(type);
+            } else if (type2 instanceof GenericArrayType) {
+                return of(type).isSupertypeOfArray((GenericArrayType) this.runtimeType);
+            } else {
+                if (type instanceof Class) {
+                    return someRawTypeIsSubclassOf((Class) type);
+                }
+                if (type instanceof ParameterizedType) {
+                    return isSubtypeOfParameterizedType((ParameterizedType) type);
+                }
+                if (type instanceof GenericArrayType) {
+                    return isSubtypeOfArrayType((GenericArrayType) type);
+                }
+                return false;
             }
-            return false;
         }
+        return invokeL.booleanValue;
     }
 
     public final boolean isSupertypeOf(Type type) {
-        return of(type).isSubtypeOf(getType());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, type)) == null) ? of(type).isSubtypeOf(getType()) : invokeL.booleanValue;
     }
 
     public TypeToken(Class<?> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         Type capture = super.capture();
         if (capture instanceof Class) {
             this.runtimeType = capture;
         } else {
-            this.runtimeType = d.g.c.h.f.d(cls).j(capture);
+            this.runtimeType = d.f.d.h.f.d(cls).j(capture);
         }
     }
 
-    public final <X> TypeToken<T> where(d.g.c.h.e<X> eVar, Class<X> cls) {
-        return where(eVar, of((Class) cls));
+    public final <X> TypeToken<T> where(d.f.d.h.e<X> eVar, Class<X> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, eVar, cls)) == null) ? where(eVar, of((Class) cls)) : (TypeToken) invokeLL.objValue;
     }
 
     public TypeToken(Type type) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         n.p(type);
         this.runtimeType = type;
     }

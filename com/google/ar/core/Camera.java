@@ -1,19 +1,44 @@
 package com.google.ar.core;
-/* loaded from: classes6.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class Camera {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30933a = 0;
+    public long f32846a;
+
+    public Camera() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32846a = 0L;
+    }
 
     public static native long nativeAcquireCamera(long j, long j2);
 
     private native long nativeCreateCameraIntrinsics(long j);
 
-    private native d.g.b.a.a nativeDisplayOrientedPose(long j, long j2);
+    private native d.f.c.a.a nativeDisplayOrientedPose(long j, long j2);
 
     private native void nativeGetImageIntrinsics(long j, long j2, long j3);
 
-    private native d.g.b.a.a nativeGetPose(long j, long j2);
+    private native d.f.c.a.a nativeGetPose(long j, long j2);
 
     private native void nativeGetProjectionMatrix(long j, long j2, float[] fArr, int i2, float f2, float f3);
 
@@ -28,18 +53,25 @@ public class Camera {
     public static native void nativeReleaseCamera(long j);
 
     public boolean equals(Object obj) {
-        return (obj instanceof Camera) && ((Camera) obj).f30933a == this.f30933a;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof Camera) && ((Camera) obj).f32846a == this.f32846a : invokeL.booleanValue;
     }
 
     public void finalize() {
-        long j = this.f30933a;
-        if (j != 0) {
-            nativeReleaseCamera(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            long j = this.f32846a;
+            if (j != 0) {
+                nativeReleaseCamera(j);
+            }
+            super.finalize();
         }
-        super.finalize();
     }
 
     public int hashCode() {
-        return Long.valueOf(this.f30933a).hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f32846a).hashCode() : invokeV.intValue;
     }
 }

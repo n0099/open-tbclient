@@ -3,56 +3,118 @@ package com.baidu.tieba.pb.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class KeyboardEventLayout extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19685e;
+    public int f19835e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f19686f;
+    public a f19836f;
 
     /* loaded from: classes5.dex */
     public interface a {
         void a(int i2);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KeyboardEventLayout(Context context) {
         super(context);
-        this.f19685e = 0;
-        this.f19686f = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f19835e = 0;
+        this.f19836f = null;
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         a aVar;
-        super.onSizeChanged(i2, i3, i4, i5);
-        int max = Math.max(Math.max(i5, i3), this.f19685e);
-        this.f19685e = max;
-        if (i5 == 0 || (aVar = this.f19686f) == null) {
-            return;
-        }
-        if (i5 > i3) {
-            aVar.a(0);
-        } else if (i5 >= i3 || i3 < max) {
-        } else {
-            aVar.a(1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            int max = Math.max(Math.max(i5, i3), this.f19835e);
+            this.f19835e = max;
+            if (i5 == 0 || (aVar = this.f19836f) == null) {
+                return;
+            }
+            if (i5 > i3) {
+                aVar.a(0);
+            } else if (i5 >= i3 || i3 < max) {
+            } else {
+                aVar.a(1);
+            }
         }
     }
 
     public void setOnKeyStateChangedListener(a aVar) {
-        this.f19686f = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f19836f = aVar;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KeyboardEventLayout(Context context, AttributeSet attributeSet) {
         super(context);
-        this.f19685e = 0;
-        this.f19686f = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f19835e = 0;
+        this.f19836f = null;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KeyboardEventLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f19685e = 0;
-        this.f19686f = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f19835e = 0;
+        this.f19836f = null;
     }
 }

@@ -1,48 +1,98 @@
 package d.a.d.l;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.afd.adapter.AdCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.d.d;
-import d.a.o0.k1.o.l.f;
-import d.a.o0.k1.o.l.h;
-import d.a.o0.k1.o.l.k;
-import d.a.o0.r0.p2.c;
-import d.a.o0.t2.i0.e;
-import d.a.o0.t2.i0.g;
+import d.a.s0.n1.o.l.f;
+import d.a.s0.n1.o.l.h;
+import d.a.s0.n1.o.l.k;
+import d.a.s0.u0.p2.c;
+import d.a.s0.w2.i0.e;
+import d.a.s0.w2.i0.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ICardInfo m;
     public d n;
     public TbPageContext o;
-    public d.a.o0.r0.i1.a p;
+    public d.a.s0.u0.h1.a p;
     public c q;
     public k r;
     public List<k> s;
     public f t;
 
     /* renamed from: d.a.d.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class C0575a implements d.a.o0.k1.o.a {
-        public C0575a() {
+    /* loaded from: classes8.dex */
+    public class C0610a implements d.a.s0.n1.o.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f45188a;
+
+        public C0610a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f45188a = aVar;
         }
 
-        @Override // d.a.o0.k1.o.a
+        @Override // d.a.s0.n1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
-            a aVar = a.this;
-            aVar.j0(aVar.n, a.this.n.i());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, hashMap) == null) {
+                a aVar = this.f45188a;
+                aVar.j0(aVar.n, this.f45188a.n.e());
+            }
         }
     }
 
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.a.o0.r0.i1.a aVar, c cVar, f fVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.a.s0.u0.h1.a aVar, c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, aVar, cVar, fVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.s = new ArrayList();
         this.o = tbPageContext;
         this.p = aVar;
@@ -50,12 +100,15 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
         this.t = fVar;
     }
 
-    @Override // d.a.o0.k1.o.l.f
+    @Override // d.a.s0.n1.o.l.f
     public void h(k kVar) {
-        this.r = kVar;
-        f fVar = this.t;
-        if (fVar != null) {
-            fVar.h(kVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, kVar) == null) {
+            this.r = kVar;
+            f fVar = this.t;
+            if (fVar != null) {
+                fVar.h(kVar);
+            }
         }
     }
 
@@ -63,64 +116,88 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
     @Override // d.a.c.k.e.a
     /* renamed from: h0 */
     public View I(int i2, View view, ViewGroup viewGroup, d dVar) {
-        this.n = dVar;
-        this.m = dVar.k();
-        return super.I(i2, view, viewGroup, dVar);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, dVar})) == null) {
+            this.n = dVar;
+            this.m = dVar.h();
+            return super.I(i2, view, viewGroup, dVar);
+        }
+        return (View) invokeCommon.objValue;
     }
 
     public boolean i0() {
-        k kVar = this.r;
-        if (kVar != null) {
-            return kVar.isPlaying();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            k kVar = this.r;
+            if (kVar != null) {
+                return kVar.isPlaying();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public final void j0(d dVar, int i2) {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        if (dVar == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, dVar, i2) == null) || dVar == null) {
             return;
         }
-        AdvertAppInfo t = dVar.t();
+        AdvertAppInfo q = dVar.q();
         int i3 = 2;
-        if (t != null && (iLegoAdvert = t.R3) != null && iLegoAdvert.forFree()) {
+        if (q != null && (iLegoAdvert = q.T3) != null && iLegoAdvert.forFree()) {
             i3 = 102;
         }
-        e.b().d(g.b(t, i3, i2));
-        d.a.o0.k1.o.h.c.h(dVar);
+        e.b().d(g.b(q, i3, i2));
+        d.a.s0.n1.o.h.c.h(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
     /* renamed from: k0 */
     public AdCardViewHolder Q(ViewGroup viewGroup) {
-        d.a.o0.k1.o.l.e a2;
-        if (this.m == null || (a2 = d.a.o0.k1.o.b.h().a(this.o, this.m, 2)) == null) {
-            return null;
+        InterceptResult invokeL;
+        d.a.s0.n1.o.l.e a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            if (this.m == null || (a2 = d.a.s0.n1.o.b.h().a(this.o, this.m, 2)) == null) {
+                return null;
+            }
+            if (a2 instanceof k) {
+                this.s.add((k) a2);
+            }
+            a2.setAfterClickSchemeListener(new C0610a(this));
+            return new AdCardViewHolder(a2);
         }
-        if (a2 instanceof k) {
-            this.s.add((k) a2);
-        }
-        a2.setAfterClickSchemeListener(new C0575a());
-        return new AdCardViewHolder(a2);
+        return (AdCardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
     /* renamed from: l0 */
     public AdCardViewHolder R(ViewGroup viewGroup, d dVar) {
-        if (dVar == null || dVar.k() == null) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, viewGroup, dVar)) == null) {
+            if (dVar == null || dVar.h() == null) {
+                return null;
+            }
+            this.n = dVar;
+            this.m = dVar.h();
+            return Q(viewGroup);
         }
-        this.n = dVar;
-        this.m = dVar.k();
-        return Q(viewGroup);
+        return (AdCardViewHolder) invokeLL.objValue;
     }
 
     public void m0() {
-        for (k kVar : this.s) {
-            if (kVar != null) {
-                kVar.onDestroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            for (k kVar : this.s) {
+                if (kVar != null) {
+                    kVar.onDestroy();
+                }
             }
         }
     }
@@ -129,33 +206,41 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
     @Override // d.a.c.k.e.a
     /* renamed from: p0 */
     public View X(int i2, View view, ViewGroup viewGroup, d dVar, AdCardViewHolder adCardViewHolder) {
-        if (dVar == null || adCardViewHolder == null) {
-            return null;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), view, viewGroup, dVar, adCardViewHolder})) == null) {
+            if (dVar == null || adCardViewHolder == null) {
+                return null;
+            }
+            if (adCardViewHolder.b() instanceof h) {
+                h hVar = (h) adCardViewHolder.b();
+                hVar.setAutoPlayCallBack(this.p);
+                hVar.setOnVideoContainerForegroundClickListener(this.q);
+                hVar.setCurrentPlayCallBack(this);
+            }
+            dVar.o();
+            if (adCardViewHolder.b() != null) {
+                adCardViewHolder.b().setPosition(i2);
+                adCardViewHolder.b().i(dVar.h());
+            }
+            return adCardViewHolder.a();
         }
-        if (adCardViewHolder.b() instanceof h) {
-            h hVar = (h) adCardViewHolder.b();
-            hVar.setAutoPlayCallBack(this.p);
-            hVar.setOnVideoContainerForegroundClickListener(this.q);
-            hVar.setCurrentPlayCallBack(this);
-        }
-        dVar.p();
-        if (adCardViewHolder.b() != null) {
-            adCardViewHolder.b().setPosition(i2);
-            adCardViewHolder.b().i(dVar.k());
-        }
-        return adCardViewHolder.a();
+        return (View) invokeCommon.objValue;
     }
 
     public void q0() {
-        k kVar = this.r;
-        if (kVar != null) {
-            kVar.l();
+        k kVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (kVar = this.r) == null) {
+            return;
         }
+        kVar.pausePlay();
     }
 
     public void s0() {
-        k kVar = this.r;
-        if (kVar == null) {
+        k kVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (kVar = this.r) == null) {
             return;
         }
         kVar.stopPlay();

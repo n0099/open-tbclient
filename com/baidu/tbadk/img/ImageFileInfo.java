@@ -2,14 +2,21 @@ package com.baidu.tbadk.img;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import d.a.c.e.l.d;
 import d.a.c.e.p.k;
@@ -18,10 +25,12 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImageFileInfo extends MediaFileInfo {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_TYPE_EMOTION = 1;
     public static final int IMAGE_TYPE_NORMAL = 0;
+    public transient /* synthetic */ FieldHolder $fh;
     public String _cacheKey_all;
     public String _cacheKey_page;
     public String albumId;
@@ -31,10 +40,13 @@ public class ImageFileInfo extends MediaFileInfo {
     public boolean hasAddPostQualityAction;
     public int height;
     public boolean isFromCamera;
+    public boolean isFromMoreForum;
     public boolean isGif;
     public boolean isLong;
     public boolean isOrginalBitmapShared;
     public boolean isTempFile;
+    public int mCount;
+    public int mImageType;
     public String modifyTime;
     public Bitmap orginalBitmap;
     public LinkedList<ImageOperation> pageActionsList;
@@ -42,208 +54,289 @@ public class ImageFileInfo extends MediaFileInfo {
     public String serverImageCode;
     public ImageUploadResult.picInfo serverPicInfo;
     public int width;
-    public int mCount = 0;
-    public int mImageType = 0;
-    public boolean isFromMoreForum = false;
 
-    public void addPageAction(ImageOperation imageOperation) {
-        if (this.pageActionsList == null) {
-            this.pageActionsList = new LinkedList<>();
-        }
-        this.pageActionsList.add(imageOperation);
-        this._cacheKey_all = null;
-        this._cacheKey_page = null;
-    }
-
-    public void addPersistAction(ImageOperation imageOperation) {
-        if (this.persistActionsList == null) {
-            this.persistActionsList = new LinkedList<>();
-        }
-        this.persistActionsList.add(imageOperation);
-        this.serverImageCode = null;
-        this._cacheKey_all = null;
-        this._cacheKey_page = null;
-    }
-
-    public void applayRotatePageActionToPersistAction(ImageFileInfo imageFileInfo) {
-        if (getPageActionsList() != null) {
-            Iterator<ImageOperation> it = getPageActionsList().iterator();
-            while (it.hasNext()) {
-                ImageOperation next = it.next();
-                if ("rotate".equals(next.actionName)) {
-                    if (imageFileInfo != null) {
-                        imageFileInfo.setIsGif(false);
-                    }
-                    addPersistAction(next);
-                }
+    public ImageFileInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.mCount = 0;
+        this.mImageType = 0;
+        this.isFromMoreForum = false;
     }
 
-    public void clearAllActions() {
-        LinkedList<ImageOperation> linkedList = this.persistActionsList;
-        if (linkedList != null) {
-            linkedList.clear();
-            this.serverImageCode = null;
-        }
-        LinkedList<ImageOperation> linkedList2 = this.pageActionsList;
-        if (linkedList2 != null) {
-            linkedList2.clear();
-        }
-        this._cacheKey_all = null;
-        this._cacheKey_page = null;
-    }
-
-    public void clearPageActions() {
-        LinkedList<ImageOperation> linkedList = this.pageActionsList;
-        if (linkedList != null) {
-            linkedList.clear();
+    public void addPageAction(ImageOperation imageOperation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, imageOperation) == null) {
+            if (this.pageActionsList == null) {
+                this.pageActionsList = new LinkedList<>();
+            }
+            this.pageActionsList.add(imageOperation);
             this._cacheKey_all = null;
             this._cacheKey_page = null;
         }
     }
 
+    public void addPersistAction(ImageOperation imageOperation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageOperation) == null) {
+            if (this.persistActionsList == null) {
+                this.persistActionsList = new LinkedList<>();
+            }
+            this.persistActionsList.add(imageOperation);
+            this.serverImageCode = null;
+            this._cacheKey_all = null;
+            this._cacheKey_page = null;
+        }
+    }
+
+    public void applayRotatePageActionToPersistAction(ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageFileInfo) == null) || getPageActionsList() == null) {
+            return;
+        }
+        Iterator<ImageOperation> it = getPageActionsList().iterator();
+        while (it.hasNext()) {
+            ImageOperation next = it.next();
+            if ("rotate".equals(next.actionName)) {
+                if (imageFileInfo != null) {
+                    imageFileInfo.setIsGif(false);
+                }
+                addPersistAction(next);
+            }
+        }
+    }
+
+    public void clearAllActions() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LinkedList<ImageOperation> linkedList = this.persistActionsList;
+            if (linkedList != null) {
+                linkedList.clear();
+                this.serverImageCode = null;
+            }
+            LinkedList<ImageOperation> linkedList2 = this.pageActionsList;
+            if (linkedList2 != null) {
+                linkedList2.clear();
+            }
+            this._cacheKey_all = null;
+            this._cacheKey_page = null;
+        }
+    }
+
+    public void clearPageActions() {
+        LinkedList<ImageOperation> linkedList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (linkedList = this.pageActionsList) == null) {
+            return;
+        }
+        linkedList.clear();
+        this._cacheKey_all = null;
+        this._cacheKey_page = null;
+    }
+
     public ImageFileInfo cloneWithoutFilterAction(boolean z) {
-        ImageFileInfo imageFileInfo = new ImageFileInfo();
-        imageFileInfo.setFilePath(getFilePath());
-        imageFileInfo.setContentUriStr(getContentUriStr());
-        imageFileInfo.setModifyTime(getModifyTime());
-        if (getPageActionsList() != null) {
-            Iterator<ImageOperation> it = getPageActionsList().iterator();
-            while (it.hasNext()) {
-                ImageOperation next = it.next();
-                if (!CloudControlRequest.REQUEST_KEY_FILTER.equals(next.actionName) && (!z || !"resize".equals(next.actionName))) {
-                    imageFileInfo.addPageAction(next);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            ImageFileInfo imageFileInfo = new ImageFileInfo();
+            imageFileInfo.setFilePath(getFilePath());
+            imageFileInfo.setContentUriStr(getContentUriStr());
+            imageFileInfo.setModifyTime(getModifyTime());
+            if (getPageActionsList() != null) {
+                Iterator<ImageOperation> it = getPageActionsList().iterator();
+                while (it.hasNext()) {
+                    ImageOperation next = it.next();
+                    if (!CloudControlRequest.REQUEST_KEY_FILTER.equals(next.actionName) && (!z || !"resize".equals(next.actionName))) {
+                        imageFileInfo.addPageAction(next);
+                    }
                 }
             }
-        }
-        if (getPersistActionsList() != null) {
-            Iterator<ImageOperation> it2 = getPersistActionsList().iterator();
-            while (it2.hasNext()) {
-                ImageOperation next2 = it2.next();
-                if (!CloudControlRequest.REQUEST_KEY_FILTER.equals(next2.actionName) && (!z || !"resize".equals(next2.actionName))) {
-                    imageFileInfo.addPageAction(next2);
+            if (getPersistActionsList() != null) {
+                Iterator<ImageOperation> it2 = getPersistActionsList().iterator();
+                while (it2.hasNext()) {
+                    ImageOperation next2 = it2.next();
+                    if (!CloudControlRequest.REQUEST_KEY_FILTER.equals(next2.actionName) && (!z || !"resize".equals(next2.actionName))) {
+                        imageFileInfo.addPageAction(next2);
+                    }
                 }
             }
+            imageFileInfo.setIsGif(isGif());
+            imageFileInfo.setIsLong(isLong());
+            imageFileInfo.setIsFromCamera(isFromCamera());
+            imageFileInfo.setImageType(getImageType());
+            return imageFileInfo;
         }
-        imageFileInfo.setIsGif(isGif());
-        imageFileInfo.setIsLong(isLong());
-        imageFileInfo.setIsFromCamera(isFromCamera());
-        imageFileInfo.setImageType(getImageType());
-        return imageFileInfo;
+        return (ImageFileInfo) invokeZ.objValue;
     }
 
     public String getAlbumId() {
-        return this.albumId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.albumId : (String) invokeV.objValue;
     }
 
     public String getContentUriStr() {
-        return this.contentUriStr;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.contentUriStr : (String) invokeV.objValue;
     }
 
     public String getFilePath() {
-        return this.filePath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.filePath : (String) invokeV.objValue;
     }
 
     public int getImageType() {
-        return this.mImageType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mImageType : invokeV.intValue;
     }
 
     public String getModifyTime() {
-        return this.modifyTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.modifyTime : (String) invokeV.objValue;
     }
 
     public Bitmap getOrginalBitmap() {
-        return this.orginalBitmap;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.orginalBitmap : (Bitmap) invokeV.objValue;
     }
 
     public LinkedList<ImageOperation> getPageActionsList() {
-        return this.pageActionsList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.pageActionsList : (LinkedList) invokeV.objValue;
     }
 
     public LinkedList<ImageOperation> getPersistActionsList() {
-        return this.persistActionsList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.persistActionsList : (LinkedList) invokeV.objValue;
     }
 
     public String getServerImageCode() {
-        return this.serverImageCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.serverImageCode : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.album.MediaFileInfo
     public int getType() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public boolean hasActions(boolean z) {
+        InterceptResult invokeZ;
         LinkedList<ImageOperation> linkedList;
-        if (this.persistActionsList == null && this.pageActionsList == null) {
-            return false;
-        }
-        if (!z || (linkedList = this.persistActionsList) == null || linkedList.isEmpty()) {
-            LinkedList<ImageOperation> linkedList2 = this.pageActionsList;
-            if (linkedList2 == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
+            if (this.persistActionsList == null && this.pageActionsList == null) {
                 return false;
             }
-            return !linkedList2.isEmpty();
+            if (!z || (linkedList = this.persistActionsList) == null || linkedList.isEmpty()) {
+                LinkedList<ImageOperation> linkedList2 = this.pageActionsList;
+                if (linkedList2 == null) {
+                    return false;
+                }
+                return !linkedList2.isEmpty();
+            }
+            return true;
         }
-        return true;
+        return invokeZ.booleanValue;
     }
 
     public boolean hasActionsWithoutResize() {
-        if (this.persistActionsList == null && this.pageActionsList == null) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (this.persistActionsList == null && this.pageActionsList == null) {
+                return false;
+            }
+            LinkedList<ImageOperation> linkedList = this.persistActionsList;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                Iterator<ImageOperation> it = this.persistActionsList.iterator();
+                while (it.hasNext()) {
+                    if (!"resize".equals(it.next().actionName)) {
+                        return true;
+                    }
+                }
+            }
+            LinkedList<ImageOperation> linkedList2 = this.pageActionsList;
+            if (linkedList2 != null && !linkedList2.isEmpty()) {
+                Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
+                while (it2.hasNext()) {
+                    if (!"resize".equals(it2.next().actionName)) {
+                        return true;
+                    }
+                }
+            }
             return false;
         }
-        LinkedList<ImageOperation> linkedList = this.persistActionsList;
-        if (linkedList != null && !linkedList.isEmpty()) {
-            Iterator<ImageOperation> it = this.persistActionsList.iterator();
-            while (it.hasNext()) {
-                if (!"resize".equals(it.next().actionName)) {
-                    return true;
-                }
-            }
-        }
-        LinkedList<ImageOperation> linkedList2 = this.pageActionsList;
-        if (linkedList2 != null && !linkedList2.isEmpty()) {
-            Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
-            while (it2.hasNext()) {
-                if (!"resize".equals(it2.next().actionName)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public boolean isAlreadyUploadedToServer() {
-        return !k.isEmpty(this.serverImageCode);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? !k.isEmpty(this.serverImageCode) : invokeV.booleanValue;
     }
 
     public boolean isFromCamera() {
-        return this.isFromCamera;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.isFromCamera : invokeV.booleanValue;
     }
 
     public boolean isGif() {
-        return this.isGif;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.isGif : invokeV.booleanValue;
     }
 
     public boolean isHasAddPostQualityAction() {
-        return this.hasAddPostQualityAction;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.hasAddPostQualityAction : invokeV.booleanValue;
     }
 
     public boolean isLong() {
-        return this.isLong;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.isLong : invokeV.booleanValue;
     }
 
     public boolean isOrginalBitmapShared() {
-        return this.isOrginalBitmapShared;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.isOrginalBitmapShared : invokeV.booleanValue;
     }
 
     public boolean isTempFile() {
-        return this.isTempFile;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.isTempFile : invokeV.booleanValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.filePath = jSONObject.optString("filePath", "");
@@ -274,157 +367,209 @@ public class ImageFileInfo extends MediaFileInfo {
     }
 
     public void setAlbumnId(String str) {
-        this.albumId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.albumId = str;
+        }
     }
 
     public void setContentUriStr(String str) {
-        this.contentUriStr = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.contentUriStr = str;
+        }
     }
 
     public void setFilePath(String str) {
-        this.filePath = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            this.filePath = str;
+        }
     }
 
     public void setHasAddPostQualityAction(boolean z) {
-        this.hasAddPostQualityAction = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.hasAddPostQualityAction = z;
+        }
     }
 
     public void setImageType(int i2) {
-        this.mImageType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+            this.mImageType = i2;
+        }
     }
 
     public void setIsFromCamera(boolean z) {
-        this.isFromCamera = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            this.isFromCamera = z;
+        }
     }
 
     public void setIsGif(boolean z) {
-        this.isGif = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.isGif = z;
+        }
     }
 
     public void setIsLong(boolean z) {
-        this.isLong = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+            this.isLong = z;
+        }
     }
 
     public void setModifyTime(String str) {
-        this.modifyTime = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+            this.modifyTime = str;
+        }
     }
 
     public void setOrginalBitmap(Bitmap bitmap, boolean z) {
-        this.orginalBitmap = bitmap;
-        this.isOrginalBitmapShared = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048611, this, bitmap, z) == null) {
+            this.orginalBitmap = bitmap;
+            this.isOrginalBitmapShared = z;
+        }
     }
 
     public void setPageActionsList(LinkedList<ImageOperation> linkedList) {
-        this.pageActionsList = linkedList;
-        this._cacheKey_all = null;
-        this._cacheKey_page = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, linkedList) == null) {
+            this.pageActionsList = linkedList;
+            this._cacheKey_all = null;
+            this._cacheKey_page = null;
+        }
     }
 
     public void setPersistActionsList(LinkedList<ImageOperation> linkedList) {
-        this.persistActionsList = linkedList;
-        this._cacheKey_all = null;
-        this._cacheKey_page = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, linkedList) == null) {
+            this.persistActionsList = linkedList;
+            this._cacheKey_all = null;
+            this._cacheKey_page = null;
+        }
     }
 
     public void setServerImageCode(String str) {
-        this.serverImageCode = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+            this.serverImageCode = str;
+        }
     }
 
     public void setTempFile(boolean z) {
-        this.isTempFile = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+            this.isTempFile = z;
+        }
     }
 
     public String toCachedKey(boolean z) {
-        if (getImageType() == 1) {
-            return d.h().g(this.filePath, 20);
-        }
-        if (z) {
-            if (this._cacheKey_all == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("persist_");
-                sb.append(this.filePath);
-                if (ListUtils.getCount(this.persistActionsList) > 0) {
-                    Iterator<ImageOperation> it = this.persistActionsList.iterator();
-                    while (it.hasNext()) {
-                        ImageOperation next = it.next();
-                        if (next != null) {
-                            sb.append(':');
-                            sb.append(next.actionName);
-                            sb.append(a.f1886h);
-                            sb.append(next.actionParam);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048616, this, z)) == null) {
+            if (getImageType() == 1) {
+                return d.h().g(this.filePath, 20);
+            }
+            if (z) {
+                if (this._cacheKey_all == null) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("persist_");
+                    sb.append(this.filePath);
+                    if (ListUtils.getCount(this.persistActionsList) > 0) {
+                        Iterator<ImageOperation> it = this.persistActionsList.iterator();
+                        while (it.hasNext()) {
+                            ImageOperation next = it.next();
+                            if (next != null) {
+                                sb.append(':');
+                                sb.append(next.actionName);
+                                sb.append(a.f1889h);
+                                sb.append(next.actionParam);
+                            }
                         }
                     }
-                }
-                if (ListUtils.getCount(this.pageActionsList) > 0) {
-                    Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
-                    while (it2.hasNext()) {
-                        ImageOperation next2 = it2.next();
-                        if (next2 != null) {
-                            sb.append(':');
-                            sb.append(next2.actionName);
-                            sb.append(a.f1886h);
-                            sb.append(next2.actionParam);
+                    if (ListUtils.getCount(this.pageActionsList) > 0) {
+                        Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
+                        while (it2.hasNext()) {
+                            ImageOperation next2 = it2.next();
+                            if (next2 != null) {
+                                sb.append(':');
+                                sb.append(next2.actionName);
+                                sb.append(a.f1889h);
+                                sb.append(next2.actionParam);
+                            }
                         }
                     }
+                    this._cacheKey_all = sb.toString();
                 }
-                this._cacheKey_all = sb.toString();
+                return this._cacheKey_all;
             }
-            return this._cacheKey_all;
-        }
-        if (this._cacheKey_page == null) {
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append("page_");
-            sb2.append(this.filePath);
-            if (this.pageActionsList != null) {
-                for (int i2 = 0; i2 < this.pageActionsList.size(); i2++) {
-                    ImageOperation imageOperation = this.pageActionsList.get(i2);
-                    sb2.append(':');
-                    sb2.append(imageOperation.actionName);
-                    sb2.append(a.f1886h);
-                    sb2.append(imageOperation.actionParam);
+            if (this._cacheKey_page == null) {
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("page_");
+                sb2.append(this.filePath);
+                if (this.pageActionsList != null) {
+                    for (int i2 = 0; i2 < this.pageActionsList.size(); i2++) {
+                        ImageOperation imageOperation = this.pageActionsList.get(i2);
+                        sb2.append(':');
+                        sb2.append(imageOperation.actionName);
+                        sb2.append(a.f1889h);
+                        sb2.append(imageOperation.actionParam);
+                    }
                 }
+                this._cacheKey_page = sb2.toString();
             }
-            this._cacheKey_page = sb2.toString();
+            return this._cacheKey_page;
         }
-        return this._cacheKey_page;
+        return (String) invokeZ.objValue;
     }
 
     public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("filePath", this.filePath);
-            if (this.albumId != null) {
-                jSONObject.put("albumId", this.albumId);
-            }
-            if (!TextUtils.isEmpty(this.contentUriStr)) {
-                jSONObject.put("contentUriStr", this.contentUriStr);
-            }
-            jSONObject.put("isTempFile", this.isTempFile);
-            if (this.serverImageCode != null) {
-                jSONObject.put("serverImageCode", this.serverImageCode);
-            }
-            if (!StringUtils.isNull(this.modifyTime)) {
-                jSONObject.put("modifyTime", this.modifyTime);
-            }
-            if (this.persistActionsList != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (int i2 = 0; i2 < this.persistActionsList.size(); i2++) {
-                    jSONArray.put(this.persistActionsList.get(i2).toJson());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("filePath", this.filePath);
+                if (this.albumId != null) {
+                    jSONObject.put("albumId", this.albumId);
                 }
-                jSONObject.put("actionsList", jSONArray);
+                if (!TextUtils.isEmpty(this.contentUriStr)) {
+                    jSONObject.put("contentUriStr", this.contentUriStr);
+                }
+                jSONObject.put("isTempFile", this.isTempFile);
+                if (this.serverImageCode != null) {
+                    jSONObject.put("serverImageCode", this.serverImageCode);
+                }
+                if (!StringUtils.isNull(this.modifyTime)) {
+                    jSONObject.put("modifyTime", this.modifyTime);
+                }
+                if (this.persistActionsList != null) {
+                    JSONArray jSONArray = new JSONArray();
+                    for (int i2 = 0; i2 < this.persistActionsList.size(); i2++) {
+                        jSONArray.put(this.persistActionsList.get(i2).toJson());
+                    }
+                    jSONObject.put("actionsList", jSONArray);
+                }
+                jSONObject.put("hasAddPostQualityAction", this.hasAddPostQualityAction);
+                if (this.serverPicInfo != null) {
+                    jSONObject.put("serverPicInfo", this.serverPicInfo.toJson());
+                }
+                jSONObject.put("isGif", this.isGif);
+                jSONObject.put("isLong", this.isLong);
+                jSONObject.put("isFromCamera", this.isFromCamera);
+                jSONObject.put(ProducerConstants.EXTRA_IMAGE_TYPE, this.mImageType);
+                return jSONObject;
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
+                return null;
             }
-            jSONObject.put("hasAddPostQualityAction", this.hasAddPostQualityAction);
-            if (this.serverPicInfo != null) {
-                jSONObject.put("serverPicInfo", this.serverPicInfo.toJson());
-            }
-            jSONObject.put("isGif", this.isGif);
-            jSONObject.put("isLong", this.isLong);
-            jSONObject.put("isFromCamera", this.isFromCamera);
-            jSONObject.put(ProducerConstants.EXTRA_IMAGE_TYPE, this.mImageType);
-            return jSONObject;
-        } catch (JSONException e2) {
-            BdLog.e(e2.getMessage());
-            return null;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

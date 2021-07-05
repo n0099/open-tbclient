@@ -2,7 +2,7 @@ package org.apache.http.conn.params;
 
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface ConnPerRoute {
     int getMaxForRoute(HttpRoute httpRoute);
 }

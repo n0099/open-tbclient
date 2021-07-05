@@ -1,6 +1,12 @@
 package com.baidu.tieba.setting.officialAccountPush;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
@@ -8,14 +14,32 @@ import tbclient.GetOfficialSwitch.DataRes;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
 /* loaded from: classes5.dex */
 public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<OfficialAccountPushInfo> official_list;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficialAccountPushSocketResponseMessage() {
         super(309620);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public ArrayList<OfficialAccountPushInfo> getList() {
-        return this.official_list;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.official_list : (ArrayList) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +47,8 @@ public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMes
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         String str;
         Integer num;
-        if (bArr == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || bArr == null) {
             return;
         }
         GetOfficialSwitchResIdl getOfficialSwitchResIdl = (GetOfficialSwitchResIdl) new Wire(new Class[0]).parseFrom(bArr, GetOfficialSwitchResIdl.class);
@@ -45,7 +70,7 @@ public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMes
         this.official_list = new ArrayList<>();
         for (int i3 = 0; i3 < getOfficialSwitchResIdl.data.official_list.size(); i3++) {
             OfficialAccountPushInfo officialAccountPushInfo = new OfficialAccountPushInfo();
-            officialAccountPushInfo.a(getOfficialSwitchResIdl.data.official_list.get(i3));
+            officialAccountPushInfo.parser(getOfficialSwitchResIdl.data.official_list.get(i3));
             this.official_list.add(officialAccountPushInfo);
         }
     }

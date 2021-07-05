@@ -1,9 +1,20 @@
 package com.baidu.searchbox.looper.impl;
-/* loaded from: classes2.dex */
-public final class R {
 
-    /* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public final class R {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
     public static final class anim {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int fragment_close_enter = 0x7f01006e;
         public static final int fragment_close_exit = 0x7f01006f;
         public static final int fragment_fade_enter = 0x7f010070;
@@ -11,192 +22,371 @@ public final class R {
         public static final int fragment_fast_out_extra_slow_in = 0x7f010072;
         public static final int fragment_open_enter = 0x7f010073;
         public static final int fragment_open_exit = 0x7f010074;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public anim() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class attr {
-        public static final int alpha = 0x7f040077;
-        public static final int font = 0x7f0401f8;
-        public static final int fontProviderAuthority = 0x7f0401fa;
-        public static final int fontProviderCerts = 0x7f0401fb;
-        public static final int fontProviderFetchStrategy = 0x7f0401fc;
-        public static final int fontProviderFetchTimeout = 0x7f0401fd;
-        public static final int fontProviderPackage = 0x7f0401fe;
-        public static final int fontProviderQuery = 0x7f0401ff;
-        public static final int fontStyle = 0x7f040200;
-        public static final int fontVariationSettings = 0x7f040201;
-        public static final int fontWeight = 0x7f040202;
-        public static final int ttcIndex = 0x7f0405cb;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int alpha = 0x7f040079;
+        public static final int font = 0x7f040202;
+        public static final int fontProviderAuthority = 0x7f040204;
+        public static final int fontProviderCerts = 0x7f040205;
+        public static final int fontProviderFetchStrategy = 0x7f040206;
+        public static final int fontProviderFetchTimeout = 0x7f040207;
+        public static final int fontProviderPackage = 0x7f040208;
+        public static final int fontProviderQuery = 0x7f040209;
+        public static final int fontStyle = 0x7f04020a;
+        public static final int fontVariationSettings = 0x7f04020b;
+        public static final int fontWeight = 0x7f04020c;
+        public static final int ttcIndex = 0x7f0405f3;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public attr() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class color {
-        public static final int notification_action_color_filter = 0x7f060725;
-        public static final int notification_icon_bg_color = 0x7f060726;
-        public static final int ripple_material_light = 0x7f060826;
-        public static final int secondary_text_default_material_light = 0x7f06095f;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int notification_action_color_filter = 0x7f060727;
+        public static final int notification_icon_bg_color = 0x7f060728;
+        public static final int ripple_material_light = 0x7f060828;
+        public static final int secondary_text_default_material_light = 0x7f060962;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public color() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class dimen {
-        public static final int compat_button_inset_horizontal_material = 0x7f0701b1;
-        public static final int compat_button_inset_vertical_material = 0x7f0701b2;
-        public static final int compat_button_padding_horizontal_material = 0x7f0701b3;
-        public static final int compat_button_padding_vertical_material = 0x7f0701b4;
-        public static final int compat_control_corner_material = 0x7f0701b5;
-        public static final int compat_notification_large_icon_max_height = 0x7f0701b6;
-        public static final int compat_notification_large_icon_max_width = 0x7f0701b7;
-        public static final int notification_action_icon_size = 0x7f070490;
-        public static final int notification_action_text_size = 0x7f070491;
-        public static final int notification_big_circle_margin = 0x7f070493;
-        public static final int notification_content_margin_start = 0x7f070494;
-        public static final int notification_large_icon_height = 0x7f070495;
-        public static final int notification_large_icon_width = 0x7f070496;
-        public static final int notification_main_column_padding_top = 0x7f070497;
-        public static final int notification_media_narrow_margin = 0x7f070498;
-        public static final int notification_right_icon_size = 0x7f070499;
-        public static final int notification_right_side_padding_top = 0x7f07049a;
-        public static final int notification_small_icon_background_padding = 0x7f07049b;
-        public static final int notification_small_icon_size_as_large = 0x7f07049c;
-        public static final int notification_subtext_size = 0x7f07049d;
-        public static final int notification_top_pad = 0x7f0704ae;
-        public static final int notification_top_pad_large_text = 0x7f0704af;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int compat_button_inset_horizontal_material = 0x7f0701b6;
+        public static final int compat_button_inset_vertical_material = 0x7f0701b7;
+        public static final int compat_button_padding_horizontal_material = 0x7f0701b8;
+        public static final int compat_button_padding_vertical_material = 0x7f0701b9;
+        public static final int compat_control_corner_material = 0x7f0701ba;
+        public static final int compat_notification_large_icon_max_height = 0x7f0701bb;
+        public static final int compat_notification_large_icon_max_width = 0x7f0701bc;
+        public static final int notification_action_icon_size = 0x7f070492;
+        public static final int notification_action_text_size = 0x7f070493;
+        public static final int notification_big_circle_margin = 0x7f070495;
+        public static final int notification_content_margin_start = 0x7f070496;
+        public static final int notification_large_icon_height = 0x7f070497;
+        public static final int notification_large_icon_width = 0x7f070498;
+        public static final int notification_main_column_padding_top = 0x7f070499;
+        public static final int notification_media_narrow_margin = 0x7f07049a;
+        public static final int notification_right_icon_size = 0x7f07049b;
+        public static final int notification_right_side_padding_top = 0x7f07049c;
+        public static final int notification_small_icon_background_padding = 0x7f07049d;
+        public static final int notification_small_icon_size_as_large = 0x7f0704ae;
+        public static final int notification_subtext_size = 0x7f0704af;
+        public static final int notification_top_pad = 0x7f0704b0;
+        public static final int notification_top_pad_large_text = 0x7f0704b1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public dimen() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int notification_action_background = 0x7f081462;
-        public static final int notification_bg = 0x7f081463;
-        public static final int notification_bg_low = 0x7f081464;
-        public static final int notification_bg_low_normal = 0x7f081465;
-        public static final int notification_bg_low_pressed = 0x7f081466;
-        public static final int notification_bg_normal = 0x7f081467;
-        public static final int notification_bg_normal_pressed = 0x7f081468;
-        public static final int notification_icon_background = 0x7f081469;
-        public static final int notification_template_icon_bg = 0x7f08146a;
-        public static final int notification_template_icon_low_bg = 0x7f08146b;
-        public static final int notification_tile_bg = 0x7f08146c;
-        public static final int notify_panel_notification_icon_bg = 0x7f08146e;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int notification_action_background = 0x7f0814b2;
+        public static final int notification_bg = 0x7f0814b3;
+        public static final int notification_bg_low = 0x7f0814b4;
+        public static final int notification_bg_low_normal = 0x7f0814b5;
+        public static final int notification_bg_low_pressed = 0x7f0814b6;
+        public static final int notification_bg_normal = 0x7f0814b7;
+        public static final int notification_bg_normal_pressed = 0x7f0814b8;
+        public static final int notification_icon_background = 0x7f0814b9;
+        public static final int notification_template_icon_bg = 0x7f0814ba;
+        public static final int notification_template_icon_low_bg = 0x7f0814bb;
+        public static final int notification_tile_bg = 0x7f0814bc;
+        public static final int notify_panel_notification_icon_bg = 0x7f0814be;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public drawable() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class id {
-        public static final int accessibility_action_clickable_span = 0x7f090027;
-        public static final int accessibility_custom_action_0 = 0x7f090028;
-        public static final int accessibility_custom_action_1 = 0x7f090029;
-        public static final int accessibility_custom_action_10 = 0x7f09002a;
-        public static final int accessibility_custom_action_11 = 0x7f09002b;
-        public static final int accessibility_custom_action_12 = 0x7f09002c;
-        public static final int accessibility_custom_action_13 = 0x7f09002d;
-        public static final int accessibility_custom_action_14 = 0x7f09002e;
-        public static final int accessibility_custom_action_15 = 0x7f09002f;
-        public static final int accessibility_custom_action_16 = 0x7f090030;
-        public static final int accessibility_custom_action_17 = 0x7f090031;
-        public static final int accessibility_custom_action_18 = 0x7f090032;
-        public static final int accessibility_custom_action_19 = 0x7f090033;
-        public static final int accessibility_custom_action_2 = 0x7f090034;
-        public static final int accessibility_custom_action_20 = 0x7f090035;
-        public static final int accessibility_custom_action_21 = 0x7f090036;
-        public static final int accessibility_custom_action_22 = 0x7f090037;
-        public static final int accessibility_custom_action_23 = 0x7f090038;
-        public static final int accessibility_custom_action_24 = 0x7f090039;
-        public static final int accessibility_custom_action_25 = 0x7f09003a;
-        public static final int accessibility_custom_action_26 = 0x7f09003b;
-        public static final int accessibility_custom_action_27 = 0x7f09003c;
-        public static final int accessibility_custom_action_28 = 0x7f09003d;
-        public static final int accessibility_custom_action_29 = 0x7f09003e;
-        public static final int accessibility_custom_action_3 = 0x7f09003f;
-        public static final int accessibility_custom_action_30 = 0x7f090040;
-        public static final int accessibility_custom_action_31 = 0x7f090041;
-        public static final int accessibility_custom_action_4 = 0x7f090042;
-        public static final int accessibility_custom_action_5 = 0x7f090043;
-        public static final int accessibility_custom_action_6 = 0x7f090044;
-        public static final int accessibility_custom_action_7 = 0x7f090045;
-        public static final int accessibility_custom_action_8 = 0x7f090046;
-        public static final int accessibility_custom_action_9 = 0x7f090047;
-        public static final int action_container = 0x7f09005e;
-        public static final int action_divider = 0x7f090060;
-        public static final int action_image = 0x7f090062;
-        public static final int action_text = 0x7f090069;
-        public static final int actions = 0x7f09006b;
-        public static final int async = 0x7f0902a6;
-        public static final int blocking = 0x7f09044f;
-        public static final int chronometer = 0x7f090754;
-        public static final int dialog_button = 0x7f0908e2;
-        public static final int forever = 0x7f090bb9;
-        public static final int fragment_container_view_tag = 0x7f090c54;
-        public static final int icon = 0x7f090fc8;
-        public static final int icon_group = 0x7f090fdc;
-        public static final int info = 0x7f0910b9;
-        public static final int italic = 0x7f09110a;
-        public static final int line1 = 0x7f09146d;
-        public static final int line3 = 0x7f09146f;
-        public static final int normal = 0x7f091764;
-        public static final int notification_background = 0x7f091773;
-        public static final int notification_main_column = 0x7f091775;
-        public static final int notification_main_column_container = 0x7f091776;
-        public static final int right_icon = 0x7f091cb0;
-        public static final int right_side = 0x7f091cb6;
-        public static final int tag_accessibility_actions = 0x7f092095;
-        public static final int tag_accessibility_clickable_spans = 0x7f092096;
-        public static final int tag_accessibility_heading = 0x7f092097;
-        public static final int tag_accessibility_pane_title = 0x7f092098;
-        public static final int tag_screen_reader_focusable = 0x7f0920d6;
-        public static final int tag_transition_group = 0x7f0920e2;
-        public static final int tag_unhandled_key_event_manager = 0x7f0920e3;
-        public static final int tag_unhandled_key_listeners = 0x7f0920e4;
-        public static final int text = 0x7f092162;
-        public static final int text2 = 0x7f092163;
-        public static final int time = 0x7f09223a;
-        public static final int title = 0x7f09226d;
-        public static final int visible_removing_fragment_view_tag = 0x7f09271a;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int accessibility_action_clickable_span = 0x7f090028;
+        public static final int accessibility_custom_action_0 = 0x7f090029;
+        public static final int accessibility_custom_action_1 = 0x7f09002a;
+        public static final int accessibility_custom_action_10 = 0x7f09002b;
+        public static final int accessibility_custom_action_11 = 0x7f09002c;
+        public static final int accessibility_custom_action_12 = 0x7f09002d;
+        public static final int accessibility_custom_action_13 = 0x7f09002e;
+        public static final int accessibility_custom_action_14 = 0x7f09002f;
+        public static final int accessibility_custom_action_15 = 0x7f090030;
+        public static final int accessibility_custom_action_16 = 0x7f090031;
+        public static final int accessibility_custom_action_17 = 0x7f090032;
+        public static final int accessibility_custom_action_18 = 0x7f090033;
+        public static final int accessibility_custom_action_19 = 0x7f090034;
+        public static final int accessibility_custom_action_2 = 0x7f090035;
+        public static final int accessibility_custom_action_20 = 0x7f090036;
+        public static final int accessibility_custom_action_21 = 0x7f090037;
+        public static final int accessibility_custom_action_22 = 0x7f090038;
+        public static final int accessibility_custom_action_23 = 0x7f090039;
+        public static final int accessibility_custom_action_24 = 0x7f09003a;
+        public static final int accessibility_custom_action_25 = 0x7f09003b;
+        public static final int accessibility_custom_action_26 = 0x7f09003c;
+        public static final int accessibility_custom_action_27 = 0x7f09003d;
+        public static final int accessibility_custom_action_28 = 0x7f09003e;
+        public static final int accessibility_custom_action_29 = 0x7f09003f;
+        public static final int accessibility_custom_action_3 = 0x7f090040;
+        public static final int accessibility_custom_action_30 = 0x7f090041;
+        public static final int accessibility_custom_action_31 = 0x7f090042;
+        public static final int accessibility_custom_action_4 = 0x7f090043;
+        public static final int accessibility_custom_action_5 = 0x7f090044;
+        public static final int accessibility_custom_action_6 = 0x7f090045;
+        public static final int accessibility_custom_action_7 = 0x7f090046;
+        public static final int accessibility_custom_action_8 = 0x7f090047;
+        public static final int accessibility_custom_action_9 = 0x7f090048;
+        public static final int action_container = 0x7f09005f;
+        public static final int action_divider = 0x7f090061;
+        public static final int action_image = 0x7f090063;
+        public static final int action_text = 0x7f09006a;
+        public static final int actions = 0x7f09006c;
+        public static final int async = 0x7f0902a9;
+        public static final int blocking = 0x7f090456;
+        public static final int chronometer = 0x7f090784;
+        public static final int dialog_button = 0x7f090919;
+        public static final int forever = 0x7f090c0f;
+        public static final int fragment_container_view_tag = 0x7f090caa;
+        public static final int icon = 0x7f09102d;
+        public static final int icon_group = 0x7f091041;
+        public static final int info = 0x7f09112a;
+        public static final int italic = 0x7f091178;
+        public static final int line1 = 0x7f0914e8;
+        public static final int line3 = 0x7f0914ea;
+        public static final int normal = 0x7f0917ec;
+        public static final int notification_background = 0x7f0917fc;
+        public static final int notification_main_column = 0x7f0917fe;
+        public static final int notification_main_column_container = 0x7f0917ff;
+        public static final int right_icon = 0x7f091d51;
+        public static final int right_side = 0x7f091d57;
+        public static final int tag_accessibility_actions = 0x7f09213f;
+        public static final int tag_accessibility_clickable_spans = 0x7f092140;
+        public static final int tag_accessibility_heading = 0x7f092141;
+        public static final int tag_accessibility_pane_title = 0x7f092142;
+        public static final int tag_screen_reader_focusable = 0x7f09217f;
+        public static final int tag_transition_group = 0x7f09218b;
+        public static final int tag_unhandled_key_event_manager = 0x7f09218c;
+        public static final int tag_unhandled_key_listeners = 0x7f09218d;
+        public static final int text = 0x7f09220a;
+        public static final int text2 = 0x7f09220b;
+        public static final int time = 0x7f0922e6;
+        public static final int title = 0x7f09231a;
+        public static final int visible_removing_fragment_view_tag = 0x7f0927fa;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public id() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class integer {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int block_canary_max_stored_count = 0x7f0a0006;
         public static final int status_bar_notification_info_maxnum = 0x7f0a001f;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public integer() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class layout {
-        public static final int custom_dialog = 0x7f0c0210;
-        public static final int notification_action = 0x7f0c05aa;
-        public static final int notification_action_tombstone = 0x7f0c05ab;
-        public static final int notification_template_custom_big = 0x7f0c05b3;
-        public static final int notification_template_icon_group = 0x7f0c05b4;
-        public static final int notification_template_part_chronometer = 0x7f0c05b8;
-        public static final int notification_template_part_time = 0x7f0c05b9;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int custom_dialog = 0x7f0c021d;
+        public static final int notification_action = 0x7f0c05c5;
+        public static final int notification_action_tombstone = 0x7f0c05c6;
+        public static final int notification_template_custom_big = 0x7f0c05ce;
+        public static final int notification_template_icon_group = 0x7f0c05cf;
+        public static final int notification_template_part_chronometer = 0x7f0c05d3;
+        public static final int notification_template_part_time = 0x7f0c05d4;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public layout() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class raw {
-        public static final int tnconfig = 0x7f110086;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int tnconfig = 0x7f110089;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public raw() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class string {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int activity_not_found = 0x7f0f0083;
-        public static final int app_name = 0x7f0f02c0;
-        public static final int status_bar_notification_info_overflow = 0x7f0f12d6;
+        public static final int app_name = 0x7f0f029e;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1315;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public string() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class style {
-        public static final int TextAppearance_Compat_Notification = 0x7f1001d8;
-        public static final int TextAppearance_Compat_Notification_Info = 0x7f1001d9;
-        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f1001db;
-        public static final int TextAppearance_Compat_Notification_Time = 0x7f1001de;
-        public static final int TextAppearance_Compat_Notification_Title = 0x7f1001e0;
-        public static final int Widget_Compat_NotificationActionContainer = 0x7f10031c;
-        public static final int Widget_Compat_NotificationActionText = 0x7f10031d;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int TextAppearance_Compat_Notification = 0x7f1001e0;
+        public static final int TextAppearance_Compat_Notification_Info = 0x7f1001e1;
+        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f1001e3;
+        public static final int TextAppearance_Compat_Notification_Time = 0x7f1001e6;
+        public static final int TextAppearance_Compat_Notification_Title = 0x7f1001ea;
+        public static final int Widget_Compat_NotificationActionContainer = 0x7f100324;
+        public static final int Widget_Compat_NotificationActionText = 0x7f100325;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public style() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class styleable {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int[] ColorStateListItem;
         public static final int ColorStateListItem_alpha = 0x00000002;
         public static final int ColorStateListItem_android_alpha = 0x00000001;
         public static final int ColorStateListItem_android_color = 0x00000000;
+        public static final int[] FontFamily;
+        public static final int[] FontFamilyFont;
         public static final int FontFamilyFont_android_font = 0x00000000;
         public static final int FontFamilyFont_android_fontStyle = 0x00000002;
         public static final int FontFamilyFont_android_fontVariationSettings = 0x00000004;
@@ -213,11 +403,15 @@ public final class R {
         public static final int FontFamily_fontProviderFetchTimeout = 0x00000003;
         public static final int FontFamily_fontProviderPackage = 0x00000004;
         public static final int FontFamily_fontProviderQuery = 0x00000005;
+        public static final int[] Fragment;
+        public static final int[] FragmentContainerView;
         public static final int FragmentContainerView_android_name = 0x00000000;
         public static final int FragmentContainerView_android_tag = 0x00000001;
         public static final int Fragment_android_id = 0x00000001;
         public static final int Fragment_android_name = 0x00000000;
         public static final int Fragment_android_tag = 0x00000002;
+        public static final int[] GradientColor;
+        public static final int[] GradientColorItem;
         public static final int GradientColorItem_android_color = 0x00000000;
         public static final int GradientColorItem_android_offset = 0x00000001;
         public static final int GradientColor_android_centerColor = 0x00000007;
@@ -232,12 +426,56 @@ public final class R {
         public static final int GradientColor_android_startY = 0x00000009;
         public static final int GradientColor_android_tileMode = 0x00000006;
         public static final int GradientColor_android_type = 0x00000002;
-        public static final int[] ColorStateListItem = {16843173, 16843551, com.baidu.tieba.R.attr.alpha};
-        public static final int[] FontFamily = {com.baidu.tieba.R.attr.fontProviderAuthority, com.baidu.tieba.R.attr.fontProviderCerts, com.baidu.tieba.R.attr.fontProviderFetchStrategy, com.baidu.tieba.R.attr.fontProviderFetchTimeout, com.baidu.tieba.R.attr.fontProviderPackage, com.baidu.tieba.R.attr.fontProviderQuery};
-        public static final int[] FontFamilyFont = {16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.font, com.baidu.tieba.R.attr.fontStyle, com.baidu.tieba.R.attr.fontVariationSettings, com.baidu.tieba.R.attr.fontWeight, com.baidu.tieba.R.attr.ttcIndex};
-        public static final int[] Fragment = {16842755, 16842960, 16842961};
-        public static final int[] FragmentContainerView = {16842755, 16842961};
-        public static final int[] GradientColor = {16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
-        public static final int[] GradientColorItem = {16843173, 16844052};
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1508291309, "Lcom/baidu/searchbox/looper/impl/R$styleable;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1508291309, "Lcom/baidu/searchbox/looper/impl/R$styleable;");
+                    return;
+                }
+            }
+            ColorStateListItem = new int[]{16843173, 16843551, com.baidu.tieba.R.attr.alpha};
+            FontFamily = new int[]{com.baidu.tieba.R.attr.fontProviderAuthority, com.baidu.tieba.R.attr.fontProviderCerts, com.baidu.tieba.R.attr.fontProviderFetchStrategy, com.baidu.tieba.R.attr.fontProviderFetchTimeout, com.baidu.tieba.R.attr.fontProviderPackage, com.baidu.tieba.R.attr.fontProviderQuery};
+            FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.font, com.baidu.tieba.R.attr.fontStyle, com.baidu.tieba.R.attr.fontVariationSettings, com.baidu.tieba.R.attr.fontWeight, com.baidu.tieba.R.attr.ttcIndex};
+            Fragment = new int[]{16842755, 16842960, 16842961};
+            FragmentContainerView = new int[]{16842755, 16842961};
+            GradientColor = new int[]{16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
+            GradientColorItem = new int[]{16843173, 16844052};
+        }
+
+        public styleable() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    public R() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

@@ -1,350 +1,439 @@
 package com.bytedance.sdk.openadsdk.k.a;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import android.os.Build;
 import android.text.TextUtils;
-import com.bytedance.sdk.openadsdk.k.d;
-import com.bytedance.sdk.openadsdk.l.e;
-import com.bytedance.sdk.openadsdk.l.g;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import androidx.annotation.Keep;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.JProtect;
+import com.bytedance.sdk.component.utils.m;
+import com.bytedance.sdk.openadsdk.AppLogHelper;
+import com.bytedance.sdk.openadsdk.core.h;
+import com.bytedance.sdk.openadsdk.core.j;
+import com.bytedance.sdk.openadsdk.core.o;
+import com.bytedance.sdk.openadsdk.k.a.c;
+import com.bytedance.sdk.openadsdk.r.i;
+import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class c extends com.bytedance.sdk.openadsdk.k.a.a {
+public class c<T extends c> implements a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f29516a;
+    public String f31266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedHashMap<String, File> f29517b = new LinkedHashMap<>(0, 0.75f, true);
+    public String f31267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ReentrantReadWriteLock f29518c;
+    public String f31268c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ReentrantReadWriteLock.ReadLock f29519d;
+    public String f31269d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ReentrantReadWriteLock.WriteLock f29520e;
+    public String f31270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<a> f29521f;
+    public long f31271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f29522g;
+    public int f31272g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile float f29523h;
+    public String f31273h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final b f29524i;
-    public final Runnable j;
-    public final Handler k;
+    public int f31274i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(String str);
-
-        void a(Set<String> set);
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final Map<String, Integer> f29533a;
-
-        public b() {
-            this.f29533a = new HashMap();
-        }
-
-        public synchronized void a(String str) {
-            if (!TextUtils.isEmpty(str)) {
-                Integer num = this.f29533a.get(str);
-                if (num == null) {
-                    this.f29533a.put(str, 1);
-                } else {
-                    this.f29533a.put(str, Integer.valueOf(num.intValue() + 1));
-                }
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        public synchronized void b(String str) {
-            Integer num;
-            if (!TextUtils.isEmpty(str) && (num = this.f29533a.get(str)) != null) {
-                if (num.intValue() == 1) {
-                    this.f29533a.remove(str);
-                } else {
-                    this.f29533a.put(str, Integer.valueOf(num.intValue() - 1));
-                }
-            }
-        }
-
-        public synchronized boolean c(String str) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return this.f29533a.containsKey(str);
-        }
+        this.f31269d = "3.6.1.3";
+        this.f31271f = System.currentTimeMillis() / 1000;
+        this.f31272g = 0;
+        this.f31274i = 0;
     }
 
-    public c(File file) throws IOException {
-        String str;
-        ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
-        this.f29518c = reentrantReadWriteLock;
-        this.f29519d = reentrantReadWriteLock.readLock();
-        this.f29520e = this.f29518c.writeLock();
-        this.f29521f = Collections.newSetFromMap(new ConcurrentHashMap());
-        this.f29522g = 104857600L;
-        this.f29523h = 0.5f;
-        this.f29524i = new b();
-        this.j = new Runnable() { // from class: com.bytedance.sdk.openadsdk.k.a.c.1
-            @Override // java.lang.Runnable
-            public void run() {
-                e.a(new g("cleanupCmd", 1) { // from class: com.bytedance.sdk.openadsdk.k.a.c.1.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        c cVar = c.this;
-                        cVar.b(cVar.f29522g);
-                    }
-                });
-            }
-        };
-        this.k = new Handler(Looper.getMainLooper());
-        if (file != null && file.exists() && file.isDirectory() && file.canRead() && file.canWrite()) {
-            this.f29516a = file;
-            e.a(new g("DiskLruCache", 5) { // from class: com.bytedance.sdk.openadsdk.k.a.c.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    c.this.b();
-                }
-            });
-            return;
-        }
-        if (file == null) {
-            str = " dir null";
-        } else {
-            str = "exists: " + file.exists() + ", isDirectory: " + file.isDirectory() + ", canRead: " + file.canRead() + ", canWrite: " + file.canWrite();
-        }
-        throw new IOException("dir error!  " + str);
+    public static c<c> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new c<>() : (c) invokeV.objValue;
     }
 
-    private void c() {
-        this.k.removeCallbacks(this.j);
-        this.k.postDelayed(this.j, 10000L);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.k.a.a
-    public File d(String str) {
-        if (this.f29519d.tryLock()) {
-            File file = this.f29517b.get(str);
-            this.f29519d.unlock();
-            return file;
-        }
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        this.f29520e.lock();
-        try {
-            File[] listFiles = this.f29516a.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                final HashMap hashMap = new HashMap(listFiles.length);
-                ArrayList arrayList = new ArrayList(listFiles.length);
-                for (File file : listFiles) {
-                    if (file.isFile()) {
-                        arrayList.add(file);
-                        hashMap.put(file, Long.valueOf(file.lastModified()));
-                    }
-                }
-                Collections.sort(arrayList, new Comparator<File>() { // from class: com.bytedance.sdk.openadsdk.k.a.c.3
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // java.util.Comparator
-                    /* renamed from: a */
-                    public int compare(File file2, File file3) {
-                        int i2 = ((((Long) hashMap.get(file2)).longValue() - ((Long) hashMap.get(file3)).longValue()) > 0L ? 1 : ((((Long) hashMap.get(file2)).longValue() - ((Long) hashMap.get(file3)).longValue()) == 0L ? 0 : -1));
-                        if (i2 < 0) {
-                            return -1;
-                        }
-                        return i2 > 0 ? 1 : 0;
-                    }
-                });
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    File file2 = (File) it.next();
-                    this.f29517b.put(a(file2), file2);
-                }
-            }
-            this.f29520e.unlock();
-            c();
-        } catch (Throwable th) {
-            this.f29520e.unlock();
-            throw th;
-        }
-    }
-
-    public void a(a aVar) {
-        if (aVar != null) {
-            this.f29521f.add(aVar);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.k.a.a
-    public File c(String str) {
-        this.f29519d.lock();
-        File file = this.f29517b.get(str);
-        this.f29519d.unlock();
-        if (file != null) {
-            return file;
-        }
-        File file2 = new File(this.f29516a, str);
-        this.f29520e.lock();
-        this.f29517b.put(str, file2);
-        this.f29520e.unlock();
-        for (a aVar : this.f29521f) {
-            aVar.a(str);
-        }
-        c();
-        return file2;
-    }
-
-    public void a(long j) {
-        this.f29522g = j;
-        c();
-    }
-
-    public void a() {
-        d.c().d();
-        Context a2 = com.bytedance.sdk.openadsdk.k.e.a();
-        if (a2 != null) {
-            com.bytedance.sdk.openadsdk.k.b.c.a(a2).a(0);
-        }
-        this.k.removeCallbacks(this.j);
-        e.a(new g("clear", 1) { // from class: com.bytedance.sdk.openadsdk.k.a.c.4
-            @Override // java.lang.Runnable
-            public void run() {
-                c.this.b(0L);
-            }
-        });
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.k.a.a
-    public void a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.f29524i.a(str);
-    }
-
-    private String a(File file) {
-        return file.getName();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.k.a.a
-    public void b(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.f29524i.b(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00e4 A[LOOP:3: B:41:0x00de->B:43:0x00e4, LOOP_END] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(long j) {
-        final HashSet hashSet = new HashSet();
-        this.f29520e.lock();
-        long j2 = 0;
-        HashSet hashSet2 = null;
-        try {
-            for (Map.Entry<String, File> entry : this.f29517b.entrySet()) {
-                j2 += entry.getValue().length();
-            }
-        } catch (Throwable th) {
-            th = th;
-        }
-        if (j2 <= j) {
-            return;
-        }
-        long j3 = ((float) j) * this.f29523h;
-        HashSet hashSet3 = new HashSet();
-        try {
-            for (Map.Entry<String, File> entry2 : this.f29517b.entrySet()) {
-                File value = entry2.getValue();
-                if (value != null && value.exists()) {
-                    if (!this.f29524i.c(a(value))) {
-                        long length = value.length();
-                        File file = new File(value.getAbsolutePath() + "-tmp");
-                        if (value.renameTo(file)) {
-                            hashSet.add(file);
-                            j2 -= length;
-                            hashSet3.add(entry2.getKey());
-                        }
-                    }
-                } else {
-                    hashSet3.add(entry2.getKey());
-                }
-                if (j2 <= j3) {
-                    break;
-                }
-            }
-            Iterator it = hashSet3.iterator();
-            while (it.hasNext()) {
-                this.f29517b.remove((String) it.next());
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            hashSet2 = hashSet3;
+    private JSONObject r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                th.printStackTrace();
-                this.f29520e.unlock();
-                hashSet3 = hashSet2;
-                while (r13.hasNext()) {
-                }
-                e.a(new g("trimSize", 1) { // from class: com.bytedance.sdk.openadsdk.k.a.c.5
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Iterator it2 = hashSet.iterator();
-                        while (it2.hasNext()) {
-                            try {
-                                ((File) it2.next()).delete();
-                            } catch (Throwable unused) {
+                jSONObject.put(IAdRequestParam.OS, 1);
+                com.bytedance.sdk.openadsdk.n.a.b(o.a(), jSONObject);
+                jSONObject.put("oaid", i.a());
+                jSONObject.put("model", Build.MODEL);
+                jSONObject.put(IAdRequestParam.ANDROID_ID, j.c(o.a()));
+                jSONObject.put("vendor", Build.MANUFACTURER);
+                jSONObject.put("package_name", com.bytedance.sdk.openadsdk.r.o.d());
+                jSONObject.put("ua", com.bytedance.sdk.openadsdk.r.o.b());
+                jSONObject.put("applog_did", AppLogHelper.getInstance().getAppLogDid());
+                jSONObject.put("ip", com.bytedance.sdk.openadsdk.core.k.c.a(true));
+            } catch (Exception unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    private T s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this : (T) invokeV.objValue;
+    }
+
+    public T a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            this.f31272g = i2;
+            return s();
+        }
+        return (T) invokeI.objValue;
+    }
+
+    public T a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.f31266a = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.k.a.a
+    @Keep
+    @JProtect
+    public JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) != null) {
+            return (JSONObject) invokeV.objValue;
+        }
+        while (true) {
+            char c2 = 'X';
+            char c3 = 65494;
+            while (true) {
+                switch (c2) {
+                    case 'W':
+                        c2 = 'Y';
+                        c3 = 31;
+                    case 'X':
+                        c2 = 'Y';
+                        c3 = 31;
+                    case 'Y':
+                        while (true) {
+                            switch (c3) {
+                                case 29:
+                                case 30:
+                                    break;
+                                case 31:
+                                    JSONObject jSONObject = new JSONObject();
+                                    try {
+                                        if (!TextUtils.isEmpty(c())) {
+                                            jSONObject.put("type", c());
+                                        }
+                                        if (!TextUtils.isEmpty(e())) {
+                                            jSONObject.put("rit", e());
+                                        }
+                                        if (!TextUtils.isEmpty(f())) {
+                                            jSONObject.put("creative_id", f());
+                                        }
+                                        if (!TextUtils.isEmpty(g())) {
+                                            jSONObject.put("ad_sdk_version", g());
+                                        }
+                                        jSONObject.put("app_version", !TextUtils.isEmpty(i()) ? i() : com.bytedance.sdk.openadsdk.r.o.f());
+                                        if (j() > 0) {
+                                            jSONObject.put("timestamp", j());
+                                        }
+                                        if (k() > 0) {
+                                            jSONObject.put("adtype", k());
+                                        }
+                                        if (!TextUtils.isEmpty(l())) {
+                                            jSONObject.put(IAdRequestParam.REQ_ID, l());
+                                        }
+                                        jSONObject.put("error_code", m());
+                                        if (!TextUtils.isEmpty(n())) {
+                                            jSONObject.put("error_msg", n());
+                                        }
+                                        if (!TextUtils.isEmpty(o())) {
+                                            jSONObject.put("extra", o());
+                                        }
+                                        if (!TextUtils.isEmpty(p())) {
+                                            jSONObject.put("image_url", p());
+                                        }
+                                        if (!TextUtils.isEmpty(d())) {
+                                            jSONObject.put("event_extra", d());
+                                        }
+                                        if (!TextUtils.isEmpty(h())) {
+                                            jSONObject.put("duration", h());
+                                        }
+                                        if (!TextUtils.isEmpty(h.d().h())) {
+                                            jSONObject.put("appid", h.d().h());
+                                        }
+                                        if (!TextUtils.isEmpty(q())) {
+                                            jSONObject.put("ad_info", q());
+                                        }
+                                        jSONObject.put("conn_type", m.b(o.a()));
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                    }
+                                    try {
+                                        jSONObject.put("device_info", r());
+                                    } catch (Throwable unused) {
+                                    }
+                                    return jSONObject;
+                                default:
+                                    c3 = DecodedBitStreamParser.GS;
                             }
                         }
-                    }
-                });
-            } finally {
-                this.f29520e.unlock();
-            }
-        }
-        for (a aVar : this.f29521f) {
-            aVar.a(hashSet3);
-        }
-        e.a(new g("trimSize", 1) { // from class: com.bytedance.sdk.openadsdk.k.a.c.5
-            @Override // java.lang.Runnable
-            public void run() {
-                Iterator it2 = hashSet.iterator();
-                while (it2.hasNext()) {
-                    try {
-                        ((File) it2.next()).delete();
-                    } catch (Throwable unused) {
-                    }
+                        break;
+                    default:
+                        c2 = 'W';
                 }
             }
-        });
+        }
+    }
+
+    public T b(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            this.f31274i = i2;
+            return s();
+        }
+        return (T) invokeI.objValue;
+    }
+
+    public T b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.m = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public T c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            this.f31271f = j;
+            return s();
+        }
+        return (T) invokeJ.objValue;
+    }
+
+    public T c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.f31267b = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31266a : (String) invokeV.objValue;
+    }
+
+    public T d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.f31268c = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.m : (String) invokeV.objValue;
+    }
+
+    public T e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            this.f31269d = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31267b : (String) invokeV.objValue;
+    }
+
+    public T f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            this.n = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f31268c : (String) invokeV.objValue;
+    }
+
+    public T g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            this.f31273h = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f31269d : (String) invokeV.objValue;
+    }
+
+    public T h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            this.j = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.n : (String) invokeV.objValue;
+    }
+
+    public T i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            this.k = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f31270e : (String) invokeV.objValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f31271f : invokeV.longValue;
+    }
+
+    public T j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+            this.l = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f31272g : invokeV.intValue;
+    }
+
+    public T k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            this.o = str;
+            return s();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f31273h : (String) invokeV.objValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f31274i : invokeV.intValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.k : (String) invokeV.objValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.l : (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.o : (String) invokeV.objValue;
     }
 }

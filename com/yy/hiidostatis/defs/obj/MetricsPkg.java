@@ -1,5 +1,11 @@
 package com.yy.hiidostatis.defs.obj;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -8,124 +14,166 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MetricsPkg {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, Counter> counterData;
     public int maxCount;
-    public ConcurrentLinkedQueue<IJsonSerialize> reqData = new ConcurrentLinkedQueue<>();
-    public ConcurrentLinkedQueue<IJsonSerialize> metricsValues = new ConcurrentLinkedQueue<>();
-    public HashMap<String, Counter> counterData = new HashMap<>();
+    public ConcurrentLinkedQueue<IJsonSerialize> metricsValues;
+    public ConcurrentLinkedQueue<IJsonSerialize> reqData;
 
     public MetricsPkg(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.reqData = new ConcurrentLinkedQueue<>();
+        this.metricsValues = new ConcurrentLinkedQueue<>();
+        this.counterData = new HashMap<>();
         this.maxCount = i2;
     }
 
     private JSONObject cutPiece(JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, long j) {
-        JSONObject jSONObject = new JSONObject();
-        if (jSONArray != null) {
-            try {
-                jSONObject.put("reqdata", jSONArray);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return null;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{jSONArray, jSONArray2, jSONArray3, Long.valueOf(j)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (jSONArray != null) {
+                try {
+                    jSONObject.put("reqdata", jSONArray);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
             }
+            if (jSONArray2 != null) {
+                jSONObject.put("counterdata", jSONArray2);
+            }
+            if (jSONArray3 != null) {
+                jSONObject.put("flatdata", jSONArray3);
+            }
+            jSONObject.put("clienttime", j);
+            return jSONObject;
         }
-        if (jSONArray2 != null) {
-            jSONObject.put("counterdata", jSONArray2);
-        }
-        if (jSONArray3 != null) {
-            jSONObject.put("flatdata", jSONArray3);
-        }
-        jSONObject.put("clienttime", j);
-        return jSONObject;
+        return (JSONObject) invokeCommon.objValue;
     }
 
     public void addActionResult(ActionResult actionResult) {
-        this.reqData.add(actionResult);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, actionResult) == null) {
+            this.reqData.add(actionResult);
+        }
     }
 
     public boolean addCounter(Counter counter) {
-        String key = counter.getKey();
-        Counter counter2 = this.counterData.get(key);
-        boolean z = false;
-        if (counter2 == null) {
-            synchronized (this.counterData) {
-                Counter counter3 = this.counterData.get(key);
-                if (counter3 == null) {
-                    this.counterData.put(key, (Counter) counter.clone());
-                    z = true;
-                } else {
-                    counter3.count(counter.getValue(), counter.getInvokeCount());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, counter)) == null) {
+            String key = counter.getKey();
+            Counter counter2 = this.counterData.get(key);
+            boolean z = false;
+            if (counter2 == null) {
+                synchronized (this.counterData) {
+                    Counter counter3 = this.counterData.get(key);
+                    if (counter3 == null) {
+                        this.counterData.put(key, (Counter) counter.clone());
+                        z = true;
+                    } else {
+                        counter3.count(counter.getValue(), counter.getInvokeCount());
+                    }
                 }
+            } else {
+                counter2.count(counter.getValue(), counter.getInvokeCount());
             }
-        } else {
-            counter2.count(counter.getValue(), counter.getInvokeCount());
+            return z;
         }
-        return z;
+        return invokeL.booleanValue;
     }
 
     public void addMetricsValue(MetricsValue metricsValue) {
-        this.metricsValues.add(metricsValue);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, metricsValue) == null) {
+            this.metricsValues.add(metricsValue);
+        }
     }
 
     public boolean isEmpty() {
-        return this.reqData.isEmpty() && this.metricsValues.isEmpty() && this.counterData.isEmpty();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.reqData.isEmpty() && this.metricsValues.isEmpty() && this.counterData.isEmpty() : invokeV.booleanValue;
     }
 
     public List<JSONObject> toJson() {
+        InterceptResult invokeV;
         int i2;
         JSONObject cutPiece;
-        ArrayList arrayList = new ArrayList();
-        long currentTimeMillis = System.currentTimeMillis();
-        Iterator<IJsonSerialize> it = this.reqData.iterator();
-        JSONArray jSONArray = new JSONArray();
-        loop0: while (true) {
-            i2 = 0;
-            while (it.hasNext()) {
-                jSONArray.put(it.next().toJson());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            long currentTimeMillis = System.currentTimeMillis();
+            Iterator<IJsonSerialize> it = this.reqData.iterator();
+            JSONArray jSONArray = new JSONArray();
+            loop0: while (true) {
+                i2 = 0;
+                while (it.hasNext()) {
+                    jSONArray.put(it.next().toJson());
+                    i2++;
+                    if (i2 >= this.maxCount) {
+                        JSONObject cutPiece2 = cutPiece(jSONArray, null, null, currentTimeMillis);
+                        if (cutPiece2 != null) {
+                            arrayList.add(cutPiece2);
+                        }
+                        jSONArray = new JSONArray();
+                    }
+                }
+                break loop0;
+            }
+            JSONArray jSONArray2 = new JSONArray();
+            for (Counter counter : this.counterData.values()) {
+                jSONArray2.put(counter.toJson());
                 i2++;
                 if (i2 >= this.maxCount) {
-                    JSONObject cutPiece2 = cutPiece(jSONArray, null, null, currentTimeMillis);
-                    if (cutPiece2 != null) {
-                        arrayList.add(cutPiece2);
+                    JSONObject cutPiece3 = cutPiece(jSONArray, jSONArray2, null, currentTimeMillis);
+                    if (cutPiece3 != null) {
+                        arrayList.add(cutPiece3);
                     }
                     jSONArray = new JSONArray();
+                    jSONArray2 = new JSONArray();
+                    i2 = 0;
                 }
             }
-            break loop0;
-        }
-        JSONArray jSONArray2 = new JSONArray();
-        for (Counter counter : this.counterData.values()) {
-            jSONArray2.put(counter.toJson());
-            i2++;
-            if (i2 >= this.maxCount) {
-                JSONObject cutPiece3 = cutPiece(jSONArray, jSONArray2, null, currentTimeMillis);
-                if (cutPiece3 != null) {
-                    arrayList.add(cutPiece3);
+            Iterator<IJsonSerialize> it2 = this.metricsValues.iterator();
+            JSONArray jSONArray3 = new JSONArray();
+            while (it2.hasNext()) {
+                jSONArray3.put(it2.next().toJson());
+                i2++;
+                if (i2 >= this.maxCount) {
+                    JSONObject cutPiece4 = cutPiece(jSONArray, jSONArray2, jSONArray3, currentTimeMillis);
+                    if (cutPiece4 != null) {
+                        arrayList.add(cutPiece4);
+                    }
+                    jSONArray = new JSONArray();
+                    jSONArray2 = new JSONArray();
+                    jSONArray3 = new JSONArray();
+                    i2 = 0;
                 }
-                jSONArray = new JSONArray();
-                jSONArray2 = new JSONArray();
-                i2 = 0;
             }
-        }
-        Iterator<IJsonSerialize> it2 = this.metricsValues.iterator();
-        JSONArray jSONArray3 = new JSONArray();
-        while (it2.hasNext()) {
-            jSONArray3.put(it2.next().toJson());
-            i2++;
-            if (i2 >= this.maxCount) {
-                JSONObject cutPiece4 = cutPiece(jSONArray, jSONArray2, jSONArray3, currentTimeMillis);
-                if (cutPiece4 != null) {
-                    arrayList.add(cutPiece4);
-                }
-                jSONArray = new JSONArray();
-                jSONArray2 = new JSONArray();
-                jSONArray3 = new JSONArray();
-                i2 = 0;
+            if (jSONArray.length() + jSONArray2.length() + jSONArray3.length() > 0 && (cutPiece = cutPiece(jSONArray, jSONArray2, jSONArray3, currentTimeMillis)) != null) {
+                arrayList.add(cutPiece);
             }
+            return arrayList;
         }
-        if (jSONArray.length() + jSONArray2.length() + jSONArray3.length() > 0 && (cutPiece = cutPiece(jSONArray, jSONArray2, jSONArray3, currentTimeMillis)) != null) {
-            arrayList.add(cutPiece);
-        }
-        return arrayList;
+        return (List) invokeV.objValue;
     }
 }

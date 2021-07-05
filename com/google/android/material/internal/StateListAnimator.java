@@ -7,89 +7,169 @@ import android.util.StateSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class StateListAnimator {
-    public final ArrayList<Tuple> tuples = new ArrayList<>();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Animator.AnimatorListener animationListener;
     @Nullable
-    public Tuple lastMatch = null;
+    public Tuple lastMatch;
     @Nullable
-    public ValueAnimator runningAnimator = null;
-    public final Animator.AnimatorListener animationListener = new AnimatorListenerAdapter() { // from class: com.google.android.material.internal.StateListAnimator.1
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            StateListAnimator stateListAnimator = StateListAnimator.this;
-            if (stateListAnimator.runningAnimator == animator) {
-                stateListAnimator.runningAnimator = null;
-            }
-        }
-    };
+    public ValueAnimator runningAnimator;
+    public final ArrayList<Tuple> tuples;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Tuple {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ValueAnimator animator;
         public final int[] specs;
 
         public Tuple(int[] iArr, ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iArr, valueAnimator};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.specs = iArr;
             this.animator = valueAnimator;
         }
     }
 
-    private void cancel() {
-        ValueAnimator valueAnimator = this.runningAnimator;
-        if (valueAnimator != null) {
-            valueAnimator.cancel();
-            this.runningAnimator = null;
+    public StateListAnimator() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.tuples = new ArrayList<>();
+        this.lastMatch = null;
+        this.runningAnimator = null;
+        this.animationListener = new AnimatorListenerAdapter(this) { // from class: com.google.android.material.internal.StateListAnimator.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ StateListAnimator this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                    StateListAnimator stateListAnimator = this.this$0;
+                    if (stateListAnimator.runningAnimator == animator) {
+                        stateListAnimator.runningAnimator = null;
+                    }
+                }
+            }
+        };
+    }
+
+    private void cancel() {
+        ValueAnimator valueAnimator;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (valueAnimator = this.runningAnimator) == null) {
+            return;
+        }
+        valueAnimator.cancel();
+        this.runningAnimator = null;
     }
 
     private void start(@NonNull Tuple tuple) {
-        ValueAnimator valueAnimator = tuple.animator;
-        this.runningAnimator = valueAnimator;
-        valueAnimator.start();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, tuple) == null) {
+            ValueAnimator valueAnimator = tuple.animator;
+            this.runningAnimator = valueAnimator;
+            valueAnimator.start();
+        }
     }
 
     public void addState(int[] iArr, ValueAnimator valueAnimator) {
-        Tuple tuple = new Tuple(iArr, valueAnimator);
-        valueAnimator.addListener(this.animationListener);
-        this.tuples.add(tuple);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, iArr, valueAnimator) == null) {
+            Tuple tuple = new Tuple(iArr, valueAnimator);
+            valueAnimator.addListener(this.animationListener);
+            this.tuples.add(tuple);
+        }
     }
 
     public void jumpToCurrentState() {
-        ValueAnimator valueAnimator = this.runningAnimator;
-        if (valueAnimator != null) {
-            valueAnimator.end();
-            this.runningAnimator = null;
+        ValueAnimator valueAnimator;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (valueAnimator = this.runningAnimator) == null) {
+            return;
         }
+        valueAnimator.end();
+        this.runningAnimator = null;
     }
 
     public void setState(int[] iArr) {
         Tuple tuple;
-        int size = this.tuples.size();
-        int i2 = 0;
-        while (true) {
-            if (i2 >= size) {
-                tuple = null;
-                break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
+            int size = this.tuples.size();
+            int i2 = 0;
+            while (true) {
+                if (i2 >= size) {
+                    tuple = null;
+                    break;
+                }
+                tuple = this.tuples.get(i2);
+                if (StateSet.stateSetMatches(tuple.specs, iArr)) {
+                    break;
+                }
+                i2++;
             }
-            tuple = this.tuples.get(i2);
-            if (StateSet.stateSetMatches(tuple.specs, iArr)) {
-                break;
+            Tuple tuple2 = this.lastMatch;
+            if (tuple == tuple2) {
+                return;
             }
-            i2++;
-        }
-        Tuple tuple2 = this.lastMatch;
-        if (tuple == tuple2) {
-            return;
-        }
-        if (tuple2 != null) {
-            cancel();
-        }
-        this.lastMatch = tuple;
-        if (tuple != null) {
-            start(tuple);
+            if (tuple2 != null) {
+                cancel();
+            }
+            this.lastMatch = tuple;
+            if (tuple != null) {
+                start(tuple);
+            }
         }
     }
 }

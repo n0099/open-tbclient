@@ -1,9 +1,15 @@
 package com.baidu.apollon.restnet.rest.httpurlconnection;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.restnet.http.HttpStatus;
 import com.baidu.apollon.restnet.rest.e;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -11,92 +17,137 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 /* loaded from: classes.dex */
 public class d implements e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f3914a;
+    public InputStream f3912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3915b;
+    public int f3913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3916c;
+    public String f3914c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f3917d;
+    public Map<String, List<String>> f3915d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.apollon.restnet.http.a f3918e;
+    public com.baidu.apollon.restnet.http.a f3916e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f3919f;
+    public InputStream f3917f;
 
     public d(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
-        this.f3914a = inputStream;
-        this.f3915b = i2;
-        this.f3916c = str;
-        this.f3917d = map;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i2), str, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f3912a = inputStream;
+        this.f3913b = i2;
+        this.f3914c = str;
+        this.f3915d = map;
     }
 
     private boolean g() {
-        String g2 = d().g();
-        return !TextUtils.isEmpty(g2) && g2.contains(AsyncHttpClient.ENCODING_GZIP);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            String g2 = d().g();
+            return !TextUtils.isEmpty(g2) && g2.contains(AsyncHttpClient.ENCODING_GZIP);
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public int a() throws IOException {
-        return this.f3915b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3913b : invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public String b() throws IOException {
-        return this.f3916c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3914c : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public InputStream c() throws IOException {
-        if (g()) {
-            return a(this.f3914a);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (g()) {
+                return a(this.f3912a);
+            }
+            return this.f3912a;
         }
-        return this.f3914a;
+        return (InputStream) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public com.baidu.apollon.restnet.http.a d() {
-        if (this.f3918e == null) {
-            this.f3918e = new com.baidu.apollon.restnet.http.a(this.f3917d, false);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.f3916e == null) {
+                this.f3916e = new com.baidu.apollon.restnet.http.a(this.f3915d, false);
+            }
+            return this.f3916e;
         }
-        return this.f3918e;
+        return (com.baidu.apollon.restnet.http.a) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public HttpStatus e() throws Exception {
-        return HttpStatus.valueOf(a());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? HttpStatus.valueOf(a()) : (HttpStatus) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public void f() {
-        InputStream inputStream = this.f3919f;
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            InputStream inputStream = this.f3917f;
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
             }
-        }
-        InputStream inputStream2 = this.f3914a;
-        if (inputStream2 != null) {
-            try {
-                inputStream2.close();
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            InputStream inputStream2 = this.f3912a;
+            if (inputStream2 != null) {
+                try {
+                    inputStream2.close();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                }
             }
         }
     }
 
     private InputStream a(InputStream inputStream) throws IOException {
-        if (this.f3919f == null) {
-            this.f3919f = new GZIPInputStream(inputStream);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, inputStream)) == null) {
+            if (this.f3917f == null) {
+                this.f3917f = new GZIPInputStream(inputStream);
+            }
+            return this.f3917f;
         }
-        return this.f3919f;
+        return (InputStream) invokeL.objValue;
     }
 }

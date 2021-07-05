@@ -6,47 +6,94 @@ import android.view.View;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
-import d.a.m0.a.v2.q0;
-import d.a.m0.b.e;
-import d.a.m0.b.f;
-import d.a.m0.b.g;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.v2.q0;
+import d.a.q0.b.e;
+import d.a.q0.b.f;
+import d.a.q0.b.g;
+/* loaded from: classes4.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_URL = "url";
+    public transient /* synthetic */ FieldHolder $fh;
     public SwanAppActionBar mActionBar;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ LoginServiceAgreementActivity f11628e;
+
+        public a(LoginServiceAgreementActivity loginServiceAgreementActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loginServiceAgreementActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11628e = loginServiceAgreementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            LoginServiceAgreementActivity.this.finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f11628e.finish();
+            }
+        }
+    }
+
+    public LoginServiceAgreementActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int Z = q0.Z(this);
-        super.onCreate(bundle);
-        q0.g(this, Z);
-        Intent intent = getIntent();
-        if (intent == null) {
-            finish();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            int Z = q0.Z(this);
+            super.onCreate(bundle);
+            q0.g(this, Z);
+            Intent intent = getIntent();
+            if (intent == null) {
+                finish();
+                return;
+            }
+            Bundle extras = intent.getExtras();
+            setContentView(f.activity_login_service_agreement);
+            NgWebView ngWebView = (NgWebView) findViewById(e.aiapps_webView_container);
+            if (extras != null) {
+                ngWebView.loadUrl(extras.getString("url"));
+            }
+            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(e.ai_apps_title_bar);
+            this.mActionBar = swanAppActionBar;
+            swanAppActionBar.setLeftBackViewVisibility(true);
+            this.mActionBar.setLeftBackViewClickListener(new a(this));
+            this.mActionBar.setTitle(g.swanapp_service_agreement);
+            this.mActionBar.setRightZoneVisibility(false);
         }
-        Bundle extras = intent.getExtras();
-        setContentView(f.activity_login_service_agreement);
-        NgWebView ngWebView = (NgWebView) findViewById(e.aiapps_webView_container);
-        if (extras != null) {
-            ngWebView.loadUrl(extras.getString("url"));
-        }
-        SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(e.ai_apps_title_bar);
-        this.mActionBar = swanAppActionBar;
-        swanAppActionBar.setLeftBackViewVisibility(true);
-        this.mActionBar.setLeftBackViewClickListener(new a());
-        this.mActionBar.setTitle(g.swanapp_service_agreement);
-        this.mActionBar.setRightZoneVisibility(false);
     }
 }

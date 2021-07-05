@@ -1,65 +1,105 @@
 package com.xiaomi.push;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cu extends co {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public co f41197a;
+    public co f42940a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ cs f205a;
+    public final /* synthetic */ cs f208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ co f41198b;
+    public final /* synthetic */ co f42941b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cu(cs csVar, String str, co coVar) {
         super(str);
-        this.f205a = csVar;
-        this.f41198b = coVar;
-        co coVar2 = this.f41198b;
-        this.f41197a = coVar2;
-        ((co) this).f191b = ((co) this).f191b;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {csVar, str, coVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f208a = csVar;
+        this.f42941b = coVar;
+        co coVar2 = this.f42941b;
+        this.f42940a = coVar2;
+        ((co) this).f194b = ((co) this).f194b;
         if (coVar2 != null) {
-            this.f41186f = coVar2.f41186f;
+            this.f42929f = coVar2.f42929f;
         }
     }
 
     @Override // com.xiaomi.push.co
     public synchronized ArrayList<String> a(boolean z) {
+        InterceptResult invokeZ;
         ArrayList<String> arrayList;
-        arrayList = new ArrayList<>();
-        if (this.f41197a != null) {
-            arrayList.addAll(this.f41197a.a(true));
-        }
-        synchronized (cs.f41193b) {
-            co coVar = cs.f41193b.get(((co) this).f191b);
-            if (coVar != null) {
-                Iterator<String> it = coVar.a(true).iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (arrayList.indexOf(next) == -1) {
-                        arrayList.add(next);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList<>();
+                if (this.f42940a != null) {
+                    arrayList.addAll(this.f42940a.a(true));
+                }
+                synchronized (cs.f42936b) {
+                    co coVar = cs.f42936b.get(((co) this).f194b);
+                    if (coVar != null) {
+                        Iterator<String> it = coVar.a(true).iterator();
+                        while (it.hasNext()) {
+                            String next = it.next();
+                            if (arrayList.indexOf(next) == -1) {
+                                arrayList.add(next);
+                            }
+                        }
+                        arrayList.remove(((co) this).f194b);
+                        arrayList.add(((co) this).f194b);
                     }
                 }
-                arrayList.remove(((co) this).f191b);
-                arrayList.add(((co) this).f191b);
             }
+            return arrayList;
         }
-        return arrayList;
+        return (ArrayList) invokeZ.objValue;
     }
 
     @Override // com.xiaomi.push.co
     public synchronized void a(String str, cn cnVar) {
-        if (this.f41197a != null) {
-            this.f41197a.a(str, cnVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cnVar) == null) {
+            synchronized (this) {
+                if (this.f42940a != null) {
+                    this.f42940a.a(str, cnVar);
+                }
+            }
         }
     }
 
     @Override // com.xiaomi.push.co
     public boolean b() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

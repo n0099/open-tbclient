@@ -5,26 +5,37 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.Address;
 import com.baidu.location.e.k;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BeanConstants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BDLocation implements Parcelable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BDLOCATION_BD09LL_TO_GCJ02 = "bd09ll2gcj";
     public static final String BDLOCATION_BD09_TO_GCJ02 = "bd092gcj";
     public static final String BDLOCATION_GCJ02_TO_BD09 = "bd09";
     public static final String BDLOCATION_GCJ02_TO_BD09LL = "bd09ll";
     public static final String BDLOCATION_WGS84_TO_GCJ02 = "gps2gcj";
-    public static final Parcelable.Creator<BDLocation> CREATOR = new a();
+    public static final Parcelable.Creator<BDLocation> CREATOR;
     public static final int GPS_ACCURACY_BAD = 3;
     public static final int GPS_ACCURACY_GOOD = 1;
     public static final int GPS_ACCURACY_MID = 2;
@@ -65,6 +76,7 @@ public final class BDLocation implements Parcelable {
     public static final int USER_INDDOR_TRUE = 1;
     public static final int USER_INDOOR_FALSE = 0;
     public static final int USER_INDOOR_UNKNOW = -1;
+    public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public String B;
     public int C;
@@ -90,31 +102,31 @@ public final class BDLocation implements Parcelable {
     public boolean W;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6437a;
+    public int f6467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6438b;
+    public String f6468b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f6439c;
+    public double f6469c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f6440d;
+    public double f6470d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6441e;
+    public boolean f6471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f6442f;
+    public double f6472f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6443g;
+    public boolean f6473g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f6444h;
+    public float f6474h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6445i;
+    public boolean f6475i;
     public float j;
     public boolean k;
     public int l;
@@ -133,16 +145,44 @@ public final class BDLocation implements Parcelable {
     public boolean y;
     public int z;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(902208952, "Lcom/baidu/location/BDLocation;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(902208952, "Lcom/baidu/location/BDLocation;");
+                return;
+            }
+        }
+        CREATOR = new a();
+    }
+
     public BDLocation() {
-        this.f6437a = 0;
-        this.f6438b = null;
-        this.f6439c = Double.MIN_VALUE;
-        this.f6440d = Double.MIN_VALUE;
-        this.f6441e = false;
-        this.f6442f = Double.MIN_VALUE;
-        this.f6443g = false;
-        this.f6444h = 0.0f;
-        this.f6445i = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f6467a = 0;
+        this.f6468b = null;
+        this.f6469c = Double.MIN_VALUE;
+        this.f6470d = Double.MIN_VALUE;
+        this.f6471e = false;
+        this.f6472f = Double.MIN_VALUE;
+        this.f6473g = false;
+        this.f6474h = 0.0f;
+        this.f6475i = false;
         this.j = 0.0f;
         this.k = false;
         this.l = -1;
@@ -185,15 +225,29 @@ public final class BDLocation implements Parcelable {
     }
 
     public BDLocation(Parcel parcel) {
-        this.f6437a = 0;
-        this.f6438b = null;
-        this.f6439c = Double.MIN_VALUE;
-        this.f6440d = Double.MIN_VALUE;
-        this.f6441e = false;
-        this.f6442f = Double.MIN_VALUE;
-        this.f6443g = false;
-        this.f6444h = 0.0f;
-        this.f6445i = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f6467a = 0;
+        this.f6468b = null;
+        this.f6469c = Double.MIN_VALUE;
+        this.f6470d = Double.MIN_VALUE;
+        this.f6471e = false;
+        this.f6472f = Double.MIN_VALUE;
+        this.f6473g = false;
+        this.f6474h = 0.0f;
+        this.f6475i = false;
         this.j = 0.0f;
         this.k = false;
         this.l = -1;
@@ -233,12 +287,12 @@ public final class BDLocation implements Parcelable {
         this.U = Double.MIN_VALUE;
         this.V = Double.MIN_VALUE;
         this.W = false;
-        this.f6437a = parcel.readInt();
-        this.f6438b = parcel.readString();
-        this.f6439c = parcel.readDouble();
-        this.f6440d = parcel.readDouble();
-        this.f6442f = parcel.readDouble();
-        this.f6444h = parcel.readFloat();
+        this.f6467a = parcel.readInt();
+        this.f6468b = parcel.readString();
+        this.f6469c = parcel.readDouble();
+        this.f6470d = parcel.readDouble();
+        this.f6472f = parcel.readDouble();
+        this.f6474h = parcel.readFloat();
         this.j = parcel.readFloat();
         this.l = parcel.readInt();
         this.m = parcel.readFloat();
@@ -255,8 +309,7 @@ public final class BDLocation implements Parcelable {
         String readString6 = parcel.readString();
         parcel.readString();
         String readString7 = parcel.readString();
-        String readString8 = parcel.readString();
-        this.u = new Address.Builder().country(readString7).countryCode(readString8).province(readString).city(readString2).cityCode(readString6).district(readString3).street(readString4).streetNumber(readString5).adcode(parcel.readString()).build();
+        this.u = new Address.Builder().country(readString7).countryCode(parcel.readString()).province(readString).city(readString2).cityCode(readString6).district(readString3).street(readString4).streetNumber(readString5).adcode(parcel.readString()).build();
         boolean[] zArr = new boolean[8];
         this.C = parcel.readInt();
         this.D = parcel.readString();
@@ -282,9 +335,9 @@ public final class BDLocation implements Parcelable {
         this.V = parcel.readDouble();
         try {
             parcel.readBooleanArray(zArr);
-            this.f6441e = zArr[0];
-            this.f6443g = zArr[1];
-            this.f6445i = zArr[2];
+            this.f6471e = zArr[0];
+            this.f6473g = zArr[1];
+            this.f6475i = zArr[2];
             this.k = zArr[3];
             this.o = zArr[4];
             this.t = zArr[5];
@@ -312,16 +365,30 @@ public final class BDLocation implements Parcelable {
     }
 
     public BDLocation(BDLocation bDLocation) {
-        this.f6437a = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bDLocation};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
+        this.f6467a = 0;
         ArrayList arrayList = null;
-        this.f6438b = null;
-        this.f6439c = Double.MIN_VALUE;
-        this.f6440d = Double.MIN_VALUE;
-        this.f6441e = false;
-        this.f6442f = Double.MIN_VALUE;
-        this.f6443g = false;
-        this.f6444h = 0.0f;
-        this.f6445i = false;
+        this.f6468b = null;
+        this.f6469c = Double.MIN_VALUE;
+        this.f6470d = Double.MIN_VALUE;
+        this.f6471e = false;
+        this.f6472f = Double.MIN_VALUE;
+        this.f6473g = false;
+        this.f6474h = 0.0f;
+        this.f6475i = false;
         this.j = 0.0f;
         this.k = false;
         this.l = -1;
@@ -361,15 +428,15 @@ public final class BDLocation implements Parcelable {
         this.U = Double.MIN_VALUE;
         this.V = Double.MIN_VALUE;
         this.W = false;
-        this.f6437a = bDLocation.f6437a;
-        this.f6438b = bDLocation.f6438b;
-        this.f6439c = bDLocation.f6439c;
-        this.f6440d = bDLocation.f6440d;
-        this.f6441e = bDLocation.f6441e;
-        this.f6442f = bDLocation.f6442f;
-        this.f6443g = bDLocation.f6443g;
-        this.f6444h = bDLocation.f6444h;
-        this.f6445i = bDLocation.f6445i;
+        this.f6467a = bDLocation.f6467a;
+        this.f6468b = bDLocation.f6468b;
+        this.f6469c = bDLocation.f6469c;
+        this.f6470d = bDLocation.f6470d;
+        this.f6471e = bDLocation.f6471e;
+        this.f6472f = bDLocation.f6472f;
+        this.f6473g = bDLocation.f6473g;
+        this.f6474h = bDLocation.f6474h;
+        this.f6475i = bDLocation.f6475i;
         this.j = bDLocation.j;
         this.k = bDLocation.k;
         this.l = bDLocation.l;
@@ -406,8 +473,8 @@ public final class BDLocation implements Parcelable {
         this.N = bDLocation.N;
         if (bDLocation.L != null) {
             arrayList = new ArrayList();
-            for (int i2 = 0; i2 < bDLocation.L.size(); i2++) {
-                Poi poi = bDLocation.L.get(i2);
+            for (int i4 = 0; i4 < bDLocation.L.size(); i4++) {
+                Poi poi = bDLocation.L.get(i4);
                 arrayList.add(new Poi(poi.getId(), poi.getName(), poi.getRank()));
             }
         }
@@ -418,35 +485,35 @@ public final class BDLocation implements Parcelable {
         this.W = bDLocation.W;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:171:0x039e A[Catch: Exception -> 0x0646, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:175:0x03e2 A[Catch: Exception -> 0x0646, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:180:0x03f9 A[Catch: Exception -> 0x0646, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:185:0x0416 A[Catch: Exception -> 0x0646, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:190:0x042f A[Catch: Exception -> 0x0646, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:195:0x0448 A[Catch: Exception -> 0x0646, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:200:0x0461 A[Catch: Exception -> 0x0646, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:244:0x0542 A[Catch: Exception -> 0x0646, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:245:0x054c A[Catch: Exception -> 0x0646, Error -> 0x064a, TRY_LEAVE, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:248:0x0556 A[Catch: Exception -> 0x0566, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:249:0x0562 A[Catch: Exception -> 0x0566, Error -> 0x064a, TRY_LEAVE, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:252:0x056a  */
-    /* JADX WARN: Removed duplicated region for block: B:254:0x0571  */
-    /* JADX WARN: Removed duplicated region for block: B:257:0x057c A[Catch: Exception -> 0x0646, Error -> 0x064a, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:260:0x058c A[Catch: Exception -> 0x0646, Error -> 0x064a, TRY_LEAVE, TryCatch #4 {Error -> 0x064a, blocks: (B:7:0x009e, B:8:0x00a0, B:11:0x00da, B:13:0x0132, B:14:0x013b, B:16:0x0141, B:17:0x014d, B:18:0x0151, B:21:0x0158, B:22:0x015d, B:25:0x0167, B:27:0x0198, B:29:0x01a2, B:31:0x01ac, B:32:0x01af, B:33:0x01b1, B:35:0x01b7, B:36:0x01c7, B:38:0x01cd, B:39:0x01f2, B:41:0x01f9, B:43:0x0201, B:45:0x020d, B:46:0x020f, B:48:0x0217, B:50:0x0223, B:52:0x0228, B:55:0x0232, B:59:0x023c, B:61:0x0244, B:63:0x024d, B:65:0x0255, B:67:0x025e, B:69:0x0266, B:71:0x026f, B:73:0x0277, B:75:0x0280, B:77:0x0288, B:79:0x0291, B:81:0x0299, B:83:0x02a2, B:85:0x02ab, B:87:0x02b9, B:89:0x02c2, B:91:0x02ce, B:93:0x02d6, B:171:0x039e, B:173:0x03da, B:175:0x03e2, B:177:0x03ee, B:178:0x03f1, B:180:0x03f9, B:182:0x0403, B:183:0x040e, B:185:0x0416, B:187:0x0424, B:188:0x0427, B:190:0x042f, B:192:0x043d, B:193:0x0440, B:195:0x0448, B:197:0x0456, B:198:0x0459, B:200:0x0461, B:202:0x046d, B:203:0x0471, B:206:0x047a, B:207:0x0484, B:209:0x048c, B:211:0x049a, B:213:0x04aa, B:216:0x04b2, B:217:0x04b5, B:219:0x04be, B:220:0x04d0, B:222:0x04d8, B:223:0x04e0, B:225:0x04e8, B:226:0x04f0, B:228:0x04f8, B:229:0x0501, B:231:0x0509, B:233:0x0519, B:237:0x0531, B:242:0x053a, B:244:0x0542, B:246:0x0550, B:248:0x0556, B:249:0x0562, B:250:0x0566, B:253:0x056d, B:255:0x0574, B:257:0x057c, B:258:0x0584, B:260:0x058c, B:270:0x05ba, B:271:0x05bd, B:280:0x05f1, B:245:0x054c, B:241:0x0537, B:96:0x02f3, B:98:0x02fe, B:102:0x0307, B:108:0x0314, B:116:0x0321, B:124:0x032e, B:132:0x033a, B:140:0x0346, B:148:0x0356, B:156:0x0368, B:169:0x038a, B:172:0x03d1, B:288:0x0605, B:289:0x060a), top: B:311:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:264:0x059a A[Catch: all -> 0x05b8, TryCatch #16 {all -> 0x05b8, blocks: (B:262:0x0594, B:264:0x059a, B:266:0x05b5), top: B:332:0x0594 }] */
-    /* JADX WARN: Removed duplicated region for block: B:316:0x048c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:320:0x05c5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:343:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4, types: [int, boolean] */
-    /* JADX WARN: Type inference failed for: r2v46 */
+    /* JADX WARN: Removed duplicated region for block: B:173:0x03b9 A[Catch: Exception -> 0x0667, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x03ff A[Catch: Exception -> 0x0667, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:182:0x0416 A[Catch: Exception -> 0x0667, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:187:0x0433 A[Catch: Exception -> 0x0667, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:192:0x044c A[Catch: Exception -> 0x0667, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:197:0x0465 A[Catch: Exception -> 0x0667, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:202:0x047e A[Catch: Exception -> 0x0667, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:246:0x0561 A[Catch: Exception -> 0x0667, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:247:0x056b A[Catch: Exception -> 0x0667, Error -> 0x066b, TRY_LEAVE, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:250:0x0575 A[Catch: Exception -> 0x0585, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:251:0x0581 A[Catch: Exception -> 0x0585, Error -> 0x066b, TRY_LEAVE, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:254:0x0589  */
+    /* JADX WARN: Removed duplicated region for block: B:256:0x0590  */
+    /* JADX WARN: Removed duplicated region for block: B:259:0x059b A[Catch: Exception -> 0x0667, Error -> 0x066b, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:262:0x05ab A[Catch: Exception -> 0x0667, Error -> 0x066b, TRY_LEAVE, TryCatch #2 {Error -> 0x066b, blocks: (B:9:0x00a4, B:10:0x00a6, B:13:0x00e4, B:15:0x013f, B:16:0x0148, B:18:0x014e, B:19:0x015a, B:20:0x015e, B:23:0x0165, B:24:0x016a, B:27:0x0174, B:29:0x01a7, B:31:0x01b1, B:33:0x01bb, B:34:0x01be, B:35:0x01c0, B:37:0x01c6, B:38:0x01d6, B:40:0x01dc, B:41:0x0201, B:43:0x0208, B:45:0x0210, B:47:0x021c, B:48:0x021e, B:50:0x0226, B:52:0x0232, B:54:0x0237, B:57:0x0241, B:61:0x024b, B:63:0x0253, B:65:0x025c, B:67:0x0264, B:69:0x026d, B:71:0x0275, B:73:0x027e, B:75:0x0286, B:77:0x028f, B:79:0x0297, B:81:0x02a0, B:83:0x02a8, B:85:0x02b1, B:87:0x02bc, B:89:0x02cc, B:91:0x02d5, B:93:0x02e1, B:95:0x02e9, B:173:0x03b9, B:175:0x03f7, B:177:0x03ff, B:179:0x040b, B:180:0x040e, B:182:0x0416, B:184:0x0420, B:185:0x042b, B:187:0x0433, B:189:0x0441, B:190:0x0444, B:192:0x044c, B:194:0x045a, B:195:0x045d, B:197:0x0465, B:199:0x0473, B:200:0x0476, B:202:0x047e, B:204:0x048a, B:205:0x048e, B:208:0x0497, B:209:0x04a1, B:211:0x04a9, B:213:0x04b7, B:215:0x04c7, B:218:0x04cf, B:219:0x04d2, B:221:0x04db, B:222:0x04ed, B:224:0x04f5, B:225:0x04fd, B:227:0x0505, B:228:0x050d, B:230:0x0515, B:231:0x051e, B:233:0x0527, B:235:0x0538, B:239:0x0550, B:244:0x0559, B:246:0x0561, B:248:0x056f, B:250:0x0575, B:251:0x0581, B:252:0x0585, B:255:0x058c, B:257:0x0593, B:259:0x059b, B:260:0x05a3, B:262:0x05ab, B:272:0x05d9, B:273:0x05dc, B:282:0x0610, B:247:0x056b, B:243:0x0556, B:98:0x0306, B:100:0x0311, B:104:0x031a, B:110:0x0327, B:118:0x0334, B:126:0x0341, B:134:0x0351, B:142:0x035e, B:150:0x036e, B:158:0x0380, B:171:0x03a4, B:174:0x03ee, B:290:0x0624, B:291:0x0629), top: B:313:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:266:0x05b9 A[Catch: all -> 0x05d7, TryCatch #12 {all -> 0x05d7, blocks: (B:264:0x05b3, B:266:0x05b9, B:268:0x05d4), top: B:330:0x05b3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:320:0x04a9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:324:0x05e4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:349:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v49 */
+    /* JADX WARN: Type inference failed for: r3v6 */
+    /* JADX WARN: Type inference failed for: r3v7, types: [int, boolean] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public BDLocation(String str) {
         boolean z;
         Exception exc;
-        ?? r2;
+        ?? r3;
         String str2;
         String str3;
         JSONObject jSONObject;
@@ -475,15 +542,29 @@ public final class BDLocation implements Parcelable {
         String str22;
         String str23;
         String string;
-        this.f6437a = 0;
-        this.f6438b = null;
-        this.f6439c = Double.MIN_VALUE;
-        this.f6440d = Double.MIN_VALUE;
-        this.f6441e = false;
-        this.f6442f = Double.MIN_VALUE;
-        this.f6443g = false;
-        this.f6444h = 0.0f;
-        this.f6445i = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                return;
+            }
+        }
+        this.f6467a = 0;
+        this.f6468b = null;
+        this.f6469c = Double.MIN_VALUE;
+        this.f6470d = Double.MIN_VALUE;
+        this.f6471e = false;
+        this.f6472f = Double.MIN_VALUE;
+        this.f6473g = false;
+        this.f6474h = 0.0f;
+        this.f6475i = false;
         this.j = 0.0f;
         this.k = false;
         this.l = -1;
@@ -532,9 +613,9 @@ public final class BDLocation implements Parcelable {
                 try {
                 } catch (Error e2) {
                     e2.printStackTrace();
-                    r2 = 0;
-                    this.f6437a = r2;
-                    this.o = r2;
+                    r3 = 0;
+                    this.f6467a = r3;
+                    this.o = r3;
                 }
             } catch (Exception e3) {
                 z = false;
@@ -593,11 +674,11 @@ public final class BDLocation implements Parcelable {
                         if (jSONObject8.has("aptagd")) {
                             JSONArray jSONArray = jSONObject8.getJSONObject("aptagd").getJSONArray("pois");
                             ArrayList arrayList = new ArrayList();
-                            int i4 = 0;
-                            while (i4 < jSONArray.length()) {
-                                JSONObject jSONObject9 = jSONArray.getJSONObject(i4);
+                            int i6 = 0;
+                            while (i6 < jSONArray.length()) {
+                                JSONObject jSONObject9 = jSONArray.getJSONObject(i6);
                                 arrayList.add(new Poi(jSONObject9.getString("pid"), jSONObject9.getString("pname"), jSONObject9.getDouble(Config.PRINCIPAL_PART)));
-                                i4++;
+                                i6++;
                                 str24 = str24;
                             }
                             str3 = str24;
@@ -772,6 +853,12 @@ public final class BDLocation implements Parcelable {
                                         if (jSONObject6.has(BeanConstants.CHANNEL_ID_NAVI)) {
                                         }
                                         if (jSONObject6.has("navi_client")) {
+                                            try {
+                                                if (string.contains(",")) {
+                                                }
+                                            } catch (Throwable th) {
+                                                th.printStackTrace();
+                                            }
                                         }
                                         if (jSONObject6.has("nrl_point")) {
                                         }
@@ -1079,12 +1166,6 @@ public final class BDLocation implements Parcelable {
                                         if (jSONObject6.has(BeanConstants.CHANNEL_ID_NAVI)) {
                                         }
                                         if (jSONObject6.has("navi_client")) {
-                                            try {
-                                                if (string.contains(",")) {
-                                                }
-                                            } catch (Throwable th) {
-                                                th.printStackTrace();
-                                            }
                                         }
                                         if (jSONObject6.has("nrl_point")) {
                                         }
@@ -1263,543 +1344,797 @@ public final class BDLocation implements Parcelable {
                 exc = e15;
                 z = false;
                 exc.printStackTrace();
-                r2 = z;
-                this.f6437a = r2;
-                this.o = r2;
+                r3 = z;
+                this.f6467a = r3;
+                this.o = r3;
             }
         }
     }
 
     private void a(Boolean bool) {
-        this.t = bool.booleanValue();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, bool) == null) {
+            this.t = bool.booleanValue();
+        }
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public String getAdCode() {
-        return this.u.adcode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.u.adcode : (String) invokeV.objValue;
     }
 
     public String getAddrStr() {
-        return this.u.address;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.u.address : (String) invokeV.objValue;
     }
 
     public Address getAddress() {
-        return this.u;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.u : (Address) invokeV.objValue;
     }
 
     public double getAltitude() {
-        return this.f6442f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6472f : invokeV.doubleValue;
     }
 
     public String getBuildingID() {
-        return this.w;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.w : (String) invokeV.objValue;
     }
 
     public String getBuildingName() {
-        return this.x;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.x : (String) invokeV.objValue;
     }
 
     public String getCity() {
-        return this.u.city;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.u.city : (String) invokeV.objValue;
     }
 
     public String getCityCode() {
-        return this.u.cityCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.u.cityCode : (String) invokeV.objValue;
     }
 
     public String getCoorType() {
-        return this.n;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.n : (String) invokeV.objValue;
     }
 
     public String getCountry() {
-        return this.u.country;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.u.country : (String) invokeV.objValue;
     }
 
     public String getCountryCode() {
-        return this.u.countryCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.u.countryCode : (String) invokeV.objValue;
     }
 
     public long getDelayTime() {
-        return this.S;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.S : invokeV.longValue;
     }
 
     @Deprecated
     public float getDerect() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.m : invokeV.floatValue;
     }
 
     public float getDirection() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.m : invokeV.floatValue;
     }
 
     public String getDistrict() {
-        return this.u.district;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.u.district : (String) invokeV.objValue;
     }
 
     public Location getExtraLocation(String str) {
-        Bundle bundle = this.P;
-        if (bundle != null) {
-            Parcelable parcelable = bundle.getParcelable(str);
-            if (parcelable instanceof Location) {
-                return (Location) parcelable;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            Bundle bundle = this.P;
+            if (bundle != null) {
+                Parcelable parcelable = bundle.getParcelable(str);
+                if (parcelable instanceof Location) {
+                    return (Location) parcelable;
+                }
+                return null;
             }
             return null;
         }
-        return null;
+        return (Location) invokeL.objValue;
     }
 
     public String getFloor() {
-        return this.v;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.v : (String) invokeV.objValue;
     }
 
     public double[] getFusionLocInfo(String str) {
-        return this.P.getDoubleArray(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) ? this.P.getDoubleArray(str) : (double[]) invokeL.objValue;
     }
 
     public int getGpsAccuracyStatus() {
-        return this.Q;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.Q : invokeV.intValue;
     }
 
     public int getGpsCheckStatus() {
-        return this.R;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.R : invokeV.intValue;
     }
 
     public int getIndoorLocationSource() {
-        return this.H;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.H : invokeV.intValue;
     }
 
     public int getIndoorLocationSurpport() {
-        return this.F;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.F : invokeV.intValue;
     }
 
     public String getIndoorLocationSurpportBuidlingID() {
-        return this.J;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.J : (String) invokeV.objValue;
     }
 
     public String getIndoorLocationSurpportBuidlingName() {
-        return this.I;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.I : (String) invokeV.objValue;
     }
 
     public int getIndoorNetworkState() {
-        return this.G;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.G : invokeV.intValue;
     }
 
     public String getIndoorSurpportPolygon() {
-        return this.K;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.K : (String) invokeV.objValue;
     }
 
     public double getLatitude() {
-        return this.f6439c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f6469c : invokeV.doubleValue;
     }
 
     public int getLocType() {
-        return this.f6437a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f6467a : invokeV.intValue;
     }
 
     public String getLocTypeDescription() {
-        return this.M;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.M : (String) invokeV.objValue;
     }
 
     public String getLocationDescribe() {
-        return this.q;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.q : (String) invokeV.objValue;
     }
 
     public String getLocationID() {
-        return this.N;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.N : (String) invokeV.objValue;
     }
 
     public int getLocationWhere() {
-        return this.A;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.A : invokeV.intValue;
     }
 
     public double getLongitude() {
-        return this.f6440d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f6470d : invokeV.doubleValue;
     }
 
     public String getNetworkLocationType() {
-        return this.B;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.B : (String) invokeV.objValue;
     }
 
     public double getNrlLat() {
-        return this.U;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.U : invokeV.doubleValue;
     }
 
     public double getNrlLon() {
-        return this.V;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.V : invokeV.doubleValue;
     }
 
     public String getNrlResult() {
-        return this.T;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.T : (String) invokeV.objValue;
     }
 
     public int getOperators() {
-        return this.C;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.C : invokeV.intValue;
     }
 
     public List<Poi> getPoiList() {
-        return this.L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.L : (List) invokeV.objValue;
     }
 
     public String getProvince() {
-        return this.u.province;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.u.province : (String) invokeV.objValue;
     }
 
     public float getRadius() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.j : invokeV.floatValue;
     }
 
     public String getRetFields(String str) {
-        return this.P.getString(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) ? this.P.getString(str) : (String) invokeL.objValue;
     }
 
     public String getRoadLocString() {
-        return this.O;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.O : (String) invokeV.objValue;
     }
 
     public int getSatelliteNumber() {
-        this.k = true;
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            this.k = true;
+            return this.l;
+        }
+        return invokeV.intValue;
     }
 
     @Deprecated
     public String getSemaAptag() {
-        return this.q;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.q : (String) invokeV.objValue;
     }
 
     public float getSpeed() {
-        return this.f6444h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.f6474h : invokeV.floatValue;
     }
 
     public String getStreet() {
-        return this.u.street;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.u.street : (String) invokeV.objValue;
     }
 
     public String getStreetNumber() {
-        return this.u.streetNumber;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.u.streetNumber : (String) invokeV.objValue;
     }
 
     public String getTime() {
-        return this.f6438b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f6468b : (String) invokeV.objValue;
     }
 
     public int getUserIndoorState() {
-        return this.E;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.E : invokeV.intValue;
     }
 
     public String getVdrJsonString() {
-        Bundle bundle = this.P;
-        if (bundle == null || !bundle.containsKey("vdr")) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            Bundle bundle = this.P;
+            if (bundle == null || !bundle.containsKey("vdr")) {
+                return null;
+            }
+            return this.P.getString("vdr");
         }
-        return this.P.getString("vdr");
+        return (String) invokeV.objValue;
     }
 
     public boolean hasAddr() {
-        return this.o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.o : invokeV.booleanValue;
     }
 
     public boolean hasAltitude() {
-        return this.f6441e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.f6471e : invokeV.booleanValue;
     }
 
     public boolean hasRadius() {
-        return this.f6445i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f6475i : invokeV.booleanValue;
     }
 
     public boolean hasSateNumber() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
     public boolean hasSpeed() {
-        return this.f6443g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f6473g : invokeV.booleanValue;
     }
 
     public boolean isCellChangeFlag() {
-        return this.t;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.t : invokeV.booleanValue;
     }
 
     public boolean isInIndoorPark() {
-        return this.W;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.W : invokeV.booleanValue;
     }
 
     public boolean isIndoorLocMode() {
-        return this.y;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.y : invokeV.booleanValue;
     }
 
     public boolean isNrlAvailable() {
-        return (this.V == Double.MIN_VALUE || this.U == Double.MIN_VALUE) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? (this.V == Double.MIN_VALUE || this.U == Double.MIN_VALUE) ? false : true : invokeV.booleanValue;
     }
 
     public int isParkAvailable() {
-        return this.z;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.z : invokeV.intValue;
     }
 
     public void setAddr(Address address) {
-        if (address != null) {
-            this.u = address;
-            this.o = true;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048638, this, address) == null) || address == null) {
+            return;
         }
+        this.u = address;
+        this.o = true;
     }
 
     public void setAddrStr(String str) {
-        this.p = str;
-        this.o = str != null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
+            this.p = str;
+            this.o = str != null;
+        }
     }
 
     public void setAltitude(double d2) {
-        if (d2 < 9999.0d) {
-            this.f6442f = d2;
-            this.f6441e = true;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048640, this, new Object[]{Double.valueOf(d2)}) == null) || d2 >= 9999.0d) {
+            return;
         }
+        this.f6472f = d2;
+        this.f6471e = true;
     }
 
     public void setBuildingID(String str) {
-        this.w = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048641, this, str) == null) {
+            this.w = str;
+        }
     }
 
     public void setBuildingName(String str) {
-        this.x = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048642, this, str) == null) {
+            this.x = str;
+        }
     }
 
     public void setCoorType(String str) {
-        this.n = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, str) == null) {
+            this.n = str;
+        }
     }
 
     public void setDelayTime(long j) {
-        this.S = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048644, this, j) == null) {
+            this.S = j;
+        }
     }
 
     public void setDirection(float f2) {
-        this.m = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048645, this, f2) == null) {
+            this.m = f2;
+        }
     }
 
     public void setExtraLocation(String str, Location location) {
-        if (this.P == null) {
-            this.P = new Bundle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048646, this, str, location) == null) {
+            if (this.P == null) {
+                this.P = new Bundle();
+            }
+            this.P.putParcelable(str, location);
         }
-        this.P.putParcelable(str, location);
     }
 
     public void setFloor(String str) {
-        this.v = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048647, this, str) == null) {
+            this.v = str;
+        }
     }
 
     public void setFusionLocInfo(String str, double[] dArr) {
-        if (this.P == null) {
-            this.P = new Bundle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048648, this, str, dArr) == null) {
+            if (this.P == null) {
+                this.P = new Bundle();
+            }
+            this.P.putDoubleArray(str, dArr);
         }
-        this.P.putDoubleArray(str, dArr);
     }
 
     public void setGpsAccuracyStatus(int i2) {
-        this.Q = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
+            this.Q = i2;
+        }
     }
 
     public void setGpsCheckStatus(int i2) {
-        this.R = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048650, this, i2) == null) {
+            this.R = i2;
+        }
     }
 
     public void setIndoorLocMode(boolean z) {
-        this.y = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048651, this, z) == null) {
+            this.y = z;
+        }
     }
 
     public void setIndoorLocationSource(int i2) {
-        this.H = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
+            this.H = i2;
+        }
     }
 
     public void setIndoorLocationSurpport(int i2) {
-        this.F = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048653, this, i2) == null) {
+            this.F = i2;
+        }
     }
 
     public void setIndoorNetworkState(int i2) {
-        this.G = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048654, this, i2) == null) {
+            this.G = i2;
+        }
     }
 
     public void setIndoorSurpportPolygon(String str) {
-        this.K = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048655, this, str) == null) {
+            this.K = str;
+        }
     }
 
     public void setLatitude(double d2) {
-        this.f6439c = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048656, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.f6469c = d2;
+        }
     }
 
     public void setLocType(int i2) {
         String str;
-        this.f6437a = i2;
-        if (i2 != 66) {
-            if (i2 != 67) {
-                if (i2 == 161) {
-                    str = "NetWork location successful!";
-                } else if (i2 == 162) {
-                    str = "NetWork location failed because baidu location service can not decrypt the request query, please check the so file !";
-                } else if (i2 == 167) {
-                    str = "NetWork location failed because baidu location service can not caculate the location!";
-                } else if (i2 != 505) {
-                    switch (i2) {
-                        case 61:
-                            setLocTypeDescription("GPS location successful!");
-                            setUserIndoorState(0);
-                            return;
-                        case 62:
-                            str = "Location failed beacuse we can not get any loc information!";
-                            break;
-                        case 63:
-                            break;
-                        default:
-                            str = "UnKnown!";
-                            break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048657, this, i2) == null) {
+            this.f6467a = i2;
+            if (i2 != 66) {
+                if (i2 != 67) {
+                    if (i2 == 161) {
+                        str = "NetWork location successful!";
+                    } else if (i2 == 162) {
+                        str = "NetWork location failed because baidu location service can not decrypt the request query, please check the so file !";
+                    } else if (i2 == 167) {
+                        str = "NetWork location failed because baidu location service can not caculate the location!";
+                    } else if (i2 != 505) {
+                        switch (i2) {
+                            case 61:
+                                setLocTypeDescription("GPS location successful!");
+                                setUserIndoorState(0);
+                                return;
+                            case 62:
+                                str = "Location failed beacuse we can not get any loc information!";
+                                break;
+                            case 63:
+                                break;
+                            default:
+                                str = "UnKnown!";
+                                break;
+                        }
+                    } else {
+                        str = "NetWork location failed because baidu location service check the key is unlegal, please check the key in AndroidManifest.xml !";
                     }
-                } else {
-                    str = "NetWork location failed because baidu location service check the key is unlegal, please check the key in AndroidManifest.xml !";
                 }
+                str = "Offline location failed, please check the net (wifi/cell)!";
+            } else {
+                str = "Offline location successful!";
             }
-            str = "Offline location failed, please check the net (wifi/cell)!";
-        } else {
-            str = "Offline location successful!";
+            setLocTypeDescription(str);
         }
-        setLocTypeDescription(str);
     }
 
     public void setLocTypeDescription(String str) {
-        this.M = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048658, this, str) == null) {
+            this.M = str;
+        }
     }
 
     public void setLocationDescribe(String str) {
-        this.q = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048659, this, str) == null) {
+            this.q = str;
+        }
     }
 
     public void setLocationID(String str) {
-        this.N = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048660, this, str) == null) {
+            this.N = str;
+        }
     }
 
     public void setLocationWhere(int i2) {
-        this.A = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
+            this.A = i2;
+        }
     }
 
     public void setLongitude(double d2) {
-        this.f6440d = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048662, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.f6470d = d2;
+        }
     }
 
     public void setNetworkLocationType(String str) {
-        this.B = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048663, this, str) == null) {
+            this.B = str;
+        }
     }
 
     public void setNrlData(String str) {
-        this.T = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048664, this, str) == null) {
+            this.T = str;
+        }
     }
 
     public void setOperators(int i2) {
-        this.C = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048665, this, i2) == null) {
+            this.C = i2;
+        }
     }
 
     public void setParkAvailable(int i2) {
-        this.z = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048666, this, i2) == null) {
+            this.z = i2;
+        }
     }
 
     public void setPoiList(List<Poi> list) {
-        this.L = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048667, this, list) == null) {
+            this.L = list;
+        }
     }
 
     public void setRadius(float f2) {
-        this.j = f2;
-        this.f6445i = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048668, this, f2) == null) {
+            this.j = f2;
+            this.f6475i = true;
+        }
     }
 
     public void setRetFields(String str, String str2) {
-        if (this.P == null) {
-            this.P = new Bundle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048669, this, str, str2) == null) {
+            if (this.P == null) {
+                this.P = new Bundle();
+            }
+            this.P.putString(str, str2);
         }
-        this.P.putString(str, str2);
     }
 
     public void setRoadLocString(float f2, float f3) {
-        String format = ((double) f2) > 0.001d ? String.format("%.2f", Float.valueOf(f2)) : "";
-        String format2 = ((double) f3) > 0.001d ? String.format("%.2f", Float.valueOf(f3)) : "";
-        String str = this.T;
-        if (str != null) {
-            this.O = String.format(Locale.US, "%s|%s,%s", str, format, format2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048670, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            String format = ((double) f2) > 0.001d ? String.format("%.2f", Float.valueOf(f2)) : "";
+            String format2 = ((double) f3) > 0.001d ? String.format("%.2f", Float.valueOf(f3)) : "";
+            String str = this.T;
+            if (str != null) {
+                this.O = String.format(Locale.US, "%s|%s,%s", str, format, format2);
+            }
         }
     }
 
     public void setSatelliteNumber(int i2) {
-        this.l = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048671, this, i2) == null) {
+            this.l = i2;
+        }
     }
 
     public void setSpeed(float f2) {
-        this.f6444h = f2;
-        this.f6443g = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048672, this, f2) == null) {
+            this.f6474h = f2;
+            this.f6473g = true;
+        }
     }
 
     public void setTime(String str) {
-        this.f6438b = str;
-        setLocationID(k.a(str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048673, this, str) == null) {
+            this.f6468b = str;
+            setLocationID(k.a(str));
+        }
     }
 
     public void setUserIndoorState(int i2) {
-        this.E = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048674, this, i2) == null) {
+            this.E = i2;
+        }
     }
 
     public void setVdrJsonValue(String str) {
-        if (this.P == null) {
-            this.P = new Bundle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048675, this, str) == null) {
+            if (this.P == null) {
+                this.P = new Bundle();
+            }
+            this.P.putString("vdr", str);
         }
-        this.P.putString("vdr", str);
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f6437a);
-        parcel.writeString(this.f6438b);
-        parcel.writeDouble(this.f6439c);
-        parcel.writeDouble(this.f6440d);
-        parcel.writeDouble(this.f6442f);
-        parcel.writeFloat(this.f6444h);
-        parcel.writeFloat(this.j);
-        parcel.writeInt(this.l);
-        parcel.writeFloat(this.m);
-        parcel.writeString(this.v);
-        parcel.writeInt(this.z);
-        parcel.writeString(this.w);
-        parcel.writeString(this.x);
-        parcel.writeString(this.B);
-        parcel.writeString(this.u.province);
-        parcel.writeString(this.u.city);
-        parcel.writeString(this.u.district);
-        parcel.writeString(this.u.street);
-        parcel.writeString(this.u.streetNumber);
-        parcel.writeString(this.u.cityCode);
-        parcel.writeString(this.u.address);
-        parcel.writeString(this.u.country);
-        parcel.writeString(this.u.countryCode);
-        parcel.writeString(this.u.adcode);
-        parcel.writeInt(this.C);
-        parcel.writeString(this.D);
-        parcel.writeString(this.q);
-        parcel.writeString(this.r);
-        parcel.writeString(this.s);
-        parcel.writeInt(this.A);
-        parcel.writeString(this.M);
-        parcel.writeInt(this.E);
-        parcel.writeInt(this.F);
-        parcel.writeInt(this.G);
-        parcel.writeInt(this.H);
-        parcel.writeString(this.I);
-        parcel.writeString(this.J);
-        parcel.writeString(this.K);
-        parcel.writeInt(this.Q);
-        parcel.writeString(this.N);
-        parcel.writeInt(this.R);
-        parcel.writeString(this.O);
-        parcel.writeString(this.T);
-        parcel.writeLong(this.S);
-        parcel.writeDouble(this.U);
-        parcel.writeDouble(this.V);
-        parcel.writeBooleanArray(new boolean[]{this.f6441e, this.f6443g, this.f6445i, this.k, this.o, this.t, this.y, this.W});
-        parcel.writeList(this.L);
-        parcel.writeBundle(this.P);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048676, this, parcel, i2) == null) {
+            parcel.writeInt(this.f6467a);
+            parcel.writeString(this.f6468b);
+            parcel.writeDouble(this.f6469c);
+            parcel.writeDouble(this.f6470d);
+            parcel.writeDouble(this.f6472f);
+            parcel.writeFloat(this.f6474h);
+            parcel.writeFloat(this.j);
+            parcel.writeInt(this.l);
+            parcel.writeFloat(this.m);
+            parcel.writeString(this.v);
+            parcel.writeInt(this.z);
+            parcel.writeString(this.w);
+            parcel.writeString(this.x);
+            parcel.writeString(this.B);
+            parcel.writeString(this.u.province);
+            parcel.writeString(this.u.city);
+            parcel.writeString(this.u.district);
+            parcel.writeString(this.u.street);
+            parcel.writeString(this.u.streetNumber);
+            parcel.writeString(this.u.cityCode);
+            parcel.writeString(this.u.address);
+            parcel.writeString(this.u.country);
+            parcel.writeString(this.u.countryCode);
+            parcel.writeString(this.u.adcode);
+            parcel.writeInt(this.C);
+            parcel.writeString(this.D);
+            parcel.writeString(this.q);
+            parcel.writeString(this.r);
+            parcel.writeString(this.s);
+            parcel.writeInt(this.A);
+            parcel.writeString(this.M);
+            parcel.writeInt(this.E);
+            parcel.writeInt(this.F);
+            parcel.writeInt(this.G);
+            parcel.writeInt(this.H);
+            parcel.writeString(this.I);
+            parcel.writeString(this.J);
+            parcel.writeString(this.K);
+            parcel.writeInt(this.Q);
+            parcel.writeString(this.N);
+            parcel.writeInt(this.R);
+            parcel.writeString(this.O);
+            parcel.writeString(this.T);
+            parcel.writeLong(this.S);
+            parcel.writeDouble(this.U);
+            parcel.writeDouble(this.V);
+            parcel.writeBooleanArray(new boolean[]{this.f6471e, this.f6473g, this.f6475i, this.k, this.o, this.t, this.y, this.W});
+            parcel.writeList(this.L);
+            parcel.writeBundle(this.P);
+        }
     }
 }

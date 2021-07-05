@@ -5,64 +5,123 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.b.b;
 import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes7.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34322a;
+    public Context f36085a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f34323b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f36086b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f34324c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.b.1
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            try {
-                com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "onServiceConnected");
-                b.this.f34323b.put(iBinder);
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-        }
-    };
+    public ServiceConnection f36087c;
 
     public b(Context context) {
-        this.f34322a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f36086b = new LinkedBlockingQueue<>(1);
+        this.f36087c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.b.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ b f36088a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f36088a = this;
+            }
+
+            @Override // android.content.ServiceConnection
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
+                    try {
+                        com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "onServiceConnected");
+                        this.f36088a.f36086b.put(iBinder);
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
+                    }
+                }
+            }
+
+            @Override // android.content.ServiceConnection
+            public void onServiceDisconnected(ComponentName componentName) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+                }
+            }
+        };
+        this.f36085a = context;
     }
 
     public String a() {
+        InterceptResult invokeV;
         Context context;
         ServiceConnection serviceConnection;
-        String str = "";
-        try {
-            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
-            intent.setPackage("com.huawei.hwid");
-            if (this.f34322a.bindService(intent, this.f34324c, 1)) {
-                try {
-                    b.a aVar = new b.a(this.f34323b.take());
-                    str = aVar.a();
-                    boolean b2 = aVar.b();
-                    com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + b2);
-                    context = this.f34322a;
-                    serviceConnection = this.f34324c;
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    context = this.f34322a;
-                    serviceConnection = this.f34324c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = "";
+            try {
+                Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+                intent.setPackage("com.huawei.hwid");
+                if (this.f36085a.bindService(intent, this.f36087c, 1)) {
+                    try {
+                        b.a aVar = new b.a(this.f36086b.take());
+                        str = aVar.a();
+                        boolean b2 = aVar.b();
+                        com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + b2);
+                        context = this.f36085a;
+                        serviceConnection = this.f36087c;
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
+                        context = this.f36085a;
+                        serviceConnection = this.f36087c;
+                    }
+                    context.unbindService(serviceConnection);
                 }
-                context.unbindService(serviceConnection);
+            } catch (Exception e3) {
+                com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID hw service not found");
+                com.kwad.sdk.core.d.a.b(e3);
             }
-        } catch (Exception e3) {
-            com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID hw service not found");
-            com.kwad.sdk.core.d.a.b(e3);
+            return str;
         }
-        return str;
+        return (String) invokeV.objValue;
     }
 }

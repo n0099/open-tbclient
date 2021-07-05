@@ -14,304 +14,488 @@ import android.view.Window;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.Log;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class FlutterFragmentActivity extends FragmentActivity implements SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAGMENT_CONTAINER_ID = 609893468;
     public static final String TAG = "FlutterFragmentActivity";
     public static final String TAG_FLUTTER_FRAGMENT = "flutter_fragment";
+    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public FlutterFragment flutterFragment;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class CachedEngineIntentBuilder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Class<? extends FlutterFragmentActivity> activityClass;
+        public String backgroundMode;
         public final String cachedEngineId;
-        public boolean destroyEngineWithActivity = false;
-        public String backgroundMode = FlutterActivityLaunchConfigs.DEFAULT_BACKGROUND_MODE;
+        public boolean destroyEngineWithActivity;
 
         public CachedEngineIntentBuilder(@NonNull Class<? extends FlutterFragmentActivity> cls, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cls, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.destroyEngineWithActivity = false;
+            this.backgroundMode = FlutterActivityLaunchConfigs.DEFAULT_BACKGROUND_MODE;
             this.activityClass = cls;
             this.cachedEngineId = str;
         }
 
         @NonNull
         public CachedEngineIntentBuilder backgroundMode(@NonNull FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
-            this.backgroundMode = backgroundMode.name();
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backgroundMode)) == null) {
+                this.backgroundMode = backgroundMode.name();
+                return this;
+            }
+            return (CachedEngineIntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public Intent build(@NonNull Context context) {
-            return new Intent(context, this.activityClass).putExtra("cached_engine_id", this.cachedEngineId).putExtra("destroy_engine_with_activity", this.destroyEngineWithActivity).putExtra("background_mode", this.backgroundMode);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new Intent(context, this.activityClass).putExtra("cached_engine_id", this.cachedEngineId).putExtra("destroy_engine_with_activity", this.destroyEngineWithActivity).putExtra("background_mode", this.backgroundMode) : (Intent) invokeL.objValue;
         }
 
         public CachedEngineIntentBuilder destroyEngineWithActivity(boolean z) {
-            this.destroyEngineWithActivity = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.destroyEngineWithActivity = z;
+                return this;
+            }
+            return (CachedEngineIntentBuilder) invokeZ.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class NewEngineIntentBuilder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Class<? extends FlutterFragmentActivity> activityClass;
-        public String initialRoute = "/";
-        public String backgroundMode = FlutterActivityLaunchConfigs.DEFAULT_BACKGROUND_MODE;
+        public String backgroundMode;
+        public String initialRoute;
 
         public NewEngineIntentBuilder(@NonNull Class<? extends FlutterFragmentActivity> cls) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cls};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.initialRoute = "/";
+            this.backgroundMode = FlutterActivityLaunchConfigs.DEFAULT_BACKGROUND_MODE;
             this.activityClass = cls;
         }
 
         @NonNull
         public NewEngineIntentBuilder backgroundMode(@NonNull FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
-            this.backgroundMode = backgroundMode.name();
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backgroundMode)) == null) {
+                this.backgroundMode = backgroundMode.name();
+                return this;
+            }
+            return (NewEngineIntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public Intent build(@NonNull Context context) {
-            return new Intent(context, this.activityClass).putExtra(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, this.initialRoute).putExtra("background_mode", this.backgroundMode).putExtra("destroy_engine_with_activity", true);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new Intent(context, this.activityClass).putExtra(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, this.initialRoute).putExtra("background_mode", this.backgroundMode).putExtra("destroy_engine_with_activity", true) : (Intent) invokeL.objValue;
         }
 
         @NonNull
         public NewEngineIntentBuilder initialRoute(@NonNull String str) {
-            this.initialRoute = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.initialRoute = str;
+                return this;
+            }
+            return (NewEngineIntentBuilder) invokeL.objValue;
+        }
+    }
+
+    public FlutterFragmentActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     private void configureStatusBarForFullscreenFlutterExperience() {
-        if (Build.VERSION.SDK_INT >= 21) {
-            Window window = getWindow();
-            window.addFlags(Integer.MIN_VALUE);
-            window.setStatusBarColor(1073741824);
-            window.getDecorView().setSystemUiVisibility(1280);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || Build.VERSION.SDK_INT < 21) {
+            return;
         }
+        Window window = getWindow();
+        window.addFlags(Integer.MIN_VALUE);
+        window.setStatusBarColor(1073741824);
+        window.getDecorView().setSystemUiVisibility(1280);
     }
 
     private void configureWindowForTransparency() {
-        if (getBackgroundMode() == FlutterActivityLaunchConfigs.BackgroundMode.transparent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && getBackgroundMode() == FlutterActivityLaunchConfigs.BackgroundMode.transparent) {
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
     }
 
     @NonNull
     public static Intent createDefaultIntent(@NonNull Context context) {
-        return withNewEngine().build(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? withNewEngine().build(context) : (Intent) invokeL.objValue;
     }
 
     @NonNull
     private View createFragmentContainer() {
-        FrameLayout frameLayout = new FrameLayout(this);
-        frameLayout.setId(FRAGMENT_CONTAINER_ID);
-        frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        return frameLayout;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this);
+            frameLayout.setId(FRAGMENT_CONTAINER_ID);
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeV.objValue;
     }
 
     private void ensureFlutterFragmentCreated() {
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-        FlutterFragment flutterFragment = (FlutterFragment) supportFragmentManager.findFragmentByTag(TAG_FLUTTER_FRAGMENT);
-        this.flutterFragment = flutterFragment;
-        if (flutterFragment == null) {
-            this.flutterFragment = createFlutterFragment();
-            supportFragmentManager.beginTransaction().add(FRAGMENT_CONTAINER_ID, this.flutterFragment, TAG_FLUTTER_FRAGMENT).commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            FragmentManager supportFragmentManager = getSupportFragmentManager();
+            FlutterFragment flutterFragment = (FlutterFragment) supportFragmentManager.findFragmentByTag(TAG_FLUTTER_FRAGMENT);
+            this.flutterFragment = flutterFragment;
+            if (flutterFragment == null) {
+                this.flutterFragment = createFlutterFragment();
+                supportFragmentManager.beginTransaction().add(FRAGMENT_CONTAINER_ID, this.flutterFragment, TAG_FLUTTER_FRAGMENT).commit();
+            }
         }
     }
 
     @Nullable
     private Drawable getSplashScreenFromManifest() {
-        try {
-            Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
-            Integer valueOf = bundle != null ? Integer.valueOf(bundle.getInt("io.flutter.embedding.android.SplashScreenDrawable")) : null;
-            if (valueOf != null) {
-                if (Build.VERSION.SDK_INT > 21) {
-                    return getResources().getDrawable(valueOf.intValue(), getTheme());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            try {
+                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
+                Integer valueOf = bundle != null ? Integer.valueOf(bundle.getInt("io.flutter.embedding.android.SplashScreenDrawable")) : null;
+                if (valueOf != null) {
+                    if (Build.VERSION.SDK_INT > 21) {
+                        return getResources().getDrawable(valueOf.intValue(), getTheme());
+                    }
+                    return getResources().getDrawable(valueOf.intValue());
                 }
-                return getResources().getDrawable(valueOf.intValue());
+                return null;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return null;
             }
-            return null;
-        } catch (PackageManager.NameNotFoundException unused) {
-            return null;
         }
+        return (Drawable) invokeV.objValue;
     }
 
     private boolean isDebuggable() {
-        return (getApplicationInfo().flags & 2) != 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? (getApplicationInfo().flags & 2) != 0 : invokeV.booleanValue;
     }
 
     private void switchLaunchThemeForNormalTheme() {
-        try {
-            ActivityInfo activityInfo = getPackageManager().getActivityInfo(getComponentName(), 128);
-            if (activityInfo.metaData != null) {
-                int i2 = activityInfo.metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
-                if (i2 != -1) {
-                    setTheme(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            try {
+                ActivityInfo activityInfo = getPackageManager().getActivityInfo(getComponentName(), 128);
+                if (activityInfo.metaData != null) {
+                    int i2 = activityInfo.metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
+                    if (i2 != -1) {
+                        setTheme(i2);
+                    }
+                } else {
+                    Log.v(TAG, "Using the launch theme as normal theme.");
                 }
-            } else {
-                Log.v(TAG, "Using the launch theme as normal theme.");
+            } catch (PackageManager.NameNotFoundException unused) {
+                Log.e(TAG, "Could not read meta-data for FlutterFragmentActivity. Using the launch theme as normal theme.");
             }
-        } catch (PackageManager.NameNotFoundException unused) {
-            Log.e(TAG, "Could not read meta-data for FlutterFragmentActivity. Using the launch theme as normal theme.");
         }
     }
 
     @NonNull
     public static CachedEngineIntentBuilder withCachedEngine(@NonNull String str) {
-        return new CachedEngineIntentBuilder(FlutterFragmentActivity.class, str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? new CachedEngineIntentBuilder(FlutterFragmentActivity.class, str) : (CachedEngineIntentBuilder) invokeL.objValue;
     }
 
     @NonNull
     public static NewEngineIntentBuilder withNewEngine() {
-        return new NewEngineIntentBuilder(FlutterFragmentActivity.class);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new NewEngineIntentBuilder(FlutterFragmentActivity.class) : (NewEngineIntentBuilder) invokeV.objValue;
     }
 
     @Override // io.flutter.embedding.android.FlutterEngineConfigurator
     public void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, flutterEngine) == null) {
+        }
     }
 
     @Override // io.flutter.embedding.android.FlutterEngineConfigurator
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterEngine) == null) {
+        }
     }
 
     @NonNull
     public FlutterFragment createFlutterFragment() {
-        FlutterActivityLaunchConfigs.BackgroundMode backgroundMode = getBackgroundMode();
-        RenderMode renderMode = backgroundMode == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? RenderMode.surface : RenderMode.texture;
-        TransparencyMode transparencyMode = backgroundMode == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? TransparencyMode.opaque : TransparencyMode.transparent;
-        if (getCachedEngineId() != null) {
-            Log.v(TAG, "Creating FlutterFragment with cached engine:\nCached engine ID: " + getCachedEngineId() + "\nWill destroy engine when Activity is destroyed: " + shouldDestroyEngineWithHost() + "\nBackground transparency mode: " + backgroundMode + "\nWill attach FlutterEngine to Activity: " + shouldAttachEngineToActivity());
-            return FlutterFragment.withCachedEngine(getCachedEngineId()).renderMode(renderMode).transparencyMode(transparencyMode).shouldAttachEngineToActivity(shouldAttachEngineToActivity()).destroyEngineWithFragment(shouldDestroyEngineWithHost()).build();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            FlutterActivityLaunchConfigs.BackgroundMode backgroundMode = getBackgroundMode();
+            RenderMode renderMode = backgroundMode == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? RenderMode.surface : RenderMode.texture;
+            TransparencyMode transparencyMode = backgroundMode == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? TransparencyMode.opaque : TransparencyMode.transparent;
+            if (getCachedEngineId() != null) {
+                Log.v(TAG, "Creating FlutterFragment with cached engine:\nCached engine ID: " + getCachedEngineId() + "\nWill destroy engine when Activity is destroyed: " + shouldDestroyEngineWithHost() + "\nBackground transparency mode: " + backgroundMode + "\nWill attach FlutterEngine to Activity: " + shouldAttachEngineToActivity());
+                return FlutterFragment.withCachedEngine(getCachedEngineId()).renderMode(renderMode).transparencyMode(transparencyMode).shouldAttachEngineToActivity(shouldAttachEngineToActivity()).destroyEngineWithFragment(shouldDestroyEngineWithHost()).build();
+            }
+            Log.v(TAG, "Creating FlutterFragment with new engine:\nBackground transparency mode: " + backgroundMode + "\nDart entrypoint: " + getDartEntrypointFunctionName() + "\nInitial route: " + getInitialRoute() + "\nApp bundle path: " + getAppBundlePath() + "\nWill attach FlutterEngine to Activity: " + shouldAttachEngineToActivity());
+            return FlutterFragment.withNewEngine().dartEntrypoint(getDartEntrypointFunctionName()).initialRoute(getInitialRoute()).appBundlePath(getAppBundlePath()).flutterShellArgs(FlutterShellArgs.fromIntent(getIntent())).renderMode(renderMode).transparencyMode(transparencyMode).shouldAttachEngineToActivity(shouldAttachEngineToActivity()).build();
         }
-        Log.v(TAG, "Creating FlutterFragment with new engine:\nBackground transparency mode: " + backgroundMode + "\nDart entrypoint: " + getDartEntrypointFunctionName() + "\nInitial route: " + getInitialRoute() + "\nApp bundle path: " + getAppBundlePath() + "\nWill attach FlutterEngine to Activity: " + shouldAttachEngineToActivity());
-        return FlutterFragment.withNewEngine().dartEntrypoint(getDartEntrypointFunctionName()).initialRoute(getInitialRoute()).appBundlePath(getAppBundlePath()).flutterShellArgs(FlutterShellArgs.fromIntent(getIntent())).renderMode(renderMode).transparencyMode(transparencyMode).shouldAttachEngineToActivity(shouldAttachEngineToActivity()).build();
+        return (FlutterFragment) invokeV.objValue;
     }
 
     @NonNull
     public String getAppBundlePath() {
+        InterceptResult invokeV;
         String dataString;
-        return (isDebuggable() && "android.intent.action.RUN".equals(getIntent().getAction()) && (dataString = getIntent().getDataString()) != null) ? dataString : FlutterMain.findAppBundlePath();
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (isDebuggable() && "android.intent.action.RUN".equals(getIntent().getAction()) && (dataString = getIntent().getDataString()) != null) ? dataString : FlutterMain.findAppBundlePath() : (String) invokeV.objValue;
     }
 
     @NonNull
     public FlutterActivityLaunchConfigs.BackgroundMode getBackgroundMode() {
-        if (getIntent().hasExtra("background_mode")) {
-            return FlutterActivityLaunchConfigs.BackgroundMode.valueOf(getIntent().getStringExtra("background_mode"));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (getIntent().hasExtra("background_mode")) {
+                return FlutterActivityLaunchConfigs.BackgroundMode.valueOf(getIntent().getStringExtra("background_mode"));
+            }
+            return FlutterActivityLaunchConfigs.BackgroundMode.opaque;
         }
-        return FlutterActivityLaunchConfigs.BackgroundMode.opaque;
+        return (FlutterActivityLaunchConfigs.BackgroundMode) invokeV.objValue;
     }
 
     @Nullable
     public String getCachedEngineId() {
-        return getIntent().getStringExtra("cached_engine_id");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getIntent().getStringExtra("cached_engine_id") : (String) invokeV.objValue;
     }
 
     @NonNull
     public String getDartEntrypointFunctionName() {
-        try {
-            Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
-            String string = bundle != null ? bundle.getString(FlutterActivityLaunchConfigs.DART_ENTRYPOINT_META_DATA_KEY) : null;
-            return string != null ? string : FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
-        } catch (PackageManager.NameNotFoundException unused) {
-            return FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
+                String string = bundle != null ? bundle.getString(FlutterActivityLaunchConfigs.DART_ENTRYPOINT_META_DATA_KEY) : null;
+                return string != null ? string : FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     @Nullable
     public FlutterEngine getFlutterEngine() {
-        return this.flutterFragment.getFlutterEngine();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.flutterFragment.getFlutterEngine() : (FlutterEngine) invokeV.objValue;
     }
 
     @NonNull
     public String getInitialRoute() {
-        if (getIntent().hasExtra(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE)) {
-            return getIntent().getStringExtra(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (getIntent().hasExtra(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE)) {
+                return getIntent().getStringExtra(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE);
+            }
+            try {
+                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
+                String string = bundle != null ? bundle.getString(FlutterActivityLaunchConfigs.INITIAL_ROUTE_META_DATA_KEY) : null;
+                return string != null ? string : "/";
+            } catch (PackageManager.NameNotFoundException unused) {
+                return "/";
+            }
         }
-        try {
-            Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
-            String string = bundle != null ? bundle.getString(FlutterActivityLaunchConfigs.INITIAL_ROUTE_META_DATA_KEY) : null;
-            return string != null ? string : "/";
-        } catch (PackageManager.NameNotFoundException unused) {
-            return "/";
-        }
+        return (String) invokeV.objValue;
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
-        this.flutterFragment.onActivityResult(i2, i3, intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, intent) == null) {
+            super.onActivityResult(i2, i3, intent);
+            this.flutterFragment.onActivityResult(i2, i3, intent);
+        }
     }
 
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        this.flutterFragment.onBackPressed();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.flutterFragment.onBackPressed();
+        }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        switchLaunchThemeForNormalTheme();
-        super.onCreate(bundle);
-        configureWindowForTransparency();
-        setContentView(createFragmentContainer());
-        configureStatusBarForFullscreenFlutterExperience();
-        ensureFlutterFragmentCreated();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
+            switchLaunchThemeForNormalTheme();
+            super.onCreate(bundle);
+            configureWindowForTransparency();
+            setContentView(createFragmentContainer());
+            configureStatusBarForFullscreenFlutterExperience();
+            ensureFlutterFragmentCreated();
+        }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(@NonNull Intent intent) {
-        this.flutterFragment.onNewIntent(intent);
-        super.onNewIntent(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, intent) == null) {
+            this.flutterFragment.onNewIntent(intent);
+            super.onNewIntent(intent);
+        }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPostResume() {
-        super.onPostResume();
-        this.flutterFragment.onPostResume();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.onPostResume();
+            this.flutterFragment.onPostResume();
+        }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i2, strArr, iArr);
-        this.flutterFragment.onRequestPermissionsResult(i2, strArr, iArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048590, this, i2, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i2, strArr, iArr);
+            this.flutterFragment.onRequestPermissionsResult(i2, strArr, iArr);
+        }
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
     public void onTrimMemory(int i2) {
-        super.onTrimMemory(i2);
-        this.flutterFragment.onTrimMemory(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            super.onTrimMemory(i2);
+            this.flutterFragment.onTrimMemory(i2);
+        }
     }
 
     @Override // android.app.Activity
     public void onUserLeaveHint() {
-        this.flutterFragment.onUserLeaveHint();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.flutterFragment.onUserLeaveHint();
+        }
     }
 
     @Override // io.flutter.embedding.android.FlutterEngineProvider
     @Nullable
     public FlutterEngine provideFlutterEngine(@NonNull Context context) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, context)) == null) {
+            return null;
+        }
+        return (FlutterEngine) invokeL.objValue;
     }
 
     @Override // io.flutter.embedding.android.SplashScreenProvider
     @Nullable
     public SplashScreen provideSplashScreen() {
-        Drawable splashScreenFromManifest = getSplashScreenFromManifest();
-        if (splashScreenFromManifest != null) {
-            return new DrawableSplashScreen(splashScreenFromManifest);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            Drawable splashScreenFromManifest = getSplashScreenFromManifest();
+            if (splashScreenFromManifest != null) {
+                return new DrawableSplashScreen(splashScreenFromManifest);
+            }
+            return null;
         }
-        return null;
+        return (SplashScreen) invokeV.objValue;
     }
 
     public boolean shouldAttachEngineToActivity() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean shouldDestroyEngineWithHost() {
-        return getIntent().getBooleanExtra("destroy_engine_with_activity", false);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? getIntent().getBooleanExtra("destroy_engine_with_activity", false) : invokeV.booleanValue;
     }
 }

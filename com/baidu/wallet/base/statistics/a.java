@@ -3,8 +3,17 @@ package com.baidu.wallet.base.statistics;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.utils.PhoneUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.core.utils.LogUtil;
@@ -12,117 +21,236 @@ import com.baidu.wallet.core.utils.UAFilterUtil;
 import com.baidu.wallet.utils.NetUtils;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23476a = "a";
+    public static final String f24019a = "a";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Pattern f23477b;
+    public Pattern f24020b;
+
+    /* renamed from: com.baidu.wallet.base.statistics.a$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* renamed from: com.baidu.wallet.base.statistics.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0232a {
+    /* loaded from: classes6.dex */
+    public static class C0257a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f23478a = new a();
+        public static a f24021a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(556937683, "Lcom/baidu/wallet/base/statistics/a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(556937683, "Lcom/baidu/wallet/base/statistics/a$a;");
+                    return;
+                }
+            }
+            f24021a = new a(null);
+        }
+
+        public C0257a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-754726864, "Lcom/baidu/wallet/base/statistics/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-754726864, "Lcom/baidu/wallet/base/statistics/a;");
+        }
+    }
+
+    public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
+        this();
     }
 
     public static a a() {
-        return C0232a.f23478a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0257a.f24021a : (a) invokeV.objValue;
     }
 
     public String b(Context context) {
-        try {
-        } catch (Exception e2) {
-            e = e2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            try {
+            } catch (Exception e2) {
+                e = e2;
+            }
+            try {
+                return this.f24020b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+            } catch (Exception e3) {
+                e = e3;
+                LogUtil.d(f24019a, e.getMessage());
+                return null;
+            }
         }
-        try {
-            return this.f23477b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
-        } catch (Exception e3) {
-            e = e3;
-            LogUtil.d(f23476a, e.getMessage());
-            return null;
-        }
+        return (String) invokeL.objValue;
     }
 
     public String c(Context context) {
-        try {
-            return UAFilterUtil.getInstance().getTrueUA(context);
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            try {
+                return UAFilterUtil.getInstance().getTrueUA(context);
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public String d(Context context) {
-        try {
-            return ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
-        } catch (Exception e2) {
-            LogUtil.d(f23476a, e2.getMessage());
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            try {
+                return ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
+            } catch (Exception e2) {
+                LogUtil.d(f24019a, e2.getMessage());
+                return null;
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public String e(Context context) {
-        try {
-            if (AccountManager.getInstance(context).getLoginType() == 0) {
-                String bduss = AccountManager.getInstance(context).getBduss();
-                if (bduss != null) {
-                    bduss = SafePay.getInstance().encryptProxy(bduss);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            try {
+                if (AccountManager.getInstance(context).getLoginType() == 0) {
+                    String bduss = AccountManager.getInstance(context).getBduss();
+                    if (bduss != null) {
+                        bduss = SafePay.getInstance().encryptProxy(bduss);
+                    }
+                    return bduss;
                 }
-                return bduss;
+                return null;
+            } catch (Exception unused) {
+                return null;
             }
-            return null;
-        } catch (Exception unused) {
-            return null;
         }
+        return (String) invokeL.objValue;
     }
 
     public String f(Context context) {
-        if (AccountManager.getInstance(context).getLoginType() == 0) {
-            return SafePay.getInstance().getpwProxy();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            if (AccountManager.getInstance(context).getLoginType() == 0) {
+                return SafePay.getInstance().getpwProxy();
+            }
+            return null;
         }
-        return null;
+        return (String) invokeL.objValue;
     }
 
     public String g(Context context) {
-        String gPSLocation = PhoneUtils.getGPSLocation(context);
-        if (TextUtils.isEmpty(gPSLocation)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            String gPSLocation = PhoneUtils.getGPSLocation(context);
+            if (TextUtils.isEmpty(gPSLocation)) {
+                return null;
+            }
+            return SafePay.getInstance().encryptProxy(gPSLocation);
         }
-        return SafePay.getInstance().encryptProxy(gPSLocation);
+        return (String) invokeL.objValue;
     }
 
     public String h(Context context) {
-        JSONObject connectedWifi = NetUtils.getConnectedWifi(context);
-        if (connectedWifi != null) {
-            String optString = connectedWifi.optString("ssid", null);
-            return optString != null ? SafePay.getInstance().encryptProxy(optString) : optString;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            JSONObject connectedWifi = NetUtils.getConnectedWifi(context);
+            if (connectedWifi != null) {
+                String optString = connectedWifi.optString("ssid", null);
+                return optString != null ? SafePay.getInstance().encryptProxy(optString) : optString;
+            }
+            return null;
         }
-        return null;
+        return (String) invokeL.objValue;
     }
 
     public a() {
-        this.f23477b = Pattern.compile("\\s*|\t|\r|\n");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24020b = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public String a(Context context) {
-        try {
-        } catch (Exception e2) {
-            e = e2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            try {
+            } catch (Exception e2) {
+                e = e2;
+            }
+            try {
+                return this.f24020b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+            } catch (Exception e3) {
+                e = e3;
+                LogUtil.d(f24019a, e.getMessage());
+                return null;
+            }
         }
-        try {
-            return this.f23477b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
-        } catch (Exception e3) {
-            e = e3;
-            LogUtil.d(f23476a, e.getMessage());
-            return null;
-        }
+        return (String) invokeL.objValue;
     }
 
     public String b() {
-        String unionId = WalletLoginHelper.getInstance().getUnionId();
-        return TextUtils.isEmpty(unionId) ? "" : SafePay.getInstance().encryptProxy(unionId);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String unionId = WalletLoginHelper.getInstance().getUnionId();
+            return TextUtils.isEmpty(unionId) ? "" : SafePay.getInstance().encryptProxy(unionId);
+        }
+        return (String) invokeV.objValue;
     }
 }

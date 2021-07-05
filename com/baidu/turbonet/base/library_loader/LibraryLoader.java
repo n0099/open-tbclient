@@ -1,23 +1,50 @@
 package com.baidu.turbonet.base.library_loader;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
 /* loaded from: classes5.dex */
 public class LibraryLoader {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile LibraryLoader f22409b;
+    public static volatile LibraryLoader f22925b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f22410a;
+    public final int f22926a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(468673833, "Lcom/baidu/turbonet/base/library_loader/LibraryLoader;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(468673833, "Lcom/baidu/turbonet/base/library_loader/LibraryLoader;");
+        }
+    }
 
     @CalledByNative
     public static int getLibraryProcessType() {
-        if (f22409b == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f22925b == null) {
+                return 0;
+            }
+            return f22925b.f22926a;
         }
-        return f22409b.f22410a;
+        return invokeV.intValue;
     }
 
     public static native boolean nativeForkAndPrefetchNativeLibrary();

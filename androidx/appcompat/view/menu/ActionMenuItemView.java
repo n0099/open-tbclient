@@ -18,11 +18,20 @@ import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.ForwardingListener;
 import androidx.appcompat.widget.TooltipCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionMenuItemView extends AppCompatTextView implements MenuView.ItemView, View.OnClickListener, ActionMenuView.ActionMenuChildView {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ICON_SIZE = 32;
     public static final String TAG = "ActionMenuItemView";
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean mAllowTextWithIcon;
     public boolean mExpandedFormat;
     public ForwardingListener mForwardingListener;
@@ -37,232 +46,402 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
 
     /* loaded from: classes.dex */
     public class ActionMenuItemForwardingListener extends ForwardingListener {
-        public ActionMenuItemForwardingListener() {
-            super(ActionMenuItemView.this);
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ActionMenuItemView this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ActionMenuItemForwardingListener(ActionMenuItemView actionMenuItemView) {
+            super(actionMenuItemView);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {actionMenuItemView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = actionMenuItemView;
         }
 
         @Override // androidx.appcompat.widget.ForwardingListener
         public ShowableListMenu getPopup() {
-            PopupCallback popupCallback = ActionMenuItemView.this.mPopupCallback;
-            if (popupCallback != null) {
-                return popupCallback.getPopup();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                PopupCallback popupCallback = this.this$0.mPopupCallback;
+                if (popupCallback != null) {
+                    return popupCallback.getPopup();
+                }
+                return null;
             }
-            return null;
+            return (ShowableListMenu) invokeV.objValue;
         }
 
         @Override // androidx.appcompat.widget.ForwardingListener
         public boolean onForwardingStarted() {
+            InterceptResult invokeV;
             ShowableListMenu popup;
-            ActionMenuItemView actionMenuItemView = ActionMenuItemView.this;
-            MenuBuilder.ItemInvoker itemInvoker = actionMenuItemView.mItemInvoker;
-            return itemInvoker != null && itemInvoker.invokeItem(actionMenuItemView.mItemData) && (popup = getPopup()) != null && popup.isShowing();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                ActionMenuItemView actionMenuItemView = this.this$0;
+                MenuBuilder.ItemInvoker itemInvoker = actionMenuItemView.mItemInvoker;
+                return itemInvoker != null && itemInvoker.invokeItem(actionMenuItemView.mItemData) && (popup = getPopup()) != null && popup.isShowing();
+            }
+            return invokeV.booleanValue;
         }
     }
 
     /* loaded from: classes.dex */
     public static abstract class PopupCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public PopupCallback() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public abstract ShowableListMenu getPopup();
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ActionMenuItemView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private boolean shouldAllowTextWithIcon() {
-        Configuration configuration = getContext().getResources().getConfiguration();
-        int i2 = configuration.screenWidthDp;
-        return i2 >= 480 || (i2 >= 640 && configuration.screenHeightDp >= 480) || configuration.orientation == 2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            Configuration configuration = getContext().getResources().getConfiguration();
+            int i2 = configuration.screenWidthDp;
+            return i2 >= 480 || (i2 >= 640 && configuration.screenHeightDp >= 480) || configuration.orientation == 2;
+        }
+        return invokeV.booleanValue;
     }
 
     private void updateTextButtonVisibility() {
-        boolean z = true;
-        boolean z2 = !TextUtils.isEmpty(this.mTitle);
-        if (this.mIcon != null && (!this.mItemData.showsTextAsAction() || (!this.mAllowTextWithIcon && !this.mExpandedFormat))) {
-            z = false;
-        }
-        boolean z3 = z2 & z;
-        setText(z3 ? this.mTitle : null);
-        CharSequence contentDescription = this.mItemData.getContentDescription();
-        if (TextUtils.isEmpty(contentDescription)) {
-            setContentDescription(z3 ? null : this.mItemData.getTitle());
-        } else {
-            setContentDescription(contentDescription);
-        }
-        CharSequence tooltipText = this.mItemData.getTooltipText();
-        if (TextUtils.isEmpty(tooltipText)) {
-            TooltipCompat.setTooltipText(this, z3 ? null : this.mItemData.getTitle());
-        } else {
-            TooltipCompat.setTooltipText(this, tooltipText);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            boolean z = true;
+            boolean z2 = !TextUtils.isEmpty(this.mTitle);
+            if (this.mIcon != null && (!this.mItemData.showsTextAsAction() || (!this.mAllowTextWithIcon && !this.mExpandedFormat))) {
+                z = false;
+            }
+            boolean z3 = z2 & z;
+            setText(z3 ? this.mTitle : null);
+            CharSequence contentDescription = this.mItemData.getContentDescription();
+            if (TextUtils.isEmpty(contentDescription)) {
+                setContentDescription(z3 ? null : this.mItemData.getTitle());
+            } else {
+                setContentDescription(contentDescription);
+            }
+            CharSequence tooltipText = this.mItemData.getTooltipText();
+            if (TextUtils.isEmpty(tooltipText)) {
+                TooltipCompat.setTooltipText(this, z3 ? null : this.mItemData.getTitle());
+            } else {
+                TooltipCompat.setTooltipText(this, tooltipText);
+            }
         }
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public MenuItemImpl getItemData() {
-        return this.mItemData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mItemData : (MenuItemImpl) invokeV.objValue;
     }
 
     public boolean hasText() {
-        return !TextUtils.isEmpty(getText());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(getText()) : invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public void initialize(MenuItemImpl menuItemImpl, int i2) {
-        this.mItemData = menuItemImpl;
-        setIcon(menuItemImpl.getIcon());
-        setTitle(menuItemImpl.getTitleForItemView(this));
-        setId(menuItemImpl.getItemId());
-        setVisibility(menuItemImpl.isVisible() ? 0 : 8);
-        setEnabled(menuItemImpl.isEnabled());
-        if (menuItemImpl.hasSubMenu() && this.mForwardingListener == null) {
-            this.mForwardingListener = new ActionMenuItemForwardingListener();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl, i2) == null) {
+            this.mItemData = menuItemImpl;
+            setIcon(menuItemImpl.getIcon());
+            setTitle(menuItemImpl.getTitleForItemView(this));
+            setId(menuItemImpl.getItemId());
+            setVisibility(menuItemImpl.isVisible() ? 0 : 8);
+            setEnabled(menuItemImpl.isEnabled());
+            if (menuItemImpl.hasSubMenu() && this.mForwardingListener == null) {
+                this.mForwardingListener = new ActionMenuItemForwardingListener(this);
+            }
         }
     }
 
     @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
     public boolean needsDividerAfter() {
-        return hasText();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? hasText() : invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
     public boolean needsDividerBefore() {
-        return hasText() && this.mItemData.getIcon() == null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? hasText() && this.mItemData.getIcon() == null : invokeV.booleanValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MenuBuilder.ItemInvoker itemInvoker = this.mItemInvoker;
-        if (itemInvoker != null) {
-            itemInvoker.invokeItem(this.mItemData);
+        MenuBuilder.ItemInvoker itemInvoker;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (itemInvoker = this.mItemInvoker) == null) {
+            return;
         }
+        itemInvoker.invokeItem(this.mItemData);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
-        this.mAllowTextWithIcon = shouldAllowTextWithIcon();
-        updateTextButtonVisibility();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            this.mAllowTextWithIcon = shouldAllowTextWithIcon();
+            updateTextButtonVisibility();
+        }
     }
 
     @Override // androidx.appcompat.widget.AppCompatTextView, android.widget.TextView, android.view.View
     public void onMeasure(int i2, int i3) {
         int i4;
         int i5;
-        boolean hasText = hasText();
-        if (hasText && (i5 = this.mSavedPaddingLeft) >= 0) {
-            super.setPadding(i5, getPaddingTop(), getPaddingRight(), getPaddingBottom());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
+            boolean hasText = hasText();
+            if (hasText && (i5 = this.mSavedPaddingLeft) >= 0) {
+                super.setPadding(i5, getPaddingTop(), getPaddingRight(), getPaddingBottom());
+            }
+            super.onMeasure(i2, i3);
+            int mode = View.MeasureSpec.getMode(i2);
+            int size = View.MeasureSpec.getSize(i2);
+            int measuredWidth = getMeasuredWidth();
+            if (mode == Integer.MIN_VALUE) {
+                i4 = Math.min(size, this.mMinWidth);
+            } else {
+                i4 = this.mMinWidth;
+            }
+            if (mode != 1073741824 && this.mMinWidth > 0 && measuredWidth < i4) {
+                super.onMeasure(View.MeasureSpec.makeMeasureSpec(i4, 1073741824), i3);
+            }
+            if (hasText || this.mIcon == null) {
+                return;
+            }
+            super.setPadding((getMeasuredWidth() - this.mIcon.getBounds().width()) / 2, getPaddingTop(), getPaddingRight(), getPaddingBottom());
         }
-        super.onMeasure(i2, i3);
-        int mode = View.MeasureSpec.getMode(i2);
-        int size = View.MeasureSpec.getSize(i2);
-        int measuredWidth = getMeasuredWidth();
-        if (mode == Integer.MIN_VALUE) {
-            i4 = Math.min(size, this.mMinWidth);
-        } else {
-            i4 = this.mMinWidth;
-        }
-        if (mode != 1073741824 && this.mMinWidth > 0 && measuredWidth < i4) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(i4, 1073741824), i3);
-        }
-        if (hasText || this.mIcon == null) {
-            return;
-        }
-        super.setPadding((getMeasuredWidth() - this.mIcon.getBounds().width()) / 2, getPaddingTop(), getPaddingRight(), getPaddingBottom());
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
-        super.onRestoreInstanceState(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcelable) == null) {
+            super.onRestoreInstanceState(null);
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         ForwardingListener forwardingListener;
-        if (this.mItemData.hasSubMenu() && (forwardingListener = this.mForwardingListener) != null && forwardingListener.onTouch(this, motionEvent)) {
-            return true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+            if (this.mItemData.hasSubMenu() && (forwardingListener = this.mForwardingListener) != null && forwardingListener.onTouch(this, motionEvent)) {
+                return true;
+            }
+            return super.onTouchEvent(motionEvent);
         }
-        return super.onTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public boolean prefersCondensedTitle() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public void setCheckable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public void setChecked(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        }
     }
 
     public void setExpandedFormat(boolean z) {
-        if (this.mExpandedFormat != z) {
-            this.mExpandedFormat = z;
-            MenuItemImpl menuItemImpl = this.mItemData;
-            if (menuItemImpl != null) {
-                menuItemImpl.actionFormatChanged();
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || this.mExpandedFormat == z) {
+            return;
+        }
+        this.mExpandedFormat = z;
+        MenuItemImpl menuItemImpl = this.mItemData;
+        if (menuItemImpl != null) {
+            menuItemImpl.actionFormatChanged();
         }
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public void setIcon(Drawable drawable) {
-        this.mIcon = drawable;
-        if (drawable != null) {
-            int intrinsicWidth = drawable.getIntrinsicWidth();
-            int intrinsicHeight = drawable.getIntrinsicHeight();
-            int i2 = this.mMaxIconSize;
-            if (intrinsicWidth > i2) {
-                intrinsicHeight = (int) (intrinsicHeight * (i2 / intrinsicWidth));
-                intrinsicWidth = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, drawable) == null) {
+            this.mIcon = drawable;
+            if (drawable != null) {
+                int intrinsicWidth = drawable.getIntrinsicWidth();
+                int intrinsicHeight = drawable.getIntrinsicHeight();
+                int i2 = this.mMaxIconSize;
+                if (intrinsicWidth > i2) {
+                    intrinsicHeight = (int) (intrinsicHeight * (i2 / intrinsicWidth));
+                    intrinsicWidth = i2;
+                }
+                int i3 = this.mMaxIconSize;
+                if (intrinsicHeight > i3) {
+                    intrinsicWidth = (int) (intrinsicWidth * (i3 / intrinsicHeight));
+                    intrinsicHeight = i3;
+                }
+                drawable.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
             }
-            int i3 = this.mMaxIconSize;
-            if (intrinsicHeight > i3) {
-                intrinsicWidth = (int) (intrinsicWidth * (i3 / intrinsicHeight));
-                intrinsicHeight = i3;
-            }
-            drawable.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
+            setCompoundDrawables(drawable, null, null, null);
+            updateTextButtonVisibility();
         }
-        setCompoundDrawables(drawable, null, null, null);
-        updateTextButtonVisibility();
     }
 
     public void setItemInvoker(MenuBuilder.ItemInvoker itemInvoker) {
-        this.mItemInvoker = itemInvoker;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, itemInvoker) == null) {
+            this.mItemInvoker = itemInvoker;
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setPadding(int i2, int i3, int i4, int i5) {
-        this.mSavedPaddingLeft = i2;
-        super.setPadding(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048592, this, i2, i3, i4, i5) == null) {
+            this.mSavedPaddingLeft = i2;
+            super.setPadding(i2, i3, i4, i5);
+        }
     }
 
     public void setPopupCallback(PopupCallback popupCallback) {
-        this.mPopupCallback = popupCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, popupCallback) == null) {
+            this.mPopupCallback = popupCallback;
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public void setShortcut(boolean z, char c2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c2)}) == null) {
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public void setTitle(CharSequence charSequence) {
-        this.mTitle = charSequence;
-        updateTextButtonVisibility();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, charSequence) == null) {
+            this.mTitle = charSequence;
+            updateTextButtonVisibility();
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
     public boolean showsIcon() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ActionMenuItemView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActionMenuItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         Resources resources = context.getResources();
         this.mAllowTextWithIcon = shouldAllowTextWithIcon();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ActionMenuItemView, i2, 0);

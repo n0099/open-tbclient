@@ -3,86 +3,148 @@ package com.kwai.video.player.surface;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class Assertions {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean ASSERTIONS_ENABLED = true;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public Assertions() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static void checkArgument(boolean z) {
-        if (!z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(65537, null, z) == null) && !z) {
             throw new IllegalArgumentException();
         }
     }
 
     public static void checkArgument(boolean z, Object obj) {
-        if (!z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(65538, null, z, obj) == null) && !z) {
             throw new IllegalArgumentException(String.valueOf(obj));
         }
     }
 
     public static int checkIndex(int i2, int i3, int i4) {
-        if (i2 < i3 || i2 >= i4) {
-            throw new IndexOutOfBoundsException();
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i2, i3, i4)) == null) {
+            if (i2 < i3 || i2 >= i4) {
+                throw new IndexOutOfBoundsException();
+            }
+            return i2;
         }
-        return i2;
+        return invokeIII.intValue;
     }
 
     public static void checkMainThread() {
-        if (Looper.myLooper() != Looper.getMainLooper()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65540, null) == null) && Looper.myLooper() != Looper.getMainLooper()) {
             throw new IllegalStateException("Not in applications main thread");
         }
     }
 
     public static String checkNotEmpty(@Nullable String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                throw new IllegalArgumentException();
+            }
+            return str;
         }
-        return str;
+        return (String) invokeL.objValue;
     }
 
     public static String checkNotEmpty(@Nullable String str, Object obj) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException(String.valueOf(obj));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, obj)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                throw new IllegalArgumentException(String.valueOf(obj));
+            }
+            return str;
         }
-        return str;
+        return (String) invokeLL.objValue;
     }
 
     public static <T> T checkNotNull(@Nullable T t) {
-        if (t != null) {
-            return t;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, t)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw null;
         }
-        throw null;
+        return (T) invokeL.objValue;
     }
 
     public static <T> T checkNotNull(@Nullable T t, Object obj) {
-        if (t != null) {
-            return t;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new NullPointerException(String.valueOf(obj));
         }
-        throw new NullPointerException(String.valueOf(obj));
+        return (T) invokeLL.objValue;
     }
 
     public static void checkState(boolean z) {
-        if (!z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(65545, null, z) == null) && !z) {
             throw new IllegalStateException();
         }
     }
 
     public static void checkState(boolean z, Object obj) {
-        if (!z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(65546, null, z, obj) == null) && !z) {
             throw new IllegalStateException(String.valueOf(obj));
         }
     }
 
     public static <T> T checkStateNotNull(@Nullable T t) {
-        if (t != null) {
-            return t;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, t)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
+        return (T) invokeL.objValue;
     }
 
     public static <T> T checkStateNotNull(@Nullable T t, Object obj) {
-        if (t != null) {
-            return t;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new IllegalStateException(String.valueOf(obj));
         }
-        throw new IllegalStateException(String.valueOf(obj));
+        return (T) invokeLL.objValue;
     }
 }

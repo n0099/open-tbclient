@@ -1,16 +1,24 @@
 package com.baidu.tieba.ala.alasquare.subtablist.message;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String entryName;
     public String lableName;
     public String lat;
@@ -23,74 +31,114 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public String sortType;
     public int tabId;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaNewSquareSubListRequestMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_NEW_SQUARE_SUB_LIST);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public int getPn() {
-        return this.pn;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.pn : invokeV.intValue;
     }
 
     public void setEntryName(String str) {
-        this.entryName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.entryName = str;
+        }
     }
 
     public void setHttpParams() {
-        int k = l.k(TbadkCoreApplication.getInst());
-        int i2 = l.i(TbadkCoreApplication.getInst());
-        float h2 = l.h(TbadkCoreApplication.getInst());
-        addParam("entry_name", this.entryName);
-        addParam(Config.PACKAGE_NAME, this.pn);
-        addParam("ps", this.ps);
-        addParam("scr_w", k);
-        addParam("scr_h", i2);
-        addParam("q_type", 0);
-        addParam("scr_dip", String.valueOf(h2));
-        addParam("label_name", this.lableName);
-        addParam("sort_type", this.sortType);
-        addParam(SuggestAddrField.KEY_LAT, this.lat);
-        addParam(SuggestAddrField.KEY_LNG, this.lng);
-        String str = "N";
-        if (j.z()) {
-            if (j.H()) {
-                str = "1_0";
-            } else if (j.v()) {
-                str = "0_13";
-            } else if (j.u()) {
-                str = "0_3";
-            } else if (j.t()) {
-                str = "0_2";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int k = l.k(TbadkCoreApplication.getInst());
+            int i2 = l.i(TbadkCoreApplication.getInst());
+            float h2 = l.h(TbadkCoreApplication.getInst());
+            addParam("entry_name", this.entryName);
+            addParam(Config.PACKAGE_NAME, this.pn);
+            addParam("ps", this.ps);
+            addParam("scr_w", k);
+            addParam("scr_h", i2);
+            addParam("q_type", 0);
+            addParam("scr_dip", String.valueOf(h2));
+            addParam("label_name", this.lableName);
+            addParam("sort_type", this.sortType);
+            addParam(SuggestAddrField.KEY_LAT, this.lat);
+            addParam(SuggestAddrField.KEY_LNG, this.lng);
+            String str = "N";
+            if (j.z()) {
+                if (j.H()) {
+                    str = "1_0";
+                } else if (j.v()) {
+                    str = "0_13";
+                } else if (j.u()) {
+                    str = "0_3";
+                } else if (j.t()) {
+                    str = "0_2";
+                }
             }
+            addParam("network", str);
+            addParam("ua_str", k + "_" + i2 + "_android_" + TbConfig.getVersion());
+            addParam("tab_id", this.tabId);
+            addParam("refresh_type", this.refreshType);
+            addParam("session_id", this.sessionId);
+            addParam("big_refresh_count", this.refreshCount);
         }
-        addParam("network", str);
-        addParam("ua_str", k + "_" + i2 + "_android_" + TbConfig.getVersion());
-        addParam("tab_id", this.tabId);
-        addParam("refresh_type", this.refreshType);
-        addParam(ETAG.KEY_STATISTICS_SEESIONID, this.sessionId);
-        addParam("big_refresh_count", this.refreshCount);
     }
 
     public void setLableName(String str) {
-        this.lableName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.lableName = str;
+        }
     }
 
     public void setLat(String str) {
-        this.lat = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.lat = str;
+        }
     }
 
     public void setLng(String str) {
-        this.lng = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.lng = str;
+        }
     }
 
     public void setPn(int i2) {
-        this.pn = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.pn = i2;
+        }
     }
 
     public void setPs(int i2) {
-        this.ps = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.ps = i2;
+        }
     }
 
     public void setSortType(String str) {
-        this.sortType = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.sortType = str;
+        }
     }
 }

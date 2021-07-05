@@ -1,66 +1,33 @@
 package com.bytedance.sdk.openadsdk.core;
 
-import android.text.TextUtils;
 import android.util.Base64;
-import androidx.annotation.Nullable;
-import com.bytedance.sdk.openadsdk.utils.ak;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+import androidx.annotation.Keep;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.bytedance.JProtect;
+@Keep
+@JProtect
 /* loaded from: classes6.dex */
-public class a {
-    public static String a(String str, String str2) {
-        try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(1, secretKeySpec);
-            return Base64.encodeToString(cipher.doFinal(str.getBytes("utf-8")), 0);
-        } catch (Throwable th) {
-            com.bytedance.sdk.openadsdk.utils.u.a(th.getMessage());
-            return null;
-        }
-    }
-
-    @Nullable
-    public static String b(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            byte[] decode = Base64.decode(str, 0);
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(2, secretKeySpec);
-            return new String(cipher.doFinal(decode));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
-        }
-    }
-
-    public static String a(byte[] bArr, String str) {
-        try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS7Padding");
-            cipher.init(1, secretKeySpec);
-            return Base64.encodeToString(cipher.doFinal(bArr), 0);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
-        }
-    }
+public final class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
-        String d2 = ak.d();
-        if (d2 == null || d2.length() != 16) {
-            return null;
-        }
-        return d2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new String(Base64.decode("YXFiMDQ1OGMyYjI2Mjk0OWI4", 0)).substring(2) : (String) invokeV.objValue;
     }
 
-    public static String a(String str) {
-        if (str == null || str.length() != 16) {
-            return null;
-        }
-        return str.concat(str).substring(8, 24);
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new String(Base64.decode("Y2JtbU50dENTb2pUeXhQb2Rz", 0)).substring(2) : (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new String(Base64.decode("Z2hXYmVVVTlRalNMS01oWlFZ", 0)).substring(2) : (String) invokeV.objValue;
     }
 }

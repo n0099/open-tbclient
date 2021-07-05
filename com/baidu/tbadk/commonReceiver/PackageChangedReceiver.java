@@ -5,15 +5,36 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.a.n0.z0.d;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.d;
+/* loaded from: classes4.dex */
 public class PackageChangedReceiver extends BroadcastReceiver {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_INSTALL = "android.intent.action.PACKAGE_ADDED";
     public static final String ACTION_UNINSTALL = "android.intent.action.PACKAGE_REMOVED";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public PackageChangedReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (intent == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
             return;
         }
         if (ACTION_INSTALL.equals(intent.getAction())) {

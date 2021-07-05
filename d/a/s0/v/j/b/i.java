@@ -1,0 +1,183 @@
+package d.a.s0.v.j.b;
+
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public class i extends d.a.c.k.e.a<d.a.s0.v.j.d.l, CardViewHolder<d.a.s0.v.j.h.a>> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext m;
+    public TextView n;
+    public String o;
+    public String p;
+
+    /* loaded from: classes9.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ i f68048e;
+
+        public a(i iVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f68048e = iVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f68048e.h0();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), d.a.s0.v.j.d.l.f68085f);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.m = tbPageContext;
+    }
+
+    public final void g0(d.a.s0.v.j.d.l lVar, d.a.s0.v.j.h.a aVar) {
+        d.a.s0.v.j.d.c c2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, lVar, aVar) == null) || (c2 = lVar.c()) == null || aVar == null) {
+            return;
+        }
+        this.n = aVar.s();
+        this.o = c2.b().user_id;
+        k0(c2, aVar);
+        aVar.x(8);
+        aVar.y(this.f44821e.getResources().getString(R.string.ala_person_live_privilege));
+        aVar.n(this.m, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void h0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
+            l0(this.n, this.p, false);
+            StatisticItem statisticItem = new StatisticItem("c13333");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            String p = d.a.r0.r.d0.b.j().p("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+            if (p == null) {
+                return;
+            }
+            if (p.endsWith("/")) {
+                p = p.substring(0, p.length() - 1);
+            }
+            String str = this.o;
+            StringBuilder sb = new StringBuilder();
+            sb.append("id=");
+            sb.append(str);
+            if (!p.contains("?")) {
+                sb.insert(0, "?");
+            } else {
+                sb.insert(0, "&");
+            }
+            sb.insert(0, p);
+            d.a.r0.l.a.l(this.m.getPageActivity(), sb.toString());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public CardViewHolder<d.a.s0.v.j.h.a> Q(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new d.a.s0.v.j.h.a(this.m)) : (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: j0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.s0.v.j.d.l lVar, CardViewHolder<d.a.s0.v.j.h.a> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, lVar, cardViewHolder})) == null) {
+            if (cardViewHolder.b() == null) {
+                return null;
+            }
+            g0(lVar, cardViewHolder.b());
+            cardViewHolder.b().l().setOnClickListener(new a(this));
+            return cardViewHolder.b().l();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void k0(d.a.s0.v.j.d.c cVar, d.a.s0.v.j.h.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, cVar, aVar) != null) || cVar == null || aVar == null) {
+        }
+    }
+
+    public final void l0(TextView textView, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(1048583, this, textView, str, z) == null) || textView == null || this.m == null) {
+            return;
+        }
+        if (z) {
+            textView.setText("");
+            Drawable drawable = this.m.getResources().getDrawable(R.drawable.ala_person_center_red_tip_drawable);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            textView.setCompoundDrawables(null, null, drawable, null);
+            return;
+        }
+        if (str != null) {
+            textView.setText(str);
+        } else {
+            textView.setText("");
+        }
+        textView.setCompoundDrawables(null, null, null, null);
+    }
+}

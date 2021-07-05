@@ -1,34 +1,67 @@
 package com.baidu.tieba.route;
 
 import com.baidu.adp.framework.cmdRouter.ICmdRouter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public final class ForumRankActivityStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ForumRankActivityStaticAutoGenerateUrlCollectorImpl() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
-        HashMap hashMap = new HashMap();
-        new ArrayList();
-        hashMap.put("2002001", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
-        hashMap.put("3001000", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
-        hashMap.put("2902025", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
-        hashMap.put("2902028", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
-        hashMap.put("2902023", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
-        hashMap.put("2902026", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
-        hashMap.put("2902029", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
-        return hashMap;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap hashMap = new HashMap();
+            new ArrayList();
+            hashMap.put("2002001", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
+            hashMap.put("3001000", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
+            hashMap.put("2902025", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
+            hashMap.put("2902028", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
+            hashMap.put("2902023", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
+            hashMap.put("2902026", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
+            hashMap.put("2902029", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, ArrayList<String>> getConfigRouterMap() {
-        HashMap hashMap = new HashMap();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("BarFolderFirstDirActivityConfig");
-        arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_SQUARE);
-        arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_LIST);
-        hashMap.put("com.baidu.tieba.square.flist.ForumRankActivityStatic", arrayList);
-        return hashMap;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("BarFolderFirstDirActivityConfig");
+            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_SQUARE);
+            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_LIST);
+            hashMap.put("com.baidu.tieba.square.flist.ForumRankActivityStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
     }
 }

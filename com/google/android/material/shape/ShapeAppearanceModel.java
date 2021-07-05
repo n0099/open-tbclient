@@ -11,10 +11,22 @@ import androidx.annotation.Dimension;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ShapeAppearanceModel {
-    public static final CornerSize PILL = new RelativeCornerSize(0.5f);
+    public static /* synthetic */ Interceptable $ic;
+    public static final CornerSize PILL;
+    public transient /* synthetic */ FieldHolder $fh;
     public EdgeTreatment bottomEdge;
     public CornerTreatment bottomLeftCorner;
     public CornerSize bottomLeftCornerSize;
@@ -28,8 +40,17 @@ public class ShapeAppearanceModel {
     public CornerTreatment topRightCorner;
     public CornerSize topRightCornerSize;
 
-    /* loaded from: classes6.dex */
+    /* renamed from: com.google.android.material.shape.ShapeAppearanceModel$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
     public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public EdgeTreatment bottomEdge;
         @NonNull
@@ -56,6 +77,18 @@ public class ShapeAppearanceModel {
         public CornerSize topRightCornerSize;
 
         public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.topLeftCorner = MaterialShapeUtils.createDefaultCornerTreatment();
             this.topRightCorner = MaterialShapeUtils.createDefaultCornerTreatment();
             this.bottomRightCorner = MaterialShapeUtils.createDefaultCornerTreatment();
@@ -71,198 +104,325 @@ public class ShapeAppearanceModel {
         }
 
         public static float compatCornerTreatmentSize(CornerTreatment cornerTreatment) {
-            if (cornerTreatment instanceof RoundedCornerTreatment) {
-                return ((RoundedCornerTreatment) cornerTreatment).radius;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, cornerTreatment)) == null) {
+                if (cornerTreatment instanceof RoundedCornerTreatment) {
+                    return ((RoundedCornerTreatment) cornerTreatment).radius;
+                }
+                if (cornerTreatment instanceof CutCornerTreatment) {
+                    return ((CutCornerTreatment) cornerTreatment).size;
+                }
+                return -1.0f;
             }
-            if (cornerTreatment instanceof CutCornerTreatment) {
-                return ((CutCornerTreatment) cornerTreatment).size;
-            }
-            return -1.0f;
+            return invokeL.floatValue;
         }
 
         @NonNull
         public ShapeAppearanceModel build() {
-            return new ShapeAppearanceModel(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ShapeAppearanceModel(this, null) : (ShapeAppearanceModel) invokeV.objValue;
         }
 
         @NonNull
         public Builder setAllCornerSizes(@NonNull CornerSize cornerSize) {
-            return setTopLeftCornerSize(cornerSize).setTopRightCornerSize(cornerSize).setBottomRightCornerSize(cornerSize).setBottomLeftCornerSize(cornerSize);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cornerSize)) == null) ? setTopLeftCornerSize(cornerSize).setTopRightCornerSize(cornerSize).setBottomRightCornerSize(cornerSize).setBottomLeftCornerSize(cornerSize) : (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setAllCorners(int i2, @Dimension float f2) {
-            return setAllCorners(MaterialShapeUtils.createCornerTreatment(i2)).setAllCornerSizes(f2);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? setAllCorners(MaterialShapeUtils.createCornerTreatment(i2)).setAllCornerSizes(f2) : (Builder) invokeCommon.objValue;
         }
 
         @NonNull
         public Builder setAllEdges(@NonNull EdgeTreatment edgeTreatment) {
-            return setLeftEdge(edgeTreatment).setTopEdge(edgeTreatment).setRightEdge(edgeTreatment).setBottomEdge(edgeTreatment);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, edgeTreatment)) == null) ? setLeftEdge(edgeTreatment).setTopEdge(edgeTreatment).setRightEdge(edgeTreatment).setBottomEdge(edgeTreatment) : (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setBottomEdge(@NonNull EdgeTreatment edgeTreatment) {
-            this.bottomEdge = edgeTreatment;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, edgeTreatment)) == null) {
+                this.bottomEdge = edgeTreatment;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setBottomLeftCorner(int i2, @Dimension float f2) {
-            return setBottomLeftCorner(MaterialShapeUtils.createCornerTreatment(i2)).setBottomLeftCornerSize(f2);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? setBottomLeftCorner(MaterialShapeUtils.createCornerTreatment(i2)).setBottomLeftCornerSize(f2) : (Builder) invokeCommon.objValue;
         }
 
         @NonNull
         public Builder setBottomLeftCornerSize(@Dimension float f2) {
-            this.bottomLeftCornerSize = new AbsoluteCornerSize(f2);
-            return this;
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f2)) == null) {
+                this.bottomLeftCornerSize = new AbsoluteCornerSize(f2);
+                return this;
+            }
+            return (Builder) invokeF.objValue;
         }
 
         @NonNull
         public Builder setBottomRightCorner(int i2, @Dimension float f2) {
-            return setBottomRightCorner(MaterialShapeUtils.createCornerTreatment(i2)).setBottomRightCornerSize(f2);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? setBottomRightCorner(MaterialShapeUtils.createCornerTreatment(i2)).setBottomRightCornerSize(f2) : (Builder) invokeCommon.objValue;
         }
 
         @NonNull
         public Builder setBottomRightCornerSize(@Dimension float f2) {
-            this.bottomRightCornerSize = new AbsoluteCornerSize(f2);
-            return this;
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048591, this, f2)) == null) {
+                this.bottomRightCornerSize = new AbsoluteCornerSize(f2);
+                return this;
+            }
+            return (Builder) invokeF.objValue;
         }
 
         @NonNull
         public Builder setLeftEdge(@NonNull EdgeTreatment edgeTreatment) {
-            this.leftEdge = edgeTreatment;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, edgeTreatment)) == null) {
+                this.leftEdge = edgeTreatment;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setRightEdge(@NonNull EdgeTreatment edgeTreatment) {
-            this.rightEdge = edgeTreatment;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, edgeTreatment)) == null) {
+                this.rightEdge = edgeTreatment;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setTopEdge(@NonNull EdgeTreatment edgeTreatment) {
-            this.topEdge = edgeTreatment;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, edgeTreatment)) == null) {
+                this.topEdge = edgeTreatment;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setTopLeftCorner(int i2, @Dimension float f2) {
-            return setTopLeftCorner(MaterialShapeUtils.createCornerTreatment(i2)).setTopLeftCornerSize(f2);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? setTopLeftCorner(MaterialShapeUtils.createCornerTreatment(i2)).setTopLeftCornerSize(f2) : (Builder) invokeCommon.objValue;
         }
 
         @NonNull
         public Builder setTopLeftCornerSize(@Dimension float f2) {
-            this.topLeftCornerSize = new AbsoluteCornerSize(f2);
-            return this;
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048599, this, f2)) == null) {
+                this.topLeftCornerSize = new AbsoluteCornerSize(f2);
+                return this;
+            }
+            return (Builder) invokeF.objValue;
         }
 
         @NonNull
         public Builder setTopRightCorner(int i2, @Dimension float f2) {
-            return setTopRightCorner(MaterialShapeUtils.createCornerTreatment(i2)).setTopRightCornerSize(f2);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? setTopRightCorner(MaterialShapeUtils.createCornerTreatment(i2)).setTopRightCornerSize(f2) : (Builder) invokeCommon.objValue;
         }
 
         @NonNull
         public Builder setTopRightCornerSize(@Dimension float f2) {
-            this.topRightCornerSize = new AbsoluteCornerSize(f2);
-            return this;
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048604, this, f2)) == null) {
+                this.topRightCornerSize = new AbsoluteCornerSize(f2);
+                return this;
+            }
+            return (Builder) invokeF.objValue;
         }
 
         @NonNull
         public Builder setBottomLeftCornerSize(@NonNull CornerSize cornerSize) {
-            this.bottomLeftCornerSize = cornerSize;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, cornerSize)) == null) {
+                this.bottomLeftCornerSize = cornerSize;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setBottomRightCornerSize(@NonNull CornerSize cornerSize) {
-            this.bottomRightCornerSize = cornerSize;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, cornerSize)) == null) {
+                this.bottomRightCornerSize = cornerSize;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setTopLeftCornerSize(@NonNull CornerSize cornerSize) {
-            this.topLeftCornerSize = cornerSize;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, cornerSize)) == null) {
+                this.topLeftCornerSize = cornerSize;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setTopRightCornerSize(@NonNull CornerSize cornerSize) {
-            this.topRightCornerSize = cornerSize;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, cornerSize)) == null) {
+                this.topRightCornerSize = cornerSize;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setAllCorners(@NonNull CornerTreatment cornerTreatment) {
-            return setTopLeftCorner(cornerTreatment).setTopRightCorner(cornerTreatment).setBottomRightCorner(cornerTreatment).setBottomLeftCorner(cornerTreatment);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cornerTreatment)) == null) ? setTopLeftCorner(cornerTreatment).setTopRightCorner(cornerTreatment).setBottomRightCorner(cornerTreatment).setBottomLeftCorner(cornerTreatment) : (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setBottomLeftCorner(int i2, @NonNull CornerSize cornerSize) {
-            return setBottomLeftCorner(MaterialShapeUtils.createCornerTreatment(i2)).setBottomLeftCornerSize(cornerSize);
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, cornerSize)) == null) ? setBottomLeftCorner(MaterialShapeUtils.createCornerTreatment(i2)).setBottomLeftCornerSize(cornerSize) : (Builder) invokeIL.objValue;
         }
 
         @NonNull
         public Builder setBottomRightCorner(int i2, @NonNull CornerSize cornerSize) {
-            return setBottomRightCorner(MaterialShapeUtils.createCornerTreatment(i2)).setBottomRightCornerSize(cornerSize);
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i2, cornerSize)) == null) ? setBottomRightCorner(MaterialShapeUtils.createCornerTreatment(i2)).setBottomRightCornerSize(cornerSize) : (Builder) invokeIL.objValue;
         }
 
         @NonNull
         public Builder setTopLeftCorner(int i2, @NonNull CornerSize cornerSize) {
-            return setTopLeftCorner(MaterialShapeUtils.createCornerTreatment(i2)).setTopLeftCornerSize(cornerSize);
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048597, this, i2, cornerSize)) == null) ? setTopLeftCorner(MaterialShapeUtils.createCornerTreatment(i2)).setTopLeftCornerSize(cornerSize) : (Builder) invokeIL.objValue;
         }
 
         @NonNull
         public Builder setTopRightCorner(int i2, @NonNull CornerSize cornerSize) {
-            return setTopRightCorner(MaterialShapeUtils.createCornerTreatment(i2)).setTopRightCornerSize(cornerSize);
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048602, this, i2, cornerSize)) == null) ? setTopRightCorner(MaterialShapeUtils.createCornerTreatment(i2)).setTopRightCornerSize(cornerSize) : (Builder) invokeIL.objValue;
         }
 
         @NonNull
         public Builder setAllCornerSizes(@Dimension float f2) {
-            return setTopLeftCornerSize(f2).setTopRightCornerSize(f2).setBottomRightCornerSize(f2).setBottomLeftCornerSize(f2);
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? setTopLeftCornerSize(f2).setTopRightCornerSize(f2).setBottomRightCornerSize(f2).setBottomLeftCornerSize(f2) : (Builder) invokeF.objValue;
         }
 
         @NonNull
         public Builder setBottomLeftCorner(@NonNull CornerTreatment cornerTreatment) {
-            this.bottomLeftCorner = cornerTreatment;
-            float compatCornerTreatmentSize = compatCornerTreatmentSize(cornerTreatment);
-            if (compatCornerTreatmentSize != -1.0f) {
-                setBottomLeftCornerSize(compatCornerTreatmentSize);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, cornerTreatment)) == null) {
+                this.bottomLeftCorner = cornerTreatment;
+                float compatCornerTreatmentSize = compatCornerTreatmentSize(cornerTreatment);
+                if (compatCornerTreatmentSize != -1.0f) {
+                    setBottomLeftCornerSize(compatCornerTreatmentSize);
+                }
+                return this;
             }
-            return this;
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setBottomRightCorner(@NonNull CornerTreatment cornerTreatment) {
-            this.bottomRightCorner = cornerTreatment;
-            float compatCornerTreatmentSize = compatCornerTreatmentSize(cornerTreatment);
-            if (compatCornerTreatmentSize != -1.0f) {
-                setBottomRightCornerSize(compatCornerTreatmentSize);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, cornerTreatment)) == null) {
+                this.bottomRightCorner = cornerTreatment;
+                float compatCornerTreatmentSize = compatCornerTreatmentSize(cornerTreatment);
+                if (compatCornerTreatmentSize != -1.0f) {
+                    setBottomRightCornerSize(compatCornerTreatmentSize);
+                }
+                return this;
             }
-            return this;
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setTopLeftCorner(@NonNull CornerTreatment cornerTreatment) {
-            this.topLeftCorner = cornerTreatment;
-            float compatCornerTreatmentSize = compatCornerTreatmentSize(cornerTreatment);
-            if (compatCornerTreatmentSize != -1.0f) {
-                setTopLeftCornerSize(compatCornerTreatmentSize);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, cornerTreatment)) == null) {
+                this.topLeftCorner = cornerTreatment;
+                float compatCornerTreatmentSize = compatCornerTreatmentSize(cornerTreatment);
+                if (compatCornerTreatmentSize != -1.0f) {
+                    setTopLeftCornerSize(compatCornerTreatmentSize);
+                }
+                return this;
             }
-            return this;
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setTopRightCorner(@NonNull CornerTreatment cornerTreatment) {
-            this.topRightCorner = cornerTreatment;
-            float compatCornerTreatmentSize = compatCornerTreatmentSize(cornerTreatment);
-            if (compatCornerTreatmentSize != -1.0f) {
-                setTopRightCornerSize(compatCornerTreatmentSize);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, cornerTreatment)) == null) {
+                this.topRightCorner = cornerTreatment;
+                float compatCornerTreatmentSize = compatCornerTreatmentSize(cornerTreatment);
+                if (compatCornerTreatmentSize != -1.0f) {
+                    setTopRightCornerSize(compatCornerTreatmentSize);
+                }
+                return this;
             }
-            return this;
+            return (Builder) invokeL.objValue;
         }
 
         public Builder(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shapeAppearanceModel};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.topLeftCorner = MaterialShapeUtils.createDefaultCornerTreatment();
             this.topRightCorner = MaterialShapeUtils.createDefaultCornerTreatment();
             this.bottomRightCorner = MaterialShapeUtils.createDefaultCornerTreatment();
@@ -291,114 +451,190 @@ public class ShapeAppearanceModel {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface CornerSizeUnaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize);
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1336854749, "Lcom/google/android/material/shape/ShapeAppearanceModel;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1336854749, "Lcom/google/android/material/shape/ShapeAppearanceModel;");
+                return;
+            }
+        }
+        PILL = new RelativeCornerSize(0.5f);
+    }
+
+    public /* synthetic */ ShapeAppearanceModel(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
     @NonNull
     public static Builder builder() {
-        return new Builder();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new Builder() : (Builder) invokeV.objValue;
     }
 
     @NonNull
     public static CornerSize getCornerSize(TypedArray typedArray, int i2, @NonNull CornerSize cornerSize) {
-        TypedValue peekValue = typedArray.peekValue(i2);
-        if (peekValue == null) {
-            return cornerSize;
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65547, null, typedArray, i2, cornerSize)) == null) {
+            TypedValue peekValue = typedArray.peekValue(i2);
+            if (peekValue == null) {
+                return cornerSize;
+            }
+            int i3 = peekValue.type;
+            if (i3 == 5) {
+                return new AbsoluteCornerSize(TypedValue.complexToDimensionPixelSize(peekValue.data, typedArray.getResources().getDisplayMetrics()));
+            }
+            return i3 == 6 ? new RelativeCornerSize(peekValue.getFraction(1.0f, 1.0f)) : cornerSize;
         }
-        int i3 = peekValue.type;
-        if (i3 == 5) {
-            return new AbsoluteCornerSize(TypedValue.complexToDimensionPixelSize(peekValue.data, typedArray.getResources().getDisplayMetrics()));
-        }
-        return i3 == 6 ? new RelativeCornerSize(peekValue.getFraction(1.0f, 1.0f)) : cornerSize;
+        return (CornerSize) invokeLIL.objValue;
     }
 
     @NonNull
     public EdgeTreatment getBottomEdge() {
-        return this.bottomEdge;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bottomEdge : (EdgeTreatment) invokeV.objValue;
     }
 
     @NonNull
     public CornerTreatment getBottomLeftCorner() {
-        return this.bottomLeftCorner;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bottomLeftCorner : (CornerTreatment) invokeV.objValue;
     }
 
     @NonNull
     public CornerSize getBottomLeftCornerSize() {
-        return this.bottomLeftCornerSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bottomLeftCornerSize : (CornerSize) invokeV.objValue;
     }
 
     @NonNull
     public CornerTreatment getBottomRightCorner() {
-        return this.bottomRightCorner;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bottomRightCorner : (CornerTreatment) invokeV.objValue;
     }
 
     @NonNull
     public CornerSize getBottomRightCornerSize() {
-        return this.bottomRightCornerSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bottomRightCornerSize : (CornerSize) invokeV.objValue;
     }
 
     @NonNull
     public EdgeTreatment getLeftEdge() {
-        return this.leftEdge;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.leftEdge : (EdgeTreatment) invokeV.objValue;
     }
 
     @NonNull
     public EdgeTreatment getRightEdge() {
-        return this.rightEdge;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.rightEdge : (EdgeTreatment) invokeV.objValue;
     }
 
     @NonNull
     public EdgeTreatment getTopEdge() {
-        return this.topEdge;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.topEdge : (EdgeTreatment) invokeV.objValue;
     }
 
     @NonNull
     public CornerTreatment getTopLeftCorner() {
-        return this.topLeftCorner;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.topLeftCorner : (CornerTreatment) invokeV.objValue;
     }
 
     @NonNull
     public CornerSize getTopLeftCornerSize() {
-        return this.topLeftCornerSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.topLeftCornerSize : (CornerSize) invokeV.objValue;
     }
 
     @NonNull
     public CornerTreatment getTopRightCorner() {
-        return this.topRightCorner;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.topRightCorner : (CornerTreatment) invokeV.objValue;
     }
 
     @NonNull
     public CornerSize getTopRightCornerSize() {
-        return this.topRightCornerSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.topRightCornerSize : (CornerSize) invokeV.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean isRoundRect(@NonNull RectF rectF) {
-        boolean z = this.leftEdge.getClass().equals(EdgeTreatment.class) && this.rightEdge.getClass().equals(EdgeTreatment.class) && this.topEdge.getClass().equals(EdgeTreatment.class) && this.bottomEdge.getClass().equals(EdgeTreatment.class);
-        float cornerSize = this.topLeftCornerSize.getCornerSize(rectF);
-        return z && ((this.topRightCornerSize.getCornerSize(rectF) > cornerSize ? 1 : (this.topRightCornerSize.getCornerSize(rectF) == cornerSize ? 0 : -1)) == 0 && (this.bottomLeftCornerSize.getCornerSize(rectF) > cornerSize ? 1 : (this.bottomLeftCornerSize.getCornerSize(rectF) == cornerSize ? 0 : -1)) == 0 && (this.bottomRightCornerSize.getCornerSize(rectF) > cornerSize ? 1 : (this.bottomRightCornerSize.getCornerSize(rectF) == cornerSize ? 0 : -1)) == 0) && ((this.topRightCorner instanceof RoundedCornerTreatment) && (this.topLeftCorner instanceof RoundedCornerTreatment) && (this.bottomRightCorner instanceof RoundedCornerTreatment) && (this.bottomLeftCorner instanceof RoundedCornerTreatment));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, rectF)) == null) {
+            boolean z = this.leftEdge.getClass().equals(EdgeTreatment.class) && this.rightEdge.getClass().equals(EdgeTreatment.class) && this.topEdge.getClass().equals(EdgeTreatment.class) && this.bottomEdge.getClass().equals(EdgeTreatment.class);
+            float cornerSize = this.topLeftCornerSize.getCornerSize(rectF);
+            return z && ((this.topRightCornerSize.getCornerSize(rectF) > cornerSize ? 1 : (this.topRightCornerSize.getCornerSize(rectF) == cornerSize ? 0 : -1)) == 0 && (this.bottomLeftCornerSize.getCornerSize(rectF) > cornerSize ? 1 : (this.bottomLeftCornerSize.getCornerSize(rectF) == cornerSize ? 0 : -1)) == 0 && (this.bottomRightCornerSize.getCornerSize(rectF) > cornerSize ? 1 : (this.bottomRightCornerSize.getCornerSize(rectF) == cornerSize ? 0 : -1)) == 0) && ((this.topRightCorner instanceof RoundedCornerTreatment) && (this.topLeftCorner instanceof RoundedCornerTreatment) && (this.bottomRightCorner instanceof RoundedCornerTreatment) && (this.bottomLeftCorner instanceof RoundedCornerTreatment));
+        }
+        return invokeL.booleanValue;
     }
 
     @NonNull
     public Builder toBuilder() {
-        return new Builder(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? new Builder(this) : (Builder) invokeV.objValue;
     }
 
     @NonNull
     public ShapeAppearanceModel withCornerSize(float f2) {
-        return toBuilder().setAllCornerSizes(f2).build();
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048590, this, f2)) == null) ? toBuilder().setAllCornerSizes(f2).build() : (ShapeAppearanceModel) invokeF.objValue;
     }
 
     @NonNull
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public ShapeAppearanceModel withTransformedCornerSizes(@NonNull CornerSizeUnaryOperator cornerSizeUnaryOperator) {
-        return toBuilder().setTopLeftCornerSize(cornerSizeUnaryOperator.apply(getTopLeftCornerSize())).setTopRightCornerSize(cornerSizeUnaryOperator.apply(getTopRightCornerSize())).setBottomLeftCornerSize(cornerSizeUnaryOperator.apply(getBottomLeftCornerSize())).setBottomRightCornerSize(cornerSizeUnaryOperator.apply(getBottomRightCornerSize())).build();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, cornerSizeUnaryOperator)) == null) ? toBuilder().setTopLeftCornerSize(cornerSizeUnaryOperator.apply(getTopLeftCornerSize())).setTopRightCornerSize(cornerSizeUnaryOperator.apply(getTopRightCornerSize())).setBottomLeftCornerSize(cornerSizeUnaryOperator.apply(getBottomLeftCornerSize())).setBottomRightCornerSize(cornerSizeUnaryOperator.apply(getBottomRightCornerSize())).build() : (ShapeAppearanceModel) invokeL.objValue;
     }
 
     public ShapeAppearanceModel(@NonNull Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.topLeftCorner = builder.topLeftCorner;
         this.topRightCorner = builder.topRightCorner;
         this.bottomRightCorner = builder.bottomRightCorner;
@@ -415,63 +651,93 @@ public class ShapeAppearanceModel {
 
     @NonNull
     public static Builder builder(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
-        return builder(context, attributeSet, i2, i3, 0);
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, context, attributeSet, i2, i3)) == null) ? builder(context, attributeSet, i2, i3, 0) : (Builder) invokeLLII.objValue;
     }
 
     @NonNull
     public ShapeAppearanceModel withCornerSize(@NonNull CornerSize cornerSize) {
-        return toBuilder().setAllCornerSizes(cornerSize).build();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cornerSize)) == null) ? toBuilder().setAllCornerSizes(cornerSize).build() : (ShapeAppearanceModel) invokeL.objValue;
     }
 
     @NonNull
     public static Builder builder(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3, int i4) {
-        return builder(context, attributeSet, i2, i3, new AbsoluteCornerSize(i4));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? builder(context, attributeSet, i2, i3, new AbsoluteCornerSize(i4)) : (Builder) invokeCommon.objValue;
     }
 
     @NonNull
     public static Builder builder(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3, @NonNull CornerSize cornerSize) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.MaterialShape, i2, i3);
-        int resourceId = obtainStyledAttributes.getResourceId(R.styleable.MaterialShape_shapeAppearance, 0);
-        int resourceId2 = obtainStyledAttributes.getResourceId(R.styleable.MaterialShape_shapeAppearanceOverlay, 0);
-        obtainStyledAttributes.recycle();
-        return builder(context, resourceId, resourceId2, cornerSize);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3), cornerSize})) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.MaterialShape, i2, i3);
+            int resourceId = obtainStyledAttributes.getResourceId(R.styleable.MaterialShape_shapeAppearance, 0);
+            int resourceId2 = obtainStyledAttributes.getResourceId(R.styleable.MaterialShape_shapeAppearanceOverlay, 0);
+            obtainStyledAttributes.recycle();
+            return builder(context, resourceId, resourceId2, cornerSize);
+        }
+        return (Builder) invokeCommon.objValue;
     }
 
     @NonNull
     public static Builder builder(Context context, @StyleRes int i2, @StyleRes int i3) {
-        return builder(context, i2, i3, 0);
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, context, i2, i3)) == null) ? builder(context, i2, i3, 0) : (Builder) invokeLII.objValue;
     }
 
     @NonNull
     public static Builder builder(Context context, @StyleRes int i2, @StyleRes int i3, int i4) {
-        return builder(context, i2, i3, new AbsoluteCornerSize(i4));
+        InterceptResult invokeLIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLIII = interceptable.invokeLIII(AdIconUtil.BAIDU_LOGO_ID, null, context, i2, i3, i4)) == null) ? builder(context, i2, i3, new AbsoluteCornerSize(i4)) : (Builder) invokeLIII.objValue;
     }
 
     @NonNull
     public static Builder builder(Context context, @StyleRes int i2, @StyleRes int i3, @NonNull CornerSize cornerSize) {
-        if (i3 != 0) {
-            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, i2);
-            i2 = i3;
-            context = contextThemeWrapper;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), cornerSize})) == null) {
+            if (i3 != 0) {
+                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, i2);
+                i2 = i3;
+                context = contextThemeWrapper;
+            }
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i2, R.styleable.ShapeAppearance);
+            try {
+                int i4 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamily, 0);
+                int i5 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyTopLeft, i4);
+                int i6 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyTopRight, i4);
+                int i7 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyBottomRight, i4);
+                int i8 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyBottomLeft, i4);
+                CornerSize cornerSize2 = getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSize, cornerSize);
+                CornerSize cornerSize3 = getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeTopLeft, cornerSize2);
+                return new Builder().setTopLeftCorner(i5, cornerSize3).setTopRightCorner(i6, getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeTopRight, cornerSize2)).setBottomRightCorner(i7, getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeBottomRight, cornerSize2)).setBottomLeftCorner(i8, getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeBottomLeft, cornerSize2));
+            } finally {
+                obtainStyledAttributes.recycle();
+            }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i2, R.styleable.ShapeAppearance);
-        try {
-            int i4 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamily, 0);
-            int i5 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyTopLeft, i4);
-            int i6 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyTopRight, i4);
-            int i7 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyBottomRight, i4);
-            int i8 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyBottomLeft, i4);
-            CornerSize cornerSize2 = getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSize, cornerSize);
-            CornerSize cornerSize3 = getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeTopLeft, cornerSize2);
-            CornerSize cornerSize4 = getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeTopRight, cornerSize2);
-            CornerSize cornerSize5 = getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeBottomRight, cornerSize2);
-            return new Builder().setTopLeftCorner(i5, cornerSize3).setTopRightCorner(i6, cornerSize4).setBottomRightCorner(i7, cornerSize5).setBottomLeftCorner(i8, getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeBottomLeft, cornerSize2));
-        } finally {
-            obtainStyledAttributes.recycle();
-        }
+        return (Builder) invokeCommon.objValue;
     }
 
     public ShapeAppearanceModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.topLeftCorner = MaterialShapeUtils.createDefaultCornerTreatment();
         this.topRightCorner = MaterialShapeUtils.createDefaultCornerTreatment();
         this.bottomRightCorner = MaterialShapeUtils.createDefaultCornerTreatment();

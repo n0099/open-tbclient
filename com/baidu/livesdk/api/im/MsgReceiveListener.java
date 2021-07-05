@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.im;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface MsgReceiveListener {
     void onReceiveMessage(int i2, Object obj);
 }

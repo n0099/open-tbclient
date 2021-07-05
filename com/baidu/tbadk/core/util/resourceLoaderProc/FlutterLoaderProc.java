@@ -3,10 +3,12 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.util.TypedValue;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ImageLogger;
@@ -14,6 +16,11 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.a.d;
 import d.a.c.e.a.f.c;
 import d.a.c.e.l.b;
@@ -21,13 +28,29 @@ import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.k.d.a;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlutterLoaderProc extends AbstractImageLoaderProc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean isFromCDN;
     public boolean isNeedFormat;
     public int procType;
 
     public FlutterLoaderProc(boolean z, int i2, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.isFromCDN = true;
         this.procType = 0;
         this.isNeedFormat = true;
@@ -37,45 +60,64 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     }
 
     public a createImageByteFromDiskPicOperate(c cVar, String str, int i2, int i3) {
-        if (cVar == null) {
-            return null;
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, cVar, str, i2, i3)) == null) {
+            if (cVar == null) {
+                return null;
+            }
+            a aVar = new a((Bitmap) null, false, str, cVar.getData());
+            cVar.formatData(cVar.getData());
+            Bitmap checkBitmapSize = checkBitmapSize(cVar.getBitmap(), i2, i3);
+            return checkBitmapSize != null ? new a(checkBitmapSize, cVar.isGif(), str) : aVar;
         }
-        a aVar = new a((Bitmap) null, false, str, cVar.getData());
-        cVar.formatData(cVar.getData());
-        Bitmap checkBitmapSize = checkBitmapSize(cVar.getBitmap(), i2, i3);
-        return checkBitmapSize != null ? new a(checkBitmapSize, cVar.isGif(), str) : aVar;
+        return (a) invokeLLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.c.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
-        return null;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
+            return null;
+        }
+        return (a) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public int getProcType() {
-        return this.procType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.procType : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public int getSuggestHeight() {
-        return l.i(TbadkCoreApplication.getInst().getApp());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? l.i(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public int getSuggestWidth() {
-        return l.k(TbadkCoreApplication.getInst().getApp());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? l.k(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public boolean isFromCDN() {
-        return this.isFromCDN;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.isFromCDN : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
-        if (TextUtils.isEmpty(str) || bArr == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048587, this, str, bArr, objArr) == null) || TextUtils.isEmpty(str) || bArr == null) {
             return;
         }
         boolean booleanValue = ((Boolean) objArr[0]).booleanValue();
@@ -97,7 +139,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f42451a = diskCancelWorker;
+            bVar.f44260a = diskCancelWorker;
         }
     }
 
@@ -105,51 +147,57 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.c.e.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
-        byte[] bArr = new byte[0];
-        c createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
-        if (createDiskPicOperate == null) {
-            return null;
-        }
-        createDiskPicOperate.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-        createDiskPicOperate.setSdCard(false);
-        createDiskPicOperate.setSubFolder(true);
-        createDiskPicOperate.setSavedCache(true);
-        createDiskPicOperate.setIsFormatData(false);
-        createDiskPicOperate.setLock(bArr);
-        if (bVar != null) {
-            DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-            diskCancelWorker.setOperate(createDiskPicOperate);
-            bVar.f42451a = diskCancelWorker;
-        }
-        boolean H = j.H();
-        if (d.g().a(createDiskPicOperate)) {
-            int i4 = H ? 300 : 2000;
-            synchronized (bArr) {
-                try {
-                    bArr.wait(i4);
-                } catch (InterruptedException unused) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+            byte[] bArr = new byte[0];
+            c createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
+            if (createDiskPicOperate == null) {
+                return null;
+            }
+            createDiskPicOperate.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            createDiskPicOperate.setSdCard(false);
+            createDiskPicOperate.setSubFolder(true);
+            createDiskPicOperate.setSavedCache(true);
+            createDiskPicOperate.setIsFormatData(false);
+            createDiskPicOperate.setLock(bArr);
+            if (bVar != null) {
+                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                diskCancelWorker.setOperate(createDiskPicOperate);
+                bVar.f44260a = diskCancelWorker;
+            }
+            boolean H = j.H();
+            if (d.g().a(createDiskPicOperate)) {
+                int i4 = H ? 300 : 2000;
+                synchronized (bArr) {
+                    try {
+                        bArr.wait(i4);
+                    } catch (InterruptedException unused) {
+                    }
                 }
-            }
-            if (createDiskPicOperate.isSuccess()) {
-                return createImageByteFromDiskPicOperate(createDiskPicOperate, str2, i2, i3);
+                if (createDiskPicOperate.isSuccess()) {
+                    return createImageByteFromDiskPicOperate(createDiskPicOperate, str2, i2, i3);
+                }
+                return null;
             }
             return null;
         }
-        return null;
+        return (a) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00b1  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00c6  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x019d  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x01a3  */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x01ca  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00b6  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00cb  */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x01a2  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x01a8  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x01cf  */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.c.e.l.e
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+        InterceptResult invokeCommon;
         boolean z;
         WebClient webClient;
         byte[] downloadImageBytes;
@@ -163,6 +211,10 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         WebClient webClient3;
         boolean z5;
         int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) != null) {
+            return (a) invokeCommon.objValue;
+        }
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -187,7 +239,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 z = true;
                 webClient = new WebClient();
                 if (bVar != null) {
-                    bVar.f42451a = webClient;
+                    bVar.f44260a = webClient;
                 }
                 downloadImageBytes = webClient.downloadImageBytes(urlbyClientServerAddr, !isFromCDN);
                 boolean needCache = webClient.needCache();
@@ -231,13 +283,13 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     z2 = needCache;
                     webClient2 = webClient;
                     i4 = 1;
-                    if (!webClient2.getResponse().f42397a) {
+                    if (!webClient2.getResponse().f44206a) {
                         ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                         return null;
                     }
                 }
                 if (downloadImageBytes != null) {
-                    if (!webClient2.getResponse().f42397a) {
+                    if (!webClient2.getResponse().f44206a) {
                         ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "ByteIsNull", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                     }
                     return null;
@@ -255,7 +307,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     c2 = 1;
                     ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
-                d.a.n0.a0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
+                d.a.r0.a0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
                 boolean z7 = webClient2.isGif || l.B(bArr);
                 a aVar3 = new a((Bitmap) null, z7, str, bArr);
                 boolean z8 = z3;

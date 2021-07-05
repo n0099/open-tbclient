@@ -1,26 +1,53 @@
 package com.vivo.push.util;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class w extends a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static w f40517b;
+    public static w f42260b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public w() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static synchronized w b() {
+        InterceptResult invokeV;
         w wVar;
-        synchronized (w.class) {
-            if (f40517b == null) {
-                f40517b = new w();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (w.class) {
+                if (f42260b == null) {
+                    f42260b = new w();
+                }
+                wVar = f42260b;
             }
-            wVar = f40517b;
+            return wVar;
         }
-        return wVar;
+        return (w) invokeV.objValue;
     }
 
     public final void a(Context context) {
-        if (this.f40474a == null) {
-            this.f40474a = context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && this.f42217a == null) {
+            this.f42217a = context;
             a(context, "com.vivo.push_preferences");
         }
     }

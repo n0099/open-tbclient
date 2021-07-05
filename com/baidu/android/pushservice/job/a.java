@@ -9,103 +9,147 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(21)
 /* loaded from: classes.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static C0058a f3503a;
+    public static C0058a f3501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f3504b;
+    public static boolean f3502b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0058a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f3505a;
+        public final Context f3503a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final JobScheduler f3506b;
+        public final JobScheduler f3504b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f3507c;
+        public boolean f3505c;
 
         public C0058a(Context context) {
-            this.f3505a = context;
-            this.f3506b = (JobScheduler) context.getSystemService("jobscheduler");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f3503a = context;
+            this.f3504b = (JobScheduler) context.getSystemService("jobscheduler");
         }
 
         private void a() {
-            this.f3507c = false;
-            this.f3506b.cancel(1);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+                this.f3505c = false;
+                this.f3504b.cancel(1);
+            }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(boolean z) {
-            if (z || this.f3507c) {
-                long j = 300000;
-                if (z) {
-                    a();
-                    j = 300000 - (SystemClock.elapsedRealtime() % 300000);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(65540, this, z) == null) {
+                if (z || this.f3505c) {
+                    long j = 300000;
+                    if (z) {
+                        a();
+                        j = 300000 - (SystemClock.elapsedRealtime() % 300000);
+                    }
+                    this.f3505c = true;
+                    JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f3503a.getPackageName(), PushJobService.class.getName()));
+                    builder.setMinimumLatency(j);
+                    builder.setOverrideDeadline(j);
+                    builder.setRequiredNetworkType(1);
+                    builder.setPersisted(false);
+                    this.f3504b.schedule(builder.build());
                 }
-                this.f3507c = true;
-                JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f3505a.getPackageName(), PushJobService.class.getName()));
-                builder.setMinimumLatency(j);
-                builder.setOverrideDeadline(j);
-                builder.setRequiredNetworkType(1);
-                builder.setPersisted(false);
-                this.f3506b.schedule(builder.build());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
-            this.f3507c = false;
-            this.f3506b.cancelAll();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+                this.f3505c = false;
+                this.f3504b.cancelAll();
+            }
         }
     }
 
     public static synchronized void a(Context context) {
-        synchronized (a.class) {
-            if (f3503a == null && Build.VERSION.SDK_INT >= 21) {
-                try {
-                    f3503a = new C0058a(context);
-                } catch (Exception e2) {
-                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
+            synchronized (a.class) {
+                if (f3501a == null && Build.VERSION.SDK_INT >= 21) {
+                    try {
+                        f3501a = new C0058a(context);
+                    } catch (Exception e2) {
+                        new b.c(context).a(Log.getStackTraceString(e2)).a();
+                    }
                 }
             }
         }
     }
 
     public static synchronized void a(Context context, boolean z) {
-        synchronized (a.class) {
-            if (f3503a != null) {
-                try {
-                    f3504b = true;
-                    f3503a.a(z);
-                } catch (Exception e2) {
-                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65537, null, context, z) == null) {
+            synchronized (a.class) {
+                if (f3501a != null) {
+                    try {
+                        f3502b = true;
+                        f3501a.a(z);
+                    } catch (Exception e2) {
+                        new b.c(context).a(Log.getStackTraceString(e2)).a();
+                    }
                 }
             }
         }
     }
 
     public static boolean a() {
-        return f3504b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3502b : invokeV.booleanValue;
     }
 
     public static synchronized void b(Context context) {
-        synchronized (a.class) {
-            if (f3503a != null) {
-                try {
-                    f3503a.b();
-                } catch (Exception e2) {
-                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (a.class) {
+                if (f3501a != null) {
+                    try {
+                        f3501a.b();
+                    } catch (Exception e2) {
+                        new b.c(context).a(Log.getStackTraceString(e2)).a();
+                    }
+                    f3501a = null;
+                    f3502b = false;
                 }
-                f3503a = null;
-                f3504b = false;
             }
         }
     }

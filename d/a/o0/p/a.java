@@ -1,172 +1,132 @@
 package d.a.o0.p;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.R;
-import d.a.n0.r.c;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class a extends BaseAdapter {
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sso.o.a;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes8.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public com.baidu.sso.o.a f46460a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f46461b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f46462c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f46463d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f61734e;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f61737h;
-
-    /* renamed from: g  reason: collision with root package name */
-    public List<AccountData> f61736g = null;
+    public d.a.o0.n.b f46464e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61735f = false;
+    public ServiceConnection f46465f;
 
-    /* loaded from: classes4.dex */
-    public class b {
-
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f61738a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f61739b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ImageView f61740c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f61741d;
-
-        public b(a aVar) {
+    public a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.f46460a = null;
+        this.f46462c = null;
+        this.f46463d = null;
+        this.f46465f = new c(this);
+        this.f46461b = context;
     }
 
-    public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.f61734e = baseActivity;
-        this.f61737h = onClickListener;
-    }
-
-    public boolean a() {
-        return this.f61735f;
-    }
-
-    public void b(List<AccountData> list) {
-        this.f61736g = list;
-    }
-
-    public void c(boolean z) {
-        this.f61735f = z;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        List<AccountData> list = this.f61736g;
-        return (list != null ? list.size() : 0) + 1;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i2) {
-        List<AccountData> list = this.f61736g;
-        if (list == null || i2 < 0 || i2 >= list.size()) {
-            return null;
-        }
-        return this.f61736g.get(i2);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        if (getItem(i2) != null) {
-            return i2;
-        }
-        return -1L;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i2) {
-        return getItemId(i2) >= 0 ? 0 : 1;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, INVOKE, INVOKE]}, finally: {[IGET, INVOKE, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE, CONST, INVOKE, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x00ca, code lost:
-        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() == 1) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x00e1, code lost:
-        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() != 1) goto L20;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00e4, code lost:
-        r0 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00e5, code lost:
-        r6.k(r0);
-        r5.f61734e.getLayoutMode().j(r7);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00f1, code lost:
-        return r7;
-     */
-    @Override // android.widget.Adapter
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        c layoutMode;
-        b bVar;
-        try {
-            try {
-                if (view == null) {
-                    if (getItemViewType(i2) == 0) {
-                        view = LayoutInflater.from(this.f61734e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                        bVar = new b();
-                        bVar.f61738a = (TextView) view.findViewById(R.id.account);
-                        bVar.f61740c = (ImageView) view.findViewById(R.id.active);
-                        TextView textView = (TextView) view.findViewById(R.id.delete);
-                        bVar.f61741d = textView;
-                        textView.setOnClickListener(this.f61737h);
-                        view.setTag(bVar);
-                    } else {
-                        view = LayoutInflater.from(this.f61734e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                        bVar = new b();
-                        bVar.f61739b = (TextView) view.findViewById(R.id.add_text);
-                        view.setTag(bVar);
+    public String a(String str) {
+        InterceptResult invokeL;
+        Signature[] signatureArr;
+        PackageInfo packageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.f46460a != null) {
+                String str2 = null;
+                try {
+                    if (TextUtils.isEmpty(this.f46462c)) {
+                        this.f46462c = this.f46461b.getPackageName();
                     }
-                } else {
-                    bVar = (b) view.getTag();
-                }
-                if (getItemViewType(i2) == 0) {
-                    AccountData accountData = (AccountData) getItem(i2);
-                    bVar.f61740c.setVisibility(8);
-                    bVar.f61741d.setVisibility(8);
-                    bVar.f61741d.setTag(accountData);
-                    if (accountData != null) {
-                        bVar.f61738a.setText(accountData.getAccountNameShow());
-                        if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            bVar.f61740c.setVisibility(0);
+                    if (TextUtils.isEmpty(this.f46463d)) {
+                        try {
+                            packageInfo = this.f46461b.getPackageManager().getPackageInfo(this.f46462c, 64);
+                        } catch (PackageManager.NameNotFoundException unused) {
                         }
-                        if (this.f61735f) {
-                            bVar.f61741d.setVisibility(0);
+                        if (packageInfo != null) {
+                            signatureArr = packageInfo.signatures;
+                            if (signatureArr != null && signatureArr.length > 0) {
+                                try {
+                                    byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                                    StringBuilder sb = new StringBuilder();
+                                    for (byte b2 : digest) {
+                                        sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
+                                    }
+                                    str2 = sb.toString();
+                                } catch (NoSuchAlgorithmException unused2) {
+                                }
+                            }
+                            this.f46463d = str2;
                         }
+                        signatureArr = null;
+                        if (signatureArr != null) {
+                            byte[] digest2 = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                            StringBuilder sb2 = new StringBuilder();
+                            while (r3 < r4) {
+                            }
+                            str2 = sb2.toString();
+                        }
+                        this.f46463d = str2;
                     }
+                    str2 = ((a.AbstractBinderC0170a.C0171a) this.f46460a).a(this.f46462c, this.f46463d, str);
+                } catch (Throwable unused3) {
                 }
-                layoutMode = this.f61734e.getLayoutMode();
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
-                layoutMode = this.f61734e.getLayoutMode();
+                if (!TextUtils.isEmpty(str2)) {
+                    return str2;
+                }
             }
-        } catch (Throwable th) {
-            this.f61734e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f61734e.getLayoutMode().j(view);
-            throw th;
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 2;
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
+            intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+            this.f46461b.bindService(intent, this.f46465f, 1);
+        }
     }
 }

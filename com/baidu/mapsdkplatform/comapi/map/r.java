@@ -2,112 +2,283 @@ package com.baidu.mapsdkplatform.comapi.map;
 
 import android.content.Context;
 import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.EnvironmentUtilities;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class r {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7715a = "r";
+    public static final String f7745a = "r";
 
     /* renamed from: c  reason: collision with root package name */
-    public static r f7716c;
+    public static r f7746c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comjni.map.basemap.a f7717b;
+    public com.baidu.mapsdkplatform.comjni.map.basemap.a f7747b;
 
     /* renamed from: d  reason: collision with root package name */
-    public w f7718d;
+    public w f7748d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f7719e;
+    public Handler f7749e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(724782530, "Lcom/baidu/mapsdkplatform/comapi/map/r;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(724782530, "Lcom/baidu/mapsdkplatform/comapi/map/r;");
+        }
+    }
+
+    public r() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static r a() {
-        if (f7716c == null) {
-            r rVar = new r();
-            f7716c = rVar;
-            rVar.g();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f7746c == null) {
+                r rVar = new r();
+                f7746c = rVar;
+                rVar.g();
+            }
+            return f7746c;
         }
-        return f7716c;
+        return (r) invokeV.objValue;
     }
 
     private void g() {
-        h();
-        this.f7718d = new w();
-        s sVar = new s(this);
-        this.f7719e = sVar;
-        MessageCenter.registMessage(65289, sVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            h();
+            this.f7748d = new w();
+            s sVar = new s(this);
+            this.f7749e = sVar;
+            MessageCenter.registMessage(65289, sVar);
+        }
     }
 
     private void h() {
-        Context context = BMapManager.getContext();
-        EnvironmentUtilities.initAppDirectory(context);
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = new com.baidu.mapsdkplatform.comjni.map.basemap.a();
-        this.f7717b = aVar;
-        aVar.a(context.hashCode());
-        String moduleFileName = SysOSUtil.getModuleFileName();
-        String appSDCardPath = EnvironmentUtilities.getAppSDCardPath();
-        String appCachePath = EnvironmentUtilities.getAppCachePath();
-        String appSecondCachePath = EnvironmentUtilities.getAppSecondCachePath();
-        int mapTmpStgMax = EnvironmentUtilities.getMapTmpStgMax();
-        int domTmpStgMax = EnvironmentUtilities.getDomTmpStgMax();
-        int itsTmpStgMax = EnvironmentUtilities.getItsTmpStgMax();
-        String str = SysOSUtil.getDensityDpi() >= 180 ? "/h/" : "/l/";
-        String str2 = moduleFileName + "/cfg";
-        String str3 = appSDCardPath + "/vmp";
-        String str4 = str3 + str;
-        String str5 = str3 + str;
-        String str6 = appCachePath + "/tmp/";
-        this.f7717b.a(str2 + "/a/", str4, str6, appSecondCachePath + "/tmp/", str5, str2 + "/a/", null, 0, str2 + "/idrres/", SysOSUtil.getScreenSizeX(), SysOSUtil.getScreenSizeY(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
-        this.f7717b.d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            Context context = BMapManager.getContext();
+            EnvironmentUtilities.initAppDirectory(context);
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = new com.baidu.mapsdkplatform.comjni.map.basemap.a();
+            this.f7747b = aVar;
+            aVar.a(context.hashCode());
+            String moduleFileName = SysOSUtil.getModuleFileName();
+            String appSDCardPath = EnvironmentUtilities.getAppSDCardPath();
+            String appCachePath = EnvironmentUtilities.getAppCachePath();
+            String appSecondCachePath = EnvironmentUtilities.getAppSecondCachePath();
+            int mapTmpStgMax = EnvironmentUtilities.getMapTmpStgMax();
+            int domTmpStgMax = EnvironmentUtilities.getDomTmpStgMax();
+            int itsTmpStgMax = EnvironmentUtilities.getItsTmpStgMax();
+            String str = SysOSUtil.getDensityDpi() >= 180 ? "/h/" : "/l/";
+            String str2 = moduleFileName + "/cfg";
+            String str3 = appSDCardPath + "/vmp";
+            String str4 = str3 + str;
+            String str5 = str3 + str;
+            String str6 = appCachePath + "/tmp/";
+            this.f7747b.a(str2 + "/a/", str4, str6, appSecondCachePath + "/tmp/", str5, str2 + "/a/", null, 0, str2 + "/idrres/", SysOSUtil.getScreenSizeX(), SysOSUtil.getScreenSizeY(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
+            this.f7747b.d();
+        }
     }
 
     public ArrayList<q> a(String str) {
+        InterceptResult invokeL;
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         JSONArray optJSONArray;
-        if (!str.equals("") && (aVar = this.f7717b) != null) {
-            String a2 = aVar.a(str);
-            if (a2 == null || a2.equals("")) {
-                return null;
-            }
-            ArrayList<q> arrayList = new ArrayList<>();
-            try {
-                JSONObject jSONObject = new JSONObject(a2);
-                if (jSONObject.length() == 0 || (optJSONArray = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET)) == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!str.equals("") && (aVar = this.f7747b) != null) {
+                String a2 = aVar.a(str);
+                if (a2 == null || a2.equals("")) {
                     return null;
                 }
+                ArrayList<q> arrayList = new ArrayList<>();
+                try {
+                    JSONObject jSONObject = new JSONObject(a2);
+                    if (jSONObject.length() == 0 || (optJSONArray = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET)) == null) {
+                        return null;
+                    }
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        q qVar = new q();
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                        int optInt = jSONObject2.optInt("id");
+                        if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
+                            qVar.f7740a = optInt;
+                            qVar.f7741b = jSONObject2.optString("name");
+                            qVar.f7742c = jSONObject2.optInt("mapsize");
+                            qVar.f7743d = jSONObject2.optInt("cty");
+                            if (jSONObject2.has("child")) {
+                                JSONArray optJSONArray2 = jSONObject2.optJSONArray("child");
+                                ArrayList<q> arrayList2 = new ArrayList<>();
+                                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                                    q qVar2 = new q();
+                                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
+                                    qVar2.f7740a = optJSONObject.optInt("id");
+                                    qVar2.f7741b = optJSONObject.optString("name");
+                                    qVar2.f7742c = optJSONObject.optInt("mapsize");
+                                    qVar2.f7743d = optJSONObject.optInt("cty");
+                                    arrayList2.add(qVar2);
+                                }
+                                qVar.a(arrayList2);
+                            }
+                            arrayList.add(qVar);
+                        }
+                    }
+                    return arrayList;
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void a(v vVar) {
+        w wVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) || (wVar = this.f7748d) == null) {
+            return;
+        }
+        wVar.a(vVar);
+    }
+
+    public boolean a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            if (this.f7747b == null || i2 < 0) {
+                return false;
+            }
+            if (i2 <= 2000 || i2 == 2912 || i2 == 2911 || i2 == 9000) {
+                return this.f7747b.d(i2);
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean a(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7747b;
+            if (aVar == null) {
+                return false;
+            }
+            return aVar.a(z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageCenter.unregistMessage(65289, this.f7749e);
+            this.f7747b.b(BMapManager.getContext().hashCode());
+            f7746c = null;
+        }
+    }
+
+    public void b(v vVar) {
+        w wVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, vVar) == null) || (wVar = this.f7748d) == null) {
+            return;
+        }
+        wVar.b(vVar);
+    }
+
+    public boolean b(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            if (this.f7747b == null || i2 < 0) {
+                return false;
+            }
+            if (i2 <= 2000 || i2 == 2912 || i2 == 2911 || i2 == 9000) {
+                return this.f7747b.a(i2, false, 0);
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public ArrayList<q> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7747b;
+            if (aVar == null) {
+                return null;
+            }
+            String m = aVar.m();
+            ArrayList<q> arrayList = new ArrayList<>();
+            try {
+                JSONArray optJSONArray = new JSONObject(m).optJSONArray(ActionJsonData.TAG_DATASET);
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     q qVar = new q();
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    int optInt = jSONObject2.optInt("id");
-                    if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                        qVar.f7710a = optInt;
-                        qVar.f7711b = jSONObject2.optString("name");
-                        qVar.f7712c = jSONObject2.optInt("mapsize");
-                        qVar.f7713d = jSONObject2.optInt("cty");
-                        if (jSONObject2.has("child")) {
-                            JSONArray optJSONArray2 = jSONObject2.optJSONArray("child");
-                            ArrayList<q> arrayList2 = new ArrayList<>();
-                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                q qVar2 = new q();
-                                JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
-                                qVar2.f7710a = optJSONObject.optInt("id");
-                                qVar2.f7711b = optJSONObject.optString("name");
-                                qVar2.f7712c = optJSONObject.optInt("mapsize");
-                                qVar2.f7713d = optJSONObject.optInt("cty");
-                                arrayList2.add(qVar2);
-                            }
-                            qVar.a(arrayList2);
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                    qVar.f7740a = optJSONObject.optInt("id");
+                    qVar.f7741b = optJSONObject.optString("name");
+                    qVar.f7742c = optJSONObject.optInt("mapsize");
+                    qVar.f7743d = optJSONObject.optInt("cty");
+                    if (optJSONObject.has("child")) {
+                        JSONArray optJSONArray2 = optJSONObject.optJSONArray("child");
+                        ArrayList<q> arrayList2 = new ArrayList<>();
+                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                            q qVar2 = new q();
+                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                            qVar2.f7740a = optJSONObject2.optInt("id");
+                            qVar2.f7741b = optJSONObject2.optString("name");
+                            qVar2.f7742c = optJSONObject2.optInt("mapsize");
+                            qVar2.f7743d = optJSONObject2.optInt("cty");
+                            arrayList2.add(qVar2);
                         }
-                        arrayList.add(qVar);
+                        qVar.a(arrayList2);
                     }
+                    arrayList.add(qVar);
                 }
                 return arrayList;
             } catch (JSONException e2) {
@@ -115,268 +286,216 @@ public class r {
                 return null;
             }
         }
-        return null;
-    }
-
-    public void a(v vVar) {
-        w wVar = this.f7718d;
-        if (wVar != null) {
-            wVar.a(vVar);
-        }
-    }
-
-    public boolean a(int i2) {
-        if (this.f7717b == null || i2 < 0) {
-            return false;
-        }
-        if (i2 <= 2000 || i2 == 2912 || i2 == 2911 || i2 == 9000) {
-            return this.f7717b.d(i2);
-        }
-        return false;
-    }
-
-    public boolean a(boolean z, boolean z2) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7717b;
-        if (aVar == null) {
-            return false;
-        }
-        return aVar.a(z, z2);
-    }
-
-    public void b() {
-        MessageCenter.unregistMessage(65289, this.f7719e);
-        this.f7717b.b(BMapManager.getContext().hashCode());
-        f7716c = null;
-    }
-
-    public void b(v vVar) {
-        w wVar = this.f7718d;
-        if (wVar != null) {
-            wVar.b(vVar);
-        }
-    }
-
-    public boolean b(int i2) {
-        if (this.f7717b == null || i2 < 0) {
-            return false;
-        }
-        if (i2 <= 2000 || i2 == 2912 || i2 == 2911 || i2 == 9000) {
-            return this.f7717b.a(i2, false, 0);
-        }
-        return false;
-    }
-
-    public ArrayList<q> c() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7717b;
-        if (aVar == null) {
-            return null;
-        }
-        String m = aVar.m();
-        ArrayList<q> arrayList = new ArrayList<>();
-        try {
-            JSONArray optJSONArray = new JSONObject(m).optJSONArray(ActionJsonData.TAG_DATASET);
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                q qVar = new q();
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                qVar.f7710a = optJSONObject.optInt("id");
-                qVar.f7711b = optJSONObject.optString("name");
-                qVar.f7712c = optJSONObject.optInt("mapsize");
-                qVar.f7713d = optJSONObject.optInt("cty");
-                if (optJSONObject.has("child")) {
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("child");
-                    ArrayList<q> arrayList2 = new ArrayList<>();
-                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                        q qVar2 = new q();
-                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
-                        qVar2.f7710a = optJSONObject2.optInt("id");
-                        qVar2.f7711b = optJSONObject2.optString("name");
-                        qVar2.f7712c = optJSONObject2.optInt("mapsize");
-                        qVar2.f7713d = optJSONObject2.optInt("cty");
-                        arrayList2.add(qVar2);
-                    }
-                    qVar.a(arrayList2);
-                }
-                arrayList.add(qVar);
-            }
-            return arrayList;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return null;
-        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public boolean c(int i2) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7717b;
-        if (aVar == null || i2 < 0) {
-            return false;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7747b;
+            if (aVar == null || i2 < 0) {
+                return false;
+            }
+            return aVar.b(i2, false, 0);
         }
-        return aVar.b(i2, false, 0);
+        return invokeI.booleanValue;
     }
 
     public ArrayList<q> d() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7717b;
-        ArrayList<q> arrayList = null;
-        if (aVar == null) {
-            return null;
-        }
-        String a2 = aVar.a("");
-        ArrayList<q> arrayList2 = new ArrayList<>();
-        try {
-            JSONArray optJSONArray = new JSONObject(a2).optJSONArray(ActionJsonData.TAG_DATASET);
-            int i2 = 0;
-            while (i2 < optJSONArray.length()) {
-                q qVar = new q();
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                int optInt = optJSONObject.optInt("id");
-                if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    qVar.f7710a = optInt;
-                    qVar.f7711b = optJSONObject.optString("name");
-                    qVar.f7712c = optJSONObject.optInt("mapsize");
-                    qVar.f7713d = optJSONObject.optInt("cty");
-                    if (optJSONObject.has("child")) {
-                        JSONArray optJSONArray2 = optJSONObject.optJSONArray("child");
-                        ArrayList<q> arrayList3 = new ArrayList<>();
-                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                            q qVar2 = new q();
-                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
-                            try {
-                                qVar2.f7710a = optJSONObject2.optInt("id");
-                                qVar2.f7711b = optJSONObject2.optString("name");
-                                qVar2.f7712c = optJSONObject2.optInt("mapsize");
-                                qVar2.f7713d = optJSONObject2.optInt("cty");
-                                arrayList3.add(qVar2);
-                            } catch (JSONException unused) {
-                                return null;
-                            } catch (Exception unused2) {
-                                return null;
-                            }
-                        }
-                        qVar.a(arrayList3);
-                    }
-                    arrayList2.add(qVar);
-                }
-                i2++;
-                arrayList = null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7747b;
+            ArrayList<q> arrayList = null;
+            if (aVar == null) {
+                return null;
             }
-            return arrayList2;
-        } catch (JSONException unused3) {
-            return arrayList;
-        } catch (Exception unused4) {
-            return arrayList;
+            String a2 = aVar.a("");
+            ArrayList<q> arrayList2 = new ArrayList<>();
+            try {
+                JSONArray optJSONArray = new JSONObject(a2).optJSONArray(ActionJsonData.TAG_DATASET);
+                int i2 = 0;
+                while (i2 < optJSONArray.length()) {
+                    q qVar = new q();
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                    int optInt = optJSONObject.optInt("id");
+                    if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
+                        qVar.f7740a = optInt;
+                        qVar.f7741b = optJSONObject.optString("name");
+                        qVar.f7742c = optJSONObject.optInt("mapsize");
+                        qVar.f7743d = optJSONObject.optInt("cty");
+                        if (optJSONObject.has("child")) {
+                            JSONArray optJSONArray2 = optJSONObject.optJSONArray("child");
+                            ArrayList<q> arrayList3 = new ArrayList<>();
+                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                                q qVar2 = new q();
+                                JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                                try {
+                                    qVar2.f7740a = optJSONObject2.optInt("id");
+                                    qVar2.f7741b = optJSONObject2.optString("name");
+                                    qVar2.f7742c = optJSONObject2.optInt("mapsize");
+                                    qVar2.f7743d = optJSONObject2.optInt("cty");
+                                    arrayList3.add(qVar2);
+                                } catch (JSONException unused) {
+                                    return null;
+                                } catch (Exception unused2) {
+                                    return null;
+                                }
+                            }
+                            qVar.a(arrayList3);
+                        }
+                        arrayList2.add(qVar);
+                    }
+                    i2++;
+                    arrayList = null;
+                }
+                return arrayList2;
+            } catch (JSONException unused3) {
+                return arrayList;
+            } catch (Exception unused4) {
+                return arrayList;
+            }
         }
+        return (ArrayList) invokeV.objValue;
     }
 
     public boolean d(int i2) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7717b;
-        if (aVar == null) {
-            return false;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7747b;
+            if (aVar == null) {
+                return false;
+            }
+            return aVar.b(0, true, i2);
         }
-        return aVar.b(0, true, i2);
+        return invokeI.booleanValue;
     }
 
     public ArrayList<u> e() {
+        InterceptResult invokeV;
         String l;
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7717b;
-        if (aVar != null && (l = aVar.l()) != null && !l.equals("")) {
-            ArrayList<u> arrayList = new ArrayList<>();
-            try {
-                JSONObject jSONObject = new JSONObject(l);
-                if (jSONObject.length() == 0) {
-                    return null;
-                }
-                JSONArray optJSONArray = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET);
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    u uVar = new u();
-                    t tVar = new t();
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                    tVar.f7721a = optJSONObject.optInt("id");
-                    tVar.f7722b = optJSONObject.optString("name");
-                    tVar.f7723c = optJSONObject.optString("pinyin");
-                    tVar.f7728h = optJSONObject.optInt("mapoldsize");
-                    tVar.f7729i = optJSONObject.optInt("ratio");
-                    tVar.l = optJSONObject.optInt("status");
-                    tVar.f7727g = new GeoPoint(optJSONObject.optInt("y"), optJSONObject.optInt("x"));
-                    boolean z = true;
-                    if (optJSONObject.optInt("up") != 1) {
-                        z = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7747b;
+            if (aVar != null && (l = aVar.l()) != null && !l.equals("")) {
+                ArrayList<u> arrayList = new ArrayList<>();
+                try {
+                    JSONObject jSONObject = new JSONObject(l);
+                    if (jSONObject.length() == 0) {
+                        return null;
                     }
-                    tVar.j = z;
-                    tVar.f7725e = optJSONObject.optInt("lev");
-                    if (tVar.j) {
-                        tVar.k = optJSONObject.optInt("mapsize");
-                    } else {
-                        tVar.k = 0;
+                    JSONArray optJSONArray = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET);
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        u uVar = new u();
+                        t tVar = new t();
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                        tVar.f7751a = optJSONObject.optInt("id");
+                        tVar.f7752b = optJSONObject.optString("name");
+                        tVar.f7753c = optJSONObject.optString("pinyin");
+                        tVar.f7758h = optJSONObject.optInt("mapoldsize");
+                        tVar.f7759i = optJSONObject.optInt("ratio");
+                        tVar.l = optJSONObject.optInt("status");
+                        tVar.f7757g = new GeoPoint(optJSONObject.optInt("y"), optJSONObject.optInt("x"));
+                        boolean z = true;
+                        if (optJSONObject.optInt("up") != 1) {
+                            z = false;
+                        }
+                        tVar.j = z;
+                        tVar.f7755e = optJSONObject.optInt("lev");
+                        if (tVar.j) {
+                            tVar.k = optJSONObject.optInt("mapsize");
+                        } else {
+                            tVar.k = 0;
+                        }
+                        uVar.a(tVar);
+                        arrayList.add(uVar);
                     }
-                    uVar.a(tVar);
-                    arrayList.add(uVar);
+                    return arrayList;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-                return arrayList;
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
+            return null;
         }
-        return null;
+        return (ArrayList) invokeV.objValue;
     }
 
     public boolean e(int i2) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7717b;
-        if (aVar == null || i2 < 0) {
-            return false;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7747b;
+            if (aVar == null || i2 < 0) {
+                return false;
+            }
+            return aVar.b(i2, false);
         }
-        return aVar.b(i2, false);
+        return invokeI.booleanValue;
     }
 
     public boolean f(int i2) {
-        if (this.f7717b == null || i2 < 0) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
+            if (this.f7747b == null || i2 < 0) {
+                return false;
+            }
+            if (i2 <= 2000 || i2 == 2912 || i2 == 2911 || i2 == 9000) {
+                return this.f7747b.a(i2, false);
+            }
             return false;
         }
-        if (i2 <= 2000 || i2 == 2912 || i2 == 2911 || i2 == 9000) {
-            return this.f7717b.a(i2, false);
-        }
-        return false;
+        return invokeI.booleanValue;
     }
 
     public u g(int i2) {
+        InterceptResult invokeI;
         String e2;
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7717b;
-        if (aVar != null && i2 >= 0 && (e2 = aVar.e(i2)) != null && !e2.equals("")) {
-            u uVar = new u();
-            t tVar = new t();
-            try {
-                JSONObject jSONObject = new JSONObject(e2);
-                if (jSONObject.length() == 0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7747b;
+            if (aVar != null && i2 >= 0 && (e2 = aVar.e(i2)) != null && !e2.equals("")) {
+                u uVar = new u();
+                t tVar = new t();
+                try {
+                    JSONObject jSONObject = new JSONObject(e2);
+                    if (jSONObject.length() == 0) {
+                        return null;
+                    }
+                    int optInt = jSONObject.optInt("id");
+                    if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
+                        tVar.f7751a = optInt;
+                        tVar.f7752b = jSONObject.optString("name");
+                        tVar.f7753c = jSONObject.optString("pinyin");
+                        tVar.f7754d = jSONObject.optString("headchar");
+                        tVar.f7758h = jSONObject.optInt("mapoldsize");
+                        tVar.f7759i = jSONObject.optInt("ratio");
+                        tVar.l = jSONObject.optInt("status");
+                        tVar.f7757g = new GeoPoint(jSONObject.optInt("y"), jSONObject.optInt("x"));
+                        boolean z = true;
+                        if (jSONObject.optInt("up") != 1) {
+                            z = false;
+                        }
+                        tVar.j = z;
+                        tVar.f7755e = jSONObject.optInt("lev");
+                        if (tVar.j) {
+                            tVar.k = jSONObject.optInt("mapsize");
+                        } else {
+                            tVar.k = 0;
+                        }
+                        tVar.f7756f = jSONObject.optInt("ver");
+                        uVar.a(tVar);
+                        return uVar;
+                    }
                     return null;
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
                 }
-                int optInt = jSONObject.optInt("id");
-                if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    tVar.f7721a = optInt;
-                    tVar.f7722b = jSONObject.optString("name");
-                    tVar.f7723c = jSONObject.optString("pinyin");
-                    tVar.f7724d = jSONObject.optString("headchar");
-                    tVar.f7728h = jSONObject.optInt("mapoldsize");
-                    tVar.f7729i = jSONObject.optInt("ratio");
-                    tVar.l = jSONObject.optInt("status");
-                    tVar.f7727g = new GeoPoint(jSONObject.optInt("y"), jSONObject.optInt("x"));
-                    boolean z = true;
-                    if (jSONObject.optInt("up") != 1) {
-                        z = false;
-                    }
-                    tVar.j = z;
-                    tVar.f7725e = jSONObject.optInt("lev");
-                    if (tVar.j) {
-                        tVar.k = jSONObject.optInt("mapsize");
-                    } else {
-                        tVar.k = 0;
-                    }
-                    tVar.f7726f = jSONObject.optInt("ver");
-                    uVar.a(tVar);
-                    return uVar;
-                }
-                return null;
-            } catch (JSONException e3) {
-                e3.printStackTrace();
             }
+            return null;
         }
-        return null;
+        return (u) invokeI.objValue;
     }
 }

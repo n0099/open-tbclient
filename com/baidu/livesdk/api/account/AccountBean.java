@@ -1,6 +1,16 @@
 package com.baidu.livesdk.api.account;
-/* loaded from: classes2.dex */
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class AccountBean {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String bduss;
     public String displayname;
     public String email;
@@ -8,51 +18,95 @@ public class AccountBean {
     public String protrait;
     public String uid;
 
+    public AccountBean() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public String getBduss() {
-        return this.bduss;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bduss : (String) invokeV.objValue;
     }
 
     public String getDisplayname() {
-        return this.displayname;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.displayname : (String) invokeV.objValue;
     }
 
     public String getEmail() {
-        return this.email;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.email : (String) invokeV.objValue;
     }
 
     public String getPhone() {
-        return this.phone;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.phone : (String) invokeV.objValue;
     }
 
     public String getProtrait() {
-        return this.protrait;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.protrait : (String) invokeV.objValue;
     }
 
     public String getUid() {
-        return this.uid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.uid : (String) invokeV.objValue;
     }
 
     public void setBduss(String str) {
-        this.bduss = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.bduss = str;
+        }
     }
 
     public void setDisplayname(String str) {
-        this.displayname = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.displayname = str;
+        }
     }
 
     public void setEmail(String str) {
-        this.email = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.email = str;
+        }
     }
 
     public void setPhone(String str) {
-        this.phone = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.phone = str;
+        }
     }
 
     public void setProtrait(String str) {
-        this.protrait = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.protrait = str;
+        }
     }
 
     public void setUid(String str) {
-        this.uid = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.uid = str;
+        }
     }
 }

@@ -4,102 +4,176 @@ import android.app.Application;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class h {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int A;
     public static String B = null;
     public static String C = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f42104a = -100000000;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f42105b = (-100000000) - 200;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f42106c = (-100000000) - 211;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f42107d = (-100000000) - 213;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f42108e = (-100000000) - 214;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f42109f = (-100000000) - 221;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f42110g = (-100000000) - 230;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f42111h = (-100000000) - 232;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final int f42112i = (-100000000) - 233;
-    public static final int j = (-100000000) - 234;
-    public static final int k = (-100000000) - 235;
-    public static final int l = (-100000000) - 236;
-    public static final int m = (-100000000) - 301;
-    public static final int n = (-100000000) - 302;
-    public static final int o = (-100000000) - 303;
-    public static final int p = (-100000000) - 306;
-    public static final int q = (-100000000) - 307;
-    public static final int r = (-100000000) + LivenessRecogResult.ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION;
-    public static final int s = (-100000000) + LivenessRecogResult.ERROR_CODE_VIDEO_IS_REVIEWING;
-    public static final int t = (-100000000) - 310;
-    public static final int u = (-100000000) - 311;
-    public static final int v = (-100000000) - 312;
-    public static final int w = (-100000000) - 313;
-    public static final int x = (-100000000) - 314;
-    public static final int y = (-100000000) - 310;
-    public static final int z = (-100000000) - 311;
-    public static final int A = (-100000000) + ErrorCode.ARGS_ERROR;
-    public static int[] D = d.a.c.c.c.f42071a;
+    public static int[] D = null;
     public static ArrayList<BasicNameValuePair> E = null;
 
+    /* renamed from: a  reason: collision with root package name */
+    public static int f43913a = -100000000;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f43914b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final int f43915c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final int f43916d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f43917e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final int f43918f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final int f43919g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final int f43920h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final int f43921i;
+    public static final int j;
+    public static final int k;
+    public static final int l;
+    public static final int m;
+    public static final int n;
+    public static final int o;
+    public static final int p;
+    public static final int q;
+    public static final int r;
+    public static final int s;
+    public static final int t;
+    public static final int u;
+    public static final int v;
+    public static final int w;
+    public static final int x;
+    public static final int y;
+    public static final int z;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(881777222, "Ld/a/c/c/e/c/h;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(881777222, "Ld/a/c/c/e/c/h;");
+                return;
+            }
+        }
+        f43914b = (-100000000) - 200;
+        f43915c = (-100000000) - 211;
+        f43916d = (-100000000) - 213;
+        f43917e = (-100000000) - 214;
+        f43918f = (-100000000) - 221;
+        f43919g = (-100000000) - 230;
+        f43920h = (-100000000) - 232;
+        f43921i = (-100000000) - 233;
+        j = (-100000000) - 234;
+        k = (-100000000) - 235;
+        l = (-100000000) - 236;
+        m = (-100000000) - 301;
+        n = (-100000000) - 302;
+        o = (-100000000) - 303;
+        p = (-100000000) - 306;
+        q = (-100000000) - 307;
+        r = (-100000000) + LivenessRecogResult.ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION;
+        s = (-100000000) + LivenessRecogResult.ERROR_CODE_VIDEO_IS_REVIEWING;
+        t = (-100000000) - 310;
+        u = (-100000000) - 311;
+        v = (-100000000) - 312;
+        w = (-100000000) - 313;
+        x = (-100000000) - 314;
+        y = (-100000000) - 310;
+        z = (-100000000) - 311;
+        A = (-100000000) + ErrorCode.ARGS_ERROR;
+        D = d.a.c.c.c.f43880a;
+        E = null;
+    }
+
     public static String a() {
-        return C;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C : (String) invokeV.objValue;
     }
 
     public static ArrayList<BasicNameValuePair> b() {
-        return E;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? E : (ArrayList) invokeV.objValue;
     }
 
     public static int[] c() {
-        return D;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? D : (int[]) invokeV.objValue;
     }
 
     public static String d() {
-        return B;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? B : (String) invokeV.objValue;
     }
 
     public static void e(String str) {
-        C = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+            C = str;
+        }
     }
 
     public static void f(ArrayList<BasicNameValuePair> arrayList) {
-        E = arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, arrayList) == null) {
+            E = arrayList;
+        }
     }
 
     public static void g(int[] iArr) {
-        if (iArr == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, iArr) == null) || iArr == null) {
             return;
         }
         D = iArr;
     }
 
     public static void h(String str) {
-        B = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            B = str;
+        }
     }
 
     public static String i(int i2) {
-        int i3 = f42104a - i2;
-        Application app = BdBaseApplication.getInst().getApp();
-        if (i3 > -300 && i3 <= -200) {
-            return app.getString(R.string.im_error_codec);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
+            int i3 = f43913a - i2;
+            Application app = BdBaseApplication.getInst().getApp();
+            if (i3 > -300 && i3 <= -200) {
+                return app.getString(R.string.im_error_codec);
+            }
+            return app.getString(R.string.im_error_default);
         }
-        return app.getString(R.string.im_error_default);
+        return (String) invokeI.objValue;
     }
 }

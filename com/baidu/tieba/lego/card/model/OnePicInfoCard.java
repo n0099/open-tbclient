@@ -1,13 +1,21 @@
 package com.baidu.tieba.lego.card.model;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.a.o0.k1.o.j.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.n1.o.j.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OnePicInfoCard extends BaseCardInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final String desc;
     public final List<b> iconList;
     public final String pic;
@@ -15,50 +23,78 @@ public class OnePicInfoCard extends BaseCardInfo {
     public final int tBgColorN;
     public final String tag;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OnePicInfoCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = d.a.o0.k1.o.k.b.b(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = d.a.o0.k1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = d.a.s0.n1.o.k.b.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = d.a.s0.n1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.iconList = new ArrayList(length);
-        for (int i2 = 0; i2 < length; i2++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+        for (int i4 = 0; i4 < length; i4++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
             if (optJSONObject != null) {
                 b bVar = new b();
-                bVar.f60475c = optJSONObject.optInt("type");
-                bVar.f60473a = optJSONObject.optString("url");
-                bVar.f60474b = optJSONObject.optString("urlNight");
-                bVar.f60476d = optJSONObject.optString("content", "");
+                bVar.f63806c = optJSONObject.optInt("type");
+                bVar.f63804a = optJSONObject.optString("url");
+                bVar.f63805b = optJSONObject.optString("urlNight");
+                bVar.f63807d = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }
         }
     }
 
     public String getDesc() {
-        return this.desc;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.desc : (String) invokeV.objValue;
     }
 
     public List<b> getIconList() {
-        return this.iconList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.iconList : (List) invokeV.objValue;
     }
 
     public String getPic() {
-        return this.pic;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pic : (String) invokeV.objValue;
     }
 
     public String getTag() {
-        return this.tag;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tag : (String) invokeV.objValue;
     }
 
     public int gettBgColor() {
-        return this.tBgColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tBgColor : invokeV.intValue;
     }
 
     public int gettBgColorN() {
-        return this.tBgColorN;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tBgColorN : invokeV.intValue;
     }
 }

@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ProgressBar;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -19,68 +21,147 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.n0.r.s.b;
+import d.a.r0.r.s.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int PAGE_LIMIT = 2;
+    public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, ImageUrlData> assistUrls;
     public String curImgUrl;
     public Context mContext;
-    public ProgressBar mProgress = null;
-    public e mSaveImageTask = null;
-    public MultiImageView mMultiImageView = null;
-    public View.OnClickListener mOnClickListener = null;
-    public View.OnLongClickListener mOnLongClickListener = null;
-    public b.c mDialogClickListener = null;
-    public BaseViewPager.a mOnscOnScrollOutListener = null;
+    public b.c mDialogClickListener;
+    public MultiImageView mMultiImageView;
+    public View.OnClickListener mOnClickListener;
+    public View.OnLongClickListener mOnLongClickListener;
+    public BaseViewPager.a mOnscOnScrollOutListener;
+    public ProgressBar mProgress;
+    public e mSaveImageTask;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonImageActivity f20106e;
+
+        public a(PersonImageActivity personImageActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personImageActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20106e = personImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PersonImageActivity.this.finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f20106e.finish();
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public class b implements View.OnLongClickListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonImageActivity f20107e;
+
+        public b(PersonImageActivity personImageActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personImageActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20107e = personImageActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            String[] strArr = {PersonImageActivity.this.getPageContext().getString(R.string.save)};
-            PersonImageActivity personImageActivity = PersonImageActivity.this;
-            personImageActivity.createListMenu(strArr, personImageActivity.mDialogClickListener);
-            PersonImageActivity.this.showListMenu();
-            return false;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
+                String[] strArr = {this.f20107e.getPageContext().getString(R.string.save)};
+                PersonImageActivity personImageActivity = this.f20107e;
+                personImageActivity.createListMenu(strArr, personImageActivity.mDialogClickListener);
+                this.f20107e.showListMenu();
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes5.dex */
     public class c implements b.c {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonImageActivity f20108a;
+
+        public c(PersonImageActivity personImageActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personImageActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20108a = personImageActivity;
         }
 
-        @Override // d.a.n0.r.s.b.c
-        public void a(d.a.n0.r.s.b bVar, int i2, View view) {
-            if (bVar == PersonImageActivity.this.getListMenu()) {
+        @Override // d.a.r0.r.s.b.c
+        public void a(d.a.r0.r.s.b bVar, int i2, View view) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, view) == null) && bVar == this.f20108a.getListMenu()) {
                 if (i2 == 0) {
                     try {
-                        byte[] currentImageData = PersonImageActivity.this.mMultiImageView.getCurrentImageData();
+                        byte[] currentImageData = this.f20108a.mMultiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            String currentImageUrl = PersonImageActivity.this.mMultiImageView.getCurrentImageUrl();
-                            PersonImageActivity.this.mSaveImageTask = new e(currentImageUrl, currentImageData);
-                            PersonImageActivity.this.mSaveImageTask.execute(new String[0]);
-                            PersonImageActivity.this.mProgress.setVisibility(0);
+                            String currentImageUrl = this.f20108a.mMultiImageView.getCurrentImageUrl();
+                            this.f20108a.mSaveImageTask = new e(this.f20108a, currentImageUrl, currentImageData);
+                            this.f20108a.mSaveImageTask.execute(new String[0]);
+                            this.f20108a.mProgress.setVisibility(0);
                         } else {
-                            PersonImageActivity.this.showToast(PersonImageActivity.this.getPageContext().getString(R.string.no_data));
+                            this.f20108a.showToast(this.f20108a.getPageContext().getString(R.string.no_data));
                         }
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
@@ -93,186 +174,307 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
 
     /* loaded from: classes5.dex */
     public class d implements BaseViewPager.a {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonImageActivity f20109a;
+
+        public d(PersonImageActivity personImageActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personImageActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20109a = personImageActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
         public void a(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public class e extends BdAsyncTask<String, Integer, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f19960a;
+        public String f20110a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f19961b;
+        public byte[] f20111b;
 
-        public e(String str, byte[] bArr) {
-            this.f19960a = null;
-            this.f19961b = null;
-            this.f19960a = str;
-            this.f19961b = bArr;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ PersonImageActivity f20112c;
+
+        public e(PersonImageActivity personImageActivity, String str, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personImageActivity, str, bArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20112c = personImageActivity;
+            this.f20110a = null;
+            this.f20111b = null;
+            this.f20110a = str;
+            this.f20111b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            PersonImageActivity.this.mSaveImageTask = null;
-            PersonImageActivity.this.mProgress.setVisibility(8);
-            super.cancel(true);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f20112c.mSaveImageTask = null;
+                this.f20112c.mProgress.setVisibility(8);
+                super.cancel(true);
+            }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
-            super.onCancelled();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.onCancelled();
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f19960a, this.f19961b, PersonImageActivity.this.getPageContext().getPageActivity());
-            if (saveImageFileByUser != -2) {
-                if (saveImageFileByUser != 0) {
-                    return PersonImageActivity.this.getPageContext().getString(R.string.save_fail);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20110a, this.f20111b, this.f20112c.getPageContext().getPageActivity());
+                if (saveImageFileByUser != -2) {
+                    if (saveImageFileByUser != 0) {
+                        return this.f20112c.getPageContext().getString(R.string.save_fail);
+                    }
+                    return this.f20112c.getPageContext().getString(R.string.save_image_to_album);
                 }
-                return PersonImageActivity.this.getPageContext().getString(R.string.save_image_to_album);
+                return FileHelper.getSdErrorString();
             }
-            return FileHelper.getSdErrorString();
+            return (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((e) str);
-            PersonImageActivity.this.showToast(str);
-            PersonImageActivity.this.mSaveImageTask = null;
-            PersonImageActivity.this.mProgress.setVisibility(8);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                super.onPostExecute((e) str);
+                this.f20112c.showToast(str);
+                this.f20112c.mSaveImageTask = null;
+                this.f20112c.mProgress.setVisibility(8);
+            }
         }
     }
 
-    private void initData(Bundle bundle) {
-        if (bundle != null) {
-            this.curImgUrl = bundle.getString("curImgUrl");
-            this.assistUrls = (HashMap) bundle.getSerializable("assistUrls");
-            return;
+    public PersonImageActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        Intent intent = getIntent();
-        if (intent != null) {
-            this.curImgUrl = intent.getStringExtra("curImgUrl");
-            this.assistUrls = (HashMap) intent.getSerializableExtra("assistUrls");
+        this.mProgress = null;
+        this.mSaveImageTask = null;
+        this.mMultiImageView = null;
+        this.mOnClickListener = null;
+        this.mOnLongClickListener = null;
+        this.mDialogClickListener = null;
+        this.mOnscOnScrollOutListener = null;
+    }
+
+    private void initData(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, bundle) == null) {
+            if (bundle != null) {
+                this.curImgUrl = bundle.getString("curImgUrl");
+                this.assistUrls = (HashMap) bundle.getSerializable("assistUrls");
+                return;
+            }
+            Intent intent = getIntent();
+            if (intent != null) {
+                this.curImgUrl = intent.getStringExtra("curImgUrl");
+                this.assistUrls = (HashMap) intent.getSerializableExtra("assistUrls");
+            }
         }
     }
 
     private void initUI() {
-        this.mOnClickListener = new a();
-        this.mOnLongClickListener = new b();
-        this.mDialogClickListener = new c();
-        this.mOnscOnScrollOutListener = new d();
-        this.mProgress = (ProgressBar) findViewById(R.id.progress);
-        MultiImageView multiImageView = (MultiImageView) findViewById(R.id.viewpager);
-        this.mMultiImageView = multiImageView;
-        multiImageView.setPageMargin(l.e(getPageContext().getPageActivity(), 8.0f));
-        this.mMultiImageView.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.mMultiImageView.setItemOnclickListener(this.mOnClickListener);
-        this.mMultiImageView.setItemOnLongClickListener(this.mOnLongClickListener);
-        this.mMultiImageView.setCurrentItem(0, false);
-        this.mMultiImageView.setOnScrollOutListener(this.mOnscOnScrollOutListener);
-        this.mMultiImageView.setHasNext(false);
-        this.mMultiImageView.setNextTitle("mNextTitle");
-        this.mMultiImageView.setHeadImage(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            this.mOnClickListener = new a(this);
+            this.mOnLongClickListener = new b(this);
+            this.mDialogClickListener = new c(this);
+            this.mOnscOnScrollOutListener = new d(this);
+            this.mProgress = (ProgressBar) findViewById(R.id.progress);
+            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.viewpager);
+            this.mMultiImageView = multiImageView;
+            multiImageView.setPageMargin(l.e(getPageContext().getPageActivity(), 8.0f));
+            this.mMultiImageView.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+            this.mMultiImageView.setItemOnclickListener(this.mOnClickListener);
+            this.mMultiImageView.setItemOnLongClickListener(this.mOnLongClickListener);
+            this.mMultiImageView.setCurrentItem(0, false);
+            this.mMultiImageView.setOnScrollOutListener(this.mOnscOnScrollOutListener);
+            this.mMultiImageView.setHasNext(false);
+            this.mMultiImageView.setNextTitle("mNextTitle");
+            this.mMultiImageView.setHeadImage(true);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
-        ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 2);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
-        ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 2);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        if (i2 != 1 && i2 != 4) {
-            this.mMultiImageView.setBackgroundColor(-16777216);
-        } else {
-            this.mMultiImageView.setBackgroundColor(SkinManager.getBgColor(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            if (i2 != 1 && i2 != 4) {
+                this.mMultiImageView.setBackgroundColor(-16777216);
+            } else {
+                this.mMultiImageView.setBackgroundColor(SkinManager.getBgColor(i2));
+            }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
-        this.mMultiImageView.setCurrentItem(0, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            this.mMultiImageView.setCurrentItem(0, true);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setSwipeBackEnabled(false);
-        TbadkCoreApplication.getInst().addRemoteActivity(this);
-        setContentView(R.layout.person_image_activity);
-        initData(bundle);
-        initUI();
-        ArrayList<String> arrayList = new ArrayList<>();
-        this.mContext = getPageContext().getPageActivity();
-        arrayList.add(this.curImgUrl);
-        this.mMultiImageView.setIsFromCDN(true);
-        this.mMultiImageView.setAllowLocalUrl(true);
-        this.mMultiImageView.setAssistUrls(this.assistUrls);
-        this.mMultiImageView.setUrlData(arrayList);
-        this.mMultiImageView.setCurrentItem(0, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onCreate(bundle);
+            setSwipeBackEnabled(false);
+            TbadkCoreApplication.getInst().addRemoteActivity(this);
+            setContentView(R.layout.person_image_activity);
+            initData(bundle);
+            initUI();
+            ArrayList<String> arrayList = new ArrayList<>();
+            this.mContext = getPageContext().getPageActivity();
+            arrayList.add(this.curImgUrl);
+            this.mMultiImageView.setIsFromCDN(true);
+            this.mMultiImageView.setAllowLocalUrl(true);
+            this.mMultiImageView.setAssistUrls(this.assistUrls);
+            this.mMultiImageView.setUrlData(arrayList);
+            this.mMultiImageView.setCurrentItem(0, false);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        TbadkCoreApplication.getInst().delRemoteActivity(this);
-        this.mMultiImageView.v();
-        e eVar = this.mSaveImageTask;
-        if (eVar != null) {
-            eVar.cancel();
-            this.mSaveImageTask = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            TbadkCoreApplication.getInst().delRemoteActivity(this);
+            this.mMultiImageView.v();
+            e eVar = this.mSaveImageTask;
+            if (eVar != null) {
+                eVar.cancel();
+                this.mSaveImageTask = null;
+            }
+            ProgressBar progressBar = this.mProgress;
+            if (progressBar != null) {
+                progressBar.setVisibility(8);
+            }
+            super.onDestroy();
         }
-        ProgressBar progressBar = this.mProgress;
-        if (progressBar != null) {
-            progressBar.setVisibility(8);
-        }
-        super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        if (i2 == 4) {
-            finish();
-            return true;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, keyEvent)) == null) {
+            if (i2 == 4) {
+                finish();
+                return true;
+            }
+            return super.onKeyDown(i2, keyEvent);
         }
-        return super.onKeyDown(i2, keyEvent);
+        return invokeIL.booleanValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        super.onPause();
-        this.mMultiImageView.w();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onPause();
+            this.mMultiImageView.w();
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
-        this.mMultiImageView.x();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onResume();
+            this.mMultiImageView.x();
+        }
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putString("curImgUrl", this.curImgUrl);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putString("curImgUrl", this.curImgUrl);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.mMultiImageView.v();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.mMultiImageView.v();
+        }
     }
 }

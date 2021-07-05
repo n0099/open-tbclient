@@ -2,51 +2,79 @@ package com.baidu.sofire.utility;
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes4.dex */
 public final class t {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f10449a = -1;
+    public static int f10521a = -1;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, boolean z) {
-        if (context == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1443541991, "Lcom/baidu/sofire/utility/t;")) == null) {
             return;
         }
-        f10449a = z ? 1 : 2;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1443541991, "Lcom/baidu/sofire/utility/t;");
+        }
+    }
+
+    public static void a(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65537, null, context, z) == null) || context == null) {
+            return;
+        }
+        f10521a = z ? 1 : 2;
         c.a(context, ".ffnpp", !z ? 1 : 0);
         if (context != null) {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-            a2.f10324d.putBoolean("s_a_pl", z);
+            a2.f10396d.putBoolean("s_a_pl", z);
             if (Build.VERSION.SDK_INT >= 9) {
-                a2.f10324d.apply();
+                a2.f10396d.apply();
             } else {
-                a2.f10324d.commit();
+                a2.f10396d.commit();
             }
         }
     }
 
     public static boolean a(Context context) {
+        InterceptResult invokeL;
         int i2;
-        if (context == null) {
-            return false;
-        }
-        int a2 = c.a(context);
-        if (a2 == 1 && (i2 = f10449a) != -1) {
-            return i2 == 1;
-        }
-        boolean z = com.baidu.sofire.h.a.a(context).f10323c.getBoolean("s_a_pl", false);
-        boolean z2 = !c.b(context, ".ffnpp");
-        if (z && !z2 && a2 == 1) {
-            c.a(context, ".ffnpp", 0);
-            z2 = true;
-        }
-        if (a2 == 1) {
-            if (z2) {
-                f10449a = 1;
-            } else {
-                f10449a = 2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return false;
             }
+            int a2 = c.a(context);
+            if (a2 == 1 && (i2 = f10521a) != -1) {
+                return i2 == 1;
+            }
+            boolean z = com.baidu.sofire.h.a.a(context).f10395c.getBoolean("s_a_pl", false);
+            boolean z2 = !c.b(context, ".ffnpp");
+            if (z && !z2 && a2 == 1) {
+                c.a(context, ".ffnpp", 0);
+                z2 = true;
+            }
+            if (a2 == 1) {
+                if (z2) {
+                    f10521a = 1;
+                } else {
+                    f10521a = 2;
+                }
+            }
+            return z2;
         }
-        return z2;
+        return invokeL.booleanValue;
     }
 }

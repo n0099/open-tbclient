@@ -1,112 +1,56 @@
 package d.f.b.a;
 
-import android.os.Debug;
-import android.os.SystemClock;
-import android.util.Printer;
-/* loaded from: classes6.dex */
-public class g implements Printer {
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.ExoPlaybackException;
+/* loaded from: classes10.dex */
+public interface g extends q {
 
-    /* renamed from: a  reason: collision with root package name */
-    public long f69986a;
+    /* loaded from: classes10.dex */
+    public interface a {
+        void g(int i2, Object obj) throws ExoPlaybackException;
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public long f69987b = 0;
+    /* loaded from: classes10.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public long f69988c = 0;
+        /* renamed from: a  reason: collision with root package name */
+        public final a f73258a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public b f69989d;
+        /* renamed from: b  reason: collision with root package name */
+        public final int f73259b;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final boolean f69990e;
+        /* renamed from: c  reason: collision with root package name */
+        public final Object f73260c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f69991e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f69992f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f69993g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f69994h;
-
-        public a(long j, long j2, long j3, long j4) {
-            this.f69991e = j;
-            this.f69992f = j2;
-            this.f69993g = j3;
-            this.f69994h = j4;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            g.this.f69989d.a(this.f69991e, this.f69992f, this.f69993g, this.f69994h);
+        public b(a aVar, int i2, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f73258a = aVar;
+            this.f73259b = i2;
+            this.f73260c = obj;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(long j, long j2, long j3, long j4);
-    }
+    void a(b... bVarArr);
 
-    public g(b bVar, long j, boolean z) {
-        this.f69986a = 3000L;
-        this.f69989d = null;
-        if (bVar != null) {
-            this.f69989d = bVar;
-            this.f69986a = j;
-            this.f69990e = z;
-            return;
-        }
-        throw new IllegalArgumentException("blockListener should not be null.");
-    }
+    void b(d.f.b.a.d0.l lVar);
 
-    public final boolean b(long j) {
-        return j - this.f69987b > this.f69986a;
-    }
-
-    public final void c(long j) {
-        e.b().post(new a(this.f69987b, j, this.f69988c, SystemClock.currentThreadTimeMillis()));
-    }
-
-    public final void d() {
-        if (c.f().f69975b != null) {
-            c.f().f69975b.c();
-        }
-        if (c.f().f69976c != null) {
-            c.f().f69976c.c();
-        }
-    }
-
-    public final void e() {
-        if (c.f().f69975b != null) {
-            c.f().f69975b.d();
-        }
-        if (c.f().f69976c != null) {
-            c.f().f69976c.d();
-        }
-    }
-
-    @Override // android.util.Printer
-    public void println(String str) {
-        if (this.f69990e && Debug.isDebuggerConnected()) {
-            return;
-        }
-        if (str.charAt(0) == '>') {
-            this.f69987b = System.currentTimeMillis();
-            this.f69988c = SystemClock.currentThreadTimeMillis();
-            d();
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (b(currentTimeMillis)) {
-            c(currentTimeMillis);
-        }
-        e();
-    }
+    void s(b... bVarArr);
 }

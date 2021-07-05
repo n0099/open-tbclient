@@ -1,39 +1,67 @@
 package com.baidu.wallet.base.iddetect;
-/* loaded from: classes5.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class a implements Comparable<a> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23413a;
+    public int f23956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23414b;
+    public int f23957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f23415c;
+    public float f23958c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f23416d;
+    public float f23959d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23417e = false;
+    public boolean f23960e;
 
     public a(int i2, int i3) {
-        this.f23413a = i2;
-        this.f23414b = i3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23960e = false;
+        this.f23956a = i2;
+        this.f23957b = i3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(a aVar) {
-        if (this.f23417e) {
-            return this.f23416d < aVar.f23416d ? -1 : 1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            if (this.f23960e) {
+                return this.f23959d < aVar.f23959d ? -1 : 1;
+            }
+            int i2 = this.f23957b;
+            int i3 = aVar.f23957b;
+            if (i2 < i3) {
+                return -1;
+            }
+            return (i2 <= i3 && this.f23956a < aVar.f23956a) ? -1 : 1;
         }
-        int i2 = this.f23414b;
-        int i3 = aVar.f23414b;
-        if (i2 < i3) {
-            return -1;
-        }
-        return (i2 <= i3 && this.f23413a < aVar.f23413a) ? -1 : 1;
+        return invokeL.intValue;
     }
 }

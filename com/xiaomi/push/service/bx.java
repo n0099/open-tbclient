@@ -1,23 +1,46 @@
 package com.xiaomi.push.service;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bx implements av.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f41904a;
+    public final /* synthetic */ XMPushService f43647a;
 
     public bx(XMPushService xMPushService) {
-        this.f41904a = xMPushService;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xMPushService};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43647a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.av.a
     public void a() {
-        this.f41904a.e();
-        if (av.a().m585a() <= 0) {
-            XMPushService xMPushService = this.f41904a;
-            xMPushService.a(new XMPushService.f(12, null));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f43647a.e();
+            if (av.a().m599a() <= 0) {
+                XMPushService xMPushService = this.f43647a;
+                xMPushService.a(new XMPushService.f(xMPushService, 12, null));
+            }
         }
     }
 }

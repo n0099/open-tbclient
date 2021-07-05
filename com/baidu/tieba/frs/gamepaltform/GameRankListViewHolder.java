@@ -4,18 +4,40 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GameRankHorizontalLayout f15598a;
+    public GameRankHorizontalLayout f15686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15599b;
+    public TextView f15687b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameRankListViewHolder(View view) {
         super(view);
-        this.f15598a = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
-        this.f15599b = (TextView) view.findViewById(R.id.close_game_rank_btn);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((View) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f15686a = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
+        this.f15687b = (TextView) view.findViewById(R.id.close_game_rank_btn);
     }
 }

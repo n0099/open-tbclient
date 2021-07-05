@@ -10,101 +10,148 @@ import android.net.Uri;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import d.a.m0.n.c;
-import d.a.m0.n.g.e.b;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.n.c;
+import d.a.q0.n.g.e.b;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PMSDBProviderProxy extends ContentProvider {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PMSDBProviderProxy";
+    public transient /* synthetic */ FieldHolder $fh;
     public volatile b mProvider;
+
+    public PMSDBProviderProxy() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, SGET]}, finally: {[INVOKE, SGET, INVOKE, IF] complete} */
     @Override // android.content.ContentProvider
     @NonNull
     public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) {
-        SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
-        try {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+            SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
             try {
-                if (c.f51766a) {
-                    Log.e(TAG, "applyBatch beginTransaction");
-                }
-                writableDatabase.beginTransaction();
-                ContentProviderResult[] applyBatch = super.applyBatch(arrayList);
-                for (ContentProviderResult contentProviderResult : applyBatch) {
-                    if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
-                        writableDatabase.endTransaction();
-                        if (c.f51766a) {
-                            Log.e(TAG, "applyBatch endTransaction");
-                        }
-                        return applyBatch;
+                try {
+                    if (c.f53910a) {
+                        Log.e(TAG, "applyBatch beginTransaction");
                     }
+                    writableDatabase.beginTransaction();
+                    ContentProviderResult[] applyBatch = super.applyBatch(arrayList);
+                    for (ContentProviderResult contentProviderResult : applyBatch) {
+                        if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
+                            writableDatabase.endTransaction();
+                            if (c.f53910a) {
+                                Log.e(TAG, "applyBatch endTransaction");
+                            }
+                            return applyBatch;
+                        }
+                    }
+                    writableDatabase.setTransactionSuccessful();
+                    writableDatabase.endTransaction();
+                    if (c.f53910a) {
+                        Log.e(TAG, "applyBatch endTransaction");
+                    }
+                    return applyBatch;
+                } catch (Exception e2) {
+                    if (c.f53910a) {
+                        Log.e(TAG, "applyBatch Exception:" + e2.getMessage());
+                    }
+                    writableDatabase.endTransaction();
+                    if (c.f53910a) {
+                        Log.e(TAG, "applyBatch endTransaction");
+                    }
+                    return new ContentProviderResult[0];
                 }
-                writableDatabase.setTransactionSuccessful();
+            } catch (Throwable th) {
                 writableDatabase.endTransaction();
-                if (c.f51766a) {
+                if (c.f53910a) {
                     Log.e(TAG, "applyBatch endTransaction");
                 }
-                return applyBatch;
-            } catch (Exception e2) {
-                if (c.f51766a) {
-                    Log.e(TAG, "applyBatch Exception:" + e2.getMessage());
-                }
-                writableDatabase.endTransaction();
-                if (c.f51766a) {
-                    Log.e(TAG, "applyBatch endTransaction");
-                }
-                return new ContentProviderResult[0];
+                throw th;
             }
-        } catch (Throwable th) {
-            writableDatabase.endTransaction();
-            if (c.f51766a) {
-                Log.e(TAG, "applyBatch endTransaction");
-            }
-            throw th;
         }
+        return (ContentProviderResult[]) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return getProvider().a(uri, str, strArr);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) ? getProvider().a(uri, str, strArr) : invokeLLL.intValue;
     }
 
     public b getProvider() {
-        if (this.mProvider == null) {
-            synchronized (b.class) {
-                if (this.mProvider == null) {
-                    this.mProvider = new b(getContext());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mProvider == null) {
+                synchronized (b.class) {
+                    if (this.mProvider == null) {
+                        this.mProvider = new b(getContext());
+                    }
                 }
             }
+            return this.mProvider;
         }
-        return this.mProvider;
+        return (b) invokeV.objValue;
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return getProvider().d(uri);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) ? getProvider().d(uri) : (String) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return getProvider().e(uri, contentValues);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, uri, contentValues)) == null) ? getProvider().e(uri, contentValues) : (Uri) invokeLL.objValue;
     }
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return getProvider().f(uri, strArr, str, strArr2, str2);
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) ? getProvider().f(uri, strArr, str, strArr2, str2) : (Cursor) invokeLLLLL.objValue;
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return getProvider().h(uri, contentValues, str, strArr);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) ? getProvider().h(uri, contentValues, str, strArr) : invokeLLLL.intValue;
     }
 }

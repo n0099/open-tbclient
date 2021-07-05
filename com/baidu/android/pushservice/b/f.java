@@ -1,48 +1,91 @@
 package com.baidu.android.pushservice.b;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2781a;
+    public String f2779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2782b;
+    public String f2780b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2783c;
+    public String f2781c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2784d;
+    public int f2782d;
+
+    public f() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public String a() {
-        return this.f2781a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2779a : (String) invokeV.objValue;
     }
 
     public void a(int i2) {
-        this.f2784d = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f2782d = i2;
+        }
     }
 
     public void a(String str) {
-        this.f2781a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f2779a = str;
+        }
     }
 
     public String b() {
-        return this.f2782b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2780b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
-        this.f2782b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f2780b = str;
+        }
     }
 
     public String c() {
-        return this.f2783c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2781c : (String) invokeV.objValue;
     }
 
     public void c(String str) {
-        this.f2783c = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f2781c = str;
+        }
     }
 
     public int d() {
-        return this.f2784d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2782d : invokeV.intValue;
     }
 }

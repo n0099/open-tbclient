@@ -2,6 +2,7 @@ package com.baidu.apollon.heartbeat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.restnet.RestRuntimeException;
 import com.baidu.apollon.restnet.RestTemplate;
@@ -12,6 +13,13 @@ import com.baidu.apollon.utils.FileCopyUtils;
 import com.baidu.apollon.utils.LogUtil;
 import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -21,141 +29,251 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3740a = "a";
+    public static final String f3738a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3741b = "heartbeatcfg.cfg";
+    public static final String f3739b = "heartbeatcfg.cfg";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3742c = "stastics bean http request";
+    public static final String f3740c = "stastics bean http request";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3743d = "publish_data";
+    public static final String f3741d = "publish_data";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3744e = "sign";
+    public static final String f3742e = "sign";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3745f = "/odp/wireless/sdk/heartbeat";
+    public static final String f3743f = "/odp/wireless/sdk/heartbeat";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3746h = "utf-8";
+    public static final String f3744h = "utf-8";
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f3747i;
+    public static a f3745i;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3748g = "https://www.baifubao.com";
-    public HeartBeatCfgEntity j = null;
-    public Context k = null;
+    public String f3746g;
+    public HeartBeatCfgEntity j;
+    public Context k;
     public String l;
     public boolean m;
 
-    public static synchronized a c() {
-        a aVar;
-        synchronized (a.class) {
-            if (f3747i == null) {
-                f3747i = new a();
-            }
-            aVar = f3747i;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-793707381, "Lcom/baidu/apollon/heartbeat/a;")) == null) {
+            return;
         }
-        return aVar;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-793707381, "Lcom/baidu/apollon/heartbeat/a;");
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f3746g = "https://www.baifubao.com";
+        this.j = null;
+        this.k = null;
+    }
+
+    public static synchronized a c() {
+        InterceptResult invokeV;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            synchronized (a.class) {
+                if (f3745i == null) {
+                    f3745i = new a();
+                }
+                aVar = f3745i;
+            }
+            return aVar;
+        }
+        return (a) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (NetworkUtils.isNetworkAvailable(this.k)) {
-            try {
-                String e2 = e();
-                if (!TextUtils.isEmpty(e2)) {
-                    String str = f3740a;
-                    LogUtil.i(str, f3740a + " execute success,response:" + e2);
-                    try {
-                        String optString = new JSONObject(e2).optString("content");
-                        if (!TextUtils.isEmpty(optString)) {
-                            a(HeartBeatCfgEntity.build(optString));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            if (NetworkUtils.isNetworkAvailable(this.k)) {
+                try {
+                    String e2 = e();
+                    if (!TextUtils.isEmpty(e2)) {
+                        String str = f3738a;
+                        LogUtil.i(str, f3738a + " execute success,response:" + e2);
+                        try {
+                            String optString = new JSONObject(e2).optString("content");
+                            if (!TextUtils.isEmpty(optString)) {
+                                a(HeartBeatCfgEntity.build(optString));
+                            }
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
                         }
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
+                    } else {
+                        String str2 = f3738a;
+                        LogUtil.w(str2, f3738a + " the response is null.");
                     }
-                } else {
-                    String str2 = f3740a;
-                    LogUtil.w(str2, f3740a + " the response is null.");
+                    return;
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                    return;
                 }
-                return;
-            } catch (Exception e4) {
-                e4.printStackTrace();
-                return;
             }
+            String str3 = f3738a;
+            LogUtil.d(str3, f3738a + " loadCfg current network is't available.");
         }
-        String str3 = f3740a;
-        LogUtil.d(str3, f3740a + " loadCfg current network is't available.");
     }
 
     private String e() throws RestRuntimeException {
-        Context context = this.k;
-        RestTemplate restTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "stastics bean http request");
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("ua", this.l));
-        arrayList.add(new RestNameValuePair("nettype", new com.baidu.apollon.restnet.rest.b(this.k).e()));
-        arrayList.add(new RestNameValuePair("cate[heartbeat]", ""));
-        ArrayList arrayList2 = new ArrayList();
-        arrayList2.add(new RestHttpRequestInterceptor() { // from class: com.baidu.apollon.heartbeat.a.2
-            @Override // com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor
-            public void intercept(Context context2, d dVar) {
-                dVar.a().a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
-            }
-        });
-        restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
-        restTemplate.setRequestInterceptor(arrayList2);
-        return (String) restTemplate.a(this.f3748g + f3745f, arrayList, "utf-8", String.class);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            Context context = this.k;
+            RestTemplate restTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "stastics bean http request");
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new RestNameValuePair("ua", this.l));
+            arrayList.add(new RestNameValuePair("nettype", new com.baidu.apollon.restnet.rest.b(this.k).e()));
+            arrayList.add(new RestNameValuePair("cate[heartbeat]", ""));
+            ArrayList arrayList2 = new ArrayList();
+            arrayList2.add(new RestHttpRequestInterceptor(this) { // from class: com.baidu.apollon.heartbeat.a.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ a f3748a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f3748a = this;
+                }
+
+                @Override // com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor
+                public void intercept(Context context2, d dVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, dVar) == null) {
+                        dVar.a().a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                    }
+                }
+            });
+            restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
+            restTemplate.setRequestInterceptor(arrayList2);
+            return (String) restTemplate.a(this.f3746g + f3743f, arrayList, "utf-8", String.class);
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean b() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.m : invokeV.booleanValue;
     }
 
     public void b(Context context) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, context) == null) || context == null) {
             return;
         }
         this.k = context;
-        new Thread(new Runnable() { // from class: com.baidu.apollon.heartbeat.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                a aVar = a.this;
-                HeartBeatCfgEntity c2 = aVar.c(aVar.k);
-                if (c2 != null) {
-                    long b2 = c.b(a.this.k, c.f3768b, 300L);
-                    if (!c2.isValidRequestTime(b2)) {
-                        a.this.a(c2);
+        new Thread(new Runnable(this) { // from class: com.baidu.apollon.heartbeat.a.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ a f3747a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
-                    String str = a.f3740a;
-                    LogUtil.i(str, a.f3740a + " onChange lastRequestTime:" + b2 + " execute tryLoadCfg.");
-                    a.this.d();
-                    return;
                 }
-                a.this.d();
+                this.f3747a = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    a aVar = this.f3747a;
+                    HeartBeatCfgEntity c2 = aVar.c(aVar.k);
+                    if (c2 != null) {
+                        long b2 = c.b(this.f3747a.k, c.f3766b, 300L);
+                        if (!c2.isValidRequestTime(b2)) {
+                            this.f3747a.a(c2);
+                            return;
+                        }
+                        String str = a.f3738a;
+                        LogUtil.i(str, a.f3738a + " onChange lastRequestTime:" + b2 + " execute tryLoadCfg.");
+                        this.f3747a.d();
+                        return;
+                    }
+                    this.f3747a.d();
+                }
             }
         }).start();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00b9 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00bd */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.StringBuilder] */
-    /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Reader] */
-    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r1v4 */
     public HeartBeatCfgEntity c(Context context) {
+        InterceptResult invokeL;
         FileReader fileReader;
         HeartBeatCfgEntity heartBeatCfgEntity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65543, this, context)) != null) {
+            return (HeartBeatCfgEntity) invokeL.objValue;
+        }
         ?? sb = new StringBuilder();
         sb.append(context.getCacheDir());
         sb.append(File.separator);
-        sb.append(f3741b);
+        sb.append(f3739b);
         File file = new File(sb.toString());
         FileReader fileReader2 = null;
         HeartBeatCfgEntity heartBeatCfgEntity2 = null;
@@ -172,7 +290,7 @@ public final class a {
                         if (!TextUtils.isEmpty(copyToString)) {
                             heartBeatCfgEntity2 = HeartBeatCfgEntity.build(copyToString);
                         } else {
-                            LogUtil.w(f3740a, f3740a + " cache:" + file.getPath() + " content json is empty.");
+                            LogUtil.w(f3738a, f3738a + " cache:" + file.getPath() + " content json is empty.");
                         }
                         heartBeatCfgEntity = heartBeatCfgEntity2;
                         fileReader2 = fileReader;
@@ -194,7 +312,7 @@ public final class a {
                         return null;
                     }
                 } else {
-                    LogUtil.w(f3740a, f3740a + " cache:" + file.getPath() + " isn't exist.");
+                    LogUtil.w(f3738a, f3738a + " cache:" + file.getPath() + " isn't exist.");
                     heartBeatCfgEntity = null;
                 }
                 if (fileReader2 != null) {
@@ -230,36 +348,51 @@ public final class a {
     }
 
     public void a(boolean z) {
-        this.m = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.m = z;
+        }
     }
 
     public void a(String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f3748g = str;
+        this.f3746g = str;
     }
 
     public void b(String str) {
-        this.l = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.l = str;
+        }
     }
 
     public String a() {
-        return this.f3748g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3746g : (String) invokeV.objValue;
     }
 
     public HeartBeatCfgEntity a(Context context) {
-        if (context == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (this.j == null) {
+                this.j = c(context);
+            }
+            return this.j;
         }
-        if (this.j == null) {
-            this.j = c(context);
-        }
-        return this.j;
+        return (HeartBeatCfgEntity) invokeL.objValue;
     }
 
     public void a(Context context, HeartBeatCfgEntity heartBeatCfgEntity) {
-        if (context == null || heartBeatCfgEntity == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, heartBeatCfgEntity) == null) || context == null || heartBeatCfgEntity == null) {
             return;
         }
         this.k = context;
@@ -267,21 +400,25 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0058  */
-    /* JADX WARN: Removed duplicated region for block: B:16:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(HeartBeatCfgEntity heartBeatCfgEntity) {
         boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(65540, this, heartBeatCfgEntity) != null) {
+            return;
+        }
         if (heartBeatCfgEntity != null) {
             HeartBeatCfgEntity heartBeatCfgEntity2 = this.j;
             if ((heartBeatCfgEntity2 == null || (heartBeatCfgEntity2 != null && !TextUtils.equals(heartBeatCfgEntity2.toString(), heartBeatCfgEntity.toString()))) && heartBeatCfgEntity.checkResponseValidity()) {
                 this.j = heartBeatCfgEntity;
                 heartBeatCfgEntity.storeResponse(this.k);
                 z = true;
-                String str = f3740a;
-                LogUtil.i(str, f3740a + " refreshHeartBeatCfg mResponse.");
+                String str = f3738a;
+                LogUtil.i(str, f3738a + " refreshHeartBeatCfg mResponse.");
                 if (z) {
                     return;
                 }
@@ -289,8 +426,8 @@ public final class a {
                 return;
             }
         } else {
-            String str2 = f3740a;
-            LogUtil.w(str2, f3740a + " refreshHeartBeatCfg resp is null || mResponse = resp.");
+            String str2 = f3738a;
+            LogUtil.w(str2, f3738a + " refreshHeartBeatCfg resp is null || mResponse = resp.");
         }
         z = false;
         if (z) {
